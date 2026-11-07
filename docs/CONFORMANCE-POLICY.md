@@ -43,6 +43,19 @@ that a claim is true. A reviewer must fill and independently approve the file;
 `--strict` rejects a draft, a placeholder reviewer and unfilled criteria. The
 official editor round-trip is not yet verified.
 
+## Active-issue scope
+
+An ACR evidence pass covers active, review-relevant issues only: Active, Needs
+review, Needs work, RTBC and Patch. Fixed, closed, duplicate, won't-fix,
+works-as-designed, outdated, cannot-reproduce and postponed issues are excluded.
+RTBC is included until the issue is closed. Closed/fixed issues must not be
+resurrected as conformance evidence.
+
+The full Accessibility queue is paginated; a first-page sample is not a census.
+All active issues are inventoried. Full comments/MRs/commit analysis is collected
+for a review-priority subset; inventory-only issues are explicitly marked and do
+not receive a release applicability conclusion.
+
 ## ATAG evidence
 
 ATAG 2.0 authoring evidence is separate from WCAG/OpenACR. The `atag` issue tag

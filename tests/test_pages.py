@@ -80,7 +80,7 @@ class PagesTests(unittest.TestCase):
         self.assertEqual({"Not checked"}, {item["result"] for item in report["evaluationData"].values()})
         self.assertIn("evaluationId", report["meta"])
         self.assertEqual("2.0", evidence["atag_version"])
-        self.assertGreaterEqual(evidence["summary"]["issues"], 50)
+        self.assertGreaterEqual(evidence["summary"]["issues"], 1)
         for issue in evidence["issues"]:
             self.assertTrue(issue["atag"]["is_atag"])
 

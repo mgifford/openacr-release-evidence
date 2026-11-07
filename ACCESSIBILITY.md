@@ -21,7 +21,7 @@ colour-only status and no JavaScript requirement.
 - Internal anchors: all matrix/report anchors resolve; headings do not skip
   levels; tables have captions and header scopes; the ATAG report uses lists
   rather than a wide table.
-- 86 offline tests pass, including landing/matrix and target-policy tests.
+- 90 offline tests pass, including landing/matrix and target-policy tests.
 
 These results do **not** establish conformance. axe-core covers only a subset of
 WCAG and cannot judge usefulness, focus order, reading order or real assistive
@@ -38,6 +38,8 @@ technology behaviour.
   focusable region was checked, not screen-reader table navigation).
 - The assessed Drupal 11.4.12 release itself; this project does not claim to have
   tested Drupal’s accessibility.
+- Commit, comment and merge-request evidence for the 398 metadata-only inventory
+  issues; their records are source/status/component/version only.
 - Live WAI ATAG Report Tool editing/export and release-scoped ATAG
   applicability (import was verified), and the ATAG report’s screen-reader
   navigation.

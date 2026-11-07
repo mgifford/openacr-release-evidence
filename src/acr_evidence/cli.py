@@ -58,6 +58,8 @@ def _query_from_args(args, manifest):
         "max_issues": int(pick(args.max_issues, "max_issues", 20)),
         "include_ids": _split_ids(args.ids) if args.ids else list(config.get("include_ids") or []),
         "statuses": _split_ints(args.statuses) if args.statuses else config.get("statuses"),
+        "detail_limit": int(pick(getattr(args, "detail_limit", None), "detail_limit", 60)),
+        "detail_ids": _split_ids(getattr(args, "detail_ids", None)) if getattr(args, "detail_ids", None) else list(config.get("detail_ids") or []),
         "component": pick(args.component, "component"),
         "since": pick(args.since, "since"),
     }
@@ -107,6 +109,8 @@ def main(argv=None):
     col.add_argument("--max", type=int, default=None, dest="max_issues")
     col.add_argument("--ids", default=None, help="Comma-separated explicit Drupal NIDs for a reproducible sample")
     col.add_argument("--statuses", default=None, help="Comma-separated numeric Drupal status codes")
+    col.add_argument("--detail-limit", default=None, help="Number of review-priority issues to fetch with full comments/MRs")
+    col.add_argument("--detail-ids", default=None, help="Comma-separated issue IDs to fetch with full evidence")
     col.add_argument("--component", default=None)
     col.add_argument("--since", default=None, help="Only include issues changed since this ISO timestamp")
     col.add_argument("--output", required=True)

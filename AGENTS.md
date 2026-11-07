@@ -64,6 +64,11 @@ python3 -m compileall -q src
 If `python` is absent on your platform, use `python3`. Do not document a check
 that fails on a clean checkout.
 
+ACR evidence covers active, review-relevant statuses only: 1, 8, 13, 14 and 15.
+Fixed/closed/postponed statuses are excluded; RTBC stays in until closed. Page
+the full queue rather than taking the first API page. Inventory records must be
+marked metadata-only and must not receive a release applicability conclusion.
+
 For multi-target changes, update `config/drupal-core-targets.json`, every
 target manifest, the matrix, and the tests together. A branch target is a
 development result, never a release claim. Do not mix major-version branches in

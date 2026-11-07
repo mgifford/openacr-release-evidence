@@ -87,7 +87,7 @@ def _status_table(findings):
         counts[label] = counts.get(label, 0) + 1
     parts = [
         '<table class="summary-table">',
-        "<caption>Tracker workflow states among the selected issues. Tracker status is not release applicability.</caption>",
+        "<caption>Tracker workflow states among the collected active issues. Tracker status is not release applicability.</caption>",
         '<thead><tr><th scope="col">Tracker status</th><th scope="col">Count</th></tr></thead><tbody>',
     ]
     for label in sorted(counts):
@@ -177,9 +177,12 @@ def _issue_article(finding, issue):
         f'<article class="issue" id="{anchor}" aria-labelledby="{anchor}-title">',
         f'<h3 id="{anchor}-title">{esc(finding.get("title") or finding["issue_id"])}</h3>',
         f'<p class="issue-source">{source} · <span class="meta">{esc(finding["issue_id"])}</span></p>',
+        ('<p class="meta"><strong>Metadata-only inventory record.</strong> Comments, merge requests and commit history were not collected for this active issue; read the source issue before relying on its applicability.</p>'
+         if finding.get("evidence_status") == "inventory" else ""),
         _facts([
             ("Release applicability", f'<strong>{esc(app_label(finding["applicability"]))}</strong>'),
             ("Why", esc(finding.get("reason"))),
+            ("Evidence detail", "Metadata only" if finding.get("evidence_status") == "inventory" else "Full comments and merge requests"),
             ("Evidence basis", esc(finding.get("basis"))),
             ("Fix included in target?", "Yes" if finding.get("fix_included_in_target", finding.get("fix_included_in_release")) else "No"),
             ("Tracker status (not release status)", esc(finding.get("tracker_status_label") or "Unknown")),
@@ -203,7 +206,7 @@ def _issue_article(finding, issue):
         parts.append("</ul>")
     parts.append('<h4 class="subhead">Matching commits</h4>')
     parts.append(_commit_list(commits))
-    if issue:
+    if issue and finding.get("evidence_status") != "inventory":
         description = issue.get("description_text") or ""
         parts.append(
             '<details class="issue-detail">'
@@ -225,7 +228,7 @@ def _gaps(findings):
         if finding["applicability"] in {"likely-affected", "unknown", "confirmed-fixed"}
     ]
     if not needs:
-        return "<p>No findings require further verification in this sample.</p>"
+        return "<p>No findings require further verification in this collection.</p>"
     parts = ["<ul class=\"gap-list\">"]
     for finding in needs:
         parts.append(
@@ -285,9 +288,12 @@ def render_report(analysis, output_dir, css_source=None):
         ("Enabled themes", esc(theme_text)),
         ("In-scope components", esc(", ".join(assessment.get("components") or []) or "Not recorded")),
         ("Configuration note", esc(installation.get("configuration") or "Not recorded")),
-        ("Collection source", "Drupal.org REST API for discovery and tags; drupalorg-cli JSON for issues, comments and all MR states"),
+        ("Collection source", "Drupal.org REST API for discovery, tags and inventory; drupalorg-cli JSON for detailed issues, comments and all MR states"),
         ("Collection timestamp", esc((collection.get("summary") or {}).get("retrieved_at") or analysis.get("generated_at"))),
-        ("Issues collected", esc(len(issues))),
+        ("Issues collected (active, review-relevant)", esc(len(issues))),
+        ("Collection status filter", esc(", ".join(str(item) for item in ((collection.get("summary") or {}).get("statuses") or [])) or "Not recorded") + " — fixed/closed issues excluded"),
+        ("Evidence detail", f'{esc((collection.get("summary") or {}).get("detailed", 0))} full · '
+                          f'{esc((collection.get("summary") or {}).get("inventory", 0))} metadata-only inventory'),
         ("Comments captured", esc((collection.get("summary") or {}).get("comments", "Not recorded"))),
         ("Issues with merge requests", esc((collection.get("summary") or {}).get("with_merge_requests", "Not recorded"))),
         ("Issues with WCAG tags", esc((collection.get("summary") or {}).get("with_wcag_tags", "Not recorded"))),
@@ -342,7 +348,7 @@ def render_report(analysis, output_dir, css_source=None):
         html.append(f'<p class="scope-note">{esc(target["scope_note"])}</p>')
     html.append("</section>")
     html.append('<section id="summary" aria-labelledby="summary-heading"><h2 id="summary-heading">Evidence summary</h2>')
-    html.append('<p><strong>This is not an accessibility score.</strong> The table counts evidence states for the selected issues. '
+    html.append('<p><strong>This is not an accessibility score.</strong> The table counts evidence states for the collected active issues. '
                 'A low issue count does not mean the release is accessible; a high count does not prove a conformance failure.</p>')
     html.append(_summary_table(findings))
     html.append(_status_table(findings))
@@ -384,8 +390,8 @@ def render_report(analysis, output_dir, css_source=None):
     html.append("</section>")
     html.append('<section id="method" aria-labelledby="method-heading"><h2 id="method-heading">Method and limitations</h2>')
     html.append("<ol>"
-                "<li>Selected Drupal Core issues explicitly tagged <em>Accessibility</em> (taxonomy term 1101) and, for this controlled sample, an explicit list of issue IDs covering open, fixed and not-yet-released cases.</li>"
-                "<li>Retrieved each issue, its public comments and every merge request state through drupalorg-cli JSON output. Merged and closed MRs are included; the earlier prototype requested only opened MRs.</li>"
+                "<li>Paged the complete Drupal Core Accessibility queue (taxonomy term 1101) and kept only active review-relevant statuses: Active, Needs review, Needs work, RTBC and Patch. Fixed and closed issues are excluded.</li>"
+                "<li>For a review-priority subset, retrieved the issue, its public comments and every merge request state through drupalorg-cli JSON output. Merged and closed MRs are included. The remaining active issues are complete inventory records (source, status, tags, component, version) with comments, MRs and commit history marked as not collected.</li>"
                 "<li>Built a commit index for the target release branch and adjacent development branches, matched commit messages to issue IDs, and checked whether each commit is contained in the release tag using the public GitLab API.</li>"
                 "<li>Applied documented classification rules. A tracker report is not a reproduction; commit inclusion is not behavioural verification; a closed issue is not proof of a release fix.</li>"
                 "<li>Did not use AI, did not infer conformance and did not assign a percentage or score.</li>"
@@ -394,8 +400,9 @@ def render_report(analysis, output_dir, css_source=None):
                 'git.drupalcode.org. The in-scope configuration intentionally enables the Default Admin theme; the standard '
                 'profile in Drupal 11.4.12 uses Claro and Olivero, so this is a declared configuration rather than the stock default.</p>')
     html.append('<h3>Limitations</h3><ul>'
-                '<li>The sample is purposive, not exhaustive. Only issues carrying the Accessibility tag were considered. '
-                'The absence of a reported issue is not evidence of WCAG support.</li>'
+                '<li>The report covers active review-relevant issues carrying the Accessibility tag; it is not a census of every barrier. '
+                'Closed and fixed issues are excluded by policy. Some active issues are metadata-only inventory records; their '
+                'commit/comment evidence was not collected in this snapshot.</li>'
                 '<li>No issue was reproduced against an installed release in this phase. No screen-reader, keyboard, zoom, '
                 'reduced-motion or forced-colors testing of the assessed release is claimed.</li>'
                 '<li>Commit matching relies on issue numbers in commit messages. Commits that omit the issue number, or fixes '
@@ -505,10 +512,10 @@ def render_landing(analyses, output_dir, targets_config=None):
         '<p class="eyebrow">OpenACR Release Evidence</p>',
         f"<h1>{esc(product)} release evidence reports</h1>",
         '<p class="status-banner"><strong>Draft evidence, not Accessibility Conformance Reports or certification.</strong> '
-        "The matrix shows evidence states for a declared sample of reported issues. It is not an accessibility score, "
-        "and the absence of a reported issue is not evidence of WCAG support.</p>",
+        "The matrix shows evidence states for active, review-relevant reported issues. Closed and fixed issues are excluded. "
+        "It is not an accessibility score, and the absence of a reported issue is not evidence of WCAG support.</p>",
         f'<p class="meta">Generated {esc(display_date(generated))} · '
-        f'{esc(len(analyses))} targets · {esc(len(issue_ids))} issues in the shared sample.</p>',
+        f'{esc(len(analyses))} targets · {esc(len(issue_ids))} active issues in the shared collection.</p>',
         "</header>",
         '<main id="main" tabindex="-1">',
     ]
@@ -601,12 +608,13 @@ def render_landing(analyses, output_dir, targets_config=None):
 
     html.append('<section aria-labelledby="what-heading"><h2 id="what-heading">What this site publishes</h2>')
     html.append('<p>Only an explicit allowlist is deployed: this landing page, each report HTML and stylesheet, '
-                '<code>evidence.json</code> and <code>summary.json</code>. Raw CLI responses, private evidence snapshots, '
-                '<code>collection.json</code> and <code>analysis.json</code> are not published.</p>')
+                '<code>evidence.json</code>, <code>summary.json</code>, the OpenACR draft files and the ATAG evidence files. '
+                'Raw CLI responses, private evidence snapshots, <code>collection.json</code> and <code>analysis.json</code> '
+                'are not published.</p>')
     html.append("</section>")
 
     html.append('<section aria-labelledby="limits-heading"><h2 id="limits-heading">Limitations</h2><ul>')
-    html.append('<li>The sample is purposive, not a census. It is a set of Accessibility-tagged issues, not all barriers.</li>')
+    html.append('<li>The report covers active review-relevant Accessibility-tagged issues, not every barrier. Closed and fixed issues are excluded; some active issues are metadata-only inventory records.</li>')
     html.append('<li>No issue in this snapshot was reproduced against an installed target. Commit inclusion is not '
                 'behavioural verification, and a closed issue is not proof of a release fix.</li>')
     html.append('<li>The generic <code>Admin theme</code> component is shared across release lines with different '

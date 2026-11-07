@@ -60,6 +60,24 @@ STATUS_WORKFLOW = {
     18: "closed-other",
 }
 
+# Statuses that still need review in an ACR evidence pass. Fixed/closed issues
+# are excluded; RTBC and patch-to-be-ported stay in until the issue is closed.
+ACR_REVIEW_STATUSES = (1, 8, 13, 14, 15)
+ACR_REVIEW_STATUS_LABELS = {
+    1: "Active",
+    8: "Needs review",
+    13: "Needs work",
+    14: "Reviewed & tested by the community",
+    15: "Patch (to be ported)",
+}
+
+
+def is_acr_review_status(code):
+    try:
+        return int(code) in ACR_REVIEW_STATUSES
+    except (TypeError, ValueError):
+        return False
+
 PLACEHOLDER_RE = re.compile(
     r"(TEMPLATE|SET-A-REAL|SET-EXACT|EXAMPLE|UNVERIFIED|TODO|CHANGEME|REPLACE-ME)",
     re.IGNORECASE,

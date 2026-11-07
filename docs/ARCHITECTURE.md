@@ -105,10 +105,10 @@ contributed-project collection and parent-linked ACR export are future work.
 
 ## Scheduled snapshots
 
-`weekly.yml` runs the tests, collects the shared sample, analyzes all targets and
+`weekly.yml` runs the tests, collects the active review-relevant collection, analyzes all targets and
 opens a PR. It does not publish. A human merges the PR; `pages.yml` then deploys
 the allowlisted reports. A failed issue in collection does not abort the rest of
-the sample.
+the active collection.
 
 ## Cross-project dependencies
 
