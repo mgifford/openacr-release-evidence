@@ -1,0 +1,127 @@
+{
+  "target": {
+    "assessment_id": "drupal-core-11.4.12-default-admin",
+    "product": "Drupal Core",
+    "release": "11.4.12",
+    "ref": "11.4.12",
+    "tag": "11.4.12",
+    "branch": "11.4.x",
+    "tag_commit": "aa556ff13046baca57d5f69fac25c96fc30b4f43",
+    "tag_commit_short": "aa556ff1",
+    "tag_date": "2026-11-06T16:05:10.000-06:00"
+  },
+  "assessment": {
+    "id": "drupal-core-11.4.12-default-admin",
+    "product": "Drupal Core",
+    "release": "11.4.12",
+    "ref": "11.4.12",
+    "synthetic": false,
+    "components": [
+      "Admin theme",
+      "language system",
+      "text.module",
+      "core",
+      "inline_form_errors.module",
+      "forms system",
+      "field system",
+      "theme system",
+      "javascript"
+    ],
+    "standards": [
+      "WCAG 2.2 AA",
+      "Section 508 (revised, 2017)"
+    ],
+    "installation": {
+      "drupal_core_version": "11.4.12",
+      "composer_lock_sha256": "d3d2949e659078fb4a121b1746576a7d49cb22dfdee80f622e3a0f50f3faa108",
+      "profile": "standard",
+      "enabled_modules": [
+        "field",
+        "field_ui",
+        "filter",
+        "inline_form_errors",
+        "language",
+        "node",
+        "text"
+      ],
+      "enabled_themes": {
+        "default": "olivero",
+        "admin": "default_admin"
+      },
+      "configuration": "Drupal 11.4.12 core from the git tag; Default Admin theme installed and enabled as the administration theme. The stock standard profile uses Claro and Olivero, so this is a declared site-builder configuration, not the stock profile default."
+    },
+    "collection": {
+      "project": "drupal",
+      "project_id": "3060",
+      "tag": "Accessibility",
+      "tag_tid": "1101",
+      "include_ids": [
+        "3621109",
+        "3623388",
+        "3618127",
+        "3617875",
+        "3618140",
+        "3506333",
+        "3583516",
+        "3612323",
+        "3621244",
+        "3619155",
+        "3636028",
+        "3636027",
+        "3049125",
+        "3635418",
+        "3619154",
+        "3557245",
+        "2921627",
+        "3611423",
+        "3606655",
+        "2158943"
+      ],
+      "max_issues": 20
+    }
+  },
+  "summary": {
+    "findings": 20,
+    "by_applicability": {
+      "confirmed-fixed": 4,
+      "likely-affected": 14,
+      "unknown": 2
+    },
+    "by_workflow": {
+      "closed-fixed": 10,
+      "fixed-unverified": 1,
+      "needs-review": 4,
+      "needs-work": 2,
+      "open": 1,
+      "rtbc": 2
+    },
+    "fix_included_in_release": 4,
+    "needs_verification": 20,
+    "unmapped_criteria": 8,
+    "criteria": [
+      "1.1.1",
+      "1.3.1",
+      "1.4.11",
+      "1.4.3",
+      "2.1.1",
+      "2.4.1",
+      "2.4.7",
+      "2.5.3",
+      "3.2.5"
+    ],
+    "commit_index": {
+      "branches": [
+        "11.4.x",
+        "11.5.x",
+        "11.x",
+        "main"
+      ],
+      "since": "2026-05-10T16:05:10-06:00",
+      "commits": 1790,
+      "retrieved_at": "2026-11-07T17:43:55+00:00"
+    }
+  },
+  "generated_at": "2026-11-07T17:58:15Z",
+  "evidence_digest": "723197c14a08e57246be2bfb725ccb45a682acfab770f23bbbbfc779545144df",
+  "manifest_digest": "0a76552fc853e36afee76463c7c4d33bc4c03955fc5362186a9e580d67852e8a"
+}

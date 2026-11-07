@@ -1,31 +1,169 @@
-# Evidence model v0.1
+# Evidence model v0.2
 
-`assessment`: `id`, `product`, `release`, `ref`, `components`, `standards`,
-`installation`, and optional `applicability_overrides` indexed by issue ID.
-Targets must identify an actual release before assessment claims can be made;
-the example uses an illustrative release and does not claim reproducibility.
+This model separates **collected source evidence**, **release applicability**
+and **conformance**. Only the first two are implemented. Conformance remains a
+human decision.
 
-`issue`: `source`, `id`, `url`, `title`, `description`, `status`,
-`updated_at`, `wcag_candidates`, `component`, `raw_version`.
-An issue's `status`/`raw_version` is **tracker metadata only**.
+## Pipeline artifacts
 
-`finding`: `issue_id`, `applicability`, `reason`, `evidence_urls`,
-`basis`, `review_status`, `wcag_candidates`. Valid applicability enums:
-`confirmed-affected`, `likely-affected`, `confirmed-fixed`,
-`not-introduced`, `not-in-scope`, `unknown`.
+| Artifact | Produced by | Purpose |
+| --- | --- | --- |
+| Collection | `acr-evidence collect` | Normalized issues, comments, MR metadata and provenance for one target. |
+| Analysis | `acr-evidence analyze` | Release-specific applicability findings and commit/tag evidence. |
+| Report | `acr-evidence report` | Static HTML/JSON draft for human review; never an ACR. |
+| Private raw snapshot | collection, under `private-evidence/raw/` | Original CLI/API payloads, excluded from publication. |
 
-Overrides are the only way to change an issue from `unknown` in this
-prototype. Each override MUST have a nonempty reason and one or more URLs,
-and specify a basis such as `direct-reproduction`, `git-analysis`, or
-`human-review`. The code does not assert these sources are truthful.
+All public artifacts carry `schema_version`, `artifact_type`, `disclaimer`,
+`generated_at`, `manifest_digest`, `digest_scope` and `evidence_digest`.
 
-`ai_summary` (future): provider, model, prompt version, content hash, source
-references, proposed summary, uncertainty, review status. Never overwrite
-reviewed facts with model output.
+### Digest rules
 
-`conformance` (future): independent reviewer decision for each applicable
-requirement, release target, scope and test protocol. Never collapse this
-into issue counts. `unknown` is **not** an OpenACR `Not Evaluated` synonym.
+- `evidence_digest` is the SHA-256 of the **published artifact** after removing
+  `generated_at` and `evidence_digest`. It is reproducible from the published
+  JSON alone.
+- `manifest_digest` is the SHA-256 of the complete input manifest, including
+  `applicability_overrides`. It is an input reference; the manifest itself may
+  live in a private review repository.
+- No digest is a conformance statement.
 
-Inputs and generated evidence carry deterministic hashes for traceability.
-Release composition and effect of patches remain future work.
+## Assessment target
+
+```json
+{
+  "id": "drupal-core-11.4.12-default-admin",
+  "product": "Drupal Core",
+  "release": "11.4.12",
+  "ref": "11.4.12",
+  "synthetic": false,
+  "components": ["Admin theme", "language system", "text.module", "core"],
+  "standards": ["WCAG 2.2 AA", "Section 508 (revised, 2017)"],
+  "installation": {
+    "drupal_core_version": "11.4.12",
+    "composer_lock_sha256": "…",
+    "profile": "standard",
+    "enabled_modules": ["…"],
+    "enabled_themes": {"default": "olivero", "admin": "default_admin"},
+    "configuration": "Declared site-builder configuration, not the stock profile default."
+  }
+}
+```
+
+`id`, `product`, `release` and `ref` must identify a real target. Values containing
+`TEMPLATE`, `SET-A-REAL`, `SET-EXACT`, `EXAMPLE`, `UNVERIFIED`, `TODO`,
+`CHANGEME` or `REPLACE-ME` are rejected unless `"synthetic": true` is explicit.
+A synthetic artifact must never be presented as evidence about a real release.
+
+## Normalized issue
+
+The collection is source-independent at the top level:
+
+```json
+{
+  "schema_version": "0.2.0",
+  "id": "drupal:3621109",
+  "project_scoped_id": "drupal:drupal:3621109",
+  "source_system": "drupal.org",
+  "source_project": "drupal",
+  "source_id": "3621109",
+  "url": "https://www.drupal.org/project/drupal/issues/3621109",
+  "title": "…",
+  "description_html": "…",
+  "description_text": "…",
+  "labels": ["Accessibility", "color contrast", "wcag143"],
+  "status": {"code": 7, "label": "Closed (fixed)", "workflow_state": "closed-fixed"},
+  "created_at": "2026-09-06T01:17:24Z",
+  "updated_at": "2026-10-01T12:25:04Z",
+  "component": "Admin theme",
+  "version": "11.4.x-dev",
+  "comments": [
+    {"id": "16760792", "url": "…", "author": "kentr", "created_at": "…",
+     "body_text": "…", "machine_generated": false, "content_hash": "…"}
+  ],
+  "merge_requests": [
+    {"iid": 17032, "state": "closed", "target_branch": "main", "url": "…",
+     "head_sha": "…", "merge_commit_sha": null, "merged_at": null}
+  ],
+  "wcag_candidates": ["1.4.3"],
+  "provenance": {
+    "source_system": "drupal.org",
+    "source_project": "drupal",
+    "adapter": "drupalorg-cli",
+    "adapter_version": "Drupal.org CLI 0.15.0",
+    "retrieved_at": "2026-11-07T17:43:16Z",
+    "source_url": "…",
+    "content_hash": "…",
+    "raw_ref": "private-evidence/raw/3621109-20261107T174316Z.json"
+  }
+}
+```
+
+`description_html` and comment HTML are untrusted source material. Renderers
+must escape them; `description_text` is a derived, script-free text view. The
+normalized public artifact does not include raw upstream payloads.
+
+### Verified Drupal status map
+
+The current Drupal.org queue does **not** use the old “8 = closed fixed”
+assumption. Values verified against live issue pages on 2026-11-07:
+
+| Code | Label | Workflow state |
+| --- | --- | --- |
+| 1 | Active | `open` |
+| 2 | Fixed | `fixed-unverified` |
+| 3 | Closed (duplicate) | `closed-other` |
+| 4 | Postponed | `postponed` |
+| 5 | Closed (won't fix) | `closed-other` |
+| 6 | Closed (works as designed) | `closed-other` |
+| 7 | Closed (fixed) | `closed-fixed` |
+| 8 | Needs review | `needs-review` |
+| 13 | Needs work | `needs-work` |
+| 14 | Reviewed & tested by the community | `rtbc` |
+| 15 | Patch (to be ported) | `patch` |
+| 16 | Postponed (maintainer needs more info) | `postponed` |
+| 17 | Closed (outdated) | `closed-other` |
+
+Unlisted codes remain `Unknown status (N)`; do not guess from an older map.
+
+### WCAG candidate tags
+
+Issues may carry tags such as `wcag143`, `wcag1411` or `wcag253`. These are
+parsed deterministically into `1.4.3`, `1.4.11` and `2.5.3`. There is no text
+mining and no model mapping here. A tag is a candidate relevance signal, not a
+conformance result.
+
+## Applicability states
+
+| State | Meaning in this project |
+| --- | --- |
+| `confirmed-affected` | A reproduction on the target release demonstrates the barrier. Not emitted by the automated pipeline in this phase. |
+| `likely-affected` | Report evidence suggests the barrier is present; it was not reproduced. |
+| `confirmed-fixed` | A fix commit is contained in the target tag **and** the tracker is closed fixed. Behavioural verification is still required; the finding is unreviewed. |
+| `not-introduced` | The affected feature or code is absent from the target release. Requires code/feature evidence, not absence of reports. |
+| `not-in-scope` | The component is outside the declared assessment scope. |
+| `unknown` | Insufficient target-specific evidence. This is the safe default. |
+
+Every finding carries `assessment_id`, `target`, `observed_at`,
+`observed_at_basis`, `basis`, `reason`, `evidence_urls`, `review_status`,
+`fix_included_in_release`, and a `commits` list. `fix_included_in_release` is
+kept separate from `applicability` so code inclusion is never confused with a
+verified behavioural fix.
+
+### Classification rules (implemented)
+
+1. Component outside the manifest → `not-in-scope`.
+2. Explicit feature/code-absence evidence → `not-introduced`.
+3. A matching fix commit contained in the target tag and a closed-fixed tracker
+   → `confirmed-fixed` (with an explicit behavioural-verification caveat).
+4. Matching commits exist but none is in the tag → `likely-affected`.
+5. Closed-fixed tracker with no matching commit → `unknown`.
+6. Open report created after the release date with no target-branch fix →
+   `unknown` (it may be a later regression).
+7. Open report before the release with no matching commit → `likely-affected`.
+8. Any other case → `unknown`.
+
+## Conformance (not implemented)
+
+Conformance is a separate, human-reviewed decision for each applicable
+requirement and target. It must not be derived from issue counts, issue status,
+commit inclusion, automated checks or model output. No artifact in this
+repository currently contains a WCAG conformance decision.

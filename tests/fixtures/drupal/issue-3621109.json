@@ -1,0 +1,118 @@
+{
+  "_fixture": {
+    "note": "Trimmed from a live drupalorg-cli 0.15.0 response for offline regression tests. Comment list reduced; status, titles and identifiers are unmodified.",
+    "source_url": "https://www.drupal.org/node/3621109",
+    "retrieved_at": "2026-11-07T17:43:16Z",
+    "cli_version": "Drupal.org CLI 0.15.0"
+  },
+  "term_names": {
+    "1101": "Accessibility",
+    "35080": "color contrast",
+    "198876": "darkmode",
+    "204420": "wcag143"
+  },
+  "issue": {
+    "nid": "3621109",
+    "title": "Skip link in dark mode has low color contrast",
+    "created": 1788657444,
+    "created_at": "2026-09-06T01:17:24+00:00",
+    "changed": 1790857504,
+    "changed_at": "2026-10-01T12:25:04+00:00",
+    "field_issue_status": 7,
+    "status": "Closed (fixed)",
+    "field_issue_category": 1,
+    "category": "Bug report",
+    "field_issue_priority": 200,
+    "priority": "Normal",
+    "field_issue_version": "11.4.x-dev",
+    "field_issue_component": "Admin theme",
+    "field_project_machine_name": "drupal",
+    "author_id": "456718",
+    "body_value": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>Accessibility Insights report:</p>\n<pre class=\"codeblock\"><code class=\"language-php\">Element has insufficient color contrast of 2.55 (foreground color: #111111, background color: #545560, font size: 11.3pt (15.04px), font weight: normal). Expected contrast ratio of 4.5:1\n\nUse background color: #7e7f90 and the original foreground color: #111111 to meet a contrast ratio of 4.79:1.\n</code></pre><p>\nSnippet:</p>\n<pre class=\"codeblock\"><code class=\"language-php\">&lt;a href=\"#main-content\" class=\"visually-hidden focusable skip-link\"&gt; Skip to main content &lt;/a&gt;\n</code></pre><p>\nI didn't check against Gin.</p>\n<p>WCAG: <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum\" rel=\"nofollow\">SC 1.4.3 Contrast (Minimum) (Level AA)</a></p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<ul>\n<li>Log in as admin.</li>\n<li>Go to <code class=\"language-php\">/admin/appearance</code>. </li>\n<li>Set Default Admin as the admin theme.</li>\n<li>If it's not already appearing in dark mode, go to <code class=\"language-php\">/admin/appearance/settings/default_admin</code>, change \"Appearance\" to \"Dark\", and submit the form.</li>\n<li>Press the <code class=\"language-php\">TAB</code> key until the skip link becomes focused and visible.</li>\n</ul>\n<h5>Expected</h5>\n<p>The text / background has sufficient contrast.</p>\n<h5>Actual</h5>\n<p>It has low contrast.</p>\n<p><img src=\"/files/issues/2026-09-05/dark-mode-skip-link-low-contrast.png\" alt=\"screenshot\" /></p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Not sure. </p>\n<p>The light mode skip link has a dark background with light text. </p>\n<p>Maybe this one should have the opposite: light background with dark text. </p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+    "comments": [
+      {
+        "cid": "16760792",
+        "body_value": null,
+        "created": 1788711614,
+        "author_id": "456718",
+        "author_name": "kentr"
+      },
+      {
+        "cid": "16760853",
+        "body_value": null,
+        "created": 1788714961,
+        "author_id": "456718",
+        "author_name": "kentr"
+      },
+      {
+        "cid": "16761911",
+        "body_value": "<p>@rupeshghar thank you for your contribution.</p>\n<p>Was the patch generated with an LLM? Please note that disclosure is required: <a href=\"https://www.drupal.org/docs/develop/issues/issue-procedures-and-etiquette/policy-on-the-use-of-ai-when-contributing-to-drupal#s-disclosure\" rel=\"nofollow\">Policy on the use of AI when contributing to Drupal</a>.</p>",
+        "created": 1788789283,
+        "author_id": "456718",
+        "author_name": "kentr"
+      }
+    ]
+  },
+  "node": {
+    "nid": "3621109",
+    "title": "Skip link in dark mode has low color contrast",
+    "url": "https://www.drupal.org/project/drupal/issues/3621109",
+    "field_project": {
+      "uri": "https://www.drupal.org/api-d7/node/3060",
+      "id": "3060",
+      "resource": "node",
+      "machine_name": "drupal"
+    },
+    "taxonomy_vocabulary_9": [
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/1101",
+        "id": "1101",
+        "resource": "taxonomy_term"
+      },
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/35080",
+        "id": "35080",
+        "resource": "taxonomy_term"
+      },
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/198876",
+        "id": "198876",
+        "resource": "taxonomy_term"
+      },
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/204420",
+        "id": "204420",
+        "resource": "taxonomy_term"
+      }
+    ],
+    "field_issue_status": "7",
+    "field_issue_version": "11.4.x-dev",
+    "field_issue_component": "Admin theme",
+    "body": {
+      "value": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>Accessibility Insights report:</p>\n<pre class=\"codeblock\"><code class=\"language-php\">Element has insufficient color contrast of 2.55 (foreground color: #111111, background color: #545560, font size: 11.3pt (15.04px), font weight: normal). Expected contrast ratio of 4.5:1\n\nUse background color: #7e7f90 and the original foreground color: #111111 to meet a contrast ratio of 4.79:1.\n</code></pre><p>\nSnippet:</p>\n<pre class=\"codeblock\"><code class=\"language-php\">&lt;a href=\"#main-content\" class=\"visually-hidden focusable skip-link\"&gt; Skip to main content &lt;/a&gt;\n</code></pre><p>\nI didn't check against Gin.</p>\n<p>WCAG: <a href=\"https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum\" rel=\"nofollow\">SC 1.4.3 Contrast (Minimum) (Level AA)</a></p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<ul>\n<li>Log in as admin.</li>\n<li>Go to <code class=\"language-php\">/admin/appearance</code>. </li>\n<li>Set Default Admin as the admin theme.</li>\n<li>If it's not already appearing in dark mode, go to <code class=\"language-php\">/admin/appearance/settings/default_admin</code>, change \"Appearance\" to \"Dark\", and submit the form.</li>\n<li>Press the <code class=\"language-php\">TAB</code> key until the skip link becomes focused and visible.</li>\n</ul>\n<h5>Expected</h5>\n<p>The text / background has sufficient contrast.</p>\n<h5>Actual</h5>\n<p>It has low contrast.</p>\n<p><img src=\"/files/issues/2026-09-05/dark-mode-skip-link-low-contrast.png\" alt=\"screenshot\" /></p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Not sure. </p>\n<p>The light mode skip link has a dark background with light text. </p>\n<p>Maybe this one should have the opposite: light background with dark text. </p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "summary": "",
+      "format": "1"
+    }
+  },
+  "merge_requests": {
+    "project_path": "project/drupal",
+    "issue_fork": "issue/drupal-3621109",
+    "merge_requests": [
+      {
+        "iid": 17032,
+        "title": "Issue #3621109: skip-link dark-mode contrast — remove .skip-link color from...",
+        "source_branch": "3621109-skip-link-in",
+        "target_branch": "main",
+        "state": "closed",
+        "web_url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17032",
+        "is_mergeable": true,
+        "author": "rupeshgharat",
+        "updated_at": "2026-09-17T12:24:33.212Z",
+        "description": "Issue #3621109: skip-link dark-mode contrast — remove .skip-link color from visually-hidden and update compiled CSS\n\nCloses #3621109",
+        "has_conflicts": false,
+        "blocking_discussions_resolved": true,
+        "detailed_merge_status": "not_open"
+      }
+    ]
+  }
+}

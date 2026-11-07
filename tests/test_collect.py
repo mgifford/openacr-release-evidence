@@ -1,0 +1,161 @@
+import json
+import os
+import tempfile
+import unittest
+from datetime import datetime, timezone
+from pathlib import Path
+
+from acr_evidence.collect import collect_issues
+from acr_evidence.adapters.drupalorg_cli import DrupalOrgCliError
+
+ROOT = Path(__file__).resolve().parents[1]
+FIXTURES = ROOT / "tests" / "fixtures" / "drupal"
+MANIFEST = json.loads((ROOT / "config" / "drupal-core-11.4.12.json").read_text(encoding="utf-8"))
+
+
+def fixture(nid):
+    return json.loads((FIXTURES / f"issue-{nid}.json").read_text(encoding="utf-8"))
+
+
+class FakeRest:
+    def __init__(self, data, fail=()):
+        self.data = data
+        self.fail = set(fail)
+        self.discovery_calls = []
+        self.node_calls = []
+
+    def get_node(self, nid):
+        self.node_calls.append(str(nid))
+        if str(nid) in self.fail:
+            raise RuntimeError("node unavailable")
+        return self.data[str(nid)]["node"]
+
+    def resolve_terms(self, node, cache):
+        nid = str(node.get("nid"))
+        return self.data[nid]["term_names"]
+
+    def find_issues(self, **kwargs):
+        self.discovery_calls.append(kwargs)
+        return [self.data[nid]["node"] for nid in list(self.data)[: kwargs.get("limit", 20)]]
+
+
+class FakeCli:
+    def __init__(self, data, fail_issue=(), fail_mrs=()):
+        self.data = data
+        self.fail_issue = set(fail_issue)
+        self.fail_mrs = set(fail_mrs)
+        self.issue_calls = []
+        self.mr_calls = []
+
+    def version(self):
+        return "Drupal.org CLI 0.15.0"
+
+    def issue_show(self, nid, with_comments=True):
+        self.issue_calls.append(str(nid))
+        if str(nid) in self.fail_issue:
+            raise DrupalOrgCliError("issue unavailable")
+        return self.data[str(nid)]["issue"]
+
+    def mr_list(self, nid, state="all"):
+        self.mr_calls.append(str(nid))
+        if str(nid) in self.fail_mrs:
+            raise DrupalOrgCliError("MR listing unavailable")
+        return self.data[str(nid)]["merge_requests"]
+
+
+class CollectTests(unittest.TestCase):
+    def data(self):
+        return {nid: fixture(nid) for nid in ("3621109", "3618140")}
+
+    def run_collect(self, folder, *, cli=None, rest=None, include_ids=("3621109", "3618140"), now=None, max_issues=20):
+        data = self.data()
+        cli = cli or FakeCli(data)
+        rest = rest or FakeRest(data)
+        output = Path(folder) / "collection.json"
+        query = {
+            "project": "drupal",
+            "project_id": "3060",
+            "tag": "Accessibility",
+            "tag_tid": "1101",
+            "max_issues": max_issues,
+            "include_ids": list(include_ids),
+        }
+        artifact = collect_issues(
+            MANIFEST, query, output,
+            raw_dir=Path(folder) / "raw",
+            cache_dir=Path(folder) / "cache",
+            cli=cli, rest=rest,
+            now=now or datetime.now(timezone.utc),
+        )
+        return artifact, output, cli, rest
+
+    def test_collects_and_archives_raw_evidence(self):
+        with tempfile.TemporaryDirectory() as folder:
+            artifact, output, cli, rest = self.run_collect(folder)
+            self.assertTrue(output.exists())
+            self.assertEqual(2, artifact["summary"]["collected"])
+            self.assertEqual(2, artifact["summary"]["fetched"])
+            self.assertEqual(0, artifact["summary"]["failed"])
+            self.assertEqual(2, len(artifact["issues"]))
+            self.assertEqual(["3618140", "3621109"], sorted(cli.issue_calls))
+            self.assertEqual(["3618140", "3621109"], sorted(cli.mr_calls))
+            raw_files = list((Path(folder) / "raw").glob("*.json"))
+            self.assertEqual(2, len(raw_files))
+            for issue in artifact["issues"]:
+                self.assertTrue(issue["provenance"]["raw_ref"].startswith(str(Path(folder) / "raw")))
+            self.assertEqual(0o644, os.stat(output).st_mode & 0o777)
+            cache_file = Path(folder) / "cache" / "issues" / "3621109.json"
+            self.assertEqual(0o600, os.stat(cache_file).st_mode & 0o777)
+
+    def test_cache_avoids_refetching(self):
+        with tempfile.TemporaryDirectory() as folder:
+            now = datetime.now(timezone.utc)
+            first, _, cli, _ = self.run_collect(folder, now=now)
+            calls_after_first = len(cli.issue_calls)
+            second, _, cli2, _ = self.run_collect(folder, now=now)
+            self.assertEqual(2, second["summary"]["cached"])
+            self.assertEqual(0, second["summary"]["fetched"])
+            self.assertEqual(0, len(cli2.issue_calls))
+            self.assertEqual([i["id"] for i in first["issues"]], [i["id"] for i in second["issues"]])
+
+    def test_one_failure_does_not_invalidate_the_run(self):
+        with tempfile.TemporaryDirectory() as folder:
+            data = self.data()
+            cli = FakeCli(data, fail_issue={"3618140"})
+            artifact, output, _, _ = self.run_collect(folder, cli=cli)
+            self.assertEqual(1, artifact["summary"]["collected"])
+            self.assertEqual(1, artifact["summary"]["failed"])
+            self.assertEqual("issue", artifact["summary"]["errors"][0]["stage"])
+            self.assertTrue(output.exists())
+
+    def test_mr_failure_is_preserved_as_a_warning(self):
+        with tempfile.TemporaryDirectory() as folder:
+            data = self.data()
+            cli = FakeCli(data, fail_mrs={"3621109"})
+            artifact, _, _, _ = self.run_collect(folder, cli=cli)
+            self.assertEqual(2, artifact["summary"]["collected"])
+            self.assertEqual(1, artifact["summary"]["with_merge_requests"])
+            self.assertEqual(0, artifact["summary"]["failed"])
+
+    def test_discovery_query_is_used_when_ids_are_not_explicit(self):
+        with tempfile.TemporaryDirectory() as folder:
+            artifact, _, _, rest = self.run_collect(folder, include_ids=(), max_issues=2)
+            self.assertEqual(2, artifact["summary"]["collected"])
+            self.assertEqual(1, len(rest.discovery_calls))
+            call = rest.discovery_calls[0]
+            self.assertEqual("3060", call["project_id"])
+            self.assertEqual("1101", call["tag_tid"])
+            self.assertEqual(2, call["limit"])
+
+    def test_issue_from_another_project_is_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            data = self.data()
+            data["3621109"]["node"] = dict(data["3621109"]["node"])
+            data["3621109"]["node"]["field_project"] = {"machine_name": "not_drupal"}
+            artifact, _, _, _ = self.run_collect(folder, rest=FakeRest(data))
+            self.assertEqual(1, artifact["summary"]["collected"])
+            self.assertEqual("discovery", artifact["summary"]["errors"][0]["stage"])
+
+
+if __name__ == "__main__":
+    unittest.main()

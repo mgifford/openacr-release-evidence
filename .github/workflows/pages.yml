@@ -1,0 +1,80 @@
+# Publish the reviewed static evidence reports to GitHub Pages.
+#
+# Merging a pull request that changes reports/** is the publication review
+# event. Configure required reviewers on the github-pages environment
+# (Settings > Environments) if deployments should wait for a second approval.
+# The workflow copies only an explicit allowlist; raw/private evidence is never
+# part of the Pages artifact.
+name: Publish evidence reports to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "reports/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Build public site (explicit allowlist)
+        run: |
+          set -euo pipefail
+          rm -rf _site
+          mkdir -p _site
+          test -f reports/index.html
+          cp reports/index.html _site/index.html
+          for dir in reports/*/; do
+            name="$(basename "$dir")"
+            [ -f "$dir/index.html" ] || continue
+            case "$name" in
+              drupal-core-*|drupal-cms-*|localgov-*) ;;
+              *) echo "Unexpected report directory: $name" >&2; exit 1 ;;
+            esac
+            mkdir -p "_site/$name"
+            for file in index.html report.css evidence.json summary.json; do
+              if [ -f "$dir/$file" ]; then
+                cp "$dir/$file" "_site/$name/$file"
+              fi
+            done
+            test -f "_site/$name/index.html"
+          done
+
+          # Never publish raw or private material, or non-reviewed artifacts.
+          if find _site -path '*private-evidence*' -print -quit | grep -q .; then
+            echo "Refusing to publish a private evidence path" >&2
+            exit 1
+          fi
+          if find _site -type f \( -name 'collection.json' -o -name 'analysis.json' -o -name '*.jsonl' \) | grep -q .; then
+            echo "Refusing to publish a non-allowlisted artifact" >&2
+            exit 1
+          fi
+          if grep -RIn '<script' _site --include='*.html'; then
+            echo "Refusing to publish a report that requires client-side script" >&2
+            exit 1
+          fi
+
+          echo "Publishing files:"
+          find _site -maxdepth 3 -type f | sort
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

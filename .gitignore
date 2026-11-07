@@ -2,6 +2,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
+.cache/
 .env
 build/
 dist/
@@ -13,3 +14,5 @@ data/generated/
 
 # Raw Drupal.org/GitLab issue material is not a publishable artifact
 private-evidence/
+*.log
+.DS_Store

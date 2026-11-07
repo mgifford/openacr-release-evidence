@@ -1,0 +1,100 @@
+{
+  "_fixture": {
+    "note": "Trimmed from a live drupalorg-cli 0.15.0 response for offline regression tests. Comment list reduced; status, titles and identifiers are unmodified.",
+    "source_url": "https://www.drupal.org/node/3619154",
+    "retrieved_at": "2026-11-07T17:43:49Z",
+    "cli_version": "Drupal.org CLI 0.15.0"
+  },
+  "term_names": {
+    "1101": "Accessibility"
+  },
+  "issue": {
+    "nid": "3619154",
+    "title": "Accessibility fixes for Admin theme's node add/edit sidebar toggle control",
+    "created": 1787702611,
+    "created_at": "2026-08-26T00:03:31+00:00",
+    "changed": 1793871806,
+    "changed_at": "2026-11-05T09:43:26+00:00",
+    "field_issue_status": 14,
+    "status": "RTBC",
+    "field_issue_category": 1,
+    "category": "Bug report",
+    "field_issue_priority": 200,
+    "priority": "Normal",
+    "field_issue_version": "main",
+    "field_issue_component": "Admin theme",
+    "field_project_machine_name": "drupal",
+    "author_id": "118428",
+    "body_value": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>From <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-17\"><a href=\"/project/drupal/issues/3618906\" title=\"Status: Closed (outdated), Assigned to: mherchel\">#3618906: [Meta] Forms sidebar accessibility issues</a></span></p>\n<blockquote><p> The toggle control shouldn't be rendered as a link with role=\"button\".<br />\nIf it's meant to function as a link (IOW, it's supposed to go somewhere usable) without JavaScript:<br />\nRender it as a standard link.</p>\n<p>Either change it to a button or add role=\"button\" in the JavaScript when the toggle behavior is added.</p>\n<p>If it's not meant to function as a link without JavaScript, render it as a button.</p>\n<p>The toggle control should be operable with the SPACE key, probably on keyup.<br />\nSee <a href=\"https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-\" rel=\"nofollow\">https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-</a>..., <a href=\"https://adrianroselli.com/2022/04/brief-note-on-buttons-enter-and-space\" rel=\"nofollow\">https://adrianroselli.com/2022/04/brief-note-on-buttons-enter-and-space</a>.....</p></blockquote>\n<blockquote><p> The accessible name (&amp; probably the title attribute) of the toggle control probably shouldn't change according to the state. See <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/toolbar/issues/3093378\" title=\"Status: Closed (fixed)\">#3093378: Use ARIA disclosure pattern for submenu buttons in vertical toolbar orientation</a></span> for @andrewmacphereson's explanation of why.\n </p></blockquote>\n<blockquote><p>Similar to the toggle control, the close button shouldn't be rendered as a link with role=\"button\".<br />\nI can't imagine that is supposed to function as a link in any circumstance, so it should probably just be a button element. Probably not really an accessibility issue, now that I think about it. Just bad practice.</p></blockquote>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Changes to the entity edit form sidebar in <code class=\"language-php\">default_admin</code>:</p>\n<ul>\n<li>Splits <code class=\"language-php\">migration/js/sidebar.js</code> into a <code class=\"language-php\">sidebar-toggle</code> SDC and <code class=\"language-php\">js/edit-sidebar.js</code>.</li>\n<li>Toggle and close controls are now <code class=\"language-php\">&lt;button&gt;</code> elements.</li>\n<li>Sets the open/closed state before first paint. The sidebar no longer flashes open.</li>\n<li>Opening the sidebar no longer collapses Navigation when page content changes height.</li>\n<li>Below 1024px, content under the overlay is <code class=\"language-php\">inert</code>. Focus moves into the sidebar, and Escape closes it.</li>\n<li>Positions the sidebar with CSS variables. The sidebar no longer jumps on load or overlaps the top bar.</li>\n<li>Saved width now persists after reload.</li>\n<li>Resizing works after AJAX, with touch, and in RTL.</li>\n<li>Hides the resize handle below 976px.</li>\n</ul>\n<h3>Testing instructions</h3>\n<p>Desktop (1024px or wider):</p>\n<ol>\n<li>Toggle the sidebar closed, then reload. It stays closed with no flash.</li>\n<li>Toggle it open, then reload. It stays open.</li>\n<li>Drag the handle to resize, then reload. The width persists.</li>\n<li>Confirm the sidebar top aligns with the bottom of the top bar.</li>\n<li>Expand a details element. Navigation does not collapse.</li>\n<li>Set <code class=\"language-php\">dir=\"rtl\"</code> on <code class=\"language-php\">&lt;html&gt;</code>. Dragging outward widens the sidebar.</li>\n<li>Ensure the sidebar toggle control is a <code class=\"language-php\">&lt;button&gt;</code> element, with the appropriate <code class=\"language-php\">aria-expanded</code> attribute.</li>\n</ol>\n<p>Between 976px and 1023px:</p>\n<ol>\n<li>Confirm the sidebar top aligns with the bottom of the top bar.</li>\n</ol>\n<p>Mobile (below 976px):</p>\n<ol>\n<li>Open the sidebar. Focus moves to the close button.</li>\n<li>Press Tab. Content under the overlay is not reachable. Navigation and the top bar are.</li>\n<li>Press Escape. The sidebar closes and focus returns to the toggle.</li>\n<li>Close with the close button and with the overlay. The URL does not change.</li>\n</ol>\n<h3>AI Disclosure</h3>\n<p>I completed most commits with the help of Claude. It actually found some more bugs (including the RTL width drag bug). After every change, I went through and read the code. I frequently had it make changes (especially around positioning of the sidebar) to make the code more readable (although that area is still very complicated). All code has been manually reviewed by me. </p>",
+    "comments": [
+      {
+        "cid": "16747002",
+        "body_value": "<p>Crediting @kentr in issue credit due do discovery in <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-17\"><a href=\"/project/drupal/issues/3618906\" title=\"Status: Closed (outdated), Assigned to: mherchel\">#3618906: [Meta] Forms sidebar accessibility issues</a></span></p>",
+        "created": 1787703322,
+        "author_id": "118428",
+        "author_name": "mherchel"
+      },
+      {
+        "cid": "16747055",
+        "body_value": "<p>I think the color in forced-colors is currently wrong. IIRC it’s the same as color as <code class=\"language-php\">CanvasText</code>. </p>\n<p>If so, that part is a bug. Using a <code class=\"language-php\">button</code> element should fix that, though.</p>",
+        "created": 1787709401,
+        "author_id": "456718",
+        "author_name": "kentr"
+      },
+      {
+        "cid": "16749509",
+        "body_value": null,
+        "created": 1787873486,
+        "author_id": "118428",
+        "author_name": "mherchel"
+      }
+    ]
+  },
+  "node": {
+    "nid": "3619154",
+    "title": "Accessibility fixes for Admin theme's node add/edit sidebar toggle control",
+    "url": "https://www.drupal.org/project/drupal/issues/3619154",
+    "field_project": {
+      "uri": "https://www.drupal.org/api-d7/node/3060",
+      "id": "3060",
+      "resource": "node",
+      "machine_name": "drupal"
+    },
+    "taxonomy_vocabulary_9": [
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/1101",
+        "id": "1101",
+        "resource": "taxonomy_term"
+      }
+    ],
+    "field_issue_status": "14",
+    "field_issue_version": "main",
+    "field_issue_component": "Admin theme",
+    "body": {
+      "value": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>From <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-17\"><a href=\"/project/drupal/issues/3618906\" title=\"Status: Closed (outdated), Assigned to: mherchel\">#3618906: [Meta] Forms sidebar accessibility issues</a></span></p>\n<blockquote><p> The toggle control shouldn't be rendered as a link with role=\"button\".<br />\nIf it's meant to function as a link (IOW, it's supposed to go somewhere usable) without JavaScript:<br />\nRender it as a standard link.</p>\n<p>Either change it to a button or add role=\"button\" in the JavaScript when the toggle behavior is added.</p>\n<p>If it's not meant to function as a link without JavaScript, render it as a button.</p>\n<p>The toggle control should be operable with the SPACE key, probably on keyup.<br />\nSee <a href=\"https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-\" rel=\"nofollow\">https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-</a>..., <a href=\"https://adrianroselli.com/2022/04/brief-note-on-buttons-enter-and-space\" rel=\"nofollow\">https://adrianroselli.com/2022/04/brief-note-on-buttons-enter-and-space</a>.....</p></blockquote>\n<blockquote><p> The accessible name (&amp; probably the title attribute) of the toggle control probably shouldn't change according to the state. See <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/toolbar/issues/3093378\" title=\"Status: Closed (fixed)\">#3093378: Use ARIA disclosure pattern for submenu buttons in vertical toolbar orientation</a></span> for @andrewmacphereson's explanation of why.\n </p></blockquote>\n<blockquote><p>Similar to the toggle control, the close button shouldn't be rendered as a link with role=\"button\".<br />\nI can't imagine that is supposed to function as a link in any circumstance, so it should probably just be a button element. Probably not really an accessibility issue, now that I think about it. Just bad practice.</p></blockquote>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Changes to the entity edit form sidebar in <code class=\"language-php\">default_admin</code>:</p>\n<ul>\n<li>Splits <code class=\"language-php\">migration/js/sidebar.js</code> into a <code class=\"language-php\">sidebar-toggle</code> SDC and <code class=\"language-php\">js/edit-sidebar.js</code>.</li>\n<li>Toggle and close controls are now <code class=\"language-php\">&lt;button&gt;</code> elements.</li>\n<li>Sets the open/closed state before first paint. The sidebar no longer flashes open.</li>\n<li>Opening the sidebar no longer collapses Navigation when page content changes height.</li>\n<li>Below 1024px, content under the overlay is <code class=\"language-php\">inert</code>. Focus moves into the sidebar, and Escape closes it.</li>\n<li>Positions the sidebar with CSS variables. The sidebar no longer jumps on load or overlaps the top bar.</li>\n<li>Saved width now persists after reload.</li>\n<li>Resizing works after AJAX, with touch, and in RTL.</li>\n<li>Hides the resize handle below 976px.</li>\n</ul>\n<h3>Testing instructions</h3>\n<p>Desktop (1024px or wider):</p>\n<ol>\n<li>Toggle the sidebar closed, then reload. It stays closed with no flash.</li>\n<li>Toggle it open, then reload. It stays open.</li>\n<li>Drag the handle to resize, then reload. The width persists.</li>\n<li>Confirm the sidebar top aligns with the bottom of the top bar.</li>\n<li>Expand a details element. Navigation does not collapse.</li>\n<li>Set <code class=\"language-php\">dir=\"rtl\"</code> on <code class=\"language-php\">&lt;html&gt;</code>. Dragging outward widens the sidebar.</li>\n<li>Ensure the sidebar toggle control is a <code class=\"language-php\">&lt;button&gt;</code> element, with the appropriate <code class=\"language-php\">aria-expanded</code> attribute.</li>\n</ol>\n<p>Between 976px and 1023px:</p>\n<ol>\n<li>Confirm the sidebar top aligns with the bottom of the top bar.</li>\n</ol>\n<p>Mobile (below 976px):</p>\n<ol>\n<li>Open the sidebar. Focus moves to the close button.</li>\n<li>Press Tab. Content under the overlay is not reachable. Navigation and the top bar are.</li>\n<li>Press Escape. The sidebar closes and focus returns to the toggle.</li>\n<li>Close with the close button and with the overlay. The URL does not change.</li>\n</ol>\n<h3>AI Disclosure</h3>\n<p>I completed most commits with the help of Claude. It actually found some more bugs (including the RTL width drag bug). After every change, I went through and read the code. I frequently had it make changes (especially around positioning of the sidebar) to make the code more readable (although that area is still very complicated). All code has been manually reviewed by me. </p>",
+      "summary": "",
+      "format": "1"
+    }
+  },
+  "merge_requests": {
+    "project_path": "project/drupal",
+    "issue_fork": "issue/drupal-3619154",
+    "merge_requests": [
+      {
+        "iid": 16911,
+        "title": "Sidebar toggle fixes",
+        "source_branch": "sidebar-toggle-fixes",
+        "target_branch": "main",
+        "state": "opened",
+        "web_url": "https://git.drupalcode.org/project/drupal/-/merge_requests/16911",
+        "is_mergeable": true,
+        "author": "mherchel",
+        "updated_at": "2026-11-03T19:19:20.409Z",
+        "description": "",
+        "has_conflicts": false,
+        "blocking_discussions_resolved": true,
+        "detailed_merge_status": "mergeable"
+      }
+    ]
+  }
+}

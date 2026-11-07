@@ -1,0 +1,13 @@
+OpenACR Release Evidence
+=======================
+
+The MIT licence in LICENSE applies to the source code and original
+documentation in this repository.
+
+Public Drupal.org issue titles, excerpts and comments quoted in
+reports/ and tests/fixtures/ are third-party content. They are reproduced for
+evidence and regression testing with source links and author attribution. They
+remain subject to Drupal.org's terms and their authors' rights, and are not
+relicensed under the MIT licence.
+
+WCAG criterion titles are from the W3C WCAG 2.2 Recommendation.

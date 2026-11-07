@@ -1,0 +1,71 @@
+{
+  "id": "drupal-core-11.4.12-default-admin",
+  "product": "Drupal Core",
+  "release": "11.4.12",
+  "ref": "11.4.12",
+  "synthetic": false,
+  "components": [
+    "Admin theme",
+    "language system",
+    "text.module",
+    "core",
+    "inline_form_errors.module",
+    "forms system",
+    "field system",
+    "theme system",
+    "javascript"
+  ],
+  "standards": [
+    "WCAG 2.2 AA",
+    "Section 508 (revised, 2017)"
+  ],
+  "installation": {
+    "drupal_core_version": "11.4.12",
+    "composer_lock_sha256": "d3d2949e659078fb4a121b1746576a7d49cb22dfdee80f622e3a0f50f3faa108",
+    "profile": "standard",
+    "enabled_modules": [
+      "field",
+      "field_ui",
+      "filter",
+      "inline_form_errors",
+      "language",
+      "node",
+      "text"
+    ],
+    "enabled_themes": {
+      "default": "olivero",
+      "admin": "default_admin"
+    },
+    "configuration": "Drupal 11.4.12 core from the git tag; Default Admin theme installed and enabled as the administration theme. The stock standard profile uses Claro and Olivero, so this is a declared site-builder configuration, not the stock profile default."
+  },
+  "collection": {
+    "project": "drupal",
+    "project_id": "3060",
+    "tag": "Accessibility",
+    "tag_tid": "1101",
+    "include_ids": [
+      "3621109",
+      "3623388",
+      "3618127",
+      "3617875",
+      "3618140",
+      "3506333",
+      "3583516",
+      "3612323",
+      "3621244",
+      "3619155",
+      "3636028",
+      "3636027",
+      "3049125",
+      "3635418",
+      "3619154",
+      "3557245",
+      "2921627",
+      "3611423",
+      "3606655",
+      "2158943"
+    ],
+    "max_issues": 20
+  },
+  "applicability_overrides": {}
+}
