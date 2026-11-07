@@ -418,8 +418,13 @@ def render_report(analysis, output_dir, css_source=None):
         ("Digest scope", esc(analysis.get("digest_scope"))),
     ]))
     html.append('<p>Download the machine-readable artifacts: '
-                '<a href="./evidence.json">evidence.json</a> and '
-                '<a href="./summary.json">summary.json</a>.</p>')
+                '<a href="./evidence.json">evidence.json</a> · '
+                '<a href="./summary.json">summary.json</a> · '
+                '<a href="./openacr.yaml">openacr.yaml</a> · '
+                '<a href="./openacr-validation.json">openacr-validation.json</a>.</p>')
+    html.append('<p class="meta">The OpenACR file is a schema- and catalog-validated <strong>draft skeleton</strong>. '
+                'It intentionally contains no conformance values and uses a placeholder reviewer; a human must '
+                'populate and approve it before publication. See <code>openacr-validation.json</code> for the check result.</p>')
     html.append("</section>")
     html.append("</main>")
     html.append(
@@ -530,7 +535,9 @@ def render_landing(analyses, output_dir, targets_config=None):
             f'{esc(counts.get("likely-affected", 0))} likely affected · {esc(counts.get("unknown", 0))} unknown. '
             f'<a href="./{esc(target_id)}/">Open the report</a>.</p>'
             f'<p class="meta"><a href="./{esc(target_id)}/evidence.json">evidence.json</a> · '
-            f'<a href="./{esc(target_id)}/summary.json">summary.json</a></p>'
+            f'<a href="./{esc(target_id)}/summary.json">summary.json</a> · '
+            f'<a href="./{esc(target_id)}/openacr.yaml">OpenACR draft YAML</a> · '
+            f'<a href="./{esc(target_id)}/openacr-validation.json">validation</a></p>'
             "</li>"
         )
     html.append("</ul>")

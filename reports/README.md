@@ -1,5 +1,11 @@
 # Generated evidence reports
 
+Each target also contains `openacr.yaml` and `openacr-validation.json`. The YAML
+is a schema- and catalog-validated OpenACR draft with no conformance values; it
+requires human completion and `openacr-validate --strict` before publication.
+The current drafts were also checked with the official `@civicactions/openacr`
+0.3.11 CLI (`Valid!`).
+
 `index.html` is the Pages landing page and cross-release matrix. It links to
 each target directory and to the machine-readable evidence. The Pages workflow
 deploys this landing page plus each report's `index.html`, `report.css`,

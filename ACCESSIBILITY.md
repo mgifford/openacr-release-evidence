@@ -19,7 +19,7 @@ colour-only status and no JavaScript requirement.
   `<noscript>` message and links to `evidence.json`.
 - Internal anchors: all matrix/report anchors resolve; headings do not skip
   levels; tables have captions and header scopes.
-- 70 offline tests pass, including landing/matrix and target-policy tests.
+- 79 offline tests pass, including landing/matrix and target-policy tests.
 
 These results do **not** establish conformance. axe-core covers only a subset of
 WCAG and cannot judge usefulness, focus order, reading order or real assistive

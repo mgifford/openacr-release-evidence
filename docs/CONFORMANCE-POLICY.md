@@ -34,6 +34,15 @@ reviewer identity or attributable review record. A new artifact must not
 silently overwrite a reviewed decision; it should mark it `stale` and request
 re-review.
 
+## OpenACR draft export
+
+`openacr.yaml` is a **validated skeleton**, not a conformance decision. It lists
+every catalog criterion and leaves components, adherence values and reviewer
+identity empty for human completion. Schema/catalog validity is not evidence
+that a claim is true. A reviewer must fill and independently approve the file;
+`--strict` rejects a draft, a placeholder reviewer and unfilled criteria. The
+official editor round-trip is not yet verified.
+
 ## Before a formal OpenACR
 
 1. Select the scope and exact installation, including the Composer lockfile where

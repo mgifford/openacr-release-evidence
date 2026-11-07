@@ -12,6 +12,7 @@ from .build import build
 from .collect import collect_issues
 from .git_release import commit_in_ref
 from .openacr import export_worksheet
+from .openacr_export import OpenACRError, export_openacr, validate_file
 from .release import analyze_collection
 from .report import render_landing, render_report
 from .adapters.drupal import fetch_issues as fetch_drupal
@@ -130,6 +131,18 @@ def main(argv=None):
     multi.add_argument("--cache-dir", default=".cache/acr-evidence")
     multi.add_argument("--refresh", action="store_true")
 
+    oa = sub.add_parser("openacr-export", help="Export and validate a draft OpenACR YAML skeleton")
+    oa.add_argument("--analysis", required=True)
+    oa.add_argument("--output", required=True)
+    oa.add_argument("--catalog", default=None)
+    oa.add_argument("--schema", default=None)
+
+    ov = sub.add_parser("openacr-validate", help="Validate an edited OpenACR YAML against the official schema and catalog")
+    ov.add_argument("--file", required=True)
+    ov.add_argument("--catalog", default=None)
+    ov.add_argument("--schema", default=None)
+    ov.add_argument("--strict", action="store_true", help="Require a reviewed, non-draft document with populated adherence")
+
     rep = sub.add_parser("report", help="Render a static, no-JavaScript evidence report")
     rep.add_argument("--analysis", required=True)
     rep.add_argument("--output", required=True)
@@ -234,6 +247,7 @@ def main(argv=None):
                 branch_cache=branch_cache,
             )
             render_report(artifact, target_dir)
+            export_openacr(artifact, target_dir)
             analyses.append(artifact)
         render_landing(analyses, output, targets)
         for artifact in analyses:
@@ -243,9 +257,24 @@ def main(argv=None):
                 f'{summary["fix_included_in_target"]} fixes in target'
             )
         print(f"Wrote {len(analyses)} reports and the cross-target matrix to {output}/index.html")
+    elif args.command == "openacr-export":
+        result = export_openacr(
+            load_json(args.analysis), args.output,
+            catalog_path=args.catalog, schema_path=args.schema,
+        )
+        print(f"Wrote validated draft OpenACR to {result['yaml']} ({result['validation']})")
+    elif args.command == "openacr-validate":
+        result = validate_file(
+            args.file, catalog_path=args.catalog, schema_path=args.schema, strict=args.strict
+        )
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+        if not result["valid"]:
+            raise SystemExit(1)
     elif args.command == "report":
-        render_report(load_json(args.analysis), args.output, css_source=args.css)
-        print(f"Wrote static evidence report to {args.output}/index.html")
+        analysis = load_json(args.analysis)
+        render_report(analysis, args.output, css_source=args.css)
+        export_openacr(analysis, args.output)
+        print(f"Wrote static evidence report and OpenACR draft to {args.output}/")
     elif args.command == "pipeline":
         manifest = load_json(args.manifest)
         output = Path(args.output)
@@ -261,6 +290,7 @@ def main(argv=None):
             output=output / "analysis.json", cache_dir=args.cache_dir, refresh=args.refresh,
         )
         render_report(analysis, output)
+        export_openacr(analysis, output)
         summary = analysis["summary"]
         print(
             f"Pipeline complete: {summary['findings']} findings, "
