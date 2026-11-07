@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install package
@@ -30,7 +30,7 @@ jobs:
           diff reports/drupal-core-11.4.12/summary.json /tmp/rebuilt-report/summary.json
           diff reports/drupal-core-11.4.12/report.css /tmp/rebuilt-report/report.css
       - name: Upload synthetic preview (not published)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: synthetic-evidence-preview
           path: site/
