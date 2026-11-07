@@ -102,6 +102,11 @@ only an allowlist of read commands and rejects unknown flags.
 - The target intentionally enables the **Default Admin** theme. Drupal 11.4.12’s
   stock standard profile still uses Claro and Olivero, so this is a declared
   configuration, not the stock default.
+- Four of the five Phase 2 cases are demonstrated by real issues: open barrier,
+  fix only on a newer branch, fix contained in the release, and unknown. The
+  `not-introduced` case is not present in this real sample; it is covered by
+  `test_feature_absent_is_not_introduced` with explicit feature-absence evidence.
+  A future sample should include a real 11.5-only feature issue.
 
 The evidence report is `reports/drupal-core-11.4.12/index.html`. It is a draft
 evidence report, **not** an ACR.
