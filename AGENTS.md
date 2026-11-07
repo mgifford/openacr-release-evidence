@@ -79,6 +79,10 @@ For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
 
+The VPAT-style narrative must keep every criterion `Not Evaluated` until a human
+reviewer assigns terms. Never convert issue counts or tags into Supports,
+Partially Supports or Does Not Support, and never remove the draft disclaimer.
+
 ATAG evidence is separate from WCAG/OpenACR. The `atag` tag marks a reported
 authoring-tool issue, not an ATAG result. Do not turn component candidates into
 Part A/B determinations, do not populate ATAG results automatically, and do not

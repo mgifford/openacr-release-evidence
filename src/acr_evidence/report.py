@@ -8,6 +8,7 @@ import shutil
 from html import escape
 from pathlib import Path
 
+from .model import digest_artifact
 from .wcag import (
     APPLICABILITY_LABELS,
     APPLICABILITY_MEANINGS,
@@ -166,6 +167,19 @@ def _issue_article(finding, issue):
     anchor = anchor_for(finding["issue_id"])
     nid = issue.get("source_id") if issue else finding["issue_id"]
     source = safe_link(finding.get("source_url"), f"Drupal.org issue #{nid}")
+    if finding.get("evidence_status") == "inventory":
+        return (
+            f'<article class="issue" data-evidence="inventory" id="{anchor}" aria-labelledby="{anchor}-title">'
+            f'<h3 id="{anchor}-title">{esc(finding.get("title") or finding["issue_id"])}</h3>'
+            f'<p class="issue-source">{source} · <span class="meta">{esc(finding["issue_id"])}</span></p>'
+            '<p class="meta"><strong>Metadata-only inventory record.</strong> No comments, merge requests or commit '
+            'history were collected. Read the source issue before relying on its applicability.</p>'
+            f'<p class="meta">Tracker status: {esc(finding.get("tracker_status_label") or "Unknown")} · '
+            f'Component: {esc(finding.get("component") or "Not recorded")} · '
+            f'Version: {esc(finding.get("tracker_version") or "Not recorded")} · '
+            f'Observed: {esc(finding.get("observed_at") or "Not recorded")}</p>'
+            "</article>"
+        )
     criteria = finding.get("wcag_candidates") or []
     criterion_links = ", ".join(
         f'<a href="#sc-{esc(criterion.replace(".", "-"))}">{esc(criterion)}</a>'
@@ -241,16 +255,49 @@ def _gaps(findings):
     return "".join(parts)
 
 
-def render_report(analysis, output_dir, css_source=None):
+def compact_artifact(analysis):
+    """Return the compact artifact published as evidence.json.
+
+    Full comments/descriptions remain in the rendered HTML and in the private
+    collection; the public evidence file keeps findings and issue identity so it
+    is small enough to publish five times without duplicating the queue.
+    """
+    keep_issue = (
+        "schema_version", "id", "project_scoped_id", "source_system", "source_project",
+        "source_id", "url", "title", "labels", "status", "created_at", "updated_at",
+        "component", "version", "priority", "category", "evidence_status",
+        "wcag_candidates", "atag", "provenance",
+    )
+    compact = {
+        key: value
+        for key, value in analysis.items()
+        if key not in ("issues", "findings", "evidence_digest", "compact")
+    }
+    compact["issues"] = [
+        {key: issue.get(key) for key in keep_issue if key in issue}
+        for issue in (analysis.get("issues") or [])
+    ]
+    compact["findings"] = [dict(finding) for finding in (analysis.get("findings") or [])]
+    compact["compact"] = True
+    compact["digest_scope"] = "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest"
+    compact["evidence_digest"] = digest_artifact(compact)
+    return compact
+
+
+def render_report(analysis, output_dir, css_source=None, full_collection=None):
     """Write index.html, report.css, evidence.json and summary.json."""
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
+    compact = compact_artifact(analysis)
+    analysis["evidence_digest"] = compact["evidence_digest"]
+    analysis["digest_scope"] = compact["digest_scope"]
     assessment = analysis.get("assessment") or {}
     target = analysis.get("target") or {}
     summary = analysis.get("summary") or {}
     collection = analysis.get("collection") or {}
     findings = analysis.get("findings") or []
-    issues = {issue.get("id"): issue for issue in (analysis.get("issues") or [])}
+    issue_source = (full_collection or {}).get("issues") if full_collection else None
+    issues = {issue.get("id"): issue for issue in (issue_source or analysis.get("issues") or [])}
     synthetic = bool(assessment.get("synthetic"))
     standard = ", ".join(assessment.get("standards") or []) or "Not recorded"
     installation = assessment.get("installation") or {}
@@ -377,8 +424,9 @@ def render_report(analysis, output_dir, css_source=None):
         html.append("</ul></section>")
     html.append("</section>")
     html.append('<section id="issues" aria-labelledby="issues-heading"><h2 id="issues-heading">Issue evidence</h2>')
-    html.append('<p>Each issue retains its source URL, tracker status, observation time, candidate criteria and release-specific reasoning. '
-                'Raw upstream responses are kept privately and are not published here.</p>')
+    html.append('<p>Detailed issues retain their source URL, tracker status, observation time, candidate criteria, comments and '
+                'release-specific reasoning. Inventory records are compact metadata rows. Raw upstream responses are kept privately '
+                'and are not published here.</p>')
     for finding in sorted(findings, key=lambda item: item.get("issue_id") or ""):
         html.append(_issue_article(finding, issues.get(finding.get("issue_id"))))
     html.append("</section>")
@@ -428,7 +476,9 @@ def render_report(analysis, output_dir, css_source=None):
                 '<a href="./evidence.json">evidence.json</a> · '
                 '<a href="./summary.json">summary.json</a> · '
                 '<a href="./openacr.yaml">openacr.yaml</a> · '
-                '<a href="./openacr-validation.json">openacr-validation.json</a>.</p>')
+                '<a href="./openacr-validation.json">openacr-validation.json</a> · '
+                '<a href="./vpat.html">VPAT-style draft narrative</a> · '
+                '<a href="./vpat.md">vpat.md</a>.</p>')
     html.append('<p class="meta">The OpenACR file is a schema- and catalog-validated <strong>draft skeleton</strong>. '
                 'It intentionally contains no conformance values and uses a placeholder reviewer; a human must '
                 'populate and approve it before publication. See <code>openacr-validation.json</code> for the check result.</p>')
@@ -447,7 +497,7 @@ def render_report(analysis, output_dir, css_source=None):
     source_css = Path(css_source) if css_source else Path(__file__).resolve().parent / "static" / "report.css"
     shutil.copyfile(source_css, output / "report.css")
     (output / "evidence.json").write_text(
-        json.dumps(analysis, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(compact, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     summary_doc = {
         "target": target,
@@ -544,7 +594,8 @@ def render_landing(analyses, output_dir, targets_config=None):
             f'<p class="meta"><a href="./{esc(target_id)}/evidence.json">evidence.json</a> · '
             f'<a href="./{esc(target_id)}/summary.json">summary.json</a> · '
             f'<a href="./{esc(target_id)}/openacr.yaml">OpenACR draft YAML</a> · '
-            f'<a href="./{esc(target_id)}/openacr-validation.json">validation</a></p>'
+            f'<a href="./{esc(target_id)}/openacr-validation.json">validation</a> · '
+            f'<a href="./{esc(target_id)}/vpat.html">VPAT-style draft</a></p>'
             "</li>"
         )
     html.append("</ul>")
@@ -608,9 +659,9 @@ def render_landing(analyses, output_dir, targets_config=None):
 
     html.append('<section aria-labelledby="what-heading"><h2 id="what-heading">What this site publishes</h2>')
     html.append('<p>Only an explicit allowlist is deployed: this landing page, each report HTML and stylesheet, '
-                '<code>evidence.json</code>, <code>summary.json</code>, the OpenACR draft files and the ATAG evidence files. '
-                'Raw CLI responses, private evidence snapshots, <code>collection.json</code> and <code>analysis.json</code> '
-                'are not published.</p>')
+                '<code>evidence.json</code>, <code>summary.json</code>, the VPAT-style draft, the OpenACR draft files '
+                'and the ATAG evidence files. Raw CLI responses, private evidence snapshots, <code>collection.json</code> '
+                'and <code>analysis.json</code> are not published.</p>')
     html.append("</section>")
 
     html.append('<section aria-labelledby="limits-heading"><h2 id="limits-heading">Limitations</h2><ul>')

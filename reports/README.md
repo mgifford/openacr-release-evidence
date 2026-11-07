@@ -11,6 +11,9 @@ contains `index.html`, `atag-report.json` (WAI ATAG Report Tool draft with every
 criterion `Not checked`), `atag-evidence.json` and `report.css`. It is linked
 from the landing page and the OpenACR draft notes.
 
+Each target also contains `vpat.html` and `vpat.md`, a VPAT-style narrative with
+every criterion `Not Evaluated`. It is a review draft, not a completed VPAT.
+
 `index.html` is the Pages landing page and cross-release matrix. It links to
 each target directory and to the machine-readable evidence. The Pages workflow
 deploys this landing page plus each report's `index.html`, `report.css`,

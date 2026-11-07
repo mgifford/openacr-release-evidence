@@ -31,7 +31,7 @@ python3 -m pip install -e '.[openacr]'
 
 # Export one target
 acr-evidence openacr-export \
-  --analysis reports/drupal-core-11.4.12/analysis.json \
+  --analysis reports/drupal-core-11.4.12/evidence.json \
   --output reports/drupal-core-11.4.12
 
 # Validate an edited file
@@ -47,7 +47,9 @@ write:
 - `openacr.yaml`
 - `openacr-validation.json`
 
-The report page links both files.
+The report page links both files and the VPAT-style narrative
+(`vpat.html`/`vpat.md`). The VPAT narrative assigns no term; every criterion is
+`Not Evaluated` until a reviewer completes it.
 
 ## What the draft contains
 

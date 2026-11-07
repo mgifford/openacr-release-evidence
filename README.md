@@ -78,11 +78,17 @@ shared collection is target-independent; the applicability analysis is not.
 This writes:
 
 - `reports/collection.json` — one normalized active-issue collection (428 issues; 30 with full comments/MRs, 398 inventory-only, provenance).
-- `reports/<target>/analysis.json` — target-specific applicability and commit evidence.
 - `reports/<target>/index.html` — static, no-JavaScript target report.
-- `reports/<target>/evidence.json`, `summary.json`, `report.css`.
+- `reports/<target>/evidence.json` — compact published evidence (findings and issue identity; comments/descriptions are not duplicated).
+- `reports/<target>/summary.json`, `report.css`.
+- `reports/<target>/vpat.html`, `vpat.md` — VPAT-style narrative draft.
+- `reports/<target>/openacr.yaml`, `openacr-validation.json` — validated OpenACR draft.
 - `reports/index.html` — landing page and cross-release matrix.
 - `private-evidence/raw/` — raw upstream snapshots (gitignored, mode `0600`).
+
+The report set is about **16 MB**, down from about 50 MB. The full per-target
+`analysis.json` is no longer committed; the published `evidence.json` is compact,
+and the detailed comments remain in the HTML report and the private collection.
 
 The single-target pipeline remains available:
 
@@ -171,7 +177,7 @@ command is called. Raw output is private and never published.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 90 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 93 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -209,7 +215,7 @@ It is a **draft skeleton**, not an approved ACR:
 
 ```sh
 acr-evidence openacr-export \
-  --analysis reports/drupal-core-11.4.12/analysis.json \
+  --analysis reports/drupal-core-11.4.12/evidence.json \
   --output reports/drupal-core-11.4.12
 acr-evidence openacr-validate \
   --file reports/drupal-core-11.4.12/openacr.yaml --strict
@@ -219,6 +225,25 @@ All five target drafts were checked with the official `@civicactions/openacr`
 0.3.11 CLI and returned `Valid!`. See
 [`docs/OPENACR-EXPORT.md`](docs/OPENACR-EXPORT.md) for the review workflow,
 validation rules and limitations. Editor round-trip testing is still pending.
+
+## VPAT-style narrative
+
+Each target also exports a human-readable VPAT/ACR-style narrative:
+
+- `vpat.html` — static, no-JavaScript narrative
+- `vpat.md` — editable Markdown source
+
+The narrative follows the VPAT shape: product information, term definitions,
+scope and method, executive summary, WCAG 2.2 A/AA remarks and explanations,
+non-WCAG chapters, ATAG separation, reviewer actions and limitations.
+
+It deliberately assigns **no VPAT term**. Every criterion is **Not Evaluated**
+until a named reviewer completes the evaluation. Issue counts are described as
+triage evidence, never converted into Supports, Partially Supports or Does Not
+Support. The narrative uses the same active-issue scope (428 issues; 30 detailed,
+398 inventory-only) and links back to the evidence report.
+
+See [`docs/VPAT-NARRATIVE.md`](docs/VPAT-NARRATIVE.md).
 
 ## ATAG 2.0 authoring evidence
 
@@ -292,11 +317,12 @@ The reviewed static reports are published from the `main` branch with
 - The workflow runs on `workflow_dispatch` and on a push to `main` that changes
   `reports/**` or the workflow itself.
 - It deploys only an explicit allowlist: the landing page plus each report's
-  `index.html`, `report.css`, `evidence.json` and `summary.json`.
+  `index.html`, `report.css`, `evidence.json`, `summary.json`, `vpat.html`,
+  `vpat.md`, OpenACR files and ATAG evidence files.
 - Raw evidence, `collection.json`, `analysis.json`, repository files and
   unpublished drafts are excluded and checked before upload. The published
-  `evidence.json` contains normalized public records; `provenance.raw_ref` is a
-  path reference only, not raw content.
+  `evidence.json` is compact normalized public evidence; `provenance.raw_ref` is
+  a path reference only, not raw content.
 - It refuses to publish an HTML report containing a client-side `<script>`.
 - Merging a PR that changes `reports/**` is the publication review event.
   Configure required reviewers on the `github-pages` environment for a second
@@ -344,6 +370,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Accessibility](ACCESSIBILITY.md)
 - [Contributing](CONTRIBUTING.md)
 - [OpenACR export](docs/OPENACR-EXPORT.md)
+- [VPAT-style narrative](docs/VPAT-NARRATIVE.md)
 - [ATAG 2.0 authoring evidence](docs/ATAG-EVIDENCE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Deferred sources](docs/FUTURE-SOURCES.md)
