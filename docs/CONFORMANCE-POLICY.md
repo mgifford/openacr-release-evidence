@@ -43,6 +43,15 @@ that a claim is true. A reviewer must fill and independently approve the file;
 `--strict` rejects a draft, a placeholder reviewer and unfilled criteria. The
 official editor round-trip is not yet verified.
 
+## ATAG evidence
+
+ATAG 2.0 authoring evidence is separate from WCAG/OpenACR. The `atag` issue tag
+is evidence of a reported authoring-tool problem, not an ATAG result. Part A/B
+tags and curated `config/atag-scope.json` mappings are authoritative; component
+candidates are triage only. The WAI ATAG Report Tool JSON contains no results
+(all 63 criteria `Not checked`). No ATAG conclusion may be copied into an OpenACR
+WCAG value, and no WCAG conclusion may be copied into ATAG.
+
 ## Before a formal OpenACR
 
 1. Select the scope and exact installation, including the Composer lockfile where

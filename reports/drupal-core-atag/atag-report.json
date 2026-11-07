@@ -1,0 +1,605 @@
+{
+  "evaluationData": {
+    "web-based-accessible-wcag": {
+      "id": "web-based-accessible-wcag",
+      "num": "A.1.1.1",
+      "handle": "Web-Based Accessible (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "non-web-a11y-guidelines": {
+      "id": "non-web-a11y-guidelines",
+      "num": "A.1.2.1",
+      "handle": "Accessibility Guidelines",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "non-web-platform-a11y-services": {
+      "id": "non-web-platform-a11y-services",
+      "num": "A.1.2.2",
+      "handle": "Platform Accessibility Services",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "alts-for-non-text": {
+      "id": "alts-for-non-text",
+      "num": "A.2.1.1",
+      "handle": "Text Alternatives for Rendered Non-Text Content",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "alts-for-time-based": {
+      "id": "alts-for-time-based",
+      "num": "A.2.1.2",
+      "handle": "Alternatives for Rendered Time-Based Media",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "editing-view-status-indicators": {
+      "id": "editing-view-status-indicators",
+      "num": "A.2.2.1",
+      "handle": "Editing-View Status Indicators",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "access-rendered-text-props": {
+      "id": "access-rendered-text-props",
+      "num": "A.2.2.2",
+      "handle": "Access to Rendered Text Properties",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "keyboard-access-minimum": {
+      "id": "keyboard-access-minimum",
+      "num": "A.3.1.1",
+      "handle": "Keyboard Access (Minimum)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "no-keyboard-traps": {
+      "id": "no-keyboard-traps",
+      "num": "A.3.1.2",
+      "handle": "No Keyboard Traps",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "efficient-keyboard-access": {
+      "id": "efficient-keyboard-access",
+      "num": "A.3.1.3",
+      "handle": "Efficient Keyboard Access",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "keyboard-access-enhanced": {
+      "id": "keyboard-access-enhanced",
+      "num": "A.3.1.4",
+      "handle": "Keyboard Access (Enhanced)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "customise-keyboard-access": {
+      "id": "customise-keyboard-access",
+      "num": "A.3.1.5",
+      "handle": "Customize Keyboard Access",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "present-keyboard-commands": {
+      "id": "present-keyboard-commands",
+      "num": "A.3.1.6",
+      "handle": "Present Keyboard Commands",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "auto-save-minimum": {
+      "id": "auto-save-minimum",
+      "num": "A.3.2.1",
+      "handle": "Auto-Save (minimum)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "timing-adjustable": {
+      "id": "timing-adjustable",
+      "num": "A.3.2.2",
+      "handle": "Timing Adjustable",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "static-input-components": {
+      "id": "static-input-components",
+      "num": "A.3.2.3",
+      "handle": "Static Input Components",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "content-edits-saved": {
+      "id": "content-edits-saved",
+      "num": "A.3.2.4",
+      "handle": "Content Edits Saved (Extended)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "static-view-option": {
+      "id": "static-view-option",
+      "num": "A.3.3.1",
+      "handle": "Static View Option",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "navigate-by-structure": {
+      "id": "navigate-by-structure",
+      "num": "A.3.4.1",
+      "handle": "Navigate by structure",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "navigate-by-relationships": {
+      "id": "navigate-by-relationships",
+      "num": "A.3.4.2",
+      "handle": "Navigate by Programmatic Relationships",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "text-search": {
+      "id": "text-search",
+      "num": "A.3.5.1",
+      "handle": "Text Search",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "independence-of-display": {
+      "id": "independence-of-display",
+      "num": "A.3.6.1",
+      "handle": "Independence of Display",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "save-settings": {
+      "id": "save-settings",
+      "num": "A.3.6.2",
+      "handle": "Save Settings",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "apply-platform-settings": {
+      "id": "apply-platform-settings",
+      "num": "A.3.6.3",
+      "handle": "Apply Platform Settings",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "preview-minimum": {
+      "id": "preview-minimum",
+      "num": "A.3.7.1",
+      "handle": "Preview (Minimum)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "preview-enhanced": {
+      "id": "preview-enhanced",
+      "num": "A.3.7.2",
+      "handle": "Preview (Enhanced)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "content-changes-reversible": {
+      "id": "content-changes-reversible",
+      "num": "A.4.1.1",
+      "handle": "Content Changes Reversible (Minimum)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "settings-change-confirm": {
+      "id": "settings-change-confirm",
+      "num": "A.4.1.2",
+      "handle": "Settings Change Confirmation",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "content-changes-reversible-enhanced": {
+      "id": "content-changes-reversible-enhanced",
+      "num": "A.4.1.3",
+      "handle": "Content Changes Reversible (Enhanced)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "describe-features": {
+      "id": "describe-features",
+      "num": "A.4.2.1",
+      "handle": "Describe Accessibility Features",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "document-all-features": {
+      "id": "document-all-features",
+      "num": "A.4.2.2",
+      "handle": "Document All Features",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "content-after-authoring-session": {
+      "id": "content-after-authoring-session",
+      "num": "B.1.1.1",
+      "handle": "Content Auto-Generation After Authoring Sessions (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "content-during-authoring-session": {
+      "id": "content-during-authoring-session",
+      "num": "B.1.1.2",
+      "handle": "Content Auto-Generation During Authoring Sessions (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "restructuring-recording-transformations": {
+      "id": "restructuring-recording-transformations",
+      "num": "B.1.2.1",
+      "handle": "Restructuring and Recoding Transformations",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "copy-paste-in-authoring-tool": {
+      "id": "copy-paste-in-authoring-tool",
+      "num": "B.1.2.2",
+      "handle": "Copy-Paste Inside Authoring Tool (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "optimizations-preserve-accessibility": {
+      "id": "optimizations-preserve-accessibility",
+      "num": "B.1.2.3",
+      "handle": "Optimizations Preserve Accessibility",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "text-alts-for-non-text-preserved": {
+      "id": "text-alts-for-non-text-preserved",
+      "num": "B.1.2.4",
+      "handle": "Text Alternatives for Non-Text Content are Preserved",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "accessible-content-possible": {
+      "id": "accessible-content-possible",
+      "num": "B.2.1.1",
+      "handle": "Ensure that accessible content production is possible. ",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "accessible-option-prominence": {
+      "id": "accessible-option-prominence",
+      "num": "B.2.2.1",
+      "handle": "Accessible Option Prominence (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "setting-accessibility-props": {
+      "id": "setting-accessibility-props",
+      "num": "B.2.2.2",
+      "handle": "Setting Accessibility Properties (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "alternative-content-editable": {
+      "id": "alternative-content-editable",
+      "num": "B.2.3.1",
+      "handle": "Alternative Content is Editable (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "automatic-repair-of-text-alts": {
+      "id": "automatic-repair-of-text-alts",
+      "num": "B.2.3.2",
+      "handle": "Automating Repair of Text Alternatives",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "save-for-reuse": {
+      "id": "save-for-reuse",
+      "num": "B.2.3.3",
+      "handle": "Save for Reuse",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "accessible-template-options": {
+      "id": "accessible-template-options",
+      "num": "B.2.4.1",
+      "handle": "Accessible Template Options (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "identify-template-accessibility": {
+      "id": "identify-template-accessibility",
+      "num": "B.2.4.2",
+      "handle": "Identify Template Accessibility",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "author-created-templates": {
+      "id": "author-created-templates",
+      "num": "B.2.4.3",
+      "handle": "Author-Created Templates",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "accessible-template-options-enhanced": {
+      "id": "accessible-template-options-enhanced",
+      "num": "B.2.4.4",
+      "handle": "Accessible Template Options (Enhanced)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "accessible-pre-authored-content-options": {
+      "id": "accessible-pre-authored-content-options",
+      "num": "B.2.5.1",
+      "handle": "Accessible Pre-Authored Content Options",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "identify-pre-authored-content-accessibility": {
+      "id": "identify-pre-authored-content-accessibility",
+      "num": "B.2.5.2",
+      "handle": "Identify Pre-Authored Content Accessibility",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "checking-assistance": {
+      "id": "checking-assistance",
+      "num": "B.3.1.1",
+      "handle": "Checking Assistance (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "help-authors-decide": {
+      "id": "help-authors-decide",
+      "num": "B.3.1.2",
+      "handle": "Help Authors Decide",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "help-authors-locate": {
+      "id": "help-authors-locate",
+      "num": "B.3.1.3",
+      "handle": "Help Authors Locate",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "status-report": {
+      "id": "status-report",
+      "num": "B.3.1.4",
+      "handle": "Status Report",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "programmatic-association-of-rules": {
+      "id": "programmatic-association-of-rules",
+      "num": "B.3.1.5",
+      "handle": "Programmatic Association of Results",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "repair-assistance": {
+      "id": "repair-assistance",
+      "num": "B.3.2.1",
+      "handle": "Repair Assistance (WCAG",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "features-active-by-default": {
+      "id": "features-active-by-default",
+      "num": "B.4.1.1",
+      "handle": "Features Active by Default",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "option-to-reactivate-features": {
+      "id": "option-to-reactivate-features",
+      "num": "B.4.1.2",
+      "handle": "Option to Reactivate Features",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "feature-deactivation-warning": {
+      "id": "feature-deactivation-warning",
+      "num": "B.4.1.3",
+      "handle": "Feature Deactivation Warning",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "feature-prominence": {
+      "id": "feature-prominence",
+      "num": "B.4.1.4",
+      "handle": "Feature Prominence",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AA",
+      "evaluatedLevel": "Level AA"
+    },
+    "model-practice": {
+      "id": "model-practice",
+      "num": "B.4.2.1",
+      "handle": "Model Practice (WCAG)",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A, AA, AAA",
+      "evaluatedLevel": "Level AA"
+    },
+    "feature-instructions": {
+      "id": "feature-instructions",
+      "num": "B.4.2.2",
+      "handle": "Feature Instructions",
+      "result": "Not checked",
+      "observations": null,
+      "level": "A",
+      "evaluatedLevel": "Level A"
+    },
+    "tutorial": {
+      "id": "tutorial",
+      "num": "B.4.2.3",
+      "handle": "Tutorial",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    },
+    "instruction-index": {
+      "id": "instruction-index",
+      "num": "B.4.2.4",
+      "handle": "Instruction Index",
+      "result": "Not checked",
+      "observations": null,
+      "level": "AAA",
+      "evaluatedLevel": "Level AAA"
+    }
+  },
+  "meta": {
+    "name": {
+      "id": "name",
+      "value": "Drupal Core 11.4.12 authoring tool — ATAG 2.0 draft"
+    },
+    "website": {
+      "id": "website",
+      "value": "https://mgifford.github.io/openacr-release-evidence/drupal-core-atag/"
+    },
+    "executiveSummary": {
+      "id": "executiveSummary",
+      "value": "DRAFT ATAG 2.0 authoring-tool evidence for Drupal Core 11.4.12. 50 ATAG-tagged issues were collected from Drupal.org. No ATAG conformance values are populated; every criterion is 'Not checked'. Evidence report: https://mgifford.github.io/openacr-release-evidence/drupal-core-atag/. A human reviewer must complete the ATAG Report Tool evaluation."
+    },
+    "evaluatorName": {
+      "id": "evaluatorName",
+      "value": "Unassigned reviewer (draft)"
+    },
+    "evaluatorOrg": {
+      "id": "evaluatorOrg",
+      "value": "Unassigned organization (draft)"
+    },
+    "evaluationId": {
+      "id": "evaluationId",
+      "value": "11.4.12-2026-11-07"
+    },
+    "conformanceTarget": {
+      "id": "conformanceTarget",
+      "value": "AA"
+    },
+    "createdWith": {
+      "id": "createdWith",
+      "value": "openacr-release-evidence 0.2.0"
+    }
+  }
+}

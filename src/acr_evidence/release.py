@@ -379,6 +379,7 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
         "created_at": issue.get("created_at"),
         "observed_at": (issue.get("provenance") or {}).get("retrieved_at"),
         "wcag_candidates": issue.get("wcag_candidates") or [],
+        "atag": issue.get("atag"),
         "applicability": applicability,
         "basis": basis,
         "reason": reason,

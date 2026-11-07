@@ -17,3 +17,9 @@ The vendored OpenACR schema and catalog in
 GSA/openacr), pinned to commit d6d18a9. They are CC0/public domain except W3C
 data files, which remain under the W3C Software and Document Notice and License.
 See the vendored LICENSE.md.
+
+ATAG 2.0 criteria data in `src/acr_evidence/standards/atag/` is derived from the
+W3C WAI ATAG Report Tool (https://github.com/w3c/wai-atag-report-tool), pinned to
+commit 40926feb7e09c7b486da4d502705cd1533fb11b2, under the W3C Software Notice
+and License. The ATAG 2.0 specification is a W3C Recommendation. See the vendored
+LICENSE and README.

@@ -40,6 +40,7 @@ STATUS_LABELS = {
     15: "Patch (to be ported)",
     16: "Postponed (maintainer needs more info)",
     17: "Closed (outdated)",
+    18: "Closed (cannot reproduce)",
 }
 
 STATUS_WORKFLOW = {
@@ -56,6 +57,7 @@ STATUS_WORKFLOW = {
     15: "patch",
     16: "postponed",
     17: "closed-other",
+    18: "closed-other",
 }
 
 PLACEHOLDER_RE = re.compile(

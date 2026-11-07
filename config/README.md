@@ -22,3 +22,11 @@ sentinels are rejected unless the manifest is explicitly synthetic.
 
 WCAG criterion labels used by the report live in `src/acr_evidence/wcag.py` and
 link to the W3C WCAG 2.2 Recommendation.
+
+## ATAG configuration
+
+- `drupal-core-atag.json` — ATAG collection manifest for the `atag` taxonomy tag
+  (5050) in the Drupal Core project.
+- `atag-scope.json` — optional curated issue → ATAG Part A/B mapping. Explicit
+  `atag-a`/`atag-b` tags take precedence; component candidates come from
+  `src/acr_evidence/standards/atag/component-scope.json`.

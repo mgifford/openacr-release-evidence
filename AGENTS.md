@@ -74,6 +74,12 @@ For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
 
+ATAG evidence is separate from WCAG/OpenACR. The `atag` tag marks a reported
+authoring-tool issue, not an ATAG result. Do not turn component candidates into
+Part A/B determinations, do not populate ATAG results automatically, and do not
+inherit ATAG conclusions into OpenACR (or the reverse). The WAI ATAG Report Tool
+JSON must keep every criterion `Not checked` until a human reviewer edits it.
+
 OpenACR exports must remain valid against the pinned schema and catalog. Do not
 populate adherence values automatically, do not use `not-evaluated` for A/AA,
 and do not replace the placeholder reviewer until a human has reviewed the file.

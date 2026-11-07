@@ -1,0 +1,35 @@
+{
+  "id": "drupal-core-atag",
+  "product": "Drupal Core",
+  "release": "11.4.12",
+  "ref": "11.4.12",
+  "synthetic": false,
+  "components": [
+    "Admin theme",
+    "language system",
+    "text.module",
+    "core",
+    "inline_form_errors.module",
+    "forms system",
+    "field system",
+    "theme system",
+    "javascript"
+  ],
+  "standards": ["ATAG 2.0", "WCAG 2.2 AA", "Section 508 (revised, 2017)"],
+  "installation": {
+    "drupal_core_version": "11.4.12",
+    "composer_lock_sha256": "d3d2949e659078fb4a121b1746576a7d49cb22dfdee80f622e3a0f50f3faa108",
+    "profile": "standard",
+    "enabled_modules": ["ckeditor5", "editor", "filter", "image", "media", "node", "text"],
+    "enabled_themes": {"default": "olivero", "admin": "default_admin"},
+    "configuration": "ATAG evidence collection from the Drupal Core Accessibility + atag issue queue. The target is the authoring tool UI, not a release conformance claim."
+  },
+  "collection": {
+    "project": "drupal",
+    "project_id": "3060",
+    "tag": "atag",
+    "tag_tid": "5050",
+    "max_issues": 50
+  },
+  "applicability_overrides": {}
+}

@@ -100,6 +100,8 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "No WCAG conformance values are populated. The author is a placeholder; a human reviewer "
         "must replace it, assess every criterion, select components and adherence levels, and run "
         "`acr-evidence openacr-validate --file openacr.yaml --strict` before publishing. "
+        "ATAG 2.0 authoring evidence is tracked separately at ../drupal-core-atag/index.html; "
+        "this OpenACR does not populate ATAG criteria or the authoring-tool component. "
         "This file has not been round-tripped through the Civicactions/GSA ACR editor."
     )
     return {
@@ -118,8 +120,9 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "version": 1,
         "notes": notes,
         "evaluation_methods_used": (
+            "No WCAG-EM sample was evaluated; this is an evidence-only skeleton, not a completed ACR. "
             "Public Drupal.org issue-queue evidence collection, commit/tag containment analysis, "
-            "and explicit WCAG candidate tag grouping. No manual keyboard, screen-reader or "
+            "and explicit WCAG candidate tag grouping were used. No manual keyboard, screen-reader or "
             "assistive-technology testing of the target was performed in this phase. A human "
             "reviewer must complete the evaluation and select the OpenACR adherence values."
         ),

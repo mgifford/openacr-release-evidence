@@ -172,7 +172,8 @@ command is called. Raw output is private and never published.
 - Multi-target analysis for supported releases, pre-release tags and the `main` development branch.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
-- 79 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
+- 86 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -180,6 +181,9 @@ command is called. Raw output is private and never published.
 
 - ACR Editor round-trip and reuse of the official OpenACR HTML renderer. The
   per-report YAML is schema/catalog-valid but has not been editor-tested.
+- Full WAI ATAG Report Tool edit/export sign-off and release-scoped ATAG
+  applicability. Import into the live tool was verified; the draft metadata
+  loaded and all 52 A/AA criteria showed `Not checked`.
 - Reproduction testing against an installed release; screen-reader, keyboard,
   zoom and forced-colors testing of the assessed release.
 - Composer lockfile resolution for Drupal CMS and LocalGov, and their manifests.
@@ -217,6 +221,31 @@ All five target drafts were checked with the official `@civicactions/openacr`
 0.3.11 CLI and returned `Valid!`. See
 [`docs/OPENACR-EXPORT.md`](docs/OPENACR-EXPORT.md) for the review workflow,
 validation rules and limitations. Editor round-trip testing is still pending.
+
+## ATAG 2.0 authoring evidence
+
+Drupal Core is an authoring tool as well as a CMS. ATAG 2.0 evidence is kept
+separate from the WCAG release matrix and the OpenACR draft:
+
+- [`reports/drupal-core-atag/`](reports/drupal-core-atag/) — static evidence report
+- `atag-report.json` — WAI ATAG Report Tool JSON draft with all 63 criteria
+  **Not checked**
+- `atag-evidence.json` — issue/Part A/Part B classification
+
+The ATAG tag is Drupal taxonomy term `5050`; the common Accessibility tag is
+`1101`. Part A/B tags (`atag-a`, `atag-b`, `atag-part-a`, `atag-part-b`) override
+the component triage hints. Issues without a part are shown as
+`ATAG-tagged, part not specified`.
+
+```sh
+acr-evidence atag-report \
+  --collection reports/drupal-core-atag/collection.json \
+  --output reports/drupal-core-atag
+```
+
+See [`docs/ATAG-EVIDENCE.md`](docs/ATAG-EVIDENCE.md). ATAG and WCAG are separate
+standards; neither inherits the other’s conclusions, and no ATAG conformance
+values are generated.
 
 ## Weekly snapshots
 
@@ -317,6 +346,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Accessibility](ACCESSIBILITY.md)
 - [Contributing](CONTRIBUTING.md)
 - [OpenACR export](docs/OPENACR-EXPORT.md)
+- [ATAG 2.0 authoring evidence](docs/ATAG-EVIDENCE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Deferred sources](docs/FUTURE-SOURCES.md)
 - [Third-party content notice](NOTICE)

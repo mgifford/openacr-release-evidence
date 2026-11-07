@@ -31,6 +31,8 @@ class PagesTests(unittest.TestCase):
         self.assertIn("./drupal-core-11.4.12/summary.json", html)
         self.assertIn("./drupal-core-11.4.12/openacr.yaml", html)
         self.assertIn("./drupal-core-11.4.12/openacr-validation.json", html)
+        self.assertIn("./drupal-core-atag/", html)
+        self.assertIn("./drupal-core-atag/atag-report.json", html)
         self.assertNotRegex(html, r'href="[^"]*(?:collection|analysis)\.json"')
         self.assertNotIn("supports", html.casefold())
 
@@ -52,7 +54,7 @@ class PagesTests(unittest.TestCase):
 
     def test_each_target_report_links_validated_openacr(self):
         for directory in sorted(REPORTS.glob("drupal-core-*")):
-            if not directory.is_dir():
+            if not directory.is_dir() or not (directory / "analysis.json").exists():
                 continue
             html = (directory / "index.html").read_text(encoding="utf-8")
             self.assertIn('href="./openacr.yaml"', html)
@@ -63,6 +65,24 @@ class PagesTests(unittest.TestCase):
             self.assertTrue(validation["draft"])
             self.assertEqual("openacr-0.1.0.json", validation["schema"])
             self.assertIn(validation["catalog"], (directory / "openacr.yaml").read_text(encoding="utf-8"))
+
+
+    def test_atag_report_files_and_wai_json(self):
+        directory = REPORTS / "drupal-core-atag"
+        html = (directory / "index.html").read_text(encoding="utf-8")
+        self.assertIn("ATAG 2.0", html)
+        self.assertIn('href="./atag-report.json"', html)
+        self.assertIn('href="./atag-evidence.json"', html)
+        self.assertNotIn("<script", html)
+        report = json.loads((directory / "atag-report.json").read_text(encoding="utf-8"))
+        evidence = json.loads((directory / "atag-evidence.json").read_text(encoding="utf-8"))
+        self.assertEqual(63, len(report["evaluationData"]))
+        self.assertEqual({"Not checked"}, {item["result"] for item in report["evaluationData"].values()})
+        self.assertIn("evaluationId", report["meta"])
+        self.assertEqual("2.0", evidence["atag_version"])
+        self.assertGreaterEqual(evidence["summary"]["issues"], 50)
+        for issue in evidence["issues"]:
+            self.assertTrue(issue["atag"]["is_atag"])
 
     def test_workflows_use_node24_actions(self):
         expected = {
@@ -91,6 +111,7 @@ class PagesTests(unittest.TestCase):
         self.assertIn("schedule:", weekly)
         self.assertIn("workflow_dispatch:", weekly)
         self.assertIn("acr-evidence multi", weekly)
+        self.assertIn("acr-evidence atag-report", weekly)
         self.assertIn("gh pr create", weekly)
         self.assertIn("contents: write", weekly)
         self.assertIn("pull-requests: write", weekly)
@@ -109,7 +130,7 @@ class PagesTests(unittest.TestCase):
         self.assertIn("collection.json", workflow)
         self.assertIn("analysis.json", workflow)
         self.assertIn("grep -RIn '<script'", workflow)
-        for name in ("index.html", "report.css", "evidence.json", "summary.json", "openacr.yaml", "openacr-validation.json"):
+        for name in ("index.html", "report.css", "evidence.json", "summary.json", "openacr.yaml", "openacr-validation.json", "atag-report.json", "atag-evidence.json"):
             self.assertIn(name, workflow)
 
 

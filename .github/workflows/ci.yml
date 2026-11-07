@@ -22,6 +22,14 @@ jobs:
         run: python -m compileall -q src
       - name: Build synthetic explorer
         run: acr-evidence build --manifest config/drupal-core-example.json --issues tests/fixtures/issues.json --output site
+      - name: Verify committed ATAG evidence is reproducible
+        run: |
+          if [ -f reports/drupal-core-atag/collection.json ]; then
+            acr-evidence atag-report               --collection reports/drupal-core-atag/collection.json               --output /tmp/rebuilt-atag
+            for file in index.html atag-report.json atag-evidence.json report.css; do
+              diff "reports/drupal-core-atag/$file" "/tmp/rebuilt-atag/$file"
+            done
+          fi
       - name: Verify committed target reports are reproducible
         run: |
           for dir in reports/drupal-core-*; do

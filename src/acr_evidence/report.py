@@ -543,6 +543,16 @@ def render_landing(analyses, output_dir, targets_config=None):
     html.append("</ul>")
     html.append('<p class="meta">Targets marked pre-release or development are not supported releases. Their findings can change at any commit and must not be presented as release conformance claims.</p>')
     html.append("</section>")
+    atag_dir = output / "drupal-core-atag"
+    if (atag_dir / "index.html").exists():
+        html.append('<section aria-labelledby="atag-heading"><h2 id="atag-heading">ATAG 2.0 authoring evidence</h2>')
+        html.append('<p>Drupal Core is also an authoring tool. ATAG-tagged issues are tracked separately from the WCAG release matrix; '
+                    'ATAG and WCAG results are not inherited from each other. The ATAG report separates Part A (authoring tool UI accessibility) '
+                    'from Part B (support for producing accessible content) and exports a WAI ATAG Report Tool JSON draft.</p>')
+        html.append('<p><a href="./drupal-core-atag/">Open the ATAG 2.0 authoring evidence</a> · '
+                    '<a href="./drupal-core-atag/atag-report.json">WAI ATAG Report Tool JSON</a> · '
+                    '<a href="./drupal-core-atag/atag-evidence.json">atag-evidence.json</a></p>')
+        html.append("</section>")
 
     html.append('<section aria-labelledby="matrix-heading"><h2 id="matrix-heading">Cross-release applicability matrix</h2>')
     html.append('<p>Each cell links to the issue-specific finding in that target report. A fix may be included in one target and absent from another; the table does not claim that an issue was reproduced on any target.</p>')

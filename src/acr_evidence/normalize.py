@@ -8,6 +8,7 @@ import re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 
+from .atag import classify as classify_atag
 from .model import (
     SCHEMA_VERSION,
     sha256_json,
@@ -219,6 +220,11 @@ def normalize_drupal_issue(
         "content_hash": sha256_json({"issue": issue, "node": node, "merge_requests": mrs}),
         "raw_ref": raw_ref,
     }
+    atag = classify_atag(
+        labels,
+        issue.get("field_issue_component") or node.get("field_issue_component"),
+        f"drupal:{nid}",
+    )
     return {
         "schema_version": SCHEMA_VERSION,
         "id": f"drupal:{nid}",
@@ -248,5 +254,6 @@ def normalize_drupal_issue(
         "comments": comments,
         "merge_requests": merge_requests,
         "wcag_candidates": wcag_from_labels(labels),
+        "atag": atag,
         "provenance": provenance,
     }
