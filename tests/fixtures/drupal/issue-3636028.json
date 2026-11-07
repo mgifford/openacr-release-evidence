@@ -1,0 +1,112 @@
+{
+  "_fixture": {
+    "note": "Trimmed from a live drupalorg-cli 0.15.0 response for offline regression tests. Comment list reduced; status, titles and identifiers are unmodified.",
+    "source_url": "https://www.drupal.org/node/3636028",
+    "retrieved_at": "2026-11-07T17:43:43Z",
+    "cli_version": "Drupal.org CLI 0.15.0"
+  },
+  "term_names": {
+    "1101": "Accessibility",
+    "195696": "wcag1411",
+    "317": "Usability"
+  },
+  "issue": {
+    "nid": "3636028",
+    "title": "The active accent color is not communicated",
+    "created": 1794034450,
+    "created_at": "2026-11-07T06:54:10+00:00",
+    "changed": 1794072368,
+    "changed_at": "2026-11-07T17:26:08+00:00",
+    "field_issue_status": 8,
+    "status": "Needs Review",
+    "field_issue_category": 1,
+    "category": "Bug report",
+    "field_issue_priority": 200,
+    "priority": "Normal",
+    "field_issue_version": "main",
+    "field_issue_component": "Admin theme",
+    "field_project_machine_name": "drupal",
+    "author_id": "3217695",
+    "body_value": "<!-- <h3 id=\"ai-disclosure\">Generated with the help of an LLM.</h3>--><h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>If you are getting to <code class=\"language-php\">admin/appearance/settings/default_admin</code> the active accent color is not apparent. In Safari you also don't see any outline at all for the active accent color when you are changing it (safari.mp4), while in Edge and Firefox you see an outline after you have selected and clicked your new desired accent color (edge.mp4, firefox.mp4). But that outline is hidden again in those two browsers as soon as you are changing any other setting on the page by click.  </p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<p>Go to <code class=\"language-php\">admin/appearance/settings/default_admin</code> and try to figure out which of the accent color circles is the active one. </p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Show an outline for the active accent color persistently.  </p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+    "comments": [
+      {
+        "cid": "16833641",
+        "body_value": "<p><a href=\"/u/leandro713\" title=\"View user profile.\" data-uid=\"1071832\" class=\"username\" rel=\"nofollow\">leandro713</a> made their first commit to this issue’s fork.</p>",
+        "created": 1794050284,
+        "author_id": "1071832",
+        "author_name": "leandro713"
+      },
+      {
+        "cid": "16833642",
+        "body_value": "<p>i would like to work on this</p>",
+        "created": 1794050295,
+        "author_id": "1071832",
+        "author_name": "leandro713"
+      },
+      {
+        "cid": "16833652",
+        "body_value": "<p>I’ve opened a merge request that adds a persistent visual indicator for the selected accent color while preserving the keyboard focus indicator. It updates the PostCSS source and compiled CSS. I manually tested the selection in light and dark modes.</p>",
+        "created": 1794053421,
+        "author_id": "1071832",
+        "author_name": "leandro713"
+      }
+    ]
+  },
+  "node": {
+    "nid": "3636028",
+    "title": "The active accent color is not communicated",
+    "url": "https://www.drupal.org/project/drupal/issues/3636028",
+    "field_project": {
+      "uri": "https://www.drupal.org/api-d7/node/3060",
+      "id": "3060",
+      "resource": "node",
+      "machine_name": "drupal"
+    },
+    "taxonomy_vocabulary_9": [
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/1101",
+        "id": "1101",
+        "resource": "taxonomy_term"
+      },
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/195696",
+        "id": "195696",
+        "resource": "taxonomy_term"
+      },
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/317",
+        "id": "317",
+        "resource": "taxonomy_term"
+      }
+    ],
+    "field_issue_status": "8",
+    "field_issue_version": "main",
+    "field_issue_component": "Admin theme",
+    "body": {
+      "value": "<!-- <h3 id=\"ai-disclosure\">Generated with the help of an LLM.</h3>--><h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>If you are getting to <code class=\"language-php\">admin/appearance/settings/default_admin</code> the active accent color is not apparent. In Safari you also don't see any outline at all for the active accent color when you are changing it (safari.mp4), while in Edge and Firefox you see an outline after you have selected and clicked your new desired accent color (edge.mp4, firefox.mp4). But that outline is hidden again in those two browsers as soon as you are changing any other setting on the page by click.  </p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<p>Go to <code class=\"language-php\">admin/appearance/settings/default_admin</code> and try to figure out which of the accent color circles is the active one. </p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Show an outline for the active accent color persistently.  </p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "summary": "",
+      "format": "1"
+    }
+  },
+  "merge_requests": {
+    "project_path": "project/drupal",
+    "issue_fork": "issue/drupal-3636028",
+    "merge_requests": [
+      {
+        "iid": 17724,
+        "title": "Issue #3636028: Indicate selected accent color",
+        "source_branch": "3636028-active-accent",
+        "target_branch": "main",
+        "state": "opened",
+        "web_url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17724",
+        "is_mergeable": true,
+        "author": "leandro713",
+        "updated_at": "2026-11-07T12:08:34.554Z",
+        "description": "Closes #3636028",
+        "has_conflicts": false,
+        "blocking_discussions_resolved": true,
+        "detailed_merge_status": "mergeable"
+      }
+    ]
+  }
+}

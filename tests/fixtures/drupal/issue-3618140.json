@@ -1,0 +1,127 @@
+{
+  "_fixture": {
+    "note": "Trimmed from a live drupalorg-cli 0.15.0 response for offline regression tests. Comment list reduced; status, titles and identifiers are unmodified.",
+    "source_url": "https://www.drupal.org/node/3618140",
+    "retrieved_at": "2026-11-07T17:43:25Z",
+    "cli_version": "Drupal.org CLI 0.15.0"
+  },
+  "term_names": {
+    "1101": "Accessibility",
+    "195696": "wcag1411",
+    "199149": "Needs Review Queue Initiative"
+  },
+  "issue": {
+    "nid": "3618140",
+    "title": "Improve the accessibility of focus outlines",
+    "created": 1787156751,
+    "created_at": "2026-08-19T16:25:51+00:00",
+    "changed": 1791040802,
+    "changed_at": "2026-10-03T15:20:02+00:00",
+    "field_issue_status": 7,
+    "status": "Closed (fixed)",
+    "field_issue_category": 1,
+    "category": "Bug report",
+    "field_issue_priority": 300,
+    "priority": "Major",
+    "field_issue_version": "11.x-dev",
+    "field_issue_component": "Admin theme",
+    "field_project_machine_name": "drupal",
+    "author_id": "456718",
+    "body_value": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>When Gin was moved over from contrib, it used box-shadow as a focus outline (Claro did so too for a while). </p>\n<p>However, the vast majority of this has been rectified in default_admin as the CSS was refactored. However there several places where box-shadows may still be utilized as focus outlines. These need to be removed.</p>\n<p>The focus outlines also utilize transparency, which can lead to potential issues. We need to refactor that out. </p>\n<p>Related is <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-1\"><a href=\"/project/drupal/issues/3619933\" title=\"Status: Active\">#3619933: Drupal Admin Theme Colors</a></span></p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<ul>\n<li>Remove transparency from focus outline</li>\n<li>Remove all box shadows from focus outline\n<ul>\n<li>There appears to be some left over in media library</li>\n<li>Remove the variables too</li>\n<li>Appears to be one box shadow focus state in dropbutton (line 636)</li>\n<li>Also form checkbox</li>\n</ul>\n</li>\n<li>Ensure default focus outline meets 3:1 contrast over lightest surface color</li>\n</ul>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<p>Regular foucs</p>\n<p>Before</p>\n<p><img src=\"/files/issues/2026-09-17/Screenshot%202026-09-17%20at%202.11.47%E2%80%AFPM.png\" width=\"125\" height=\"100\" alt=\"before regular\" /></p>\n<p>After</p>\n<p><img src=\"/files/issues/2026-09-17/Screenshot%202026-09-17%20at%202.11.51%E2%80%AFPM.png\" width=\"125\" height=\"100\" alt=\"after regular\" /></p>\n<p>High contrast </p>\n<p>Before</p>\n<p><img src=\"/files/issues/2026-09-17/Screenshot%202026-09-17%20at%202.13.24%E2%80%AFPM.png\" width=\"125\" height=\"100\" alt=\"before high\" /></p>\n<p>After</p>\n<p><img src=\"/files/issues/2026-09-17/Screenshot%202026-09-17%20at%202.13.27%E2%80%AFPM.png\" width=\"125\" height=\"100\" alt=\"after contrast\" /></p>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<p>NA</p>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<p>NA</p>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<p>NA</p>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>\n<p>NA</p>",
+    "comments": [
+      {
+        "cid": "16739455",
+        "body_value": "<p>IS needs updating for Default Admin.</p>\n<p>Notes:</p>\n<ul>\n<li>The values are defined in <code class=\"language-php\">variables.pcss.css</code>.</li>\n<li>The current focus indicator is an outline <em>and</em> a box shadow.</li>\n<li>Outline definition: <code class=\"language-php\">--focus-outline</code> (currently <code class=\"language-php\">var(--outline-size) solid var(--admin-color-focus)</code>).</li>\n<li>Outline width: <code class=\"language-php\">--outline-size</code> (currently <code class=\"language-php\">.25rem</code> / <code class=\"language-php\">4px</code>).</li>\n<li>Box shadow definition: <code class=\"language-php\">--focus-box-shadow</code> (currently <code class=\"language-php\">0 0 0 var(--focus-border-offset-size) var(--admin-color-bg-surface), 0 0 0 calc(var(--focus-border-size) + var(--focus-border-offset-size)) var(--admin-color-focus);</code>).</li>\n<li>The outline does appear in forced-colors mode, but it's still hard to perceive because it's just a thicker version of the button border.<br />\n<img src=\"/files/issues/2026-08-19/3618140-2-focus-outline-in-forced-colors.png\" width=\"259\" alt=\"Focused Appearance Light button in forced colors.\" /></li>\n</ul>",
+        "created": 1787157714,
+        "author_id": "456718",
+        "author_name": "kentr"
+      },
+      {
+        "cid": "16739552",
+        "body_value": null,
+        "created": 1787162371,
+        "author_id": "456718",
+        "author_name": "kentr"
+      },
+      {
+        "cid": "16739812",
+        "body_value": "<p><a href=\"/u/mgifford\" title=\"View user profile.\" data-uid=\"27930\" class=\"username\" rel=\"nofollow\">mgifford</a> made their first commit to this issue’s fork.</p>",
+        "created": 1787174052,
+        "author_id": "27930",
+        "author_name": "mgifford"
+      }
+    ]
+  },
+  "node": {
+    "nid": "3618140",
+    "title": "Improve the accessibility of focus outlines",
+    "url": "https://www.drupal.org/project/drupal/issues/3618140",
+    "field_project": {
+      "uri": "https://www.drupal.org/api-d7/node/3060",
+      "id": "3060",
+      "resource": "node",
+      "machine_name": "drupal"
+    },
+    "taxonomy_vocabulary_9": [
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/1101",
+        "id": "1101",
+        "resource": "taxonomy_term"
+      },
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/195696",
+        "id": "195696",
+        "resource": "taxonomy_term"
+      },
+      {
+        "uri": "https://www.drupal.org/api-d7/taxonomy_term/199149",
+        "id": "199149",
+        "resource": "taxonomy_term"
+      }
+    ],
+    "field_issue_status": "7",
+    "field_issue_version": "11.x-dev",
+    "field_issue_component": "Admin theme",
+    "body": {
+      "value": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>When Gin was moved over from contrib, it used box-shadow as a focus outline (Claro did so too for a while). </p>\n<p>However, the vast majority of this has been rectified in default_admin as the CSS was refactored. However there several places where box-shadows may still be utilized as focus outlines. These need to be removed.</p>\n<p>The focus outlines also utilize transparency, which can lead to potential issues. We need to refactor that out. </p>\n<p>Related is <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-1\"><a href=\"/project/drupal/issues/3619933\" title=\"Status: Active\">#3619933: Drupal Admin Theme Colors</a></span></p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<ul>\n<li>Remove transparency from focus outline</li>\n<li>Remove all box shadows from focus outline\n<ul>\n<li>There appears to be some left over in media library</li>\n<li>Remove the variables too</li>\n<li>Appears to be one box shadow focus state in dropbutton (line 636)</li>\n<li>Also form checkbox</li>\n</ul>\n</li>\n<li>Ensure default focus outline meets 3:1 contrast over lightest surface color</li>\n</ul>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<p>Regular foucs</p>\n<p>Before</p>\n<p><img src=\"/files/issues/2026-09-17/Screenshot%202026-09-17%20at%202.11.47%E2%80%AFPM.png\" width=\"125\" height=\"100\" alt=\"before regular\" /></p>\n<p>After</p>\n<p><img src=\"/files/issues/2026-09-17/Screenshot%202026-09-17%20at%202.11.51%E2%80%AFPM.png\" width=\"125\" height=\"100\" alt=\"after regular\" /></p>\n<p>High contrast </p>\n<p>Before</p>\n<p><img src=\"/files/issues/2026-09-17/Screenshot%202026-09-17%20at%202.13.24%E2%80%AFPM.png\" width=\"125\" height=\"100\" alt=\"before high\" /></p>\n<p>After</p>\n<p><img src=\"/files/issues/2026-09-17/Screenshot%202026-09-17%20at%202.13.27%E2%80%AFPM.png\" width=\"125\" height=\"100\" alt=\"after contrast\" /></p>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<p>NA</p>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<p>NA</p>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<p>NA</p>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>\n<p>NA</p>",
+      "summary": "",
+      "format": "1"
+    }
+  },
+  "merge_requests": {
+    "project_path": "project/drupal",
+    "issue_fork": "issue/drupal-3618140",
+    "merge_requests": [
+      {
+        "iid": 17191,
+        "title": "fix: #3618140 Improve the accessibility of focus outlines",
+        "source_branch": "3618140-11",
+        "target_branch": "11.x",
+        "state": "closed",
+        "web_url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17191",
+        "is_mergeable": true,
+        "author": "mherchel",
+        "updated_at": "2026-09-19T15:22:15.563Z",
+        "description": "By: kentr\nBy: mgifford\nBy: mherchel\nBy: smustgrave\nBy: gábor hojtsy\n(cherry picked from commit d946182a6cf844fd5f1ce6baf95bb4475bbcfac5)\n\nCloses #3618140",
+        "has_conflicts": false,
+        "blocking_discussions_resolved": true,
+        "detailed_merge_status": "not_open"
+      },
+      {
+        "iid": 16774,
+        "title": "better focus Drupal 3618140",
+        "source_branch": "drupal-3618140",
+        "target_branch": "main",
+        "state": "closed",
+        "web_url": "https://git.drupalcode.org/project/drupal/-/merge_requests/16774",
+        "is_mergeable": true,
+        "author": "mgifford",
+        "updated_at": "2026-09-18T15:48:34.484Z",
+        "description": "This AI generated patch:\n\n<ul>\n  <li>Adds a 2px gap between focus outlines and component borders.</li>\n  <li>Applies that offset to radios, checkboxes, media-library proxy indicators, and settings labels.</li>\n  <li>Replaces translucent focus colours with light/dark values meeting 3:1 against applicable theme surfaces.</li>\n  <li>Preserves the 4px real outline for Forced Colors.</li>\n  <li>Fixes custom focus colours using the obsolete --gin-color-focus token.</li>\n  <li>Updates generated CSS.</li>\n</ul>",
+        "has_conflicts": false,
+        "blocking_discussions_resolved": true,
+        "detailed_merge_status": "not_open"
+      }
+    ]
+  }
+}

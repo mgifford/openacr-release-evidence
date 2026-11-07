@@ -1,0 +1,198 @@
+{
+  "14b963ac9cefd866966a974ef32b13cccd709b18": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "09fef26db8c0dc115b0c3e6d503515f35a607d3a": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "b94ae96aff22317178150022e3b334511ea3fc7c": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "8dbb1309517827740a3748a10c0bd1cc80cddbdf": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "dd7ad22a7fe65ca53f462365b405eab13f68bea4": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "de104d38df194dce6484268abda87cf4acadbc2a": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "21ca2cb4a43f3beaa4f3d3bace62befda56f50d0": {
+    "tags": [
+      "11.4.12"
+    ],
+    "branches": [
+      "11.4.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "25a74d9df3e34c2f2d75262358b276a38258fb92": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "41b0b4eabf9ec5ebf79803739a26b49a6eaa06ef": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "851e26388d4e88164dff4a0c4c555acc4cf225b2": {
+    "tags": [
+      "11.4.12"
+    ],
+    "branches": [
+      "11.4.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "cc0175686ce55097b9d9d44ea23f486c64024b68": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "f48d0a58b3ec0395f486f1987a28811ab6ee5936": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "26c5498be9e51c8e92422193706e9bff8cd0099a": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "d946182a6cf844fd5f1ce6baf95bb4475bbcfac5": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "76901f49114d6ac4c021d4a7373ad17b8417988d": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "77b938beabd6c3285df38f399472c7d7f151b131": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "4096729546d52feaff7a7bcbf9f303a0f37e51aa": {
+    "tags": [
+      "11.4.12"
+    ],
+    "branches": [
+      "11.4.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "bfd8d4f20b164066bcf776039997ae982e2f4648": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "254a60c7c98822544ff4ebf854c8aab70182cd56": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "2f4325e8e0287cbadc98df5b7ec087c5ab0cacc5": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "263b7b802ce79a8717739969fb44cc55235b826f": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "67a1bbf5616a5134eb11630e7e0ab9d6705014f6": {
+    "tags": [
+      "11.4.12"
+    ],
+    "branches": [
+      "11.4.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "c49769d10e2a776b186235f9d0a62c189cbf404e": {
+    "tags": [],
+    "branches": [
+      "11.5.x",
+      "11.x"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  },
+  "1b8c7c58ee4786521f62bdaea0625fd4f2a3d9b9": {
+    "tags": [],
+    "branches": [
+      "12.0.x",
+      "main"
+    ],
+    "_note": "Derived from the public git.drupalcode.org refs API on 2026-11-07 for offline tests."
+  }
+}

@@ -3,6 +3,7 @@
   "product": "Drupal Core",
   "release": "EXAMPLE-UNVERIFIED",
   "ref": "refs/tags/example-only",
+  "synthetic": true,
   "components": ["core", "administration"],
   "standards": ["WCAG 2.2 AA"],
   "installation": {"composer_lock_sha256": null, "enabled_modules": [], "enabled_themes": [], "configuration": "unknown"},

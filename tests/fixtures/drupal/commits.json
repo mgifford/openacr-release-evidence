@@ -1,0 +1,295 @@
+{
+  "retrieved_at": "2026-11-07T17:43:55+00:00",
+  "branches": [
+    "11.4.x",
+    "11.5.x",
+    "11.x",
+    "main"
+  ],
+  "commits": [
+    {
+      "sha": "14b963ac9cefd866966a974ef32b13cccd709b18",
+      "short_id": "14b963ac",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-17T16:55:05.000-04:00",
+      "title": "fix: #3506333 Improve the perceptibility of contextual link buttons",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/14b963ac9cefd866966a974ef32b13cccd709b18"
+    },
+    {
+      "sha": "09fef26db8c0dc115b0c3e6d503515f35a607d3a",
+      "short_id": "09fef26d",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-17T16:32:14.000-04:00",
+      "title": "fix: #3506333 Improve the perceptibility of contextual link buttons",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/09fef26db8c0dc115b0c3e6d503515f35a607d3a"
+    },
+    {
+      "sha": "b94ae96aff22317178150022e3b334511ea3fc7c",
+      "short_id": "b94ae96a",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-17T08:49:27.000-07:00",
+      "title": "fix: #3583516 Breadcrumb separators are exposed to the accessibility tree",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/b94ae96aff22317178150022e3b334511ea3fc7c"
+    },
+    {
+      "sha": "8dbb1309517827740a3748a10c0bd1cc80cddbdf",
+      "short_id": "8dbb1309",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-17T13:19:26.000+01:00",
+      "title": "fix: #3583516 Breadcrumb separators are exposed to the accessibility tree",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/8dbb1309517827740a3748a10c0bd1cc80cddbdf"
+    },
+    {
+      "sha": "dd7ad22a7fe65ca53f462365b405eab13f68bea4",
+      "short_id": "dd7ad22a",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-15T11:32:28.000+03:00",
+      "title": "fix: #3612323 Do not use strong element for vertical tabs titles",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/dd7ad22a7fe65ca53f462365b405eab13f68bea4"
+    },
+    {
+      "sha": "de104d38df194dce6484268abda87cf4acadbc2a",
+      "short_id": "de104d38",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-15T11:32:18.000+03:00",
+      "title": "fix: #3612323 Do not use strong element for vertical tabs titles",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/de104d38df194dce6484268abda87cf4acadbc2a"
+    },
+    {
+      "sha": "21ca2cb4a43f3beaa4f3d3bace62befda56f50d0",
+      "short_id": "21ca2cb4",
+      "branch": "11.4.x",
+      "branches": [
+        "11.4.x"
+      ],
+      "created_at": "2026-09-15T11:19:19.000-04:00",
+      "title": "fix: #3617875 Better Dark Mode Support for Disabled Elements",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/21ca2cb4a43f3beaa4f3d3bace62befda56f50d0"
+    },
+    {
+      "sha": "25a74d9df3e34c2f2d75262358b276a38258fb92",
+      "short_id": "25a74d9d",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-04T14:36:48.000+01:00",
+      "title": "fix: #3617875 Better Dark Mode Support for Disabled Elements",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/25a74d9df3e34c2f2d75262358b276a38258fb92"
+    },
+    {
+      "sha": "41b0b4eabf9ec5ebf79803739a26b49a6eaa06ef",
+      "short_id": "41b0b4ea",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-04T14:36:28.000+01:00",
+      "title": "fix: #3617875 Better Dark Mode Support for Disabled Elements",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/41b0b4eabf9ec5ebf79803739a26b49a6eaa06ef"
+    },
+    {
+      "sha": "851e26388d4e88164dff4a0c4c555acc4cf225b2",
+      "short_id": "851e2638",
+      "branch": "11.4.x",
+      "branches": [
+        "11.4.x"
+      ],
+      "created_at": "2026-08-31T09:42:51.000+01:00",
+      "title": "fix: #3618127 Navigation top bar action buttons in dark mode have low color contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/851e26388d4e88164dff4a0c4c555acc4cf225b2"
+    },
+    {
+      "sha": "cc0175686ce55097b9d9d44ea23f486c64024b68",
+      "short_id": "cc017568",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-08-31T09:42:34.000+01:00",
+      "title": "fix: #3618127 Navigation top bar action buttons in dark mode have low color contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/cc0175686ce55097b9d9d44ea23f486c64024b68"
+    },
+    {
+      "sha": "f48d0a58b3ec0395f486f1987a28811ab6ee5936",
+      "short_id": "f48d0a58",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-08-31T09:40:48.000+01:00",
+      "title": "fix: #3618127 Navigation top bar action buttons in dark mode have low color contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/f48d0a58b3ec0395f486f1987a28811ab6ee5936"
+    },
+    {
+      "sha": "26c5498be9e51c8e92422193706e9bff8cd0099a",
+      "short_id": "26c5498b",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-19T11:18:34.000-04:00",
+      "title": "fix: #3618140 Improve the accessibility of focus outlines",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/26c5498be9e51c8e92422193706e9bff8cd0099a"
+    },
+    {
+      "sha": "d946182a6cf844fd5f1ce6baf95bb4475bbcfac5",
+      "short_id": "d946182a",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-18T16:46:49.000+01:00",
+      "title": "fix: #3618140 Improve the accessibility of focus outlines",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/d946182a6cf844fd5f1ce6baf95bb4475bbcfac5"
+    },
+    {
+      "sha": "76901f49114d6ac4c021d4a7373ad17b8417988d",
+      "short_id": "76901f49",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-04T14:33:28.000+01:00",
+      "title": "fix: #3619155 Forced-colors problems with admin theme's sidebar toggle button",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/76901f49114d6ac4c021d4a7373ad17b8417988d"
+    },
+    {
+      "sha": "77b938beabd6c3285df38f399472c7d7f151b131",
+      "short_id": "77b938be",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-04T14:32:44.000+01:00",
+      "title": "fix: #3619155 Forced-colors problems with admin theme's sidebar toggle button",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/77b938beabd6c3285df38f399472c7d7f151b131"
+    },
+    {
+      "sha": "4096729546d52feaff7a7bcbf9f303a0f37e51aa",
+      "short_id": "40967295",
+      "branch": "11.4.x",
+      "branches": [
+        "11.4.x"
+      ],
+      "created_at": "2026-09-17T13:24:20.000+01:00",
+      "title": "fix: #3621109 Skip link in dark mode has low color contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/4096729546d52feaff7a7bcbf9f303a0f37e51aa"
+    },
+    {
+      "sha": "bfd8d4f20b164066bcf776039997ae982e2f4648",
+      "short_id": "bfd8d4f2",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-17T13:24:07.000+01:00",
+      "title": "fix: #3621109 Skip link in dark mode has low color contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/bfd8d4f20b164066bcf776039997ae982e2f4648"
+    },
+    {
+      "sha": "254a60c7c98822544ff4ebf854c8aab70182cd56",
+      "short_id": "254a60c7",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-17T13:23:16.000+01:00",
+      "title": "fix: #3621109 Skip link in dark mode has low color contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/254a60c7c98822544ff4ebf854c8aab70182cd56"
+    },
+    {
+      "sha": "2f4325e8e0287cbadc98df5b7ec087c5ab0cacc5",
+      "short_id": "2f4325e8",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-15T21:06:43.000+03:00",
+      "title": "fix: #3621244 Navigation mobile sidebar close button in dark mode has low color contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/2f4325e8e0287cbadc98df5b7ec087c5ab0cacc5"
+    },
+    {
+      "sha": "263b7b802ce79a8717739969fb44cc55235b826f",
+      "short_id": "263b7b80",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-15T21:06:29.000+03:00",
+      "title": "fix: #3621244 Navigation mobile sidebar close button in dark mode has low color contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/263b7b802ce79a8717739969fb44cc55235b826f"
+    },
+    {
+      "sha": "67a1bbf5616a5134eb11630e7e0ab9d6705014f6",
+      "short_id": "67a1bbf5",
+      "branch": "11.4.x",
+      "branches": [
+        "11.4.x"
+      ],
+      "created_at": "2026-09-17T11:29:34.000+01:00",
+      "title": "fix: #3623388 Details summary summary has low contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/67a1bbf5616a5134eb11630e7e0ab9d6705014f6"
+    },
+    {
+      "sha": "c49769d10e2a776b186235f9d0a62c189cbf404e",
+      "short_id": "c49769d1",
+      "branch": "11.5.x",
+      "branches": [
+        "11.5.x",
+        "11.x"
+      ],
+      "created_at": "2026-09-17T11:29:19.000+01:00",
+      "title": "fix: #3623388 Details summary summary has low contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/c49769d10e2a776b186235f9d0a62c189cbf404e"
+    },
+    {
+      "sha": "1b8c7c58ee4786521f62bdaea0625fd4f2a3d9b9",
+      "short_id": "1b8c7c58",
+      "branch": "main",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "created_at": "2026-09-17T11:23:47.000+01:00",
+      "title": "fix: #3623388 Details summary summary has low contrast",
+      "url": "https://git.drupalcode.org/project/drupal/-/commit/1b8c7c58ee4786521f62bdaea0625fd4f2a3d9b9"
+    }
+  ]
+}
