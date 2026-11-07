@@ -90,13 +90,14 @@ only an allowlist of read commands and rejects unknown flags.
 
 ## 5. Live sample and release analysis
 
-- 15 Drupal Core issues explicitly tagged **Accessibility** (term 1101) were
-  collected: 250 comments, 15 issues with MR metadata, 8 with WCAG tags.
+- 20 Drupal Core issues explicitly tagged **Accessibility** (term 1101) were
+  collected: 743 comments, 20 issues with MR metadata, 12 with WCAG tags.
+  This meets Phase 1’s 20-issue threshold.
 - Target: Drupal Core **11.4.12**, tag commit `aa556ff1…`, composer.lock
   SHA-256 `d3d2949e…`.
 - 4 fixes were found contained in the tag:
   3621109, 3623388, 3618127, 3617875.
-- 9 were classified `likely-affected`; 2 remained `unknown` because they were
+- 14 were classified `likely-affected`; 2 remained `unknown` because they were
   reported after the release date and have no target-branch fix.
 - The target intentionally enables the **Default Admin** theme. Drupal 11.4.12’s
   stock standard profile still uses Claro and Olivero, so this is a declared
@@ -110,12 +111,12 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 59 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 60 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, release
   classification, commit deduplication, caching, failure isolation, report
   escaping/anchors/headings, the digest, placeholder guards, and the worksheet.
 - Report rendered with axe-core: **0 violations** at 1280 px; `scrollWidth` 320
-  at a 320 px viewport; all 46 internal anchors resolve; the skip link focuses
+  at a 320 px viewport; all 66 internal anchors resolve; the skip link focuses
   `MAIN`; `<details>` toggles by keyboard; no JavaScript is required.
 - Not done: screen-reader/manual keyboard testing of the report, full WCAG
   catalogue coverage, official OpenACR schema validation, live integration tests

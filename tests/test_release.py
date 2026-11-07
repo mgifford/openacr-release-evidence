@@ -98,6 +98,13 @@ class ReleaseClassificationTests(unittest.TestCase):
         self.assertEqual("unknown", finding["applicability"])
         self.assertEqual("tracker-closed-without-commit", finding["basis"])
 
+    def test_closed_non_fix_without_commit_is_unknown(self):
+        issue = normalized("3618140")
+        issue["status"] = {"code": 5, "label": "Closed (won't fix)", "workflow_state": "closed-other"}
+        finding = classify_issue(issue, MANIFEST, TARGET, [])
+        self.assertEqual("unknown", finding["applicability"])
+        self.assertEqual("closed-non-fix", finding["basis"])
+
     def test_feature_absent_is_not_introduced(self):
         finding = classify_issue(normalized("3618140"), MANIFEST, TARGET, [], feature_present=False)
         self.assertEqual("not-introduced", finding["applicability"])

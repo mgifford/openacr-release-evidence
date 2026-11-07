@@ -37,6 +37,7 @@ CRITERIA = {
     "3.1.1": ("Language of Page", "A", "#language-of-page"),
     "3.2.3": ("Consistent Navigation", "AA", "#consistent-navigation"),
     "3.2.4": ("Consistent Identification", "AA", "#consistent-identification"),
+    "3.2.5": ("Change on Request", "AAA", "#on-request"),
     "3.3.1": ("Error Identification", "A", "#error-identification"),
     "3.3.2": ("Labels or Instructions", "A", "#labels-or-instructions"),
     "3.3.3": ("Error Suggestion", "AA", "#error-suggestion"),

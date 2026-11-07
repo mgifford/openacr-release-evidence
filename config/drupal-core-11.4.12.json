@@ -8,7 +8,12 @@
     "Admin theme",
     "language system",
     "text.module",
-    "core"
+    "core",
+    "inline_form_errors.module",
+    "forms system",
+    "field system",
+    "theme system",
+    "javascript"
   ],
   "standards": [
     "WCAG 2.2 AA",
@@ -53,8 +58,14 @@
       "3636027",
       "3049125",
       "3635418",
-      "3619154"
-    ]
+      "3619154",
+      "3557245",
+      "2921627",
+      "3611423",
+      "3606655",
+      "2158943"
+    ],
+    "max_issues": 20
   },
   "applicability_overrides": {}
 }

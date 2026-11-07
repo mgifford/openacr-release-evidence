@@ -292,6 +292,13 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
             "The tracker marks the issue closed (fixed), but no matching fix commit was found. "
             "Do not infer release applicability from the tracker status alone."
         )
+    elif workflow in {"closed-other", "postponed"}:
+        applicability = "unknown"
+        basis = "closed-non-fix"
+        reason = (
+            "The tracker is closed for a non-fix reason (or postponed) and no matching release fix was found. "
+            "Do not infer that the barrier is present or absent in this release."
+        )
     elif after_release:
         applicability = "unknown"
         basis = "report-after-release"

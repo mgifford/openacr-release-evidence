@@ -15,13 +15,13 @@
 - [x] Normalized Drupal issue schema with comments, MRs, tags, provenance and
       content hashes
 - [x] Real Drupal Core collection through Drupal.org REST + drupalorg-cli 0.15.0
-- [x] 15 real accessibility issues, including comments and all MR states
+- [x] 20 real accessibility issues, including comments and all MR states
 - [x] Exact 11.4.12 tag, tag commit and composer.lock hash
 - [x] Commit index, deduplication and tag containment via the GitLab refs API
 - [x] Documented applicability rules and five required classification cases
       (the `not-introduced` case is covered by an offline classification test)
 - [x] Static, no-JavaScript, 320 px-safe evidence report
-- [x] 59 offline tests, trimmed real fixtures, caching and failure isolation
+- [x] 60 offline tests, trimmed real fixtures, caching and failure isolation
 - [ ] Reproduce `likely-affected` findings against an installed 11.4.12 site
 - [ ] Add a human review/approval workflow for `confirmed-fixed`
 - [ ] Add file/diff-level evidence for fixes that omit the issue number

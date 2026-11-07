@@ -20,7 +20,12 @@
       "Admin theme",
       "language system",
       "text.module",
-      "core"
+      "core",
+      "inline_form_errors.module",
+      "forms system",
+      "field system",
+      "theme system",
+      "javascript"
     ],
     "standards": [
       "WCAG 2.2 AA",
@@ -65,30 +70,44 @@
         "3636027",
         "3049125",
         "3635418",
-        "3619154"
-      ]
+        "3619154",
+        "3557245",
+        "2921627",
+        "3611423",
+        "3606655",
+        "2158943"
+      ],
+      "max_issues": 20
     }
   },
   "summary": {
-    "findings": 15,
+    "findings": 20,
     "by_applicability": {
       "confirmed-fixed": 4,
-      "likely-affected": 9,
+      "likely-affected": 14,
       "unknown": 2
     },
     "by_workflow": {
       "closed-fixed": 10,
-      "needs-review": 1,
-      "needs-work": 1,
+      "fixed-unverified": 1,
+      "needs-review": 4,
+      "needs-work": 2,
       "open": 1,
       "rtbc": 2
     },
     "fix_included_in_release": 4,
-    "needs_verification": 15,
-    "unmapped_criteria": 7,
+    "needs_verification": 20,
+    "unmapped_criteria": 8,
     "criteria": [
+      "1.1.1",
+      "1.3.1",
       "1.4.11",
-      "1.4.3"
+      "1.4.3",
+      "2.1.1",
+      "2.4.1",
+      "2.4.7",
+      "2.5.3",
+      "3.2.5"
     ],
     "commit_index": {
       "branches": [
@@ -102,7 +121,7 @@
       "retrieved_at": "2026-11-07T17:43:55+00:00"
     }
   },
-  "generated_at": "2026-11-07T17:52:39Z",
-  "evidence_digest": "f6840dc6947f42e01ab7a442aaad1b8d1aa4fe1f1321f517f400ffdb2315b303",
-  "manifest_digest": "62bfcdd8ceedff94a56110ca21245ba2ba667c4a504675a4d02629537e3319a4"
+  "generated_at": "2026-11-07T17:58:15Z",
+  "evidence_digest": "723197c14a08e57246be2bfb725ccb45a682acfab770f23bbbbfc779545144df",
+  "manifest_digest": "0a76552fc853e36afee76463c7c4d33bc4c03955fc5362186a9e580d67852e8a"
 }

@@ -8,7 +8,7 @@ and optional incomplete OpenACR authoring worksheet for human review.
 
 The first real draft report is
 [`reports/drupal-core-11.4.12/index.html`](reports/drupal-core-11.4.12/index.html),
-based on 15 real Drupal Core accessibility issues and the 11.4.12 tag. It is a
+based on 20 real Drupal Core accessibility issues and the 11.4.12 tag. It is a
 draft evidence report, **not an ACR**.
 
 ## Why it exists
@@ -97,7 +97,7 @@ Against Drupal Core **11.4.12** (tag commit `aa556ff1…`, composer.lock
 | Applicability | Findings |
 | --- | --- |
 | `confirmed-fixed` — fix commit contained in the tag, not behaviourally verified | 4 |
-| `likely-affected` — report evidence, not reproduced | 9 |
+| `likely-affected` — report evidence, not reproduced | 14 |
 | `unknown` — insufficient target-specific evidence | 2 |
 
 The four contained fixes are issues 3621109, 3623388, 3618127 and 3617875. The
@@ -151,7 +151,7 @@ command is called. Raw output is private and never published.
   grouping and explicit verification gaps.
 - Reproducible artifacts with a digest that can be recomputed from the published
   JSON, plus an input-manifest digest.
-- 59 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 60 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
