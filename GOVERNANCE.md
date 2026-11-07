@@ -64,8 +64,17 @@ client-side scripts.
 
 Merging a pull request that changes `reports/**` is the publication review
 event. For a second gate, configure required reviewers on the `github-pages`
-environment; a manual `workflow_dispatch` is also available. Approval of a
-release tag or a commit is not approval of an ACR.
+environment; a manual `workflow_dispatch` is also available. The weekly workflow
+opens a review PR rather than deploying; its generated branch must be reviewed
+like any other. Approval of a release tag or a commit is not approval of an ACR.
+
+## Multi-target and parent reports
+
+Each target (Drupal Core release line, pre-release, development branch, theme or
+distribution) is assessed independently. `parent_project` links a child ACR to a
+parent but never transfers the parent's conformance determinations. Claro,
+Olivero, Drupal CMS and LocalGov Drupal must each have their own scope, evidence
+and reviewer sign-off; a parent link explains responsibility, not inheritance.
 
 ## Transparency and sustainability
 

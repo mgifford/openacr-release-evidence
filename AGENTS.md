@@ -64,6 +64,12 @@ python3 -m compileall -q src
 If `python` is absent on your platform, use `python3`. Do not document a check
 that fails on a clean checkout.
 
+For multi-target changes, update `config/drupal-core-targets.json`, every
+target manifest, the matrix, and the tests together. A branch target is a
+development result, never a release claim. Do not mix major-version branches in
+a target's commit index. `parent_project` is a link, not permission to inherit
+upstream conformance.
+
 For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
@@ -76,6 +82,9 @@ For report or UI changes, also:
 - test keyboard-only operation, including the skip link and `<details>`;
 - confirm the report is readable with JavaScript disabled;
 - record manual screen-reader testing, or explicitly state that it was not done.
+
+Weekly snapshots must open a review PR; never auto-deploy an unreviewed
+snapshot. Merging the weekly PR is the publication review event.
 
 Document changes to semantics in `docs/EVIDENCE-MODEL.md`, changes to risk or
 editorial decisions in `docs/CONFORMANCE-POLICY.md`, and consequential design

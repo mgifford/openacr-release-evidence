@@ -1,0 +1,42 @@
+{
+  "id": "drupal-core-12.0.0-beta2",
+  "product": "Drupal Core",
+  "release": "12.0.0-beta2",
+  "ref": "12.0.0-beta2",
+  "synthetic": false,
+  "components": [
+    "Admin theme",
+    "language system",
+    "text.module",
+    "core",
+    "inline_form_errors.module",
+    "forms system",
+    "field system",
+    "theme system",
+    "javascript"
+  ],
+  "standards": [
+    "WCAG 2.2 AA",
+    "Section 508 (revised, 2017)"
+  ],
+  "installation": {
+    "drupal_core_version": "12.0.0-beta2",
+    "composer_lock_sha256": "bae16e4ae05f4109da7c5e828086dba89ca86da5ada7fe203d7133f38503acb0",
+    "profile": "standard",
+    "enabled_modules": [
+      "field",
+      "field_ui",
+      "filter",
+      "inline_form_errors",
+      "language",
+      "node",
+      "text"
+    ],
+    "enabled_themes": {
+      "default": "default_admin",
+      "admin": "default_admin"
+    },
+    "configuration": "Drupal 12.0.0-beta2 standard profile. Default Admin is the default and administration theme; Claro and Olivero are no longer core themes at this tag. This is a pre-release target, not a supported release."
+  },
+  "applicability_overrides": {}
+}

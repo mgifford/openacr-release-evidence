@@ -1,7 +1,7 @@
 {
   "schema_version": "0.2.0",
   "artifact_type": "drupal-release-applicability-draft",
-  "disclaimer": "Draft release applicability evidence. Not a WCAG conformance report or certification. No issue status, commit inclusion or model output establishes conformance.",
+  "disclaimer": "Draft target applicability evidence. Not a WCAG conformance report or certification. No issue status, commit inclusion or model output establishes conformance.",
   "assessment": {
     "id": "drupal-core-11.4.12-default-admin",
     "product": "Drupal Core",
@@ -73,17 +73,23 @@
     }
   },
   "target": {
-    "assessment_id": "drupal-core-11.4.12-default-admin",
+    "assessment_id": "drupal-core-11.4.12",
     "product": "Drupal Core",
     "release": "11.4.12",
     "ref": "11.4.12",
+    "ref_type": "tag",
+    "ref_label": "tag 11.4.12",
     "tag": "11.4.12",
     "branch": "11.4.x",
     "tag_commit": "aa556ff13046baca57d5f69fac25c96fc30b4f43",
     "tag_commit_short": "aa556ff1",
-    "tag_date": "2026-11-06T16:05:10.000-06:00"
+    "tag_date": "2026-11-06T16:05:10.000-06:00",
+    "support_status": "supported",
+    "release_line": "11.4.x",
+    "parent_project": null,
+    "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
   },
-  "generated_at": "2026-11-07T17:58:15Z",
+  "generated_at": "2026-11-07T18:57:45Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -117,13 +123,13 @@
       "component": null,
       "since": null
     },
-    "collection_digest": "8cbb0e922c8f290e0d0a15fb4e03739731c62fa30b6950256a2a9211e72a1b37",
+    "collection_digest": "a8167713347c541311c25b6dd0484917fe81541a88094b0b6e2e5aaaf40dbc2b",
     "summary": {
       "requested": 20,
       "retrieved_at": "2026-11-07T17:58:14Z",
       "collected": 20,
-      "cached": 15,
-      "fetched": 5,
+      "cached": 20,
+      "fetched": 0,
       "failed": 0,
       "with_merge_requests": 20,
       "with_wcag_tags": 12,
@@ -10393,12 +10399,15 @@
   "findings": [
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:2158943",
       "source_url": "https://www.drupal.org/project/drupal/issues/2158943",
@@ -10414,7 +10423,8 @@
       ],
       "applicability": "likely-affected",
       "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in the target release. This is not a reproduction result; the barrier likely affects the release and requires review.",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 11.4.12. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -10487,12 +10497,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:2921627",
       "source_url": "https://www.drupal.org/project/drupal/issues/2921627",
@@ -10509,7 +10522,8 @@
       ],
       "applicability": "likely-affected",
       "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in the target release. This is not a reproduction result; the barrier likely affects the release and requires review.",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 11.4.12. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -10552,12 +10566,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3049125",
       "source_url": "https://www.drupal.org/project/drupal/issues/3049125",
@@ -10571,7 +10588,8 @@
       "wcag_candidates": [],
       "applicability": "likely-affected",
       "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in the target release. This is not a reproduction result; the barrier likely affects the release and requires review.",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 11.4.12. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -10599,12 +10617,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3506333",
       "source_url": "https://www.drupal.org/project/drupal/issues/3506333",
@@ -10620,7 +10641,8 @@
       ],
       "applicability": "likely-affected",
       "basis": "git-non-inclusion",
-      "reason": "Fix commit(s) 14b963ac, 09fef26d were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this release; reproduce it on the installed release before confirming.",
+      "reason": "Fix commit(s) 14b963ac, 09fef26d were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [
         {
@@ -10634,6 +10656,7 @@
           ],
           "created_at": "2026-09-17T16:55:05.000-04:00",
           "title": "fix: #3506333 Improve the perceptibility of contextual link buttons",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -10647,6 +10670,7 @@
           ],
           "created_at": "2026-09-17T16:32:14.000-04:00",
           "title": "fix: #3506333 Improve the perceptibility of contextual link buttons",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -10692,12 +10716,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3557245",
       "source_url": "https://www.drupal.org/project/drupal/issues/3557245",
@@ -10715,7 +10742,8 @@
       ],
       "applicability": "likely-affected",
       "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in the target release. This is not a reproduction result; the barrier likely affects the release and requires review.",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 11.4.12. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -10758,12 +10786,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3583516",
       "source_url": "https://www.drupal.org/project/drupal/issues/3583516",
@@ -10777,7 +10808,8 @@
       "wcag_candidates": [],
       "applicability": "likely-affected",
       "basis": "git-non-inclusion",
-      "reason": "Fix commit(s) b94ae96a, 8dbb1309 were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this release; reproduce it on the installed release before confirming.",
+      "reason": "Fix commit(s) b94ae96a, 8dbb1309 were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [
         {
@@ -10791,6 +10823,7 @@
           ],
           "created_at": "2026-09-17T08:49:27.000-07:00",
           "title": "fix: #3583516 Breadcrumb separators are exposed to the accessibility tree",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -10804,6 +10837,7 @@
           ],
           "created_at": "2026-09-17T13:19:26.000+01:00",
           "title": "fix: #3583516 Breadcrumb separators are exposed to the accessibility tree",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -10864,12 +10898,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3606655",
       "source_url": "https://www.drupal.org/project/drupal/issues/3606655",
@@ -10883,7 +10920,8 @@
       "wcag_candidates": [],
       "applicability": "likely-affected",
       "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in the target release. This is not a reproduction result; the barrier likely affects the release and requires review.",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 11.4.12. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -10911,12 +10949,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3611423",
       "source_url": "https://www.drupal.org/project/drupal/issues/3611423",
@@ -10932,7 +10973,8 @@
       ],
       "applicability": "likely-affected",
       "basis": "git-non-inclusion",
-      "reason": "Fix commit(s) 464685c4, 39f1fd49, eef285cd were found on 11.5.x, 11.x, main but are not contained in tag 11.4.12. The barrier likely remains in this release; reproduce it on the installed release before confirming.",
+      "reason": "Fix commit(s) 464685c4, 39f1fd49, eef285cd were found on 11.5.x, 11.x, main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [
         {
@@ -10945,6 +10987,7 @@
           ],
           "created_at": "2026-11-05T10:13:31.000+00:00",
           "title": "fix: #3611423 FieldStorageReuseForm aria-label \"Reuse\" vs visible \"Re-use\"",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -10957,6 +11000,7 @@
           ],
           "created_at": "2026-11-05T10:13:27.000+00:00",
           "title": "fix: #3611423 FieldStorageReuseForm aria-label \"Reuse\" vs visible \"Re-use\"",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -10969,6 +11013,7 @@
           ],
           "created_at": "2026-11-05T10:13:12.000+00:00",
           "title": "fix: #3611423 FieldStorageReuseForm aria-label \"Reuse\" vs visible \"Re-use\"",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11000,12 +11045,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3612323",
       "source_url": "https://www.drupal.org/project/drupal/issues/3612323",
@@ -11019,7 +11067,8 @@
       "wcag_candidates": [],
       "applicability": "likely-affected",
       "basis": "git-non-inclusion",
-      "reason": "Fix commit(s) dd7ad22a, de104d38 were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this release; reproduce it on the installed release before confirming.",
+      "reason": "Fix commit(s) dd7ad22a, de104d38 were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [
         {
@@ -11033,6 +11082,7 @@
           ],
           "created_at": "2026-09-15T11:32:28.000+03:00",
           "title": "fix: #3612323 Do not use strong element for vertical tabs titles",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -11046,6 +11096,7 @@
           ],
           "created_at": "2026-09-15T11:32:18.000+03:00",
           "title": "fix: #3612323 Do not use strong element for vertical tabs titles",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11076,12 +11127,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3617875",
       "source_url": "https://www.drupal.org/project/drupal/issues/3617875",
@@ -11096,6 +11150,7 @@
       "applicability": "confirmed-fixed",
       "basis": "git-inclusion",
       "reason": "Fix commit(s) 21ca2cb4 are contained in tag 11.4.12 (aa556ff1). Commit inclusion is not behavioural verification on the installed release; an independent reviewer must confirm the fix.",
+      "fix_included_in_target": true,
       "fix_included_in_release": true,
       "commits": [
         {
@@ -11108,6 +11163,7 @@
           ],
           "created_at": "2026-09-15T11:19:19.000-04:00",
           "title": "fix: #3617875 Better Dark Mode Support for Disabled Elements",
+          "in_target": true,
           "in_release": true
         },
         {
@@ -11121,6 +11177,7 @@
           ],
           "created_at": "2026-09-04T14:36:48.000+01:00",
           "title": "fix: #3617875 Better Dark Mode Support for Disabled Elements",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -11134,6 +11191,7 @@
           ],
           "created_at": "2026-09-04T14:36:28.000+01:00",
           "title": "fix: #3617875 Better Dark Mode Support for Disabled Elements",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11165,12 +11223,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3618127",
       "source_url": "https://www.drupal.org/project/drupal/issues/3618127",
@@ -11187,6 +11248,7 @@
       "applicability": "confirmed-fixed",
       "basis": "git-inclusion",
       "reason": "Fix commit(s) 851e2638 are contained in tag 11.4.12 (aa556ff1). Commit inclusion is not behavioural verification on the installed release; an independent reviewer must confirm the fix.",
+      "fix_included_in_target": true,
       "fix_included_in_release": true,
       "commits": [
         {
@@ -11199,6 +11261,7 @@
           ],
           "created_at": "2026-08-31T09:42:51.000+01:00",
           "title": "fix: #3618127 Navigation top bar action buttons in dark mode have low color contrast",
+          "in_target": true,
           "in_release": true
         },
         {
@@ -11212,6 +11275,7 @@
           ],
           "created_at": "2026-08-31T09:42:34.000+01:00",
           "title": "fix: #3618127 Navigation top bar action buttons in dark mode have low color contrast",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -11225,6 +11289,7 @@
           ],
           "created_at": "2026-08-31T09:40:48.000+01:00",
           "title": "fix: #3618127 Navigation top bar action buttons in dark mode have low color contrast",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11256,12 +11321,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3618140",
       "source_url": "https://www.drupal.org/project/drupal/issues/3618140",
@@ -11277,7 +11345,8 @@
       ],
       "applicability": "likely-affected",
       "basis": "git-non-inclusion",
-      "reason": "Fix commit(s) 26c5498b, d946182a were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this release; reproduce it on the installed release before confirming.",
+      "reason": "Fix commit(s) 26c5498b, d946182a were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [
         {
@@ -11291,6 +11360,7 @@
           ],
           "created_at": "2026-09-19T11:18:34.000-04:00",
           "title": "fix: #3618140 Improve the accessibility of focus outlines",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -11304,6 +11374,7 @@
           ],
           "created_at": "2026-09-18T16:46:49.000+01:00",
           "title": "fix: #3618140 Improve the accessibility of focus outlines",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11349,12 +11420,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3619154",
       "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
@@ -11368,7 +11442,8 @@
       "wcag_candidates": [],
       "applicability": "likely-affected",
       "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in the target release. This is not a reproduction result; the barrier likely affects the release and requires review.",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 11.4.12. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -11396,12 +11471,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3619155",
       "source_url": "https://www.drupal.org/project/drupal/issues/3619155",
@@ -11415,7 +11493,8 @@
       "wcag_candidates": [],
       "applicability": "likely-affected",
       "basis": "git-non-inclusion",
-      "reason": "Fix commit(s) 76901f49, 77b938be were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this release; reproduce it on the installed release before confirming.",
+      "reason": "Fix commit(s) 76901f49, 77b938be were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [
         {
@@ -11429,6 +11508,7 @@
           ],
           "created_at": "2026-09-04T14:33:28.000+01:00",
           "title": "fix: #3619155 Forced-colors problems with admin theme's sidebar toggle button",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -11442,6 +11522,7 @@
           ],
           "created_at": "2026-09-04T14:32:44.000+01:00",
           "title": "fix: #3619155 Forced-colors problems with admin theme's sidebar toggle button",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11472,12 +11553,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3621109",
       "source_url": "https://www.drupal.org/project/drupal/issues/3621109",
@@ -11494,6 +11578,7 @@
       "applicability": "confirmed-fixed",
       "basis": "git-inclusion",
       "reason": "Fix commit(s) 40967295 are contained in tag 11.4.12 (aa556ff1). Commit inclusion is not behavioural verification on the installed release; an independent reviewer must confirm the fix.",
+      "fix_included_in_target": true,
       "fix_included_in_release": true,
       "commits": [
         {
@@ -11506,6 +11591,7 @@
           ],
           "created_at": "2026-09-17T13:24:20.000+01:00",
           "title": "fix: #3621109 Skip link in dark mode has low color contrast",
+          "in_target": true,
           "in_release": true
         },
         {
@@ -11519,6 +11605,7 @@
           ],
           "created_at": "2026-09-17T13:24:07.000+01:00",
           "title": "fix: #3621109 Skip link in dark mode has low color contrast",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -11532,6 +11619,7 @@
           ],
           "created_at": "2026-09-17T13:23:16.000+01:00",
           "title": "fix: #3621109 Skip link in dark mode has low color contrast",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11563,12 +11651,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3621244",
       "source_url": "https://www.drupal.org/project/drupal/issues/3621244",
@@ -11584,7 +11675,8 @@
       ],
       "applicability": "likely-affected",
       "basis": "git-non-inclusion",
-      "reason": "Fix commit(s) 2f4325e8, 263b7b80 were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this release; reproduce it on the installed release before confirming.",
+      "reason": "Fix commit(s) 2f4325e8, 263b7b80 were found on 11.5.x, 11.x, 12.0.x, main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [
         {
@@ -11598,6 +11690,7 @@
           ],
           "created_at": "2026-09-15T21:06:43.000+03:00",
           "title": "fix: #3621244 Navigation mobile sidebar close button in dark mode has low color contrast",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -11611,6 +11704,7 @@
           ],
           "created_at": "2026-09-15T21:06:29.000+03:00",
           "title": "fix: #3621244 Navigation mobile sidebar close button in dark mode has low color contrast",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11641,12 +11735,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3623388",
       "source_url": "https://www.drupal.org/project/drupal/issues/3623388",
@@ -11663,6 +11760,7 @@
       "applicability": "confirmed-fixed",
       "basis": "git-inclusion",
       "reason": "Fix commit(s) 67a1bbf5 are contained in tag 11.4.12 (aa556ff1). Commit inclusion is not behavioural verification on the installed release; an independent reviewer must confirm the fix.",
+      "fix_included_in_target": true,
       "fix_included_in_release": true,
       "commits": [
         {
@@ -11675,6 +11773,7 @@
           ],
           "created_at": "2026-09-17T11:29:34.000+01:00",
           "title": "fix: #3623388 Details summary summary has low contrast",
+          "in_target": true,
           "in_release": true
         },
         {
@@ -11688,6 +11787,7 @@
           ],
           "created_at": "2026-09-17T11:29:19.000+01:00",
           "title": "fix: #3623388 Details summary summary has low contrast",
+          "in_target": false,
           "in_release": false
         },
         {
@@ -11701,6 +11801,7 @@
           ],
           "created_at": "2026-09-17T11:23:47.000+01:00",
           "title": "fix: #3623388 Details summary summary has low contrast",
+          "in_target": false,
           "in_release": false
         }
       ],
@@ -11732,12 +11833,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3635418",
       "source_url": "https://www.drupal.org/project/drupal/issues/3635418",
@@ -11751,7 +11855,8 @@
       "wcag_candidates": [],
       "applicability": "likely-affected",
       "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in the target release. This is not a reproduction result; the barrier likely affects the release and requires review.",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 11.4.12. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -11779,12 +11884,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3636027",
       "source_url": "https://www.drupal.org/project/drupal/issues/3636027",
@@ -11800,7 +11908,8 @@
       ],
       "applicability": "unknown",
       "basis": "report-after-release",
-      "reason": "The issue was reported after the target release date (2026-11-06T16:05:10.000-06:00) and no target-branch fix was found. It may describe a later regression or a pre-existing barrier; reproduce on the target release before assigning applicability.",
+      "reason": "The issue was reported after the target date (2026-11-06T16:05:10.000-06:00) and no fix was found in tag 11.4.12. It may describe a later regression or a pre-existing barrier; reproduce on the target before assigning applicability.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -11828,12 +11937,15 @@
     },
     {
       "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-11.4.12-default-admin",
+      "assessment_id": "drupal-core-11.4.12",
       "target": {
         "product": "Drupal Core",
         "release": "11.4.12",
-        "tag": "11.4.12",
-        "ref": "11.4.12"
+        "ref": "11.4.12",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "11.4.x",
+        "parent_project": null
       },
       "issue_id": "drupal:3636028",
       "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
@@ -11849,7 +11961,8 @@
       ],
       "applicability": "unknown",
       "basis": "report-after-release",
-      "reason": "The issue was reported after the target release date (2026-11-06T16:05:10.000-06:00) and no target-branch fix was found. It may describe a later regression or a pre-existing barrier; reproduce on the target release before assigning applicability.",
+      "reason": "The issue was reported after the target date (2026-11-06T16:05:10.000-06:00) and no fix was found in tag 11.4.12. It may describe a later regression or a pre-existing barrier; reproduce on the target before assigning applicability.",
+      "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
       "merge_requests": [
@@ -11891,6 +12004,7 @@
       "open": 1,
       "rtbc": 2
     },
+    "fix_included_in_target": 4,
     "fix_included_in_release": 4,
     "needs_verification": 20,
     "unmapped_criteria": 8,
@@ -11906,6 +12020,8 @@
       "3.2.5"
     ],
     "commit_index": {
+      "ref": "11.4.12",
+      "ref_type": "tag",
       "branches": [
         "11.4.x",
         "11.5.x",
@@ -11913,16 +12029,16 @@
         "main"
       ],
       "since": "2026-05-10T16:05:10-06:00",
-      "commits": 1790,
-      "retrieved_at": "2026-11-07T17:43:55+00:00"
+      "commits": 1791,
+      "retrieved_at": "2026-11-07T18:57:45Z"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
-    "release_tag": "https://git.drupalcode.org/project/drupal/-/tags/11.4.12",
-    "commit_index": "2026-11-07T17:43:55+00:00"
+    "target": "https://git.drupalcode.org/project/drupal/-/tags/11.4.12",
+    "commit_index": "2026-11-07T18:57:45Z"
   },
   "manifest_digest": "0a76552fc853e36afee76463c7c4d33bc4c03955fc5362186a9e580d67852e8a",
   "digest_scope": "sha256 over this artifact excluding generated_at and evidence_digest",
-  "evidence_digest": "723197c14a08e57246be2bfb725ccb45a682acfab770f23bbbbfc779545144df"
+  "evidence_digest": "f0e49a7d347f2362bdab5f563797b60efed36f81d3a47f0b66c49312ff2a6c77"
 }

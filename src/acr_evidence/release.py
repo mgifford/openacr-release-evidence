@@ -71,6 +71,20 @@ def get_tag(tag):
     }
 
 
+def get_branch(branch):
+    payload = _get(f"/repository/branches/{urllib.parse.quote(str(branch), safe='')}")
+    if not payload:
+        return None
+    commit = payload.get("commit") or {}
+    return {
+        "name": payload.get("name") or str(branch),
+        "commit": commit.get("id"),
+        "commit_short": commit.get("short_id"),
+        "date": commit.get("created_at"),
+        "message": commit.get("title"),
+    }
+
+
 def list_branches():
     payload = _get("/repository/branches", {"per_page": 100})
     return [branch.get("name") for branch in (payload or [])]
@@ -196,7 +210,13 @@ def _index_from_commits(commits, retrieved_at):
     return {"retrieved_at": retrieved_at, "commits": ordered, "by_issue": by_issue}
 
 
-def annotate_commits(commits, release_tag, tag_cache=None, branch_cache=None):
+def annotate_commits(commits, target_ref, ref_type="tag", tag_cache=None, branch_cache=None):
+    """Annotate commits with tag/branch containment for a tag or branch target.
+
+    ``in_target`` is the authoritative field. ``in_release`` is retained for
+    tag targets so existing report/digest consumers keep their meaning; it is
+    always false for a development-branch target.
+    """
     tag_cache = tag_cache if tag_cache is not None else {}
     branch_cache = branch_cache if branch_cache is not None else {}
     annotated = []
@@ -209,7 +229,12 @@ def annotate_commits(commits, release_tag, tag_cache=None, branch_cache=None):
             branch_cache[sha] = branches_containing(sha)
         record["tags"] = tag_cache[sha]
         record["branches"] = branch_cache[sha]
-        record["in_release"] = release_tag in tag_cache[sha]
+        if ref_type == "tag":
+            record["in_target"] = target_ref in tag_cache[sha]
+            record["in_release"] = record["in_target"]
+        else:
+            record["in_target"] = target_ref in branch_cache[sha]
+            record["in_release"] = False
         annotated.append(record)
     return annotated
 
@@ -231,17 +256,28 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
     """Classify one issue against one declared target.
 
     ``feature_present`` may be True, False, or None. False is only justified by
-    code/feature evidence, never by absence of an issue report.
+    code/feature evidence, never by absence of an issue report. A target may be
+    a release tag or a development branch; the reason always names the target.
     """
     component = issue.get("component")
     components = {str(item).casefold() for item in (manifest.get("components") or [])}
     in_scope = not components or not component or str(component).casefold() in components
-    included = [commit for commit in commits if commit.get("in_release")]
-    not_included = [commit for commit in commits if not commit.get("in_release")]
+    ref_type = target.get("ref_type") or "tag"
+    target_label = target.get("ref_label") or (
+        f"tag {target.get('tag')}" if ref_type == "tag" else f"branch {target.get('ref')}"
+    )
+    included = [
+        commit for commit in commits
+        if commit.get("in_target", commit.get("in_release"))
+    ]
+    not_included = [
+        commit for commit in commits
+        if not commit.get("in_target", commit.get("in_release"))
+    ]
     workflow = (issue.get("status") or {}).get("workflow_state") or "unknown"
     created_at = _parse_time(issue.get("created_at"))
-    tag_date = _parse_time(target.get("tag_date"))
-    after_release = bool(created_at and tag_date and created_at > tag_date)
+    target_date = _parse_time(target.get("tag_date") or target.get("target_date"))
+    after_release = bool(created_at and target_date and created_at > target_date)
     commit_branches = sorted({
         branch
         for commit in commits
@@ -262,57 +298,63 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
         applicability = "not-introduced"
         basis = "code-presence"
         reason = (
-            f"The affected feature or code is not present in the target release {target.get('release')}; "
-            "the defect was never introduced into this target. This must be verified against the installed release."
+            f"The affected feature or code is not present in {target_label}; "
+            "the defect was never introduced into this target. This must be verified against the installed target."
         )
     elif feature_present is None:
         applicability = "unknown"
         basis = "insufficient-evidence"
-        reason = "Could not establish whether the affected feature or code is present in the target release."
+        reason = f"Could not establish whether the affected feature or code is present in {target_label}."
     elif included and workflow == "closed-fixed":
         applicability = "confirmed-fixed"
         basis = "git-inclusion"
-        reason = (
-            f"Fix commit(s) {included_shas} are contained in tag {target.get('tag')} "
-            f"({target.get('tag_commit_short')}). Commit inclusion is not behavioural verification on the "
-            "installed release; an independent reviewer must confirm the fix."
-        )
+        if ref_type == "branch":
+            reason = (
+                f"Fix commit(s) {included_shas} are contained in {target_label}. This is a development-branch "
+                "target, not a release claim; behavioural verification is still required."
+            )
+        else:
+            reason = (
+                f"Fix commit(s) {included_shas} are contained in {target_label} "
+                f"({target.get('tag_commit_short')}). Commit inclusion is not behavioural verification on the "
+                "installed release; an independent reviewer must confirm the fix."
+            )
     elif commits:
         applicability = "likely-affected"
         basis = "git-non-inclusion"
         reason = (
             f"Fix commit(s) {excluded_shas} were found on {', '.join(commit_branches) or 'a branch'} but are "
-            f"not contained in tag {target.get('tag')}. The barrier likely remains in this release; "
-            "reproduce it on the installed release before confirming."
+            f"not contained in {target_label}. The barrier likely remains in this target; "
+            "reproduce it on the installed target before confirming."
         )
     elif workflow == "closed-fixed":
         applicability = "unknown"
         basis = "tracker-closed-without-commit"
         reason = (
             "The tracker marks the issue closed (fixed), but no matching fix commit was found. "
-            "Do not infer release applicability from the tracker status alone."
+            "Do not infer target applicability from the tracker status alone."
         )
     elif workflow in {"closed-other", "postponed"}:
         applicability = "unknown"
         basis = "closed-non-fix"
         reason = (
-            "The tracker is closed for a non-fix reason (or postponed) and no matching release fix was found. "
-            "Do not infer that the barrier is present or absent in this release."
+            "The tracker is closed for a non-fix reason (or postponed) and no matching target fix was found. "
+            "Do not infer that the barrier is present or absent in this target."
         )
     elif after_release:
         applicability = "unknown"
         basis = "report-after-release"
         reason = (
-            f"The issue was reported after the target release date ({target.get('tag_date')}) and no "
-            "target-branch fix was found. It may describe a later regression or a pre-existing barrier; "
-            "reproduce on the target release before assigning applicability."
+            f"The issue was reported after the target date ({target.get('tag_date') or target.get('target_date')}) "
+            f"and no fix was found in {target_label}. It may describe a later regression or a pre-existing barrier; "
+            "reproduce on the target before assigning applicability."
         )
     else:
         applicability = "likely-affected"
         basis = "tracker-report"
         reason = (
-            "An open accessibility report exists and no fix commit was found in the target release. "
-            "This is not a reproduction result; the barrier likely affects the release and requires review."
+            f"An open accessibility report exists and no fix commit was found in {target_label}. "
+            "This is not a reproduction result; the barrier likely affects the target and requires review."
         )
 
     finding = {
@@ -321,8 +363,11 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
         "target": {
             "product": target.get("product"),
             "release": target.get("release"),
-            "tag": target.get("tag"),
             "ref": target.get("ref"),
+            "ref_type": ref_type,
+            "support_status": target.get("support_status"),
+            "release_line": target.get("release_line"),
+            "parent_project": target.get("parent_project"),
         },
         "issue_id": issue.get("id"),
         "source_url": issue.get("url"),
@@ -337,7 +382,8 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
         "applicability": applicability,
         "basis": basis,
         "reason": reason,
-        "fix_included_in_release": bool(included),
+        "fix_included_in_target": bool(included),
+        "fix_included_in_release": bool(included) if ref_type == "tag" else False,
         "commits": [
             {
                 "sha": commit.get("sha"),
@@ -347,6 +393,7 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
                 "branches": commit.get("branches") or [],
                 "created_at": commit.get("created_at"),
                 "title": commit.get("title"),
+                "in_target": bool(commit.get("in_target", commit.get("in_release"))),
                 "in_release": bool(commit.get("in_release")),
             }
             for commit in commits
@@ -362,7 +409,7 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
 def analyze_collection(
     collection,
     manifest,
-    release,
+    release=None,
     branch=None,
     branches=None,
     since=None,
@@ -371,40 +418,92 @@ def analyze_collection(
     refresh=False,
     feature_map=None,
     now=None,
+    ref=None,
+    ref_type="tag",
+    target_id=None,
+    support_status=None,
+    release_line=None,
+    parent_project=None,
+    scope_note=None,
+    tag_cache=None,
+    branch_cache=None,
 ):
-    """Analyze a normalized collection against a release tag."""
+    """Analyze a normalized collection against a release tag or branch target.
+
+    ``ref_type="tag"`` treats containment in the tag as the target condition.
+    ``ref_type="branch"`` treats containment in the branch as the target
+    condition; the resulting findings describe a development target, not a
+    release. Callers should pass target metadata from an explicit policy file.
+    """
     now = now or datetime.now(timezone.utc)
-    branch = branch or branch_for_release(release)
-    tag = get_tag(release)
-    if not tag:
-        raise GitLabError(f"Release tag {release!r} not found in {GITLAB_PROJECT}")
+    release = release or manifest.get("release")
+    ref = ref or release
+    if ref_type not in {"tag", "branch"}:
+        raise ValueError("ref_type must be 'tag' or 'branch'")
+    if ref_type == "tag":
+        ref_info = get_tag(ref)
+        if not ref_info:
+            raise GitLabError(f"Release tag {ref!r} not found in {GITLAB_PROJECT}")
+        ref_commit = ref_info.get("tag_commit")
+        ref_short = ref_info.get("tag_commit_short")
+        ref_date = ref_info.get("tag_date")
+        branch = branch or branch_for_release(release)
+        ref_label = f"tag {ref}"
+        source_url = f"https://git.drupalcode.org/{GITLAB_PROJECT}/-/tags/{ref}"
+    else:
+        ref_info = get_branch(ref)
+        if not ref_info:
+            raise GitLabError(f"Branch {ref!r} not found in {GITLAB_PROJECT}")
+        ref_commit = ref_info.get("commit")
+        ref_short = ref_info.get("commit_short")
+        ref_date = ref_info.get("date")
+        branch = branch or ref
+        ref_label = f"branch {ref}"
+        source_url = f"https://git.drupalcode.org/{GITLAB_PROJECT}/-/tree/{ref}"
     target = {
-        "assessment_id": manifest.get("id"),
+        "assessment_id": target_id or manifest.get("id"),
         "product": manifest.get("product"),
         "release": release,
-        "ref": release,
-        "tag": release,
+        "ref": ref,
+        "ref_type": ref_type,
+        "ref_label": ref_label,
+        "tag": ref if ref_type == "tag" else None,
         "branch": branch,
-        "tag_commit": tag.get("tag_commit"),
-        "tag_commit_short": tag.get("tag_commit_short"),
-        "tag_date": tag.get("tag_date"),
+        "tag_commit": ref_commit,
+        "tag_commit_short": ref_short,
+        "tag_date": ref_date,
+        "support_status": support_status or "unknown",
+        "release_line": release_line or branch,
+        "parent_project": parent_project,
+        "scope_note": scope_note,
     }
-    major, minor = (int(part) for part in release.split(".")[:2])
-    branches = branches or sorted({branch, "main", "11.x", f"{major}.{minor + 1}.x"})
+    if branches is None:
+        if ref_type == "branch":
+            branches = [ref]
+        else:
+            match = re.match(r"^(\d+)\.(\d+)\.", str(release))
+            if match:
+                major, minor = int(match.group(1)), int(match.group(2))
+                branches = sorted({branch, "main", "11.x", f"{major}.{minor + 1}.x"})
+            else:
+                branches = [branch]
     if since is None:
-        tag_date = _parse_time(tag.get("tag_date")) or now
-        since = (tag_date - timedelta(days=180)).isoformat(timespec="seconds").replace("+00:00", "Z")
-    cache_path = Path(cache_dir) / "commits" / f"{GITLAB_PROJECT.replace('/', '-')}-{release}.json"
+        moment = _parse_time(ref_date) or now
+        since = (moment - timedelta(days=180)).isoformat(timespec="seconds").replace("+00:00", "Z")
+    safe_ref = re.sub(r"[^a-zA-Z0-9_.-]+", "-", str(ref))
+    cache_path = Path(cache_dir) / "commits" / f"{GITLAB_PROJECT.replace('/', '-')}-{ref_type}-{safe_ref}.json"
     index = build_commit_index(
         branches, since=since, cache_path=cache_path, refresh=refresh, now=now,
     )
     findings = []
-    tag_cache = {}
-    branch_cache = {}
+    tag_cache = tag_cache if tag_cache is not None else {}
+    branch_cache = branch_cache if branch_cache is not None else {}
     for issue in collection.get("issues") or []:
         nid = issue.get("source_id")
         commits = index["by_issue"].get(str(nid), [])
-        commits = annotate_commits(commits, release, tag_cache=tag_cache, branch_cache=branch_cache)
+        commits = annotate_commits(
+            commits, ref, ref_type=ref_type, tag_cache=tag_cache, branch_cache=branch_cache,
+        )
         component = issue.get("component")
         if feature_map is not None and component in feature_map:
             feature_present = feature_map[component]
@@ -429,13 +528,19 @@ def analyze_collection(
         "findings": len(findings),
         "by_applicability": dict(sorted(by_applicability.items())),
         "by_workflow": dict(sorted(by_workflow.items())),
-        "fix_included_in_release": sum(1 for finding in findings if finding["fix_included_in_release"]),
+        "fix_included_in_target": sum(1 for finding in findings if finding["fix_included_in_target"]),
+        "fix_included_in_release": sum(
+            1 for finding in findings
+            if ref_type == "tag" and finding["fix_included_in_release"]
+        ),
         "needs_verification": sum(
             1 for finding in findings if finding["applicability"] in {"likely-affected", "unknown", "confirmed-fixed"}
         ),
         "unmapped_criteria": sum(1 for finding in findings if not finding["wcag_candidates"]),
         "criteria": criteria,
         "commit_index": {
+            "ref": ref,
+            "ref_type": ref_type,
             "branches": branches,
             "since": since,
             "commits": len(index["commits"]),
@@ -446,7 +551,7 @@ def analyze_collection(
         "schema_version": SCHEMA_VERSION,
         "artifact_type": "drupal-release-applicability-draft",
         "disclaimer": (
-            "Draft release applicability evidence. Not a WCAG conformance report or certification. "
+            "Draft target applicability evidence. Not a WCAG conformance report or certification. "
             "No issue status, commit inclusion or model output establishes conformance."
         ),
         "assessment": {k: v for k, v in manifest.items() if k != "applicability_overrides"},
@@ -463,7 +568,7 @@ def analyze_collection(
         "summary": summary,
         "sources": {
             "gitlab_project": f"https://git.drupalcode.org/{GITLAB_PROJECT}",
-            "release_tag": f"https://git.drupalcode.org/{GITLAB_PROJECT}/-/tags/{release}",
+            "target": source_url,
             "commit_index": index["retrieved_at"],
         },
         "manifest_digest": sha256_json(manifest),

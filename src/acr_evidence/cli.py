@@ -13,7 +13,7 @@ from .collect import collect_issues
 from .git_release import commit_in_ref
 from .openacr import export_worksheet
 from .release import analyze_collection
-from .report import render_report
+from .report import render_landing, render_report
 from .adapters.drupal import fetch_issues as fetch_drupal
 from .adapters.drupalorg_cli import collect_issue, collect_releases, save_private_snapshot
 
@@ -123,6 +123,13 @@ def main(argv=None):
     ana.add_argument("--cache-dir", default=".cache/acr-evidence")
     ana.add_argument("--refresh", action="store_true")
 
+    multi = sub.add_parser("multi", help="Analyze a shared collection against multiple declared targets")
+    multi.add_argument("--collection", required=True)
+    multi.add_argument("--targets", default="config/drupal-core-targets.json")
+    multi.add_argument("--output", required=True)
+    multi.add_argument("--cache-dir", default=".cache/acr-evidence")
+    multi.add_argument("--refresh", action="store_true")
+
     rep = sub.add_parser("report", help="Render a static, no-JavaScript evidence report")
     rep.add_argument("--analysis", required=True)
     rep.add_argument("--output", required=True)
@@ -198,6 +205,44 @@ def main(argv=None):
             f"Analyzed {summary['findings']} findings against {args.release}; "
             f"{summary['fix_included_in_release']} fix commits in the release tag. Wrote {args.output}"
         )
+    elif args.command == "multi":
+        collection = load_json(args.collection)
+        targets = load_json(args.targets)
+        output = Path(args.output)
+        analyses = []
+        tag_cache = {}
+        branch_cache = {}
+        for target in targets.get("targets") or []:
+            manifest = load_json(target["manifest"])
+            target_dir = output / target["id"]
+            artifact = analyze_collection(
+                collection,
+                manifest,
+                release=manifest.get("release"),
+                ref=target.get("ref"),
+                ref_type=target.get("ref_type", "tag"),
+                branches=target.get("branches"),
+                support_status=target.get("support_status"),
+                release_line=target.get("release_line"),
+                parent_project=target.get("parent_project"),
+                scope_note=target.get("scope_note"),
+                target_id=target.get("id"),
+                output=target_dir / "analysis.json",
+                cache_dir=args.cache_dir,
+                refresh=args.refresh,
+                tag_cache=tag_cache,
+                branch_cache=branch_cache,
+            )
+            render_report(artifact, target_dir)
+            analyses.append(artifact)
+        render_landing(analyses, output, targets)
+        for artifact in analyses:
+            summary = artifact["summary"]
+            print(
+                f'{artifact["target"]["release"]}: {summary["by_applicability"]} · '
+                f'{summary["fix_included_in_target"]} fixes in target'
+            )
+        print(f"Wrote {len(analyses)} reports and the cross-target matrix to {output}/index.html")
     elif args.command == "report":
         render_report(load_json(args.analysis), args.output, css_source=args.css)
         print(f"Wrote static evidence report to {args.output}/index.html")

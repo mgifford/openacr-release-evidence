@@ -22,14 +22,20 @@
       (the `not-introduced` case is covered by an offline classification test)
 - [x] Static, no-JavaScript, 320 px-safe evidence report
 - [x] GitHub Pages workflow with an explicit publication allowlist
-- [ ] First live Pages deployment after merge and environment protection (verify the URL)
-- [x] 63 offline tests, trimmed real fixtures, caching and failure isolation
+- [x] First live Pages deployment verified (https://mgifford.github.io/openacr-release-evidence/)
+- [x] Node 24 GitHub Actions runtimes
+- [x] 70 offline tests, trimmed real fixtures, caching and failure isolation
 - [ ] Reproduce `likely-affected` findings against an installed 11.4.12 site
 - [ ] Add a human review/approval workflow for `confirmed-fixed`
 - [ ] Add file/diff-level evidence for fixes that omit the issue number
 - [ ] Add conflicting-evidence and stale-approved-decision handling
+- [x] Multi-target policy for 10.6.x, 11.4.x, 12 pre-releases and `main`
+- [x] Cross-release applicability matrix and per-target reports
+- [x] Weekly review-gated snapshot workflow that opens a PR
+- [ ] Issue-level component/theme evidence across the Claro/Default Admin boundary
 - [ ] Parse Composer lockfiles and enabled modules/themes/configurations for
       Drupal CMS and LocalGov
+- [ ] Parent-linked ACRs for Claro, Olivero, Drupal CMS and LocalGov Drupal
 - [ ] Add browser regression checks (Playwright/axe) as an opt-in CI job
 
 ## Milestone 2: authoring and trustworthy export
@@ -50,6 +56,7 @@
       policy
 - [ ] GitHub Issues, Jira and non-Drupal GitLab adapters (explicitly deferred)
 - [ ] Scheduled incremental ingestion with checkpoints and rate-limit controls
+      (weekly collection + review PR is in place; no auto-publish)
 - [ ] Publication approval workflow; never auto-publish private evidence
 - [ ] Accessibility evaluation of the report with disabled users
 

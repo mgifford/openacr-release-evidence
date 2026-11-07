@@ -1,0 +1,103 @@
+{
+  "target": {
+    "assessment_id": "drupal-core-10.6.21",
+    "product": "Drupal Core",
+    "release": "10.6.21",
+    "ref": "10.6.21",
+    "ref_type": "tag",
+    "ref_label": "tag 10.6.21",
+    "tag": "10.6.21",
+    "branch": "10.6.x",
+    "tag_commit": "d2200d9289fe999185260efe81002bed70c5c76d",
+    "tag_commit_short": "d2200d92",
+    "tag_date": "2026-11-06T16:13:09.000-06:00",
+    "support_status": "supported",
+    "release_line": "10.6.x",
+    "parent_project": null,
+    "scope_note": "Stock standard profile. Claro is the admin theme; Default Admin is not present. The generic 'Admin theme' component needs reproduction before a finding is applied to this line."
+  },
+  "assessment": {
+    "id": "drupal-core-10.6.21",
+    "product": "Drupal Core",
+    "release": "10.6.21",
+    "ref": "10.6.21",
+    "synthetic": false,
+    "components": [
+      "Admin theme",
+      "language system",
+      "text.module",
+      "core",
+      "inline_form_errors.module",
+      "forms system",
+      "field system",
+      "theme system",
+      "javascript"
+    ],
+    "standards": [
+      "WCAG 2.2 AA",
+      "Section 508 (revised, 2017)"
+    ],
+    "installation": {
+      "drupal_core_version": "10.6.21",
+      "composer_lock_sha256": "00a0a861b34a2215f0e08140370169140079630443c268219163329e6afd80b1",
+      "profile": "standard",
+      "enabled_modules": [
+        "field",
+        "field_ui",
+        "filter",
+        "inline_form_errors",
+        "language",
+        "node",
+        "text"
+      ],
+      "enabled_themes": {
+        "default": "olivero",
+        "admin": "claro"
+      },
+      "configuration": "Drupal 10.6.21 standard profile. Claro is the administration theme and Olivero is the default theme. Default Admin is not shipped in this line. The issue queue's generic 'Admin theme' component may refer to a theme that does not exist here; reproduce before applying a finding."
+    }
+  },
+  "summary": {
+    "findings": 20,
+    "by_applicability": {
+      "likely-affected": 8,
+      "unknown": 12
+    },
+    "by_workflow": {
+      "closed-fixed": 10,
+      "fixed-unverified": 1,
+      "needs-review": 4,
+      "needs-work": 2,
+      "open": 1,
+      "rtbc": 2
+    },
+    "fix_included_in_target": 0,
+    "fix_included_in_release": 0,
+    "needs_verification": 20,
+    "unmapped_criteria": 8,
+    "criteria": [
+      "1.1.1",
+      "1.3.1",
+      "1.4.11",
+      "1.4.3",
+      "2.1.1",
+      "2.4.1",
+      "2.4.7",
+      "2.5.3",
+      "3.2.5"
+    ],
+    "commit_index": {
+      "ref": "10.6.21",
+      "ref_type": "tag",
+      "branches": [
+        "10.6.x"
+      ],
+      "since": "2026-05-10T16:13:09-06:00",
+      "commits": 83,
+      "retrieved_at": "2026-11-07T18:57:45Z"
+    }
+  },
+  "generated_at": "2026-11-07T18:57:45Z",
+  "evidence_digest": "d1f2ea8057ada8823fdf51324d5f93bee6438931759758ce78c05fface664521",
+  "manifest_digest": "fa2ae8a5215278ebca1aac6309c4a6a1d1dc8a8cc0bdd185522e67d2d2dc028c"
+}

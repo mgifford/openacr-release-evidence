@@ -25,6 +25,11 @@ Controls:
 - AI is off by default and is not used in the current report. If enabled, tokens
   stay server-side and model output remains untrusted.
 
+The weekly workflow installs a pinned Composer CLI and runs only read-only
+Drupal/GitLab calls. It has `contents: write` and `pull-requests: write` solely
+to push a generated snapshot branch and open a review PR; it does not deploy.
+Protect `main` and require review before merging generated branches.
+
 The CI workflow does not fetch live issues or auto-publish. The Pages workflow
 deploys only an explicit allowlist: a landing page and each report's HTML, CSS,
 evidence JSON and summary. It rejects private-evidence paths, non-allowlisted
