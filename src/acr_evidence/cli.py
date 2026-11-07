@@ -14,6 +14,7 @@ from .git_release import commit_in_ref
 from .atag import load_scope, render_atag_report
 from .openacr import export_worksheet
 from .openacr_export import OpenACRError, export_openacr, validate_file
+from .acr_narrative import render_acr_narrative
 from .release import analyze_collection
 from .report import render_landing, render_report
 from .adapters.drupal import fetch_issues as fetch_drupal
@@ -155,6 +156,7 @@ def main(argv=None):
 
     rep = sub.add_parser("report", help="Render a static, no-JavaScript evidence report")
     rep.add_argument("--analysis", required=True)
+    rep.add_argument("--collection", default=None, help="Optional full collection to restore comments/descriptions for rendering")
     rep.add_argument("--output", required=True)
     rep.add_argument("--css", default=None)
 
@@ -250,7 +252,7 @@ def main(argv=None):
                 parent_project=target.get("parent_project"),
                 scope_note=target.get("scope_note"),
                 target_id=target.get("id"),
-                output=target_dir / "analysis.json",
+                output=None,
                 cache_dir=args.cache_dir,
                 refresh=args.refresh,
                 tag_cache=tag_cache,
@@ -258,6 +260,7 @@ def main(argv=None):
             )
             render_report(artifact, target_dir)
             export_openacr(artifact, target_dir)
+            render_acr_narrative(artifact, target_dir)
             analyses.append(artifact)
         render_landing(analyses, output, targets)
         for artifact in analyses:
@@ -290,8 +293,10 @@ def main(argv=None):
             raise SystemExit(1)
     elif args.command == "report":
         analysis = load_json(args.analysis)
-        render_report(analysis, args.output, css_source=args.css)
+        full_collection = load_json(args.collection) if args.collection else None
+        render_report(analysis, args.output, css_source=args.css, full_collection=full_collection)
         export_openacr(analysis, args.output)
+        render_acr_narrative(analysis, args.output)
         print(f"Wrote static evidence report and OpenACR draft to {args.output}/")
     elif args.command == "pipeline":
         manifest = load_json(args.manifest)
@@ -305,10 +310,11 @@ def main(argv=None):
         analysis = analyze_collection(
             collection, manifest, args.release,
             branch=args.branch, branches=branches, since=args.since,
-            output=output / "analysis.json", cache_dir=args.cache_dir, refresh=args.refresh,
+            output=None, cache_dir=args.cache_dir, refresh=args.refresh,
         )
         render_report(analysis, output)
         export_openacr(analysis, output)
+        render_acr_narrative(analysis, output)
         summary = analysis["summary"]
         print(
             f"Pipeline complete: {summary['findings']} findings, "

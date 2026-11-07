@@ -33,10 +33,10 @@ jobs:
       - name: Verify committed target reports are reproducible
         run: |
           for dir in reports/drupal-core-*; do
-            [ -f "$dir/analysis.json" ] || continue
+            [ -f "$dir/evidence.json" ] || continue
             name="$(basename "$dir")"
-            acr-evidence report --analysis "$dir/analysis.json" --output "/tmp/rebuilt-$name"
-            for file in index.html evidence.json summary.json report.css openacr.yaml openacr-validation.json; do
+            acr-evidence report --analysis "$dir/evidence.json" --collection reports/collection.json --output "/tmp/rebuilt-$name"
+            for file in index.html evidence.json summary.json report.css openacr.yaml openacr-validation.json acr.html acr.md; do
               diff "$dir/$file" "/tmp/rebuilt-$name/$file"
             done
           done

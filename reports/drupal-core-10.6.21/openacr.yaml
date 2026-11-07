@@ -13,17 +13,18 @@ report_date: '2026-11-07'
 last_modified_date: '2026-11-07'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 10.6.21 (tag 10.6.21). Evidence report:
-  index.html. Machine-readable evidence: evidence.json. Evidence digest: b1b4a5f562569becf58128861ea80a1217fc5e31dc37593538b4fc9b78f90a50.
+  index.html. Machine-readable evidence: evidence.json. Evidence digest: 135d42d1f15aa4bb8ead5c211ac3599667f0bddd1d6c8d69f086dce311f21ca0.
   Evidence scope: active/review-relevant issues only (Active, Needs review, Needs
   work, RTBC, Patch); fixed and closed issues are excluded. Some active issues are
   metadata-only inventory records; complete comments/merge-request evidence was collected
   only for a review-priority subset. No WCAG conformance values are populated. The
   author is a placeholder; a human reviewer must replace it, assess every criterion,
   select components and adherence levels, and run `acr-evidence openacr-validate --file
-  openacr.yaml --strict` before publishing. ATAG 2.0 authoring evidence is tracked
-  separately at ../drupal-core-atag/index.html; this OpenACR does not populate ATAG
-  criteria or the authoring-tool component. This file has not been round-tripped through
-  the Civicactions/GSA ACR editor.'
+  openacr.yaml --strict` before publishing. An ACR narrative is at acr.html; it assigns
+  no ACR result and marks the evaluation Not Evaluated. ATAG 2.0 authoring evidence
+  is tracked separately at ../drupal-core-atag/index.html; this OpenACR does not populate
+  ATAG criteria or the authoring-tool component. This file has not been round-tripped
+  through the Civicactions/GSA ACR editor.'
 evaluation_methods_used: No WCAG-EM sample was evaluated; this is an evidence-only
   skeleton, not a completed ACR. Public Drupal.org issue-queue evidence collection,
   commit/tag containment analysis, and explicit WCAG candidate tag grouping were used.
@@ -264,7 +265,7 @@ target:
   release_line: 10.6.x
   parent_project: null
   assessment_id: drupal-core-10.6.21
-  evidence_digest: b1b4a5f562569becf58128861ea80a1217fc5e31dc37593538b4fc9b78f90a50
+  evidence_digest: 135d42d1f15aa4bb8ead5c211ac3599667f0bddd1d6c8d69f086dce311f21ca0
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr

@@ -2,7 +2,7 @@
 
 Each target report can export a machine-readable **draft** OpenACR YAML file.
 The file is validated against the Civicactions/GSA OpenACR 0.1.0 schema and the
-pinned VPAT 2.5 WCAG 2.2 + Revised Section 508 catalog.
+pinned OpenACR 2.5 WCAG 2.2 + Revised Section 508 catalog.
 
 It is a review skeleton, not an approved ACR.
 
@@ -31,7 +31,7 @@ python3 -m pip install -e '.[openacr]'
 
 # Export one target
 acr-evidence openacr-export \
-  --analysis reports/drupal-core-11.4.12/analysis.json \
+  --analysis reports/drupal-core-11.4.12/evidence.json \
   --output reports/drupal-core-11.4.12
 
 # Validate an edited file
@@ -47,7 +47,9 @@ write:
 - `openacr.yaml`
 - `openacr-validation.json`
 
-The report page links both files.
+The report page links both files and the ACR narrative
+(`acr.html`/`acr.md`). The ACR narrative assigns no term; every criterion is
+`Not Evaluated` until a reviewer completes it.
 
 ## What the draft contains
 
