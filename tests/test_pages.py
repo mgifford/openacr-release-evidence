@@ -1,3 +1,4 @@
+import json
 import re
 import unittest
 from html.parser import HTMLParser
@@ -28,6 +29,8 @@ class PagesTests(unittest.TestCase):
         self.assertIn("./drupal-core-11.4.12/", html)
         self.assertIn("./drupal-core-11.4.12/evidence.json", html)
         self.assertIn("./drupal-core-11.4.12/summary.json", html)
+        self.assertIn("./drupal-core-11.4.12/openacr.yaml", html)
+        self.assertIn("./drupal-core-11.4.12/openacr-validation.json", html)
         self.assertNotRegex(html, r'href="[^"]*(?:collection|analysis)\.json"')
         self.assertNotIn("supports", html.casefold())
 
@@ -45,6 +48,21 @@ class PagesTests(unittest.TestCase):
             target = (REPORTS / href.split("#")[0]).resolve()
             self.assertTrue(target.exists(), f"missing link target: {href}")
 
+
+
+    def test_each_target_report_links_validated_openacr(self):
+        for directory in sorted(REPORTS.glob("drupal-core-*")):
+            if not directory.is_dir():
+                continue
+            html = (directory / "index.html").read_text(encoding="utf-8")
+            self.assertIn('href="./openacr.yaml"', html)
+            self.assertIn('href="./openacr-validation.json"', html)
+            self.assertTrue((directory / "openacr.yaml").is_file())
+            validation = json.loads((directory / "openacr-validation.json").read_text(encoding="utf-8"))
+            self.assertTrue(validation["valid"])
+            self.assertTrue(validation["draft"])
+            self.assertEqual("openacr-0.1.0.json", validation["schema"])
+            self.assertIn(validation["catalog"], (directory / "openacr.yaml").read_text(encoding="utf-8"))
 
     def test_workflows_use_node24_actions(self):
         expected = {
@@ -91,7 +109,7 @@ class PagesTests(unittest.TestCase):
         self.assertIn("collection.json", workflow)
         self.assertIn("analysis.json", workflow)
         self.assertIn("grep -RIn '<script'", workflow)
-        for name in ("index.html", "report.css", "evidence.json", "summary.json"):
+        for name in ("index.html", "report.css", "evidence.json", "summary.json", "openacr.yaml", "openacr-validation.json"):
             self.assertIn(name, workflow)
 
 

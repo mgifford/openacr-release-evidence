@@ -11,6 +11,7 @@ human decision.
 | Collection | `acr-evidence collect` | Normalized issues, comments, MR metadata and provenance for one target. |
 | Analysis | `acr-evidence analyze` | Release-specific applicability findings and commit/tag evidence. |
 | Report | `acr-evidence report` | Static HTML/JSON draft for one target; never an ACR. |
+| OpenACR draft | `acr-evidence openacr-export` | Schema- and catalog-valid OpenACR skeleton with no adherence values. |
 | Multi-target report | `acr-evidence multi` | One report per declared target plus a landing page and cross-release matrix. |
 | Private raw snapshot | collection, under `private-evidence/raw/` | Original CLI/API payloads, excluded from publication. |
 
@@ -191,6 +192,17 @@ cross-release matrix links every cell back to the target finding.
 `parent_project` is reserved for the project graph: Drupal Core is top-level;
 Claro, Olivero, Drupal CMS and LocalGov Drupal can publish their own ACRs with a
 parent link to Core. Parent-linked ACR generation is not implemented yet.
+
+## OpenACR draft
+
+`openacr.yaml` is validated against the pinned Civicactions/GSA OpenACR 0.1.0
+schema and the VPAT 2.5 WCAG 2.2 + Section 508 catalog. It lists all 182 catalog
+criteria and all seven chapters, but **no components or adherence values**.
+`draft: true`, a placeholder reviewer and notes force human review. A reviewer
+must replace the author, assess every criterion, populate adherence, set
+`draft: false`, and run `openacr-validate --strict`. `not-evaluated` is rejected
+for Level A/AA by policy. The YAML has not been round-tripped through the official
+editor; that remains a separate verification step.
 
 ## Conformance (not implemented)
 

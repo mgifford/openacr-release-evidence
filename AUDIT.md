@@ -58,7 +58,7 @@ report and does not certify Drupal or this project.
 
 | Severity | Defect | Why it matters | Next action |
 | --- | --- | --- | --- |
-| High | No official OpenACR schema validation or editor round-trip. | The current worksheet is explicitly not an OpenACR; the mission’s later milestone requires GSA schema/editor compatibility. | Phase 6: pin the official schema, validate, and reuse the official renderer. |
+| Medium | ACR Editor round-trip and official HTML renderer are not implemented. | Per-report YAML now validates against the pinned Civicactions/GSA schema and catalog, but editor compatibility is unverified. | Import/edit/export in the official editor and reuse its renderer. |
 | High | No reproduction or assistive-technology testing of Drupal 11.4.12. | “Likely affected” and “fix included” are not behavioural verification. | Add a manual/imported reproduction protocol; do not upgrade to `confirmed-affected` without it. |
 | Medium | Commit matching relies on issue numbers in commit titles. | Fixes delivered without an issue number, via configuration, or in contributed modules are not matched. | Add file/diff-level analysis and a safe manual evidence override path. |
 | Medium | Unused applicability overrides are silently ignored. | A typo can leave a reviewer believing evidence was applied. | Warn or fail on override keys that match no collected issue. |
@@ -116,7 +116,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 70 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 79 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, release
   classification, commit deduplication, caching, failure isolation, report
   escaping/anchors/headings, the digest, placeholder guards, and the worksheet.
@@ -153,8 +153,9 @@ These were corrected or explicitly marked as planned in this change.
 The evidence pipeline (collection → normalization → release classification →
 static report) is functioning and repeatable. The next reviewable increments are:
 
-1. Official OpenACR schema/editor validation and an HTML export that reuses the
-   GSA implementation (Phase 6).
+1. ACR Editor round-trip and an HTML export that reuses the official OpenACR
+   implementation; schema/catalog validation is now in place, editor compatibility
+   is not.
 2. A provider-independent AI interface with a no-AI path preserved, a validated
    structured-response schema, and gold-standard evaluation (Phase 3).
 3. Manual reproduction evidence for a small number of `likely-affected` and
@@ -187,6 +188,14 @@ After the first audit and report:
 - **Parent graph:** `parent_project` is carried in target metadata and documented
   as Core → Claro/Olivero and Core → Drupal CMS/LocalGov. Parent-linked ACR
   generation is not implemented.
+- **OpenACR export:** each target now exports `openacr.yaml` and
+  `openacr-validation.json`. The YAML is valid against the pinned Civicactions/
+  GSA OpenACR 0.1.0 schema and the VPAT 2.5 WCAG 2.2 + Section 508 catalog, with
+  all 182 criteria and no conformance values. A placeholder reviewer and
+  `draft: true` force human review; `openacr-validate --strict` checks the
+  reviewed file. All five drafts were independently checked with the official
+  `@civicactions/openacr` 0.3.11 CLI and returned `Valid!`. Editor round-trip
+  remains pending.
 
 Current multi-target result (same 20 issues, no reproduction):
 

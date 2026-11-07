@@ -56,7 +56,7 @@ More specific `AGENTS.md` files under `src/`, `src/acr_evidence/adapters/`,
 The package uses a `src/` layout. Run from the repository root:
 
 ```sh
-python3 -m pip install -e '.[yaml]'   # or: export PYTHONPATH=src
+python3 -m pip install -e '.[openacr]'   # or: export PYTHONPATH=src
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q src
 ```
@@ -73,6 +73,11 @@ upstream conformance.
 For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
+
+OpenACR exports must remain valid against the pinned schema and catalog. Do not
+populate adherence values automatically, do not use `not-evaluated` for A/AA,
+and do not replace the placeholder reviewer until a human has reviewed the file.
+Keep the vendored standards pinned and attributed.
 
 For report or UI changes, also:
 

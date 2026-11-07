@@ -10,7 +10,7 @@
 4. Run the checks on a clean checkout:
 
    ```sh
-   python3 -m pip install -e '.[yaml]'   # or export PYTHONPATH=src
+   python3 -m pip install -e '.[openacr]'   # or export PYTHONPATH=src
    python3 -m unittest discover -s tests -v
    python3 -m compileall -q src
    ```

@@ -11,6 +11,7 @@ collect.py    →  shared collection.json (schema 0.2.0)
         ↓
 release.py    →  per-target commit index + tag/branch containment
         ↓            (10.6.21, 11.4.12, 12 pre-releases, main)
+openacr_export.py → schema/catalog-valid OpenACR draft (no adherence values)
 report.py     →  per-target report + landing page and cross-release matrix
         ↓
 .github/workflows/pages.yml → GitHub Pages (allowlist)
@@ -37,6 +38,10 @@ report.py     →  per-target report + landing page and cross-release matrix
 - `release.py` also supports a **branch target** (`main`, `12.0.x`): containment
   is checked against containing branches, the finding is labelled as a
   development result, and it never uses release language for a branch.
+- `openacr_export.py` — builds a complete OpenACR draft from the pinned
+  Civicactions/GSA schema and catalog, validates it with `jsonschema` and catalog
+  checks, and writes `openacr.yaml` plus `openacr-validation.json`. It never
+  fills adherence values; a human completes and revalidates the file.
 - `report.py` — fully static, no-JavaScript HTML reports plus a landing page and
   cross-release matrix. All source text is escaped; internal links are checked by
   tests; target reports are usable at 320 CSS pixels. The matrix is a data table
@@ -112,8 +117,9 @@ merge their conclusions.
 
 The report is a preview artifact, not a publication authorization. The
 `pages.yml` workflow publishes an explicit allowlist to GitHub Pages: a landing
-page plus each report's `index.html`, `report.css`, `evidence.json` and
-`summary.json`. Raw evidence and raw collection/analysis files are excluded, and
+page plus each report's `index.html`, `report.css`, `evidence.json`,
+`summary.json`, `openacr.yaml` and `openacr-validation.json`. Raw evidence and
+raw collection/analysis files are excluded, and
 HTML with client-side scripts is rejected. Merging a PR that changes `reports/**`
 is the publication review event; the `github-pages` environment can require an
 additional reviewer. Private trackers require separate storage and a separate
@@ -121,8 +127,8 @@ publication workflow.
 
 ## Not implemented
 
-- Official GSA OpenACR schema validation, editor round-trip and official HTML
-  renderer reuse.
+- OpenACR editor round-trip and official HTML renderer reuse (schema/catalog
+  validation and draft export are implemented).
 - Reproduction testing against an installed release.
 - Automatic Composer lockfile resolution for Drupal CMS and LocalGov.
 - AI provider abstraction and evaluation.

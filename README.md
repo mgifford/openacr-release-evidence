@@ -27,11 +27,11 @@ Tracker status and release applicability are stored separately.
 
 ## Quick start (offline)
 
-Requires Python 3.10+; no runtime dependencies for evidence collection or the
-report. Packaging needs setuptools; the optional worksheet needs PyYAML.
+Requires Python 3.10+; the core evidence/report path has no runtime dependencies.
+Packaging needs setuptools. The OpenACR export extra adds `jsonschema` and PyYAML.
 
 ```sh
-python3 -m pip install -e '.[yaml]'
+python3 -m pip install -e '.[openacr]'
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q src
 ```
@@ -171,14 +171,15 @@ command is called. Raw output is private and never published.
 - GitHub Pages deployment workflow with an explicit, script-free publication allowlist.
 - Multi-target analysis for supported releases, pre-release tags and the `main` development branch.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
-- 70 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
+- 79 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
 ## Not implemented / intentionally excluded
 
-- Official GSA OpenACR schema validation, ACR Editor round-trip and reuse of the
-  official HTML renderer. The worksheet is not an import-ready ACR.
+- ACR Editor round-trip and reuse of the official OpenACR HTML renderer. The
+  per-report YAML is schema/catalog-valid but has not been editor-tested.
 - Reproduction testing against an installed release; screen-reader, keyboard,
   zoom and forced-colors testing of the assessed release.
 - Composer lockfile resolution for Drupal CMS and LocalGov, and their manifests.
@@ -189,6 +190,33 @@ command is called. Raw output is private and never published.
 - Automatic publication of an unreviewed weekly snapshot. The weekly job opens
   a PR; a human merge is still required before Pages deploys.
 - A single accessibility percentage or conformance score. None is produced.
+
+## OpenACR draft export
+
+Each target report exports `openacr.yaml` and `openacr-validation.json`. The YAML
+is validated against the pinned Civicactions/GSA OpenACR 0.1.0 schema and the
+VPAT 2.5 WCAG 2.2 + Revised Section 508 catalog (commit `d6d18a9…`).
+
+It is a **draft skeleton**, not an approved ACR:
+
+- all 182 catalog criteria and all seven chapters are present;
+- no components or adherence levels are populated;
+- the author is a placeholder (`reviewer@example.invalid`);
+- notes link the evidence report and require human review;
+- `not-evaluated` is never used for Level A/AA.
+
+```sh
+acr-evidence openacr-export \
+  --analysis reports/drupal-core-11.4.12/analysis.json \
+  --output reports/drupal-core-11.4.12
+acr-evidence openacr-validate \
+  --file reports/drupal-core-11.4.12/openacr.yaml --strict
+```
+
+All five target drafts were checked with the official `@civicactions/openacr`
+0.3.11 CLI and returned `Valid!`. See
+[`docs/OPENACR-EXPORT.md`](docs/OPENACR-EXPORT.md) for the review workflow,
+validation rules and limitations. Editor round-trip testing is still pending.
 
 ## Weekly snapshots
 
@@ -288,6 +316,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Security](SECURITY.md)
 - [Accessibility](ACCESSIBILITY.md)
 - [Contributing](CONTRIBUTING.md)
+- [OpenACR export](docs/OPENACR-EXPORT.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Deferred sources](docs/FUTURE-SOURCES.md)
 - [Third-party content notice](NOTICE)
