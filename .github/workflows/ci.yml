@@ -8,20 +8,28 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install package
-        run: python -m pip install -e .
+        run: python -m pip install -e '.[yaml]'
       - name: Run tests
         run: python -m unittest discover -s tests -v
       - name: Check syntax
         run: python -m compileall -q src
-      - name: Build synthetic preview
+      - name: Build synthetic explorer
         run: acr-evidence build --manifest config/drupal-core-example.json --issues tests/fixtures/issues.json --output site
-      - name: Upload preview (not published)
+      - name: Verify committed report is reproducible
+        run: |
+          acr-evidence report --analysis reports/drupal-core-11.4.12/analysis.json --output /tmp/rebuilt-report
+          diff reports/drupal-core-11.4.12/index.html /tmp/rebuilt-report/index.html
+          diff reports/drupal-core-11.4.12/evidence.json /tmp/rebuilt-report/evidence.json
+          diff reports/drupal-core-11.4.12/summary.json /tmp/rebuilt-report/summary.json
+          diff reports/drupal-core-11.4.12/report.css /tmp/rebuilt-report/report.css
+      - name: Upload synthetic preview (not published)
         uses: actions/upload-artifact@v4
         with:
           name: synthetic-evidence-preview

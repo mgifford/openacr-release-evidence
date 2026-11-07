@@ -1,58 +1,63 @@
 # Roadmap / TODO
 
-## Milestone 0: this starter
+## Milestone 0: starter (complete)
 
 - [x] Separate product target from issue and tracker status
-- [x] Drupal and GitHub issue-ID adapters
 - [x] Strict `unknown` applicability default
-- [x] Evidence URLs and basic deterministic hash
+- [x] Evidence URLs, observation times and reproducible artifact digest
 - [x] Browser review of draft evidence, static site, CI tests
 - [x] Governance, security, AI, conformance and agent documentation
+- [x] Audit of the prototype and correction of verified high-severity defects
 - [ ] Confirm permanent name, steward group, licence and private reporting route
 
-## Milestone 1: defensible release applicability
+## Milestone 1: defensible release applicability (first vertical slice complete)
 
-- [ ] Build snapshot of **exact** Drupal Core release and main with tagged git refs
-- [ ] Connect real issue + MR + comments + patch/backport histories
-- [ ] Compare feature existence on main vs a pinned stable release
-- [ ] Detect cherry-picks/backports with equivalent patch matching
-- [ ] Require an explicit human verification pathway for `confirmed-*` status
-- [ ] Add ambiguous/missing-data counterexamples and evaluation metrics
-- [ ] Parse Composer lockfiles and enabled modules/themes/configurations
-- [ ] Implement dependency graph and candidate evidence inheritance
-- [ ] Run browser tests on real release fixtures with documented limitations
+- [x] Normalized Drupal issue schema with comments, MRs, tags, provenance and
+      content hashes
+- [x] Real Drupal Core collection through Drupal.org REST + drupalorg-cli 0.15.0
+- [x] 15 real accessibility issues, including comments and all MR states
+- [x] Exact 11.4.12 tag, tag commit and composer.lock hash
+- [x] Commit index, deduplication and tag containment via the GitLab refs API
+- [x] Documented applicability rules and five required classification cases
+      (the `not-introduced` case is covered by an offline classification test)
+- [x] Static, no-JavaScript, 320 px-safe evidence report
+- [x] 59 offline tests, trimmed real fixtures, caching and failure isolation
+- [ ] Reproduce `likely-affected` findings against an installed 11.4.12 site
+- [ ] Add a human review/approval workflow for `confirmed-fixed`
+- [ ] Add file/diff-level evidence for fixes that omit the issue number
+- [ ] Add conflicting-evidence and stale-approved-decision handling
+- [ ] Parse Composer lockfiles and enabled modules/themes/configurations for
+      Drupal CMS and LocalGov
+- [ ] Add browser regression checks (Playwright/axe) as an opt-in CI job
 
 ## Milestone 2: authoring and trustworthy export
 
-- [ ] Pin GSA OpenACR schema/catalog and build complete schema-native draft
-- [ ] Validate with GSA tools, round-trip import/edit/export in ACR Editor
-- [ ] Add documented WCAG catalogs and applicable non-WCAG requirements
-- [ ] Add editable decisions, reviewer identity and independently approved signoff
-- [ ] Create publicly inspectable change history and disclosure metadata
-- [ ] Export evidence supplement plus accessible HTML
+- [ ] Pin the GSA OpenACR schema/catalog and build a schema-valid draft
+- [ ] Validate with GSA tools; round-trip in the ACR Editor
+- [ ] Reuse the official OpenACR HTML renderer where feasible
+- [ ] Add reviewer identity, dates, review states and independently approved
+      sign-off
+- [ ] Generate an evidence appendix and accessible HTML export
+- [ ] Show draft vs approved outputs unambiguously
 
-## Milestone 3: interoperability and automation
+## Milestone 3: synthesis, other products and automation
 
-- [ ] Production Drupal.org query/cursors/cache and GitLab MR support
-- [ ] GitHub repository search/PR integration, Jira Cloud adapter with secure auth
-- [ ] Scheduled incremental ingestion with checkpointing and rate-limit controls
-- [ ] Opt-in Cloudflare AI summarization with robust model evaluation
-- [ ] Publish release-targeted evidence only after human approval
-- [ ] Accessibility evaluation of interface with disabled users
-- [ ] Drupal CMS and LocalGov Drupal reference deployments and tests
+- [ ] Provider-independent AI interface with no-AI fallback, schema validation,
+      grounding checks, caching and gold-standard evaluation
+- [ ] Drupal CMS and LocalGov manifests, exact Core versions and inheritance
+      policy
+- [ ] GitHub Issues, Jira and non-Drupal GitLab adapters (explicitly deferred)
+- [ ] Scheduled incremental ingestion with checkpoints and rate-limit controls
+- [ ] Publication approval workflow; never auto-publish private evidence
+- [ ] Accessibility evaluation of the report with disabled users
 
 ## Revised Drupal-first priorities (November 2026)
 
-1. Read Drupal.org classic issues and migrated GitLab work items through
-   `drupalorg-cli`, with full comments and associated MRs. The current collector
-   archives raw CLI output only; normalization is next.
-2. Capture Drupal Core release tags, merged MR commit references, backports and
-   target-specific regression evidence. Avoid deriving a release ACR from main.
-3. Determine the installed Drupal Core version in Drupal CMS and LocalGov Drupal
-   reference installations; capture Composer locks and enabled features.
-4. Show scope-aware issue applicability and remaining evidence gaps in the UI.
-5. Add human review and GSA-schema-valid OpenACR export.
-6. Evaluate Cloudflare AI summaries after provenance and release logic work.
+1. Keep the real Drupal Core evidence pipeline reproducible and audited.
+2. Add reproduction evidence and human review rather than increasing issue
+   counts.
+3. Add official OpenACR schema/editor compatibility.
+4. Extend to Drupal CMS and LocalGov with exact Composer locks.
+5. Only then evaluate AI-assisted synthesis.
 
-Future GitHub Issues and Jira sources are explicitly deferred; see
-`docs/FUTURE-SOURCES.md`.
+GitHub Issues and Jira remain deferred; see `docs/FUTURE-SOURCES.md`.
