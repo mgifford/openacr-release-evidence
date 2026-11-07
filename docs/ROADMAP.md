@@ -21,7 +21,9 @@
 - [x] Documented applicability rules and five required classification cases
       (the `not-introduced` case is covered by an offline classification test)
 - [x] Static, no-JavaScript, 320 px-safe evidence report
-- [x] 60 offline tests, trimmed real fixtures, caching and failure isolation
+- [x] GitHub Pages workflow with an explicit publication allowlist
+- [ ] First live Pages deployment after merge and environment protection (verify the URL)
+- [x] 63 offline tests, trimmed real fixtures, caching and failure isolation
 - [ ] Reproduce `likely-affected` findings against an installed 11.4.12 site
 - [ ] Add a human review/approval workflow for `confirmed-fixed`
 - [ ] Add file/diff-level evidence for fixes that omit the issue number

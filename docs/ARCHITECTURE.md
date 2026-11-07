@@ -74,9 +74,14 @@ merge their conclusions.
 
 ## Privacy and deployment
 
-The report is a preview artifact, not a publication authorization. Publishing to
-GitHub Pages still requires human approval of scope, evidence and redactions.
-Private trackers require separate storage and a separate publication workflow.
+The report is a preview artifact, not a publication authorization. The
+`pages.yml` workflow publishes an explicit allowlist to GitHub Pages: a landing
+page plus each report's `index.html`, `report.css`, `evidence.json` and
+`summary.json`. Raw evidence and raw collection/analysis files are excluded, and
+HTML with client-side scripts is rejected. Merging a PR that changes `reports/**`
+is the publication review event; the `github-pages` environment can require an
+additional reviewer. Private trackers require separate storage and a separate
+publication workflow.
 
 ## Not implemented
 

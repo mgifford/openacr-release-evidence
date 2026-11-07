@@ -151,7 +151,8 @@ command is called. Raw output is private and never published.
   grouping and explicit verification gaps.
 - Reproducible artifacts with a digest that can be recomputed from the published
   JSON, plus an input-manifest digest.
-- 60 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- GitHub Pages deployment workflow with an explicit, script-free publication allowlist.
+- 63 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -164,8 +165,34 @@ command is called. Raw output is private and never published.
 - Composer lockfile resolution for Drupal CMS and LocalGov, and their manifests.
 - AI-assisted summaries or mappings. No AI is used in the current report.
 - GitHub Issues, Jira or non-Drupal GitLab adapters.
-- Automated publication to GitHub Pages. Publication remains a human decision.
+- Scheduled publication. The Pages workflow deploys after a merge that changes
+  `reports/**` or on manual dispatch; it is not a cron job.
 - A single accessibility percentage or conformance score. None is produced.
+
+## GitHub Pages
+
+The reviewed static reports are published from the `main` branch with
+`.github/workflows/pages.yml`. The expected site URL is
+<https://mgifford.github.io/openacr-release-evidence/>.
+
+- The workflow runs on `workflow_dispatch` and on a push to `main` that changes
+  `reports/**` or the workflow itself.
+- It deploys only an explicit allowlist: the landing page plus each report's
+  `index.html`, `report.css`, `evidence.json` and `summary.json`.
+- Raw evidence, `collection.json`, `analysis.json`, repository files and
+  unpublished drafts are excluded and checked before upload. The published
+  `evidence.json` contains normalized public records; `provenance.raw_ref` is a
+  path reference only, not raw content.
+- It refuses to publish an HTML report containing a client-side `<script>`.
+- Merging a PR that changes `reports/**` is the publication review event.
+  Configure required reviewers on the `github-pages` environment for a second
+  approval gate; `workflow_dispatch` is available for a deliberate manual run.
+- Enable Pages under **Settings → Pages → Build and deployment → GitHub
+  Actions** if it is not already enabled. Until the workflow runs, the site URL
+  returns 404.
+
+The landing page is `reports/index.html`; the first report is at
+`/drupal-core-11.4.12/`. Reports remain drafts, not conformance claims.
 
 ## Repository layout
 

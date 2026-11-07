@@ -57,8 +57,15 @@ require recusal.
 
 A generated report is a draft, not a publication authorization. Publishing to
 GitHub Pages requires an approver to confirm the target, scope, evidence links,
-redactions and that the artifact contains no raw private tracker data. Approval
-of a release tag or a commit is not approval of an ACR.
+redactions and that the artifact contains no raw private tracker data. The
+`pages.yml` workflow deploys only an explicit allowlist (landing page, report
+HTML, stylesheet, evidence JSON and summary) and rejects private paths and
+client-side scripts.
+
+Merging a pull request that changes `reports/**` is the publication review
+event. For a second gate, configure required reviewers on the `github-pages`
+environment; a manual `workflow_dispatch` is also available. Approval of a
+release tag or a commit is not approval of an ACR.
 
 ## Transparency and sustainability
 

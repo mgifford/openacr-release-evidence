@@ -65,7 +65,7 @@ report and does not certify Drupal or this project.
 | Medium | The explorer still omits source dates, `ref`, installation and coverage. | `web/AGENTS.md` requires those fields. | Port the report’s scope and observation fields into the explorer, or retire the explorer in favour of the static report. |
 | Medium | AI governance describes controls `ai.py` does not implement. | The document overstates validation, hashing, caching and parameter recording. | Keep AI off by default; mark the document as planned or implement before enabling. |
 | Medium | `collect-drupal` accepts a bare numeric reference. | A migrated GitLab IID is project-scoped and not globally unique. | Require `project#iid` for migrated projects or emit an explicit ambiguity warning. |
-| Medium | GitHub Pages publication is still procedural. | `build`/`report` have no publication gate; `save_private_snapshot` protects only the snapshot path. | Add a publication checklist/allowlist and keep private evidence out of `reports/`. |
+| Low | First Pages deployment and environment protection are not yet verified. | The workflow and landing page are added, but the site URL returns 404 until a merge/run and any required-reviewer setting. | Merge, confirm Pages is enabled for GitHub Actions, configure `github-pages` environment reviewers if wanted, and verify the deployed URL. |
 | Low | `run_read` checks the 2 MB limit after capturing stdout. | A very large output is buffered before rejection. | Stream or cap the capture. |
 | Low | `git-check` has no timeout and reuses raw revision strings for `merge-base`. | Rare local failure mode; already guarded by `rev-parse --end-of-options`. | Resolve to SHAs and add a timeout. |
 | Low | CI actions are pinned to major tags, not SHAs. | Supply-chain hardening. | Pin digests when the workflow stabilises. |
@@ -116,13 +116,17 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 60 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 63 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, release
   classification, commit deduplication, caching, failure isolation, report
   escaping/anchors/headings, the digest, placeholder guards, and the worksheet.
 - Report rendered with axe-core: **0 violations** at 1280 px; `scrollWidth` 320
   at a 320 px viewport; all 66 internal anchors resolve; the skip link focuses
   `MAIN`; `<details>` toggles by keyboard; no JavaScript is required.
+- The Pages artifact was simulated locally: five allowlisted files
+  (`index.html`, report HTML/CSS, `evidence.json`, `summary.json`), no
+  collection/analysis files, no private paths, no script tags. The landing page
+  and report both pass axe at 1280 px and have no 320 px overflow.
 - Not done: screen-reader/manual keyboard testing of the report, full WCAG
   catalogue coverage, official OpenACR schema validation, live integration tests
   in CI.

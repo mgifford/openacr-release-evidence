@@ -64,6 +64,10 @@ python3 -m compileall -q src
 If `python` is absent on your platform, use `python3`. Do not document a check
 that fails on a clean checkout.
 
+For Pages changes, keep the publication allowlist minimal and never add raw
+evidence or `collection.json`/`analysis.json` to it. The workflow must continue
+to reject private paths and client-side scripts.
+
 For report or UI changes, also:
 
 - render at 320 CSS px (400% zoom equivalent) and confirm there is no

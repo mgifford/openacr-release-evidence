@@ -25,8 +25,13 @@ Controls:
 - AI is off by default and is not used in the current report. If enabled, tokens
   stay server-side and model output remains untrusted.
 
-The example workflow does not fetch live issues or auto-publish. Publication of
-`reports/` to GitHub Pages is a human decision, not an automatic action.
+The CI workflow does not fetch live issues or auto-publish. The Pages workflow
+deploys only an explicit allowlist: a landing page and each report's HTML, CSS,
+evidence JSON and summary. It rejects private-evidence paths, non-allowlisted
+JSON (including raw collection/analysis files) and HTML containing client-side
+scripts. Configure required reviewers on the `github-pages` environment if a
+deployment should wait for a second approval. Publication remains a human
+decision, not an automatic consequence of running the collector.
 
 No SLA or security audit is claimed for this prototype. An independent security
 review and real reporting channel are required before broader deployment.
