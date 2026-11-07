@@ -52,6 +52,9 @@ The report page links both files.
 ## What the draft contains
 
 - A title marked **DRAFT**.
+- Evidence scope note: active/review-relevant issues only (Active, Needs review,
+  Needs work, RTBC, Patch); fixed and closed issues are excluded. Some active
+  issues are metadata-only inventory records.
 - Product name/version/description from the target.
 - A placeholder author:
   - name: `Unassigned reviewer (draft)`

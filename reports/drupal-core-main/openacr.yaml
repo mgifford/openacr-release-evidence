@@ -12,13 +12,17 @@ report_date: '2026-11-07'
 last_modified_date: '2026-11-07'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.x-dev (branch main). Evidence
-  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: 33bd2c29d2bbe4f16720b9ffc4419860ed0cffdfba115192e9653f1a1558d577.
-  No WCAG conformance values are populated. The author is a placeholder; a human reviewer
-  must replace it, assess every criterion, select components and adherence levels,
-  and run `acr-evidence openacr-validate --file openacr.yaml --strict` before publishing.
-  ATAG 2.0 authoring evidence is tracked separately at ../drupal-core-atag/index.html;
-  this OpenACR does not populate ATAG criteria or the authoring-tool component. This
-  file has not been round-tripped through the Civicactions/GSA ACR editor.'
+  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: bd263fe2865a451117388b0ceca58ecb69c42145ef59c0715184b02091f734d5.
+  Evidence scope: active/review-relevant issues only (Active, Needs review, Needs
+  work, RTBC, Patch); fixed and closed issues are excluded. Some active issues are
+  metadata-only inventory records; complete comments/merge-request evidence was collected
+  only for a review-priority subset. No WCAG conformance values are populated. The
+  author is a placeholder; a human reviewer must replace it, assess every criterion,
+  select components and adherence levels, and run `acr-evidence openacr-validate --file
+  openacr.yaml --strict` before publishing. ATAG 2.0 authoring evidence is tracked
+  separately at ../drupal-core-atag/index.html; this OpenACR does not populate ATAG
+  criteria or the authoring-tool component. This file has not been round-tripped through
+  the Civicactions/GSA ACR editor.'
 evaluation_methods_used: No WCAG-EM sample was evaluated; this is an evidence-only
   skeleton, not a completed ACR. Public Drupal.org issue-queue evidence collection,
   commit/tag containment analysis, and explicit WCAG candidate tag grouping were used.
@@ -259,7 +263,7 @@ target:
   release_line: main
   parent_project: null
   assessment_id: drupal-core-main
-  evidence_digest: 33bd2c29d2bbe4f16720b9ffc4419860ed0cffdfba115192e9653f1a1558d577
+  evidence_digest: bd263fe2865a451117388b0ceca58ecb69c42145ef59c0715184b02091f734d5
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr

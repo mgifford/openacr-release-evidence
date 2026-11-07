@@ -90,23 +90,29 @@ only an allowlist of read commands and rejects unknown flags.
 
 ## 5. Live sample and release analysis
 
-- 20 Drupal Core issues explicitly tagged **Accessibility** (term 1101) were
-  collected: 743 comments, 20 issues with MR metadata, 12 with WCAG tags.
-  This meets Phase 1’s 20-issue threshold.
+- The full Drupal Core **Accessibility** queue (term 1101) was paged. 428 active,
+  review-relevant issues were collected: 1,666 comments, 29 with MR metadata,
+  193 with WCAG tags. Statuses are Active (235), Needs work (172), Needs review
+  (14) and RTBC (7); fixed, closed, duplicate, won’t-fix, outdated,
+  cannot-reproduce and postponed issues are excluded.
+- 30 review-priority issues have full comments/MRs; 398 are metadata-only
+  inventory records. Inventory records are not assigned a release conclusion.
 - Target: Drupal Core **11.4.12**, tag commit `aa556ff1…`, composer.lock
   SHA-256 `d3d2949e…`.
-- 4 fixes were found contained in the tag:
-  3621109, 3623388, 3618127, 3617875.
-- 14 were classified `likely-affected`; 2 remained `unknown` because they were
-  reported after the release date and have no target-branch fix.
+- No active issue has a fix commit contained in the selected targets, so no
+  `confirmed-fixed` result is emitted in this active-only pass. Closed-fixed
+  issues are not used as evidence.
+- 28 detailed issues were classified `likely-affected` for 10.6.21 and 11.4.12;
+  400 findings were `unknown` (398 inventory + two detailed issues without a
+  target conclusion).
 - The target intentionally enables the **Default Admin** theme. Drupal 11.4.12’s
   stock standard profile still uses Claro and Olivero, so this is a declared
   configuration, not the stock default.
-- Four of the five Phase 2 cases are demonstrated by real issues: open barrier,
-  fix only on a newer branch, fix contained in the release, and unknown. The
-  `not-introduced` case is not present in this real sample; it is covered by
-  `test_feature_absent_is_not_introduced` with explicit feature-absence evidence.
-  A future sample should include a real 11.5-only feature issue.
+- Active evidence demonstrates the open-barrier, fix-only-on-a-newer-branch and
+  unknown cases. The closed-fixed/contained-fix case is covered by fixtures
+  because closed issues are excluded from the active ACR collection. The
+  `not-introduced` case is also fixture-tested with explicit feature-absence
+  evidence; a future sample should include a real 11.5-only feature issue.
 
 The evidence report is `reports/drupal-core-11.4.12/index.html`. It is a draft
 evidence report, **not** an ACR.
@@ -116,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 86 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 90 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -180,7 +186,7 @@ After the first audit and report:
   `setup-python@v7`, `upload-artifact@v7`, `configure-pages@v6`,
   `upload-pages-artifact@v5` and `deploy-pages@v5`, resolving the Node 20
   deprecation warning from run 42402400410.
-- **Multi-target analysis:** the shared 20-issue collection is analyzed against
+- **Multi-target analysis:** the shared 428-issue active collection is analyzed against
   10.6.21 (supported), 11.4.12 (supported), 12.0.0-alpha1 and 12.0.0-beta2
   (pre-release), and `main`/12.0.x-dev (development). The landing page contains a
   cross-release matrix; each cell links to the target finding.
@@ -190,7 +196,13 @@ After the first audit and report:
 - **Parent graph:** `parent_project` is carried in target metadata and documented
   as Core → Claro/Olivero and Core → Drupal CMS/LocalGov. Parent-linked ACR
   generation is not implemented.
-- **ATAG 2.0 evidence:** 50 Drupal Core issues tagged `atag` are collected from
+- **Active-issue scope and pagination:** the earlier collection was an explicit
+  20-issue sample and discovery stopped at one API page. The fix pages the full
+  Accessibility queue (50 per page, up to 200 pages), keeps only statuses 1, 8,
+  13, 14 and 15, excludes fixed/closed/postponed issues, and retains 428 active
+  issues (30 full-detail, 398 inventory-only). RTBC remains included until
+  closed.
+- **ATAG 2.0 evidence:** 32 active Drupal Core issues tagged `atag` are collected from
   the Accessibility queue, grouped by explicit Part A/B tags, curated mapping and
   component candidates, and exported as `atag-evidence.json` plus a WAI ATAG
   Report Tool JSON draft (`atag-report.json`, all 63 criteria `Not checked`).
@@ -209,15 +221,15 @@ After the first audit and report:
   verified (draft metadata loaded; all 52 A/AA criteria `Not checked`), but
   human editing/export and release-scoped applicability are not yet verified.
 
-Current multi-target result (same 20 issues, no reproduction):
+Current multi-target result (428 active issues, no reproduction):
 
 | Target | Support | Fix included | Confirmed fixed | Likely affected | Unknown |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 10.6.21 | Supported | 0 | 0 | 8 | 12 |
-| 11.4.12 | Supported | 4 | 4 | 14 | 2 |
-| 12.0.0-alpha1 | Pre-release | 1 | 1 | 16 | 3 |
-| 12.0.0-beta2 | Pre-release | 10 | 10 | 7 | 3 |
-| `main` | Development | 11 | 10 | 10 | 0 |
+| 10.6.21 | Supported | 0 | 0 | 28 | 400 |
+| 11.4.12 | Supported | 0 | 0 | 28 | 400 |
+| 12.0.0-alpha1 | Pre-release | 0 | 0 | 23 | 405 |
+| 12.0.0-beta2 | Pre-release | 0 | 0 | 26 | 402 |
+| `main` | Development | 0 | 0 | 30 | 398 |
 
 The 10.6 result is deliberately conservative. The generic “Admin theme”
 component spans Claro and Default Admin, and fixes landed on newer branches; the

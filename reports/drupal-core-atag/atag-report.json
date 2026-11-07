@@ -579,7 +579,7 @@
     },
     "executiveSummary": {
       "id": "executiveSummary",
-      "value": "DRAFT ATAG 2.0 authoring-tool evidence for Drupal Core 11.4.12. 50 ATAG-tagged issues were collected from Drupal.org. No ATAG conformance values are populated; every criterion is 'Not checked'. Evidence report: https://mgifford.github.io/openacr-release-evidence/drupal-core-atag/. A human reviewer must complete the ATAG Report Tool evaluation."
+      "value": "DRAFT ATAG 2.0 authoring-tool evidence for Drupal Core 11.4.12. 32 ATAG-tagged issues were collected from Drupal.org. No ATAG conformance values are populated; every criterion is 'Not checked'. Evidence report: https://mgifford.github.io/openacr-release-evidence/drupal-core-atag/. A human reviewer must complete the ATAG Report Tool evaluation."
     },
     "evaluatorName": {
       "id": "evaluatorName",

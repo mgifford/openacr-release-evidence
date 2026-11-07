@@ -4,7 +4,7 @@
   "atag_version": "2.0",
   "product": "Drupal Core",
   "release": "11.4.12",
-  "generated_at": "2026-11-07T19:23:43Z",
+  "generated_at": "2026-11-07T20:05:48Z",
   "source": {
     "tag": "atag",
     "tag_tid": "5050",
@@ -15,13 +15,13 @@
     "wai_report_tool": "https://www.w3.org/WAI/atag/report-tool/"
   },
   "summary": {
-    "issues": 50,
+    "issues": 32,
     "explicit_part_a": 0,
     "explicit_part_b": 0,
-    "candidate_part_a": 14,
-    "candidate_part_b": 33,
-    "unspecified": 8,
-    "meta_issues": 7,
+    "candidate_part_a": 8,
+    "candidate_part_b": 20,
+    "unspecified": 4,
+    "meta_issues": 6,
     "missing_accessibility_tag": 0,
     "criteria": 63
   },
@@ -96,30 +96,6 @@
       "missing_accessibility_tag": false
     },
     {
-      "issue_id": "drupal:1993928",
-      "title": "Language of parts: Introduce a language toolbar button",
-      "url": "https://www.drupal.org/project/drupal/issues/1993928",
-      "component": "ckeditor.module",
-      "status": "Closed (fixed)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
       "issue_id": "drupal:2034909",
       "title": "[meta] Track progress in ATAG 2.0 conformance",
       "url": "https://www.drupal.org/project/drupal/issues/2034909",
@@ -135,27 +111,6 @@
         "candidate_parts": [],
         "criteria": [],
         "basis": "tag+atag-meta-tracker",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:2034915",
-      "title": "[meta] Track progress in WCAG 2.0 conformance",
-      "url": "https://www.drupal.org/project/drupal/issues/2034915",
-      "component": "other",
-      "status": "Closed (outdated)",
-      "issue_kind": "meta",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -234,59 +189,12 @@
       "missing_accessibility_tag": false
     },
     {
-      "issue_id": "drupal:2307141",
-      "title": "Enable browsers' (native) spell checker in CKEditor",
-      "url": "https://www.drupal.org/project/drupal/issues/2307141",
-      "component": "ckeditor.module",
-      "status": "Closed (fixed)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
       "issue_id": "drupal:2307175",
       "title": "[meta] Document all accessibility features in the UI",
       "url": "https://www.drupal.org/project/drupal/issues/2307175",
       "component": "documentation",
       "status": "Active",
       "issue_kind": "meta",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:2307277",
-      "title": "Tag conversion strips accessibility attributes",
-      "url": "https://www.drupal.org/project/drupal/issues/2307277",
-      "component": "filter.module",
-      "status": "Closed (works as designed)",
-      "issue_kind": "issue",
       "atag": {
         "is_atag": true,
         "parts": [],
@@ -535,80 +443,11 @@
       "missing_accessibility_tag": false
     },
     {
-      "issue_id": "drupal:2957933",
-      "title": "Clean Up HTML & improve accessibility during migration",
-      "url": "https://www.drupal.org/project/drupal/issues/2957933",
-      "component": "migration system",
-      "status": "Closed (won't fix)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:2957938",
-      "title": "Evaluate Accessibility During Migration ",
-      "url": "https://www.drupal.org/project/drupal/issues/2957938",
-      "component": "migration system",
-      "status": "Closed (duplicate)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
       "issue_id": "drupal:3002770",
       "title": "Provide authors with tools to manage transcripts and captions/subtitles for local video and audio",
       "url": "https://www.drupal.org/project/drupal/issues/3002770",
       "component": "media system",
       "status": "Active",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3023807",
-      "title": "Override media fields from the reference field",
-      "url": "https://www.drupal.org/project/drupal/issues/3023807",
-      "component": "media system",
-      "status": "Postponed",
       "issue_kind": "issue",
       "atag": {
         "is_atag": true,
@@ -717,29 +556,6 @@
       "missing_accessibility_tag": false
     },
     {
-      "issue_id": "drupal:3083994",
-      "title": "Difficult for authors to embed image media with empty alt text.",
-      "url": "https://www.drupal.org/project/drupal/issues/3083994",
-      "component": "media system",
-      "status": "Postponed",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
       "issue_id": "drupal:3084011",
       "title": "The source of alt text in embedded image media is not clear",
       "url": "https://www.drupal.org/project/drupal/issues/3084011",
@@ -754,27 +570,6 @@
         ],
         "criteria": [],
         "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3097907",
-      "title": "Active toolbar tray has weak affordance and fails WCAG color criteria",
-      "url": "https://www.drupal.org/project/drupal/issues/3097907",
-      "component": "toolbar.module",
-      "status": "Closed (fixed)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -812,50 +607,6 @@
       "url": "https://www.drupal.org/project/drupal/issues/3174111",
       "component": "language system",
       "status": "Active",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3174120",
-      "title": "Check PDF files for Basic Accessibility Issues",
-      "url": "https://www.drupal.org/project/drupal/issues/3174120",
-      "component": "file.module",
-      "status": "Postponed",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "tag",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3193394",
-      "title": "Add Help Page on Creating Good Alt Text",
-      "url": "https://www.drupal.org/project/drupal/issues/3193394",
-      "component": "image.module",
-      "status": "Closed (duplicate)",
       "issue_kind": "issue",
       "atag": {
         "is_atag": true,
@@ -945,27 +696,6 @@
       "missing_accessibility_tag": false
     },
     {
-      "issue_id": "drupal:3290899",
-      "title": "Content Dashboard needs some headings",
-      "url": "https://www.drupal.org/project/drupal/issues/3290899",
-      "component": "other",
-      "status": "Closed (cannot reproduce)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "tag",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
       "issue_id": "drupal:3293673",
       "title": "[ATAG] Text editor should alert user when headings are out of order",
       "url": "https://www.drupal.org/project/drupal/issues/3293673",
@@ -989,98 +719,6 @@
       "missing_accessibility_tag": false
     },
     {
-      "issue_id": "drupal:3299776",
-      "title": "Full HTML Shouldn't Include H1",
-      "url": "https://www.drupal.org/project/drupal/issues/3299776",
-      "component": "filter.module",
-      "status": "Closed (works as designed)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3303777",
-      "title": "Incorporate best practices from A11yFirst into WYSIWYG",
-      "url": "https://www.drupal.org/project/drupal/issues/3303777",
-      "component": "ckeditor5.module",
-      "status": "Closed (works as designed)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3313616",
-      "title": "[drupalMedia] Ability to mark image media as \"decorative\"",
-      "url": "https://www.drupal.org/project/drupal/issues/3313616",
-      "component": "ckeditor5.module",
-      "status": "Closed (fixed)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3351638",
-      "title": "Remove truncation of path alias",
-      "url": "https://www.drupal.org/project/drupal/issues/3351638",
-      "component": "path.module",
-      "status": "Closed (fixed)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "tag",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
       "issue_id": "drupal:3393367",
       "title": "Add a section to the user profile to store accessibility preferences",
       "url": "https://www.drupal.org/project/drupal/issues/3393367",
@@ -1093,54 +731,6 @@
         "candidate_parts": [],
         "criteria": [],
         "basis": "tag",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3394024",
-      "title": "Keyboard accessibility: not working with CKEditor 5 inserting image",
-      "url": "https://www.drupal.org/project/drupal/issues/3394024",
-      "component": "ckeditor5.module",
-      "status": "Closed (cannot reproduce)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:3579845",
-      "title": "Remove aria-expanded from summary in details element",
-      "url": "https://www.drupal.org/project/drupal/issues/3579845",
-      "component": "forms system",
-      "status": "Closed (duplicate)",
-      "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -1175,5 +765,5 @@
   ],
   "review_status": "unreviewed",
   "notes": "ATAG is separate from WCAG/OpenACR. No ATAG conformance values are populated.",
-  "evidence_digest": "24c39f77a5fb724b769b5632134c29f5d629a3ff8ef703d5c68273b43e57a11d"
+  "evidence_digest": "c21a33aff7d86378858e86b3310acb00043a3c50cfddbe485c76aa0189ddceb0"
 }

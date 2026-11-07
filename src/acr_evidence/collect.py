@@ -13,7 +13,13 @@ from pathlib import Path
 
 from .adapters import drupal as drupal_rest
 from .adapters.drupalorg_cli import DrupalOrgCli, DrupalOrgCliError, save_private_snapshot
-from .model import SCHEMA_VERSION, digest_artifact, sha256_json
+from .model import (
+    ACR_REVIEW_STATUSES,
+    SCHEMA_VERSION,
+    digest_artifact,
+    is_acr_review_status,
+    sha256_json,
+)
 from .normalize import normalize_drupal_issue
 
 DEFAULT_TAG_TID = "1101"  # Drupal.org "Accessibility" term, verified 2026-11-07
@@ -107,13 +113,18 @@ def collect_issues(
     project_id = query.get("project_id") or drupal_rest.KNOWN_PROJECT_IDS.get(project)
     tag_tid = str(query.get("tag_tid") or DEFAULT_TAG_TID)
     include_ids = [str(item) for item in (query.get("include_ids") or []) if str(item).isdigit()]
-    max_issues = int(query.get("max_issues") or 20)
+    max_issues = int(query.get("max_issues") or 5000)
     if include_ids:
         max_issues = min(max_issues, len(include_ids))
+    statuses = {int(item) for item in (query.get("statuses") or ACR_REVIEW_STATUSES)}
+    detail_ids = {str(item) for item in (query.get("detail_ids") or []) if str(item).isdigit()}
+    detail_limit = int(60 if query.get("detail_limit") is None else query.get("detail_limit"))
+    max_pages = int(query.get("max_pages") or 200)
     cache_root = Path(cache_dir) / "issues"
     cache_root.mkdir(parents=True, exist_ok=True)
     term_cache = {}
     nodes = {}
+    discovered = 0
     errors = []
 
     # Discovery: explicit IDs are preferred for a reproducible sample. Otherwise
@@ -131,13 +142,15 @@ def collect_issues(
                 continue
             nodes[nid] = node
     else:
+        # Page the entire queue. Status filtering is applied locally because the
+        # Drupal.org API does not reliably apply field_issue_status filters.
         page = 0
-        while len(nodes) < max_issues and page < 20:
+        while page < max_pages and len(nodes) < max_issues:
             batch = rest.find_issues(
                 project=project,
                 project_id=project_id,
                 tag_tid=tag_tid,
-                statuses=query.get("statuses"),
+                statuses=None,
                 component=query.get("component"),
                 since=query.get("since"),
                 limit=min(50, max_issues - len(nodes)),
@@ -145,13 +158,33 @@ def collect_issues(
             )
             if not batch:
                 break
-            before = len(nodes)
+            discovered += len(batch)
             for node in batch:
+                code = node.get("field_issue_status")
+                if statuses and not is_acr_review_status(code):
+                    continue
                 nodes[str(node.get("nid"))] = node
-            if len(nodes) == before:
-                # A source that ignores pagination must not loop forever.
+                if len(nodes) >= max_issues:
+                    break
+            if len(batch) < 50:
                 break
             page += 1
+
+    # Full CLI/comment/MR evidence is expensive at queue scale. Select a
+    # review-priority subset for detail; the rest remain complete inventory
+    # records with source URL, status, tags and component.
+    if detail_ids:
+        detail = {nid for nid in nodes if nid in detail_ids}
+    else:
+        priority = {14: 0, 8: 1, 13: 2, 1: 3, 15: 4}
+        ordered = sorted(
+            nodes.items(),
+            key=lambda item: (
+                priority.get(int(item[1].get("field_issue_status") or 0), 9),
+                -int(item[1].get("changed") or 0),
+            ),
+        )
+        detail = {nid for nid, _ in ordered[:max(0, detail_limit)]}
 
     try:
         cli_version = cli.version()
@@ -161,10 +194,12 @@ def collect_issues(
     normalized = []
     cached_count = 0
     fetched_count = 0
+    inventory_count = 0
     for nid, node in list(nodes.items())[:max_issues]:
+        full_detail = nid in detail
         cache_file = cache_root / f"{nid}.json"
         record = None
-        if cache_file.exists() and not refresh:
+        if full_detail and cache_file.exists() and not refresh:
             try:
                 candidate = _read_json(cache_file)
                 if _fresh(candidate, cache_ttl, now):
@@ -173,7 +208,29 @@ def collect_issues(
             except (OSError, ValueError):
                 record = None
 
-        if record is None:
+        if record is None and not full_detail:
+            warnings = []
+            term_names = _safe_terms(rest, node, term_cache, warnings)
+            retrieved_at = now.isoformat(timespec="seconds").replace("+00:00", "Z")
+            record = {
+                "nid": nid,
+                "retrieved_at": retrieved_at,
+                "issue": {},
+                "node": node,
+                "merge_requests": {},
+                "term_names": term_names,
+                "warnings": warnings,
+                "cli_version": None,
+                "evidence_status": "inventory",
+            }
+            try:
+                snapshot = _snapshot_path(raw_dir, nid, retrieved_at)
+                save_private_snapshot(snapshot, record)
+                record["raw_ref"] = str(snapshot)
+            except (FileExistsError, OSError, ValueError) as exc:
+                warnings.append(f"Raw inventory snapshot not saved: {exc}")
+            inventory_count += 1
+        elif record is None:
             warnings = []
             try:
                 issue = cli.issue_show(nid)
@@ -195,6 +252,7 @@ def collect_issues(
                 "term_names": _safe_terms(rest, node, term_cache, warnings),
                 "warnings": warnings,
                 "cli_version": cli_version,
+                "evidence_status": "full",
             }
             try:
                 snapshot = _snapshot_path(raw_dir, nid, retrieved_at)
@@ -208,8 +266,11 @@ def collect_issues(
             fetched_count += 1
         else:
             warnings = list(record.get("warnings") or [])
+            if record.get("evidence_status") == "inventory":
+                inventory_count += 1
 
         try:
+            evidence_status = record.get("evidence_status") or "full"
             normalized.append(
                 normalize_drupal_issue(
                     record["issue"],
@@ -218,8 +279,9 @@ def collect_issues(
                     record.get("term_names") or {},
                     record["retrieved_at"],
                     record.get("raw_ref") or str(_snapshot_path(raw_dir, nid, record["retrieved_at"])),
-                    adapter="drupalorg-cli",
+                    adapter="drupal.org-api" if evidence_status == "inventory" else "drupalorg-cli",
                     cli_version=record.get("cli_version") or cli_version,
+                    evidence_status=evidence_status,
                 )
             )
         except Exception as exc:
@@ -254,6 +316,10 @@ def collect_issues(
         "failed": len([error for error in errors if error.get("stage") != "discovery"]),
         "with_merge_requests": with_mrs,
         "with_wcag_tags": with_wcag,
+        "detailed": len([issue for issue in normalized if issue.get("evidence_status") == "full"]),
+        "inventory": len([issue for issue in normalized if issue.get("evidence_status") == "inventory"]),
+        "excluded_by_status": max(0, discovered - len(nodes)),
+        "statuses": sorted(statuses),
         "comments": comment_count,
         "by_workflow": dict(sorted(by_workflow.items())),
         "by_status": dict(sorted(by_status.items())),

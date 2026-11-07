@@ -132,6 +132,16 @@ class ReleaseClassificationTests(unittest.TestCase):
         self.assertEqual("unknown", finding["applicability"])
         self.assertEqual("insufficient-evidence", finding["basis"])
 
+
+    def test_inventory_issue_does_not_claim_release_applicability(self):
+        issue = normalized("3618140")
+        issue["evidence_status"] = "inventory"
+        finding = classify_issue(issue, MANIFEST, TARGET, [])
+        self.assertEqual("unknown", finding["applicability"])
+        self.assertEqual("inventory-only", finding["basis"])
+        self.assertEqual("inventory", finding["evidence_status"])
+        self.assertIn("not collected", finding["reason"])
+
     def test_component_outside_manifest_is_not_in_scope(self):
         manifest = json.loads(json.dumps(MANIFEST))
         manifest["components"] = ["core"]

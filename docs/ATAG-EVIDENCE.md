@@ -16,13 +16,14 @@ The common Accessibility tag is taxonomy term **1101**. The ATAG tag is term
 - [Accessibility queue](https://www.drupal.org/project/issues/search?text=&projects=&assigned=&submitted=&project_issue_followers=&issue_tags_op=%3D&issue_tags=Accessibility)
 - [atag queue](https://www.drupal.org/project/issues/search?text=&projects=&assigned=&submitted=&project_issue_followers=&issue_tags_op=%3D&issue_tags=atag)
 
-All 50 ATAG-tagged Drupal Core issues in the current sample also carry the
-Accessibility tag. The report still checks for and reports any ATAG issue that
-is missing the common tag, because it would otherwise disappear from the
+The current active snapshot contains 32 ATAG-tagged Drupal Core issues; all carry
+the Accessibility tag. The report still checks for and reports any ATAG issue
+that is missing the common tag, because it would otherwise disappear from the
 Accessibility-only queue. The collection is scoped to the Drupal Core project;
-contrib ATAG issues are not included.
+contrib ATAG issues are not included. Fixed, closed and postponed ATAG issues are
+excluded, consistent with the ACR active-issue policy.
 
-The current snapshot contains 7 `[meta]` tracker issues. They are listed in a
+The current snapshot contains 6 `[meta]` tracker issues. They are listed in a
 separate meta/tracker section and are not counted as Part A/B bug evidence.
 
 ### Part A/B tags
@@ -54,8 +55,8 @@ or failed. They are labelled as candidates and remain `needs-triage`.
 
 ## Report
 
-Current snapshot: 50 ATAG-tagged issues, 7 meta/tracker issues, 14 Part A
-component candidates, 33 Part B component candidates (overlapping), 8
+Current snapshot: 32 active ATAG-tagged issues, 6 meta/tracker issues, 8 Part A
+component candidates, 20 Part B component candidates (overlapping), 4
 unspecified, 0 explicit Part A/B issue tags and 0 missing Accessibility tags.
 The meta tracker `2034909` is mapped to both parts in `config/atag-scope.json`
 but is excluded from the bug counts.

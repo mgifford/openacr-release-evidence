@@ -77,7 +77,7 @@ shared collection is target-independent; the applicability analysis is not.
 
 This writes:
 
-- `reports/collection.json` — one normalized issue collection (20 issues, comments, MRs, provenance).
+- `reports/collection.json` — one normalized active-issue collection (428 issues; 30 with full comments/MRs, 398 inventory-only, provenance).
 - `reports/<target>/analysis.json` — target-specific applicability and commit evidence.
 - `reports/<target>/index.html` — static, no-JavaScript target report.
 - `reports/<target>/evidence.json`, `summary.json`, `report.css`.
@@ -97,30 +97,28 @@ Collection is incremental: issue data is cached for six hours and commit
 indexes are cached; use `--refresh` to force retrieval. A single failed issue is
 recorded and does not invalidate the run.
 
-## What the current sample shows
+## What the current collection shows
 
-The same 20 real Drupal Core accessibility issues are analyzed against every
-declared target. This is how an old issue can remain visible across release
-lines instead of disappearing when a branch changes.
+The same **428 active, review-relevant** Drupal Core accessibility issues are
+analyzed against every declared target. Fixed and closed issues are excluded by
+policy; RTBC issues stay in until closed. The collection covers statuses 1, 8,
+13, 14 and 15; 30 review-priority issues have full comments/MRs, while 398 are
+metadata-only inventory records.
 
 | Target | Support | Fix included | Confirmed fixed | Likely affected | Unknown |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 10.6.21 | Supported | 0 | 0 | 8 | 12 |
-| 11.4.12 | Supported | 4 | 4 | 14 | 2 |
-| 12.0.0-alpha1 | Pre-release | 1 | 1 | 16 | 3 |
-| 12.0.0-beta2 | Pre-release | 10 | 10 | 7 | 3 |
-| `main` / 12.0.x-dev | Development | 11 | 10 | 10 | 0 |
+| 10.6.21 | Supported | 0 | 0 | 28 | 400 |
+| 11.4.12 | Supported | 0 | 0 | 28 | 400 |
+| 12.0.0-alpha1 | Pre-release | 0 | 0 | 23 | 405 |
+| 12.0.0-beta2 | Pre-release | 0 | 0 | 26 | 402 |
+| `main` / 12.0.x-dev | Development | 0 | 0 | 30 | 398 |
 
-"Fix included" means the matching commit is contained in the target tag or
-branch. "Confirmed fixed" additionally requires the tracker to be closed fixed;
-it is still unreviewed and not behaviourally verified. On `main`, one issue has
-an included fix but is not closed fixed, so the two counts differ.
-
-The 10.6.21 target intentionally reports many `unknown` results: fixes landed on
-newer branches, not on 10.6.x, and the issue queue's generic **Admin theme**
-component spans Claro (10.6) and Default Admin (11.4/12). **This is not an
-accessibility score.** See the [matrix](reports/index.html) and the per-target
-reports for source links, comments and verification gaps.
+No active issue has a fix commit contained in a target. Closed-fixed issues are
+not used as evidence, so there is no `confirmed-fixed` count in this active-only
+pass. Most `unknown` results are metadata-only inventory records; the 30 detailed
+issues carry commit/MR evidence (28 are likely affected and two have no target
+conclusion). **This is not an accessibility score.** See the [matrix](reports/index.html) and the
+per-target reports for source links and verification gaps.
 
 ## Applicability states
 
@@ -173,7 +171,7 @@ command is called. Raw output is private and never published.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 86 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 90 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -254,7 +252,7 @@ dispatch. It:
 
 1. installs the package and `drupalorg-cli`;
 2. runs the offline test suite;
-3. collects the shared Drupal Core sample;
+3. pages the full Accessibility queue and collects active review-relevant issues;
 4. analyzes all five declared targets;
 5. opens a pull request on a generated branch.
 

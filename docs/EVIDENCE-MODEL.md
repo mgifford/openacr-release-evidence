@@ -143,6 +143,21 @@ parsed deterministically into `1.4.3`, `1.4.11` and `2.5.3`. There is no text
 mining and no model mapping here. A tag is a candidate relevance signal, not a
 conformance result.
 
+## ACR review scope and discovery
+
+ACR evidence includes only issues that still need review: Drupal status **1**
+(Active), **8** (Needs review), **13** (Needs work), **14** (RTBC) and **15**
+(Patch). Status **2** (Fixed), the closed statuses (3, 5, 6, 7, 17, 18) and the
+postponed statuses (4, 16) are excluded. An RTBC issue stays in until it is
+closed.
+
+Discovery pages the full filtered issue queue (50 per API page, up to 200 pages)
+instead of taking the first page. All active issues are included as normalised
+inventory records. A review-priority subset is fetched with full comments, merge
+requests and commit analysis; the rest are marked `evidence_status: inventory`
+and `metadata-only` in the report. Inventory records are not assigned a release
+applicability conclusion.
+
 ## Applicability states
 
 | State | Meaning in this project |
