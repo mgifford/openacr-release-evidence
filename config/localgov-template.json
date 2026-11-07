@@ -1,0 +1,10 @@
+{
+  "id": "localgov-drupal-TEMPLATE",
+  "product": "LocalGov Drupal",
+  "release": "SET-A-REAL-RELEASE",
+  "ref": "SET-EXACT-RELEASE-TAG",
+  "components": ["core", "localgov", "contributed-packages"],
+  "standards": ["WCAG 2.2 AA"],
+  "installation": {"composer_lock_sha256": null, "enabled_modules": [], "enabled_themes": [], "configuration": "RECORD-ACTUAL-INSTALLATION"},
+  "applicability_overrides": {}
+}

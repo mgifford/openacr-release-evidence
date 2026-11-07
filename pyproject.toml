@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openacr-release-evidence"
+version = "0.1.0"
+description = "Release-scoped accessibility evidence for draft OpenACRs"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+yaml = ["PyYAML>=6,<7"]
+
+[project.scripts]
+acr-evidence = "acr_evidence.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+acr_evidence = ["static/*.html", "static/*.js", "static/*.css"]

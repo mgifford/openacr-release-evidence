@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Release-scoped accessibility evidence, not a conformance report.">
+  <title>Release accessibility evidence | Draft explorer</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <header><p class="eyebrow">OpenACR Release Evidence</p><h1>Release accessibility evidence</h1>
+  <p>This is a <strong>draft evidence explorer</strong>, not an Accessibility Conformance Report or certification. Issue statuses do not establish release applicability or WCAG support.</p></header>
+  <main id="main">
+    <section aria-labelledby="scope-heading"><h2 id="scope-heading">Assessment scope</h2><div id="scope" role="status">Loading assessment...</div></section>
+    <section aria-labelledby="findings-heading"><h2 id="findings-heading">Issue evidence</h2>
+      <label for="status-filter">Filter by release applicability</label>
+      <select id="status-filter"><option value="all">All findings</option><option value="unknown">Unknown</option><option value="confirmed-affected">Confirmed affected (evidence supplied)</option><option value="likely-affected">Likely affected</option><option value="confirmed-fixed">Confirmed fixed (evidence supplied)</option><option value="not-introduced">Not introduced</option><option value="not-in-scope">Not in scope</option></select>
+      <p id="count" role="status" aria-live="polite"></p>
+      <div id="findings"><p>Loading findings...</p></div>
+    </section>
+    <section aria-labelledby="limits-heading"><h2 id="limits-heading">Evidence limitations</h2>
+      <p>An open, closed or fixed issue does not prove an accessibility barrier exists or was corrected in this release. Missing issues do not establish conformance. Findings are not automatically reviewed or verified. An actual ACR requires documented testing, complete scope, approved conformance determinations and GSA validation.</p>
+    </section>
+  </main>
+  <footer><p>Prototype. <a href="https://github.com/GSA/openacr">OpenACR format</a> and <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a>. No automated conformance claims are made.</p></footer>
+</body>
+</html>

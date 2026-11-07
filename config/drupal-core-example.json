@@ -1,0 +1,17 @@
+{
+  "id": "drupal-core-example",
+  "product": "Drupal Core",
+  "release": "EXAMPLE-UNVERIFIED",
+  "ref": "refs/tags/example-only",
+  "components": ["core", "administration"],
+  "standards": ["WCAG 2.2 AA"],
+  "installation": {"composer_lock_sha256": null, "enabled_modules": [], "enabled_themes": [], "configuration": "unknown"},
+  "applicability_overrides": {
+    "fixture:1002": {
+      "status": "confirmed-affected",
+      "reason": "Synthetic reproduction recorded in a fictitious assessment fixture; not real Drupal evidence.",
+      "basis": "synthetic-fixture",
+      "evidence_urls": ["https://example.org/fixtures/1002"]
+    }
+  }
+}

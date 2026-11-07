@@ -1,0 +1,29 @@
+name: Test evidence pipeline
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+      - name: Check syntax
+        run: python -m compileall -q src
+      - name: Build synthetic preview
+        run: acr-evidence build --manifest config/drupal-core-example.json --issues tests/fixtures/issues.json --output site
+      - name: Upload preview (not published)
+        uses: actions/upload-artifact@v4
+        with:
+          name: synthetic-evidence-preview
+          path: site/
+          retention-days: 7

@@ -1,0 +1,6 @@
+[
+  {"source":"fixture","id":"1001","url":"https://example.org/fixtures/1001","title":"Example issue fixed only on main","description":"Synthetic report, not verified on any release.","status":"closed","updated_at":"2026-01-02T00:00:00Z","wcag_candidates":["2.1.1"],"component":"core"},
+  {"source":"fixture","id":"1002","url":"https://example.org/fixtures/1002","title":"Example keyboard barrier","description":"Synthetic reproduction illustrates release-specific issue mapping.","status":"open","updated_at":"2026-01-04T00:00:00Z","wcag_candidates":["2.1.1"],"component":"administration"},
+  {"source":"fixture","id":"1003","url":"https://example.org/fixtures/1003","title":"Example future feature","description":"Cannot conclude this feature exists in a given release.","status":"open","updated_at":"2026-01-05T00:00:00Z","wcag_candidates":["4.1.2"],"component":"core"},
+  {"source":"fixture","id":"1004","url":"https://example.org/fixtures/1004","title":"<script>alert(1)</script> malicious issue title","description":"Unsafe issue HTML must not execute.","status":"open","updated_at":"2026-01-05T00:00:00Z","wcag_candidates":[],"component":"core"}
+]
