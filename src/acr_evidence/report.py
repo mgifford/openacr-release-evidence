@@ -477,8 +477,8 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
                 '<a href="./summary.json">summary.json</a> · '
                 '<a href="./openacr.yaml">openacr.yaml</a> · '
                 '<a href="./openacr-validation.json">openacr-validation.json</a> · '
-                '<a href="./vpat.html">VPAT-style draft narrative</a> · '
-                '<a href="./vpat.md">vpat.md</a>.</p>')
+                '<a href="./acr.html">ACR narrative</a> · '
+                '<a href="./acr.md">acr.md</a>.</p>')
     html.append('<p class="meta">The OpenACR file is a schema- and catalog-validated <strong>draft skeleton</strong>. '
                 'It intentionally contains no conformance values and uses a placeholder reviewer; a human must '
                 'populate and approve it before publication. See <code>openacr-validation.json</code> for the check result.</p>')
@@ -595,7 +595,7 @@ def render_landing(analyses, output_dir, targets_config=None):
             f'<a href="./{esc(target_id)}/summary.json">summary.json</a> · '
             f'<a href="./{esc(target_id)}/openacr.yaml">OpenACR draft YAML</a> · '
             f'<a href="./{esc(target_id)}/openacr-validation.json">validation</a> · '
-            f'<a href="./{esc(target_id)}/vpat.html">VPAT-style draft</a></p>'
+            f'<a href="./{esc(target_id)}/acr.html">ACR draft</a></p>'
             "</li>"
         )
     html.append("</ul>")
@@ -659,7 +659,7 @@ def render_landing(analyses, output_dir, targets_config=None):
 
     html.append('<section aria-labelledby="what-heading"><h2 id="what-heading">What this site publishes</h2>')
     html.append('<p>Only an explicit allowlist is deployed: this landing page, each report HTML and stylesheet, '
-                '<code>evidence.json</code>, <code>summary.json</code>, the VPAT-style draft, the OpenACR draft files '
+                '<code>evidence.json</code>, <code>summary.json</code>, the ACR draft, the OpenACR draft files '
                 'and the ATAG evidence files. Raw CLI responses, private evidence snapshots, <code>collection.json</code> '
                 'and <code>analysis.json</code> are not published.</p>')
     html.append("</section>")

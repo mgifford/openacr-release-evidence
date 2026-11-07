@@ -9,7 +9,7 @@ Files:
 
 - `openacr-0.1.0.json` — the OpenACR 0.1.0 JSON Schema.
 - `openacr-catalog-0.1.0.json` — the catalog schema.
-- `2.5-edition-wcag-2.2-508-en.yaml` — VPAT 2.5 WCAG 2.2 + Revised Section 508 catalog.
+- `2.5-edition-wcag-2.2-508-en.yaml` — OpenACR 2.5 WCAG 2.2 + Revised Section 508 catalog.
 - `LICENSE.md` — upstream licensing notice.
 
 The upstream project is CC0/public domain, except W3C data files which remain

@@ -2,7 +2,7 @@
 
 Each target report can export a machine-readable **draft** OpenACR YAML file.
 The file is validated against the Civicactions/GSA OpenACR 0.1.0 schema and the
-pinned VPAT 2.5 WCAG 2.2 + Revised Section 508 catalog.
+pinned OpenACR 2.5 WCAG 2.2 + Revised Section 508 catalog.
 
 It is a review skeleton, not an approved ACR.
 
@@ -47,8 +47,8 @@ write:
 - `openacr.yaml`
 - `openacr-validation.json`
 
-The report page links both files and the VPAT-style narrative
-(`vpat.html`/`vpat.md`). The VPAT narrative assigns no term; every criterion is
+The report page links both files and the ACR narrative
+(`acr.html`/`acr.md`). The ACR narrative assigns no term; every criterion is
 `Not Evaluated` until a reviewer completes it.
 
 ## What the draft contains

@@ -13,7 +13,7 @@ release.py    →  per-target commit index + tag/branch containment
         ↓            (10.6.21, 11.4.12, 12 pre-releases, main)
 atag.py       → ATAG 2.0 Part A/B evidence and WAI ATAG Report Tool draft
 openacr_export.py → schema/catalog-valid OpenACR draft (no adherence values)
-vpat.py       → VPAT-style narrative (all criteria Not Evaluated)
+acr.py       → ACR narrative (all criteria Not Evaluated)
 report.py     →  per-target report + landing page and cross-release matrix
         ↓
 .github/workflows/pages.yml → GitHub Pages (allowlist)
@@ -43,8 +43,8 @@ report.py     →  per-target report + landing page and cross-release matrix
 - `atag.py` — classifies ATAG-tagged issues by explicit tags, curated scope and
   component candidates; renders the ATAG evidence page and WAI ATAG Report Tool
   JSON with all criteria `Not checked`.
-- `vpat.py` — turns active findings, WCAG tags and the OpenACR catalog into a
-  human-readable VPAT/ACR narrative. It never assigns a VPAT term.
+- `acr.py` — turns active findings, WCAG tags and the OpenACR catalog into a
+  human-readable ACR narrative. It never assigns an ACR result.
 - `openacr_export.py` — builds a complete OpenACR draft from the pinned
   Civicactions/GSA schema and catalog, validates it with `jsonschema` and catalog
   checks, and writes `openacr.yaml` plus `openacr-validation.json`. It never
@@ -125,7 +125,7 @@ merge their conclusions.
 The report is a preview artifact, not a publication authorization. The
 `pages.yml` workflow publishes an explicit allowlist to GitHub Pages: a landing
 page plus each report's `index.html`, `report.css`, `evidence.json`,
-`summary.json`, `vpat.html`, `vpat.md`, `openacr.yaml`, `openacr-validation.json`,
+`summary.json`, `acr.html`, `acr.md`, `openacr.yaml`, `openacr-validation.json`,
 and the ATAG `atag-report.json`/`atag-evidence.json`. Raw evidence and
 raw collection/analysis files are excluded, and
 HTML with client-side scripts is rejected. Merging a PR that changes `reports/**`

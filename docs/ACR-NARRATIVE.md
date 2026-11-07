@@ -1,18 +1,18 @@
-# VPAT-style narrative
+# ACR narrative
 
 Each target exports:
 
-- `vpat.html` — static, no-JavaScript narrative
-- `vpat.md` — editable Markdown source
+- `acr.html` — static, no-JavaScript narrative
+- `acr.md` — editable Markdown source
 
 This is a human-readable companion to the validated OpenACR YAML. It follows the
-shape of a VPAT/ACR: product information, term definitions, scope and method,
+shape of an ACR: product information, term definitions, scope and method,
 executive summary, WCAG 2.2 A/AA remarks, non-WCAG chapters, ATAG separation,
 reviewer actions, limitations and sources.
 
 ## What it does not do
 
-It assigns **no VPAT term**. Every criterion is **Not Evaluated** until a named
+It assigns **no ACR result**. Every criterion is **Not Evaluated** until a named
 reviewer completes the evaluation. Issue counts are described as triage evidence;
 they are never converted into `Supports`, `Partially Supports` or
 `Does Not Support`.
@@ -32,7 +32,7 @@ The narrative does **not** claim:
 1. **Product information** — product, version, target ref, support status,
    report date, draft status, placeholder reviewer, assessment ID and standards
    baseline.
-2. **VPAT terms** — definitions for Supports, Partially Supports, Does Not
+2. **ACR result terms** — definitions for Supports, Partially Supports, Does Not
    Support, Not Applicable and Not Evaluated. Only Not Evaluated is used.
 3. **Scope and method** — active statuses, full-queue pagination, detailed vs
    metadata-only inventory, no reproduction, no AI.
@@ -53,7 +53,7 @@ The narrative does **not** claim:
 8. **ATAG** — separate standard; links to the ATAG evidence, never copied into a
    WCAG criterion.
 9. **Review actions** — collect missing evidence, verify the product, select each
-   VPAT term, complete reviewer identity and approval, remove the draft status.
+   ACR result, complete reviewer identity and approval, remove the draft status.
 10. **Limitations and sources** — active-only scope, no reproduction, inventory
     limits, source links.
 
@@ -61,10 +61,10 @@ The narrative does **not** claim:
 
 - **OpenACR YAML** is the machine-readable, schema/catalog-validated draft. It
   currently contains all 182 criteria with no adherence values.
-- **VPAT narrative** is the human-readable explanation for reviewers. It does
+- **ACR narrative** is the human-readable explanation for reviewers. It does
   not change the YAML or supply a term.
 - **ATAG evidence** is a separate authoring-tool report. It is not part of the
-  VPAT WCAG chapters.
+  ACR WCAG chapters.
 
 All three must be reviewed by a person. A schema-valid file or a complete
 narrative is not a conformance claim.
@@ -77,7 +77,7 @@ narrative is not a conformance claim.
 3. For metadata-only inventory issues, collect comments, merge requests and
    target evidence before relying on them.
 4. Verify the criterion against the installed product, with the declared scope.
-5. Select the VPAT term and write a specific remark that names the evidence and
+5. Select the ACR result and write a specific remark that names the evidence and
    the limitation.
 6. Replace the placeholder reviewer and complete the approval record outside the
    generated draft.
@@ -85,10 +85,8 @@ narrative is not a conformance claim.
 
 ## References
 
-- [Accessible.org VPAT/ACR examples](https://accessible.org/examples-vpats-acrs/)
-- [Vispero: How to complete a VPAT](https://vispero.com/resources/how-to-complete-a-vpat/)
-- [Deque: Accessibility compliance and VPAT](https://www.deque.com/accessibility-compliance/vpat/)
-- [Karl Groves: A quick guide to reviewing a VPAT/ACR](https://karlgroves.com/a-quick-guide-to-reviewing-a-vpat-acr/)
-- [Karl Groves: Get your VPAT/GPAT in a hurry](https://karlgroves.com/get-your-vpat-gpat-in-a-hurry/)
+The structure follows common ACR reporting practice; **OpenACR is the
+machine-readable format** and the schema/catalog pinned in this repository.
+
 - [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/)
 - [GSA OpenACR](https://github.com/GSA/openacr)

@@ -14,7 +14,7 @@ from .git_release import commit_in_ref
 from .atag import load_scope, render_atag_report
 from .openacr import export_worksheet
 from .openacr_export import OpenACRError, export_openacr, validate_file
-from .vpat import render_vpat
+from .acr_narrative import render_acr_narrative
 from .release import analyze_collection
 from .report import render_landing, render_report
 from .adapters.drupal import fetch_issues as fetch_drupal
@@ -260,7 +260,7 @@ def main(argv=None):
             )
             render_report(artifact, target_dir)
             export_openacr(artifact, target_dir)
-            render_vpat(artifact, target_dir)
+            render_acr_narrative(artifact, target_dir)
             analyses.append(artifact)
         render_landing(analyses, output, targets)
         for artifact in analyses:
@@ -296,7 +296,7 @@ def main(argv=None):
         full_collection = load_json(args.collection) if args.collection else None
         render_report(analysis, args.output, css_source=args.css, full_collection=full_collection)
         export_openacr(analysis, args.output)
-        render_vpat(analysis, args.output)
+        render_acr_narrative(analysis, args.output)
         print(f"Wrote static evidence report and OpenACR draft to {args.output}/")
     elif args.command == "pipeline":
         manifest = load_json(args.manifest)
@@ -314,7 +314,7 @@ def main(argv=None):
         )
         render_report(analysis, output)
         export_openacr(analysis, output)
-        render_vpat(analysis, output)
+        render_acr_narrative(analysis, output)
         summary = analysis["summary"]
         print(
             f"Pipeline complete: {summary['findings']} findings, "

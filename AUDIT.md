@@ -127,13 +127,13 @@ evidence report, **not** an ACR.
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
   placeholder guards, the worksheet, OpenACR schema/catalog validation, active
-  pagination/inventory and VPAT narrative rendering.
+  pagination/inventory and ACR narrative rendering.
 - Report rendered with axe-core: **0 violations** at 1280 px; `scrollWidth` 320
   at a 320 px viewport; all internal anchors resolve; the skip link focuses
   `MAIN`; `<details>` toggles by keyboard; no JavaScript is required. The ATAG
   report has the same axe/reflow/skip-link result.
 - The Pages artifact was simulated locally for the landing page, five target
-  reports, the VPAT narrative and the ATAG report (45 allowlisted files), with no
+  reports, the ACR narrative and the ATAG report (45 allowlisted files), with no
   collection/analysis files, private paths or script tags. The landing page,
   matrix region, target reports and ATAG report pass axe at 1280 px and have no
   320 px page overflow.
@@ -203,11 +203,11 @@ After the first audit and report:
   13, 14 and 15, excludes fixed/closed/postponed issues, and retains 428 active
   issues (30 full-detail, 398 inventory-only). RTBC remains included until
   closed.
-- **VPAT-style narrative:** each target exports `vpat.html` and `vpat.md` with
-  product information, VPAT term definitions, active-evidence remarks for every
+- **ACR narrative:** each target exports `acr.html` and `acr.md` with
+  product information, ACR result terms, active-evidence remarks for every
   WCAG 2.2 A/AA criterion, non-WCAG chapters, ATAG separation and reviewer
   actions. Every criterion remains **Not Evaluated**; no issue count becomes a
-  VPAT term.
+  ACR result.
 - **Report-size reduction:** the duplicate per-target `analysis.json` files and
   stale per-target collection were removed, `evidence.json` is a compact
   published artifact, and inventory issue HTML is a compact metadata row. The
@@ -219,7 +219,7 @@ After the first audit and report:
   The ATAG report is separate from the WCAG matrix and the OpenACR draft.
 - **OpenACR export:** each target now exports `openacr.yaml` and
   `openacr-validation.json`. The YAML is valid against the pinned Civicactions/
-  GSA OpenACR 0.1.0 schema and the VPAT 2.5 WCAG 2.2 + Section 508 catalog, with
+  GSA OpenACR 0.1.0 schema and the OpenACR 2.5 WCAG 2.2 + Section 508 catalog, with
   all 182 criteria and no conformance values. A placeholder reviewer and
   `draft: true` force human review; `openacr-validate --strict` checks the
   reviewed file. All five drafts were independently checked with the official

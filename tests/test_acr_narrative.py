@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from acr_evidence.vpat import render_vpat
+from acr_evidence.acr_narrative import render_acr_narrative
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = json.loads((ROOT / "config" / "drupal-core-11.4.12.json").read_text(encoding="utf-8"))
@@ -58,10 +58,10 @@ def analysis():
     }
 
 
-class VpatTests(unittest.TestCase):
+class AcrNarrativeTests(unittest.TestCase):
     def test_renders_markdown_and_html_without_conformance_values(self):
         with tempfile.TemporaryDirectory() as folder:
-            result = render_vpat(analysis(), folder)
+            result = render_acr_narrative(analysis(), folder)
             md = Path(result["markdown"]).read_text(encoding="utf-8")
             html = Path(result["html"]).read_text(encoding="utf-8")
         self.assertIn("# Drupal Core 11.4.12", md)
@@ -74,13 +74,13 @@ class VpatTests(unittest.TestCase):
         self.assertIn('<main id="main" tabindex="-1">', html)
         self.assertEqual(1, html.count("<h1>"))
         self.assertNotIn("<script", html)
-        self.assertIn("VPAT term definitions", html)
+        self.assertIn("ACR result terms", html)
         self.assertIn("reviewer", html)
         self.assertIn("Drupal.org Accessibility issue queue", html)
 
     def test_inventory_and_detailed_evidence_are_distinguished(self):
         with tempfile.TemporaryDirectory() as folder:
-            result = render_vpat(analysis(), folder)
+            result = render_acr_narrative(analysis(), folder)
             md = Path(result["markdown"]).read_text(encoding="utf-8")
         self.assertIn("1 active (0 detailed, 1 inventory)", md)
         self.assertIn("1 active (1 detailed, 0 inventory)", md)
@@ -89,7 +89,7 @@ class VpatTests(unittest.TestCase):
 
     def test_no_fabricated_reviewer(self):
         with tempfile.TemporaryDirectory() as folder:
-            result = render_vpat(analysis(), folder)
+            result = render_acr_narrative(analysis(), folder)
             md = Path(result["markdown"]).read_text(encoding="utf-8")
         self.assertIn("Unassigned reviewer (draft)", md)
         self.assertNotIn("@", md.split("## Sources")[0])

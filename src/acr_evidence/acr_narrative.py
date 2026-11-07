@@ -1,7 +1,7 @@
-"""Render a deterministic, VPAT-style narrative draft from active evidence.
+"""Render a deterministic, ACR narrative draft from active evidence.
 
 This is a human-readable narrative companion to the OpenACR YAML. It never
-assigns a VPAT term: every criterion is "Not Evaluated" until a reviewer
+assigns an ACR result: every criterion is "Not Evaluated" until a reviewer
 completes the evaluation. Issue-queue evidence is described, not converted into
 Supports/Partially Supports/Does Not Support.
 """
@@ -10,7 +10,7 @@ from pathlib import Path
 
 from .openacr_export import load_catalog
 
-DRAFT_TERM = "Not Evaluated (draft — reviewer must select a VPAT term)"
+DRAFT_TERM = "Not Evaluated (draft — reviewer must select an ACR result)"
 STATUS_ORDER = ("Active", "Needs review", "Needs work", "Reviewed & tested by the community", "Patch")
 
 
@@ -74,7 +74,7 @@ class Doc:
             "<head>",
             '<meta charset="utf-8">',
             '<meta name="viewport" content="width=device-width, initial-scale=1">',
-            '<meta name="description" content="Draft VPAT-style narrative. Not an approved Accessibility Conformance Report.">',
+            '<meta name="description" content="Draft ACR narrative. Not an approved Accessibility Conformance Report.">',
             '<meta name="robots" content="noindex">',
             f"<title>{escape(self.title)}</title>",
             '<link rel="stylesheet" href="./report.css">',
@@ -82,9 +82,9 @@ class Doc:
             "<body>",
             '<a class="skip" href="#main">Skip to main content</a>',
             '<header class="page-header">',
-            '<p class="eyebrow">OpenACR Release Evidence · VPAT-style draft</p>',
+            '<p class="eyebrow">OpenACR Release Evidence · ACR draft</p>',
             f"<h1>{escape(self.title)}</h1>",
-            f'<p class="status-banner"><strong>Draft for human review, not an approved VPAT/ACR.</strong> {escape(self.description)}</p>',
+            f'<p class="status-banner"><strong>Draft for human review, not an approved ACR.</strong> {escape(self.description)}</p>',
             "</header>",
             '<main id="main" tabindex="-1">',
         ]
@@ -111,7 +111,7 @@ class Doc:
                 parts.append("</div>")
         # Close any open section wrappers conservatively: use a flat main instead.
         parts.append("</main>")
-        parts.append("<footer><p>Draft VPAT-style narrative generated from active Drupal.org issue evidence. Not a conformance claim. "
+        parts.append("<footer><p>Draft ACR narrative generated from active Drupal.org issue evidence. Not a conformance claim. "
                      '<a href="./index.html">Evidence report</a> · <a href="./openacr.yaml">OpenACR YAML</a>.</p></footer>')
         parts.append("</body></html>")
         return "\n".join(part for part in parts if part != "")
@@ -160,7 +160,7 @@ def _criterion_remark(criterion, issues):
     if not issues:
         return (
             "No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that "
-            "the criterion is met; a reviewer must evaluate it and select a VPAT term."
+            "the criterion is met; a reviewer must evaluate it and select an ACR result."
         )
     detailed = sum(1 for issue in issues if issue.get("evidence_status") != "inventory")
     inventory = len(issues) - detailed
@@ -173,15 +173,15 @@ def _criterion_remark(criterion, issues):
         f"{inventory} metadata-only inventory. "
         f"Tracker statuses: {_status_summary(issues)}. Target evidence states: {state_text}. "
         f"Examples: {_examples(issues)}. This is issue-queue evidence, not a conformance result; verify the barrier "
-        "and select the VPAT term."
+        "and select the ACR result."
     )
     if inventory:
         text += " Inventory records have no comments, merge requests or commit analysis."
     return text
 
 
-def render_vpat(analysis, output_dir):
-    """Write vpat.md and vpat.html for one target."""
+def render_acr_narrative(analysis, output_dir):
+    """Write acr.md and acr.html for one target."""
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     assessment = analysis.get("assessment") or {}
@@ -215,10 +215,10 @@ def render_vpat(analysis, output_dir):
         key=lambda item: (-item[1], item[0]),
     )[:8]
 
-    title = f"{product} {release} — Draft VPAT-Style Accessibility Narrative"
+    title = f"{product} {release} — Draft Accessibility Conformance Report (ACR) Narrative"
     doc = Doc(title, "Issue evidence is described for human review. No criterion is assigned Supports, Partially Supports or Does Not Support.")
 
-    doc.p("This document converts the active issue evidence into a VPAT/ACR-style narrative. It is deliberately not a completed VPAT: every criterion is marked Not Evaluated until a named reviewer completes the evaluation and approves the report.")
+    doc.p("This document converts the active issue evidence into an ACR narrative. It is deliberately not a completed ACR: every criterion is marked Not Evaluated until a named reviewer completes the evaluation and approves the report.")
     doc.h2("Product information")
     doc.table("Product and report identification", ["Field", "Value"], [
         ["Product", Cell(product)],
@@ -231,9 +231,9 @@ def render_vpat(analysis, output_dir):
         ["Assessment identifier", Cell(assessment.get("id") or "Not recorded")],
         ["Standards baseline", Cell(", ".join(assessment.get("standards") or []) or "Not recorded")],
     ])
-    doc.h2("Draft status and VPAT terms")
-    doc.p("VPAT terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no term to any criterion. A reviewer must select each term from the definitions below after evaluating the product.")
-    doc.table("VPAT term definitions used in review", ["Term", "Meaning"], [
+    doc.h2("Draft status and ACR result terms")
+    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no term to any criterion. A reviewer must select each term from the definitions below after evaluating the product.")
+    doc.table("ACR result terms used in review", ["Term", "Meaning"], [
         ["Supports", "The product has at least one method of meeting the criterion, and the reviewer has evidence that it works for the evaluated scope."],
         ["Partially Supports", "Some product functionality meets the criterion; other functionality does not, and the reviewer can explain the boundary."],
         ["Does Not Support", "The majority of product functionality does not meet the criterion."],
@@ -248,7 +248,7 @@ def render_vpat(analysis, output_dir):
         "WCAG tags are candidate relevance signals from the issue queue, not conformance determinations.",
         "No issue was reproduced against an installed Drupal target in this pass.",
         "No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.",
-        "No AI was used to assign applicability or a VPAT term.",
+        "No AI was used to assign applicability or an ACR result.",
     ])
     doc.h2("Executive summary")
     doc.p(f"The active queue contains {len(findings)} {_plural(len(findings), 'issue')}. Tracker states are: {_status_summary(findings)}. {detailed} {_plural(detailed, 'issue')} {_plural(detailed, 'has', 'have')} detailed evidence and {inventory} are inventory-only. The queue is a triage input, not an accessibility score.")
@@ -286,7 +286,7 @@ def render_vpat(analysis, output_dir):
         doc.p(f"{len(chapter_aaa.get('criteria') or [])} AAA criteria are outside the declared WCAG 2.2 AA target. They are not marked Supports or Not Applicable in this draft; a reviewer must decide whether to evaluate them or record a scope rationale.")
 
     doc.h2("Functional performance, hardware, software and support documentation")
-    doc.p("These Section 508/VPAT chapters are not evaluated by this web issue-evidence pipeline. They are shown so the draft has the complete VPAT shape; a reviewer must evaluate them or mark Not Applicable with a rationale.")
+    doc.p("These Section 508/ACR chapters are not evaluated by this web issue-evidence pipeline. They are shown so the draft has the complete ACR shape; a reviewer must evaluate them or mark Not Applicable with a rationale.")
     rows = []
     for chapter in non_wcag:
         rows.append([
@@ -295,20 +295,20 @@ def render_vpat(analysis, output_dir):
             Cell("Not Evaluated"),
             Cell("Outside the web issue-evidence method's coverage. The pipeline collected issue/commit evidence only; no hardware, packaged software, functional-performance or support-documentation testing was performed."),
         ])
-    doc.table("Non-WCAG VPAT chapters", ["Chapter", "Criteria", "Draft result", "Remarks and explanations"], rows)
+    doc.table("Non-WCAG ACR chapters", ["Chapter", "Criteria", "Draft result", "Remarks and explanations"], rows)
 
     doc.h2("ATAG 2.0 authoring evidence")
-    doc.p("ATAG 2.0 is a separate standard from WCAG and is not part of this VPAT narrative. Drupal Core's authoring-tool evidence is reported separately, with Part A/Part B candidates and a WAI ATAG Report Tool JSON draft containing no conformance values.")
+    doc.p("ATAG 2.0 is a separate standard from WCAG and is not part of this ACR narrative. Drupal Core's authoring-tool evidence is reported separately, with Part A/Part B candidates and a WAI ATAG Report Tool JSON draft containing no conformance values.")
     doc.p("See ../drupal-core-atag/ for the ATAG evidence report. It must not be copied into a WCAG criterion result.")
 
     doc.h2("Active issue evidence and review actions")
-    doc.p("The evidence report lists all active issues and their source links. It distinguishes full-detail evidence from metadata-only inventory records. Use it to review the criterion remarks above, collect missing evidence and decide each VPAT term.")
+    doc.p("The evidence report lists all active issues and their source links. It distinguishes full-detail evidence from metadata-only inventory records. Use it to review the criterion remarks above, collect missing evidence and decide each ACR result.")
     doc.ul([
         "Open ./index.html#issues and review the active issue evidence.",
         "For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.",
         "Verify each criterion against the installed product; do not convert issue counts into Supports or Does Not Support.",
         "Complete the reviewer name, organization and approval record outside this generated draft.",
-        "Replace every Not Evaluated result with a reviewed VPAT term, or record the remaining evaluation gap.",
+        "Replace every Not Evaluated result with a reviewed ACR result, or record the remaining evaluation gap.",
         "Remove the draft status only after independent review and sign-off.",
     ])
 
@@ -332,6 +332,6 @@ def render_vpat(analysis, output_dir):
 
     markdown = doc.markdown()
     html = doc.html()
-    (output / "vpat.md").write_text(markdown, encoding="utf-8")
-    (output / "vpat.html").write_text(html + "\n", encoding="utf-8")
-    return {"markdown": output / "vpat.md", "html": output / "vpat.html"}
+    (output / "acr.md").write_text(markdown, encoding="utf-8")
+    (output / "acr.html").write_text(html + "\n", encoding="utf-8")
+    return {"markdown": output / "acr.md", "html": output / "acr.html"}

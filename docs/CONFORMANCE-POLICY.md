@@ -56,9 +56,9 @@ All active issues are inventoried. Full comments/MRs/commit analysis is collecte
 for a review-priority subset; inventory-only issues are explicitly marked and do
 not receive a release applicability conclusion.
 
-## VPAT-style narrative
+## ACR narrative
 
-The VPAT-style narrative has the shape of a VPAT but assigns no term. Every
+The ACR narrative has the shape of an ACR but assigns no term. Every
 criterion is `Not Evaluated`; issue counts are triage evidence, not Supports,
 Partially Supports or Does Not Support. A reviewer must complete the evaluation,
 select terms and sign off. The narrative does not replace the OpenACR YAML and

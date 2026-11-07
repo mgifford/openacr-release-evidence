@@ -41,7 +41,7 @@
 ## Milestone 2: authoring and trustworthy export
 
 - [x] Pin the Civicactions/GSA OpenACR schema/catalog and export a validated draft per target
-- [x] Export a VPAT-style narrative with every criterion Not Evaluated
+- [x] Export an ACR narrative with every criterion Not Evaluated
 - [x] Collect ATAG-tagged authoring issues, classify Part A/B candidates and export a WAI ATAG Report Tool JSON draft
 - [x] Verify ATAG JSON import in the live WAI ATAG Report Tool
 - [ ] Complete human ATAG editing/export and add release-scoped ATAG applicability

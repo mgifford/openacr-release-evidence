@@ -79,7 +79,7 @@ For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
 
-The VPAT-style narrative must keep every criterion `Not Evaluated` until a human
+The ACR narrative must keep every criterion `Not Evaluated` until a human
 reviewer assigns terms. Never convert issue counts or tags into Supports,
 Partially Supports or Does Not Support, and never remove the draft disclaimer.
 

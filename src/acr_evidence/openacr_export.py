@@ -103,7 +103,7 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "No WCAG conformance values are populated. The author is a placeholder; a human reviewer "
         "must replace it, assess every criterion, select components and adherence levels, and run "
         "`acr-evidence openacr-validate --file openacr.yaml --strict` before publishing. "
-        "A VPAT-style narrative is at vpat.html; it assigns no VPAT term and marks the evaluation Not Evaluated. "
+        "An ACR narrative is at acr.html; it assigns no ACR result and marks the evaluation Not Evaluated. "
         "ATAG 2.0 authoring evidence is tracked separately at ../drupal-core-atag/index.html; "
         "this OpenACR does not populate ATAG criteria or the authoring-tool component. "
         "This file has not been round-tripped through the Civicactions/GSA ACR editor."

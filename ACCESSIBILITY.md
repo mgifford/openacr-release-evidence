@@ -8,15 +8,15 @@ colour-only status and no JavaScript requirement.
 ## Automated verification performed (2026-11-07)
 
 - axe-core 4.13.0, Chromium headless, 1280 px: **0 violations** on the landing
-  page, all five Drupal Core target reports, the VPAT-style narrative, the ATAG
+  page, all five Drupal Core target reports, the ACR narrative, the ATAG
   2.0 authoring evidence report and the synthetic explorer.
 - 320 CSS px viewport: no horizontal scrolling (`scrollWidth` = 320) on the
-  landing page, target reports, VPAT narrative, ATAG report and explorer. VPAT
+  landing page, target reports, ACR narrative, ATAG report and explorer. ACR
   tables are in focusable scroll regions. The cross-release matrix is a
   two-dimensional data table in a focusable, horizontally scrollable region;
   the page itself does not overflow.
 - Keyboard: the skip link moves focus to `<main>` (`tabindex="-1"`); `<details>`
-  toggles with Enter; the target, VPAT and ATAG reports have no script.
+  toggles with Enter; the target, ACR and ATAG reports have no script.
 - JavaScript disabled: the report renders its full content; the explorer shows a
   `<noscript>` message and links to `evidence.json`.
 - Internal anchors: all matrix/report anchors resolve; headings do not skip
@@ -39,7 +39,7 @@ technology behaviour.
   focusable region was checked, not screen-reader table navigation).
 - The assessed Drupal 11.4.12 release itself; this project does not claim to have
   tested Drupal’s accessibility.
-- Manual completion and sign-off of the VPAT-style narrative; every criterion is
+- Manual completion and sign-off of the ACR narrative; every criterion is
   still `Not Evaluated`.
 - Commit, comment and merge-request evidence for the 398 metadata-only inventory
   issues; their records are source/status/component/version only.
