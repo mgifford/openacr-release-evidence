@@ -11,7 +11,9 @@ from pathlib import Path
 from .build import build
 from .collect import collect_issues
 from .git_release import commit_in_ref
+from .atag import load_scope, render_atag_report
 from .openacr import export_worksheet
+from .openacr_export import OpenACRError, export_openacr, validate_file
 from .release import analyze_collection
 from .report import render_landing, render_report
 from .adapters.drupal import fetch_issues as fetch_drupal
@@ -56,6 +58,8 @@ def _query_from_args(args, manifest):
         "max_issues": int(pick(args.max_issues, "max_issues", 20)),
         "include_ids": _split_ids(args.ids) if args.ids else list(config.get("include_ids") or []),
         "statuses": _split_ints(args.statuses) if args.statuses else config.get("statuses"),
+        "detail_limit": int(pick(getattr(args, "detail_limit", None), "detail_limit", 60)),
+        "detail_ids": _split_ids(getattr(args, "detail_ids", None)) if getattr(args, "detail_ids", None) else list(config.get("detail_ids") or []),
         "component": pick(args.component, "component"),
         "since": pick(args.since, "since"),
     }
@@ -105,6 +109,8 @@ def main(argv=None):
     col.add_argument("--max", type=int, default=None, dest="max_issues")
     col.add_argument("--ids", default=None, help="Comma-separated explicit Drupal NIDs for a reproducible sample")
     col.add_argument("--statuses", default=None, help="Comma-separated numeric Drupal status codes")
+    col.add_argument("--detail-limit", default=None, help="Number of review-priority issues to fetch with full comments/MRs")
+    col.add_argument("--detail-ids", default=None, help="Comma-separated issue IDs to fetch with full evidence")
     col.add_argument("--component", default=None)
     col.add_argument("--since", default=None, help="Only include issues changed since this ISO timestamp")
     col.add_argument("--output", required=True)
@@ -129,6 +135,23 @@ def main(argv=None):
     multi.add_argument("--output", required=True)
     multi.add_argument("--cache-dir", default=".cache/acr-evidence")
     multi.add_argument("--refresh", action="store_true")
+
+    atag = sub.add_parser("atag-report", help="Render ATAG 2.0 authoring evidence and a WAI ATAG Report Tool JSON draft")
+    atag.add_argument("--collection", required=True)
+    atag.add_argument("--output", required=True)
+    atag.add_argument("--scope", default=None, help="Optional curated ATAG Part A/B scope JSON")
+
+    oa = sub.add_parser("openacr-export", help="Export and validate a draft OpenACR YAML skeleton")
+    oa.add_argument("--analysis", required=True)
+    oa.add_argument("--output", required=True)
+    oa.add_argument("--catalog", default=None)
+    oa.add_argument("--schema", default=None)
+
+    ov = sub.add_parser("openacr-validate", help="Validate an edited OpenACR YAML against the official schema and catalog")
+    ov.add_argument("--file", required=True)
+    ov.add_argument("--catalog", default=None)
+    ov.add_argument("--schema", default=None)
+    ov.add_argument("--strict", action="store_true", help="Require a reviewed, non-draft document with populated adherence")
 
     rep = sub.add_parser("report", help="Render a static, no-JavaScript evidence report")
     rep.add_argument("--analysis", required=True)
@@ -234,6 +257,7 @@ def main(argv=None):
                 branch_cache=branch_cache,
             )
             render_report(artifact, target_dir)
+            export_openacr(artifact, target_dir)
             analyses.append(artifact)
         render_landing(analyses, output, targets)
         for artifact in analyses:
@@ -243,9 +267,32 @@ def main(argv=None):
                 f'{summary["fix_included_in_target"]} fixes in target'
             )
         print(f"Wrote {len(analyses)} reports and the cross-target matrix to {output}/index.html")
+    elif args.command == "atag-report":
+        scope = load_scope(args.scope) if args.scope else None
+        result = render_atag_report(load_json(args.collection), args.output, scope=scope)
+        print(
+            f"Wrote ATAG evidence to {result['index']} "
+            f"({result['summary']['issues']} ATAG-tagged issues; "
+            f"{result['summary']['missing_accessibility_tag']} missing the Accessibility tag)"
+        )
+    elif args.command == "openacr-export":
+        result = export_openacr(
+            load_json(args.analysis), args.output,
+            catalog_path=args.catalog, schema_path=args.schema,
+        )
+        print(f"Wrote validated draft OpenACR to {result['yaml']} ({result['validation']})")
+    elif args.command == "openacr-validate":
+        result = validate_file(
+            args.file, catalog_path=args.catalog, schema_path=args.schema, strict=args.strict
+        )
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+        if not result["valid"]:
+            raise SystemExit(1)
     elif args.command == "report":
-        render_report(load_json(args.analysis), args.output, css_source=args.css)
-        print(f"Wrote static evidence report to {args.output}/index.html")
+        analysis = load_json(args.analysis)
+        render_report(analysis, args.output, css_source=args.css)
+        export_openacr(analysis, args.output)
+        print(f"Wrote static evidence report and OpenACR draft to {args.output}/")
     elif args.command == "pipeline":
         manifest = load_json(args.manifest)
         output = Path(args.output)
@@ -261,6 +308,7 @@ def main(argv=None):
             output=output / "analysis.json", cache_dir=args.cache_dir, refresh=args.refresh,
         )
         render_report(analysis, output)
+        export_openacr(analysis, output)
         summary = analysis["summary"]
         print(
             f"Pipeline complete: {summary['findings']} findings, "

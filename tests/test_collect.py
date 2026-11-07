@@ -63,11 +63,21 @@ class FakeCli:
         return self.data[str(nid)]["merge_requests"]
 
 
+
+class PagedRest(FakeRest):
+    def find_issues(self, **kwargs):
+        self.discovery_calls.append(kwargs)
+        nodes = [self.data[nid]["node"] for nid in self.data]
+        page = kwargs.get("page", 0)
+        limit = kwargs.get("limit", 50)
+        return nodes[page * limit:(page + 1) * limit]
+
+
 class CollectTests(unittest.TestCase):
     def data(self):
         return {nid: fixture(nid) for nid in ("3621109", "3618140")}
 
-    def run_collect(self, folder, *, cli=None, rest=None, include_ids=("3621109", "3618140"), now=None, max_issues=20):
+    def run_collect(self, folder, *, cli=None, rest=None, include_ids=("3621109", "3618140"), now=None, max_issues=20, statuses=None, detail_limit=60):
         data = self.data()
         cli = cli or FakeCli(data)
         rest = rest or FakeRest(data)
@@ -79,6 +89,8 @@ class CollectTests(unittest.TestCase):
             "tag_tid": "1101",
             "max_issues": max_issues,
             "include_ids": list(include_ids),
+            "statuses": statuses,
+            "detail_limit": detail_limit,
         }
         artifact = collect_issues(
             MANIFEST, query, output,
@@ -139,13 +151,64 @@ class CollectTests(unittest.TestCase):
 
     def test_discovery_query_is_used_when_ids_are_not_explicit(self):
         with tempfile.TemporaryDirectory() as folder:
-            artifact, _, _, rest = self.run_collect(folder, include_ids=(), max_issues=2)
+            data = self.data()
+            for record in data.values():
+                record["node"]["field_issue_status"] = 1
+            rest = FakeRest(data)
+            artifact, _, _, rest = self.run_collect(folder, include_ids=(), max_issues=2, rest=rest)
             self.assertEqual(2, artifact["summary"]["collected"])
             self.assertEqual(1, len(rest.discovery_calls))
             call = rest.discovery_calls[0]
             self.assertEqual("3060", call["project_id"])
             self.assertEqual("1101", call["tag_tid"])
             self.assertEqual(2, call["limit"])
+            self.assertEqual(2, artifact["summary"]["detailed"])
+
+
+    def test_closed_issues_are_excluded_from_active_discovery(self):
+        with tempfile.TemporaryDirectory() as folder:
+            data = self.data()
+            data["3621109"]["node"]["field_issue_status"] = 1
+            artifact, _, _, _ = self.run_collect(
+                folder, include_ids=(), max_issues=2, statuses=[1], detail_limit=0, rest=FakeRest(data)
+            )
+            self.assertEqual(1, artifact["summary"]["collected"])
+            self.assertEqual(1, artifact["summary"]["excluded_by_status"])
+            self.assertEqual("Active", artifact["issues"][0]["status"]["label"])
+
+    def test_detail_limit_keeps_inventory_records(self):
+        with tempfile.TemporaryDirectory() as folder:
+            artifact, _, cli, _ = self.run_collect(folder, detail_limit=1)
+            statuses = {issue["evidence_status"] for issue in artifact["issues"]}
+            self.assertEqual({"full", "inventory"}, statuses)
+            self.assertEqual(1, artifact["summary"]["detailed"])
+            self.assertEqual(1, artifact["summary"]["inventory"])
+            self.assertEqual(1, len(cli.issue_calls))
+            inventory = next(issue for issue in artifact["issues"] if issue["evidence_status"] == "inventory")
+            self.assertEqual([], inventory["comments"])
+            self.assertEqual("drupal.org-api", inventory["provenance"]["adapter"])
+
+
+    def test_discovery_pages_beyond_the_first_result_set(self):
+        with tempfile.TemporaryDirectory() as folder:
+            base = self.data()["3621109"]
+            data = {}
+            for index in range(51):
+                nid = str(900000 + index)
+                record = json.loads(json.dumps(base))
+                record["node"]["nid"] = nid
+                record["node"]["field_issue_status"] = 1
+                record["issue"]["nid"] = nid
+                record["issue"]["field_issue_status"] = 1
+                data[nid] = record
+            rest = PagedRest(data)
+            artifact, _, _, rest = self.run_collect(
+                folder, include_ids=(), max_issues=5000, statuses=[1],
+                detail_limit=0, rest=rest,
+            )
+            self.assertEqual(51, artifact["summary"]["collected"])
+            self.assertEqual(2, len(rest.discovery_calls))
+            self.assertEqual(51, artifact["summary"]["inventory"])
 
     def test_issue_from_another_project_is_rejected(self):
         with tempfile.TemporaryDirectory() as folder:

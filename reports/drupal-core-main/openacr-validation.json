@@ -1,0 +1,17 @@
+{
+  "valid": true,
+  "draft": true,
+  "strict": false,
+  "schema": "openacr-0.1.0.json",
+  "catalog": "2.5-edition-wcag-2.2-508-en",
+  "source": {
+    "repository": "https://github.com/Civicactions/openacr",
+    "upstream": "https://github.com/GSA/openacr",
+    "ref": "ca-main",
+    "commit": "d6d18a93d8b043f7edfec13834f2d6b9557c5dbd",
+    "retrieved_at": "2026-11-07"
+  },
+  "errors": [],
+  "checked_at": "2026-11-07T20:17:30Z",
+  "document_digest": "11b7f4057453c0ac90c1fac2c487a35d7b4947eac40c5871b0c7a5bac1ced269"
+}

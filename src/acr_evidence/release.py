@@ -294,6 +294,14 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
             f"Component {component!r} is not listed in the assessment target's in-scope components; "
             "it is excluded from this ACR scope. This is not a conformance result."
         )
+    elif issue.get("evidence_status") == "inventory":
+        applicability = "unknown"
+        basis = "inventory-only"
+        reason = (
+            f"This active issue is included as a complete inventory record for {target_label}, but its comments, "
+            "merge requests and commit history were not collected in this snapshot. Review the source issue and "
+            "collect detailed evidence before drawing a release conclusion."
+        )
     elif feature_present is False:
         applicability = "not-introduced"
         basis = "code-presence"
@@ -376,9 +384,11 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
         "tracker_status": (issue.get("status") or {}).get("code"),
         "tracker_status_label": (issue.get("status") or {}).get("label"),
         "tracker_version": issue.get("version"),
+        "evidence_status": issue.get("evidence_status") or "full",
         "created_at": issue.get("created_at"),
         "observed_at": (issue.get("provenance") or {}).get("retrieved_at"),
         "wcag_candidates": issue.get("wcag_candidates") or [],
+        "atag": issue.get("atag"),
         "applicability": applicability,
         "basis": basis,
         "reason": reason,
@@ -500,10 +510,15 @@ def analyze_collection(
     branch_cache = branch_cache if branch_cache is not None else {}
     for issue in collection.get("issues") or []:
         nid = issue.get("source_id")
-        commits = index["by_issue"].get(str(nid), [])
-        commits = annotate_commits(
-            commits, ref, ref_type=ref_type, tag_cache=tag_cache, branch_cache=branch_cache,
-        )
+        if issue.get("evidence_status") == "inventory":
+            # Do not spend GitLab API calls or imply commit evidence for
+            # metadata-only inventory records.
+            commits = []
+        else:
+            commits = index["by_issue"].get(str(nid), [])
+            commits = annotate_commits(
+                commits, ref, ref_type=ref_type, tag_cache=tag_cache, branch_cache=branch_cache,
+            )
         component = issue.get("component")
         if feature_map is not None and component in feature_map:
             feature_present = feature_map[component]
@@ -515,8 +530,11 @@ def analyze_collection(
     findings.sort(key=lambda item: item.get("issue_id") or "")
     by_applicability = {}
     by_workflow = {}
+    by_evidence_status = {}
     for finding in findings:
         by_applicability[finding["applicability"]] = by_applicability.get(finding["applicability"], 0) + 1
+        evidence_status = finding.get("evidence_status") or "full"
+        by_evidence_status[evidence_status] = by_evidence_status.get(evidence_status, 0) + 1
         workflow = "unknown"
         for issue in collection.get("issues") or []:
             if issue.get("id") == finding["issue_id"]:
@@ -528,6 +546,7 @@ def analyze_collection(
         "findings": len(findings),
         "by_applicability": dict(sorted(by_applicability.items())),
         "by_workflow": dict(sorted(by_workflow.items())),
+        "by_evidence_status": dict(sorted(by_evidence_status.items())),
         "fix_included_in_target": sum(1 for finding in findings if finding["fix_included_in_target"]),
         "fix_included_in_release": sum(
             1 for finding in findings

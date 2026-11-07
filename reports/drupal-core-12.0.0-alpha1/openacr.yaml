@@ -1,0 +1,275 @@
+title: Drupal Core 12.0.0-alpha1 Accessibility Conformance Report — DRAFT
+product:
+  name: Drupal Core
+  version: 12.0.0-alpha1
+  description: Drupal 12.0.0-alpha1 standard profile. Claro is the administration
+    theme; Default Admin is present but not the default in this alpha. Claro and Olivero
+    are still core themes at this tag. This is a pre-release target, not a supported
+    release.
+author:
+  name: Unassigned reviewer (draft)
+  email: reviewer@example.invalid
+report_date: '2026-11-07'
+last_modified_date: '2026-11-07'
+version: 1
+notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.0-alpha1 (tag 12.0.0-alpha1).
+  Evidence report: index.html. Machine-readable evidence: evidence.json. Evidence
+  digest: 372e79551dce80afe5cd601802d985756f148b4b8477526367d366034b794791. Evidence
+  scope: active/review-relevant issues only (Active, Needs review, Needs work, RTBC,
+  Patch); fixed and closed issues are excluded. Some active issues are metadata-only
+  inventory records; complete comments/merge-request evidence was collected only for
+  a review-priority subset. No WCAG conformance values are populated. The author is
+  a placeholder; a human reviewer must replace it, assess every criterion, select
+  components and adherence levels, and run `acr-evidence openacr-validate --file openacr.yaml
+  --strict` before publishing. ATAG 2.0 authoring evidence is tracked separately at
+  ../drupal-core-atag/index.html; this OpenACR does not populate ATAG criteria or
+  the authoring-tool component. This file has not been round-tripped through the Civicactions/GSA
+  ACR editor.'
+evaluation_methods_used: No WCAG-EM sample was evaluated; this is an evidence-only
+  skeleton, not a completed ACR. Public Drupal.org issue-queue evidence collection,
+  commit/tag containment analysis, and explicit WCAG candidate tag grouping were used.
+  No manual keyboard, screen-reader or assistive-technology testing of the target
+  was performed in this phase. A human reviewer must complete the evaluation and select
+  the OpenACR adherence values.
+legal_disclaimer: DRAFT for human review. This is not a final Accessibility Conformance
+  Report, does not certify conformance, and must not be published as a vendor ACR
+  until reviewed and approved.
+repository: https://github.com/mgifford/openacr-release-evidence
+feedback: https://github.com/mgifford/openacr-release-evidence/issues
+catalog: 2.5-edition-wcag-2.2-508-en
+chapters:
+  success_criteria_level_a:
+    notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
+      A reviewer must assess every criterion in this chapter and select the applicable
+      components and adherence levels.'
+    criteria:
+    - num: 1.1.1
+    - num: 1.2.1
+    - num: 1.2.2
+    - num: 1.2.3
+    - num: 1.3.1
+    - num: 1.3.2
+    - num: 1.3.3
+    - num: 1.4.1
+    - num: 1.4.2
+    - num: 2.1.1
+    - num: 2.1.2
+    - num: 2.1.4
+    - num: 2.2.1
+    - num: 2.2.2
+    - num: 2.3.1
+    - num: 2.4.1
+    - num: 2.4.2
+    - num: 2.4.3
+    - num: 2.4.4
+    - num: 2.5.1
+    - num: 2.5.2
+    - num: 2.5.3
+    - num: 2.5.4
+    - num: 3.1.1
+    - num: 3.2.1
+    - num: 3.2.2
+    - num: 3.2.6
+    - num: 3.3.1
+    - num: 3.3.2
+    - num: 3.3.7
+    - num: 4.1.1
+    - num: 4.1.2
+  success_criteria_level_aa:
+    notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
+      A reviewer must assess every criterion in this chapter and select the applicable
+      components and adherence levels.'
+    criteria:
+    - num: 1.2.4
+    - num: 1.2.5
+    - num: 1.3.4
+    - num: 1.3.5
+    - num: 1.4.3
+    - num: 1.4.4
+    - num: 1.4.5
+    - num: 1.4.10
+    - num: 1.4.11
+    - num: 1.4.12
+    - num: 1.4.13
+    - num: 2.4.5
+    - num: 2.4.6
+    - num: 2.4.7
+    - num: 2.4.11
+    - num: 2.5.7
+    - num: 2.5.8
+    - num: 3.1.2
+    - num: 3.2.3
+    - num: 3.2.4
+    - num: 3.3.3
+    - num: 3.3.4
+    - num: 3.3.8
+    - num: 4.1.3
+  success_criteria_level_aaa:
+    notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
+      A reviewer must assess every criterion in this chapter and select the applicable
+      components and adherence levels.'
+    criteria:
+    - num: 1.2.6
+    - num: 1.2.7
+    - num: 1.2.8
+    - num: 1.2.9
+    - num: 1.3.6
+    - num: 1.4.6
+    - num: 1.4.7
+    - num: 1.4.8
+    - num: 1.4.9
+    - num: 2.1.3
+    - num: 2.2.3
+    - num: 2.2.4
+    - num: 2.2.5
+    - num: 2.2.6
+    - num: 2.3.2
+    - num: 2.3.3
+    - num: 2.4.8
+    - num: 2.4.9
+    - num: 2.4.10
+    - num: 2.4.12
+    - num: 2.4.13
+    - num: 2.5.5
+    - num: 2.5.6
+    - num: 3.1.3
+    - num: 3.1.4
+    - num: 3.1.5
+    - num: 3.1.6
+    - num: 3.2.5
+    - num: 3.3.5
+    - num: 3.3.6
+    - num: 3.3.9
+  functional_performance_criteria:
+    notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
+      A reviewer must assess every criterion in this chapter and select the applicable
+      components and adherence levels.'
+    criteria:
+    - num: '302.1'
+    - num: '302.2'
+    - num: '302.3'
+    - num: '302.4'
+    - num: '302.5'
+    - num: '302.6'
+    - num: '302.7'
+    - num: '302.8'
+    - num: '302.9'
+  hardware:
+    notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
+      A reviewer must assess every criterion in this chapter and select the applicable
+      components and adherence levels.'
+    criteria:
+    - num: 402.2.1
+    - num: 402.2.2
+    - num: 402.2.3
+    - num: 402.2.4
+    - num: 402.2.5
+    - num: 402.3.1
+    - num: 402.3.2
+    - num: '402.4'
+    - num: '402.5'
+    - num: '403.1'
+    - num: '404.1'
+    - num: '405.1'
+    - num: '406.1'
+    - num: '407.2'
+    - num: 407.3.1
+    - num: 407.3.2
+    - num: 407.3.3
+    - num: '407.4'
+    - num: '407.5'
+    - num: '407.6'
+    - num: '407.7'
+    - num: 407.8.1
+    - num: 407.8.1.1
+    - num: 407.8.1.2
+    - num: 407.8.2
+    - num: 407.8.2.1
+    - num: 407.8.2.2
+    - num: 407.8.3
+    - num: 407.8.3.1
+    - num: 407.8.3.2
+    - num: 407.8.3.2.1
+    - num: 407.8.3.2.2
+    - num: '408.2'
+    - num: '408.3'
+    - num: '409.1'
+    - num: '410.1'
+    - num: '411.1'
+    - num: 412.2.1
+    - num: 412.2.2
+    - num: 412.3.1
+    - num: 412.3.2
+    - num: '412.4'
+    - num: '412.5'
+    - num: '412.6'
+    - num: '412.7'
+    - num: 412.8.1
+    - num: 412.8.2
+    - num: 412.8.3
+    - num: 412.8.4
+    - num: 413.1.1
+    - num: 413.1.2
+    - num: 414.1.1
+    - num: 414.1.2
+    - num: 415.1.1
+    - num: 415.1.2
+  software:
+    notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
+      A reviewer must assess every criterion in this chapter and select the applicable
+      components and adherence levels.'
+    criteria:
+    - num: 502.2.1
+    - num: 502.2.2
+    - num: 502.3.1
+    - num: 502.3.2
+    - num: 502.3.3
+    - num: 502.3.4
+    - num: 502.3.5
+    - num: 502.3.6
+    - num: 502.3.7
+    - num: 502.3.8
+    - num: 502.3.9
+    - num: 502.3.10
+    - num: 502.3.11
+    - num: 502.3.12
+    - num: 502.3.13
+    - num: 502.3.14
+    - num: '502.4'
+    - num: '503.2'
+    - num: '503.3'
+    - num: 503.4.1
+    - num: 503.4.2
+    - num: '504.2'
+    - num: 504.2.1
+    - num: 504.2.2
+    - num: '504.3'
+    - num: '504.4'
+  support_documentation_and_services:
+    notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
+      A reviewer must assess every criterion in this chapter and select the applicable
+      components and adherence levels.'
+    criteria:
+    - num: '602.2'
+    - num: '602.3'
+    - num: '602.4'
+    - num: '603.2'
+    - num: '603.3'
+draft: true
+target:
+  product: Drupal Core
+  release: 12.0.0-alpha1
+  ref: 12.0.0-alpha1
+  ref_type: tag
+  support_status: pre-release
+  release_line: 12.0.x
+  parent_project: null
+  assessment_id: drupal-core-12.0.0-alpha1
+  evidence_digest: 372e79551dce80afe5cd601802d985756f148b4b8477526367d366034b794791
+  evidence_report: index.html
+standard_source:
+  repository: https://github.com/Civicactions/openacr
+  upstream: https://github.com/GSA/openacr
+  ref: ca-main
+  commit: d6d18a93d8b043f7edfec13834f2d6b9557c5dbd
+  retrieved_at: '2026-11-07'

@@ -27,11 +27,11 @@ Tracker status and release applicability are stored separately.
 
 ## Quick start (offline)
 
-Requires Python 3.10+; no runtime dependencies for evidence collection or the
-report. Packaging needs setuptools; the optional worksheet needs PyYAML.
+Requires Python 3.10+; the core evidence/report path has no runtime dependencies.
+Packaging needs setuptools. The OpenACR export extra adds `jsonschema` and PyYAML.
 
 ```sh
-python3 -m pip install -e '.[yaml]'
+python3 -m pip install -e '.[openacr]'
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q src
 ```
@@ -77,7 +77,7 @@ shared collection is target-independent; the applicability analysis is not.
 
 This writes:
 
-- `reports/collection.json` — one normalized issue collection (20 issues, comments, MRs, provenance).
+- `reports/collection.json` — one normalized active-issue collection (428 issues; 30 with full comments/MRs, 398 inventory-only, provenance).
 - `reports/<target>/analysis.json` — target-specific applicability and commit evidence.
 - `reports/<target>/index.html` — static, no-JavaScript target report.
 - `reports/<target>/evidence.json`, `summary.json`, `report.css`.
@@ -97,30 +97,28 @@ Collection is incremental: issue data is cached for six hours and commit
 indexes are cached; use `--refresh` to force retrieval. A single failed issue is
 recorded and does not invalidate the run.
 
-## What the current sample shows
+## What the current collection shows
 
-The same 20 real Drupal Core accessibility issues are analyzed against every
-declared target. This is how an old issue can remain visible across release
-lines instead of disappearing when a branch changes.
+The same **428 active, review-relevant** Drupal Core accessibility issues are
+analyzed against every declared target. Fixed and closed issues are excluded by
+policy; RTBC issues stay in until closed. The collection covers statuses 1, 8,
+13, 14 and 15; 30 review-priority issues have full comments/MRs, while 398 are
+metadata-only inventory records.
 
 | Target | Support | Fix included | Confirmed fixed | Likely affected | Unknown |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 10.6.21 | Supported | 0 | 0 | 8 | 12 |
-| 11.4.12 | Supported | 4 | 4 | 14 | 2 |
-| 12.0.0-alpha1 | Pre-release | 1 | 1 | 16 | 3 |
-| 12.0.0-beta2 | Pre-release | 10 | 10 | 7 | 3 |
-| `main` / 12.0.x-dev | Development | 11 | 10 | 10 | 0 |
+| 10.6.21 | Supported | 0 | 0 | 28 | 400 |
+| 11.4.12 | Supported | 0 | 0 | 28 | 400 |
+| 12.0.0-alpha1 | Pre-release | 0 | 0 | 23 | 405 |
+| 12.0.0-beta2 | Pre-release | 0 | 0 | 26 | 402 |
+| `main` / 12.0.x-dev | Development | 0 | 0 | 30 | 398 |
 
-"Fix included" means the matching commit is contained in the target tag or
-branch. "Confirmed fixed" additionally requires the tracker to be closed fixed;
-it is still unreviewed and not behaviourally verified. On `main`, one issue has
-an included fix but is not closed fixed, so the two counts differ.
-
-The 10.6.21 target intentionally reports many `unknown` results: fixes landed on
-newer branches, not on 10.6.x, and the issue queue's generic **Admin theme**
-component spans Claro (10.6) and Default Admin (11.4/12). **This is not an
-accessibility score.** See the [matrix](reports/index.html) and the per-target
-reports for source links, comments and verification gaps.
+No active issue has a fix commit contained in a target. Closed-fixed issues are
+not used as evidence, so there is no `confirmed-fixed` count in this active-only
+pass. Most `unknown` results are metadata-only inventory records; the 30 detailed
+issues carry commit/MR evidence (28 are likely affected and two have no target
+conclusion). **This is not an accessibility score.** See the [matrix](reports/index.html) and the
+per-target reports for source links and verification gaps.
 
 ## Applicability states
 
@@ -171,14 +169,19 @@ command is called. Raw output is private and never published.
 - GitHub Pages deployment workflow with an explicit, script-free publication allowlist.
 - Multi-target analysis for supported releases, pre-release tags and the `main` development branch.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
-- 70 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
+- ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
+- 90 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
 ## Not implemented / intentionally excluded
 
-- Official GSA OpenACR schema validation, ACR Editor round-trip and reuse of the
-  official HTML renderer. The worksheet is not an import-ready ACR.
+- ACR Editor round-trip and reuse of the official OpenACR HTML renderer. The
+  per-report YAML is schema/catalog-valid but has not been editor-tested.
+- Full WAI ATAG Report Tool edit/export sign-off and release-scoped ATAG
+  applicability. Import into the live tool was verified; the draft metadata
+  loaded and all 52 A/AA criteria showed `Not checked`.
 - Reproduction testing against an installed release; screen-reader, keyboard,
   zoom and forced-colors testing of the assessed release.
 - Composer lockfile resolution for Drupal CMS and LocalGov, and their manifests.
@@ -190,6 +193,58 @@ command is called. Raw output is private and never published.
   a PR; a human merge is still required before Pages deploys.
 - A single accessibility percentage or conformance score. None is produced.
 
+## OpenACR draft export
+
+Each target report exports `openacr.yaml` and `openacr-validation.json`. The YAML
+is validated against the pinned Civicactions/GSA OpenACR 0.1.0 schema and the
+VPAT 2.5 WCAG 2.2 + Revised Section 508 catalog (commit `d6d18a9…`).
+
+It is a **draft skeleton**, not an approved ACR:
+
+- all 182 catalog criteria and all seven chapters are present;
+- no components or adherence levels are populated;
+- the author is a placeholder (`reviewer@example.invalid`);
+- notes link the evidence report and require human review;
+- `not-evaluated` is never used for Level A/AA.
+
+```sh
+acr-evidence openacr-export \
+  --analysis reports/drupal-core-11.4.12/analysis.json \
+  --output reports/drupal-core-11.4.12
+acr-evidence openacr-validate \
+  --file reports/drupal-core-11.4.12/openacr.yaml --strict
+```
+
+All five target drafts were checked with the official `@civicactions/openacr`
+0.3.11 CLI and returned `Valid!`. See
+[`docs/OPENACR-EXPORT.md`](docs/OPENACR-EXPORT.md) for the review workflow,
+validation rules and limitations. Editor round-trip testing is still pending.
+
+## ATAG 2.0 authoring evidence
+
+Drupal Core is an authoring tool as well as a CMS. ATAG 2.0 evidence is kept
+separate from the WCAG release matrix and the OpenACR draft:
+
+- [`reports/drupal-core-atag/`](reports/drupal-core-atag/) — static evidence report
+- `atag-report.json` — WAI ATAG Report Tool JSON draft with all 63 criteria
+  **Not checked**
+- `atag-evidence.json` — issue/Part A/Part B classification
+
+The ATAG tag is Drupal taxonomy term `5050`; the common Accessibility tag is
+`1101`. Part A/B tags (`atag-a`, `atag-b`, `atag-part-a`, `atag-part-b`) override
+the component triage hints. Issues without a part are shown as
+`ATAG-tagged, part not specified`.
+
+```sh
+acr-evidence atag-report \
+  --collection reports/drupal-core-atag/collection.json \
+  --output reports/drupal-core-atag
+```
+
+See [`docs/ATAG-EVIDENCE.md`](docs/ATAG-EVIDENCE.md). ATAG and WCAG are separate
+standards; neither inherits the other’s conclusions, and no ATAG conformance
+values are generated.
+
 ## Weekly snapshots
 
 `.github/workflows/weekly.yml` runs on Mondays at 13:00 UTC and on manual
@@ -197,7 +252,7 @@ dispatch. It:
 
 1. installs the package and `drupalorg-cli`;
 2. runs the offline test suite;
-3. collects the shared Drupal Core sample;
+3. pages the full Accessibility queue and collects active review-relevant issues;
 4. analyzes all five declared targets;
 5. opens a pull request on a generated branch.
 
@@ -288,6 +343,8 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Security](SECURITY.md)
 - [Accessibility](ACCESSIBILITY.md)
 - [Contributing](CONTRIBUTING.md)
+- [OpenACR export](docs/OPENACR-EXPORT.md)
+- [ATAG 2.0 authoring evidence](docs/ATAG-EVIDENCE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Deferred sources](docs/FUTURE-SOURCES.md)
 - [Third-party content notice](NOTICE)

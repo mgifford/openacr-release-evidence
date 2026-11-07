@@ -45,7 +45,7 @@ report and does not certify Drupal or this project.
 | High | Placeholder release values passed validation. | `release: "SET-A-REAL-RELEASE"` and `"EXAMPLE-UNVERIFIED"` passed `validate_manifest`. | Placeholder values are rejected unless `"synthetic": true`; the example manifest is marked synthetic and the templates now fail until filled. |
 | High | `mr:list` was called without `--state=all`; the CLI defaults to **opened** MRs, so merged/closed MRs were invisible. | `drupalorg help mr:list` documents the default; live `mr:list 3621109` returned a closed MR only when `--state=all` was used. | The bridge passes `--state=all` and preserves all states. |
 | High | `issue:show` never requested comments. | The old code passed only `--format=llm`; `--with-comments` is a separate option. | JSON output plus `--with-comments` is now used for ingestion. |
-| High | Drupal status 8 was assumed to mean “closed fixed”. | Live pages: 8 = “Needs review”, 7 = “Closed (fixed)”, 2 = “Fixed”, 13 = “Needs work”, 14 = “RTBC”, 17 = “Closed (outdated)”. | A verified status map is in `model.STATUS_LABELS`; normalisation uses it. |
+| High | Drupal status 8 was assumed to mean “closed fixed”. | Live pages: 8 = “Needs review”, 7 = “Closed (fixed)”, 2 = “Fixed”, 13 = “Needs work”, 14 = “RTBC”, 17 = “Closed (outdated)”, 18 = “Closed (cannot reproduce)”. | A verified status map is in `model.STATUS_LABELS`; normalisation uses it. |
 | High | The explorer overflowed horizontally at 320 px. | Rendered 320 px: `scrollWidth` 602; the 64-character digest text extended to x=602; the select was 325 px wide. | `overflow-wrap` was added; the select uses `width:100%; max-width:23rem`. Verified `scrollWidth` 320. |
 | Medium | The explorer was unusable with JavaScript disabled. | Text stopped at “Loading assessment…” / “Loading findings…”. | Added a `<noscript>` message with a link to `evidence.json`; the new report is fully static and needs no JS. |
 | Medium | The skip link did not move focus to `<main>`. | In Chromium, `activeElement` remained `BODY` after activation. | `<main tabindex="-1">` in both the explorer and the report; verified `activeElement` is `MAIN`. |
@@ -58,7 +58,7 @@ report and does not certify Drupal or this project.
 
 | Severity | Defect | Why it matters | Next action |
 | --- | --- | --- | --- |
-| High | No official OpenACR schema validation or editor round-trip. | The current worksheet is explicitly not an OpenACR; the mission’s later milestone requires GSA schema/editor compatibility. | Phase 6: pin the official schema, validate, and reuse the official renderer. |
+| Medium | ACR Editor round-trip and official HTML renderer are not implemented. | Per-report YAML now validates against the pinned Civicactions/GSA schema and catalog, but editor compatibility is unverified. | Import/edit/export in the official editor and reuse its renderer. |
 | High | No reproduction or assistive-technology testing of Drupal 11.4.12. | “Likely affected” and “fix included” are not behavioural verification. | Add a manual/imported reproduction protocol; do not upgrade to `confirmed-affected` without it. |
 | Medium | Commit matching relies on issue numbers in commit titles. | Fixes delivered without an issue number, via configuration, or in contributed modules are not matched. | Add file/diff-level analysis and a safe manual evidence override path. |
 | Medium | Unused applicability overrides are silently ignored. | A typo can leave a reviewer believing evidence was applied. | Warn or fail on override keys that match no collected issue. |
@@ -90,23 +90,29 @@ only an allowlist of read commands and rejects unknown flags.
 
 ## 5. Live sample and release analysis
 
-- 20 Drupal Core issues explicitly tagged **Accessibility** (term 1101) were
-  collected: 743 comments, 20 issues with MR metadata, 12 with WCAG tags.
-  This meets Phase 1’s 20-issue threshold.
+- The full Drupal Core **Accessibility** queue (term 1101) was paged. 428 active,
+  review-relevant issues were collected: 1,666 comments, 29 with MR metadata,
+  193 with WCAG tags. Statuses are Active (235), Needs work (172), Needs review
+  (14) and RTBC (7); fixed, closed, duplicate, won’t-fix, outdated,
+  cannot-reproduce and postponed issues are excluded.
+- 30 review-priority issues have full comments/MRs; 398 are metadata-only
+  inventory records. Inventory records are not assigned a release conclusion.
 - Target: Drupal Core **11.4.12**, tag commit `aa556ff1…`, composer.lock
   SHA-256 `d3d2949e…`.
-- 4 fixes were found contained in the tag:
-  3621109, 3623388, 3618127, 3617875.
-- 14 were classified `likely-affected`; 2 remained `unknown` because they were
-  reported after the release date and have no target-branch fix.
+- No active issue has a fix commit contained in the selected targets, so no
+  `confirmed-fixed` result is emitted in this active-only pass. Closed-fixed
+  issues are not used as evidence.
+- 28 detailed issues were classified `likely-affected` for 10.6.21 and 11.4.12;
+  400 findings were `unknown` (398 inventory + two detailed issues without a
+  target conclusion).
 - The target intentionally enables the **Default Admin** theme. Drupal 11.4.12’s
   stock standard profile still uses Claro and Olivero, so this is a declared
   configuration, not the stock default.
-- Four of the five Phase 2 cases are demonstrated by real issues: open barrier,
-  fix only on a newer branch, fix contained in the release, and unknown. The
-  `not-introduced` case is not present in this real sample; it is covered by
-  `test_feature_absent_is_not_introduced` with explicit feature-absence evidence.
-  A future sample should include a real 11.5-only feature issue.
+- Active evidence demonstrates the open-barrier, fix-only-on-a-newer-branch and
+  unknown cases. The closed-fixed/contained-fix case is covered by fixtures
+  because closed issues are excluded from the active ACR collection. The
+  `not-introduced` case is also fixture-tested with explicit feature-absence
+  evidence; a future sample should include a real 11.5-only feature issue.
 
 The evidence report is `reports/drupal-core-11.4.12/index.html`. It is a draft
 evidence report, **not** an ACR.
@@ -116,21 +122,23 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 70 offline tests pass; `python3 -m compileall -q src` passes.
-- New coverage: normalization, real status mapping, WCAG tag parsing, release
-  classification, commit deduplication, caching, failure isolation, report
-  escaping/anchors/headings, the digest, placeholder guards, and the worksheet.
+- After: 90 offline tests pass; `python3 -m compileall -q src` passes.
+- New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
+  Part A/B classification, release classification, commit deduplication,
+  caching, failure isolation, report escaping/anchors/headings, the digest,
+  placeholder guards, the worksheet and OpenACR schema/catalog validation.
 - Report rendered with axe-core: **0 violations** at 1280 px; `scrollWidth` 320
-  at a 320 px viewport; all 66 internal anchors resolve; the skip link focuses
-  `MAIN`; `<details>` toggles by keyboard; no JavaScript is required.
-- The Pages artifact was simulated locally for the landing page and five
-  target reports (21 allowlisted files: report HTML/CSS, `evidence.json` and
-  `summary.json`), with no collection/analysis files, private paths or script
-  tags. The landing page, matrix region and every target report pass axe at
-  1280 px and have no 320 px page overflow.
-- Not done: screen-reader/manual keyboard testing of the report, full WCAG
-  catalogue coverage, official OpenACR schema validation, live integration tests
-  in CI.
+  at a 320 px viewport; all internal anchors resolve; the skip link focuses
+  `MAIN`; `<details>` toggles by keyboard; no JavaScript is required. The ATAG
+  report has the same axe/reflow/skip-link result.
+- The Pages artifact was simulated locally for the landing page, five target
+  reports and the ATAG report (35 allowlisted files), with no
+  collection/analysis files, private paths or script tags. The landing page,
+  matrix region, target reports and ATAG report pass axe at 1280 px and have no
+  320 px page overflow.
+- Not done: screen-reader/manual keyboard testing of the reports, full WCAG
+  catalogue coverage, ACR Editor round-trip, and human ATAG editing/export.
+  Official OpenACR schema/catalog validation and ATAG JSON import were verified.
 
 ## 7. Documentation claims that were stronger than the implementation
 
@@ -153,8 +161,9 @@ These were corrected or explicitly marked as planned in this change.
 The evidence pipeline (collection → normalization → release classification →
 static report) is functioning and repeatable. The next reviewable increments are:
 
-1. Official OpenACR schema/editor validation and an HTML export that reuses the
-   GSA implementation (Phase 6).
+1. ACR Editor round-trip and an HTML export that reuses the official OpenACR
+   implementation; schema/catalog validation is now in place, editor compatibility
+   is not.
 2. A provider-independent AI interface with a no-AI path preserved, a validated
    structured-response schema, and gold-standard evaluation (Phase 3).
 3. Manual reproduction evidence for a small number of `likely-affected` and
@@ -177,7 +186,7 @@ After the first audit and report:
   `setup-python@v7`, `upload-artifact@v7`, `configure-pages@v6`,
   `upload-pages-artifact@v5` and `deploy-pages@v5`, resolving the Node 20
   deprecation warning from run 42402400410.
-- **Multi-target analysis:** the shared 20-issue collection is analyzed against
+- **Multi-target analysis:** the shared 428-issue active collection is analyzed against
   10.6.21 (supported), 11.4.12 (supported), 12.0.0-alpha1 and 12.0.0-beta2
   (pre-release), and `main`/12.0.x-dev (development). The landing page contains a
   cross-release matrix; each cell links to the target finding.
@@ -187,16 +196,40 @@ After the first audit and report:
 - **Parent graph:** `parent_project` is carried in target metadata and documented
   as Core → Claro/Olivero and Core → Drupal CMS/LocalGov. Parent-linked ACR
   generation is not implemented.
+- **Active-issue scope and pagination:** the earlier collection was an explicit
+  20-issue sample and discovery stopped at one API page. The fix pages the full
+  Accessibility queue (50 per page, up to 200 pages), keeps only statuses 1, 8,
+  13, 14 and 15, excludes fixed/closed/postponed issues, and retains 428 active
+  issues (30 full-detail, 398 inventory-only). RTBC remains included until
+  closed.
+- **ATAG 2.0 evidence:** 32 active Drupal Core issues tagged `atag` are collected from
+  the Accessibility queue, grouped by explicit Part A/B tags, curated mapping and
+  component candidates, and exported as `atag-evidence.json` plus a WAI ATAG
+  Report Tool JSON draft (`atag-report.json`, all 63 criteria `Not checked`).
+  The ATAG report is separate from the WCAG matrix and the OpenACR draft.
+- **OpenACR export:** each target now exports `openacr.yaml` and
+  `openacr-validation.json`. The YAML is valid against the pinned Civicactions/
+  GSA OpenACR 0.1.0 schema and the VPAT 2.5 WCAG 2.2 + Section 508 catalog, with
+  all 182 criteria and no conformance values. A placeholder reviewer and
+  `draft: true` force human review; `openacr-validate --strict` checks the
+  reviewed file. All five drafts were independently checked with the official
+  `@civicactions/openacr` 0.3.11 CLI and returned `Valid!`. Editor round-trip
+  remains pending.
+- **ATAG caveat:** the queue currently exposes only the generic `atag` tag, so
+  most issues are component candidates or unspecified; Part A/B tags and
+  curated mappings are supported. Import into the live WAI ATAG Report Tool was
+  verified (draft metadata loaded; all 52 A/AA criteria `Not checked`), but
+  human editing/export and release-scoped applicability are not yet verified.
 
-Current multi-target result (same 20 issues, no reproduction):
+Current multi-target result (428 active issues, no reproduction):
 
 | Target | Support | Fix included | Confirmed fixed | Likely affected | Unknown |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 10.6.21 | Supported | 0 | 0 | 8 | 12 |
-| 11.4.12 | Supported | 4 | 4 | 14 | 2 |
-| 12.0.0-alpha1 | Pre-release | 1 | 1 | 16 | 3 |
-| 12.0.0-beta2 | Pre-release | 10 | 10 | 7 | 3 |
-| `main` | Development | 11 | 10 | 10 | 0 |
+| 10.6.21 | Supported | 0 | 0 | 28 | 400 |
+| 11.4.12 | Supported | 0 | 0 | 28 | 400 |
+| 12.0.0-alpha1 | Pre-release | 0 | 0 | 23 | 405 |
+| 12.0.0-beta2 | Pre-release | 0 | 0 | 26 | 402 |
+| `main` | Development | 0 | 0 | 30 | 398 |
 
 The 10.6 result is deliberately conservative. The generic “Admin theme”
 component spans Claro and Default Admin, and fixes landed on newer branches; the

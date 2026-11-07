@@ -8,6 +8,7 @@ import re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 
+from .atag import classify as classify_atag
 from .model import (
     SCHEMA_VERSION,
     sha256_json,
@@ -176,6 +177,7 @@ def normalize_drupal_issue(
     raw_ref,
     adapter="drupalorg-cli",
     cli_version=None,
+    evidence_status="full",
 ):
     """Build a versioned normalized issue from CLI JSON + API node + MR list."""
     node = node or {}
@@ -208,7 +210,11 @@ def normalize_drupal_issue(
     merge_requests = [
         normalize_merge_request(mr) for mr in (mrs.get("merge_requests") or [])
     ]
-    description_html = issue.get("body_value") or (node.get("body") or {}).get("value") or ""
+    description_html = (
+        ""
+        if evidence_status == "inventory"
+        else issue.get("body_value") or (node.get("body") or {}).get("value") or ""
+    )
     provenance = {
         "source_system": "drupal.org",
         "source_project": project,
@@ -219,6 +225,11 @@ def normalize_drupal_issue(
         "content_hash": sha256_json({"issue": issue, "node": node, "merge_requests": mrs}),
         "raw_ref": raw_ref,
     }
+    atag = classify_atag(
+        labels,
+        issue.get("field_issue_component") or node.get("field_issue_component"),
+        f"drupal:{nid}",
+    )
     return {
         "schema_version": SCHEMA_VERSION,
         "id": f"drupal:{nid}",
@@ -245,8 +256,10 @@ def normalize_drupal_issue(
         or node.get("field_issue_version"),
         "priority": issue.get("priority"),
         "category": issue.get("category"),
+        "evidence_status": evidence_status,
         "comments": comments,
         "merge_requests": merge_requests,
         "wcag_candidates": wcag_from_labels(labels),
+        "atag": atag,
         "provenance": provenance,
     }

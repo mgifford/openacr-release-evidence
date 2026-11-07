@@ -38,6 +38,7 @@ class NormalizeTests(unittest.TestCase):
         self.assertEqual("Needs review", status_label(8))
         self.assertEqual("Fixed", status_label(2))
         self.assertEqual("Closed (outdated)", status_label(17))
+        self.assertEqual("Closed (cannot reproduce)", status_label(18))
         self.assertEqual("closed-fixed", status_workflow(7))
         self.assertEqual("needs-review", status_workflow(8))
         self.assertEqual("unknown", status_workflow(99))

@@ -34,6 +34,37 @@ reviewer identity or attributable review record. A new artifact must not
 silently overwrite a reviewed decision; it should mark it `stale` and request
 re-review.
 
+## OpenACR draft export
+
+`openacr.yaml` is a **validated skeleton**, not a conformance decision. It lists
+every catalog criterion and leaves components, adherence values and reviewer
+identity empty for human completion. Schema/catalog validity is not evidence
+that a claim is true. A reviewer must fill and independently approve the file;
+`--strict` rejects a draft, a placeholder reviewer and unfilled criteria. The
+official editor round-trip is not yet verified.
+
+## Active-issue scope
+
+An ACR evidence pass covers active, review-relevant issues only: Active, Needs
+review, Needs work, RTBC and Patch. Fixed, closed, duplicate, won't-fix,
+works-as-designed, outdated, cannot-reproduce and postponed issues are excluded.
+RTBC is included until the issue is closed. Closed/fixed issues must not be
+resurrected as conformance evidence.
+
+The full Accessibility queue is paginated; a first-page sample is not a census.
+All active issues are inventoried. Full comments/MRs/commit analysis is collected
+for a review-priority subset; inventory-only issues are explicitly marked and do
+not receive a release applicability conclusion.
+
+## ATAG evidence
+
+ATAG 2.0 authoring evidence is separate from WCAG/OpenACR. The `atag` issue tag
+is evidence of a reported authoring-tool problem, not an ATAG result. Part A/B
+tags and curated `config/atag-scope.json` mappings are authoritative; component
+candidates are triage only. The WAI ATAG Report Tool JSON contains no results
+(all 63 criteria `Not checked`). No ATAG conclusion may be copied into an OpenACR
+WCAG value, and no WCAG conclusion may be copied into ATAG.
+
 ## Before a formal OpenACR
 
 1. Select the scope and exact installation, including the Composer lockfile where

@@ -11,3 +11,15 @@ remain subject to Drupal.org's terms and their authors' rights, and are not
 relicensed under the MIT licence.
 
 WCAG criterion titles are from the W3C WCAG 2.2 Recommendation.
+
+The vendored OpenACR schema and catalog in
+`src/acr_evidence/standards/openacr/` are from CivicActions/openacr (fork of
+GSA/openacr), pinned to commit d6d18a9. They are CC0/public domain except W3C
+data files, which remain under the W3C Software and Document Notice and License.
+See the vendored LICENSE.md.
+
+ATAG 2.0 criteria data in `src/acr_evidence/standards/atag/` is derived from the
+W3C WAI ATAG Report Tool (https://github.com/w3c/wai-atag-report-tool), pinned to
+commit 40926feb7e09c7b486da4d502705cd1533fb11b2, under the W3C Software Notice
+and License. The ATAG 2.0 specification is a W3C Recommendation. See the vendored
+LICENSE and README.
