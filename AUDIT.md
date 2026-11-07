@@ -45,7 +45,7 @@ report and does not certify Drupal or this project.
 | High | Placeholder release values passed validation. | `release: "SET-A-REAL-RELEASE"` and `"EXAMPLE-UNVERIFIED"` passed `validate_manifest`. | Placeholder values are rejected unless `"synthetic": true`; the example manifest is marked synthetic and the templates now fail until filled. |
 | High | `mr:list` was called without `--state=all`; the CLI defaults to **opened** MRs, so merged/closed MRs were invisible. | `drupalorg help mr:list` documents the default; live `mr:list 3621109` returned a closed MR only when `--state=all` was used. | The bridge passes `--state=all` and preserves all states. |
 | High | `issue:show` never requested comments. | The old code passed only `--format=llm`; `--with-comments` is a separate option. | JSON output plus `--with-comments` is now used for ingestion. |
-| High | Drupal status 8 was assumed to mean “closed fixed”. | Live pages: 8 = “Needs review”, 7 = “Closed (fixed)”, 2 = “Fixed”, 13 = “Needs work”, 14 = “RTBC”, 17 = “Closed (outdated)”. | A verified status map is in `model.STATUS_LABELS`; normalisation uses it. |
+| High | Drupal status 8 was assumed to mean “closed fixed”. | Live pages: 8 = “Needs review”, 7 = “Closed (fixed)”, 2 = “Fixed”, 13 = “Needs work”, 14 = “RTBC”, 17 = “Closed (outdated)”, 18 = “Closed (cannot reproduce)”. | A verified status map is in `model.STATUS_LABELS`; normalisation uses it. |
 | High | The explorer overflowed horizontally at 320 px. | Rendered 320 px: `scrollWidth` 602; the 64-character digest text extended to x=602; the select was 325 px wide. | `overflow-wrap` was added; the select uses `width:100%; max-width:23rem`. Verified `scrollWidth` 320. |
 | Medium | The explorer was unusable with JavaScript disabled. | Text stopped at “Loading assessment…” / “Loading findings…”. | Added a `<noscript>` message with a link to `evidence.json`; the new report is fully static and needs no JS. |
 | Medium | The skip link did not move focus to `<main>`. | In Chromium, `activeElement` remained `BODY` after activation. | `<main tabindex="-1">` in both the explorer and the report; verified `activeElement` is `MAIN`. |
@@ -116,21 +116,23 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 79 offline tests pass; `python3 -m compileall -q src` passes.
-- New coverage: normalization, real status mapping, WCAG tag parsing, release
-  classification, commit deduplication, caching, failure isolation, report
-  escaping/anchors/headings, the digest, placeholder guards, and the worksheet.
+- After: 86 offline tests pass; `python3 -m compileall -q src` passes.
+- New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
+  Part A/B classification, release classification, commit deduplication,
+  caching, failure isolation, report escaping/anchors/headings, the digest,
+  placeholder guards, the worksheet and OpenACR schema/catalog validation.
 - Report rendered with axe-core: **0 violations** at 1280 px; `scrollWidth` 320
-  at a 320 px viewport; all 66 internal anchors resolve; the skip link focuses
-  `MAIN`; `<details>` toggles by keyboard; no JavaScript is required.
-- The Pages artifact was simulated locally for the landing page and five
-  target reports (21 allowlisted files: report HTML/CSS, `evidence.json` and
-  `summary.json`), with no collection/analysis files, private paths or script
-  tags. The landing page, matrix region and every target report pass axe at
-  1280 px and have no 320 px page overflow.
-- Not done: screen-reader/manual keyboard testing of the report, full WCAG
-  catalogue coverage, official OpenACR schema validation, live integration tests
-  in CI.
+  at a 320 px viewport; all internal anchors resolve; the skip link focuses
+  `MAIN`; `<details>` toggles by keyboard; no JavaScript is required. The ATAG
+  report has the same axe/reflow/skip-link result.
+- The Pages artifact was simulated locally for the landing page, five target
+  reports and the ATAG report (35 allowlisted files), with no
+  collection/analysis files, private paths or script tags. The landing page,
+  matrix region, target reports and ATAG report pass axe at 1280 px and have no
+  320 px page overflow.
+- Not done: screen-reader/manual keyboard testing of the reports, full WCAG
+  catalogue coverage, ACR Editor round-trip, and human ATAG editing/export.
+  Official OpenACR schema/catalog validation and ATAG JSON import were verified.
 
 ## 7. Documentation claims that were stronger than the implementation
 
@@ -188,6 +190,11 @@ After the first audit and report:
 - **Parent graph:** `parent_project` is carried in target metadata and documented
   as Core → Claro/Olivero and Core → Drupal CMS/LocalGov. Parent-linked ACR
   generation is not implemented.
+- **ATAG 2.0 evidence:** 50 Drupal Core issues tagged `atag` are collected from
+  the Accessibility queue, grouped by explicit Part A/B tags, curated mapping and
+  component candidates, and exported as `atag-evidence.json` plus a WAI ATAG
+  Report Tool JSON draft (`atag-report.json`, all 63 criteria `Not checked`).
+  The ATAG report is separate from the WCAG matrix and the OpenACR draft.
 - **OpenACR export:** each target now exports `openacr.yaml` and
   `openacr-validation.json`. The YAML is valid against the pinned Civicactions/
   GSA OpenACR 0.1.0 schema and the VPAT 2.5 WCAG 2.2 + Section 508 catalog, with
@@ -196,6 +203,11 @@ After the first audit and report:
   reviewed file. All five drafts were independently checked with the official
   `@civicactions/openacr` 0.3.11 CLI and returned `Valid!`. Editor round-trip
   remains pending.
+- **ATAG caveat:** the queue currently exposes only the generic `atag` tag, so
+  most issues are component candidates or unspecified; Part A/B tags and
+  curated mappings are supported. Import into the live WAI ATAG Report Tool was
+  verified (draft metadata loaded; all 52 A/AA criteria `Not checked`), but
+  human editing/export and release-scoped applicability are not yet verified.
 
 Current multi-target result (same 20 issues, no reproduction):
 

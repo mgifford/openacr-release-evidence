@@ -1,0 +1,1179 @@
+{
+  "schema_version": "0.2.0",
+  "artifact_type": "atag-evidence-draft",
+  "atag_version": "2.0",
+  "product": "Drupal Core",
+  "release": "11.4.12",
+  "generated_at": "2026-11-07T19:23:43Z",
+  "source": {
+    "tag": "atag",
+    "tag_tid": "5050",
+    "accessibility_tag": "Accessibility",
+    "queue_url": "https://www.drupal.org/project/issues/search?text=&projects=&assigned=&submitted=&project_issue_followers=&issue_tags_op=%3D&issue_tags=Accessibility",
+    "atag_queue_url": "https://www.drupal.org/project/issues/search?text=&projects=&assigned=&submitted=&project_issue_followers=&issue_tags_op=%3D&issue_tags=atag",
+    "atag_spec": "https://www.w3.org/TR/ATAG20/",
+    "wai_report_tool": "https://www.w3.org/WAI/atag/report-tool/"
+  },
+  "summary": {
+    "issues": 50,
+    "explicit_part_a": 0,
+    "explicit_part_b": 0,
+    "candidate_part_a": 14,
+    "candidate_part_b": 33,
+    "unspecified": 8,
+    "meta_issues": 7,
+    "missing_accessibility_tag": 0,
+    "criteria": 63
+  },
+  "issues": [
+    {
+      "issue_id": "drupal:1291262",
+      "title": "Add 'alt' and 'title' tokenized text options for image formatters, and a 'title' option for the generic file formatter",
+      "url": "https://www.drupal.org/project/drupal/issues/1291262",
+      "component": "image.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:1323338",
+      "title": "[meta] Conform to WCAG Success Criterion 3.1.2: Language of Parts",
+      "url": "https://www.drupal.org/project/drupal/issues/1323338",
+      "component": "language system",
+      "status": "Active",
+      "issue_kind": "meta",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:1899236",
+      "title": "Add new Splitbutton render element to eventually replace Dropbutton",
+      "url": "https://www.drupal.org/project/drupal/issues/1899236",
+      "component": "theme system",
+      "status": "Needs work",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:1993928",
+      "title": "Language of parts: Introduce a language toolbar button",
+      "url": "https://www.drupal.org/project/drupal/issues/1993928",
+      "component": "ckeditor.module",
+      "status": "Closed (fixed)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2034909",
+      "title": "[meta] Track progress in ATAG 2.0 conformance",
+      "url": "https://www.drupal.org/project/drupal/issues/2034909",
+      "component": "other",
+      "status": "Active",
+      "issue_kind": "meta",
+      "atag": {
+        "is_atag": true,
+        "parts": [
+          "A",
+          "B"
+        ],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag+atag-meta-tracker",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2034915",
+      "title": "[meta] Track progress in WCAG 2.0 conformance",
+      "url": "https://www.drupal.org/project/drupal/issues/2034915",
+      "component": "other",
+      "status": "Closed (outdated)",
+      "issue_kind": "meta",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2135341",
+      "title": "Views should provide a means to add arbitrary attributes (such as aria-* attributes) to a view's wrapping element",
+      "url": "https://www.drupal.org/project/drupal/issues/2135341",
+      "component": "views.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2145035",
+      "title": "Discourage use of duplicate Menu link title & Description in Menu Items",
+      "url": "https://www.drupal.org/project/drupal/issues/2145035",
+      "component": "menu system",
+      "status": "Needs work",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2305109",
+      "title": "Figure/Figcaption for Image Widget",
+      "url": "https://www.drupal.org/project/drupal/issues/2305109",
+      "component": "image system",
+      "status": "Needs work",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2307141",
+      "title": "Enable browsers' (native) spell checker in CKEditor",
+      "url": "https://www.drupal.org/project/drupal/issues/2307141",
+      "component": "ckeditor.module",
+      "status": "Closed (fixed)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2307175",
+      "title": "[meta] Document all accessibility features in the UI",
+      "url": "https://www.drupal.org/project/drupal/issues/2307175",
+      "component": "documentation",
+      "status": "Active",
+      "issue_kind": "meta",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2307277",
+      "title": "Tag conversion strips accessibility attributes",
+      "url": "https://www.drupal.org/project/drupal/issues/2307277",
+      "component": "filter.module",
+      "status": "Closed (works as designed)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2307279",
+      "title": "Restrict options for alternative text",
+      "url": "https://www.drupal.org/project/drupal/issues/2307279",
+      "component": "image system",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2307541",
+      "title": "Text Filter should prompt for headings on long text",
+      "url": "https://www.drupal.org/project/drupal/issues/2307541",
+      "component": "filter.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2467827",
+      "title": "[META] W3C validation for Drupal Core",
+      "url": "https://www.drupal.org/project/drupal/issues/2467827",
+      "component": "ajax system",
+      "status": "Active",
+      "issue_kind": "meta",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2474687",
+      "title": "Make it Easier for Views with Images & Links to be Accessible",
+      "url": "https://www.drupal.org/project/drupal/issues/2474687",
+      "component": "views.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2614950",
+      "title": "Add option for visually-hidden block titles",
+      "url": "https://www.drupal.org/project/drupal/issues/2614950",
+      "component": "block.module",
+      "status": "Needs work",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2698127",
+      "title": "Extend site information page to generate a manifest.json file",
+      "url": "https://www.drupal.org/project/drupal/issues/2698127",
+      "component": "base system",
+      "status": "Needs work",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2731373",
+      "title": "[upstream] Include an accessibility tester in CKEditor (axe, Tota11y, HTML Code Sniffer)",
+      "url": "https://www.drupal.org/project/drupal/issues/2731373",
+      "component": "ckeditor5.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2893640",
+      "title": "Modernize ARIA usage, in line with ARIA 1.1 and the ARIA Authoring Practices guide.",
+      "url": "https://www.drupal.org/project/drupal/issues/2893640",
+      "component": "markup",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2910102",
+      "title": "Improve icon color contrast for WCAG 2.1",
+      "url": "https://www.drupal.org/project/drupal/issues/2910102",
+      "component": "other",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2934405",
+      "title": "[META] Improve workflows for image alternative text",
+      "url": "https://www.drupal.org/project/drupal/issues/2934405",
+      "component": "image system",
+      "status": "Active",
+      "issue_kind": "meta",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2957933",
+      "title": "Clean Up HTML & improve accessibility during migration",
+      "url": "https://www.drupal.org/project/drupal/issues/2957933",
+      "component": "migration system",
+      "status": "Closed (won't fix)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:2957938",
+      "title": "Evaluate Accessibility During Migration ",
+      "url": "https://www.drupal.org/project/drupal/issues/2957938",
+      "component": "migration system",
+      "status": "Closed (duplicate)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3002770",
+      "title": "Provide authors with tools to manage transcripts and captions/subtitles for local video and audio",
+      "url": "https://www.drupal.org/project/drupal/issues/3002770",
+      "component": "media system",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3023807",
+      "title": "Override media fields from the reference field",
+      "url": "https://www.drupal.org/project/drupal/issues/3023807",
+      "component": "media system",
+      "status": "Postponed",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3037742",
+      "title": "The toggle that makes Contextual Links visible at all times might not be sufficiently discoverable",
+      "url": "https://www.drupal.org/project/drupal/issues/3037742",
+      "component": "layout_builder.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3050928",
+      "title": "Allow content authors to define location for long description in CKEditor image plugin",
+      "url": "https://www.drupal.org/project/drupal/issues/3050928",
+      "component": "editor.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3056714",
+      "title": "Provide a FieldType and FieldWidget to represent a WebVTT file for the HTML track element",
+      "url": "https://www.drupal.org/project/drupal/issues/3056714",
+      "component": "file system",
+      "status": "Needs work",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3083583",
+      "title": "[META] Discourage non-inclusive use of the HTML title attribute",
+      "url": "https://www.drupal.org/project/drupal/issues/3083583",
+      "component": "markup",
+      "status": "Active",
+      "issue_kind": "meta",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3083994",
+      "title": "Difficult for authors to embed image media with empty alt text.",
+      "url": "https://www.drupal.org/project/drupal/issues/3083994",
+      "component": "media system",
+      "status": "Postponed",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3084011",
+      "title": "The source of alt text in embedded image media is not clear",
+      "url": "https://www.drupal.org/project/drupal/issues/3084011",
+      "component": "media system",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3097907",
+      "title": "Active toolbar tray has weak affordance and fails WCAG color criteria",
+      "url": "https://www.drupal.org/project/drupal/issues/3097907",
+      "component": "toolbar.module",
+      "status": "Closed (fixed)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3171916",
+      "title": "Add Help for Image Fields",
+      "url": "https://www.drupal.org/project/drupal/issues/3171916",
+      "component": "image.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3174111",
+      "title": "Automatically enable the language toolbar button on multilingual sites",
+      "url": "https://www.drupal.org/project/drupal/issues/3174111",
+      "component": "language system",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3174120",
+      "title": "Check PDF files for Basic Accessibility Issues",
+      "url": "https://www.drupal.org/project/drupal/issues/3174120",
+      "component": "file.module",
+      "status": "Postponed",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3193394",
+      "title": "Add Help Page on Creating Good Alt Text",
+      "url": "https://www.drupal.org/project/drupal/issues/3193394",
+      "component": "image.module",
+      "status": "Closed (duplicate)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3216307",
+      "title": "Build in simple page and site-wide accessibility reporting",
+      "url": "https://www.drupal.org/project/drupal/issues/3216307",
+      "component": "base system",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3217241",
+      "title": "Incorporate simple Plain Language checker for content",
+      "url": "https://www.drupal.org/project/drupal/issues/3217241",
+      "component": "base system",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3232414",
+      "title": "Image Media thumbnail alt text cannot be changed without reuploading the image",
+      "url": "https://www.drupal.org/project/drupal/issues/3232414",
+      "component": "media system",
+      "status": "Needs work",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3290899",
+      "title": "Content Dashboard needs some headings",
+      "url": "https://www.drupal.org/project/drupal/issues/3290899",
+      "component": "other",
+      "status": "Closed (cannot reproduce)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3293673",
+      "title": "[ATAG] Text editor should alert user when headings are out of order",
+      "url": "https://www.drupal.org/project/drupal/issues/3293673",
+      "component": "filter.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3299776",
+      "title": "Full HTML Shouldn't Include H1",
+      "url": "https://www.drupal.org/project/drupal/issues/3299776",
+      "component": "filter.module",
+      "status": "Closed (works as designed)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3303777",
+      "title": "Incorporate best practices from A11yFirst into WYSIWYG",
+      "url": "https://www.drupal.org/project/drupal/issues/3303777",
+      "component": "ckeditor5.module",
+      "status": "Closed (works as designed)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3313616",
+      "title": "[drupalMedia] Ability to mark image media as \"decorative\"",
+      "url": "https://www.drupal.org/project/drupal/issues/3313616",
+      "component": "ckeditor5.module",
+      "status": "Closed (fixed)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3351638",
+      "title": "Remove truncation of path alias",
+      "url": "https://www.drupal.org/project/drupal/issues/3351638",
+      "component": "path.module",
+      "status": "Closed (fixed)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3393367",
+      "title": "Add a section to the user profile to store accessibility preferences",
+      "url": "https://www.drupal.org/project/drupal/issues/3393367",
+      "component": "user.module",
+      "status": "Active",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "tag",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3394024",
+      "title": "Keyboard accessibility: not working with CKEditor 5 inserting image",
+      "url": "https://www.drupal.org/project/drupal/issues/3394024",
+      "component": "ckeditor5.module",
+      "status": "Closed (cannot reproduce)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:3579845",
+      "title": "Remove aria-expanded from summary in details element",
+      "url": "https://www.drupal.org/project/drupal/issues/3579845",
+      "component": "forms system",
+      "status": "Closed (duplicate)",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A",
+          "B"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    },
+    {
+      "issue_id": "drupal:893530",
+      "title": "Multi level (multirow) header for table FAPI element",
+      "url": "https://www.drupal.org/project/drupal/issues/893530",
+      "component": "theme system",
+      "status": "Needs work",
+      "issue_kind": "issue",
+      "atag": {
+        "is_atag": true,
+        "parts": [],
+        "candidate_parts": [
+          "A"
+        ],
+        "criteria": [],
+        "basis": "tag+component-heuristic",
+        "review_status": "needs-triage",
+        "tag_basis": [
+          "atag"
+        ]
+      },
+      "accessibility_tag": true,
+      "missing_accessibility_tag": false
+    }
+  ],
+  "review_status": "unreviewed",
+  "notes": "ATAG is separate from WCAG/OpenACR. No ATAG conformance values are populated.",
+  "evidence_digest": "24c39f77a5fb724b769b5632134c29f5d629a3ff8ef703d5c68273b43e57a11d"
+}

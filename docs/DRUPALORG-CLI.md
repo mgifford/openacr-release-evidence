@@ -96,6 +96,7 @@ The current queue uses codes that differ from older documentation:
 | 15 | Patch (to be ported) |
 | 16 | Postponed (maintainer needs more info) |
 | 17 | Closed (outdated) |
+| 18 | Closed (cannot reproduce) |
 
 In particular, **8 is not “closed fixed”**. The tracker label is metadata only;
 it is never treated as release applicability.

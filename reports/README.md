@@ -6,6 +6,11 @@ requires human completion and `openacr-validate --strict` before publication.
 The current drafts were also checked with the official `@civicactions/openacr`
 0.3.11 CLI (`Valid!`).
 
+`drupal-core-atag/` is the separate ATAG 2.0 authoring evidence report. It
+contains `index.html`, `atag-report.json` (WAI ATAG Report Tool draft with every
+criterion `Not checked`), `atag-evidence.json` and `report.css`. It is linked
+from the landing page and the OpenACR draft notes.
+
 `index.html` is the Pages landing page and cross-release matrix. It links to
 each target directory and to the machine-readable evidence. The Pages workflow
 deploys this landing page plus each report's `index.html`, `report.css`,

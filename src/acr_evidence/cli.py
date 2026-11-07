@@ -11,6 +11,7 @@ from pathlib import Path
 from .build import build
 from .collect import collect_issues
 from .git_release import commit_in_ref
+from .atag import load_scope, render_atag_report
 from .openacr import export_worksheet
 from .openacr_export import OpenACRError, export_openacr, validate_file
 from .release import analyze_collection
@@ -130,6 +131,11 @@ def main(argv=None):
     multi.add_argument("--output", required=True)
     multi.add_argument("--cache-dir", default=".cache/acr-evidence")
     multi.add_argument("--refresh", action="store_true")
+
+    atag = sub.add_parser("atag-report", help="Render ATAG 2.0 authoring evidence and a WAI ATAG Report Tool JSON draft")
+    atag.add_argument("--collection", required=True)
+    atag.add_argument("--output", required=True)
+    atag.add_argument("--scope", default=None, help="Optional curated ATAG Part A/B scope JSON")
 
     oa = sub.add_parser("openacr-export", help="Export and validate a draft OpenACR YAML skeleton")
     oa.add_argument("--analysis", required=True)
@@ -257,6 +263,14 @@ def main(argv=None):
                 f'{summary["fix_included_in_target"]} fixes in target'
             )
         print(f"Wrote {len(analyses)} reports and the cross-target matrix to {output}/index.html")
+    elif args.command == "atag-report":
+        scope = load_scope(args.scope) if args.scope else None
+        result = render_atag_report(load_json(args.collection), args.output, scope=scope)
+        print(
+            f"Wrote ATAG evidence to {result['index']} "
+            f"({result['summary']['issues']} ATAG-tagged issues; "
+            f"{result['summary']['missing_accessibility_tag']} missing the Accessibility tag)"
+        )
     elif args.command == "openacr-export":
         result = export_openacr(
             load_json(args.analysis), args.output,

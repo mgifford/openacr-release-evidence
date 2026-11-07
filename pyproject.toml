@@ -38,4 +38,4 @@ acr-evidence = "acr_evidence.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-acr_evidence = ["static/*.html", "static/*.js", "static/*.css", "standards/openacr/*"]
+acr_evidence = ["static/*.html", "static/*.js", "static/*.css", "standards/openacr/*", "standards/atag/*"]

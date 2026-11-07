@@ -117,6 +117,12 @@ validates. Validation checks structure, not truthfulness or test coverage.
 - No WCAG conformance values are generated automatically.
 - No hardware/software/FPC scope decisions are made automatically.
 - The EU catalog is not included; the pinned catalog is WCAG 2.2 + Section 508.
+- The GSA ACR Editor currently accepts the 2.1 catalog surface; this 2.2-catalog
+  draft may not import there. The Civicactions/GSA CLI validates it, but editor
+  round-trip remains a separate verification step.
+- ATAG 2.0 is not serialized into OpenACR WCAG chapters. See
+  [`docs/ATAG-EVIDENCE.md`](ATAG-EVIDENCE.md); the OpenACR notes link to the ATAG
+  report and the `authoring-tool` component is left for human review.
 - Parent-linked contributed-project ACRs (Claro, Olivero, Drupal CMS, LocalGov)
   are future work.
 

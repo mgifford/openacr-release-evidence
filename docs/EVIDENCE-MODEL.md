@@ -12,6 +12,7 @@ human decision.
 | Analysis | `acr-evidence analyze` | Release-specific applicability findings and commit/tag evidence. |
 | Report | `acr-evidence report` | Static HTML/JSON draft for one target; never an ACR. |
 | OpenACR draft | `acr-evidence openacr-export` | Schema- and catalog-valid OpenACR skeleton with no adherence values. |
+| ATAG evidence | `acr-evidence atag-report` | ATAG 2.0 Part A/B evidence and WAI ATAG Report Tool JSON draft; no ATAG conformance values. |
 | Multi-target report | `acr-evidence multi` | One report per declared target plus a landing page and cross-release matrix. |
 | Private raw snapshot | collection, under `private-evidence/raw/` | Original CLI/API payloads, excluded from publication. |
 
@@ -86,6 +87,14 @@ The collection is source-independent at the top level:
      "head_sha": "…", "merge_commit_sha": null, "merged_at": null}
   ],
   "wcag_candidates": ["1.4.3"],
+  "atag": {
+    "is_atag": false,
+    "parts": [],
+    "candidate_parts": [],
+    "criteria": [],
+    "basis": "none",
+    "review_status": "not-authoring"
+  },
   "provenance": {
     "source_system": "drupal.org",
     "source_project": "drupal",
@@ -123,6 +132,7 @@ assumption. Values verified against live issue pages on 2026-11-07:
 | 15 | Patch (to be ported) | `patch` |
 | 16 | Postponed (maintainer needs more info) | `postponed` |
 | 17 | Closed (outdated) | `closed-other` |
+| 18 | Closed (cannot reproduce) | `closed-other` |
 
 Unlisted codes remain `Unknown status (N)`; do not guess from an older map.
 
@@ -193,6 +203,16 @@ cross-release matrix links every cell back to the target finding.
 Claro, Olivero, Drupal CMS and LocalGov Drupal can publish their own ACRs with a
 parent link to Core. Parent-linked ACR generation is not implemented yet.
 
+## ATAG evidence
+
+ATAG 2.0 is separate from WCAG/OpenACR. Issues tagged `atag` (Drupal term 5050)
+carry an `atag` object with explicit Part A/B tags, curated scope, component
+candidates and a `needs-triage`/`unreviewed` status. The ATAG report groups Part
+A/Part B explicit and candidate issues, flags ATAG issues missing the common
+Accessibility tag, and writes a WAI ATAG Report Tool JSON with all 63 criteria
+`Not checked`. Component candidates are triage hints, not conformance. ATAG and
+WCAG conclusions are never inherited from each other.
+
 ## OpenACR draft
 
 `openacr.yaml` is validated against the pinned Civicactions/GSA OpenACR 0.1.0
@@ -202,7 +222,8 @@ criteria and all seven chapters, but **no components or adherence values**.
 must replace the author, assess every criterion, populate adherence, set
 `draft: false`, and run `openacr-validate --strict`. `not-evaluated` is rejected
 for Level A/AA by policy. The YAML has not been round-tripped through the official
-editor; that remains a separate verification step.
+editor; that remains a separate verification step. ATAG evidence is linked from
+the draft notes and is not serialized into OpenACR WCAG criteria.
 
 ## Conformance (not implemented)
 
