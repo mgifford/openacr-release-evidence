@@ -8,7 +8,13 @@ import shutil
 from html import escape
 from pathlib import Path
 
-from .wcag import APPLICABILITY_LABELS, APPLICABILITY_MEANINGS, criterion_info
+from .wcag import (
+    APPLICABILITY_LABELS,
+    APPLICABILITY_MEANINGS,
+    SHORT_APPLICABILITY,
+    SUPPORT_STATUS_LABELS,
+    criterion_info,
+)
 
 EXCERPT_LIMIT = 1800
 COMMENT_LIMIT = 8
@@ -175,7 +181,7 @@ def _issue_article(finding, issue):
             ("Release applicability", f'<strong>{esc(app_label(finding["applicability"]))}</strong>'),
             ("Why", esc(finding.get("reason"))),
             ("Evidence basis", esc(finding.get("basis"))),
-            ("Fix included in release?", "Yes" if finding.get("fix_included_in_release") else "No"),
+            ("Fix included in target?", "Yes" if finding.get("fix_included_in_target", finding.get("fix_included_in_release")) else "No"),
             ("Tracker status (not release status)", esc(finding.get("tracker_status_label") or "Unknown")),
             ("Version field at last fetch", esc(finding.get("tracker_version") or "Not recorded")),
             ("Component", esc(finding.get("component") or "Not recorded")),
@@ -262,10 +268,14 @@ def render_report(analysis, output_dir, css_source=None):
     rows = [
         ("Product", esc(assessment.get("product"))),
         ("Release", esc(target.get("release") or assessment.get("release"))),
-        ("Git tag", esc(target.get("tag") or assessment.get("ref"))),
-        ("Tag commit", f'{esc(target.get("tag_commit_short") or "Not resolved")}'
-                       f' <span class="meta">{esc(target.get("tag_commit") or "")}</span>'),
-        ("Tag date", esc(display_date(target.get("tag_date")))),
+        ("Target ref", f'{esc(target.get("ref") or assessment.get("ref"))} '
+                        f'({esc(target.get("ref_type") or "tag")})'),
+        ("Support status", esc(SUPPORT_STATUS_LABELS.get(target.get("support_status"), target.get("support_status") or "Unknown"))),
+        ("Release line", esc(target.get("release_line") or "Not recorded")),
+        ("Parent project", esc(target.get("parent_project") or "None (top-level product)")),
+        ("Target commit", f'{esc(target.get("tag_commit_short") or "Not resolved")}'
+                          f' <span class="meta">{esc(target.get("tag_commit") or "")}</span>'),
+        ("Target date", esc(display_date(target.get("tag_date")))),
         ("Assessment identifier", esc(assessment.get("id"))),
         ("Assessment date", esc(display_date(analysis.get("generated_at")))),
         ("Standards baseline", esc(standard)),
@@ -282,7 +292,7 @@ def render_report(analysis, output_dir, css_source=None):
         ("Issues with merge requests", esc((collection.get("summary") or {}).get("with_merge_requests", "Not recorded"))),
         ("Issues with WCAG tags", esc((collection.get("summary") or {}).get("with_wcag_tags", "Not recorded"))),
         ("Findings", esc(len(findings))),
-        ("Fix commits included in tag", esc(summary.get("fix_included_in_release", 0))),
+        ("Fix commits included in target", esc(summary.get("fix_included_in_target", summary.get("fix_included_in_release", 0)))),
         ("Findings needing verification", esc(summary.get("needs_verification", 0))),
     ]
 
@@ -328,6 +338,8 @@ def render_report(analysis, output_dir, css_source=None):
     html.append('<p>This report describes one declared assessment target. It is not a statement about every Drupal installation, '
                 'configuration or release.</p>')
     html.append(_facts(rows))
+    if target.get("scope_note"):
+        html.append(f'<p class="scope-note">{esc(target["scope_note"])}</p>')
     html.append("</section>")
     html.append('<section id="summary" aria-labelledby="summary-heading"><h2 id="summary-heading">Evidence summary</h2>')
     html.append('<p><strong>This is not an accessibility score.</strong> The table counts evidence states for the selected issues. '
@@ -336,7 +348,7 @@ def render_report(analysis, output_dir, css_source=None):
     html.append(_status_table(findings))
     html.append(
         f'<p class="meta">{esc(summary.get("findings", 0))} findings · '
-        f'{esc(summary.get("fix_included_in_release", 0))} fix commits contained in the release tag · '
+        f'{esc(summary.get("fix_included_in_target", summary.get("fix_included_in_release", 0)))} fix commits contained in the target · '
         f'{esc(summary.get("unmapped_criteria", 0))} findings without a WCAG criterion tag · '
         f'{esc(summary.get("needs_verification", 0))} need further verification.</p>'
     )
@@ -437,3 +449,166 @@ def render_report(analysis, output_dir, css_source=None):
         json.dumps(summary_doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
     return output
+
+
+def _short_state(value):
+    return SHORT_APPLICABILITY.get(value, value or "Unknown")
+
+
+def _support_label(value):
+    return SUPPORT_STATUS_LABELS.get(value, value or "Unknown")
+
+
+def render_landing(analyses, output_dir, targets_config=None):
+    """Render the multi-target landing page and cross-release matrix.
+
+    The matrix is a data table and may scroll horizontally at narrow widths; it
+    is wrapped in a focusable region with a visible caption. Every cell links to
+    the per-target finding so the summary never replaces the evidence.
+    """
+    analyses = list(analyses)
+    if not analyses:
+        raise ValueError("At least one analysis is required")
+    output = Path(output_dir)
+    output.mkdir(parents=True, exist_ok=True)
+    targets_config = targets_config or {}
+    policy = targets_config.get("policy") or {}
+    product = targets_config.get("product") or analyses[0]["target"].get("product") or "Product"
+    first_target = analyses[0]["target"]
+    css_href = f"./{first_target['assessment_id']}/report.css"
+    generated = max((analysis.get("generated_at") or "") for analysis in analyses)
+    issue_titles = {}
+    for analysis in analyses:
+        for finding in analysis.get("findings") or []:
+            issue_titles.setdefault(finding["issue_id"], finding.get("title") or finding["issue_id"])
+    issue_ids = sorted(issue_titles)
+
+    html = [
+        "<!doctype html>",
+        '<html lang="en">',
+        "<head>",
+        '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1">',
+        '<meta name="description" content="Draft release-scoped accessibility evidence across Drupal Core release lines. Not Accessibility Conformance Reports.">',
+        '<meta name="robots" content="noindex">',
+        f"<title>{esc(product)} release evidence reports</title>",
+        f'<link rel="stylesheet" href="{esc(css_href)}">',
+        "</head>",
+        "<body>",
+        '<a class="skip" href="#main">Skip to main content</a>',
+        '<header class="page-header">',
+        '<p class="eyebrow">OpenACR Release Evidence</p>',
+        f"<h1>{esc(product)} release evidence reports</h1>",
+        '<p class="status-banner"><strong>Draft evidence, not Accessibility Conformance Reports or certification.</strong> '
+        "The matrix shows evidence states for a declared sample of reported issues. It is not an accessibility score, "
+        "and the absence of a reported issue is not evidence of WCAG support.</p>",
+        f'<p class="meta">Generated {esc(display_date(generated))} · '
+        f'{esc(len(analyses))} targets · {esc(len(issue_ids))} issues in the shared sample.</p>',
+        "</header>",
+        '<main id="main" tabindex="-1">',
+    ]
+    html.append('<section aria-labelledby="targets-heading"><h2 id="targets-heading">Targets in this snapshot</h2>')
+    if policy.get("note"):
+        html.append(f'<p>{esc(policy["note"])}</p>')
+    if policy.get("source_url"):
+        html.append(f'<p class="meta">Release policy: {safe_link(policy["source_url"], "Drupal core release cycle schedule")}. '
+                    "Support status is a policy label, not a promise about a specific release.</p>")
+    html.append('<ul class="target-list">')
+    for analysis in analyses:
+        target = analysis["target"]
+        summary = analysis.get("summary") or {}
+        target_id = target.get("assessment_id")
+        counts = summary.get("by_applicability") or {}
+        fixed = summary.get("fix_included_in_target", summary.get("fix_included_in_release", 0))
+        html.append(
+            "<li>"
+            f'<h3><a href="./{esc(target_id)}/">{esc(product)} {esc(target.get("release"))}</a></h3>'
+            f'<p class="meta">{esc(target.get("ref_type") or "tag")} <code>{esc(target.get("ref"))}</code> · '
+            f'{esc(_support_label(target.get("support_status")))} · line {esc(target.get("release_line") or "unknown")} · '
+            f'parent {esc(target.get("parent_project") or "none (top-level product)")}</p>'
+            f'<p>{esc(summary.get("findings", 0))} findings · {esc(fixed)} with a fix in the target · '
+            f'{esc(counts.get("likely-affected", 0))} likely affected · {esc(counts.get("unknown", 0))} unknown. '
+            f'<a href="./{esc(target_id)}/">Open the report</a>.</p>'
+            f'<p class="meta"><a href="./{esc(target_id)}/evidence.json">evidence.json</a> · '
+            f'<a href="./{esc(target_id)}/summary.json">summary.json</a></p>'
+            "</li>"
+        )
+    html.append("</ul>")
+    html.append('<p class="meta">Targets marked pre-release or development are not supported releases. Their findings can change at any commit and must not be presented as release conformance claims.</p>')
+    html.append("</section>")
+
+    html.append('<section aria-labelledby="matrix-heading"><h2 id="matrix-heading">Cross-release applicability matrix</h2>')
+    html.append('<p>Each cell links to the issue-specific finding in that target report. A fix may be included in one target and absent from another; the table does not claim that an issue was reproduced on any target.</p>')
+    html.append('<p class="meta">This is a two-dimensional data table. At narrow widths it scrolls horizontally; focus the table region and use arrow keys or horizontal scrolling.</p>')
+    html.append('<div class="table-scroll" tabindex="0" role="region" aria-label="Cross-target applicability matrix. Scroll horizontally to compare targets.">')
+    html.append('<table class="matrix-table">')
+    html.append(f'<caption>Issue applicability across {len(analyses)} declared {esc(product)} targets. '
+                "Values are evidence states, not WCAG conformance results.</caption>")
+    html.append("<thead><tr><th scope=\"col\">Issue</th>")
+    for analysis in analyses:
+        target = analysis["target"]
+        html.append(
+            f'<th scope="col"><a href="./{esc(target.get("assessment_id"))}/">{esc(target.get("release"))}</a>'
+            f'<br><span class="meta">{esc(_support_label(target.get("support_status")))}</span></th>'
+        )
+    html.append("</tr></thead><tbody>")
+    for issue_id in issue_ids:
+        anchor = anchor_for(issue_id)
+        first_id = analyses[0]["target"]["assessment_id"]
+        html.append(
+            f'<tr><th scope="row"><a href="./{esc(first_id)}/#{anchor}">{esc(issue_titles[issue_id])}</a></th>'
+        )
+        for analysis in analyses:
+            target = analysis["target"]
+            finding = next((item for item in analysis.get("findings") or [] if item["issue_id"] == issue_id), None)
+            if finding:
+                html.append(
+                    f'<td><a href="./{esc(target["assessment_id"])}/#{anchor}">{esc(_short_state(finding["applicability"]))}</a></td>'
+                )
+            else:
+                html.append('<td>Not collected</td>')
+        html.append("</tr>")
+    html.append("</tbody></table></div>")
+    html.append("</section>")
+
+    html.append('<section aria-labelledby="responsibility-heading"><h2 id="responsibility-heading">Project responsibility and parent ACRs</h2>')
+    html.append('<p>Drupal Core is the top-level product in this snapshot. Themes, recipes and distributions can publish '
+                'their own ACRs and point to a parent Core ACR, which makes responsibility visible without copying Core '
+                'conclusions into a downstream product. In particular, Claro and Olivero are core themes in the 10.x/11.x '
+                'targets and contributed projects in the 12.x targets; they should have separate ACRs that reference the '
+                'matching Core release rather than being silently folded into Core.</p>')
+    html.append('<p class="meta">The current pipeline records a <code>parent_project</code> field and displays it, but it '
+                'does not yet collect contributed-project queues or generate parent-linked ACRs. Drupal CMS and LocalGov '
+                'Drupal need their own manifests, Composer locks and parent references.</p>')
+    html.append("</section>")
+
+    html.append('<section aria-labelledby="what-heading"><h2 id="what-heading">What this site publishes</h2>')
+    html.append('<p>Only an explicit allowlist is deployed: this landing page, each report HTML and stylesheet, '
+                '<code>evidence.json</code> and <code>summary.json</code>. Raw CLI responses, private evidence snapshots, '
+                '<code>collection.json</code> and <code>analysis.json</code> are not published.</p>')
+    html.append("</section>")
+
+    html.append('<section aria-labelledby="limits-heading"><h2 id="limits-heading">Limitations</h2><ul>')
+    html.append('<li>The sample is purposive, not a census. It is a set of Accessibility-tagged issues, not all barriers.</li>')
+    html.append('<li>No issue in this snapshot was reproduced against an installed target. Commit inclusion is not '
+                'behavioural verification, and a closed issue is not proof of a release fix.</li>')
+    html.append('<li>The generic <code>Admin theme</code> component is shared across release lines with different '
+                'admin themes (Claro in 10.6/12 alpha; Default Admin in 11.4/12 beta/main). Reproduce before applying a '
+                'finding across a theme boundary.</li>')
+    html.append('<li>Pre-release and development targets are not supported releases. Drupal 10.x is expected to reach '
+                'end of life when Drupal 12.0.0 is released; verify the current policy.</li>')
+    html.append('<li>WCAG tags are candidate relevance signals, not conformance determinations.</li>')
+    html.append("</ul></section>")
+    html.append("</main>")
+    html.append(
+        '<footer><p>Draft target evidence. Not an Accessibility Conformance Report. '
+        'Standards baseline: WCAG 2.2 AA. '
+        '<a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a> · '
+        '<a href="https://github.com/GSA/openacr">OpenACR</a> · '
+        '<a href="https://www.drupal.org/project/drupal/issues">Drupal Core issue queue</a>.</p>'
+        '<p class="meta">Issue titles are quoted from public Drupal.org issues with source links and attribution; '
+        'they remain subject to Drupal.org terms and are not relicensed under this project\'s MIT licence.</p></footer>'
+    )
+    html.append("</body></html>")
+    (output / "index.html").write_text("\n".join(html) + "\n", encoding="utf-8")
+    return output / "index.html"

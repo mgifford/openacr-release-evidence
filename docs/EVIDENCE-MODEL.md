@@ -10,7 +10,8 @@ human decision.
 | --- | --- | --- |
 | Collection | `acr-evidence collect` | Normalized issues, comments, MR metadata and provenance for one target. |
 | Analysis | `acr-evidence analyze` | Release-specific applicability findings and commit/tag evidence. |
-| Report | `acr-evidence report` | Static HTML/JSON draft for human review; never an ACR. |
+| Report | `acr-evidence report` | Static HTML/JSON draft for one target; never an ACR. |
+| Multi-target report | `acr-evidence multi` | One report per declared target plus a landing page and cross-release matrix. |
 | Private raw snapshot | collection, under `private-evidence/raw/` | Original CLI/API payloads, excluded from publication. |
 
 All public artifacts carry `schema_version`, `artifact_type`, `disclaimer`,
@@ -137,16 +138,18 @@ conformance result.
 | --- | --- |
 | `confirmed-affected` | A reproduction on the target release demonstrates the barrier. Not emitted by the automated pipeline in this phase. |
 | `likely-affected` | Report evidence suggests the barrier is present; it was not reproduced. |
-| `confirmed-fixed` | A fix commit is contained in the target tag **and** the tracker is closed fixed. Behavioural verification is still required; the finding is unreviewed. |
+| `confirmed-fixed` | A fix commit is contained in the target tag **or** branch **and** the tracker is closed fixed. Behavioural verification is still required; the finding is unreviewed. For a branch target this is a development-branch result, not a release claim. |
 | `not-introduced` | The affected feature or code is absent from the target release. Requires code/feature evidence, not absence of reports. |
 | `not-in-scope` | The component is outside the declared assessment scope. |
 | `unknown` | Insufficient target-specific evidence. This is the safe default. |
 
 Every finding carries `assessment_id`, `target`, `observed_at`,
 `observed_at_basis`, `basis`, `reason`, `evidence_urls`, `review_status`,
-`fix_included_in_release`, and a `commits` list. `fix_included_in_release` is
-kept separate from `applicability` so code inclusion is never confused with a
-verified behavioural fix.
+`fix_included_in_target`, `fix_included_in_release`, and a `commits` list.
+`fix_included_in_target` is the authoritative code-inclusion signal for both tag
+and branch targets. `fix_included_in_release` remains true only for tag targets
+and is retained for compatibility; it is false for a development-branch target.
+Code inclusion is never the same as a verified behavioural fix.
 
 ### Classification rules (implemented)
 
@@ -159,7 +162,35 @@ verified behavioural fix.
 6. Open report created after the release date with no target-branch fix →
    `unknown` (it may be a later regression).
 7. Open report before the release with no matching commit → `likely-affected`.
-8. Any other case → `unknown`.
+8. Closed non-fix or postponed with no matching fix → `unknown`.
+9. A fix contained in a development branch does not establish release
+   applicability; branch targets are labelled as development results.
+
+## Multi-target policy
+
+`config/drupal-core-targets.json` declares the supported, pre-release and
+development targets. Each target supplies:
+
+- a manifest path and ref (`tag` or `branch`);
+- `release_line` and `support_status` (`supported`, `pre-release`,
+  `development`, `eol`);
+- an explicit branch set for commit indexing (never mix major-version branches
+  implicitly);
+- an optional `parent_project` and a target `scope_note`.
+
+At this snapshot the policy declares two supported lines (10.6.x and 11.4.x),
+two 12.0.x pre-releases and `main` as development. Support labels are policy
+metadata, not release guarantees. The landing page records the policy note and
+source URL.
+
+The shared issue collection is target-independent. Each target analysis is
+separate, so an issue remains visible across release lines until it is closed
+(fixed or outdated) or ruled out with target-specific evidence. The
+cross-release matrix links every cell back to the target finding.
+
+`parent_project` is reserved for the project graph: Drupal Core is top-level;
+Claro, Olivero, Drupal CMS and LocalGov Drupal can publish their own ACRs with a
+parent link to Core. Parent-linked ACR generation is not implemented yet.
 
 ## Conformance (not implemented)
 

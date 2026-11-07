@@ -1,0 +1,74 @@
+/* Static evidence report: system colours, no external assets, no JavaScript. */
+*{box-sizing:border-box}
+html{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55;color-scheme:light dark}
+body{max-width:72rem;margin:auto;padding:0 1.25rem;background:Canvas;color:CanvasText;overflow-wrap:anywhere}
+a{color:LinkText;text-decoration:underline;text-underline-offset:.2em}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid currentColor;outline:3px solid Highlight;outline-offset:3px}
+.skip{position:absolute;top:-6rem;left:1rem;background:Canvas;color:CanvasText;padding:.7rem;border:2px solid CanvasText;z-index:10}
+.skip:focus{top:.5rem}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+header{border-bottom:2px solid CanvasText;padding:2rem 0 1.25rem}
+h1{line-height:1.15;font-size:clamp(1.8rem,4vw,2.8rem);margin:.2rem 0 1rem}
+h2{font-size:1.45rem;margin-top:2.5rem;border-bottom:1px solid ButtonBorder;padding-bottom:.3rem}
+h3{font-size:1.15rem;margin-top:1.6rem}
+h4{font-size:1rem;margin:1rem 0 .35rem}
+.eyebrow{text-transform:uppercase;letter-spacing:.1em;font-weight:700;font-size:.8rem;margin:0}
+.status-banner{border:2px solid CanvasText;padding:.8rem 1rem;margin:1rem 0;max-width:60rem}
+.synthetic{border:2px dashed CanvasText;padding:.8rem 1rem;margin:1rem 0;max-width:60rem}
+.meta{font-size:.95rem}
+code{overflow-wrap:anywhere;font-size:.95em}
+nav ul{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;padding-inline-start:1.25rem;margin:1rem 0}
+nav a{padding:.2rem 0}
+main{display:block}
+section{margin-bottom:2.5rem}
+p{margin:.5rem 0 1rem}
+ul,ol{padding-inline-start:1.4rem}
+li{margin:.35rem 0}
+.facts{display:grid;grid-template-columns:minmax(10rem,15rem) minmax(0,1fr);gap:.35rem 1rem;margin:1rem 0 1.5rem}
+.facts dt{font-weight:650}
+.facts dd{margin:0;min-width:0}
+table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:.95rem}
+caption{text-align:start;font-weight:650;padding:.35rem 0 .6rem}
+th,td{border:1px solid ButtonBorder;padding:.45rem .55rem;text-align:start;vertical-align:top}
+thead th{background:Canvas;font-weight:700}
+tbody th{font-weight:650}
+.finding-list{list-style:disc}
+.finding-list li{padding:.45rem 0;border-bottom:1px solid ButtonBorder}
+.state{display:inline-block;border:1px solid ButtonBorder;padding:0 .35rem;font-size:.85rem;font-weight:650;margin-inline-start:.25rem}
+.issue{border:1px solid ButtonBorder;border-radius:.25rem;padding:1rem;margin:1.25rem 0;background:Canvas}
+.issue-source{margin:.2rem 0 .8rem}
+.subhead{margin-top:1.2rem}
+.commit-list li,.comments li{margin:.5rem 0}
+.comment-meta{margin:0 0 .2rem}
+.preline{white-space:pre-line;overflow-wrap:anywhere}
+details{border:1px solid ButtonBorder;padding:.6rem .8rem;margin-top:1rem}
+summary{cursor:pointer;font-weight:650;padding:.2rem 0}
+details>h4:first-of-type{margin-top:.8rem}
+.gap-list li{padding:.4rem 0;border-bottom:1px solid ButtonBorder}
+footer{border-top:2px solid CanvasText;padding:1rem 0 2rem;margin-top:2rem}
+@media(max-width:40rem){
+  body{padding:0 .8rem}
+  .facts{grid-template-columns:1fr}
+  .facts dt{padding-top:.6rem}
+  h1{font-size:1.8rem}
+  h2{font-size:1.25rem}
+  nav ul{display:block;padding-inline-start:1.1rem}
+  nav li{margin:.2rem 0}
+}
+.scope-note{border-inline-start:.3rem solid Highlight;padding:.6rem .8rem;background:Canvas;max-width:60rem}
+.target-list{list-style:none;padding:0}
+.target-list>li{border:1px solid ButtonBorder;padding:1rem;margin:1rem 0}
+.target-list h3{margin-top:0}
+.table-scroll{overflow-x:auto;max-width:100%;border:1px solid ButtonBorder;margin:1rem 0}
+.table-scroll:focus-visible{outline:3px solid currentColor;outline:3px solid Highlight;outline-offset:3px}
+.matrix-table{min-width:52rem;margin:0}
+.matrix-table th,.matrix-table td{white-space:normal}
+.matrix-table thead th{background:Canvas;position:sticky;top:0}
+@media(forced-colors:active){
+  .issue,table,th,td,details,.state,.status-banner,.synthetic{border-color:CanvasText}
+}
+@media print{
+  nav,.skip{display:none}
+  body{max-width:none;padding:0}
+  a[href^="https://"]::after{content:" (" attr(href) ")";font-size:.85em;overflow-wrap:anywhere}
+}

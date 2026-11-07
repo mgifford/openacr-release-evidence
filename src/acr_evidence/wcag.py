@@ -69,6 +69,23 @@ APPLICABILITY_MEANINGS = {
     "unknown": "Insufficient target-specific evidence; do not infer applicability or support.",
 }
 
+SHORT_APPLICABILITY = {
+    "confirmed-affected": "Confirmed affected",
+    "likely-affected": "Likely affected",
+    "confirmed-fixed": "Fix included",
+    "not-introduced": "Not introduced",
+    "not-in-scope": "Not in scope",
+    "unknown": "Unknown",
+}
+
+SUPPORT_STATUS_LABELS = {
+    "supported": "Supported release line",
+    "pre-release": "Pre-release",
+    "development": "Development branch",
+    "eol": "End of life",
+    "unknown": "Unknown support status",
+}
+
 APPLICABILITY_LABELS = {
     "confirmed-affected": "Confirmed affected (reproduction evidence)",
     "likely-affected": "Likely affected (report evidence; not reproduced)",

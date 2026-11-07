@@ -65,7 +65,7 @@ report and does not certify Drupal or this project.
 | Medium | The explorer still omits source dates, `ref`, installation and coverage. | `web/AGENTS.md` requires those fields. | Port the report’s scope and observation fields into the explorer, or retire the explorer in favour of the static report. |
 | Medium | AI governance describes controls `ai.py` does not implement. | The document overstates validation, hashing, caching and parameter recording. | Keep AI off by default; mark the document as planned or implement before enabling. |
 | Medium | `collect-drupal` accepts a bare numeric reference. | A migrated GitLab IID is project-scoped and not globally unique. | Require `project#iid` for migrated projects or emit an explicit ambiguity warning. |
-| Low | First Pages deployment and environment protection are not yet verified. | The workflow and landing page are added, but the site URL returns 404 until a merge/run and any required-reviewer setting. | Merge, confirm Pages is enabled for GitHub Actions, configure `github-pages` environment reviewers if wanted, and verify the deployed URL. |
+| Resolved | First Pages deployment verified. | https://mgifford.github.io/openacr-release-evidence/ returns 200 after the Pages workflow ran. | Keep the allowlist and environment-review option under review. |
 | Low | `run_read` checks the 2 MB limit after capturing stdout. | A very large output is buffered before rejection. | Stream or cap the capture. |
 | Low | `git-check` has no timeout and reuses raw revision strings for `merge-base`. | Rare local failure mode; already guarded by `rev-parse --end-of-options`. | Resolve to SHAs and add a timeout. |
 | Low | CI actions are pinned to major tags, not SHAs. | Supply-chain hardening. | Pin digests when the workflow stabilises. |
@@ -116,17 +116,18 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 63 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 70 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, release
   classification, commit deduplication, caching, failure isolation, report
   escaping/anchors/headings, the digest, placeholder guards, and the worksheet.
 - Report rendered with axe-core: **0 violations** at 1280 px; `scrollWidth` 320
   at a 320 px viewport; all 66 internal anchors resolve; the skip link focuses
   `MAIN`; `<details>` toggles by keyboard; no JavaScript is required.
-- The Pages artifact was simulated locally: five allowlisted files
-  (`index.html`, report HTML/CSS, `evidence.json`, `summary.json`), no
-  collection/analysis files, no private paths, no script tags. The landing page
-  and report both pass axe at 1280 px and have no 320 px overflow.
+- The Pages artifact was simulated locally for the landing page and five
+  target reports (21 allowlisted files: report HTML/CSS, `evidence.json` and
+  `summary.json`), with no collection/analysis files, private paths or script
+  tags. The landing page, matrix region and every target report pass axe at
+  1280 px and have no 320 px page overflow.
 - Not done: screen-reader/manual keyboard testing of the report, full WCAG
   catalogue coverage, official OpenACR schema validation, live integration tests
   in CI.
@@ -163,3 +164,41 @@ static report) is functioning and repeatable. The next reviewable increments are
    retirement of the explorer in favour of the static report.
 
 See `docs/ROADMAP.md` for sequencing.
+
+
+## 9. Post-audit increments (2026-11-07)
+
+After the first audit and report:
+
+- **Pages is live:** `https://mgifford.github.io/openacr-release-evidence/` returns
+  200; the workflow deploys an explicit allowlist and rejects raw/private paths,
+  `collection.json`/`analysis.json` and client-side scripts.
+- **Node 24 actions:** CI and Pages now use `checkout@v7`,
+  `setup-python@v7`, `upload-artifact@v7`, `configure-pages@v6`,
+  `upload-pages-artifact@v5` and `deploy-pages@v5`, resolving the Node 20
+  deprecation warning from run 42402400410.
+- **Multi-target analysis:** the shared 20-issue collection is analyzed against
+  10.6.21 (supported), 11.4.12 (supported), 12.0.0-alpha1 and 12.0.0-beta2
+  (pre-release), and `main`/12.0.x-dev (development). The landing page contains a
+  cross-release matrix; each cell links to the target finding.
+- **Weekly review gate:** `weekly.yml` runs Mondays at 13:00 UTC and on manual
+  dispatch, runs tests, collects, analyzes and opens a PR. It does not publish;
+  a human merge triggers Pages.
+- **Parent graph:** `parent_project` is carried in target metadata and documented
+  as Core → Claro/Olivero and Core → Drupal CMS/LocalGov. Parent-linked ACR
+  generation is not implemented.
+
+Current multi-target result (same 20 issues, no reproduction):
+
+| Target | Support | Fix included | Confirmed fixed | Likely affected | Unknown |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 10.6.21 | Supported | 0 | 0 | 8 | 12 |
+| 11.4.12 | Supported | 4 | 4 | 14 | 2 |
+| 12.0.0-alpha1 | Pre-release | 1 | 1 | 16 | 3 |
+| 12.0.0-beta2 | Pre-release | 10 | 10 | 7 | 3 |
+| `main` | Development | 11 | 10 | 10 | 0 |
+
+The 10.6 result is deliberately conservative. The generic “Admin theme”
+component spans Claro and Default Admin, and fixes landed on newer branches; the
+model cannot yet prove that a Default Admin issue is or is not a Claro issue.
+Issue-level component/feature evidence is the next accuracy improvement.

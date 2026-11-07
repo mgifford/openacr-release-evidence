@@ -55,6 +55,15 @@ footer{border-top:2px solid CanvasText;padding:1rem 0 2rem;margin-top:2rem}
   nav ul{display:block;padding-inline-start:1.1rem}
   nav li{margin:.2rem 0}
 }
+.scope-note{border-inline-start:.3rem solid Highlight;padding:.6rem .8rem;background:Canvas;max-width:60rem}
+.target-list{list-style:none;padding:0}
+.target-list>li{border:1px solid ButtonBorder;padding:1rem;margin:1rem 0}
+.target-list h3{margin-top:0}
+.table-scroll{overflow-x:auto;max-width:100%;border:1px solid ButtonBorder;margin:1rem 0}
+.table-scroll:focus-visible{outline:3px solid currentColor;outline:3px solid Highlight;outline-offset:3px}
+.matrix-table{min-width:52rem;margin:0}
+.matrix-table th,.matrix-table td{white-space:normal}
+.matrix-table thead th{background:Canvas;position:sticky;top:0}
 @media(forced-colors:active){
   .issue,table,th,td,details,.state,.status-banner,.synthetic{border-color:CanvasText}
 }

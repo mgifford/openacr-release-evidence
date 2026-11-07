@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install package
@@ -22,15 +22,18 @@ jobs:
         run: python -m compileall -q src
       - name: Build synthetic explorer
         run: acr-evidence build --manifest config/drupal-core-example.json --issues tests/fixtures/issues.json --output site
-      - name: Verify committed report is reproducible
+      - name: Verify committed target reports are reproducible
         run: |
-          acr-evidence report --analysis reports/drupal-core-11.4.12/analysis.json --output /tmp/rebuilt-report
-          diff reports/drupal-core-11.4.12/index.html /tmp/rebuilt-report/index.html
-          diff reports/drupal-core-11.4.12/evidence.json /tmp/rebuilt-report/evidence.json
-          diff reports/drupal-core-11.4.12/summary.json /tmp/rebuilt-report/summary.json
-          diff reports/drupal-core-11.4.12/report.css /tmp/rebuilt-report/report.css
+          for dir in reports/drupal-core-*; do
+            [ -f "$dir/analysis.json" ] || continue
+            name="$(basename "$dir")"
+            acr-evidence report --analysis "$dir/analysis.json" --output "/tmp/rebuilt-$name"
+            for file in index.html evidence.json summary.json report.css; do
+              diff "$dir/$file" "/tmp/rebuilt-$name/$file"
+            done
+          done
       - name: Upload synthetic preview (not published)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: synthetic-evidence-preview
           path: site/

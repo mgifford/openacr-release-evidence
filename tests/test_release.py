@@ -93,6 +93,23 @@ class ReleaseClassificationTests(unittest.TestCase):
         self.assertEqual("unknown", finding["applicability"])
         self.assertEqual("report-after-release", finding["basis"])
 
+
+    def test_branch_target_fix_is_not_a_release_claim(self):
+        target = dict(TARGET)
+        target.update({
+            "ref": "main", "ref_type": "branch", "ref_label": "branch main",
+            "support_status": "development", "release_line": "main",
+        })
+        commits = commits_for("3621109")
+        for commit in commits:
+            commit["in_target"] = "main" in (commit.get("branches") or [])
+            commit["in_release"] = False
+        finding = classify_issue(normalized("3621109"), MANIFEST, target, commits)
+        self.assertEqual("confirmed-fixed", finding["applicability"])
+        self.assertTrue(finding["fix_included_in_target"])
+        self.assertFalse(finding["fix_included_in_release"])
+        self.assertIn("development-branch", finding["reason"])
+
     def test_closed_fixed_without_commit_is_unknown(self):
         finding = classify_issue(normalized("3621109"), MANIFEST, TARGET, [])
         self.assertEqual("unknown", finding["applicability"])
@@ -143,6 +160,41 @@ class AnalyzeCollectionTests(unittest.TestCase):
             "collection": {"query": {}, "cli_version": "Drupal.org CLI 0.15.0", "summary": {}},
             "evidence_digest": "collection-digest",
         }
+
+
+    def test_branch_target_analysis_offline(self):
+        collection = {
+            "issues": [normalized("3621109")],
+            "summary": {"collected": 1},
+            "collection": {"query": {}, "cli_version": "test", "summary": {}},
+            "evidence_digest": "collection-digest",
+        }
+        commits = annotated_commits()
+        index = _index_from_commits(commits, "2026-11-07T00:00:00Z")
+        refs = json.loads((FIXTURES / "commit-refs.json").read_text(encoding="utf-8"))
+        with tempfile.TemporaryDirectory() as folder:
+            with patch("acr_evidence.release.get_branch", return_value={
+                "name": "main", "commit": "a" * 40, "commit_short": "aaaaaaa",
+                "date": "2026-11-07T00:00:00Z",
+            }), patch("acr_evidence.release.build_commit_index", return_value=index), patch(
+                "acr_evidence.release.tags_containing", side_effect=lambda sha: refs[sha]["tags"]
+            ), patch(
+                "acr_evidence.release.branches_containing", side_effect=lambda sha: refs[sha]["branches"]
+            ):
+                artifact = analyze_collection(
+                    collection, MANIFEST, release="12.0.x-dev", ref="main", ref_type="branch",
+                    branches=["main"], support_status="development", release_line="main",
+                    output=Path(folder) / "analysis.json",
+                    cache_dir=folder, now=datetime(2026, 11, 7, tzinfo=timezone.utc),
+                )
+        self.assertEqual("branch", artifact["target"]["ref_type"])
+        self.assertEqual("development", artifact["target"]["support_status"])
+        self.assertEqual(1, artifact["summary"]["fix_included_in_target"])
+        self.assertEqual(0, artifact["summary"]["fix_included_in_release"])
+        finding = artifact["findings"][0]
+        self.assertEqual("confirmed-fixed", finding["applicability"])
+        self.assertTrue(any(commit["in_target"] for commit in finding["commits"]))
+        self.assertTrue(all(not commit["in_release"] for commit in finding["commits"]))
 
     def test_analysis_is_reproducible_and_offline(self):
         commits = annotated_commits()

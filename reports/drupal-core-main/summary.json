@@ -1,0 +1,103 @@
+{
+  "target": {
+    "assessment_id": "drupal-core-main",
+    "product": "Drupal Core",
+    "release": "12.0.x-dev",
+    "ref": "main",
+    "ref_type": "branch",
+    "ref_label": "branch main",
+    "tag": null,
+    "branch": "main",
+    "tag_commit": "109a70e92f80bdabfbc81630871bbc9f1c810393",
+    "tag_commit_short": "109a70e9",
+    "tag_date": "2026-11-07T17:50:30.000+00:00",
+    "support_status": "development",
+    "release_line": "main",
+    "parent_project": null,
+    "scope_note": "Development branch. Findings are not release claims and can change at any commit. Default Admin is the default theme; Claro and Olivero are contributed projects."
+  },
+  "assessment": {
+    "id": "drupal-core-main",
+    "product": "Drupal Core",
+    "release": "12.0.x-dev",
+    "ref": "main",
+    "synthetic": false,
+    "components": [
+      "Admin theme",
+      "language system",
+      "text.module",
+      "core",
+      "inline_form_errors.module",
+      "forms system",
+      "field system",
+      "theme system",
+      "javascript"
+    ],
+    "standards": [
+      "WCAG 2.2 AA",
+      "Section 508 (revised, 2017)"
+    ],
+    "installation": {
+      "drupal_core_version": "12.0.x-dev",
+      "composer_lock_sha256": "f4562a2e3bd624048b8e87228bda8cffe2b28898cb2bf2a25131314e39c04b75",
+      "profile": "standard",
+      "enabled_modules": [
+        "field",
+        "field_ui",
+        "filter",
+        "inline_form_errors",
+        "language",
+        "node",
+        "text"
+      ],
+      "enabled_themes": {
+        "default": "default_admin",
+        "admin": "default_admin"
+      },
+      "configuration": "Drupal Core main/12.0.x development branch. Default Admin is the default and administration theme; Claro and Olivero are contributed projects. This is a development target, not a release, and its findings can change at any commit."
+    }
+  },
+  "summary": {
+    "findings": 20,
+    "by_applicability": {
+      "confirmed-fixed": 10,
+      "likely-affected": 10
+    },
+    "by_workflow": {
+      "closed-fixed": 10,
+      "fixed-unverified": 1,
+      "needs-review": 4,
+      "needs-work": 2,
+      "open": 1,
+      "rtbc": 2
+    },
+    "fix_included_in_target": 11,
+    "fix_included_in_release": 0,
+    "needs_verification": 20,
+    "unmapped_criteria": 8,
+    "criteria": [
+      "1.1.1",
+      "1.3.1",
+      "1.4.11",
+      "1.4.3",
+      "2.1.1",
+      "2.4.1",
+      "2.4.7",
+      "2.5.3",
+      "3.2.5"
+    ],
+    "commit_index": {
+      "ref": "main",
+      "ref_type": "branch",
+      "branches": [
+        "main"
+      ],
+      "since": "2026-05-11T17:50:30Z",
+      "commits": 767,
+      "retrieved_at": "2026-11-07T18:58:44Z"
+    }
+  },
+  "generated_at": "2026-11-07T18:58:44Z",
+  "evidence_digest": "33bd2c29d2bbe4f16720b9ffc4419860ed0cffdfba115192e9653f1a1558d577",
+  "manifest_digest": "772bee22b5e0a31ac19625efbaca27756e81e042f9cff4bf5d91101147a8303d"
+}

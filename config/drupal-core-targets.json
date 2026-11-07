@@ -1,0 +1,83 @@
+{
+  "product": "Drupal Core",
+  "collection": {
+    "manifest": "config/drupal-core-11.4.12.json"
+  },
+  "policy": {
+    "supported_release_lines": 2,
+    "note": "Drupal core maintains the current and previous major release lines. At this snapshot Drupal 10.6.x and 11.4.x were supported; 12.0.x was pre-release and main was development. Drupal 10.x is expected to reach end of life when Drupal 12.0.0 is released. Verify the current schedule before publishing.",
+    "source_url": "https://www.drupal.org/about/core/policies/core-release-cycles/schedule"
+  },
+  "targets": [
+    {
+      "id": "drupal-core-10.6.21",
+      "manifest": "config/drupal-core-10.6.21.json",
+      "ref": "10.6.21",
+      "ref_type": "tag",
+      "release_line": "10.6.x",
+      "support_status": "supported",
+      "branches": [
+        "10.6.x"
+      ],
+      "parent_project": null,
+      "scope_note": "Stock standard profile. Claro is the admin theme; Default Admin is not present. The generic 'Admin theme' component needs reproduction before a finding is applied to this line."
+    },
+    {
+      "id": "drupal-core-11.4.12",
+      "manifest": "config/drupal-core-11.4.12.json",
+      "ref": "11.4.12",
+      "ref_type": "tag",
+      "release_line": "11.4.x",
+      "support_status": "supported",
+      "branches": [
+        "11.4.x",
+        "11.5.x",
+        "11.x",
+        "main"
+      ],
+      "parent_project": null,
+      "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
+    },
+    {
+      "id": "drupal-core-12.0.0-alpha1",
+      "manifest": "config/drupal-core-12.0.0-alpha1.json",
+      "ref": "12.0.0-alpha1",
+      "ref_type": "tag",
+      "release_line": "12.0.x",
+      "support_status": "pre-release",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "parent_project": null,
+      "scope_note": "Pre-release alpha. Claro is the admin theme at this tag; Default Admin is present but not default. Not a supported release."
+    },
+    {
+      "id": "drupal-core-12.0.0-beta2",
+      "manifest": "config/drupal-core-12.0.0-beta2.json",
+      "ref": "12.0.0-beta2",
+      "ref_type": "tag",
+      "release_line": "12.0.x",
+      "support_status": "pre-release",
+      "branches": [
+        "12.0.x",
+        "main"
+      ],
+      "parent_project": null,
+      "scope_note": "Pre-release beta. Default Admin is the default and admin theme; Claro and Olivero are no longer core themes. Not a supported release."
+    },
+    {
+      "id": "drupal-core-main",
+      "manifest": "config/drupal-core-main.json",
+      "ref": "main",
+      "ref_type": "branch",
+      "release_line": "main",
+      "support_status": "development",
+      "branches": [
+        "main"
+      ],
+      "parent_project": null,
+      "scope_note": "Development branch. Findings are not release claims and can change at any commit. Default Admin is the default theme; Claro and Olivero are contributed projects."
+    }
+  ]
+}

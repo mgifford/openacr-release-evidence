@@ -7,11 +7,14 @@ drupalorg-cli JSON (issue, comments, all MR states)
         ↓
 normalize.py  →  normalized issue (public) + raw snapshot (private)
         ↓
-collect.py    →  collection.json (schema 0.2.0)
+collect.py    →  shared collection.json (schema 0.2.0)
         ↓
-release.py    →  commit index + tag containment + applicability rules
+release.py    →  per-target commit index + tag/branch containment
+        ↓            (10.6.21, 11.4.12, 12 pre-releases, main)
+report.py     →  per-target report + landing page and cross-release matrix
         ↓
-analysis.json →  report.py → static index.html, report.css, evidence.json
+.github/workflows/pages.yml → GitHub Pages (allowlist)
+.github/workflows/weekly.yml → weekly review-gated PR
 ```
 
 ## Modules
@@ -31,9 +34,13 @@ analysis.json →  report.py → static index.html, report.css, evidence.json
 - `release.py` — Drupal Core tag resolution, paginated commit indexing,
   duplicate-commit merging, GitLab ref containment, and the documented
   applicability rules.
-- `report.py` — fully static, no-JavaScript HTML report. All source text is
-  escaped; internal links are checked by tests; the layout is usable at 320 CSS
-  pixels.
+- `release.py` also supports a **branch target** (`main`, `12.0.x`): containment
+  is checked against containing branches, the finding is labelled as a
+  development result, and it never uses release language for a branch.
+- `report.py` — fully static, no-JavaScript HTML reports plus a landing page and
+  cross-release matrix. All source text is escaped; internal links are checked by
+  tests; target reports are usable at 320 CSS pixels. The matrix is a data table
+  in a focusable scroll region.
 - `model.py` — legacy assessment contract plus the schema-0.2 digest,
   observation, target and placeholder rules.
 - `wcag.py` — small WCAG 2.2 criterion catalogue for labels and links only. It
@@ -65,6 +72,35 @@ finding remains `unreviewed` with an explicit caveat. A fix found only on newer
 branches is `likely-affected` for the older target. An open report after the
 release date is `unknown` until reproduced.
 
+## Supported release lines and targets
+
+`config/drupal-core-targets.json` is the policy source: two supported lines,
+pre-release tags and the development branch, each with its own manifest, ref,
+branch set, support status and scope note. The shared issue collection is
+analyzed once per target. The matrix shows an issue across every target so a
+barrier does not disappear when a branch changes. Support status is declarative
+policy, not a conformance statement.
+
+`ref_type="tag"` uses tag containment; `ref_type="branch"` uses branch
+containment and labels the result as development. Branches are explicit per
+target so a 10.x analysis does not silently treat an 11.x fix as evidence.
+
+## Parent ACR graph
+
+`parent_project` is carried in the target metadata. The intended graph is Core
+(top level) → Claro/Olivero (themes) and Core → Drupal CMS/LocalGov
+(distributions), with each project publishing its own ACR and linking to the
+matching parent release. This preserves responsibility without inheriting
+upstream conformance judgments. The current release only collects Drupal Core;
+contributed-project collection and parent-linked ACR export are future work.
+
+## Scheduled snapshots
+
+`weekly.yml` runs the tests, collects the shared sample, analyzes all targets and
+opens a PR. It does not publish. A human merges the PR; `pages.yml` then deploys
+the allowlisted reports. A failed issue in collection does not abort the rest of
+the sample.
+
 ## Cross-project dependencies
 
 Drupal Core, Drupal CMS and LocalGov Drupal are separate assessment targets.
@@ -91,4 +127,6 @@ publication workflow.
 - Automatic Composer lockfile resolution for Drupal CMS and LocalGov.
 - AI provider abstraction and evaluation.
 - GitHub Issues, Jira and non-Drupal GitLab adapters.
-- Scheduled ingestion and publication.
+- Parent-linked contributed-project ACRs and a full project graph.
+- Automatic deployment of an unreviewed weekly snapshot; the weekly job opens a
+  PR and a human merge publishes.

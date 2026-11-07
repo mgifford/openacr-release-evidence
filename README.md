@@ -6,10 +6,12 @@ automatically determine conformance.** It collects public issue evidence,
 classifies release-specific applicability, and produces a draft evidence report
 and optional incomplete OpenACR authoring worksheet for human review.
 
-The first real draft report is
-[`reports/drupal-core-11.4.12/index.html`](reports/drupal-core-11.4.12/index.html),
-based on 20 real Drupal Core accessibility issues and the 11.4.12 tag. It is a
-draft evidence report, **not an ACR**.
+The current multi-target snapshot is
+[`reports/index.html`](reports/index.html), covering Drupal Core 10.6.21,
+11.4.12, 12.0.0-alpha1, 12.0.0-beta2 and the `main` development branch. It is a
+draft evidence collection with a cross-release applicability matrix, **not an
+ACR**. The 11.4.12 report is at
+[`reports/drupal-core-11.4.12/index.html`](reports/drupal-core-11.4.12/index.html).
 
 ## Why it exists
 
@@ -48,62 +50,77 @@ python3 -m http.server 8000 --directory site
 All example findings are **synthetic** and the manifest is marked
 `"synthetic": true`.
 
-## Reproduce the real Drupal Core 11.4.12 report
+## Reproduce the multi-target snapshot
 
-Install `mglaman/drupalorg-cli` 0.15.0 (PHP 8.1+) in a temporary Composer home,
-then run the pipeline. The manifest carries the sample IDs and collection
-settings, so no long inline ID list is required:
+Install `mglaman/drupalorg-cli` 0.15.0 (PHP 8.1+) in a temporary Composer home.
+A shared issue collection is analyzed once per declared target:
 
 ```sh
 export COMPOSER_HOME="$(mktemp -d)"
 composer global require mglaman/drupalorg-cli --no-interaction
 export ACR_DRUPALORG_BIN="$COMPOSER_HOME/vendor/bin/drupalorg"
 
+acr-evidence collect \
+  --manifest config/drupal-core-11.4.12.json \
+  --output reports/collection.json
+
+acr-evidence multi \
+  --collection reports/collection.json \
+  --targets config/drupal-core-targets.json \
+  --output reports
+```
+
+The target policy is in
+[`config/drupal-core-targets.json`](config/drupal-core-targets.json). Each target
+has its own manifest, ref, support status, release line and branch set. The
+shared collection is target-independent; the applicability analysis is not.
+
+This writes:
+
+- `reports/collection.json` — one normalized issue collection (20 issues, comments, MRs, provenance).
+- `reports/<target>/analysis.json` — target-specific applicability and commit evidence.
+- `reports/<target>/index.html` — static, no-JavaScript target report.
+- `reports/<target>/evidence.json`, `summary.json`, `report.css`.
+- `reports/index.html` — landing page and cross-release matrix.
+- `private-evidence/raw/` — raw upstream snapshots (gitignored, mode `0600`).
+
+The single-target pipeline remains available:
+
+```sh
 acr-evidence pipeline \
   --manifest config/drupal-core-11.4.12.json \
   --release 11.4.12 \
   --output reports/drupal-core-11.4.12
 ```
 
-This writes:
-
-- `collection.json` — normalized issues, comments, all MR states, provenance.
-- `analysis.json` — release applicability findings and commit/tag evidence.
-- `index.html` — static, no-JavaScript accessible report.
-- `evidence.json`, `summary.json`, `report.css`.
-- `private-evidence/raw/` — raw upstream snapshots (gitignored, mode `0600`).
-
-The pipeline is incremental: issue data is cached for six hours and commit
+Collection is incremental: issue data is cached for six hours and commit
 indexes are cached; use `--refresh` to force retrieval. A single failed issue is
 recorded and does not invalidate the run.
 
-### Individual steps
-
-```sh
-acr-evidence collect --manifest config/drupal-core-11.4.12.json \
-  --output reports/drupal-core-11.4.12/collection.json
-acr-evidence analyze --collection reports/drupal-core-11.4.12/collection.json \
-  --manifest config/drupal-core-11.4.12.json --release 11.4.12 \
-  --output reports/drupal-core-11.4.12/analysis.json
-acr-evidence report --analysis reports/drupal-core-11.4.12/analysis.json \
-  --output reports/drupal-core-11.4.12
-```
-
 ## What the current sample shows
 
-Against Drupal Core **11.4.12** (tag commit `aa556ff1…`, composer.lock
-`d3d2949e…`), with the Default Admin theme enabled as a declared configuration:
+The same 20 real Drupal Core accessibility issues are analyzed against every
+declared target. This is how an old issue can remain visible across release
+lines instead of disappearing when a branch changes.
 
-| Applicability | Findings |
-| --- | --- |
-| `confirmed-fixed` — fix commit contained in the tag, not behaviourally verified | 4 |
-| `likely-affected` — report evidence, not reproduced | 14 |
-| `unknown` — insufficient target-specific evidence | 2 |
+| Target | Support | Fix included | Confirmed fixed | Likely affected | Unknown |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 10.6.21 | Supported | 0 | 0 | 8 | 12 |
+| 11.4.12 | Supported | 4 | 4 | 14 | 2 |
+| 12.0.0-alpha1 | Pre-release | 1 | 1 | 16 | 3 |
+| 12.0.0-beta2 | Pre-release | 10 | 10 | 7 | 3 |
+| `main` / 12.0.x-dev | Development | 11 | 10 | 10 | 0 |
 
-The four contained fixes are issues 3621109, 3623388, 3618127 and 3617875. The
-two unknown findings were reported after the release and have no target-branch
-fix. **This is not an accessibility score.** See the report for the per-issue
-reasoning, source links, comments and verification gaps.
+"Fix included" means the matching commit is contained in the target tag or
+branch. "Confirmed fixed" additionally requires the tracker to be closed fixed;
+it is still unreviewed and not behaviourally verified. On `main`, one issue has
+an included fix but is not closed fixed, so the two counts differ.
+
+The 10.6.21 target intentionally reports many `unknown` results: fixes landed on
+newer branches, not on 10.6.x, and the issue queue's generic **Admin theme**
+component spans Claro (10.6) and Default Admin (11.4/12). **This is not an
+accessibility score.** See the [matrix](reports/index.html) and the per-target
+reports for source links, comments and verification gaps.
 
 ## Applicability states
 
@@ -152,7 +169,9 @@ command is called. Raw output is private and never published.
 - Reproducible artifacts with a digest that can be recomputed from the published
   JSON, plus an input-manifest digest.
 - GitHub Pages deployment workflow with an explicit, script-free publication allowlist.
-- 63 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- Multi-target analysis for supported releases, pre-release tags and the `main` development branch.
+- Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
+- 70 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -164,10 +183,50 @@ command is called. Raw output is private and never published.
   zoom and forced-colors testing of the assessed release.
 - Composer lockfile resolution for Drupal CMS and LocalGov, and their manifests.
 - AI-assisted summaries or mappings. No AI is used in the current report.
+- Parent-linked contributed-project ACRs (Claro, Olivero, Drupal CMS, LocalGov
+  Drupal); the parent field and design are present, but collection is not.
 - GitHub Issues, Jira or non-Drupal GitLab adapters.
-- Scheduled publication. The Pages workflow deploys after a merge that changes
-  `reports/**` or on manual dispatch; it is not a cron job.
+- Automatic publication of an unreviewed weekly snapshot. The weekly job opens
+  a PR; a human merge is still required before Pages deploys.
 - A single accessibility percentage or conformance score. None is produced.
+
+## Weekly snapshots
+
+`.github/workflows/weekly.yml` runs on Mondays at 13:00 UTC and on manual
+dispatch. It:
+
+1. installs the package and `drupalorg-cli`;
+2. runs the offline test suite;
+3. collects the shared Drupal Core sample;
+4. analyzes all five declared targets;
+5. opens a pull request on a generated branch.
+
+It does **not** publish automatically. The PR must be reviewed and merged; the
+Pages workflow then deploys the reviewed reports. If nothing changed, no PR is
+opened. This is a weekly **review-gated snapshot**, not an auto-published
+weekly site.
+
+## Parent ACRs and project responsibility
+
+Drupal Core is the top-level product in this snapshot. Claro and Olivero are
+core themes in 10.x/11.x but contributed projects in 12.x; Drupal CMS and
+LocalGov Drupal combine Core with their own modules, themes and recipes. The
+model already carries a `parent_project` field and displays it. The intended
+graph is:
+
+```text
+Drupal Core ACR (parent)
+  ├── Claro ACR (theme, parent = drupal)
+  ├── Olivero ACR (theme, parent = drupal)
+  ├── Drupal CMS ACR (distribution, parent = drupal)
+  └── LocalGov Drupal ACR (distribution, parent = drupal)
+```
+
+Responsibility for a barrier can then be attached to the closest project while
+the Core ACR remains the parent evidence source. **Upstream conclusions are not
+inherited automatically.** The current pipeline does not yet collect
+contributed-project queues or generate parent-linked ACRs; that is the next
+product-scope increment.
 
 ## GitHub Pages
 
@@ -191,8 +250,10 @@ The reviewed static reports are published from the `main` branch with
   Actions** if it is not already enabled. Until the workflow runs, the site URL
   returns 404.
 
-The landing page is `reports/index.html`; the first report is at
-`/drupal-core-11.4.12/`. Reports remain drafts, not conformance claims.
+The landing page is `reports/index.html` and contains the cross-release matrix.
+Reports are at `/drupal-core-10.6.21/`, `/drupal-core-11.4.12/`,
+`/drupal-core-12.0.0-alpha1/`, `/drupal-core-12.0.0-beta2/` and
+`/drupal-core-main/`. Reports remain drafts, not conformance claims.
 
 ## Repository layout
 

@@ -28,8 +28,7 @@ class PagesTests(unittest.TestCase):
         self.assertIn("./drupal-core-11.4.12/", html)
         self.assertIn("./drupal-core-11.4.12/evidence.json", html)
         self.assertIn("./drupal-core-11.4.12/summary.json", html)
-        self.assertNotIn("collection.json", html)
-        self.assertNotIn("analysis.json", html)
+        self.assertNotRegex(html, r'href="[^"]*(?:collection|analysis)\.json"')
         self.assertNotIn("supports", html.casefold())
 
         parser = _Headings()
@@ -45,6 +44,40 @@ class PagesTests(unittest.TestCase):
                 continue
             target = (REPORTS / href.split("#")[0]).resolve()
             self.assertTrue(target.exists(), f"missing link target: {href}")
+
+
+    def test_workflows_use_node24_actions(self):
+        expected = {
+            "actions/checkout@v7",
+            "actions/setup-python@v7",
+            "actions/upload-artifact@v7",
+            "actions/configure-pages@v6",
+            "actions/upload-pages-artifact@v5",
+            "actions/deploy-pages@v5",
+        }
+        workflows = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in sorted((ROOT / ".github" / "workflows").glob("*.yml"))
+        )
+        for action in expected:
+            self.assertIn(action, workflows)
+        self.assertNotIn("actions/checkout@v4", workflows)
+        self.assertNotIn("actions/setup-python@v5", workflows)
+        self.assertNotIn("actions/upload-artifact@v4", workflows)
+        self.assertNotIn("actions/configure-pages@v5", workflows)
+        self.assertNotIn("actions/upload-pages-artifact@v3", workflows)
+        self.assertNotIn("actions/deploy-pages@v4", workflows)
+
+    def test_weekly_workflow_is_review_gated(self):
+        weekly = (ROOT / ".github" / "workflows" / "weekly.yml").read_text(encoding="utf-8")
+        self.assertIn("schedule:", weekly)
+        self.assertIn("workflow_dispatch:", weekly)
+        self.assertIn("acr-evidence multi", weekly)
+        self.assertIn("gh pr create", weekly)
+        self.assertIn("contents: write", weekly)
+        self.assertIn("pull-requests: write", weekly)
+        self.assertIn("${{ github.token }}", weekly)
+        self.assertNotIn("deploy-pages", weekly)
 
     def test_pages_workflow_uses_allowlist_and_pages_actions(self):
         workflow = WORKFLOW.read_text(encoding="utf-8")
