@@ -123,7 +123,7 @@
     "parent_project": null,
     "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
   },
-  "generated_at": "2026-11-08T10:25:22Z",
+  "generated_at": "2026-11-08T11:01:45Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -254,13 +254,13 @@
       ],
       "since": "2026-05-10T16:05:10-06:00",
       "commits": 1791,
-      "retrieved_at": "2026-11-08T10:25:22Z"
+      "retrieved_at": "2026-11-08T10:25:22+00:00"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/11.4.12",
-    "commit_index": "2026-11-08T10:25:22Z"
+    "commit_index": "2026-11-08T10:25:22+00:00"
   },
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -26985,7 +26985,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41151,7 +41151,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -43891,5 +43891,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "63f793b0ad506e53f7d60d4b3cd0e119d262782f4d4a505f1c73b52e6e5ff7d3"
+  "evidence_digest": "b60fd9cc363164032e4d41d8a297723818f5cfc07cf68f678c06f6d941e9e624"
 }

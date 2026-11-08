@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Stock standard profile. Claro is the admin theme; Default Admin is not present. The generic 'Admin theme' component needs reproduction before a finding is applied to this line."
   },
-  "generated_at": "2026-11-08T10:25:21Z",
+  "generated_at": "2026-11-08T11:01:44Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -236,13 +236,13 @@
       ],
       "since": "2026-05-10T16:13:09-06:00",
       "commits": 83,
-      "retrieved_at": "2026-11-08T10:25:21Z"
+      "retrieved_at": "2026-11-08T10:25:21+00:00"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/10.6.21",
-    "commit_index": "2026-11-08T10:25:21Z"
+    "commit_index": "2026-11-08T10:25:21+00:00"
   },
   "manifest_digest": "a4ab5ac92b84ca9bd7328c7aaf10523d9c0447a597e247b80e6ad52ded4033b6",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -26967,7 +26967,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41133,7 +41133,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -43873,5 +43873,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "ae6fa757635333a9042de281d0697ee94612bc55d7c083fb91022e8da29b5d73"
+  "evidence_digest": "9d01d6993cb279cba2591b3785ac017ff7d1776121fec9e9d3c09f716485989a"
 }
