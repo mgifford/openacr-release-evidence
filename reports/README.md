@@ -31,6 +31,10 @@ acr-evidence collect --manifest config/drupal-core-11.4.12.json --output reports
 acr-evidence multi --collection reports/collection.json   --targets config/drupal-core-targets.json --output reports
 ```
 
+The weekly workflow passes `--previous-collection reports/collection.json`, so
+unchanged issues are reused from the committed normalized cache and only changed
+nodes are fetched. The cache is refreshed before the PR; it is not raw CLI output.
+
 The weekly workflow runs the same commands and opens a review PR; it does not
 publish automatically.
 

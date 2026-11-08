@@ -122,6 +122,7 @@ class PagesTests(unittest.TestCase):
         self.assertIn("acr-evidence weekly-summary", weekly)
         self.assertIn("HF_TOKEN", weekly)
         self.assertIn("reports/weekly", weekly)
+        self.assertIn("--previous-collection reports/collection.json", weekly)
         self.assertIn("gh pr create", weekly)
         self.assertIn("contents: write", weekly)
         self.assertIn("pull-requests: write", weekly)
