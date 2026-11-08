@@ -106,7 +106,7 @@
       "detail_limit": 30
     }
   },
-  "generated_at": "2026-11-07T20:09:16Z",
+  "generated_at": "2026-11-08T11:10:22Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -42581,16 +42581,17 @@
       "labels": [
         "Accessibility",
         "wcag1411",
-        "Usability"
+        "Usability",
+        "ai-ni"
       ],
       "status": {
-        "code": 1,
-        "label": "Active",
-        "workflow_state": "open",
-        "raw_label": "Active"
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
       },
       "created_at": "2026-11-07T06:35:51+00:00",
-      "updated_at": "2026-11-07T17:21:30+00:00",
+      "updated_at": "2026-11-07T20:13:09+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -42644,6 +42645,42 @@
           "body_text": "kentr changed the visibility of the branch 3636027-the-active-primary to hidden.",
           "machine_generated": false,
           "content_hash": "29a77ce4276d07b5d0927ddd1c937d3312914a3fcdf3a5d1afbe5946f1067f09"
+        },
+        {
+          "id": "16833804",
+          "url": "https://www.drupal.org/node/3636027#comment-16833804",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-11-07T17:31:29Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "2a9f317a6e5640be8242fa960657c593963b6363840ca11d58aca19fe0d1739a"
+        },
+        {
+          "id": "16833842",
+          "url": "https://www.drupal.org/node/3636027#comment-16833842",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-11-07T20:13:09Z",
+          "body_html": "<p>AI has not been intentionally used in the MR.</p>",
+          "body_text": "AI has not been intentionally used in the MR.",
+          "machine_generated": false,
+          "content_hash": "5d5d50c8a5cf683c2aabae12d4a0f3e29201ac9be5886547e5ac05b015d91d8c"
+        },
+        {
+          "id": "16833838",
+          "url": "https://www.drupal.org/node/3636027#comment-16833838",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-11-07T20:05:58Z",
+          "body_html": "<p><img src=\"/files/issues/2026-11-07/3636027-7-admin-color-primary.light_.png\" width=\"377\" alt=\"Local task tabs and color mode selection control in light mode\" /></p>\n<p><img src=\"/files/issues/2026-11-07/3636027-7-admin-color-primary.dark_.png\" width=\"377\" alt=\"Local task tabs and color mode selection control in dark mode\" /></p>\n<p>I used the color <code class=\"language-php\">--admin-color-primary</code>, which matches the blue border for an active vertical tab and the active Appearance setting.</p>\n<p>It also matches buttons. If that's undesirable, then should be fixed in a follow up.</p>\n<p>There is another color defined for the semantic \"active\" (<code class=\"language-php\">--admin-color-primary-active</code>), but it doesn't appear to be used anywhere. So, if the coloring for \"active\" is changed everywhere, probably best to set <code class=\"language-php\">--admin-color-primary-active</code> to the desired color and use the variable everywhere (in the followup).</p>\n<p>The failing job (PHPStan) looks unrelated. <a href=\"https://drupal.slack.com/archives/C079NQPQUEN/p1794076040873459\" rel=\"nofollow\">In Slack</a> @nicxvan said it's a known issue.</p>\n<p>Some PHP tests didn't run, but CSS linting passed and this MR only has CSS changes so far.</p>",
+          "body_text": "I used the color --admin-color-primary, which matches the blue border for an active vertical tab and the active Appearance setting.\nIt also matches buttons. If that's undesirable, then should be fixed in a follow up.\nThere is another color defined for the semantic \"active\" (--admin-color-primary-active), but it doesn't appear to be used anywhere. So, if the coloring for \"active\" is changed everywhere, probably best to set --admin-color-primary-active to the desired color and use the variable everywhere (in the followup).\nThe failing job (PHPStan) looks unrelated. In Slack @nicxvan said it's a known issue.\nSome PHP tests didn't run, but CSS linting passed and this MR only has CSS changes so far.",
+          "machine_generated": false,
+          "content_hash": "e58a9dcef7e6448a3d6c050b123daefb566c2dd3345908cbe5a10f0cffe2e7eb"
         }
       ],
       "merge_requests": [
@@ -42658,7 +42695,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-07T17:21:29Z",
+          "updated_at": "2026-11-07T20:12:12Z",
           "author": "kentr"
         }
       ],
@@ -42674,15 +42711,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T17:43:45Z",
+        "retrieved_at": "2026-11-08T11:10:45Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636027",
-        "content_hash": "d906e29f7d2ea7fbdc890075d19e000640f92f3af2881b2ffc42a9c0064449ea",
-        "raw_ref": "private-evidence/raw/3636027-20261107T174345Z.json"
+        "content_hash": "9833c2b11d8fe00766d264fcc2a7a18c9cd99cfddf265272d687a6ed405b85d9",
+        "raw_ref": "private-evidence/raw/3636027-20261108T111045Z.json"
       }
     },
     {
@@ -42708,7 +42749,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2026-11-07T06:54:10+00:00",
-      "updated_at": "2026-11-07T17:26:08+00:00",
+      "updated_at": "2026-11-08T10:57:48+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -42786,6 +42827,42 @@
           "body_text": "@leandro713 Did you use AI (LLM) for your MR?",
           "machine_generated": false,
           "content_hash": "16b11797dcdfe12eddf3c3498f169fbc6734c66daf35585e26eacac032309399"
+        },
+        {
+          "id": "16834085",
+          "url": "https://www.drupal.org/node/3636028#comment-16834085",
+          "author": "leandro713",
+          "author_id": "1071832",
+          "author_url": "https://www.drupal.org/user/1071832",
+          "created_at": "2026-11-08T10:16:11Z",
+          "body_html": "<p>@rkroller:<br />\nThanks for the review. I understand the keyboard concern now: the persistent indicator was tied to :checked, so it moved as the radio selection changed with the arrow keys. I’ve updated it to keep marking the initially checked accent while leaving the focus indicator on the focused option. I’ve also made the persistent ring the same thickness as the focus ring and used the accent color to better match the other selected controls.</p>\n<p>In relation to the TAB movement with the keyboard, now the persistent indicator is tied to the radio button’s initial checked attribute rather than its dynamic :checked state. This keeps the accent saved when the form loads visibly marked while keyboard navigation moves focus between options. The existing focus indicator continues to show which option currently has focus, so users can distinguish the saved accent from the option they are navigating to. After the form is saved and reloaded, the newly saved accent becomes the initially checked option and receives the persistent indicator.</p>\n<p>@kentr:<br />\nYes, I used an LLM to help reason through the CSS approach and the review feedback. I reviewed the change and tested it manually, and I take responsibility for the MR.</p>",
+          "body_text": "@rkroller:\nThanks for the review. I understand the keyboard concern now: the persistent indicator was tied to :checked, so it moved as the radio selection changed with the arrow keys. I’ve updated it to keep marking the initially checked accent while leaving the focus indicator on the focused option. I’ve also made the persistent ring the same thickness as the focus ring and used the accent color to better match the other selected controls.\nIn relation to the TAB movement with the keyboard, now the persistent indicator is tied to the radio button’s initial checked attribute rather than its dynamic :checked state. This keeps the accent saved when the form loads visibly marked while keyboard navigation moves focus between options. The existing focus indicator continues to show which option currently has focus, so users can distinguish the saved accent from the option they are navigating to. After the form is saved and reloaded, the newly saved accent becomes the initially checked option and receives the persistent indicator.\n@kentr:\nYes, I used an LLM to help reason through the CSS approach and the review feedback. I reviewed the change and tested it manually, and I take responsibility for the MR.",
+          "machine_generated": false,
+          "content_hash": "05a62198230945e5cedcaec6400b59c004a2bcfa00303b7b298deb793fcca526"
+        },
+        {
+          "id": "16834087",
+          "url": "https://www.drupal.org/node/3636028#comment-16834087",
+          "author": "needs-review-queue-bot",
+          "author_id": "3747965",
+          "author_url": "https://www.drupal.org/user/3747965",
+          "created_at": "2026-11-08T10:25:44Z",
+          "body_html": "<p>The <a href=\"https://www.drupal.org/u/needs-review-queue-bot\" rel=\"nofollow\">Needs Review Queue Bot</a> tested this issue. It fails the Drupal core commit checks. Therefore, this issue status is now \"Needs work\".</p>\n<p>This does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.</p>\n<p>Consult the <a href=\"https://www.drupal.org/community/contributor-guide/find-a-task\" rel=\"nofollow\">Drupal Contributor Guide</a> to find step-by-step guides for working with issues.</p>",
+          "body_text": "The Needs Review Queue Bot tested this issue. It fails the Drupal core commit checks. Therefore, this issue status is now \"Needs work\".\nThis does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.\nConsult the Drupal Contributor Guide to find step-by-step guides for working with issues.",
+          "machine_generated": false,
+          "content_hash": "8398fd716592e3fdb1a4921e876236fc6b1c6147d78fabcd21533028ee442190"
+        },
+        {
+          "id": "16834114",
+          "url": "https://www.drupal.org/node/3636028#comment-16834114",
+          "author": "leandro713",
+          "author_id": "1071832",
+          "author_url": "https://www.drupal.org/user/1071832",
+          "created_at": "2026-11-08T10:57:48Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "0a1ec8ca1976e837d5b942039f6b4a1a3b7d8078516ed899d3a6a16af1344205"
         }
       ],
       "merge_requests": [
@@ -42800,7 +42877,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-07T12:08:34Z",
+          "updated_at": "2026-11-08T10:48:06Z",
           "author": "leandro713"
         }
       ],
@@ -42816,15 +42893,197 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T17:43:43Z",
+        "retrieved_at": "2026-11-08T11:10:38Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
-        "content_hash": "3178a3a99a519d90e7fe87233094f9c37fc2504aad1ff89e9a302815fa05e735",
-        "raw_ref": "private-evidence/raw/3636028-20261107T174343Z.json"
+        "content_hash": "636f3930738eddc8e2d88c91dc96ecb57f1cd0d61a195cb7ccb80582c559e13e",
+        "raw_ref": "private-evidence/raw/3636028-20261108T111038Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636128",
+      "project_scoped_id": "drupal:drupal:3636128",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636128",
+      "url": "https://www.drupal.org/project/drupal/issues/3636128",
+      "title": "In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode",
+      "description_html": "<!-- <h3 id=\"ai-disclosure\">Generated with the help of an LLM.</h3>--><h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>I've opened that issue already over in the Gin queue: <a href=\"https://git.drupalcode.org/project/gin/-/work_items/3506312\" rel=\"nofollow\">https://git.drupalcode.org/project/gin/-/work_items/3506312</a></p>\n<p>There are two problems:. First the styling for the switch component differs between light and dark mode. In light mode you have the same gray background for every accent color in the off state and the same green color in the on state. While in dark mode you are having the same gray background color for every accent color in the off state while in the on state the background color mirrors the chosen accent color. In light mode the color contrast between the switch background and the page background is high enough, same for the color contrast between the switch background and the white knob.</p>\n<p><img src=\"/files/issues/2026-11-07/light_mode.jpg\" alt=\"one disabled toggle switch and one enabled toggle switch in light mode in the default admin theme\" /></p>\n<p>Due to the fact that in dark mode the accent color is used for the on state a lot of combinations fail SC1.4.11. </p>\n<p><img src=\"/files/issues/2026-11-08/dark_mode.jpg\" alt=\"one disabled toggle switch and one enabled toggle switch with orange accent color in dark mode in the default admin theme\" /></p>\n<p>I've labeled the contrasts that dont meet SC1.4.11 in the following list with 🚫.</p>\n<p>Off State (the same for every accent color choice):<br />\npage #3b3b3f #2a2a2d  1.28:1  🚫<br />\nknob  #3b3b3f #ffffff       11.15:1 ✅</p>\n<p>=&gt; the switch looks more like a checkbox, in particular with several switch toggles right underneath eachother,  because the background has a way too low contrast against the page background. </p>\n<p>On State:<br />\nBlue<br />\npage #555aa3   #2a2a2d   2.1:1 🚫<br />\nknob #555aa3   #ffffff        6.22:1 ✅</p>\n<p>Light Blue:<br />\npage #50608d  #2a2a2d   2.32:1 🚫<br />\nknob #50608d  #ffffff        6.17:1 ✅</p>\n<p>Dark Purple<br />\npage #6a4b9a #2a2a2d   2.1:1 🚫<br />\nknob #6a4b9a #ffffff        6.81:1 ✅</p>\n<p>Purple<br />\npage #7049ae #2a2a2d   2.22:1 🚫<br />\nknob #7049ae #ffffff        6.48:1 ✅</p>\n<p>Teal<br />\npage #436663 #2a2a2d   2.27:1 🚫<br />\nknob #436663 #ffffff        6.33:1 ✅</p>\n<p>Green<br />\npage #436746 #2a2a2d   2.23:1 🚫<br />\nknob #436746 #ffffff        6.41:1 ✅</p>\n<p>Pink<br />\npage #50608d  #2a2a2d   2.27:1 🚫<br />\nknob #50608d  #ffffff        6.29:1 ✅</p>\n<p>Red<br />\npage #974743 #2a2a2d   2.25:1 🚫<br />\nknob #974743 #ffffff        6.39:1 ✅</p>\n<p>Orange<br />\npage #88533e #2a2a2d   2.25:1 🚫<br />\nknob #88533e #ffffff        6.26:1 ✅</p>\n<p>Yellow<br />\npage #755b37 #2a2a2d   2.25:1 🚫<br />\nknob #755b37 #ffffff        6.33:1 ✅</p>\n<p>Neutral<br />\npage #545454 #2a2a2d   1.89:1 🚫<br />\nknob #545454 #ffffff        7.57:1  ✅</p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<p>Got to <code class=\"language-php\">admin/appearance/settings/default_admin</code> and play around switching between light and dark mode, with some toggle switches on and some toggle switches off, and start switching between the given accent colors and observe how the contrast behaves. </p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>First decide if the light mode should also adapt the chosen accent color or if in dark mode that adaption should be dropped and a single color across accent colors should be chosen for the on state? </p>\n<p>Either way, ensure that the background of the switch component in light and dark mode has always a color contrast of 3:1 against the page background and the knob having a color contrast of 3:1 against the switch component background as well. not matter if the switch is mirroring the accent color choice or not.</p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "description_text": "Problem/Motivation\nI've opened that issue already over in the Gin queue: https://git.drupalcode.org/project/gin/-/work_items/3506312\nThere are two problems:. First the styling for the switch component differs between light and dark mode. In light mode you have the same gray background for every accent color in the off state and the same green color in the on state. While in dark mode you are having the same gray background color for every accent color in the off state while in the on state the background color mirrors the chosen accent color. In light mode the color contrast between the switch background and the page background is high enough, same for the color contrast between the switch background and the white knob.\nDue to the fact that in dark mode the accent color is used for the on state a lot of combinations fail SC1.4.11.\nI've labeled the contrasts that dont meet SC1.4.11 in the following list with 🚫.\nOff State (the same for every accent color choice):\npage #3b3b3f #2a2a2d 1.28:1 🚫\nknob #3b3b3f #ffffff 11.15:1 ✅\n=> the switch looks more like a checkbox, in particular with several switch toggles right underneath eachother, because the background has a way too low contrast against the page background.\nOn State:\nBlue\npage #555aa3 #2a2a2d 2.1:1 🚫\nknob #555aa3 #ffffff 6.22:1 ✅\nLight Blue:\npage #50608d #2a2a2d 2.32:1 🚫\nknob #50608d #ffffff 6.17:1 ✅\nDark Purple\npage #6a4b9a #2a2a2d 2.1:1 🚫\nknob #6a4b9a #ffffff 6.81:1 ✅\nPurple\npage #7049ae #2a2a2d 2.22:1 🚫\nknob #7049ae #ffffff 6.48:1 ✅\nTeal\npage #436663 #2a2a2d 2.27:1 🚫\nknob #436663 #ffffff 6.33:1 ✅\nGreen\npage #436746 #2a2a2d 2.23:1 🚫\nknob #436746 #ffffff 6.41:1 ✅\nPink\npage #50608d #2a2a2d 2.27:1 🚫\nknob #50608d #ffffff 6.29:1 ✅\nRed\npage #974743 #2a2a2d 2.25:1 🚫\nknob #974743 #ffffff 6.39:1 ✅\nOrange\npage #88533e #2a2a2d 2.25:1 🚫\nknob #88533e #ffffff 6.26:1 ✅\nYellow\npage #755b37 #2a2a2d 2.25:1 🚫\nknob #755b37 #ffffff 6.33:1 ✅\nNeutral\npage #545454 #2a2a2d 1.89:1 🚫\nknob #545454 #ffffff 7.57:1 ✅\nSteps to reproduce\nGot to admin/appearance/settings/default_admin and play around switching between light and dark mode, with some toggle switches on and some toggle switches off, and start switching between the given accent colors and observe how the contrast behaves.\nProposed resolution\nFirst decide if the light mode should also adapt the chosen accent color or if in dark mode that adaption should be dropped and a single color across accent colors should be chosen for the on state?\nEither way, ensure that the background of the switch component in light and dark mode has always a color contrast of 3:1 against the page background and the knob having a color contrast of 3:1 against the switch component background as well. not matter if the switch is mirroring the accent color choice or not.\nRemaining tasks\nUser interface changes\nIntroduced terminology\nAPI changes\nData model changes\nRelease notes snippet",
+      "labels": [
+        "Accessibility",
+        "wcag1411",
+        "Usability"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-07T23:18:43+00:00",
+      "updated_at": "2026-11-07T23:19:38+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Major",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "comments": [
+        {
+          "id": "16833887",
+          "url": "https://www.drupal.org/node/3636128#comment-16833887",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-07T23:18:43Z",
+          "body_html": "<p><a href=\"/u/rkoller\" title=\"View user profile.\" data-uid=\"3217695\" class=\"username\" rel=\"nofollow\">rkoller</a> created an issue. See <a href=\"/node/3636128/revisions/14543317/view\" rel=\"nofollow\">original summary</a>.</p>",
+          "body_text": "rkoller created an issue. See original summary.",
+          "machine_generated": true,
+          "content_hash": "ca3ad5e72c08c247788abb84eb4679b74bcf40312674f36ae776b83ebacdfba1"
+        },
+        {
+          "id": "16833888",
+          "url": "https://www.drupal.org/node/3636128#comment-16833888",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-07T23:19:07Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "dc046b2ba20421744e08106745f3d8b4fd216396091e837d3a0a95b72c9e8bba"
+        },
+        {
+          "id": "16833889",
+          "url": "https://www.drupal.org/node/3636128#comment-16833889",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-07T23:19:38Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "98b1edca971c269f8857d323a5061405e862c7ec19c36a91c0f520a7304b7f2e"
+        }
+      ],
+      "merge_requests": [],
+      "wcag_candidates": [
+        "1.4.11"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.0",
+        "retrieved_at": "2026-11-08T11:10:42Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636128",
+        "content_hash": "51bd6d6a20af900e8488b57e434a1043c2fe46392c486e7baf790dead27b1627",
+        "raw_ref": "private-evidence/raw/3636128-20261108T111042Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636143",
+      "project_scoped_id": "drupal:drupal:3636143",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636143",
+      "url": "https://www.drupal.org/project/drupal/issues/3636143",
+      "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
+      "description_html": "<!-- <h3 id=\"ai-disclosure\">Generated with the help of an LLM.</h3>--><h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>There is a regression from[#3506321]. The toggle button in the lower left corner of the screen is using <code class=\"language-php\">--admin-toolbar-color-gray-300</code> in light and in dark mode. </p>\n<p>light mode<br />\n<img src=\"/files/issues/2026-11-08/light.jpg\" alt=\"the bottom of the navigation sidebar in light mode showing the help menu item, the user sub menu item and the toggle button to collapse the sidebar\" /><br />\n<code class=\"language-php\">#b8c1d0</code>/<code class=\"language-php\">#2a2a2d</code> <code class=\"language-php\">1.81:1</code> 🚫</p>\n<p>dark mode<br />\n<img src=\"/files/issues/2026-11-08/dark.jpg\" alt=\"the bottom of the navigation sidebar in dark mode showing the help menu item, the user sub menu item and the toggle button to collapse the sidebar\" /><br />\n<code class=\"language-php\">#b8c1d0</code>/<code class=\"language-php\">#2a2a2d</code> <code class=\"language-php\">7,89:1</code> ✅</p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<p>Go to <code class=\"language-php\">admin/appearance/settings/default_admin</code> and ensure that the navigation module is installed and then switch between light and dark mode and take a look at the toggle button in the bottom left corner of the screen. </p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Ensure that the color contrast for the border of the toggle button is at least 3:1 in light mode same as in dark mode.  </p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "description_text": "Problem/Motivation\nThere is a regression from[#3506321]. The toggle button in the lower left corner of the screen is using --admin-toolbar-color-gray-300 in light and in dark mode.\nlight mode\n#b8c1d0/#2a2a2d 1.81:1 🚫\ndark mode\n#b8c1d0/#2a2a2d 7,89:1 ✅\nSteps to reproduce\nGo to admin/appearance/settings/default_admin and ensure that the navigation module is installed and then switch between light and dark mode and take a look at the toggle button in the bottom left corner of the screen.\nProposed resolution\nEnsure that the color contrast for the border of the toggle button is at least 3:1 in light mode same as in dark mode.\nRemaining tasks\nUser interface changes\nIntroduced terminology\nAPI changes\nData model changes\nRelease notes snippet",
+      "labels": [
+        "Accessibility",
+        "wcag1411",
+        "Usability"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-08T01:31:11+00:00",
+      "updated_at": "2026-11-08T01:31:46+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "comments": [
+        {
+          "id": "16833921",
+          "url": "https://www.drupal.org/node/3636143#comment-16833921",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-08T01:31:11Z",
+          "body_html": "<p><a href=\"/u/rkoller\" title=\"View user profile.\" data-uid=\"3217695\" class=\"username\" rel=\"nofollow\">rkoller</a> created an issue. See <a href=\"/node/3636143/revisions/14543357/view\" rel=\"nofollow\">original summary</a>.</p>",
+          "body_text": "rkoller created an issue. See original summary.",
+          "machine_generated": true,
+          "content_hash": "a16a4a4f7e57cd1dedade195df533f6b87a4fd35718b044f880316ebdbe77917"
+        },
+        {
+          "id": "16833922",
+          "url": "https://www.drupal.org/node/3636143#comment-16833922",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-08T01:31:46Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "3ef17b8e402f021baa53ef65705a68185b3f5e9c5a88cb92af3cf0ed07f43c00"
+        }
+      ],
+      "merge_requests": [],
+      "wcag_candidates": [
+        "1.4.11"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.0",
+        "retrieved_at": "2026-11-08T11:10:41Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636143",
+        "content_hash": "7c274aaaa4fa229baf3d1f0274fe2dfba5d427ffb00b63fafe48a01aa7bfbfe1",
+        "raw_ref": "private-evidence/raw/3636143-20261108T111041Z.json"
       }
     },
     {
@@ -43283,17 +43542,18 @@
     }
   ],
   "summary": {
-    "requested": 428,
-    "retrieved_at": "2026-11-07T20:09:16Z",
-    "collected": 428,
-    "cached": 30,
-    "fetched": 0,
+    "requested": 430,
+    "retrieved_at": "2026-11-08T11:10:45Z",
+    "collected": 430,
+    "cached": 0,
+    "reused": 426,
+    "fetched": 4,
     "failed": 0,
     "with_merge_requests": 29,
-    "with_wcag_tags": 193,
-    "detailed": 30,
+    "with_wcag_tags": 195,
+    "detailed": 32,
     "inventory": 398,
-    "excluded_by_status": 1196,
+    "excluded_by_status": 46,
     "statuses": [
       1,
       8,
@@ -43301,16 +43561,16 @@
       14,
       15
     ],
-    "comments": 1611,
+    "comments": 1622,
     "by_workflow": {
-      "needs-review": 14,
+      "needs-review": 15,
       "needs-work": 172,
-      "open": 235,
+      "open": 236,
       "rtbc": 7
     },
     "by_status": {
-      "Active": 235,
-      "Needs review": 14,
+      "Active": 236,
+      "Needs review": 15,
       "Needs work": 172,
       "Reviewed & tested by the community": 7
     },
@@ -43318,5 +43578,5 @@
   },
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641",
   "digest_scope": "sha256 over this artifact excluding generated_at and evidence_digest",
-  "evidence_digest": "cefcdf8275de2cc4bd395f9abf065f76b14e0e027cba9fe6dd05f776bce3b74c"
+  "evidence_digest": "68849de7791e1305baf487286862c4be5a36d62910676073e95a14bc0fab9175"
 }

@@ -28,7 +28,7 @@ These are proposed component-level labels for review, not final ACR terms. Every
 
 | Component | Proposed result | Evidence | Rationale |
 | --- | --- | --- | --- |
-| Web | Partially Supports (proposed) | 415 active findings classified as front-end/web | Partially Supports is proposed because active front-end accessibility issues exist in the published evidence. This label needs a specific explanation and independent review. |
+| Web | Partially Supports (proposed) | 417 active findings classified as front-end/web | Partially Supports is proposed because active front-end accessibility issues exist in the published evidence. This label needs a specific explanation and independent review. |
 | Electronic Documents | Not Applicable (proposed) | No core electronic-document product | Not Applicable is proposed: Drupal Core is a web CMS, not a standalone electronic-document authoring or playback product. Uploaded documents are delivered as web content. |
 | Software | Not Applicable (proposed) | No packaged/non-web software product | Not Applicable is proposed: Drupal Core is web software. The Section 508 software chapter is not a separate installed application in this scope. |
 | Authoring Tool | Partially Supports (proposed) | 13 active findings classified as authoring/admin UI | Partially Supports is proposed because active authoring-interface issues exist. The /admin, Drupal /user account paths and login/reproduction cues are the classification basis; a reviewer must confirm. |
@@ -53,9 +53,9 @@ ACR result terms are defined here so the draft uses the same vocabulary as a com
 
 ## Scope and evaluation method
 
-The evidence collection covers active, review-relevant Drupal Core Accessibility issues: Active, Needs review, Needs work, RTBC and Patch. Fixed, closed and postponed issues are excluded. The snapshot contains 428 active findings, of which 193 carry at least one explicit WCAG issue tag.
+The evidence collection covers active, review-relevant Drupal Core Accessibility issues: Active, Needs review, Needs work, RTBC and Patch. Fixed, closed and postponed issues are excluded. The snapshot contains 430 active findings, of which 195 carry at least one explicit WCAG issue tag.
 
-30 findings have full comments and merge-request evidence; 398 are metadata-only inventory records. The inventory records identify active issues but do not include comments, merge requests or commit analysis. All findings are unreviewed.
+32 findings have full comments and merge-request evidence; 398 are metadata-only inventory records. The inventory records identify active issues but do not include comments, merge requests or commit analysis. All findings are unreviewed.
 
 - Discovery pages the complete Accessibility queue; it does not stop at the first API page.
 - WCAG tags are candidate relevance signals from the issue queue, not conformance determinations.
@@ -65,14 +65,14 @@ The evidence collection covers active, review-relevant Drupal Core Accessibility
 
 ## Executive summary
 
-The active queue contains 428 issues. Tracker states are: Active: 235, Needs review: 14, Needs work: 172, Reviewed & tested by the community: 7. 30 issues have detailed evidence and 398 are inventory-only. The queue is a triage input, not an accessibility score.
+The active queue contains 430 issues. Tracker states are: Active: 236, Needs review: 15, Needs work: 172, Reviewed & tested by the community: 7. 32 issues have detailed evidence and 398 are inventory-only. The queue is a triage input, not an accessibility score.
 
 The largest explicitly tagged criterion clusters are listed below. A count reflects issue tagging, not severity or conformance.
 
 - WCAG 4.1.2: 39 active issues
 - WCAG 1.3.1: 23 active issues
 - WCAG 3.3.1: 18 active issues
-- WCAG 1.4.11: 15 active issues
+- WCAG 1.4.11: 17 active issues
 - WCAG 1.1.1: 12 active issues
 - WCAG 2.4.3: 9 active issues
 - WCAG 2.5.3: 9 active issues
@@ -133,7 +133,7 @@ The largest explicitly tagged criterion clusters are listed below. A count refle
 | 1.4.4 — Resize text | AA | 1 active (0 detailed, 1 inventory) | Not Evaluated (draft — reviewer must select an ACR result) | 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1. Examples: Improve indentation in hierarchical select lists (drupal:2384203, Needs work). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis. |
 | 1.4.5 — Images of Text | AA | No active tagged issue | Not Evaluated (draft — reviewer must select an ACR result) | No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. |
 | 1.4.10 — Reflow | AA | 4 active (0 detailed, 4 inventory) | Not Evaluated (draft — reviewer must select an ACR result) | 4 active issues tagged to this criterion: 0 detailed, 4 metadata-only inventory. Tracker statuses: Active: 2, Needs work: 2. Target evidence states: unknown: 4. Examples: Dialogs sub-optimal when fully zoomed (drupal:2234745, Active); Add another responsive tables solution that doesn't hide content (drupal:2280035, Needs work); Re-wrap text in views interface when zooming in mobile (drupal:2313471, Active). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis. |
-| 1.4.11 — Non-text Contrast | AA | 15 active (3 detailed, 12 inventory) | Not Evaluated (draft — reviewer must select an ACR result) | 15 active issues tagged to this criterion: 3 detailed, 12 metadata-only inventory. Tracker statuses: Active: 9, Needs review: 2, Needs work: 4. Target evidence states: likely-affected: 3, unknown: 12. Examples: Add new Splitbutton render element to eventually replace Dropbutton (drupal:1899236, Needs work); Refine the layout selection UI (drupal:2848549, Active); Improve icon color contrast for WCAG 2.1 (drupal:2910102, Active). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis. |
+| 1.4.11 — Non-text Contrast | AA | 17 active (5 detailed, 12 inventory) | Not Evaluated (draft — reviewer must select an ACR result) | 17 active issues tagged to this criterion: 5 detailed, 12 metadata-only inventory. Tracker statuses: Active: 10, Needs review: 3, Needs work: 4. Target evidence states: likely-affected: 3, unknown: 14. Examples: Add new Splitbutton render element to eventually replace Dropbutton (drupal:1899236, Needs work); Refine the layout selection UI (drupal:2848549, Active); Improve icon color contrast for WCAG 2.1 (drupal:2910102, Active). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis. |
 | 1.4.12 — Text Spacing | AA | 1 active (0 detailed, 1 inventory) | Not Evaluated (draft — reviewer must select an ACR result) | 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Active: 1. Target evidence states: unknown: 1. Examples: Page title ellipsis accessibility issue (drupal:3623836, Active). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis. |
 | 1.4.13 — Content on Hover or Focus | AA | 1 active (0 detailed, 1 inventory) | Not Evaluated (draft — reviewer must select an ACR result) | 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1. Examples: Top-level menu items in the footer region are too far away from their submenu items (drupal:3531948, Needs work). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis. |
 | 2.4.5 — Multiple Ways | AA | No active tagged issue | Not Evaluated (draft — reviewer must select an ACR result) | No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. |
