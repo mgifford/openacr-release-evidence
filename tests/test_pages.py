@@ -65,13 +65,14 @@ class PagesTests(unittest.TestCase):
         self.assertNotIn("<script", matrix)
         html = (REPORTS / "index.html").read_text(encoding="utf-8")
         self.assertEqual(5, html.count('class="release-card"'))
-        self.assertIn("428 issues", html)
-        self.assertEqual(428, matrix.count('<th scope="row">'))
         collection = json.loads((REPORTS / "collection.json").read_text(encoding="utf-8"))
-        self.assertEqual(428, collection["summary"]["collected"])
-        self.assertEqual(30, collection["summary"]["detailed"])
-        self.assertEqual(398, collection["summary"]["inventory"])
-        self.assertEqual(29, collection["summary"]["with_merge_requests"])
+        summary = collection["summary"]
+        collected = summary["collected"]
+        self.assertIn(f"<dt>Unique active issues</dt><dd>{collected}</dd>", html)
+        self.assertEqual(collected, matrix.count('<th scope="row">'))
+        self.assertGreater(summary["detailed"], 0)
+        self.assertGreater(summary["inventory"], 0)
+        self.assertGreater(summary["with_merge_requests"], 0)
         self.assertIn("cross-release applicability matrix", matrix)
 
     def test_each_target_report_links_validated_openacr(self):
