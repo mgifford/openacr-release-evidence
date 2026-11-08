@@ -2,6 +2,7 @@ import json
 import os
 import tempfile
 import unittest
+from unittest.mock import patch
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -209,6 +210,20 @@ class CollectTests(unittest.TestCase):
             self.assertEqual(51, artifact["summary"]["collected"])
             self.assertEqual(2, len(rest.discovery_calls))
             self.assertEqual(51, artifact["summary"]["inventory"])
+
+
+    def test_incomplete_discovery_fails_instead_of_publishing_partial_queue(self):
+        class FailingRest(FakeRest):
+            def find_issues(self, **kwargs):
+                raise TimeoutError("Drupal.org API timed out")
+
+        with tempfile.TemporaryDirectory() as folder:
+            with self.assertRaises(RuntimeError):
+                with patch("acr_evidence.collect.time.sleep"):
+                    self.run_collect(
+                        folder, include_ids=(), max_issues=2, statuses=[1],
+                        detail_limit=0, rest=FailingRest(self.data()),
+                    )
 
     def test_issue_from_another_project_is_rejected(self):
         with tempfile.TemporaryDirectory() as folder:
