@@ -89,8 +89,11 @@ class WeeklySummaryTests(unittest.TestCase):
             (reports / "drupal-core-main" / "acr.md").write_text("# test\n")
             current_path = root / "current.json"
             current_path.write_text(json.dumps(current))
+            context_path = root / "context.md"
+            context_path.write_text("Drupal Core context for review.", encoding="utf-8")
             result = generate_weekly(
                 current_path, None, reports=reports, output=root / "weekly", date="2026-11-07",
+                context=context_path,
             )
             md = Path(result["markdown"]).read_text()
             facts = json.loads(Path(result["facts"]).read_text())
@@ -100,6 +103,9 @@ class WeeklySummaryTests(unittest.TestCase):
             self.assertIn("Baseline snapshot", md)
             self.assertEqual("disabled", result["status"])
             self.assertEqual("disabled", provenance["status"])
+            self.assertEqual("Drupal Core context for review.", Path(context_path).read_text().strip())
+            self.assertIn("context_sha256", provenance)
+            self.assertEqual(str(context_path), provenance["context_path"])
             self.assertNotIn("comments", facts)
             self.assertNotIn("description", facts)
 
@@ -120,7 +126,7 @@ class WeeklySummaryTests(unittest.TestCase):
             ok, _ = validate_ai_output(text, facts)
             self.assertFalse(ok, text)
 
-    def test_huggingface_client_is_called_with_facts_only(self):
+    def test_huggingface_client_is_called_with_facts_and_context(self):
         facts = {"counts": {"active": 1}, "new_active": [], "no_longer_active": [], "rtbc": [], "status_changes": []}
         seen = {}
 
@@ -143,11 +149,13 @@ class WeeklySummaryTests(unittest.TestCase):
             return Client()
 
         text = summarize_with_huggingface(
-            facts, model="org/model", provider="auto", token="test", client_factory=factory
+            facts, model="org/model", provider="auto", token="test", client_factory=factory,
+            context="Drupal Core is a web CMS with an authoring interface.",
         )
         self.assertEqual("One active issue. A human must review this digest.", text)
         self.assertEqual("org/model", seen["client"]["model"])
         self.assertIn("messages", seen)
+        self.assertIn("Drupal Core is a web CMS", seen["messages"][0]["content"])
         self.assertNotIn("Issue 1", seen["messages"][1]["content"])
 
 

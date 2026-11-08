@@ -24,6 +24,23 @@ reports/weekly/index.md
 The digest is **not** an ACR and does not modify `openacr.yaml`, `acr.html` or
 `acr.md`.
 
+## Project context for the model
+
+The weekly command accepts `--context`, defaulting to
+[`context/DRUPAL.md`](../context/DRUPAL.md). That human-maintained file tells the
+model how to describe Drupal (web vs authoring, component scope, issue
+references, video limits and ACR template). It is scope guidance, not evidence.
+
+Use a different context file for Drupal CMS, LocalGov Drupal or CKEditor:
+
+```sh
+--context context/DRUPAL-CMS.md
+--context context/LOCALGOV.md
+--context context/CKEDITOR.md
+```
+
+Context changes are recorded as `context_sha256` in the provenance file.
+
 ## Only issues with new activity
 
 The weekly digest does not ask the model to summarize the whole 428-issue queue.

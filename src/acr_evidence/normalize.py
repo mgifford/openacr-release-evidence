@@ -18,6 +18,14 @@ from .model import (
 )
 
 WCAG_TAG_RE = re.compile(r"^wcag(\d+)$", re.IGNORECASE)
+ADMIN_PATH_RE = re.compile(r"/admin(?:/|\b)", re.IGNORECASE)
+# Drupal's login/account area is /user, including /user/login and /user/1.
+# All /user paths are authoring/account surfaces, not front-end web.
+USER_PATH_RE = re.compile(r"(?:^|[\s(])/user(?:/[^\s?#)]*)?(?=$|[\s?#)])", re.IGNORECASE)
+LOGIN_RE = re.compile(
+    r"\b(?:log\s*in|login|logged\s+in|sign\s*in|signin|administrator|admin\s+user)\b",
+    re.IGNORECASE,
+)
 MACHINE_COMMENT_MARKERS = (
     "created an issue",
     "made their first commit",
@@ -127,6 +135,27 @@ def wcag_from_labels(labels):
     return sorted(found)
 
 
+def classify_surface(issue):
+    """Classify an issue as authoring or web using explicit text cues.
+
+    `/admin` paths and login/reproduction steps indicate the authoring
+    interface. Everything else is treated as web by default. This is a draft
+    classification for review, not a conformance decision.
+    """
+    issue = issue or {}
+    parts = [issue.get("title") or "", issue.get("description_text") or ""]
+    for comment in issue.get("comments") or []:
+        parts.append(comment.get("body_text") or "")
+    text = "\n".join(parts)
+    if ADMIN_PATH_RE.search(text):
+        return {"surface": "authoring", "basis": "admin-path"}
+    if USER_PATH_RE.search(text):
+        return {"surface": "authoring", "basis": "user-path"}
+    if LOGIN_RE.search(text):
+        return {"surface": "authoring", "basis": "login-step"}
+    return {"surface": "web", "basis": "default-web"}
+
+
 def _author_url(author_id):
     return f"https://www.drupal.org/user/{author_id}" if author_id else None
 
@@ -230,6 +259,11 @@ def normalize_drupal_issue(
         issue.get("field_issue_component") or node.get("field_issue_component"),
         f"drupal:{nid}",
     )
+    surface = classify_surface({
+        "title": issue.get("title") or node.get("title"),
+        "description_text": html_to_text(description_html),
+        "comments": comments,
+    })
     return {
         "schema_version": SCHEMA_VERSION,
         "id": f"drupal:{nid}",
@@ -261,5 +295,6 @@ def normalize_drupal_issue(
         "merge_requests": merge_requests,
         "wcag_candidates": wcag_from_labels(labels),
         "atag": atag,
+        "surface": surface,
         "provenance": provenance,
     }

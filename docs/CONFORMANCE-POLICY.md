@@ -37,8 +37,8 @@ re-review.
 ## OpenACR draft export
 
 `openacr.yaml` is a **validated skeleton**, not a conformance decision. It lists
-every catalog criterion and leaves components, adherence values and reviewer
-identity empty for human completion. Schema/catalog validity is not evidence
+every catalog criterion and the four Section 508 component names, but leaves
+adherence values and reviewer identity empty for human completion. Schema/catalog validity is not evidence
 that a claim is true. A reviewer must fill and independently approve the file;
 `--strict` rejects a draft, a placeholder reviewer and unfilled criteria. The
 official editor round-trip is not yet verified.
@@ -58,11 +58,13 @@ not receive a release applicability conclusion.
 
 ## ACR narrative
 
-The ACR narrative has the shape of an ACR but assigns no term. Every
-criterion is `Not Evaluated`; issue counts are triage evidence, not Supports,
-Partially Supports or Does Not Support. A reviewer must complete the evaluation,
-select terms and sign off. The narrative does not replace the OpenACR YAML and
-does not inherit ATAG results.
+The ACR narrative shows proposed component-level results: Web and Authoring Tool
+Partially Supports; Electronic Documents and Software Not Applicable. These are
+proposals marked for review, not final terms. Every criterion is `Not Evaluated`;
+issue counts are triage evidence, not per-criterion Supports, Partially Supports
+or Does Not Support. A reviewer must complete the evaluation, select terms and
+sign off. The narrative does not replace the OpenACR YAML and does not inherit
+ATAG results.
 
 ## ATAG evidence
 

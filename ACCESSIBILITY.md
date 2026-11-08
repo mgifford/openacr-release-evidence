@@ -22,7 +22,7 @@ colour-only status and no JavaScript requirement.
 - Internal anchors: all matrix/report anchors resolve; headings do not skip
   levels; tables have captions and header scopes; the ATAG report uses lists
   rather than a wide table.
-- 104 offline tests pass, including landing/matrix and target-policy tests.
+- 115 offline tests pass, including landing/matrix and target-policy tests.
 
 These results do **not** establish conformance. axe-core covers only a subset of
 WCAG and cannot judge usefulness, focus order, reading order or real assistive
