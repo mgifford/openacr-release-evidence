@@ -84,6 +84,7 @@ This writes:
 - `reports/<target>/acr.html`, `acr.md` — ACR narrative draft.
 - `reports/<target>/openacr.yaml`, `openacr-validation.json` — validated OpenACR draft.
 - `reports/index.html` — landing page and cross-release matrix.
+- `reports/weekly/` — weekly ACR digest archive (created by the weekly workflow).
 - `private-evidence/raw/` — raw upstream snapshots (gitignored, mode `0600`).
 
 The report set is about **16 MB**, down from about 50 MB. The full per-target
@@ -177,7 +178,7 @@ command is called. Raw output is private and never published.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 93 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 98 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -244,6 +245,28 @@ Support. The narrative uses the same active-issue scope (428 issues; 30 detailed
 398 inventory-only) and links back to the evidence report.
 
 See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md).
+
+## Weekly ACR digest (optional Hugging Face)
+
+The weekly workflow can also produce a deterministic digest of what changed and
+an optional short executive summary from a pinned Hugging Face model.
+
+- `reports/weekly/YYYY-MM-DD.facts.json` — counts, status changes, new and
+  no-longer-active issues, RTBC changes, criterion changes, target and ATAG
+  changes.
+- `reports/weekly/YYYY-MM-DD.md` — digest with optional AI executive summary.
+- `reports/weekly/YYYY-MM-DD.provenance.json` — provider, model, revision,
+  prompt version, input/output hashes and status.
+- `reports/weekly/index.md` — trend table across weeks.
+
+The facts are deterministic. The model writes only the executive summary;
+output is validated against the facts and falls back to the deterministic digest
+if it is rejected or the provider fails. The digest is not an ACR result.
+
+Setup: add `HF_TOKEN` as a repository Actions secret and `HF_MODEL`,
+`HF_PROVIDER`, optional `HF_ENDPOINT`/`HF_MODEL_REVISION` as repository Actions
+variables. Install `.[openacr,summaries]` for the Hugging Face client. See
+[`docs/HF-WEEKLY-SUMMARY.md`](docs/HF-WEEKLY-SUMMARY.md).
 
 ## ATAG 2.0 authoring evidence
 
@@ -370,6 +393,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Accessibility](ACCESSIBILITY.md)
 - [Contributing](CONTRIBUTING.md)
 - [OpenACR export](docs/OPENACR-EXPORT.md)
+- [Hugging Face weekly summary](docs/HF-WEEKLY-SUMMARY.md)
 - [ACR narrative](docs/ACR-NARRATIVE.md)
 - [ATAG 2.0 authoring evidence](docs/ATAG-EVIDENCE.md)
 - [Roadmap](docs/ROADMAP.md)

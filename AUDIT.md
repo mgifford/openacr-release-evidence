@@ -122,12 +122,12 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 93 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 98 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
   placeholder guards, the worksheet, OpenACR schema/catalog validation, active
-  pagination/inventory and ACR narrative rendering.
+  pagination/inventory, ACR narrative rendering and weekly summary validation.
 - Report rendered with axe-core: **0 violations** at 1280 px; `scrollWidth` 320
   at a 320 px viewport; all internal anchors resolve; the skip link focuses
   `MAIN`; `<details>` toggles by keyboard; no JavaScript is required. The ATAG
@@ -212,6 +212,12 @@ After the first audit and report:
   stale per-target collection were removed, `evidence.json` is a compact
   published artifact, and inventory issue HTML is a compact metadata row. The
   report set fell from about 50 MB to about 16 MB.
+- **Weekly ACR digest:** `weekly-summary` compares the current active
+  collection with the previous snapshot, writes immutable facts/Markdown/
+  provenance files under `reports/weekly/`, and optionally asks a pinned
+  Hugging Face model for the executive summary only. The output is validated
+  against the facts, conformance language is rejected, and the deterministic
+  digest is used on failure. The digest is not an ACR result.
 - **ATAG 2.0 evidence:** 32 active Drupal Core issues tagged `atag` are collected from
   the Accessibility queue, grouped by explicit Part A/B tags, curated mapping and
   component candidates, and exported as `atag-evidence.json` plus a WAI ATAG

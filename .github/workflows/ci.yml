@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install package
-        run: python -m pip install -e '.[openacr]'
+        run: python -m pip install -e '.[openacr,summaries]'
       - name: Run tests
         run: python -m unittest discover -s tests -v
       - name: Check syntax

@@ -23,3 +23,7 @@ W3C WAI ATAG Report Tool (https://github.com/w3c/wai-atag-report-tool), pinned t
 commit 40926feb7e09c7b486da4d502705cd1533fb11b2, under the W3C Software Notice
 and License. The ATAG 2.0 specification is a W3C Recommendation. See the vendored
 LICENSE and README.
+
+The optional `summaries` extra installs `huggingface_hub`, distributed under the
+Apache License 2.0. It is used only when a weekly summary provider is explicitly
+configured; the default path is deterministic and makes no model call.

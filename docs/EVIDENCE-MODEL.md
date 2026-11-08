@@ -259,3 +259,13 @@ Conformance is a separate, human-reviewed decision for each applicable
 requirement and target. It must not be derived from issue counts, issue status,
 commit inclusion, automated checks or model output. No artifact in this
 repository currently contains a WCAG conformance decision.
+
+## Weekly digest
+
+`weekly-summary` compares the current active collection with the previous
+snapshot and writes immutable `reports/weekly/<date>.facts.json`,
+`<date>.md` and `<date>.provenance.json`, plus an `index.md` trend table. Facts are
+deterministic. A Hugging Face model may write only the executive summary; the
+output is validated against the facts and falls back to the deterministic digest
+on rejection or failure. The digest is not an ACR and does not change
+`openacr.yaml` or the ACR narrative.

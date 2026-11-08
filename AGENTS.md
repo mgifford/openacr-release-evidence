@@ -136,3 +136,9 @@ conformance decisions, approve findings or invent evidence. If an AI provider is
 added, keep a no-AI path, validate structured responses, record provider/model/
 prompt version/input hash/date, and evaluate against gold-standard Drupal issues
 before enabling it. No AI is used in the current evidence report.
+
+Weekly AI summaries are optional and off by default. The facts and diff are
+deterministic; AI may write only an executive summary. Validate every number and
+issue ID against the facts, reject conformance language, record provenance, and
+fall back to the deterministic digest on failure. Never let the summary modify
+OpenACR or the ACR narrative.

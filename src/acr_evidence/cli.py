@@ -14,6 +14,7 @@ from .git_release import commit_in_ref
 from .atag import load_scope, render_atag_report
 from .openacr import export_worksheet
 from .openacr_export import OpenACRError, export_openacr, validate_file
+from .weekly_summary import generate_weekly
 from .acr_narrative import render_acr_narrative
 from .release import analyze_collection
 from .report import render_landing, render_report
@@ -141,6 +142,19 @@ def main(argv=None):
     atag.add_argument("--collection", required=True)
     atag.add_argument("--output", required=True)
     atag.add_argument("--scope", default=None, help="Optional curated ATAG Part A/B scope JSON")
+
+    weekly = sub.add_parser("weekly-summary", help="Generate deterministic weekly facts and an optional Hugging Face executive summary")
+    weekly.add_argument("--current-collection", required=True)
+    weekly.add_argument("--previous-collection", default=None)
+    weekly.add_argument("--reports", default="reports")
+    weekly.add_argument("--previous-reports", default=None)
+    weekly.add_argument("--output", default="reports/weekly")
+    weekly.add_argument("--provider", choices=["none", "huggingface"], default="none")
+    weekly.add_argument("--model", default=None)
+    weekly.add_argument("--provider-name", default=None)
+    weekly.add_argument("--endpoint", default=None)
+    weekly.add_argument("--prompt-version", default="weekly-evidence-v1")
+    weekly.add_argument("--date", default=None)
 
     oa = sub.add_parser("openacr-export", help="Export and validate a draft OpenACR YAML skeleton")
     oa.add_argument("--analysis", required=True)
@@ -278,6 +292,21 @@ def main(argv=None):
             f"({result['summary']['issues']} ATAG-tagged issues; "
             f"{result['summary']['missing_accessibility_tag']} missing the Accessibility tag)"
         )
+    elif args.command == "weekly-summary":
+        result = generate_weekly(
+            args.current_collection,
+            previous_collection=args.previous_collection,
+            reports=args.reports,
+            previous_reports=args.previous_reports,
+            output=args.output,
+            provider=args.provider,
+            model=args.model,
+            provider_name=args.provider_name,
+            endpoint=args.endpoint,
+            prompt_version=args.prompt_version,
+            date=args.date,
+        )
+        print(f"Wrote weekly summary to {result['markdown']} (AI status: {result['status']})")
     elif args.command == "openacr-export":
         result = export_openacr(
             load_json(args.analysis), args.output,
