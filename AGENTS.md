@@ -79,13 +79,16 @@ For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
 
-The ACR narrative may show proposed component-level results (Web and Authoring
-Tool Partially Supports; Electronic Documents and Software Not Applicable), but
-must mark them proposed and keep every criterion `Not Evaluated` until a human
-reviewer assigns terms. `/admin`, Drupal `/user` login paths and login/reproduction cues classify the
-authoring surface; otherwise default to web. All `/user` paths, including `/user/1`, are authoring/account surfaces. Never infer component support from
-an empty issue queue. Never convert issue counts or tags into Supports,
-Partially Supports or Does Not Support, and never remove the draft disclaimer.
+The ACR narrative may show draft component results: Web and Authoring Tool
+Partially Supports; Electronic Documents and Software Not Applicable. Criteria
+with active tagged issues may carry a draft Partially Supports result based on
+the open issue queue. Criteria without a tagged issue remain `Not Evaluated`;
+absence is never evidence of support. Mark every derived value as draft, state
+that no issue was reproduced against the target, and require human confirmation.
+`/admin`, Drupal `/user` login paths and login/reproduction cues classify the
+authoring surface; otherwise default to web. All `/user` paths, including
+`/user/1`, are authoring/account surfaces. Never infer Supports from an empty
+issue queue, never remove the draft disclaimer.
 
 ATAG evidence is separate from WCAG/OpenACR. The `atag` tag marks a reported
 authoring-tool issue, not an ATAG result. Do not turn component candidates into
@@ -93,9 +96,11 @@ Part A/B determinations, do not populate ATAG results automatically, and do not
 inherit ATAG conclusions into OpenACR (or the reverse). The WAI ATAG Report Tool
 JSON must keep every criterion `Not checked` until a human reviewer edits it.
 
-OpenACR exports must remain valid against the pinned schema and catalog. Do not
-populate adherence values automatically, do not use `not-evaluated` for A/AA,
-and do not replace the placeholder reviewer until a human has reviewed the file.
+OpenACR exports must remain valid against the pinned schema and catalog. They may
+carry proposed issue-queue values for tagged criteria, but must mark the file
+draft and require human confirmation. Leave untagged Web/Authoring components
+unset; do not use `not-evaluated` for A/AA and do not replace the placeholder
+reviewer until a human has reviewed the file.
 Keep the vendored standards pinned and attributed.
 
 For report or UI changes, also:

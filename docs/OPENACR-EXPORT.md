@@ -48,8 +48,10 @@ write:
 - `openacr-validation.json`
 
 The report page links both files and the ACR narrative
-(`acr.html`/`acr.md`). The ACR narrative assigns no term; every criterion is
-`Not Evaluated` until a reviewer completes it.
+(`acr.html`/`acr.md`). The narrative and YAML use draft issue-queue values:
+criteria with active tagged issues are proposed Partially Supports for Web and
+Authoring Tool; criteria without a tagged issue remain Not Evaluated in the
+narrative and unset for Web/Authoring in the YAML.
 
 ## What the draft contains
 
@@ -68,7 +70,9 @@ The report page links both files and the ACR narrative
 - All seven catalog chapters and all **182** catalog criteria, in catalog order.
 - Chapter-level draft notes linking the evidence report.
 - Four Section 508 component names on each WCAG criterion;
-- no `adherence` levels and no `not-evaluated` values.
+- proposed `partially-supports` values on issue-tagged Web/Authoring components;
+- `not-applicable` on Electronic Documents/Software and on 1.2.4/1.2.5;
+- no `not-evaluated` values.
 - Extension fields `draft`, `target` and `standard_source` for provenance. The
   0.1.0 schema permits additional properties; the official editor may ignore
   them.
@@ -101,8 +105,9 @@ On 2026-11-07 all five target drafts were also checked with the official
 1. Open the target report and its `openacr.yaml`.
 2. Replace the placeholder author with an accountable reviewer and contact.
 3. Review the report’s issue evidence and verification gaps for each criterion.
-4. Confirm the applicable components. The draft lists `web`, `electronic-docs`,
-   `software` and `authoring-tool`; remove a component only with a scope rationale.
+4. Confirm the applicable components and the proposed issue-queue results. The
+   draft lists `web`, `electronic-docs`, `software` and `authoring-tool`; remove a
+   component only with a scope rationale.
 5. Set `adherence.level` only from the catalog terms:
    `supports`, `partially-supports`, `does-not-support`, `not-applicable`, or
    `not-evaluated` for AAA only.

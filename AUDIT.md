@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 117 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 118 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -207,8 +207,9 @@ After the first audit and report:
 - **ACR narrative:** each target exports `acr.html` and `acr.md` with
   product information, ACR result terms, active-evidence remarks for every
   WCAG 2.2 A/AA criterion, non-WCAG chapters, ATAG separation and reviewer
-  actions. Every criterion remains **Not Evaluated**; no issue count becomes a
-  ACR result.
+  actions. Issue-tagged criteria now carry a draft Partially Supports result
+  based on the open issue queue; untagged criteria remain Not Evaluated. No issue
+  count becomes a final ACR result.
 - **Report-size reduction:** the duplicate per-target `analysis.json` files and
   stale per-target collection were removed, `evidence.json` is a compact
   published artifact, and inventory issue HTML is a compact metadata row. The
@@ -229,7 +230,9 @@ After the first audit and report:
 - **ACR component scope:** the ACR narrative now reports the four Section 508
   components. Web and Authoring Tool are proposed Partially Supports;
   Electronic Documents and Software are proposed Not Applicable. Proposed labels
-  are clearly marked and every criterion remains Not Evaluated. Issues are
+  are clearly marked. Criteria with active tagged issues now carry a draft
+  Partially Supports result based on the open issue queue; untagged criteria
+  remain Not Evaluated. Issues are
   classified authoring vs web from `/admin` and login/reproduction cues, with
   the basis recorded.
 - **Drupal ACR template:** added `templates/drupal-acr-template.md` with the four
@@ -255,7 +258,8 @@ After the first audit and report:
 - **OpenACR export:** each target now exports `openacr.yaml` and
   `openacr-validation.json`. The YAML is valid against the pinned Civicactions/
   GSA OpenACR 0.1.0 schema and the OpenACR 2.5 WCAG 2.2 + Section 508 catalog, with
-  all 182 criteria and no conformance values. A placeholder reviewer and
+  all 182 criteria, proposed issue-queue values for tagged criteria and
+  not-applicable values for Electronic Documents/Software. A placeholder reviewer and
   `draft: true` force human review; `openacr-validate --strict` checks the
   reviewed file. All five drafts were independently checked with the official
   `@civicactions/openacr` 0.3.11 CLI and returned `Valid!`. Editor round-trip

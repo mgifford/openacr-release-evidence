@@ -74,7 +74,7 @@ def _criterion_components(catalog):
 
 
 def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
-    """Build a complete, draft OpenACR skeleton with no adherence values."""
+    """Build a draft OpenACR with issue-queue-based proposed adherence values."""
     target = analysis.get("target") or {}
     assessment = analysis.get("assessment") or {}
     installation = assessment.get("installation") or {}
@@ -84,6 +84,12 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
     report_date = generated[:10] if len(generated) >= 10 else "unknown"
     description = installation.get("configuration") or "Drupal Core accessibility evidence target."
     chapters = {}
+    findings = analysis.get("findings") or []
+    by_criterion = {}
+    for finding in findings:
+        for criterion_id in finding.get("wcag_candidates") or []:
+            by_criterion.setdefault(str(criterion_id), []).append(finding)
+    core_na = {"1.2.4", "1.2.5"}
     component_names = ("web", "electronic-docs", "software", "authoring-tool")
     wcag_chapters = {"success_criteria_level_a", "success_criteria_level_aa", "success_criteria_level_aaa"}
     for chapter in catalog.get("chapters") or []:
@@ -91,16 +97,37 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         for criterion in chapter.get("criteria") or []:
             item = {"num": criterion["id"]}
             if chapter["id"] in wcag_chapters:
-                # Four Section 508 components, with no adherence values yet.
-                item["components"] = [{"name": name} for name in component_names]
+                components = []
+                for name in component_names:
+                    component = {"name": name}
+                    if name in {"electronic-docs", "software"}:
+                        component["adherence"] = {
+                            "level": "not-applicable",
+                            "notes": "Not present: Drupal Core is a web CMS; this is not a standalone "
+                                     "electronic-document or packaged software product.",
+                        }
+                    elif str(criterion["id"]) in core_na:
+                        component["adherence"] = {
+                            "level": "not-applicable",
+                            "notes": "Not present: Drupal Core has no core live audio/video or "
+                                     "audio-description feature. Evaluate contrib Video/AblePlayer separately.",
+                        }
+                    elif by_criterion.get(str(criterion["id"])):
+                        component["adherence"] = {
+                            "level": "partially-supports",
+                            "notes": f"Draft issue-queue evidence: {len(by_criterion[str(criterion['id'])])} "
+                                     "active tagged issue(s). No release reproduction; a reviewer must confirm.",
+                        }
+                    components.append(component)
+                item["components"] = components
             else:
                 item["components"] = [{"name": "none"}]
             criteria.append(item)
         chapters[chapter["id"]] = {
             "notes": (
-                "DRAFT: no conformance values are populated. Evidence report: index.html. "
-                "A reviewer must assess every criterion in this chapter and select the applicable "
-                "components and adherence levels."
+                "DRAFT: issue-tagged criteria carry proposed partially-supports values from the open "
+                "issue queue; untagged web/authoring components remain unset. Evidence report: index.html. "
+                "A reviewer must confirm every value and explanation."
             ),
             "criteria": criteria,
         }
@@ -113,10 +140,11 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "Evidence scope: active/review-relevant issues only (Active, Needs review, Needs work, RTBC, Patch); "
         "fixed and closed issues are excluded. Some active issues are metadata-only inventory records; complete "
         "comments/merge-request evidence was collected only for a review-priority subset. "
-        "No WCAG conformance values are populated. The author is a placeholder; a human reviewer "
-        "must replace it, assess every criterion, select components and adherence levels, and run "
-        "`acr-evidence openacr-validate --file openacr.yaml --strict` before publishing. "
-        "An ACR narrative is at acr.html; it assigns no per-criterion ACR result and marks the evaluation Not Evaluated. "
+        "Issue-tagged criteria carry draft partially-supports values for Web and Authoring Tool; "
+        "criteria without a tagged issue remain unset and Not Evaluated. Electronic Documents and Software "
+        "are marked not-applicable for Drupal Core. The author is a placeholder; a human reviewer must replace it, "
+        "confirm every value and explanation, and run `acr-evidence openacr-validate --file openacr.yaml --strict` "
+        "before publishing. An ACR narrative is at acr.html; it presents the same draft issue-queue evaluation. "
         "ATAG 2.0 authoring evidence is tracked separately at ../drupal-core-atag/index.html; "
         "this OpenACR does not populate ATAG criteria or the authoring-tool component. "
         "This file has not been round-tripped through the Civicactions/GSA ACR editor."
@@ -137,11 +165,11 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "version": 1,
         "notes": notes,
         "evaluation_methods_used": (
-            "No WCAG-EM sample was evaluated; this is an evidence-only skeleton, not a completed ACR. "
-            "Public Drupal.org issue-queue evidence collection, commit/tag containment analysis, "
-            "and explicit WCAG candidate tag grouping were used. No manual keyboard, screen-reader or "
-            "assistive-technology testing of the target was performed in this phase. A human "
-            "reviewer must complete the evaluation and select the OpenACR adherence values."
+            "No WCAG-EM sample was evaluated; this is an issue-queue-based draft, not a completed ACR. "
+            "Public Drupal.org issue-queue evidence collection, commit/tag containment analysis, and explicit "
+            "WCAG candidate tag grouping were used. Open issue reports are treated as proposed barrier evidence; "
+            "no issue was reproduced against this release. No manual keyboard, screen-reader or assistive-technology "
+            "testing was performed. A human reviewer must confirm the draft values."
         ),
         "legal_disclaimer": (
             "DRAFT for human review. This is not a final Accessibility Conformance Report, does not "

@@ -7,15 +7,16 @@ Each target exports:
 
 This is a human-readable companion to the validated OpenACR YAML. It follows the
 shape of an ACR: product information, term definitions, scope and method,
-executive summary, WCAG 2.2 A/AA remarks, non-WCAG chapters, ATAG separation,
+executive summary, WCAG 2.2 A/AA/AAA criterion tables, non-WCAG chapters, ATAG separation,
 reviewer actions, limitations and sources.
 
 ## What it does not do
 
-It assigns **no ACR result**. Every criterion is **Not Evaluated** until a named
-reviewer completes the evaluation. Issue counts are described as triage evidence;
-they are never converted into per-criterion `Supports`, `Partially Supports` or
-`Does Not Support`. The four component proposals are explicitly marked proposed.
+It uses a **draft issue-queue evaluation**. Criteria with active tagged issues
+carry a draft `Partially Supports` result for Web and Authoring Tool; criteria
+without a tagged issue remain `Not Evaluated`. No issue is treated as reproduced
+against an installed target. The four component results are draft proposals for
+human confirmation.
 
 The narrative does **not** claim:
 
@@ -32,26 +33,26 @@ The narrative does **not** claim:
 1. **Product information** — product, version, target ref, support status,
    report date, draft status, placeholder reviewer, assessment ID and standards
    baseline.
-2. **Component scope** — proposed Section 508 results for Web, Electronic
-   Documents, Software and Authoring Tool. Web and Authoring Tool are proposed
-   Partially Supports; Electronic Documents and Software are proposed Not
-   Applicable. Component labels are proposals for review; criterion rows remain
-   Not Evaluated.
+2. **Component scope** — Section 508 results for Web, Electronic Documents,
+   Software and Authoring Tool. Web and Authoring Tool are draft Partially
+   Supports; Electronic Documents and Software are Not Applicable. Component
+   labels are proposals for review.
 3. **ACR result terms** — definitions for Supports, Partially Supports, Does Not
    Support, Not Applicable and Not Evaluated.
 4. **Scope and method** — active statuses, full-queue pagination, detailed vs
    metadata-only inventory, no reproduction, no AI.
 5. **Executive summary** — active issue counts, status distribution, largest
    explicitly tagged criterion clusters and unmapped issues.
-6. **WCAG 2.2 Level A and AA** — one row per catalog criterion with:
-   - criterion number and title;
-   - level;
-   - active issue evidence count and detail level;
-   - draft result (`Not Evaluated`);
-   - remarks and explanations with statuses, target evidence states, examples
-     and the explicit warning that this is not a conformance result.
-7. **AAA** — outside the declared AA target; reviewer must decide whether to
-   evaluate or record a scope rationale.
+6. **WCAG 2.2 Level A and AA tables** — one row per catalog criterion with:
+   - criterion number, title and W3C link;
+   - conformance level for Web, Electronic Documents, Software and Authoring
+     Tool;
+   - remarks and explanations with issue evidence, statuses, target evidence
+     states, examples and the explicit warning that no issue was reproduced.
+   - issue-tagged criteria use draft `Partially Supports`; untagged criteria
+     remain `Not Evaluated`.
+7. **AAA table** — outside the declared AA target; issue-tagged criteria use the
+   same draft rule; untagged criteria remain `Not Evaluated`.
 8. **Functional performance, hardware, software and support documentation** —
    outside the web issue-evidence method’s coverage; reviewer must evaluate or
    mark Not Applicable with a rationale.
@@ -85,10 +86,11 @@ They are not evidence and do not assign conformance.
 ## Relationship to OpenACR and ATAG
 
 - **OpenACR YAML** is the machine-readable, schema/catalog-validated draft. It
-  currently contains all 182 criteria with no adherence values.
-- **ACR narrative** is the human-readable explanation for reviewers. It records
-  proposed component results and criterion remarks but does not populate the
-  OpenACR YAML adherence values.
+  contains all 182 criteria. Issue-tagged criteria carry proposed
+  `partially-supports` values for Web and Authoring Tool; Electronic Documents
+  and Software are `not-applicable`; untagged Web/Authoring values are unset.
+- **ACR narrative** is the human-readable explanation for reviewers. It presents
+  the same draft issue-queue evaluation with full remarks.
 - **ATAG evidence** is a separate authoring-tool report. It is not part of the
   ACR WCAG chapters.
 

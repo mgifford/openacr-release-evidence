@@ -24,7 +24,7 @@
 - [x] GitHub Pages workflow with an explicit publication allowlist
 - [x] First live Pages deployment verified (https://mgifford.github.io/openacr-release-evidence/)
 - [x] Node 24 GitHub Actions runtimes
-- [x] 117 offline tests, trimmed real fixtures, caching and failure isolation
+- [x] 118 offline tests, trimmed real fixtures, caching and failure isolation
 - [ ] Reproduce `likely-affected` findings against an installed 11.4.12 site
 - [ ] Add a human review/approval workflow for `confirmed-fixed`
 - [ ] Add file/diff-level evidence for fixes that omit the issue number
@@ -41,7 +41,7 @@
 ## Milestone 2: authoring and trustworthy export
 
 - [x] Pin the Civicactions/GSA OpenACR schema/catalog and export a validated draft per target
-- [x] Export an ACR narrative with four Section 508 component scopes and every criterion Not Evaluated
+- [x] Export an ACR narrative with four Section 508 component scopes and draft issue-queue results
 - [x] Add a reusable Drupal ACR template
 - [x] Add a no-script release finder, grouped downloads and a separate complete matrix page
 - [x] Add report utility links, criterion/issue indexes and ACR section navigation
