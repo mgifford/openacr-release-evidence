@@ -1,0 +1,12 @@
+{
+  "provider": "huggingface",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "provider_name": "auto",
+  "endpoint": "",
+  "model_revision": "",
+  "prompt_version": "weekly-evidence-v1",
+  "input_sha256": "4be7561fe05463f5b89ced2e23564dfa5b8ce143a700a583df081036f1a54730",
+  "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "failed",
+  "error": "MissingSchema: Invalid URL '/api/models/Qwen/Qwen2.5-7B-Instruct': No scheme supplied. Perhaps you meant https:///api/models/Qwen/Qwen2.5-7B-Instruct?"
+}

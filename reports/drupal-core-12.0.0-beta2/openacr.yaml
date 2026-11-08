@@ -8,11 +8,11 @@ product:
 author:
   name: Unassigned reviewer (draft)
   email: reviewer@example.invalid
-report_date: '2026-11-07'
-last_modified_date: '2026-11-07'
+report_date: '2026-11-08'
+last_modified_date: '2026-11-08'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.0-beta2 (tag 12.0.0-beta2). Evidence
-  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: ea02ef1a90c69be3a7585589b2a396e2e74097a3c884d97364380d51b4f8e7dd.
+  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: f3eb2b25f6e0641069cc74079dbc9835bc206e78e12ad7664ad946cd5a9891ef.
   Evidence scope: active/review-relevant issues only (Active, Needs review, Needs
   work, RTBC, Patch); fixed and closed issues are excluded. Some active issues are
   metadata-only inventory records; complete comments/merge-request evidence was collected
@@ -264,7 +264,7 @@ target:
   release_line: 12.0.x
   parent_project: null
   assessment_id: drupal-core-12.0.0-beta2
-  evidence_digest: ea02ef1a90c69be3a7585589b2a396e2e74097a3c884d97364380d51b4f8e7dd
+  evidence_digest: f3eb2b25f6e0641069cc74079dbc9835bc206e78e12ad7664ad946cd5a9891ef
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr

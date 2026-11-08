@@ -1,0 +1,294 @@
+{
+  "schema_version": "0.2.0",
+  "artifact_type": "weekly-evidence-facts",
+  "generated_at": "2026-11-08",
+  "previous_generated_at": "2026-11-07T20:09:16Z",
+  "baseline": false,
+  "scope": {
+    "product": "Drupal Core",
+    "standards": [
+      "WCAG 2.2 AA",
+      "Section 508 (revised, 2017)"
+    ],
+    "acr_format": "OpenACR 0.1.0",
+    "active_statuses": [
+      1,
+      8,
+      13,
+      14,
+      15
+    ],
+    "fixed_and_closed_excluded": true
+  },
+  "counts": {
+    "active": 430,
+    "detailed": 30,
+    "inventory": 400,
+    "statuses": {
+      "Active": 236,
+      "Needs work": 173,
+      "Needs review": 14,
+      "Reviewed & tested by the community": 7
+    },
+    "previous_active": 428,
+    "previous_statuses": {
+      "Active": 235,
+      "Needs work": 172,
+      "Needs review": 14,
+      "Reviewed & tested by the community": 7
+    }
+  },
+  "new_active": [
+    {
+      "id": "drupal:3636128",
+      "title": "In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "inventory",
+      "wcag_candidates": [
+        "1.4.11"
+      ]
+    },
+    {
+      "id": "drupal:3636143",
+      "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "inventory",
+      "wcag_candidates": [
+        "1.4.11"
+      ]
+    }
+  ],
+  "new_active_count": 2,
+  "no_longer_active": [],
+  "no_longer_active_count": 0,
+  "status_changes": [
+    {
+      "id": "drupal:3636027",
+      "title": "The active primary local task has a too low color contrast and shapeshifting compared to the active secondary local task",
+      "from": "Active",
+      "to": "Needs review",
+      "from_code": 1,
+      "to_code": 8
+    },
+    {
+      "id": "drupal:3636028",
+      "title": "The active accent color is not communicated",
+      "from": "Needs review",
+      "to": "Needs work",
+      "from_code": 8,
+      "to_code": 13
+    }
+  ],
+  "status_change_count": 2,
+  "rtbc": [
+    {
+      "id": "drupal:2279111",
+      "title": "Form API 'item' elements should not use the 'for' attribute",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "forms system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3049125",
+      "title": "Language switcher block is an unlabelled navigation landmark region",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "language system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3587661",
+      "title": "Missing labels in \"Limited files with a single pre-existing value (required) field.\"",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "forms system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3615469",
+      "title": "Change link text on Maintenance mode form to 'user login page'",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "system.module",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3619154",
+      "title": "Accessibility fixes for Admin theme's node add/edit sidebar toggle control",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3619387",
+      "title": "Indicate on forms sidebar toggle button that sidebar has child element errors",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3624877",
+      "title": "Navigation icons contain hardcoded colors",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "navigation.module",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    }
+  ],
+  "rtbc_count": 7,
+  "new_rtbc": [],
+  "new_rtbc_count": 0,
+  "criteria": [
+    {
+      "criterion": "1.4.11",
+      "current": 17,
+      "previous": 15,
+      "delta": 2
+    }
+  ],
+  "criteria_changed_count": 1,
+  "targets": {
+    "drupal-core-10.6.21": {
+      "release": "10.6.21",
+      "findings": 430,
+      "by_applicability": {
+        "likely-affected": 28,
+        "unknown": 402
+      },
+      "by_evidence_status": {
+        "full": 30,
+        "inventory": 400
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-11.4.12": {
+      "release": "11.4.12",
+      "findings": 430,
+      "by_applicability": {
+        "likely-affected": 28,
+        "unknown": 402
+      },
+      "by_evidence_status": {
+        "full": 30,
+        "inventory": 400
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-12.0.0-alpha1": {
+      "release": "12.0.0-alpha1",
+      "findings": 430,
+      "by_applicability": {
+        "likely-affected": 23,
+        "unknown": 407
+      },
+      "by_evidence_status": {
+        "full": 30,
+        "inventory": 400
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-12.0.0-beta2": {
+      "release": "12.0.0-beta2",
+      "findings": 430,
+      "by_applicability": {
+        "likely-affected": 26,
+        "unknown": 404
+      },
+      "by_evidence_status": {
+        "full": 30,
+        "inventory": 400
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-main": {
+      "release": "12.0.x-dev",
+      "findings": 430,
+      "by_applicability": {
+        "likely-affected": 30,
+        "unknown": 400
+      },
+      "by_evidence_status": {
+        "full": 30,
+        "inventory": 400
+      },
+      "fix_included_in_target": 0
+    }
+  },
+  "target_finding_deltas": {
+    "drupal-core-10.6.21": {
+      "from": 428,
+      "to": 430
+    },
+    "drupal-core-11.4.12": {
+      "from": 428,
+      "to": 430
+    },
+    "drupal-core-12.0.0-alpha1": {
+      "from": 428,
+      "to": 430
+    },
+    "drupal-core-12.0.0-beta2": {
+      "from": 428,
+      "to": 430
+    },
+    "drupal-core-main": {
+      "from": 428,
+      "to": 430
+    }
+  },
+  "atag": {
+    "issues": 32,
+    "explicit_part_a": 0,
+    "explicit_part_b": 0,
+    "candidate_part_a": 8,
+    "candidate_part_b": 20,
+    "unspecified": 4,
+    "meta_issues": 6,
+    "missing_accessibility_tag": 0
+  },
+  "atag_deltas": {},
+  "artifacts": {
+    "changed": [
+      "drupal-core-10.6.21/acr.md",
+      "drupal-core-10.6.21/openacr.yaml",
+      "drupal-core-11.4.12/acr.md",
+      "drupal-core-11.4.12/openacr.yaml",
+      "drupal-core-12.0.0-alpha1/acr.md",
+      "drupal-core-12.0.0-alpha1/openacr.yaml",
+      "drupal-core-12.0.0-beta2/acr.md",
+      "drupal-core-12.0.0-beta2/openacr.yaml",
+      "drupal-core-main/acr.md",
+      "drupal-core-main/openacr.yaml"
+    ],
+    "changed_count": 10
+  },
+  "notes": [
+    "Active issues only; fixed, closed and postponed issues are excluded.",
+    "An issue missing from the active list is 'no longer active', not proof of a fix.",
+    "Inventory issues have no comments, merge requests or commit analysis.",
+    "The weekly digest is not an ACR and must not be used as a conformance result."
+  ]
+}
