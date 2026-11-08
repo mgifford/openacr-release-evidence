@@ -34,6 +34,70 @@ model that is licensed for your use.
 For a stable weekly process, use a **dedicated Inference Endpoint** running the
 exact model revision you evaluated. This avoids provider-side model changes.
 
+### Recommended starting models
+
+These are starting points, not permanent endorsements. Provider availability and
+model licences change; check the model page before setting `HF_MODEL`.
+
+| Model | Why | Notes |
+|---|---|---|
+| `Qwen/Qwen2.5-7B-Instruct` | Good first choice: non-reasoning instruction model, 7B, concise summaries | Available through Inference Providers at the time of writing; use `HF_PROVIDER=auto` |
+| `meta-llama/Llama-3.1-8B-Instruct` | Strong instruction following; widely supported | Gated model: accept the licence and give the token gated-repo read access |
+| `Qwen/Qwen3-14B` | Stronger writing quality if 7B is too shallow | May emit reasoning; may need more tokens/time |
+| `mistralai/Mistral-7B-Instruct-v0.3` | Concise, stable 7B alternative | Check current provider support |
+
+Avoid for this job:
+
+- **GGUF files** such as `*-gguf`; they are for local llama.cpp/Ollama and are not
+  generally available through Inference Providers.
+- **Preview or fine-tuned summarizer experiments** with no provider mapping,
+  model card, or licence review.
+- **Base models** without a chat/instruction template.
+- **Very small models under ~3B**; they are more likely to blur counts or invent
+  wording.
+
+For example, the proposed
+`mithulaartigala/reasoning-summarizer-qwen3.5-0.8b-preview-gguf` is a GGUF
+preview with no Inference Provider mapping and a 0.8B base. It is not a good fit
+for this workflow. Use a provider-backed instruction model instead.
+
+`HF_PROVIDER=auto` is the right first setting. If auto fails, copy a provider
+from the model page's **Inference Providers** section into `HF_PROVIDER`.
+
+#### Do you need a dedicated endpoint?
+
+Not to start.
+
+- **Inference Providers** are shared serverless inference. Cheapest and simplest.
+- **Dedicated Inference Endpoints** deploy a model to an endpoint you control,
+  with a pinned revision and predictable capacity. They cost hourly and require
+  more setup.
+
+Start with `auto`. Move to a dedicated endpoint only if you need exact model
+revision enforcement, higher reliability, or no shared-provider variance. If you
+do, set `HF_ENDPOINT` and `HF_MODEL_REVISION`.
+
+#### How to evaluate a model without a formal eval team
+
+Use the same facts file for each model and read the executive summary against
+the deterministic sections.
+
+| Check | What to do |
+|---|---|
+| Facts | Every number and issue ID must appear in the facts; the validator checks this automatically |
+| Safety | No Supports/Partially Supports/Does Not Support, compliant, fixed, resolved or percentage language; the validator checks this |
+| Coverage | Does it mention the active count, the main changes, RTBC, and the inventory limitation? |
+| Clarity | Is it 2–3 short paragraphs, readable, and free of invented causes? |
+| Stability | Record model, provider, revision and prompt version |
+
+The model only writes the executive summary. The rest of the digest is
+deterministic, so a weak model cannot change the counts.
+
+**Practical rule:** choose the smallest provider-backed instruction model that
+passes validation and produces a clear summary. For this workload, a 7B–14B
+instruction model is usually enough. There is no need to start with a large
+reasoning model.
+
 ### 2. Create a token
 
 Create a fine-grained Hugging Face token with inference access. Do not commit it.
