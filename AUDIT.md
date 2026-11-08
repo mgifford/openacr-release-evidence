@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 101 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 104 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -217,6 +217,12 @@ After the first audit and report:
   retries with backoff, a 45-second timeout, a page-level retry and a short
   inter-page delay. Incomplete discovery now raises instead of publishing a
   partial queue as a complete snapshot.
+- **Incremental issue cache:** the committed normalized collection is reused
+  across weekly runs. Discovery stops at the previous changed high-water mark;
+  unchanged issues are retained without CLI/MR calls, changed nodes are
+  refreshed, and inactive nodes are removed. A manifest mismatch forces a full
+  discovery. This lowers API pressure and avoids re-fetching unchanged comments
+  and merge requests.
 - **Weekly ACR digest:** `weekly-summary` compares the current active
   collection with the previous snapshot, writes immutable facts/Markdown/
   provenance files under `reports/weekly/`, and optionally asks a pinned

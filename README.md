@@ -77,7 +77,7 @@ shared collection is target-independent; the applicability analysis is not.
 
 This writes:
 
-- `reports/collection.json` — one normalized active-issue collection (428 issues; 30 with full comments/MRs, 398 inventory-only, provenance).
+- `reports/collection.json` — normalized active-issue collection (428 issues; 30 with full comments/MRs, 398 inventory-only, provenance). It also acts as the committed issue cache: the weekly run reuses unchanged issues and fetches only issues changed since the previous high-water mark.
 - `reports/<target>/index.html` — static, no-JavaScript target report.
 - `reports/<target>/evidence.json` — compact published evidence (findings and issue identity; comments/descriptions are not duplicated).
 - `reports/<target>/summary.json`, `report.css`.
@@ -178,7 +178,7 @@ command is called. Raw output is private and never published.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 101 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 104 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -259,9 +259,11 @@ an optional short executive summary from a pinned Hugging Face model.
   prompt version, input/output hashes and status.
 - `reports/weekly/index.md` — trend table across weeks.
 
-The facts are deterministic. The model writes only the executive summary;
-output is validated against the facts and falls back to the deterministic digest
-if it is rejected or the provider fails. The digest is not an ACR result.
+The facts are deterministic. The model receives only issues with new activity
+(plus new/no-longer-active and aggregate context), writes only the executive
+summary, and is skipped when nothing changed. Output is validated against the
+facts and falls back to the deterministic digest if rejected or the provider
+fails. The digest is not an ACR result.
 
 Setup: add `HF_TOKEN` as a repository Actions secret and `HF_MODEL`,
 `HF_PROVIDER`, optional `HF_ENDPOINT`/`HF_MODEL_REVISION` as repository Actions
