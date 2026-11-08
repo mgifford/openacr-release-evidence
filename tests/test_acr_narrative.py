@@ -59,7 +59,7 @@ def analysis():
 
 
 class AcrNarrativeTests(unittest.TestCase):
-    def test_renders_markdown_and_html_without_conformance_values(self):
+    def test_renders_three_column_component_tables(self):
         with tempfile.TemporaryDirectory() as folder:
             result = render_acr_narrative(analysis(), folder)
             md = Path(result["markdown"]).read_text(encoding="utf-8")
@@ -72,7 +72,12 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("Electronic Documents", md)
         self.assertIn("1.2.4", md)
         self.assertIn("1.2.5", md)
-        self.assertIn("No active issue in this snapshot", md)
+        self.assertIn("No active tagged issue in this snapshot", md)
+        self.assertIn("Table 1: Success Criteria, Level A", md)
+        self.assertIn("Table 2: Success Criteria, Level AA", md)
+        self.assertIn("Table 3: Success Criteria, Level AAA", md)
+        self.assertIn("Criteria | Conformance Level | Remarks and Explanations", md)
+        self.assertIn("Web: Partially Supports; Electronic Documents: Not Applicable; Software: Not Applicable; Authoring Tool: Partially Supports", md)
         self.assertIn("metadata-only", md)
         self.assertIn("ATAG 2.0", md)
         self.assertIn('href="./report.css"', html)
@@ -87,10 +92,8 @@ class AcrNarrativeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             result = render_acr_narrative(analysis(), folder)
             md = Path(result["markdown"]).read_text(encoding="utf-8")
-        self.assertIn("1 active (0 detailed, 1 inventory)", md)
-        self.assertIn("1 active (1 detailed, 0 inventory)", md)
-        self.assertIn("1 detailed, 0 metadata-only inventory", md)
-        self.assertIn("1 active issue tagged to this criterion", md)
+        self.assertIn("1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory", md)
+        self.assertIn("1 active issue tagged to this criterion: 1 detailed, 0 metadata-only inventory", md)
 
     def test_no_fabricated_reviewer(self):
         with tempfile.TemporaryDirectory() as folder:

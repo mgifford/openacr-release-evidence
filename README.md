@@ -182,7 +182,7 @@ command is called. Raw output is private and never published.
 - Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 117 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 118 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -214,7 +214,9 @@ OpenACR 2.5 WCAG 2.2 + Revised Section 508 catalog (commit `d6d18a9…`).
 It is a **draft skeleton**, not an approved ACR:
 
 - all 182 catalog criteria and all seven chapters are present;
-- the four Section 508 component names are present on WCAG criteria, but no adherence levels are populated;
+- WCAG criteria carry the four Section 508 component names; issue-tagged criteria
+  carry proposed `partially-supports` values for Web and Authoring Tool, while
+  untagged criteria leave those components unset;
 - the author is a placeholder (`reviewer@example.invalid`);
 - notes link the evidence report and require human review;
 - `not-evaluated` is never used for Level A/AA.
@@ -241,16 +243,16 @@ Each target also exports a human-readable ACR narrative:
 
 The narrative follows the ACR/OpenACR shape: product information, four
 Section 508 component scopes, term definitions, scope and method, executive
-summary, WCAG 2.2 A/AA remarks and explanations, non-WCAG chapters, ATAG
+summary, WCAG 2.2 A/AA/AAA criterion tables, non-WCAG chapters, ATAG
 separation, reviewer actions and limitations.
 
 Web and Authoring Tool are shown as **proposed Partially Supports**; Electronic
 Documents and Software as **proposed Not Applicable**. These are proposed labels
-for review, not final terms. Every criterion is **Not Evaluated**
-until a named reviewer completes the evaluation. Issue counts are described as
-triage evidence and are not converted into per-criterion terms. The narrative
-uses the same active-issue scope (428 issues; 30 detailed,
-398 inventory-only) and links back to the evidence report.
+for review, not final terms. Criteria with active tagged issues use a draft
+**Partially Supports** result based on the open issue queue; criteria without a
+tagged issue remain **Not Evaluated**. No issue is treated as reproduced against
+this release. The narrative uses the same active-issue scope (428 issues; 30
+detailed, 398 inventory-only) and links back to the evidence report.
 
 See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md), the reusable
 [`templates/drupal-acr-template.md`](templates/drupal-acr-template.md), and the

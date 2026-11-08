@@ -12,8 +12,8 @@ collect.py    →  shared collection.json (schema 0.2.0)
 release.py    →  per-target commit index + tag/branch containment
         ↓            (10.6.21, 11.4.12, 12 pre-releases, main)
 atag.py       → ATAG 2.0 Part A/B evidence and WAI ATAG Report Tool draft
-openacr_export.py → schema/catalog-valid OpenACR draft (no adherence values)
-acr.py       → ACR narrative (all criteria Not Evaluated)
+openacr_export.py → schema/catalog-valid OpenACR draft with proposed issue-queue values
+acr.py       → ACR narrative (issue-tagged criteria proposed Partially Supports; untagged Not Evaluated)
 report.py     →  per-target report + landing page and cross-release matrix
         ↓
 .github/workflows/pages.yml → GitHub Pages (allowlist)

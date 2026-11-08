@@ -39,7 +39,8 @@ Before screenshots: [`screenshots/before/`](screenshots/before/).
 - The report and ACR are usable without JavaScript and at 320 CSS px.
 - ATAG evidence is kept separate from WCAG/OpenACR.
 - Provenance and machine-readable downloads are present.
-- The ACR remains a draft and every criterion remains `Not Evaluated`.
+- The ACR remains a draft. Issue-tagged criteria now use a draft Partially
+  Supports result; criteria without a tagged issue remain `Not Evaluated`.
 
 ## Gaps against the requested experience
 
@@ -108,7 +109,7 @@ Before and after, verify:
   `openacr-validation.json`, `acr.html`, `acr.md` links;
 - ATAG report and JSON links;
 - every WCAG criterion section and criterion anchor;
-- the ACR `Not Evaluated` state and component proposals.
+- the ACR three-column tables, draft issue-queue results and component proposals.
 
 ## Out of scope for this change
 
@@ -167,8 +168,11 @@ Before and after, verify:
 
 - Added a three-level breadcrumb back to the release report.
 - Added a section navigation list with stable heading IDs.
-- Preserved the draft banner, every `Not Evaluated` criterion and the component
-  proposals.
+- Restored the reference ACR table layout: `Criteria | Conformance Level |
+  Remarks and Explanations`, grouped as Table 1/2/3 for A/AA/AAA.
+- Issue-tagged criteria use draft Partially Supports for Web and Authoring Tool;
+  untagged criteria remain Not Evaluated. The draft banner and component
+  proposals are preserved.
 
 ## After screenshots
 
@@ -181,6 +185,7 @@ Before and after, verify:
 - [Issue evidence](screenshots/after/report-issues-desktop.png)
 - [Verification gaps](screenshots/after/report-gaps-desktop.png)
 - [ACR draft top](screenshots/after/acr-top-desktop.png)
+- [ACR WCAG table](screenshots/after/acr-wcag-desktop.png)
 - [Complete matrix](screenshots/after/matrix-desktop.png)
 
 Before versions are in [`screenshots/before/`](screenshots/before/).
@@ -196,15 +201,15 @@ Before versions are in [`screenshots/before/`](screenshots/before/).
   `openacr-validation.json`, `acr.html` and `acr.md` links.
 - ATAG report and both JSON exports.
 - Every target issue anchor and WCAG criterion anchor.
-- The ACR remains `Not Evaluated` per criterion and keeps the component
-  proposals.
+- The ACR keeps the component proposals and explicitly distinguishes
+  issue-tagged draft results from untagged Not Evaluated criteria.
 
 The data-preservation assertions are in `tests/test_pages.py`; the finder and
 matrix generation assertions are in `tests/test_usability.py`.
 
 ## Test and accessibility results
 
-- **117 offline tests pass**.
+- **118 offline tests pass**.
 - axe-core: **0 violations** on the homepage, complete matrix, 12.0.0-alpha1
   report, ACR draft and ATAG report at 1280 px.
 - 320 px: `scrollWidth` = 320 on all five pages; wide tables scroll inside
@@ -218,7 +223,7 @@ matrix generation assertions are in `tests/test_usability.py`.
 - CSS-only filters were exercised: All 5 → Supported 2 → line 12.0.x 2 →
   reset 5.
 - Approximate page sizes after the change: homepage 28 KB, complete matrix
-  228 KB, 12.0.0-alpha1 report 924 KB, ACR 52 KB. The matrix moved off the
+  228 KB, 12.0.0-alpha1 report 924 KB, ACR 88 KB. The matrix moved off the
   homepage, so the homepage fell from about 240 KB to 28 KB.
 
 ## Remaining limitations and next PR

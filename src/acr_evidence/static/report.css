@@ -148,3 +148,8 @@ footer{border-top:2px solid CanvasText;padding:1rem 0 2rem;margin-top:2rem}
 body:has(#filter-status-supported:checked) .release-card:not([data-support="supported"]),
 body:has(#filter-status-pre-release:checked) .release-card:not([data-support="pre-release"]),
 body:has(#filter-status-development:checked) .release-card:not([data-support="development"]){display:none}
+/* ACR criteria tables: keep the three reference columns readable. */
+.acr-table{min-width:64rem;table-layout:fixed}
+.acr-table th:nth-child(1),.acr-table td:nth-child(1){width:18%}
+.acr-table th:nth-child(2),.acr-table td:nth-child(2){width:24%;white-space:pre-line}
+.acr-table th:nth-child(3),.acr-table td:nth-child(3){width:58%}

@@ -62,8 +62,8 @@ class Doc:
     def ul(self, items):
         self.blocks.append(("ul", list(items)))
 
-    def table(self, caption, headers, rows):
-        self.blocks.append(("table", (caption, list(headers), [list(row) for row in rows])))
+    def table(self, caption, headers, rows, css_class=None):
+        self.blocks.append(("table", (caption, list(headers), [list(row) for row in rows], css_class)))
 
     def markdown(self):
         out = [f"# {self.title}", "", f"_{self.description}_", ""]
@@ -79,7 +79,7 @@ class Doc:
             elif kind == "ul":
                 out.extend([f"- {item}" for item in value] + [""])
             elif kind == "table":
-                caption, headers, rows = value
+                caption, headers, rows, _css_class = value
                 out.extend([f"**{caption}**", ""])
                 out.append("| " + " | ".join(_md(head) for head in headers) + " |")
                 out.append("|" + "|".join(" --- " for _ in headers) + "|")
@@ -142,9 +142,9 @@ class Doc:
             elif kind == "ul":
                 parts.append("<ul>" + "".join(f"<li>{escape(item)}</li>" for item in value) + "</ul>")
             elif kind == "table":
-                caption, headers, rows = value
+                caption, headers, rows, css_class = value
                 parts.append(f'<div class="table-scroll" tabindex="0" role="region" aria-label="{escape(caption)}">')
-                parts.append("<table>")
+                parts.append(f'<table class="{escape(css_class)}">' if css_class else "<table>")
                 parts.append(f"<caption>{escape(caption)}</caption>")
                 parts.append("<thead><tr>" + "".join(f'<th scope="col">{escape(head)}</th>' for head in headers) + "</tr></thead><tbody>")
                 for row in rows:
@@ -161,7 +161,7 @@ class Doc:
 
 def _md(value):
     if isinstance(value, Cell):
-        text = value.text.replace("|", "\\|").replace("\n", " ")
+        text = value.text.replace("|", "\\|").replace("\n", "; ")
         return f"[{text}]({value.url})" if value.url else text
     return str(value).replace("|", "\\|").replace("\n", " ")
 
@@ -201,8 +201,8 @@ def _status_summary(issues):
 def _criterion_remark(criterion, issues):
     if not issues:
         text = (
-            "No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that "
-            "the criterion is met; a reviewer must evaluate it and select an ACR result."
+            "No active tagged issue in this snapshot. Absence of a tagged issue is not evidence that the "
+            "criterion is met; the criterion remains Not Evaluated."
         )
         if criterion in CORE_SCOPE:
             text += " Core scope: " + CORE_SCOPE[criterion]
@@ -217,14 +217,65 @@ def _criterion_remark(criterion, issues):
         f"{len(issues)} active {_plural(len(issues), 'issue')} tagged to this criterion: {detailed} detailed, "
         f"{inventory} metadata-only inventory. "
         f"Tracker statuses: {_status_summary(issues)}. Target evidence states: {state_text}. "
-        f"Examples: {_examples(issues)}. This is issue-queue evidence, not a conformance result; verify the barrier "
-        "and select the ACR result."
+        f"Examples: {_examples(issues)}. The open issue queue is treated as reported barrier evidence; "
+        "no issue was reproduced against this release."
     )
     if criterion in CORE_SCOPE:
         text += " Core scope: " + CORE_SCOPE[criterion]
     if inventory:
         text += " Inventory records have no comments, merge requests or commit analysis."
     return text
+
+
+def _criterion_levels(criterion, issues):
+    if criterion in CORE_SCOPE:
+        return {
+            "Web": "Not Applicable",
+            "Electronic Documents": "Not Applicable",
+            "Software": "Not Applicable",
+            "Authoring Tool": "Not Applicable",
+        }
+    if issues:
+        return {
+            "Web": "Partially Supports",
+            "Electronic Documents": "Not Applicable",
+            "Software": "Not Applicable",
+            "Authoring Tool": "Partially Supports",
+        }
+    return {
+        "Web": "Not Evaluated",
+        "Electronic Documents": "Not Applicable",
+        "Software": "Not Applicable",
+        "Authoring Tool": "Not Evaluated",
+    }
+
+
+def _levels_text(criterion, issues):
+    levels = _criterion_levels(criterion, issues)
+    return "\n".join(f"{name}: {level}" for name, level in levels.items())
+
+
+def _acr_remarks(criterion, issues):
+    if criterion in CORE_SCOPE:
+        return "All components: Not Applicable for Drupal Core. " + CORE_SCOPE[criterion]
+    evidence = _criterion_remark(criterion, issues)
+    if issues:
+        return (
+            "Web and Authoring Tool: " + evidence +
+            " The issue-tagged criteria use a draft Partially Supports result based on the open issue queue; "
+            "they are not a release reproduction or a final conformance claim. "
+            "Electronic Documents and Software: Not Applicable; Drupal Core does not ship a standalone "
+            "electronic-document or packaged software product in this scope."
+        )
+    return (
+        "Web and Authoring Tool: " + evidence +
+        " Electronic Documents and Software: Not Applicable; Drupal Core does not ship a standalone "
+        "electronic-document or packaged software product in this scope."
+    )
+
+
+def _table_number(level):
+    return {"A": 1, "AA": 2, "AAA": 3}.get(level, "")
 
 
 def render_acr_narrative(analysis, output_dir):
@@ -263,9 +314,13 @@ def render_acr_narrative(analysis, output_dir):
     )[:8]
 
     title = f"{product} {release} — Draft Accessibility Conformance Report (ACR) Narrative"
-    doc = Doc(title, "Issue evidence is described for human review. No criterion is assigned Supports, Partially Supports or Does Not Support.")
+    doc = Doc(
+        title,
+        "Issue-tagged criteria use a draft Partially Supports result based on the open Drupal issue queue; "
+        "criteria without a tagged issue remain Not Evaluated.",
+    )
 
-    doc.p("This document converts the active issue evidence into an ACR narrative. It is deliberately not a completed ACR: every criterion is marked Not Evaluated until a named reviewer completes the evaluation and approves the report.")
+    doc.p("This document converts the active issue evidence into an ACR narrative. It is deliberately not a completed ACR: criteria with active tagged issues use a draft Partially Supports result from the open issue queue, while criteria without a tagged issue remain Not Evaluated. No issue was reproduced against this release, and a named reviewer must approve the report.")
     doc.h2("Product information")
     doc.table("Product and report identification", ["Field", "Value"], [
         ["Product", Cell(product)],
@@ -284,7 +339,7 @@ def render_acr_narrative(analysis, output_dir):
         if surface in surface_counts:
             surface_counts[surface] += 1
     doc.h2("Component scope and proposed result")
-    doc.p("These are proposed component-level labels for review, not final ACR terms. Every per-criterion result below remains Not Evaluated until a reviewer completes it.")
+    doc.p("These are proposed component-level labels for review, not final ACR terms. Criteria with active tagged issues carry a draft Partially Supports result; criteria without a tagged issue remain Not Evaluated.")
     component_rows = []
     for component, proposed, component_id in COMPONENTS:
         if component_id == "web":
@@ -320,13 +375,13 @@ def render_acr_narrative(analysis, output_dir):
     doc.p("Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.")
     doc.p("Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split.")
     doc.h2("Draft status and ACR result terms")
-    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no per-criterion term. A reviewer must select each term from the definitions below after evaluating the product.")
+    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. Issue-tagged criteria use draft Partially Supports; criteria without a tagged issue remain Not Evaluated. A reviewer must confirm every term after evaluating the product.")
     doc.table("ACR result terms used in review", ["Term", "Meaning"], [
         ["Supports", "The product has at least one method of meeting the criterion, and the reviewer has evidence that it works for the evaluated scope."],
         ["Partially Supports", "Some product functionality meets the criterion; other functionality does not, and the reviewer can explain the boundary."],
         ["Does Not Support", "The majority of product functionality does not meet the criterion."],
         ["Not Applicable", "The criterion is not relevant to the product, and the reviewer records why."],
-        ["Not Evaluated", "The reviewer has not completed enough evaluation to select a per-criterion term. Every criterion row uses this; the component proposals above are not per-criterion terms."],
+        ["Not Evaluated", "No active tagged issue and no other evidence supports a per-criterion term. Absence of a tagged issue is not evidence of support."],
     ])
     doc.h2("Scope and evaluation method")
     doc.p(f"The evidence collection covers active, review-relevant Drupal Core Accessibility issues: Active, Needs review, Needs work, RTBC and Patch. Fixed, closed and postponed issues are excluded. The snapshot contains {len(findings)} active {_plural(len(findings), 'finding')}, of which {tagged} {_plural(tagged, 'carries', 'carry')} at least one explicit WCAG issue tag.")
@@ -335,6 +390,7 @@ def render_acr_narrative(analysis, output_dir):
         "Discovery pages the complete Accessibility queue; it does not stop at the first API page.",
         "WCAG tags are candidate relevance signals from the issue queue, not conformance determinations.",
         "No issue was reproduced against an installed Drupal target in this pass.",
+        "Open issue reports are treated as draft barrier evidence; they are not a release reproduction.",
         "No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.",
         "No AI was used to assign applicability or an ACR result.",
     ])
@@ -348,7 +404,7 @@ def render_acr_narrative(analysis, output_dir):
     unmapped = len(findings) - tagged
     doc.p(f"{unmapped} active {_plural(unmapped, 'finding')} {_plural(unmapped, 'has', 'have')} no WCAG criterion tag. They remain in the evidence report and may still describe accessibility barriers; no criterion is inferred from their prose.")
 
-    for chapter, level in ((chapter_a, "A"), (chapter_aa, "AA")):
+    for chapter, level in ((chapter_a, "A"), (chapter_aa, "AA"), (chapter_aaa, "AAA")):
         if not chapter:
             continue
         doc.h2(f"WCAG 2.2 Level {level} criteria")
@@ -356,22 +412,19 @@ def render_acr_narrative(analysis, output_dir):
         for criterion in chapter.get("criteria") or []:
             criterion_id = str(criterion.get("id"))
             items = by_criterion.get(criterion_id, [])
-            if items:
-                evidence = f"{len(items)} active ({sum(1 for i in items if i.get('evidence_status') != 'inventory')} detailed, {sum(1 for i in items if i.get('evidence_status') == 'inventory')} inventory)"
-            else:
-                evidence = "No active tagged issue"
+            alt_id = criterion.get("alt_id") or ""
+            criterion_url = f"https://www.w3.org/TR/WCAG22/#{alt_id}" if alt_id else "https://www.w3.org/TR/WCAG22/"
             rows.append([
-                Cell(f"{criterion_id} — {criterion.get('handle') or ''}"),
-                Cell(level),
-                Cell(evidence),
-                Cell(DRAFT_TERM),
-                Cell(_criterion_remark(criterion_id, items)),
+                Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
+                Cell(_levels_text(criterion_id, items)),
+                Cell(_acr_remarks(criterion_id, items)),
             ])
-        doc.table(f"WCAG 2.2 Level {level} remarks and explanations", ["Criterion", "Level", "Active issue evidence", "Draft result", "Remarks and explanations"], rows)
-
-    if chapter_aaa:
-        doc.h2("WCAG 2.2 Level AAA criteria")
-        doc.p(f"{len(chapter_aaa.get('criteria') or [])} AAA criteria are outside the declared WCAG 2.2 AA target. They are not marked Supports or Not Applicable in this draft; a reviewer must decide whether to evaluate them or record a scope rationale.")
+        doc.table(
+            f"Table {_table_number(level)}: Success Criteria, Level {level}",
+            ["Criteria", "Conformance Level", "Remarks and Explanations"],
+            rows,
+            css_class="acr-table",
+        )
 
     doc.h2("Functional performance, hardware, software and support documentation")
     doc.p("These Section 508/ACR chapters are not evaluated by this web issue-evidence pipeline. They are shown so the draft has the complete ACR shape; a reviewer must evaluate them or mark Not Applicable with a rationale.")
@@ -396,9 +449,10 @@ def render_acr_narrative(analysis, output_dir):
         "Record scope and wording notes in context/DRUPAL.md (or the matching product context file); context is not evidence.",
         "Open ./index.html#issues and review the active issue evidence.",
         "For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.",
-        "Verify each criterion against the installed product; do not convert issue counts into Supports or Does Not Support.",
+        "Verify each criterion against the installed product; do not treat an issue count as a severity or percentage.",
         "Complete the reviewer name, organization and approval record outside this generated draft.",
         "Replace every Not Evaluated result with a reviewed ACR result, or record the remaining evaluation gap.",
+        "Confirm the proposed Partially Supports results for issue-tagged criteria or record why the queue evidence is insufficient.",
         "Remove the draft status only after independent review and sign-off.",
     ])
 
