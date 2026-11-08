@@ -24,7 +24,7 @@
 - [x] GitHub Pages workflow with an explicit publication allowlist
 - [x] First live Pages deployment verified (https://mgifford.github.io/openacr-release-evidence/)
 - [x] Node 24 GitHub Actions runtimes
-- [x] 93 offline tests, trimmed real fixtures, caching and failure isolation
+- [x] 98 offline tests, trimmed real fixtures, caching and failure isolation
 - [ ] Reproduce `likely-affected` findings against an installed 11.4.12 site
 - [ ] Add a human review/approval workflow for `confirmed-fixed`
 - [ ] Add file/diff-level evidence for fixes that omit the issue number
@@ -74,3 +74,10 @@
 5. Only then evaluate AI-assisted synthesis.
 
 GitHub Issues and Jira remain deferred; see `docs/FUTURE-SOURCES.md`.
+
+## Weekly digest
+
+- [x] Deterministic weekly facts and immutable archive
+- [x] Optional Hugging Face executive summary with validation, provenance and fallback
+- [ ] Publish the weekly digest on Pages
+- [ ] Compare Cloudflare and Hugging Face on past snapshots

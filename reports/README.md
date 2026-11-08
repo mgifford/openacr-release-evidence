@@ -14,6 +14,10 @@ from the landing page and the OpenACR draft notes.
 Each target also contains `acr.html` and `acr.md`, an ACR narrative with
 every criterion `Not Evaluated`. It is a review draft, not a completed ACR.
 
+`weekly/` is the weekly ACR digest archive created by the weekly workflow. It is
+kept in the repository/PR for review; it is not currently in the Pages
+allowlist.
+
 `index.html` is the Pages landing page and cross-release matrix. It links to
 each target directory and to the machine-readable evidence. The Pages workflow
 deploys this landing page plus each report's `index.html`, `report.css`,
