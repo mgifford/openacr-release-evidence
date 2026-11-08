@@ -32,11 +32,24 @@ STATUS_ORDER = ("Active", "Needs review", "Needs work", "Reviewed & tested by th
 
 
 def _load_criterion_summaries(output_dir):
-    path = Path(output_dir).parent / "acr-summaries.json"
-    try:
-        data = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return {}
+    """Load the shared cache without relying only on the output directory.
+
+    ``multi`` writes reports under reports/<target>, so the cache is in the
+    parent. Standalone ``report`` rebuilds may write to /tmp while the committed
+    cache remains at reports/acr-summaries.json; search the working tree too.
+    """
+    candidates = [
+        Path(output_dir).parent / "acr-summaries.json",
+        Path.cwd() / "reports" / "acr-summaries.json",
+        Path("reports") / "acr-summaries.json",
+    ]
+    data = {}
+    for path in candidates:
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            break
+        except (OSError, ValueError):
+            continue
     criteria = data.get("criteria") or {}
     return {
         criterion: item
