@@ -745,8 +745,8 @@ def _criterion_index(findings):
         '<div class="table-scroll" tabindex="0" role="region" aria-label="WCAG criterion index">',
         '<table class="index-table">',
         '<caption>WCAG criterion index: issues and evidence detail</caption>',
-        '<thead><tr><th scope="col">Criterion</th><th scope="col">Title</th><th scope="col">Issues</th>'
-        '<th scope="col">Full evidence</th><th scope="col">Metadata-only</th></tr></thead><tbody>',
+        '<thead><tr><th scope="col">Criterion</th><th scope="col">Principle</th><th scope="col">Title</th>'
+        '<th scope="col">Issues</th><th scope="col">Full evidence</th><th scope="col">Metadata-only</th></tr></thead><tbody>',
     ]
     for criterion in sorted(groups):
         info = criterion_info(criterion)
@@ -754,9 +754,13 @@ def _criterion_index(findings):
         full = sum(1 for item in group if item.get("evidence_status") != "inventory")
         inventory = len(group) - full
         section_id = "sc-" + criterion.replace(".", "-")
+        principle = {
+            "1": "Perceivable", "2": "Operable", "3": "Understandable", "4": "Robust",
+        }.get(criterion[:1], "Other")
         parts.append(
             f'<tr><th scope="row"><a href="#{section_id}">{esc(criterion)}</a></th>'
-            f'<td>{esc(info["title"])}</td><td>{len(group)}</td><td>{full}</td><td>{inventory}</td></tr>'
+            f'<td>{esc(principle)}</td><td>{esc(info["title"])}</td>'
+            f'<td>{len(group)}</td><td>{full}</td><td>{inventory}</td></tr>'
         )
     parts.extend(["</tbody></table></div>"])
     return "".join(parts)

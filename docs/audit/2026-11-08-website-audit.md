@@ -154,7 +154,8 @@ Before and after, verify:
   remain.
 - Added at-a-glance metrics with definitions: active findings, full evidence,
   metadata-only, likely affected, unknown and needing verification.
-- Added a WCAG criterion index table before the full criterion sections.
+- Added a WCAG criterion index table before the full criterion sections, with a
+  Perceivable/Operable/Understandable/Robust principle column.
 - Added a 428-row issue index before the canonical issue records, with issue
   link, title, component, criteria, tracker status, applicability, evidence
   detail and merge-request count.
