@@ -62,6 +62,14 @@ report.py     →  per-target report + landing page and cross-release matrix
 - `ai.py` — optional Cloudflare helper, not called by any pipeline command. No
   AI is used in the current evidence report.
 
+## Incremental issue cache
+
+The weekly collector reuses the previous committed `reports/collection.json` as
+an issue cache. Discovery stops at the previous changed high-water mark, and
+unchanged issues are retained without another API/CLI fetch. Changed nodes are
+refreshed; status-filtered nodes are removed. A manifest-digest mismatch forces a
+full discovery. The cache is normalized public evidence, not raw CLI output.
+
 ## Data boundaries
 
 - `private-evidence/` holds raw snapshots and is gitignored. Snapshots are
@@ -124,7 +132,7 @@ merge their conclusions.
 
 The report is a preview artifact, not a publication authorization. The
 `pages.yml` workflow publishes an explicit allowlist to GitHub Pages: a landing
-page plus each report's `index.html`, `report.css`, `evidence.json`,
+page plus `matrix.html` and each report's `index.html`, `report.css`, `evidence.json`,
 `summary.json`, `acr.html`, `acr.md`, `openacr.yaml`, `openacr-validation.json`,
 and the ATAG `atag-report.json`/`atag-evidence.json`. Raw evidence and
 raw collection/analysis files are excluded, and

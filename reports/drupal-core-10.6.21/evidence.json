@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Stock standard profile. Claro is the admin theme; Default Admin is not present. The generic 'Admin theme' component needs reproduction before a finding is applied to this line."
   },
-  "generated_at": "2026-11-07T23:14:39Z",
+  "generated_at": "2026-11-08T11:01:44Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -236,13 +236,13 @@
       ],
       "since": "2026-05-10T16:13:09-06:00",
       "commits": 83,
-      "retrieved_at": "2026-11-07T18:57:45+00:00"
+      "retrieved_at": "2026-11-08T10:25:21+00:00"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/10.6.21",
-    "commit_index": "2026-11-07T18:57:45+00:00"
+    "commit_index": "2026-11-08T10:25:21+00:00"
   },
   "manifest_digest": "a4ab5ac92b84ca9bd7328c7aaf10523d9c0447a597e247b80e6ad52ded4033b6",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -21738,6 +21738,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -21786,6 +21790,10 @@
         "tag_basis": [
           "atag"
         ]
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -21836,6 +21844,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -21882,6 +21894,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -21930,6 +21946,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -21974,6 +21994,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22020,6 +22044,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22065,6 +22093,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22109,6 +22141,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22157,6 +22193,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22201,6 +22241,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22249,6 +22293,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22293,6 +22341,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22345,6 +22397,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22390,6 +22446,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22434,6 +22494,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22482,6 +22546,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22526,6 +22594,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22574,6 +22646,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22619,6 +22695,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22663,6 +22743,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22711,6 +22795,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22757,6 +22845,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22805,6 +22897,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22849,6 +22945,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22897,6 +22997,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22944,6 +23048,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22988,6 +23096,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23036,6 +23148,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23080,6 +23196,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23130,6 +23250,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23179,6 +23303,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23225,6 +23353,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -23334,6 +23466,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23379,6 +23515,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23423,6 +23563,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -23502,6 +23646,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23549,6 +23697,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23593,6 +23745,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23645,6 +23801,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23693,6 +23853,10 @@
         "tag_basis": [
           "atag"
         ]
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23743,6 +23907,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23792,6 +23960,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23839,6 +24011,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23884,6 +24060,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23928,6 +24108,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23976,6 +24160,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24020,6 +24208,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24068,6 +24260,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24115,6 +24311,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24159,6 +24359,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24209,6 +24413,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24253,6 +24461,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24303,6 +24515,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24349,6 +24565,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24397,6 +24617,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24441,6 +24665,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24489,6 +24717,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24535,6 +24767,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24583,6 +24819,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24630,6 +24870,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24682,6 +24926,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24729,6 +24977,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24773,6 +25025,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24826,6 +25082,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24872,6 +25132,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24923,6 +25187,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24967,6 +25235,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25015,6 +25287,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25061,6 +25337,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25109,6 +25389,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25153,6 +25437,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25201,6 +25489,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25248,6 +25540,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25294,6 +25590,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -25356,6 +25656,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25403,6 +25707,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25449,6 +25757,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25498,6 +25810,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25542,6 +25858,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25590,6 +25910,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25637,6 +25961,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25681,6 +26009,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25727,6 +26059,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25772,6 +26108,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25816,6 +26156,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25867,6 +26211,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25913,6 +26261,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25961,6 +26313,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26006,6 +26362,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26050,6 +26410,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26100,6 +26464,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26144,6 +26512,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26190,6 +26562,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26235,6 +26611,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26279,6 +26659,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26327,6 +26711,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26371,6 +26759,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26419,6 +26811,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26465,6 +26861,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26513,6 +26913,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26560,6 +26964,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -26639,6 +27047,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26685,6 +27097,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26734,6 +27150,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26778,6 +27198,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26826,6 +27250,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26870,6 +27298,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26917,6 +27349,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26967,6 +27403,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27014,6 +27454,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27059,6 +27503,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27103,6 +27551,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27151,6 +27603,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27198,6 +27654,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27242,6 +27702,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27289,6 +27753,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -27381,6 +27849,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27428,6 +27900,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27472,6 +27948,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27520,6 +28000,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27565,6 +28049,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27609,6 +28097,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27657,6 +28149,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27703,6 +28199,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27751,6 +28251,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27797,6 +28301,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27845,6 +28353,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27891,6 +28403,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27939,6 +28455,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27985,6 +28505,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -28047,6 +28571,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28091,6 +28619,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28138,6 +28670,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28187,6 +28723,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28231,6 +28771,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28278,6 +28822,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -28357,6 +28905,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28403,6 +28955,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28455,6 +29011,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28499,6 +29059,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28547,6 +29111,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28594,6 +29162,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28638,6 +29210,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28684,6 +29260,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28728,6 +29308,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28776,6 +29360,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28823,6 +29411,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28867,6 +29459,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28915,6 +29511,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28959,6 +29559,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29007,6 +29611,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29051,6 +29659,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29097,6 +29709,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29142,6 +29758,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29186,6 +29806,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29233,6 +29857,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29282,6 +29910,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29328,6 +29960,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29376,6 +30012,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29422,6 +30062,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29470,6 +30114,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29516,6 +30164,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29566,6 +30218,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29610,6 +30266,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29658,6 +30318,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29703,6 +30367,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29747,6 +30415,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29795,6 +30467,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29840,6 +30516,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29884,6 +30564,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29932,6 +30616,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29976,6 +30664,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30023,6 +30715,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30072,6 +30768,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30116,6 +30816,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30162,6 +30866,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "likely-affected",
       "basis": "tracker-report",
       "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
@@ -30206,6 +30914,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -30275,6 +30987,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30322,6 +31038,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30366,6 +31086,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30416,6 +31140,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30463,6 +31191,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30507,6 +31239,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30555,6 +31291,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30599,6 +31339,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30645,6 +31389,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30690,6 +31438,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30734,6 +31486,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30782,6 +31538,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30828,6 +31588,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30876,6 +31640,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30920,6 +31688,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30968,6 +31740,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31014,6 +31790,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31062,6 +31842,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31107,6 +31891,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31151,6 +31939,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31199,6 +31991,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31245,6 +32041,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31298,6 +32098,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31347,6 +32151,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31391,6 +32199,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31437,6 +32249,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31481,6 +32297,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31527,6 +32347,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31571,6 +32395,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31619,6 +32447,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31665,6 +32497,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31713,6 +32549,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31757,6 +32597,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31803,6 +32647,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31847,6 +32695,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31895,6 +32747,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31939,6 +32795,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31985,6 +32845,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32029,6 +32893,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32077,6 +32945,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32121,6 +32993,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32167,6 +33043,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32211,6 +33091,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32257,6 +33141,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32301,6 +33189,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32347,6 +33239,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32391,6 +33287,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32439,6 +33339,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32484,6 +33388,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32528,6 +33436,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32576,6 +33488,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32620,6 +33536,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32666,6 +33586,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32710,6 +33634,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32756,6 +33684,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32800,6 +33732,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32846,6 +33782,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32890,6 +33830,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32938,6 +33882,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32984,6 +33932,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33036,6 +33988,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33085,6 +34041,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33130,6 +34090,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33174,6 +34138,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33222,6 +34190,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33268,6 +34240,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33319,6 +34295,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33369,6 +34349,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33416,6 +34400,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33461,6 +34449,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33505,6 +34497,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33552,6 +34548,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33604,6 +34604,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33650,6 +34654,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33698,6 +34706,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33742,6 +34754,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33788,6 +34804,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33832,6 +34852,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33880,6 +34904,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33926,6 +34954,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33974,6 +35006,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34020,6 +35056,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34071,6 +35111,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34118,6 +35162,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34164,6 +35212,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34213,6 +35265,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34257,6 +35313,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34309,6 +35369,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34355,6 +35419,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34403,6 +35471,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34449,6 +35521,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34497,6 +35573,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34544,6 +35624,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34588,6 +35672,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34636,6 +35724,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34683,6 +35775,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34727,6 +35823,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34773,6 +35873,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34818,6 +35922,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34862,6 +35970,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -34941,6 +36053,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34987,6 +36103,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35035,6 +36155,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -35097,6 +36221,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35143,6 +36271,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35191,6 +36323,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35238,6 +36374,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35284,6 +36424,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35333,6 +36477,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35377,6 +36525,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35423,6 +36575,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35467,6 +36623,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35513,6 +36673,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35557,6 +36721,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35603,6 +36771,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35647,6 +36819,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35695,6 +36871,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35742,6 +36922,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35786,6 +36970,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35832,6 +37020,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35876,6 +37068,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35922,6 +37118,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35966,6 +37166,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36012,6 +37216,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36056,6 +37264,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36102,6 +37314,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36146,6 +37362,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36192,6 +37412,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36236,6 +37460,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36285,6 +37513,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36332,6 +37564,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36377,6 +37613,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36421,6 +37661,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36469,6 +37713,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36513,6 +37761,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36561,6 +37813,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36606,6 +37862,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36650,6 +37910,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36698,6 +37962,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -36775,6 +38043,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36819,6 +38091,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36865,6 +38141,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36909,6 +38189,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36955,6 +38239,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36999,6 +38287,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37045,6 +38337,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37089,6 +38385,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37136,6 +38436,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37185,6 +38489,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37233,6 +38541,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37277,6 +38589,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37323,6 +38639,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37367,6 +38687,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -37444,6 +38768,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37488,6 +38816,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -37553,6 +38885,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37601,6 +38937,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37645,6 +38985,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37691,6 +39035,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37736,6 +39084,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37780,6 +39132,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37828,6 +39184,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37875,6 +39235,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37920,6 +39284,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37964,6 +39332,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38012,6 +39384,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38057,6 +39433,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38101,6 +39481,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38150,6 +39534,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -38227,6 +39615,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38274,6 +39666,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38318,6 +39714,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38364,6 +39764,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38408,6 +39812,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38454,6 +39862,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38499,6 +39911,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38543,6 +39959,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38591,6 +40011,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38637,6 +40061,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38685,6 +40113,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38729,6 +40161,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38775,6 +40211,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38819,6 +40259,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38865,6 +40309,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38909,6 +40357,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38955,6 +40407,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39000,6 +40456,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39044,6 +40504,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39106,6 +40570,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39150,6 +40618,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39196,6 +40668,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39240,6 +40716,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39286,6 +40766,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39331,6 +40815,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39375,6 +40863,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39423,6 +40915,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39470,6 +40966,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39516,6 +41016,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39578,6 +41082,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39622,6 +41130,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39686,6 +41198,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39730,6 +41246,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39778,6 +41298,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39824,6 +41348,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39888,6 +41416,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39934,6 +41466,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39982,6 +41518,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40029,6 +41569,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40073,6 +41617,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40121,6 +41669,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40165,6 +41717,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40211,6 +41767,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40255,6 +41815,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40301,6 +41865,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40345,6 +41913,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -40407,6 +41979,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40451,6 +42027,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40497,6 +42077,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40541,6 +42125,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40588,6 +42176,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -40650,6 +42242,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "likely-affected",
       "basis": "tracker-report",
       "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
@@ -40710,6 +42306,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -40772,6 +42372,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40817,6 +42421,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40861,6 +42469,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40909,6 +42521,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40953,6 +42569,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40999,6 +42619,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41043,6 +42667,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41105,6 +42733,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "likely-affected",
       "basis": "tracker-report",
       "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
@@ -41165,6 +42797,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41242,6 +42878,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41286,6 +42926,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41334,6 +42978,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41379,6 +43027,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41423,6 +43075,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41485,6 +43141,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41531,6 +43191,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41579,6 +43243,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41623,6 +43291,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41687,6 +43359,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "applicability": "unknown",
       "basis": "report-after-release",
       "reason": "The issue was reported after the target date (2026-11-06T16:13:09.000-06:00) and no fix was found in tag 10.6.21. It may describe a later regression or a pre-existing barrier; reproduce on the target before assigning applicability.",
@@ -41749,6 +43425,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "report-after-release",
@@ -41813,6 +43493,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41859,6 +43543,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41907,6 +43595,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41954,6 +43646,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42006,6 +43702,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -42054,6 +43754,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -42098,6 +43802,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42146,6 +43854,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -42161,5 +43873,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "135d42d1f15aa4bb8ead5c211ac3599667f0bddd1d6c8d69f086dce311f21ca0"
+  "evidence_digest": "9d01d6993cb279cba2591b3785ac017ff7d1776121fec9e9d3c09f716485989a"
 }

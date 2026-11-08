@@ -144,6 +144,20 @@ parsed deterministically into `1.4.3`, `1.4.11` and `2.5.3`. There is no text
 mining and no model mapping here. A tag is a candidate relevance signal, not a
 conformance result.
 
+## Issue cache and incremental discovery
+
+`reports/collection.json` is both the public normalized evidence collection and
+the issue cache. The weekly collector passes the committed collection as
+`--previous-collection`. It pages the queue sorted by changed and stops once the
+previous high-water mark is reached, reusing unchanged issues. Changed nodes are
+re-fetched; nodes no longer in an active status are removed from the cache. The
+manifest digest must match or the cache is ignored and a full discovery runs.
+
+Inventory-only issues have only their node metadata/status to compare; full
+comments and MRs are collected for the detailed subset. A change to comments,
+MRs, status, description, metadata or evidence detail invalidates an issue's
+cached evidence when the changed node is fetched.
+
 ## ACR review scope and discovery
 
 ACR evidence includes only issues that still need review: Drupal status **1**
@@ -245,7 +259,9 @@ WCAG conclusions are never inherited from each other.
 
 `openacr.yaml` is validated against the pinned Civicactions/GSA OpenACR 0.1.0
 schema and the OpenACR 2.5 WCAG 2.2 + Section 508 catalog. It lists all 182 catalog
-criteria and all seven chapters, but **no components or adherence values**.
+criteria and all seven chapters. WCAG criteria carry the four Section 508
+component names (`web`, `electronic-docs`, `software`, `authoring-tool`) with
+**no adherence values**.
 `draft: true`, a placeholder reviewer and notes force human review. A reviewer
 must replace the author, assess every criterion, populate adherence, set
 `draft: false`, and run `openacr-validate --strict`. `not-evaluated` is rejected
@@ -260,12 +276,21 @@ requirement and target. It must not be derived from issue counts, issue status,
 commit inclusion, automated checks or model output. No artifact in this
 repository currently contains a WCAG conformance decision.
 
+## Surface classification
+
+Each normalized issue and finding has a `surface` object: `authoring` when the
+issue text contains an `/admin` path, a Drupal login path (`/user`, `/user/login`, `/user/1`, `/user/register`) or a login/reproduction
+step; otherwise `web` by default. The basis is recorded as `admin-path`, `login-step` or
+`default-web`. This is a review classification, not a conformance decision.
+
 ## Weekly digest
 
 `weekly-summary` compares the current active collection with the previous
 snapshot and writes immutable `reports/weekly/<date>.facts.json`,
 `<date>.md` and `<date>.provenance.json`, plus an `index.md` trend table. Facts are
-deterministic. A Hugging Face model may write only the executive summary; the
-output is validated against the facts and falls back to the deterministic digest
-on rejection or failure. The digest is not an ACR and does not change
-`openacr.yaml` or the ACR narrative.
+deterministic. Activity is detected from `updated_at`, status, comments, merge
+requests, description/metadata and evidence-detail changes; only `activity.changed`
+issues, new/no-longer-active issues and aggregate context are sent to the model.
+If no issue changed, the model is not called. The output is validated against the
+facts and falls back to the deterministic digest on rejection or failure. The
+digest is not an ACR and does not change `openacr.yaml` or the ACR narrative.

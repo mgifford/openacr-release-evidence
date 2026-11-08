@@ -116,6 +116,7 @@ def main(argv=None):
     col.add_argument("--component", default=None)
     col.add_argument("--since", default=None, help="Only include issues changed since this ISO timestamp")
     col.add_argument("--output", required=True)
+    col.add_argument("--previous-collection", default=None, help="Committed normalized collection to reuse for unchanged issues")
     col.add_argument("--raw-dir", default="private-evidence/raw")
     col.add_argument("--cache-dir", default=".cache/acr-evidence")
     col.add_argument("--refresh", action="store_true")
@@ -146,6 +147,7 @@ def main(argv=None):
     weekly = sub.add_parser("weekly-summary", help="Generate deterministic weekly facts and an optional Hugging Face executive summary")
     weekly.add_argument("--current-collection", required=True)
     weekly.add_argument("--previous-collection", default=None)
+    weekly.add_argument("--context", default="context/DRUPAL.md", help="Human-authored ACR/AI context file")
     weekly.add_argument("--reports", default="reports")
     weekly.add_argument("--previous-reports", default=None)
     weekly.add_argument("--output", default="reports/weekly")
@@ -224,11 +226,13 @@ def main(argv=None):
         artifact = collect_issues(
             manifest, query, args.output,
             raw_dir=args.raw_dir, cache_dir=args.cache_dir, refresh=args.refresh,
+            previous_collection=args.previous_collection,
         )
         summary = artifact["summary"]
         print(
             f"Collected {summary['collected']} of {summary['requested']} issues "
-            f"({summary['cached']} cached, {summary['fetched']} fetched, {summary['failed']} failed) to {args.output}"
+            f"({summary.get('cached', 0)} CLI cached, {summary.get('reused', 0)} reused from the committed collection, "
+            f"{summary['fetched']} fetched, {summary['failed']} failed) to {args.output}"
         )
     elif args.command == "analyze":
         collection = load_json(args.collection)
@@ -298,6 +302,7 @@ def main(argv=None):
             previous_collection=args.previous_collection,
             reports=args.reports,
             previous_reports=args.previous_reports,
+            context=args.context,
             output=args.output,
             provider=args.provider,
             model=args.model,

@@ -11,7 +11,28 @@ from pathlib import Path
 from .openacr_export import load_catalog
 
 DRAFT_TERM = "Not Evaluated (draft — reviewer must select an ACR result)"
+COMPONENTS = (
+    ("Web", "Partially Supports", "web"),
+    ("Electronic Documents", "Not Applicable", "electronic-docs"),
+    ("Software", "Not Applicable", "software"),
+    ("Authoring Tool", "Partially Supports", "authoring-tool"),
+)
+CORE_SCOPE = {
+    "1.2.4": (
+        "Drupal Core does not provide live audio/video. Proposed Not Applicable for Core; "
+        "evaluate the contrib Video or AblePlayer modules separately."
+    ),
+    "1.2.5": (
+        "Drupal Core does not provide a video player or audio-description feature. Proposed Not Applicable "
+        "for Core; audio/video caption and description support belongs to contrib Video or AblePlayer."
+    ),
+}
 STATUS_ORDER = ("Active", "Needs review", "Needs work", "Reviewed & tested by the community", "Patch")
+
+
+def _slug(value):
+    text = "".join(ch if ch.isalnum() else "-" for ch in str(value).lower()).strip("-")
+    return text or "section"
 
 
 class Cell:
@@ -68,6 +89,14 @@ class Doc:
         return "\n".join(out).rstrip() + "\n"
 
     def html(self):
+        headings = [value for kind, value in self.blocks if kind == "h2"]
+        used = {}
+        heading_ids = []
+        for heading in headings:
+            base = _slug(heading)
+            count = used.get(base, 0)
+            used[base] = count + 1
+            heading_ids.append(base if count == 0 else f"{base}-{count + 1}")
         parts = [
             "<!doctype html>",
             '<html lang="en">',
@@ -82,17 +111,30 @@ class Doc:
             "<body>",
             '<a class="skip" href="#main">Skip to main content</a>',
             '<header class="page-header">',
+            '<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>'
+            '<li><a href="../">All release reports</a></li>'
+            '<li><a href="./index.html">Release evidence report</a></li>'
+            '<li><span aria-current="page">ACR draft</span></li></ol></nav>',
             '<p class="eyebrow">OpenACR Release Evidence · ACR draft</p>',
             f"<h1>{escape(self.title)}</h1>",
             f'<p class="status-banner"><strong>Draft for human review, not an approved ACR.</strong> {escape(self.description)}</p>',
             "</header>",
-            '<main id="main" tabindex="-1">',
+            '<nav class="section-nav" aria-label="ACR sections"><h2>On this page</h2><ol>',
         ]
+        for heading, heading_id in zip(headings, heading_ids):
+            parts.append(f'<li><a href="#{heading_id}">{escape(heading)}</a></li>')
+        parts.extend([
+            "</ol></nav>",
+            '<main id="main" tabindex="-1">',
+        ])
+        heading_index = 0
         for kind, value in self.blocks:
             if kind == "h1":
                 parts.append(f"<h2>{escape(value)}</h2>")
             elif kind == "h2":
-                parts.append(f"<h2>{escape(value)}</h2>")
+                heading_id = heading_ids[heading_index]
+                heading_index += 1
+                parts.append(f'<h2 id="{heading_id}">{escape(value)}</h2>')
             elif kind == "h3":
                 parts.append(f"<h3>{escape(value)}</h3>")
             elif kind == "p":
@@ -158,10 +200,13 @@ def _status_summary(issues):
 
 def _criterion_remark(criterion, issues):
     if not issues:
-        return (
+        text = (
             "No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that "
             "the criterion is met; a reviewer must evaluate it and select an ACR result."
         )
+        if criterion in CORE_SCOPE:
+            text += " Core scope: " + CORE_SCOPE[criterion]
+        return text
     detailed = sum(1 for issue in issues if issue.get("evidence_status") != "inventory")
     inventory = len(issues) - detailed
     states = {}
@@ -175,6 +220,8 @@ def _criterion_remark(criterion, issues):
         f"Examples: {_examples(issues)}. This is issue-queue evidence, not a conformance result; verify the barrier "
         "and select the ACR result."
     )
+    if criterion in CORE_SCOPE:
+        text += " Core scope: " + CORE_SCOPE[criterion]
     if inventory:
         text += " Inventory records have no comments, merge requests or commit analysis."
     return text
@@ -231,14 +278,55 @@ def render_acr_narrative(analysis, output_dir):
         ["Assessment identifier", Cell(assessment.get("id") or "Not recorded")],
         ["Standards baseline", Cell(", ".join(assessment.get("standards") or []) or "Not recorded")],
     ])
+    surface_counts = {"web": 0, "authoring": 0}
+    for finding in findings:
+        surface = (finding.get("surface") or {}).get("surface", "web")
+        if surface in surface_counts:
+            surface_counts[surface] += 1
+    doc.h2("Component scope and proposed result")
+    doc.p("These are proposed component-level labels for review, not final ACR terms. Every per-criterion result below remains Not Evaluated until a reviewer completes it.")
+    component_rows = []
+    for component, proposed, component_id in COMPONENTS:
+        if component_id == "web":
+            evidence = f"{surface_counts['web']} active findings classified as front-end/web"
+            rationale = (
+                "Partially Supports is proposed because active front-end accessibility issues exist in the "
+                "published evidence. This label needs a specific explanation and independent review."
+            )
+        elif component_id == "authoring-tool":
+            evidence = f"{surface_counts['authoring']} active findings classified as authoring/admin UI"
+            rationale = (
+                "Partially Supports is proposed because active authoring-interface issues exist. "
+                "The /admin, Drupal /user account paths and login/reproduction cues are the classification basis; a reviewer must confirm."
+            )
+        elif component_id == "electronic-docs":
+            evidence = "No core electronic-document product"
+            rationale = (
+                "Not Applicable is proposed: Drupal Core is a web CMS, not a standalone electronic-document "
+                "authoring or playback product. Uploaded documents are delivered as web content."
+            )
+        else:
+            evidence = "No packaged/non-web software product"
+            rationale = (
+                "Not Applicable is proposed: Drupal Core is web software. The Section 508 software "
+                "chapter is not a separate installed application in this scope."
+            )
+        component_rows.append([Cell(component), Cell(proposed + " (proposed)"), Cell(evidence), Cell(rationale)])
+    doc.table(
+        "Section 508 component scope",
+        ["Component", "Proposed result", "Evidence", "Rationale"],
+        component_rows,
+    )
+    doc.p("Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.")
+    doc.p("Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split.")
     doc.h2("Draft status and ACR result terms")
-    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no term to any criterion. A reviewer must select each term from the definitions below after evaluating the product.")
+    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no per-criterion term. A reviewer must select each term from the definitions below after evaluating the product.")
     doc.table("ACR result terms used in review", ["Term", "Meaning"], [
         ["Supports", "The product has at least one method of meeting the criterion, and the reviewer has evidence that it works for the evaluated scope."],
         ["Partially Supports", "Some product functionality meets the criterion; other functionality does not, and the reviewer can explain the boundary."],
         ["Does Not Support", "The majority of product functionality does not meet the criterion."],
         ["Not Applicable", "The criterion is not relevant to the product, and the reviewer records why."],
-        ["Not Evaluated", "The reviewer has not completed enough evaluation to select a term. This is the only term used in this draft."],
+        ["Not Evaluated", "The reviewer has not completed enough evaluation to select a per-criterion term. Every criterion row uses this; the component proposals above are not per-criterion terms."],
     ])
     doc.h2("Scope and evaluation method")
     doc.p(f"The evidence collection covers active, review-relevant Drupal Core Accessibility issues: Active, Needs review, Needs work, RTBC and Patch. Fixed, closed and postponed issues are excluded. The snapshot contains {len(findings)} active {_plural(len(findings), 'finding')}, of which {tagged} {_plural(tagged, 'carries', 'carry')} at least one explicit WCAG issue tag.")
@@ -304,6 +392,8 @@ def render_acr_narrative(analysis, output_dir):
     doc.h2("Active issue evidence and review actions")
     doc.p("The evidence report lists all active issues and their source links. It distinguishes full-detail evidence from metadata-only inventory records. Use it to review the criterion remarks above, collect missing evidence and decide each ACR result.")
     doc.ul([
+        "Use the generic templates/drupal-acr-template.md as the reusable ACR shell.",
+        "Record scope and wording notes in context/DRUPAL.md (or the matching product context file); context is not evidence.",
         "Open ./index.html#issues and review the active issue evidence.",
         "For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.",
         "Verify each criterion against the installed product; do not convert issue counts into Supports or Does Not Support.",

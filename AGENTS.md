@@ -79,8 +79,12 @@ For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
 
-The ACR narrative must keep every criterion `Not Evaluated` until a human
-reviewer assigns terms. Never convert issue counts or tags into Supports,
+The ACR narrative may show proposed component-level results (Web and Authoring
+Tool Partially Supports; Electronic Documents and Software Not Applicable), but
+must mark them proposed and keep every criterion `Not Evaluated` until a human
+reviewer assigns terms. `/admin`, Drupal `/user` login paths and login/reproduction cues classify the
+authoring surface; otherwise default to web. All `/user` paths, including `/user/1`, are authoring/account surfaces. Never infer component support from
+an empty issue queue. Never convert issue counts or tags into Supports,
 Partially Supports or Does Not Support, and never remove the draft disclaimer.
 
 ATAG evidence is separate from WCAG/OpenACR. The `atag` tag marks a reported
@@ -137,8 +141,15 @@ added, keep a no-AI path, validate structured responses, record provider/model/
 prompt version/input hash/date, and evaluate against gold-standard Drupal issues
 before enabling it. No AI is used in the current evidence report.
 
+Human-maintained ACR/AI context lives in `context/` (`DRUPAL.md`, `DRUPAL-CMS.md`,
+`LOCALGOV.md`, `CKEDITOR.md`). It is scope/wording guidance, never evidence. Pass
+the matching context to the weekly model and record its hash; never merge one
+product's context or conformance result into another's.
+
 Weekly AI summaries are optional and off by default. The facts and diff are
-deterministic; AI may write only an executive summary. Validate every number and
-issue ID against the facts, reject conformance language, record provenance, and
-fall back to the deterministic digest on failure. Never let the summary modify
+deterministic; only changed/new/no-longer-active issues are sent to the model,
+and the model is skipped when there is no activity. AI may write only an
+executive summary. Validate every number and issue ID against the facts, reject
+conformance language, record provenance, and fall back to the deterministic
+digest on failure. Never let the summary modify
 OpenACR or the ACR narrative.

@@ -11,13 +11,29 @@
 <body>
 <a class="skip" href="#main">Skip to main content</a>
 <header class="page-header">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../">All release reports</a></li><li><a href="./index.html">Release evidence report</a></li><li><span aria-current="page">ACR draft</span></li></ol></nav>
 <p class="eyebrow">OpenACR Release Evidence · ACR draft</p>
 <h1>Drupal Core 12.0.0-alpha1 — Draft Accessibility Conformance Report (ACR) Narrative</h1>
 <p class="status-banner"><strong>Draft for human review, not an approved ACR.</strong> Issue evidence is described for human review. No criterion is assigned Supports, Partially Supports or Does Not Support.</p>
 </header>
+<nav class="section-nav" aria-label="ACR sections"><h2>On this page</h2><ol>
+<li><a href="#product-information">Product information</a></li>
+<li><a href="#component-scope-and-proposed-result">Component scope and proposed result</a></li>
+<li><a href="#draft-status-and-acr-result-terms">Draft status and ACR result terms</a></li>
+<li><a href="#scope-and-evaluation-method">Scope and evaluation method</a></li>
+<li><a href="#executive-summary">Executive summary</a></li>
+<li><a href="#wcag-2-2-level-a-criteria">WCAG 2.2 Level A criteria</a></li>
+<li><a href="#wcag-2-2-level-aa-criteria">WCAG 2.2 Level AA criteria</a></li>
+<li><a href="#wcag-2-2-level-aaa-criteria">WCAG 2.2 Level AAA criteria</a></li>
+<li><a href="#functional-performance--hardware--software-and-support-documentation">Functional performance, hardware, software and support documentation</a></li>
+<li><a href="#atag-2-0-authoring-evidence">ATAG 2.0 authoring evidence</a></li>
+<li><a href="#active-issue-evidence-and-review-actions">Active issue evidence and review actions</a></li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#sources">Sources</a></li>
+</ol></nav>
 <main id="main" tabindex="-1">
 <p>This document converts the active issue evidence into an ACR narrative. It is deliberately not a completed ACR: every criterion is marked Not Evaluated until a named reviewer completes the evaluation and approves the report.</p>
-<h2>Product information</h2>
+<h2 id="product-information">Product information</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Product and report identification">
 <table>
 <caption>Product and report identification</caption>
@@ -26,15 +42,29 @@
 <tr><td>Version / release</td><td>12.0.0-alpha1</td></tr>
 <tr><td>Target ref</td><td>12.0.0-alpha1 (tag)</td></tr>
 <tr><td>Support status</td><td>pre-release</td></tr>
-<tr><td>Report date</td><td>2026-11-07</td></tr>
+<tr><td>Report date</td><td>2026-11-08</td></tr>
 <tr><td>Report status</td><td>DRAFT — not approved for publication</td></tr>
 <tr><td>Prepared by</td><td>Unassigned reviewer (draft)</td></tr>
 <tr><td>Assessment identifier</td><td>drupal-core-12.0.0-alpha1</td></tr>
 <tr><td>Standards baseline</td><td>WCAG 2.2 AA, Section 508 (revised, 2017)</td></tr>
 </tbody></table>
 </div>
-<h2>Draft status and ACR result terms</h2>
-<p>ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no term to any criterion. A reviewer must select each term from the definitions below after evaluating the product.</p>
+<h2 id="component-scope-and-proposed-result">Component scope and proposed result</h2>
+<p>These are proposed component-level labels for review, not final ACR terms. Every per-criterion result below remains Not Evaluated until a reviewer completes it.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Section 508 component scope">
+<table>
+<caption>Section 508 component scope</caption>
+<thead><tr><th scope="col">Component</th><th scope="col">Proposed result</th><th scope="col">Evidence</th><th scope="col">Rationale</th></tr></thead><tbody>
+<tr><td>Web</td><td>Partially Supports (proposed)</td><td>415 active findings classified as front-end/web</td><td>Partially Supports is proposed because active front-end accessibility issues exist in the published evidence. This label needs a specific explanation and independent review.</td></tr>
+<tr><td>Electronic Documents</td><td>Not Applicable (proposed)</td><td>No core electronic-document product</td><td>Not Applicable is proposed: Drupal Core is a web CMS, not a standalone electronic-document authoring or playback product. Uploaded documents are delivered as web content.</td></tr>
+<tr><td>Software</td><td>Not Applicable (proposed)</td><td>No packaged/non-web software product</td><td>Not Applicable is proposed: Drupal Core is web software. The Section 508 software chapter is not a separate installed application in this scope.</td></tr>
+<tr><td>Authoring Tool</td><td>Partially Supports (proposed)</td><td>13 active findings classified as authoring/admin UI</td><td>Partially Supports is proposed because active authoring-interface issues exist. The /admin, Drupal /user account paths and login/reproduction cues are the classification basis; a reviewer must confirm.</td></tr>
+</tbody></table>
+</div>
+<p>Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.</p>
+<p>Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split.</p>
+<h2 id="draft-status-and-acr-result-terms">Draft status and ACR result terms</h2>
+<p>ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no per-criterion term. A reviewer must select each term from the definitions below after evaluating the product.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="ACR result terms used in review">
 <table>
 <caption>ACR result terms used in review</caption>
@@ -43,19 +73,19 @@
 <tr><td>Partially Supports</td><td>Some product functionality meets the criterion; other functionality does not, and the reviewer can explain the boundary.</td></tr>
 <tr><td>Does Not Support</td><td>The majority of product functionality does not meet the criterion.</td></tr>
 <tr><td>Not Applicable</td><td>The criterion is not relevant to the product, and the reviewer records why.</td></tr>
-<tr><td>Not Evaluated</td><td>The reviewer has not completed enough evaluation to select a term. This is the only term used in this draft.</td></tr>
+<tr><td>Not Evaluated</td><td>The reviewer has not completed enough evaluation to select a per-criterion term. Every criterion row uses this; the component proposals above are not per-criterion terms.</td></tr>
 </tbody></table>
 </div>
-<h2>Scope and evaluation method</h2>
+<h2 id="scope-and-evaluation-method">Scope and evaluation method</h2>
 <p>The evidence collection covers active, review-relevant Drupal Core Accessibility issues: Active, Needs review, Needs work, RTBC and Patch. Fixed, closed and postponed issues are excluded. The snapshot contains 428 active findings, of which 193 carry at least one explicit WCAG issue tag.</p>
 <p>30 findings have full comments and merge-request evidence; 398 are metadata-only inventory records. The inventory records identify active issues but do not include comments, merge requests or commit analysis. All findings are unreviewed.</p>
 <ul><li>Discovery pages the complete Accessibility queue; it does not stop at the first API page.</li><li>WCAG tags are candidate relevance signals from the issue queue, not conformance determinations.</li><li>No issue was reproduced against an installed Drupal target in this pass.</li><li>No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.</li><li>No AI was used to assign applicability or an ACR result.</li></ul>
-<h2>Executive summary</h2>
+<h2 id="executive-summary">Executive summary</h2>
 <p>The active queue contains 428 issues. Tracker states are: Active: 235, Needs review: 14, Needs work: 172, Reviewed &amp; tested by the community: 7. 30 issues have detailed evidence and 398 are inventory-only. The queue is a triage input, not an accessibility score.</p>
 <p>The largest explicitly tagged criterion clusters are listed below. A count reflects issue tagging, not severity or conformance.</p>
 <ul><li>WCAG 4.1.2: 39 active issues</li><li>WCAG 1.3.1: 23 active issues</li><li>WCAG 3.3.1: 18 active issues</li><li>WCAG 1.4.11: 15 active issues</li><li>WCAG 1.1.1: 12 active issues</li><li>WCAG 2.4.3: 9 active issues</li><li>WCAG 2.5.3: 9 active issues</li><li>WCAG 3.1.2: 9 active issues</li></ul>
 <p>235 active findings have no WCAG criterion tag. They remain in the evidence report and may still describe accessibility barriers; no criterion is inferred from their prose.</p>
-<h2>WCAG 2.2 Level A criteria</h2>
+<h2 id="wcag-2-2-level-a-criteria">WCAG 2.2 Level A criteria</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="WCAG 2.2 Level A remarks and explanations">
 <table>
 <caption>WCAG 2.2 Level A remarks and explanations</caption>
@@ -94,13 +124,13 @@
 <tr><td>4.1.2 — Name, Role, Value</td><td>A</td><td>39 active (2 detailed, 37 inventory)</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>39 active issues tagged to this criterion: 2 detailed, 37 metadata-only inventory. Tracker statuses: Active: 17, Needs review: 1, Needs work: 21. Target evidence states: likely-affected: 2, unknown: 37. Examples: Allow modules to classify blocks when defining them, so WAI-ARIA roles can automaticall… (drupal:1402250, Needs work); Cached render elements can have duplicate HTML IDs (drupal:1852090, Needs work); Add &quot;changed&quot; hints to translation settings page (drupal:1854046, Needs work). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis.</td></tr>
 </tbody></table>
 </div>
-<h2>WCAG 2.2 Level AA criteria</h2>
+<h2 id="wcag-2-2-level-aa-criteria">WCAG 2.2 Level AA criteria</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="WCAG 2.2 Level AA remarks and explanations">
 <table>
 <caption>WCAG 2.2 Level AA remarks and explanations</caption>
 <thead><tr><th scope="col">Criterion</th><th scope="col">Level</th><th scope="col">Active issue evidence</th><th scope="col">Draft result</th><th scope="col">Remarks and explanations</th></tr></thead><tbody>
-<tr><td>1.2.4 — Captions (Live)</td><td>AA</td><td>No active tagged issue</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result.</td></tr>
-<tr><td>1.2.5 — Audio Description (Prerecorded)</td><td>AA</td><td>No active tagged issue</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result.</td></tr>
+<tr><td>1.2.4 — Captions (Live)</td><td>AA</td><td>No active tagged issue</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. Core scope: Drupal Core does not provide live audio/video. Proposed Not Applicable for Core; evaluate the contrib Video or AblePlayer modules separately.</td></tr>
+<tr><td>1.2.5 — Audio Description (Prerecorded)</td><td>AA</td><td>No active tagged issue</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. Core scope: Drupal Core does not provide a video player or audio-description feature. Proposed Not Applicable for Core; audio/video caption and description support belongs to contrib Video or AblePlayer.</td></tr>
 <tr><td>1.3.4 — Orientation</td><td>AA</td><td>1 active (0 detailed, 1 inventory)</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1. Examples: Extend site information page to generate a manifest.json file (drupal:2698127, Needs work). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis.</td></tr>
 <tr><td>1.3.5 — Identify Input Purpose</td><td>AA</td><td>2 active (0 detailed, 2 inventory)</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>2 active issues tagged to this criterion: 0 detailed, 2 metadata-only inventory. Tracker statuses: Needs work: 2. Target evidence states: unknown: 2. Examples: IME enhancement stops autocomplete search event in Android when typing an English word (drupal:2928820, Needs work); Provide a new library to replace jQuery UI autocomplete (drupal:3076171, Needs work). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis.</td></tr>
 <tr><td>1.4.3 — Contrast (Minimum)</td><td>AA</td><td>No active tagged issue</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result.</td></tr>
@@ -125,9 +155,9 @@
 <tr><td>4.1.3 — Status Messages</td><td>AA</td><td>6 active (1 detailed, 5 inventory)</td><td>Not Evaluated (draft — reviewer must select an ACR result)</td><td>6 active issues tagged to this criterion: 1 detailed, 5 metadata-only inventory. Tracker statuses: Active: 3, Needs review: 1, Needs work: 2. Target evidence states: likely-affected: 1, unknown: 5. Examples: Dropbutton should report open/closed state to assistive technology (drupal:2893663, Active); After enabling or disabling a view, convey changes to screen reader users. (drupal:2973116, Active); Convey AJAX progress messages to assistive technology. (drupal:2973140, Needs review). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis.</td></tr>
 </tbody></table>
 </div>
-<h2>WCAG 2.2 Level AAA criteria</h2>
+<h2 id="wcag-2-2-level-aaa-criteria">WCAG 2.2 Level AAA criteria</h2>
 <p>31 AAA criteria are outside the declared WCAG 2.2 AA target. They are not marked Supports or Not Applicable in this draft; a reviewer must decide whether to evaluate them or record a scope rationale.</p>
-<h2>Functional performance, hardware, software and support documentation</h2>
+<h2 id="functional-performance--hardware--software-and-support-documentation">Functional performance, hardware, software and support documentation</h2>
 <p>These Section 508/ACR chapters are not evaluated by this web issue-evidence pipeline. They are shown so the draft has the complete ACR shape; a reviewer must evaluate them or mark Not Applicable with a rationale.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Non-WCAG ACR chapters">
 <table>
@@ -139,15 +169,15 @@
 <tr><td>support_documentation_and_services</td><td>5</td><td>Not Evaluated</td><td>Outside the web issue-evidence method&#x27;s coverage. The pipeline collected issue/commit evidence only; no hardware, packaged software, functional-performance or support-documentation testing was performed.</td></tr>
 </tbody></table>
 </div>
-<h2>ATAG 2.0 authoring evidence</h2>
+<h2 id="atag-2-0-authoring-evidence">ATAG 2.0 authoring evidence</h2>
 <p>ATAG 2.0 is a separate standard from WCAG and is not part of this ACR narrative. Drupal Core&#x27;s authoring-tool evidence is reported separately, with Part A/Part B candidates and a WAI ATAG Report Tool JSON draft containing no conformance values.</p>
 <p>See ../drupal-core-atag/ for the ATAG evidence report. It must not be copied into a WCAG criterion result.</p>
-<h2>Active issue evidence and review actions</h2>
+<h2 id="active-issue-evidence-and-review-actions">Active issue evidence and review actions</h2>
 <p>The evidence report lists all active issues and their source links. It distinguishes full-detail evidence from metadata-only inventory records. Use it to review the criterion remarks above, collect missing evidence and decide each ACR result.</p>
-<ul><li>Open ./index.html#issues and review the active issue evidence.</li><li>For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.</li><li>Verify each criterion against the installed product; do not convert issue counts into Supports or Does Not Support.</li><li>Complete the reviewer name, organization and approval record outside this generated draft.</li><li>Replace every Not Evaluated result with a reviewed ACR result, or record the remaining evaluation gap.</li><li>Remove the draft status only after independent review and sign-off.</li></ul>
-<h2>Limitations</h2>
+<ul><li>Use the generic templates/drupal-acr-template.md as the reusable ACR shell.</li><li>Record scope and wording notes in context/DRUPAL.md (or the matching product context file); context is not evidence.</li><li>Open ./index.html#issues and review the active issue evidence.</li><li>For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.</li><li>Verify each criterion against the installed product; do not convert issue counts into Supports or Does Not Support.</li><li>Complete the reviewer name, organization and approval record outside this generated draft.</li><li>Replace every Not Evaluated result with a reviewed ACR result, or record the remaining evaluation gap.</li><li>Remove the draft status only after independent review and sign-off.</li></ul>
+<h2 id="limitations">Limitations</h2>
 <ul><li>This is an issue-queue evidence narrative, not a WCAG-EM sample or a conformance test.</li><li>Fixed and closed issues are excluded by policy; their absence is not evidence that a barrier is gone.</li><li>The 398 inventory records have no comments/MRs/commit analysis; they are included for completeness, not as finished findings.</li><li>No reproduction, assistive-technology testing, hardware testing or packaged-software testing is claimed.</li><li>The product is a declared Drupal Core configuration; it is not every Drupal site.</li><li>The draft does not establish legal compliance or a procurement-safe conformance claim.</li></ul>
-<h2>Sources</h2>
+<h2 id="sources">Sources</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Authoritative sources">
 <table>
 <caption>Authoritative sources</caption>

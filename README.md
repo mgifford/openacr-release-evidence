@@ -77,17 +77,18 @@ shared collection is target-independent; the applicability analysis is not.
 
 This writes:
 
-- `reports/collection.json` — one normalized active-issue collection (428 issues; 30 with full comments/MRs, 398 inventory-only, provenance).
+- `reports/collection.json` — normalized active-issue collection (428 issues; 30 with full comments/MRs, 398 inventory-only, provenance). It also acts as the committed issue cache: the weekly run reuses unchanged issues and fetches only issues changed since the previous high-water mark.
 - `reports/<target>/index.html` — static, no-JavaScript target report.
 - `reports/<target>/evidence.json` — compact published evidence (findings and issue identity; comments/descriptions are not duplicated).
 - `reports/<target>/summary.json`, `report.css`.
 - `reports/<target>/acr.html`, `acr.md` — ACR narrative draft.
 - `reports/<target>/openacr.yaml`, `openacr-validation.json` — validated OpenACR draft.
-- `reports/index.html` — landing page and cross-release matrix.
+- `reports/index.html` — landing page with release finder and matrix preview.
+- `reports/matrix.html` — complete cross-release applicability matrix.
 - `reports/weekly/` — weekly ACR digest archive (created by the weekly workflow).
 - `private-evidence/raw/` — raw upstream snapshots (gitignored, mode `0600`).
 
-The report set is about **16 MB**, down from about 50 MB. The full per-target
+The report set is about **17 MB**, down from about 50 MB. The full per-target
 `analysis.json` is no longer committed; the published `evidence.json` is compact,
 and the detailed comments remain in the HTML report and the private collection.
 
@@ -176,9 +177,12 @@ command is called. Raw output is private and never published.
 - GitHub Pages deployment workflow with an explicit, script-free publication allowlist.
 - Multi-target analysis for supported releases, pre-release tags and the `main` development branch.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
+- A no-script release finder, compact release cards, grouped downloads and a separate complete matrix page.
+- A report header with top supporting-output links, section navigation, at-a-glance evidence metrics, WCAG criterion index and 428-row issue index.
+- Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 101 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 117 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -192,7 +196,8 @@ command is called. Raw output is private and never published.
 - Reproduction testing against an installed release; screen-reader, keyboard,
   zoom and forced-colors testing of the assessed release.
 - Composer lockfile resolution for Drupal CMS and LocalGov, and their manifests.
-- AI-assisted summaries or mappings. No AI is used in the current report.
+- AI-assisted applicability or criterion mappings in the evidence report. No AI is
+  used there; the optional weekly digest is separate and validated.
 - Parent-linked contributed-project ACRs (Claro, Olivero, Drupal CMS, LocalGov
   Drupal); the parent field and design are present, but collection is not.
 - GitHub Issues, Jira or non-Drupal GitLab adapters.
@@ -209,7 +214,7 @@ OpenACR 2.5 WCAG 2.2 + Revised Section 508 catalog (commit `d6d18a9…`).
 It is a **draft skeleton**, not an approved ACR:
 
 - all 182 catalog criteria and all seven chapters are present;
-- no components or adherence levels are populated;
+- the four Section 508 component names are present on WCAG criteria, but no adherence levels are populated;
 - the author is a placeholder (`reviewer@example.invalid`);
 - notes link the evidence report and require human review;
 - `not-evaluated` is never used for Level A/AA.
@@ -234,17 +239,22 @@ Each target also exports a human-readable ACR narrative:
 - `acr.html` — static, no-JavaScript narrative
 - `acr.md` — editable Markdown source
 
-The narrative follows the ACR shape: product information, term definitions,
-scope and method, executive summary, WCAG 2.2 A/AA remarks and explanations,
-non-WCAG chapters, ATAG separation, reviewer actions and limitations.
+The narrative follows the ACR/OpenACR shape: product information, four
+Section 508 component scopes, term definitions, scope and method, executive
+summary, WCAG 2.2 A/AA remarks and explanations, non-WCAG chapters, ATAG
+separation, reviewer actions and limitations.
 
-It deliberately assigns **no ACR result**. Every criterion is **Not Evaluated**
+Web and Authoring Tool are shown as **proposed Partially Supports**; Electronic
+Documents and Software as **proposed Not Applicable**. These are proposed labels
+for review, not final terms. Every criterion is **Not Evaluated**
 until a named reviewer completes the evaluation. Issue counts are described as
-triage evidence, never converted into Supports, Partially Supports or Does Not
-Support. The narrative uses the same active-issue scope (428 issues; 30 detailed,
+triage evidence and are not converted into per-criterion terms. The narrative
+uses the same active-issue scope (428 issues; 30 detailed,
 398 inventory-only) and links back to the evidence report.
 
-See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md).
+See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md), the reusable
+[`templates/drupal-acr-template.md`](templates/drupal-acr-template.md), and the
+human-maintained [`context/DRUPAL.md`](context/DRUPAL.md) scope notes.
 
 ## Weekly ACR digest (optional Hugging Face)
 
@@ -259,9 +269,11 @@ an optional short executive summary from a pinned Hugging Face model.
   prompt version, input/output hashes and status.
 - `reports/weekly/index.md` — trend table across weeks.
 
-The facts are deterministic. The model writes only the executive summary;
-output is validated against the facts and falls back to the deterministic digest
-if it is rejected or the provider fails. The digest is not an ACR result.
+The facts are deterministic. The model receives only issues with new activity
+(plus new/no-longer-active and aggregate context), writes only the executive
+summary, and is skipped when nothing changed. Output is validated against the
+facts and falls back to the deterministic digest if rejected or the provider
+fails. The digest is not an ACR result.
 
 Setup: add `HF_TOKEN` as a repository Actions secret and `HF_MODEL`,
 `HF_PROVIDER`, optional `HF_ENDPOINT`/`HF_MODEL_REVISION` as repository Actions
@@ -395,6 +407,9 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [OpenACR export](docs/OPENACR-EXPORT.md)
 - [Hugging Face weekly summary](docs/HF-WEEKLY-SUMMARY.md)
 - [ACR narrative](docs/ACR-NARRATIVE.md)
+- [Drupal ACR template](templates/drupal-acr-template.md)
+- [Drupal ecosystem AI/ACR context](context/README.md)
+- [Drupal Core context notes](DRUPAL.md)
 - [ATAG 2.0 authoring evidence](docs/ATAG-EVIDENCE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Deferred sources](docs/FUTURE-SOURCES.md)

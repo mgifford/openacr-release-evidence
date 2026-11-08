@@ -122,12 +122,13 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 101 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 117 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
   placeholder guards, the worksheet, OpenACR schema/catalog validation, active
-  pagination/inventory, ACR narrative rendering and weekly summary validation.
+  pagination/inventory, ACR narrative rendering, component scope, authoring/web
+  surface classification, the Drupal ACR template and weekly summary validation.
 - Report rendered with axe-core: **0 violations** at 1280 px; `scrollWidth` 320
   at a 320 px viewport; all internal anchors resolve; the skip link focuses
   `MAIN`; `<details>` toggles by keyboard; no JavaScript is required. The ATAG
@@ -217,6 +218,29 @@ After the first audit and report:
   retries with backoff, a 45-second timeout, a page-level retry and a short
   inter-page delay. Incomplete discovery now raises instead of publishing a
   partial queue as a complete snapshot.
+- **Static evidence site usability:** added a no-script release finder and
+  release cards, a separate complete matrix page, report utility links,
+  section navigation, at-a-glance metrics, a WCAG criterion index, a 428-row
+  issue index and ACR breadcrumb/section navigation. Preservation tests cover
+  the 5 targets, 428 issues, 30 full/398 inventory records and all downloads.
+  axe-core reports 0 violations on the tested pages and 320 px has no page
+  overflow. Issue-level search/filtering remains deferred because the Pages
+  workflow rejects client-side scripts.
+- **ACR component scope:** the ACR narrative now reports the four Section 508
+  components. Web and Authoring Tool are proposed Partially Supports;
+  Electronic Documents and Software are proposed Not Applicable. Proposed labels
+  are clearly marked and every criterion remains Not Evaluated. Issues are
+  classified authoring vs web from `/admin` and login/reproduction cues, with
+  the basis recorded.
+- **Drupal ACR template:** added `templates/drupal-acr-template.md` with the four
+  components, explanation requirements, `/admin`/login guidance and the
+  1.2.4/1.2.5 core-video scope notes.
+- **Incremental issue cache:** the committed normalized collection is reused
+  across weekly runs. Discovery stops at the previous changed high-water mark;
+  unchanged issues are retained without CLI/MR calls, changed nodes are
+  refreshed, and inactive nodes are removed. A manifest mismatch forces a full
+  discovery. This lowers API pressure and avoids re-fetching unchanged comments
+  and merge requests.
 - **Weekly ACR digest:** `weekly-summary` compares the current active
   collection with the previous snapshot, writes immutable facts/Markdown/
   provenance files under `reports/weekly/`, and optionally asks a pinned

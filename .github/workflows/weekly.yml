@@ -53,6 +53,7 @@ jobs:
           acr-evidence collect \
             --manifest config/drupal-core-11.4.12.json \
             --output reports/collection.json \
+            --previous-collection reports/collection.json \
             --raw-dir private-evidence/raw \
             --cache-dir .cache/acr-evidence
       - name: Collect ATAG 2.0 authoring evidence
@@ -92,6 +93,7 @@ jobs:
             --previous-collection /tmp/previous-reports/collection.json \
             --reports reports \
             --previous-reports /tmp/previous-reports \
+            --context context/DRUPAL.md \
             --output reports/weekly \
             --provider "$PROVIDER" \
             --model "${HF_MODEL:-}" \

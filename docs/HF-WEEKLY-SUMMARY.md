@@ -24,6 +24,56 @@ reports/weekly/index.md
 The digest is **not** an ACR and does not modify `openacr.yaml`, `acr.html` or
 `acr.md`.
 
+## Project context for the model
+
+The weekly command accepts `--context`, defaulting to
+[`context/DRUPAL.md`](../context/DRUPAL.md). That human-maintained file tells the
+model how to describe Drupal (web vs authoring, component scope, issue
+references, video limits and ACR template). It is scope guidance, not evidence.
+
+Use a different context file for Drupal CMS, LocalGov Drupal or CKEditor:
+
+```sh
+--context context/DRUPAL-CMS.md
+--context context/LOCALGOV.md
+--context context/CKEDITOR.md
+```
+
+Context changes are recorded as `context_sha256` in the provenance file.
+
+## Only issues with new activity
+
+The weekly digest does not ask the model to summarize the whole 428-issue queue.
+It compares the current collection with the previous snapshot and builds an
+`activity.changed` list.
+
+Activity signals include:
+
+- the issue's `updated_at`/`changed` timestamp;
+- status changes, including a return to an active status;
+- new or changed comments (where comments were collected);
+- new or changed merge requests, including state or head changes;
+- description, title, component, version or criterion-tag changes;
+- a change from metadata-only inventory to detailed evidence.
+
+Newly active issues are included. Issues that left the active list are listed as
+**no longer active**, not fixed.
+
+If no issue has new activity, the model is **not called**. The digest records
+`status: skipped` and still writes the deterministic snapshot.
+
+### Fixed and reopened issues
+
+Snapshots can miss a close/reopen cycle that happens between weekly runs. If an
+issue was closed at the previous snapshot, it is absent from that active
+collection; when it returns, the digest reports it as newly active. If it was
+active at both snapshots but was closed and reopened in between, the changed
+timestamp, new comments or MR changes will usually show activity, but the digest
+does not claim it was reopened unless the evidence says so.
+
+Inventory-only issues expose the changed timestamp and status but not their full
+comments/MRs; code-only activity without an issue update may not be detected.
+
 ## Hugging Face setup
 
 ### 1. Choose a model and route

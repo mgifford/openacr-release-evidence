@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Pre-release beta. Default Admin is the default and admin theme; Claro and Olivero are no longer core themes. Not a supported release."
   },
-  "generated_at": "2026-11-07T23:14:40Z",
+  "generated_at": "2026-11-08T11:01:46Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -237,13 +237,13 @@
       ],
       "since": "2026-04-17T16:29:18-05:00",
       "commits": 1015,
-      "retrieved_at": "2026-11-07T18:58:32+00:00"
+      "retrieved_at": "2026-11-08T10:25:53+00:00"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/12.0.0-beta2",
-    "commit_index": "2026-11-07T18:58:32+00:00"
+    "commit_index": "2026-11-08T10:25:53+00:00"
   },
   "manifest_digest": "9347808a8e34d6b2e00b13006344cd0bc0be6166859870f372b154429b5e94c9",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -21739,6 +21739,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -21787,6 +21791,10 @@
         "tag_basis": [
           "atag"
         ]
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -21837,6 +21845,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -21883,6 +21895,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -21931,6 +21947,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -21975,6 +21995,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22021,6 +22045,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22066,6 +22094,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22110,6 +22142,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22158,6 +22194,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22202,6 +22242,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22250,6 +22294,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22294,6 +22342,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22346,6 +22398,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22391,6 +22447,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22435,6 +22495,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22483,6 +22547,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22527,6 +22595,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22575,6 +22647,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22620,6 +22696,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22664,6 +22744,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22712,6 +22796,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22758,6 +22846,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22806,6 +22898,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22850,6 +22946,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -22898,6 +22998,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22945,6 +23049,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -22989,6 +23097,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23037,6 +23149,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23081,6 +23197,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23131,6 +23251,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23180,6 +23304,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23226,6 +23354,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -23335,6 +23467,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23380,6 +23516,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23424,6 +23564,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -23503,6 +23647,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23550,6 +23698,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23594,6 +23746,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23646,6 +23802,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23694,6 +23854,10 @@
         "tag_basis": [
           "atag"
         ]
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23744,6 +23908,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23793,6 +23961,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23840,6 +24012,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23885,6 +24061,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -23929,6 +24109,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -23977,6 +24161,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24021,6 +24209,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24069,6 +24261,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24116,6 +24312,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24160,6 +24360,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24210,6 +24414,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24254,6 +24462,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24304,6 +24516,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24350,6 +24566,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24398,6 +24618,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24442,6 +24666,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24490,6 +24718,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24536,6 +24768,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24584,6 +24820,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24631,6 +24871,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24683,6 +24927,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24730,6 +24978,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24774,6 +25026,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24827,6 +25083,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24873,6 +25133,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -24924,6 +25188,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -24968,6 +25236,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25016,6 +25288,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25062,6 +25338,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25110,6 +25390,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25154,6 +25438,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25202,6 +25490,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25249,6 +25541,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25295,6 +25591,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -25357,6 +25657,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25404,6 +25708,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25450,6 +25758,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25499,6 +25811,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25543,6 +25859,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25591,6 +25911,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25638,6 +25962,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25682,6 +26010,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25728,6 +26060,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25773,6 +26109,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25817,6 +26157,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25868,6 +26212,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -25914,6 +26262,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25962,6 +26314,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26007,6 +26363,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26051,6 +26411,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26101,6 +26465,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26145,6 +26513,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26191,6 +26563,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26236,6 +26612,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26280,6 +26660,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26328,6 +26712,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26372,6 +26760,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26420,6 +26812,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26466,6 +26862,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26514,6 +26914,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26561,6 +26965,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -26640,6 +27048,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26686,6 +27098,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26735,6 +27151,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26779,6 +27199,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26827,6 +27251,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -26871,6 +27299,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26918,6 +27350,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26968,6 +27404,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27015,6 +27455,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27060,6 +27504,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27104,6 +27552,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27152,6 +27604,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27199,6 +27655,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27243,6 +27703,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27290,6 +27754,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -27382,6 +27850,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27429,6 +27901,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27473,6 +27949,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27521,6 +28001,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27566,6 +28050,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27610,6 +28098,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27658,6 +28150,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27704,6 +28200,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27752,6 +28252,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27798,6 +28302,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27846,6 +28354,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27892,6 +28404,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -27940,6 +28456,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -27986,6 +28506,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -28048,6 +28572,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28092,6 +28620,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28139,6 +28671,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28188,6 +28724,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28232,6 +28772,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28279,6 +28823,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -28358,6 +28906,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28404,6 +28956,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28456,6 +29012,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28500,6 +29060,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28548,6 +29112,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28595,6 +29163,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28639,6 +29211,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28685,6 +29261,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28729,6 +29309,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28777,6 +29361,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28824,6 +29412,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28868,6 +29460,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28916,6 +29512,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -28960,6 +29560,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29008,6 +29612,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29052,6 +29660,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29098,6 +29710,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29143,6 +29759,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29187,6 +29807,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29234,6 +29858,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29283,6 +29911,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29329,6 +29961,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29377,6 +30013,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29423,6 +30063,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29471,6 +30115,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29517,6 +30165,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29567,6 +30219,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29611,6 +30267,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29659,6 +30319,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29704,6 +30368,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29748,6 +30416,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29796,6 +30468,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29841,6 +30517,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29885,6 +30565,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29933,6 +30617,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -29977,6 +30665,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30024,6 +30716,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30073,6 +30769,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30117,6 +30817,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30163,6 +30867,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "likely-affected",
       "basis": "tracker-report",
       "reason": "An open accessibility report exists and no fix commit was found in tag 12.0.0-beta2. This is not a reproduction result; the barrier likely affects the target and requires review.",
@@ -30207,6 +30915,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -30276,6 +30988,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30323,6 +31039,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30367,6 +31087,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30417,6 +31141,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30464,6 +31192,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30508,6 +31240,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30556,6 +31292,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30600,6 +31340,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30646,6 +31390,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30691,6 +31439,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30735,6 +31487,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30783,6 +31539,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30829,6 +31589,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30877,6 +31641,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -30921,6 +31689,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30969,6 +31741,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31015,6 +31791,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31063,6 +31843,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31108,6 +31892,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31152,6 +31940,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31200,6 +31992,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31246,6 +32042,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31299,6 +32099,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31348,6 +32152,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31392,6 +32200,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31438,6 +32250,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31482,6 +32298,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31528,6 +32348,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31572,6 +32396,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31620,6 +32448,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31666,6 +32498,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31714,6 +32550,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31758,6 +32598,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31804,6 +32648,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31848,6 +32696,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31896,6 +32748,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -31940,6 +32796,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31986,6 +32846,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32030,6 +32894,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32078,6 +32946,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32122,6 +32994,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32168,6 +33044,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32212,6 +33092,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32258,6 +33142,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32302,6 +33190,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32348,6 +33240,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32392,6 +33288,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32440,6 +33340,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32485,6 +33389,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32529,6 +33437,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32577,6 +33489,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32621,6 +33537,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32667,6 +33587,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32711,6 +33635,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32757,6 +33685,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32801,6 +33733,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32847,6 +33783,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32891,6 +33831,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32939,6 +33883,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -32985,6 +33933,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33037,6 +33989,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33086,6 +34042,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33131,6 +34091,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33175,6 +34139,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33223,6 +34191,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33269,6 +34241,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33320,6 +34296,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33370,6 +34350,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33417,6 +34401,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33462,6 +34450,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33506,6 +34498,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33553,6 +34549,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33605,6 +34605,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33651,6 +34655,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33699,6 +34707,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33743,6 +34755,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33789,6 +34805,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33833,6 +34853,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33881,6 +34905,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -33927,6 +34955,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33975,6 +35007,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34021,6 +35057,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34072,6 +35112,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34119,6 +35163,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34165,6 +35213,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34214,6 +35266,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34258,6 +35314,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34310,6 +35370,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34356,6 +35420,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34404,6 +35472,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34450,6 +35522,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34498,6 +35574,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34545,6 +35625,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34589,6 +35673,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34637,6 +35725,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34684,6 +35776,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34728,6 +35824,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34774,6 +35874,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34819,6 +35923,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34863,6 +35971,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -34942,6 +36054,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -34988,6 +36104,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35036,6 +36156,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -35098,6 +36222,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35144,6 +36272,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35192,6 +36324,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35239,6 +36375,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35285,6 +36425,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35334,6 +36478,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35378,6 +36526,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35424,6 +36576,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35468,6 +36624,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35514,6 +36674,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35558,6 +36722,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35604,6 +36772,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35648,6 +36820,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35696,6 +36872,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35743,6 +36923,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35787,6 +36971,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35833,6 +37021,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35877,6 +37069,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35923,6 +37119,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -35967,6 +37167,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36013,6 +37217,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36057,6 +37265,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36103,6 +37315,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36147,6 +37363,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36193,6 +37413,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36237,6 +37461,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36286,6 +37514,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36333,6 +37565,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36378,6 +37614,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36422,6 +37662,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36470,6 +37714,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36514,6 +37762,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36562,6 +37814,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36607,6 +37863,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36651,6 +37911,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36699,6 +37963,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -36776,6 +38044,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36820,6 +38092,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36866,6 +38142,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -36910,6 +38190,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36956,6 +38240,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37000,6 +38288,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37046,6 +38338,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37090,6 +38386,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37137,6 +38437,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37186,6 +38490,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37234,6 +38542,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37278,6 +38590,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37324,6 +38640,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37368,6 +38688,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -37445,6 +38769,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37489,6 +38817,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -37554,6 +38886,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37602,6 +38938,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37646,6 +38986,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37692,6 +39036,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37737,6 +39085,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37781,6 +39133,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37829,6 +39185,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37876,6 +39236,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37921,6 +39285,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -37965,6 +39333,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38013,6 +39385,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38058,6 +39434,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38102,6 +39482,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38151,6 +39535,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -38228,6 +39616,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38275,6 +39667,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38319,6 +39715,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38365,6 +39765,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38409,6 +39813,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38455,6 +39863,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38500,6 +39912,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38544,6 +39960,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38592,6 +40012,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38638,6 +40062,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38686,6 +40114,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38730,6 +40162,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38776,6 +40212,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38820,6 +40260,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38866,6 +40310,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -38910,6 +40358,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38956,6 +40408,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39001,6 +40457,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39045,6 +40505,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39107,6 +40571,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39151,6 +40619,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39197,6 +40669,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39241,6 +40717,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39287,6 +40767,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39332,6 +40816,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39376,6 +40864,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39424,6 +40916,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39471,6 +40967,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39517,6 +41017,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39579,6 +41083,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39623,6 +41131,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39687,6 +41199,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39731,6 +41247,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39779,6 +41299,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39825,6 +41349,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39889,6 +41417,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -39935,6 +41467,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39983,6 +41519,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40030,6 +41570,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40074,6 +41618,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40122,6 +41670,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40166,6 +41718,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40212,6 +41768,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40256,6 +41816,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40302,6 +41866,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40346,6 +41914,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -40408,6 +41980,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40452,6 +42028,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40498,6 +42078,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40542,6 +42126,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40589,6 +42177,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -40651,6 +42243,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "likely-affected",
       "basis": "tracker-report",
       "reason": "An open accessibility report exists and no fix commit was found in tag 12.0.0-beta2. This is not a reproduction result; the barrier likely affects the target and requires review.",
@@ -40711,6 +42307,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -40773,6 +42373,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40818,6 +42422,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40862,6 +42470,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40910,6 +42522,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -40954,6 +42570,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41000,6 +42620,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41044,6 +42668,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41106,6 +42734,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "likely-affected",
       "basis": "tracker-report",
       "reason": "An open accessibility report exists and no fix commit was found in tag 12.0.0-beta2. This is not a reproduction result; the barrier likely affects the target and requires review.",
@@ -41166,6 +42798,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41243,6 +42879,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41287,6 +42927,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41335,6 +42979,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41380,6 +43028,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41424,6 +43076,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "report-after-release",
@@ -41486,6 +43142,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41532,6 +43192,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41580,6 +43244,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41624,6 +43292,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "report-after-release",
@@ -41688,6 +43360,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "applicability": "unknown",
       "basis": "report-after-release",
       "reason": "The issue was reported after the target date (2026-10-14T16:29:18.000-05:00) and no fix was found in tag 12.0.0-beta2. It may describe a later regression or a pre-existing barrier; reproduce on the target before assigning applicability.",
@@ -41750,6 +43426,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "report-after-release",
@@ -41814,6 +43494,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41860,6 +43544,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41908,6 +43596,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -41955,6 +43647,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42007,6 +43703,10 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -42055,6 +43755,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -42099,6 +43803,10 @@
         "basis": "none",
         "review_status": "not-authoring",
         "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42147,6 +43855,10 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "applicability": "unknown",
       "basis": "inventory-only",
       "reason": "This active issue is included as a complete inventory record for tag 12.0.0-beta2, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
@@ -42162,5 +43874,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "ea02ef1a90c69be3a7585589b2a396e2e74097a3c884d97364380d51b4f8e7dd"
+  "evidence_digest": "2d637e27a8a35c801a159a60f39111a1700b22a0cc26091a5d547c6de9d43a0e"
 }

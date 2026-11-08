@@ -101,6 +101,7 @@ def collect_issues(
     cli=None,
     rest=None,
     now=None,
+    previous_collection=None,
 ):
     """Collect, normalize and write a collection artifact.
 
@@ -127,6 +128,23 @@ def collect_issues(
     nodes = {}
     discovered = 0
     errors = []
+
+    # Reuse the committed normalized collection as an issue cache. Discovery is
+    # incremental: fetch pages sorted by changed until the previous high-water
+    # mark is reached, then retain unchanged cached issues.
+    previous_artifact = _read_json(previous_collection) if previous_collection else None
+    cached_issues = {}
+    last_changed = None
+    if previous_artifact and previous_artifact.get("manifest_digest") == sha256_json(manifest):
+        for issue in previous_artifact.get("issues") or []:
+            source_id = str(issue.get("source_id") or "")
+            if source_id:
+                cached_issues[source_id] = issue
+        moments = [_parse_time((issue.get("updated_at") or "")) for issue in cached_issues.values()]
+        moments = [moment for moment in moments if moment]
+        if moments:
+            last_changed = int(max(moments).timestamp())
+    seen_changed = set()
 
     # Discovery: explicit IDs are preferred for a reproducible sample. Otherwise
     # page the newest-changed issues matching the configured filter.
@@ -172,14 +190,21 @@ def collect_issues(
             if not batch:
                 break
             discovered += len(batch)
+            reached_old = False
             for node in batch:
+                nid = str(node.get("nid"))
+                changed = int(node.get("changed") or 0)
+                if last_changed and changed < last_changed - 3600:
+                    reached_old = True
+                    break
+                seen_changed.add(nid)
                 code = node.get("field_issue_status")
                 if statuses and not is_acr_review_status(code):
                     continue
-                nodes[str(node.get("nid"))] = node
+                nodes[nid] = node
                 if len(nodes) >= max_issues:
                     break
-            if len(batch) < 50:
+            if reached_old or len(batch) < 50:
                 break
             page += 1
             time.sleep(0.4)
@@ -209,6 +234,12 @@ def collect_issues(
     cached_count = 0
     fetched_count = 0
     inventory_count = 0
+    reused_count = 0
+    for nid, issue in cached_issues.items():
+        if nid in seen_changed:
+            continue
+        normalized.append(issue)
+        reused_count += 1
     for nid, node in list(nodes.items())[:max_issues]:
         full_detail = nid in detail
         cache_file = cache_root / f"{nid}.json"
@@ -322,10 +353,11 @@ def collect_issues(
     retrieved_times = [issue.get("provenance", {}).get("retrieved_at") for issue in normalized]
     retrieved_times = [value for value in retrieved_times if value]
     summary = {
-        "requested": len(nodes),
+        "requested": len(nodes) + reused_count,
         "retrieved_at": max(retrieved_times) if retrieved_times else now.isoformat(timespec="seconds").replace("+00:00", "Z"),
         "collected": len(normalized),
         "cached": cached_count,
+        "reused": reused_count,
         "fetched": fetched_count,
         "failed": len([error for error in errors if error.get("stage") != "discovery"]),
         "with_merge_requests": with_mrs,

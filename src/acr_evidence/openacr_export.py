@@ -84,26 +84,39 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
     report_date = generated[:10] if len(generated) >= 10 else "unknown"
     description = installation.get("configuration") or "Drupal Core accessibility evidence target."
     chapters = {}
+    component_names = ("web", "electronic-docs", "software", "authoring-tool")
+    wcag_chapters = {"success_criteria_level_a", "success_criteria_level_aa", "success_criteria_level_aaa"}
     for chapter in catalog.get("chapters") or []:
+        criteria = []
+        for criterion in chapter.get("criteria") or []:
+            item = {"num": criterion["id"]}
+            if chapter["id"] in wcag_chapters:
+                # Four Section 508 components, with no adherence values yet.
+                item["components"] = [{"name": name} for name in component_names]
+            else:
+                item["components"] = [{"name": "none"}]
+            criteria.append(item)
         chapters[chapter["id"]] = {
             "notes": (
                 "DRAFT: no conformance values are populated. Evidence report: index.html. "
                 "A reviewer must assess every criterion in this chapter and select the applicable "
                 "components and adherence levels."
             ),
-            "criteria": [{"num": criterion["id"]} for criterion in chapter.get("criteria") or []],
+            "criteria": criteria,
         }
     notes = (
         f"DRAFT OpenACR skeleton for {product} {release} ({target.get('ref_type') or 'tag'} "
         f"{target.get('ref') or 'unknown'}). Evidence report: index.html. Machine-readable "
         f"evidence: evidence.json. Evidence digest: {analysis.get('evidence_digest')}. "
+        "Component scope: Web and Authoring Tool are proposed Partially Supports; Electronic Documents and "
+        "Software are proposed Not Applicable. These are proposed component labels only. "
         "Evidence scope: active/review-relevant issues only (Active, Needs review, Needs work, RTBC, Patch); "
         "fixed and closed issues are excluded. Some active issues are metadata-only inventory records; complete "
         "comments/merge-request evidence was collected only for a review-priority subset. "
         "No WCAG conformance values are populated. The author is a placeholder; a human reviewer "
         "must replace it, assess every criterion, select components and adherence levels, and run "
         "`acr-evidence openacr-validate --file openacr.yaml --strict` before publishing. "
-        "An ACR narrative is at acr.html; it assigns no ACR result and marks the evaluation Not Evaluated. "
+        "An ACR narrative is at acr.html; it assigns no per-criterion ACR result and marks the evaluation Not Evaluated. "
         "ATAG 2.0 authoring evidence is tracked separately at ../drupal-core-atag/index.html; "
         "this OpenACR does not populate ATAG criteria or the authoring-tool component. "
         "This file has not been round-tripped through the Civicactions/GSA ACR editor."
@@ -137,6 +150,28 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "repository": "https://github.com/mgifford/openacr-release-evidence",
         "feedback": "https://github.com/mgifford/openacr-release-evidence/issues",
         "catalog": catalog_name,
+        "component_scope": {
+            "web": {
+                "proposed_result": "partially-supports",
+                "review_status": "proposed",
+                "notes": "Front-end evidence only; a reviewer must confirm the result and explanation.",
+            },
+            "electronic-docs": {
+                "proposed_result": "not-applicable",
+                "review_status": "proposed",
+                "notes": "Drupal Core is a web CMS, not a standalone electronic-document product.",
+            },
+            "software": {
+                "proposed_result": "not-applicable",
+                "review_status": "proposed",
+                "notes": "Drupal Core is web software; no separate packaged/non-web software product is in scope.",
+            },
+            "authoring-tool": {
+                "proposed_result": "partially-supports",
+                "review_status": "proposed",
+                "notes": "Authoring/admin UI evidence; /admin, Drupal /user account paths and login/reproduction cues; reviewer must confirm.",
+            },
+        },
         "chapters": chapters,
         "draft": True,
         "target": {

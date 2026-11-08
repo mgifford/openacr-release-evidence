@@ -52,7 +52,28 @@ class WeeklySummaryTests(unittest.TestCase):
         self.assertEqual(1, facts["status_change_count"])
         self.assertEqual(1, facts["new_rtbc_count"])
         self.assertEqual("drupal:4", facts["no_longer_active"][0]["id"])
+        self.assertEqual(2, facts["activity"]["changed_count"])
+        self.assertEqual(1, facts["activity"]["unchanged_count"])
+        changed_ids = {item["id"] for item in facts["activity"]["changed"]}
+        self.assertEqual({"drupal:2", "drupal:3"}, changed_ids)
         self.assertNotIn("fixed", json.dumps(facts["no_longer_active"]).casefold())
+
+
+    def test_activity_detects_new_comments_and_merge_requests(self):
+        current_issue = issue(1, "Active", 1)
+        current_issue["comments"] = [{"id": "c1", "content_hash": "new"}]
+        current_issue["merge_requests"] = [{"iid": 9, "state": "opened", "head_sha": "abc", "updated_at": "2026-11-07T00:00:00Z"}]
+        previous_issue = issue(1, "Active", 1)
+        previous_issue["comments"] = []
+        previous_issue["merge_requests"] = [{"iid": 9, "state": "opened", "head_sha": "old", "updated_at": "2026-10-31T00:00:00Z"}]
+        facts = build_facts(
+            collection([current_issue]), collection([previous_issue]), None, None, "2026-11-07"
+        )
+        changed = facts["activity"]["changed"][0]
+        self.assertIn("new-comments", changed["change_reasons"])
+        self.assertIn("merge-request-activity", changed["change_reasons"])
+        self.assertEqual(1, changed["new_comments"])
+        self.assertEqual(1, changed["new_merge_requests"])
 
     def test_generate_weekly_writes_archive_and_index_without_ai(self):
         current = collection([issue(1, "Active", 1, criteria=("1.1.1",))])
@@ -68,8 +89,11 @@ class WeeklySummaryTests(unittest.TestCase):
             (reports / "drupal-core-main" / "acr.md").write_text("# test\n")
             current_path = root / "current.json"
             current_path.write_text(json.dumps(current))
+            context_path = root / "context.md"
+            context_path.write_text("Drupal Core context for review.", encoding="utf-8")
             result = generate_weekly(
                 current_path, None, reports=reports, output=root / "weekly", date="2026-11-07",
+                context=context_path,
             )
             md = Path(result["markdown"]).read_text()
             facts = json.loads(Path(result["facts"]).read_text())
@@ -79,6 +103,9 @@ class WeeklySummaryTests(unittest.TestCase):
             self.assertIn("Baseline snapshot", md)
             self.assertEqual("disabled", result["status"])
             self.assertEqual("disabled", provenance["status"])
+            self.assertEqual("Drupal Core context for review.", Path(context_path).read_text().strip())
+            self.assertIn("context_sha256", provenance)
+            self.assertEqual(str(context_path), provenance["context_path"])
             self.assertNotIn("comments", facts)
             self.assertNotIn("description", facts)
 
@@ -99,7 +126,7 @@ class WeeklySummaryTests(unittest.TestCase):
             ok, _ = validate_ai_output(text, facts)
             self.assertFalse(ok, text)
 
-    def test_huggingface_client_is_called_with_facts_only(self):
+    def test_huggingface_client_is_called_with_facts_and_context(self):
         facts = {"counts": {"active": 1}, "new_active": [], "no_longer_active": [], "rtbc": [], "status_changes": []}
         seen = {}
 
@@ -122,21 +149,50 @@ class WeeklySummaryTests(unittest.TestCase):
             return Client()
 
         text = summarize_with_huggingface(
-            facts, model="org/model", provider="auto", token="test", client_factory=factory
+            facts, model="org/model", provider="auto", token="test", client_factory=factory,
+            context="Drupal Core is a web CMS with an authoring interface.",
         )
         self.assertEqual("One active issue. A human must review this digest.", text)
         self.assertEqual("org/model", seen["client"]["model"])
         self.assertIn("messages", seen)
+        self.assertIn("Drupal Core is a web CMS", seen["messages"][0]["content"])
         self.assertNotIn("Issue 1", seen["messages"][1]["content"])
 
-    def test_huggingface_output_falls_back_when_invalid(self):
+
+    def test_no_activity_skips_huggingface(self):
         current = collection([issue(1, "Active", 1)])
+        previous = collection([issue(1, "Active", 1)])
+        called = []
+
+        def factory(**kwargs):
+            called.append(True)
+            raise AssertionError("model should not be called")
+
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             current_path = root / "current.json"
+            previous_path = root / "previous.json"
             current_path.write_text(json.dumps(current))
+            previous_path.write_text(json.dumps(previous))
             result = generate_weekly(
-                current_path, None, reports=root / "reports", output=root / "weekly",
+                current_path, previous_path, reports=root / "reports", output=root / "weekly",
+                provider="huggingface", model="org/model", token="test",
+                date="2026-11-07", client_factory=factory,
+            )
+        self.assertEqual("skipped", result["status"])
+        self.assertEqual([], called)
+
+    def test_huggingface_output_falls_back_when_invalid(self):
+        current = collection([issue(1, "Active", 1)])
+        previous = collection([issue(2, "Active", 1)])
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            current_path = root / "current.json"
+            previous_path = root / "previous.json"
+            current_path.write_text(json.dumps(current))
+            previous_path.write_text(json.dumps(previous))
+            result = generate_weekly(
+                current_path, previous_path, reports=root / "reports", output=root / "weekly",
                 provider="huggingface", model="org/model", token="test",
                 date="2026-11-07", client_factory=lambda **kwargs: type("C", (), {
                     "chat_completion": lambda self, **kw: type("R", (), {
