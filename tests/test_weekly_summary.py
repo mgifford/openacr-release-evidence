@@ -52,7 +52,28 @@ class WeeklySummaryTests(unittest.TestCase):
         self.assertEqual(1, facts["status_change_count"])
         self.assertEqual(1, facts["new_rtbc_count"])
         self.assertEqual("drupal:4", facts["no_longer_active"][0]["id"])
+        self.assertEqual(2, facts["activity"]["changed_count"])
+        self.assertEqual(1, facts["activity"]["unchanged_count"])
+        changed_ids = {item["id"] for item in facts["activity"]["changed"]}
+        self.assertEqual({"drupal:2", "drupal:3"}, changed_ids)
         self.assertNotIn("fixed", json.dumps(facts["no_longer_active"]).casefold())
+
+
+    def test_activity_detects_new_comments_and_merge_requests(self):
+        current_issue = issue(1, "Active", 1)
+        current_issue["comments"] = [{"id": "c1", "content_hash": "new"}]
+        current_issue["merge_requests"] = [{"iid": 9, "state": "opened", "head_sha": "abc", "updated_at": "2026-11-07T00:00:00Z"}]
+        previous_issue = issue(1, "Active", 1)
+        previous_issue["comments"] = []
+        previous_issue["merge_requests"] = [{"iid": 9, "state": "opened", "head_sha": "old", "updated_at": "2026-10-31T00:00:00Z"}]
+        facts = build_facts(
+            collection([current_issue]), collection([previous_issue]), None, None, "2026-11-07"
+        )
+        changed = facts["activity"]["changed"][0]
+        self.assertIn("new-comments", changed["change_reasons"])
+        self.assertIn("merge-request-activity", changed["change_reasons"])
+        self.assertEqual(1, changed["new_comments"])
+        self.assertEqual(1, changed["new_merge_requests"])
 
     def test_generate_weekly_writes_archive_and_index_without_ai(self):
         current = collection([issue(1, "Active", 1, criteria=("1.1.1",))])
@@ -129,14 +150,41 @@ class WeeklySummaryTests(unittest.TestCase):
         self.assertIn("messages", seen)
         self.assertNotIn("Issue 1", seen["messages"][1]["content"])
 
-    def test_huggingface_output_falls_back_when_invalid(self):
+
+    def test_no_activity_skips_huggingface(self):
         current = collection([issue(1, "Active", 1)])
+        previous = collection([issue(1, "Active", 1)])
+        called = []
+
+        def factory(**kwargs):
+            called.append(True)
+            raise AssertionError("model should not be called")
+
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             current_path = root / "current.json"
+            previous_path = root / "previous.json"
             current_path.write_text(json.dumps(current))
+            previous_path.write_text(json.dumps(previous))
             result = generate_weekly(
-                current_path, None, reports=root / "reports", output=root / "weekly",
+                current_path, previous_path, reports=root / "reports", output=root / "weekly",
+                provider="huggingface", model="org/model", token="test",
+                date="2026-11-07", client_factory=factory,
+            )
+        self.assertEqual("skipped", result["status"])
+        self.assertEqual([], called)
+
+    def test_huggingface_output_falls_back_when_invalid(self):
+        current = collection([issue(1, "Active", 1)])
+        previous = collection([issue(2, "Active", 1)])
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            current_path = root / "current.json"
+            previous_path = root / "previous.json"
+            current_path.write_text(json.dumps(current))
+            previous_path.write_text(json.dumps(previous))
+            result = generate_weekly(
+                current_path, previous_path, reports=root / "reports", output=root / "weekly",
                 provider="huggingface", model="org/model", token="test",
                 date="2026-11-07", client_factory=lambda **kwargs: type("C", (), {
                     "chat_completion": lambda self, **kw: type("R", (), {

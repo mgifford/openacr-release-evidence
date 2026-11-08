@@ -138,7 +138,9 @@ prompt version/input hash/date, and evaluate against gold-standard Drupal issues
 before enabling it. No AI is used in the current evidence report.
 
 Weekly AI summaries are optional and off by default. The facts and diff are
-deterministic; AI may write only an executive summary. Validate every number and
-issue ID against the facts, reject conformance language, record provenance, and
-fall back to the deterministic digest on failure. Never let the summary modify
+deterministic; only changed/new/no-longer-active issues are sent to the model,
+and the model is skipped when there is no activity. AI may write only an
+executive summary. Validate every number and issue ID against the facts, reject
+conformance language, record provenance, and fall back to the deterministic
+digest on failure. Never let the summary modify
 OpenACR or the ACR narrative.

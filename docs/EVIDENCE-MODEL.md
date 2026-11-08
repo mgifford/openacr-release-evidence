@@ -265,7 +265,9 @@ repository currently contains a WCAG conformance decision.
 `weekly-summary` compares the current active collection with the previous
 snapshot and writes immutable `reports/weekly/<date>.facts.json`,
 `<date>.md` and `<date>.provenance.json`, plus an `index.md` trend table. Facts are
-deterministic. A Hugging Face model may write only the executive summary; the
-output is validated against the facts and falls back to the deterministic digest
-on rejection or failure. The digest is not an ACR and does not change
-`openacr.yaml` or the ACR narrative.
+deterministic. Activity is detected from `updated_at`, status, comments, merge
+requests, description/metadata and evidence-detail changes; only `activity.changed`
+issues, new/no-longer-active issues and aggregate context are sent to the model.
+If no issue changed, the model is not called. The output is validated against the
+facts and falls back to the deterministic digest on rejection or failure. The
+digest is not an ACR and does not change `openacr.yaml` or the ACR narrative.
