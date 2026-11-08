@@ -78,11 +78,11 @@ class CollectTests(unittest.TestCase):
     def data(self):
         return {nid: fixture(nid) for nid in ("3621109", "3618140")}
 
-    def run_collect(self, folder, *, cli=None, rest=None, include_ids=("3621109", "3618140"), now=None, max_issues=20, statuses=None, detail_limit=60):
+    def run_collect(self, folder, *, cli=None, rest=None, include_ids=("3621109", "3618140"), now=None, max_issues=20, statuses=None, detail_limit=60, previous_collection=None, output_name="collection.json"):
         data = self.data()
         cli = cli or FakeCli(data)
         rest = rest or FakeRest(data)
-        output = Path(folder) / "collection.json"
+        output = Path(folder) / output_name
         query = {
             "project": "drupal",
             "project_id": "3060",
@@ -99,6 +99,7 @@ class CollectTests(unittest.TestCase):
             cache_dir=Path(folder) / "cache",
             cli=cli, rest=rest,
             now=now or datetime.now(timezone.utc),
+            previous_collection=previous_collection,
         )
         return artifact, output, cli, rest
 
@@ -224,6 +225,32 @@ class CollectTests(unittest.TestCase):
                         folder, include_ids=(), max_issues=2, statuses=[1],
                         detail_limit=0, rest=FailingRest(self.data()),
                     )
+
+
+    def test_incremental_cache_reuses_unchanged_issues(self):
+        class NoChangesRest(FakeRest):
+            def find_issues(self, **kwargs):
+                self.discovery_calls.append(kwargs)
+                return []
+
+        with tempfile.TemporaryDirectory() as folder:
+            data = self.data()
+            for record in data.values():
+                record["node"]["field_issue_status"] = 1
+                record["issue"]["field_issue_status"] = 1
+            first, previous_path, first_cli, _ = self.run_collect(
+                folder, include_ids=("3621109", "3618140"), rest=FakeRest(data),
+                cli=FakeCli(data), output_name="previous.json",
+            )
+            second, _, second_cli, second_rest = self.run_collect(
+                folder, include_ids=(), statuses=[1], rest=NoChangesRest(data),
+                cli=FakeCli(data), previous_collection=previous_path,
+            )
+            self.assertEqual(2, second["summary"]["reused"])
+            self.assertEqual(2, second["summary"]["collected"])
+            self.assertEqual(0, second["summary"]["fetched"])
+            self.assertEqual(0, len(second_cli.issue_calls))
+            self.assertEqual(1, len(second_rest.discovery_calls))
 
     def test_issue_from_another_project_is_rejected(self):
         with tempfile.TemporaryDirectory() as folder:

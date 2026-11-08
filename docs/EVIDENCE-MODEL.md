@@ -144,6 +144,20 @@ parsed deterministically into `1.4.3`, `1.4.11` and `2.5.3`. There is no text
 mining and no model mapping here. A tag is a candidate relevance signal, not a
 conformance result.
 
+## Issue cache and incremental discovery
+
+`reports/collection.json` is both the public normalized evidence collection and
+the issue cache. The weekly collector passes the committed collection as
+`--previous-collection`. It pages the queue sorted by changed and stops once the
+previous high-water mark is reached, reusing unchanged issues. Changed nodes are
+re-fetched; nodes no longer in an active status are removed from the cache. The
+manifest digest must match or the cache is ignored and a full discovery runs.
+
+Inventory-only issues have only their node metadata/status to compare; full
+comments and MRs are collected for the detailed subset. A change to comments,
+MRs, status, description, metadata or evidence detail invalidates an issue's
+cached evidence when the changed node is fetched.
+
 ## ACR review scope and discovery
 
 ACR evidence includes only issues that still need review: Drupal status **1**
