@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Pre-release alpha. Claro is the admin theme at this tag; Default Admin is present but not default. Not a supported release."
   },
-  "generated_at": "2026-11-08T10:25:39Z",
+  "generated_at": "2026-11-08T10:58:22Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -237,13 +237,13 @@
       ],
       "since": "2026-03-06T20:18:51+01:00",
       "commits": 1135,
-      "retrieved_at": "2026-11-08T10:25:39Z"
+      "retrieved_at": "2026-11-08T10:25:39+00:00"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/12.0.0-alpha1",
-    "commit_index": "2026-11-08T10:25:39Z"
+    "commit_index": "2026-11-08T10:25:39+00:00"
   },
   "manifest_digest": "3087bbc4d975c12e7b73d025aa298152d1af3902da541355fbc3f2a46ab7798f",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -26968,7 +26968,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41134,7 +41134,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "user-path"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -43874,5 +43874,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "e3bd24720d3e058bd001592780a9346a53658f181500910fce745773a084fa4f"
+  "evidence_digest": "b19c1af3ab6450ed1d3585e0d9a2a0401c803bc10afd80b8367edb571af15878"
 }

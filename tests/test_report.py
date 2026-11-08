@@ -174,12 +174,17 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(1, collector.headings.count(1))
         for previous, current in zip(collector.headings, collector.headings[1:]):
             self.assertLessEqual(current - previous, 1, f"heading jump {previous}->{current}")
-        self.assertEqual(2, collector.tables)
-        self.assertEqual(2, collector.captions)
+        self.assertGreaterEqual(collector.tables, 4)
+        self.assertEqual(collector.tables, collector.captions)
         self.assertTrue(all(scope in {"col", "row"} for scope in collector.th_scopes if scope is not None))
         broken = [anchor for anchor in collector.anchors if anchor != "#" and anchor[1:] not in collector.ids]
         self.assertEqual([], broken)
         self.assertIn("page-header", html)
+        self.assertIn("report-actions", html)
+        self.assertIn("section-nav", html)
+        self.assertIn("criterion-index", html)
+        self.assertIn("issue-index", html)
+        self.assertIn("Complete assessment metadata", html)
 
     def test_outputs_are_written_and_digest_preserved(self):
         folder, artifact = self.render()
@@ -196,6 +201,8 @@ class ReportTests(unittest.TestCase):
         for finding in artifact["findings"]:
             self.assertIn(f'id="issue-', html)
         self.assertEqual(4, html.count("<article class=\"issue\""))
+        self.assertIn("Issue index", html)
+        self.assertIn("Criterion index", html)
 
 
 if __name__ == "__main__":

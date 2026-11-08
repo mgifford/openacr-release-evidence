@@ -132,7 +132,7 @@ merge their conclusions.
 
 The report is a preview artifact, not a publication authorization. The
 `pages.yml` workflow publishes an explicit allowlist to GitHub Pages: a landing
-page plus each report's `index.html`, `report.css`, `evidence.json`,
+page plus `matrix.html` and each report's `index.html`, `report.css`, `evidence.json`,
 `summary.json`, `acr.html`, `acr.md`, `openacr.yaml`, `openacr-validation.json`,
 and the ATAG `atag-report.json`/`atag-evidence.json`. Raw evidence and
 raw collection/analysis files are excluded, and

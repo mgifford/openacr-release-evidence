@@ -83,11 +83,12 @@ This writes:
 - `reports/<target>/summary.json`, `report.css`.
 - `reports/<target>/acr.html`, `acr.md` — ACR narrative draft.
 - `reports/<target>/openacr.yaml`, `openacr-validation.json` — validated OpenACR draft.
-- `reports/index.html` — landing page and cross-release matrix.
+- `reports/index.html` — landing page with release finder and matrix preview.
+- `reports/matrix.html` — complete cross-release applicability matrix.
 - `reports/weekly/` — weekly ACR digest archive (created by the weekly workflow).
 - `private-evidence/raw/` — raw upstream snapshots (gitignored, mode `0600`).
 
-The report set is about **16 MB**, down from about 50 MB. The full per-target
+The report set is about **17 MB**, down from about 50 MB. The full per-target
 `analysis.json` is no longer committed; the published `evidence.json` is compact,
 and the detailed comments remain in the HTML report and the private collection.
 
@@ -176,9 +177,12 @@ command is called. Raw output is private and never published.
 - GitHub Pages deployment workflow with an explicit, script-free publication allowlist.
 - Multi-target analysis for supported releases, pre-release tags and the `main` development branch.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
+- A no-script release finder, compact release cards, grouped downloads and a separate complete matrix page.
+- A report header with top supporting-output links, section navigation, at-a-glance evidence metrics, WCAG criterion index and 428-row issue index.
+- Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 115 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 117 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -192,7 +196,8 @@ command is called. Raw output is private and never published.
 - Reproduction testing against an installed release; screen-reader, keyboard,
   zoom and forced-colors testing of the assessed release.
 - Composer lockfile resolution for Drupal CMS and LocalGov, and their manifests.
-- AI-assisted summaries or mappings. No AI is used in the current report.
+- AI-assisted applicability or criterion mappings in the evidence report. No AI is
+  used there; the optional weekly digest is separate and validated.
 - Parent-linked contributed-project ACRs (Claro, Olivero, Drupal CMS, LocalGov
   Drupal); the parent field and design are present, but collection is not.
 - GitHub Issues, Jira or non-Drupal GitLab adapters.

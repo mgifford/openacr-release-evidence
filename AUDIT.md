@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 115 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 117 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -218,6 +218,14 @@ After the first audit and report:
   retries with backoff, a 45-second timeout, a page-level retry and a short
   inter-page delay. Incomplete discovery now raises instead of publishing a
   partial queue as a complete snapshot.
+- **Static evidence site usability:** added a no-script release finder and
+  release cards, a separate complete matrix page, report utility links,
+  section navigation, at-a-glance metrics, a WCAG criterion index, a 428-row
+  issue index and ACR breadcrumb/section navigation. Preservation tests cover
+  the 5 targets, 428 issues, 30 full/398 inventory records and all downloads.
+  axe-core reports 0 violations on the tested pages and 320 px has no page
+  overflow. Issue-level search/filtering remains deferred because the Pages
+  workflow rejects client-side scripts.
 - **ACR component scope:** the ACR narrative now reports the four Section 508
   components. Web and Authoring Tool are proposed Partially Supports;
   Electronic Documents and Software are proposed Not Applicable. Proposed labels

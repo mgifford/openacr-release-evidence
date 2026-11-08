@@ -7,6 +7,15 @@ SPEC = "https://www.w3.org/TR/WCAG22/"
 
 CRITERIA = {
     "1.1.1": ("Non-text Content", "A", "#non-text-content"),
+    "1.2.1": ("Audio-only and Video-only (Prerecorded)", "A", "#audio-only-and-video-only-prerecorded"),
+    "1.2.2": ("Captions (Prerecorded)", "A", "#captions-prerecorded"),
+    "1.2.3": ("Audio Description or Media Alternative (Prerecorded)", "A", "#audio-description-or-media-alternative-prerecorded"),
+    "1.2.4": ("Captions (Live)", "AA", "#captions-live"),
+    "1.2.5": ("Audio Description (Prerecorded)", "AA", "#audio-description-prerecorded"),
+    "1.2.6": ("Sign Language (Prerecorded)", "AAA", "#sign-language-prerecorded"),
+    "1.2.7": ("Extended Audio Description (Prerecorded)", "AAA", "#extended-audio-description-prerecorded"),
+    "1.2.8": ("Media Alternative (Prerecorded)", "AAA", "#media-alternative-prerecorded"),
+    "1.2.9": ("Audio-only (Live)", "AAA", "#audio-only-live"),
     "1.3.1": ("Info and Relationships", "A", "#info-and-relationships"),
     "1.3.2": ("Meaningful Sequence", "A", "#meaningful-sequence"),
     "1.3.3": ("Sensory Characteristics", "A", "#sensory-characteristics"),
@@ -48,12 +57,40 @@ CRITERIA = {
 }
 
 
+_CATALOG_INDEX = None
+
+
+def _catalog_index():
+    global _CATALOG_INDEX
+    if _CATALOG_INDEX is None:
+        _CATALOG_INDEX = {}
+        try:
+            from .openacr_export import load_catalog
+            levels = {
+                "success_criteria_level_a": "A",
+                "success_criteria_level_aa": "AA",
+                "success_criteria_level_aaa": "AAA",
+            }
+            for chapter in load_catalog().get("chapters") or []:
+                level = levels.get(chapter.get("id"), "unknown")
+                for item in chapter.get("criteria") or []:
+                    _CATALOG_INDEX[str(item.get("id"))] = (
+                        item.get("handle") or f"WCAG criterion {item.get('id')}",
+                        level,
+                        "#" + (item.get("alt_id") or ""),
+                    )
+        except (ImportError, OSError, ValueError):
+            _CATALOG_INDEX = {}
+    return _CATALOG_INDEX
+
+
 def criterion_info(criterion):
-    title, level, anchor = CRITERIA.get(
-        str(criterion), (f"WCAG criterion {criterion}", "unknown", "")
+    key = str(criterion)
+    title, level, anchor = CRITERIA.get(key) or _catalog_index().get(
+        key, (f"WCAG criterion {key}", "unknown", "")
     )
     return {
-        "id": str(criterion),
+        "id": key,
         "title": title,
         "level": level,
         "url": SPEC + anchor,

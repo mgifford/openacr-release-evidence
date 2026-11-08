@@ -306,7 +306,7 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     theme_text = ", ".join(f"{key}: {value}" for key, value in enabled_themes.items()) or "Not recorded"
     title = (
         f"{assessment.get('product', 'Product')} {target.get('release', assessment.get('release', ''))} "
-        "accessibility evidence — draft"
+        "accessibility evidence"
     )
     finding_groups = {}
     unmapped = []
@@ -352,6 +352,16 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         ("Findings needing verification", esc(summary.get("needs_verification", 0))),
     ]
 
+    target_id = target.get("assessment_id") or assessment.get("id")
+    support = target.get("support_status") or "unknown"
+    release = target.get("release") or assessment.get("release") or "Unknown release"
+    full_evidence = (collection.get("summary") or {}).get("detailed", "Not recorded")
+    inventory_evidence = (collection.get("summary") or {}).get("inventory", "Not recorded")
+    with_mrs = (collection.get("summary") or {}).get("with_merge_requests", "Not recorded")
+    by_app = summary.get("by_applicability") or {}
+    likely = by_app.get("likely-affected", 0)
+    unknown = by_app.get("unknown", 0)
+    needs = summary.get("needs_verification", 0)
     html = [
         "<!doctype html>",
         '<html lang="en">',
@@ -366,8 +376,19 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         "<body>",
         '<a class="skip" href="#main">Skip to main content</a>',
         '<header class="page-header">',
-        '<p class="eyebrow">OpenACR Release Evidence</p>',
+        '<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>'
+        '<li><a href="../">All release reports</a></li>'
+        f'<li><span aria-current="page">{esc(assessment.get("product", "Product"))} {esc(release)}</span></li>'
+        "</ol></nav>",
+        '<p class="eyebrow">OpenACR Release Evidence · release report</p>',
+        '<div class="page-title-row">',
         f"<h1>{esc(title)}</h1>",
+        '<div class="badges"><span class="badge badge-draft">Draft evidence</span>'
+        f'<span class="badge badge-{esc(_support_class(support))}">{esc(_support_label(support))}</span>'
+        f'<span class="badge">{esc(target.get("ref_type") or "tag")}</span></div>',
+        "</div>",
+        f'<p class="report-subtitle">{esc(assessment.get("product", "Product"))} <strong>{esc(release)}</strong> · '
+        f'{esc(target.get("release_line") or "unknown line")} · assessment <code>{esc(assessment.get("id"))}</code></p>',
         '<p class="status-banner"><strong>Draft evidence, not an Accessibility Conformance Report or certification.</strong> '
         "Issue counts, issue status and commit inclusion do not establish WCAG conformance. A human reviewer must verify every claim.</p>",
     ]
@@ -378,28 +399,54 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         f'Standards baseline: {esc(standard)} · Assessment <code>{esc(assessment.get("id"))}</code></p>'
         "</header>"
     )
-    html.append(
-        '<nav aria-label="On this page"><h2 class="visually-hidden">On this page</h2><ul>'
-        '<li><a href="#scope">Assessment scope</a></li>'
-        '<li><a href="#summary">Evidence summary</a></li>'
-        '<li><a href="#criteria">WCAG criterion evidence</a></li>'
-        '<li><a href="#issues">Issue evidence</a></li>'
-        '<li><a href="#gaps">Verification gaps</a></li>'
-        '<li><a href="#method">Method and limitations</a></li>'
-        '<li><a href="#provenance">Provenance</a></li>'
-        "</ul></nav>"
-    )
     html.append('<main id="main" tabindex="-1">')
+    html.append(
+        '<nav class="report-actions" aria-label="Supporting outputs">'
+        '<h2>Supporting outputs</h2>'
+        f'<ul><li><a href="./evidence.json">evidence.json</a></li>'
+        f'<li><a href="./summary.json">summary.json</a></li>'
+        f'<li><a href="./openacr.yaml">OpenACR draft YAML</a></li>'
+        f'<li><a href="./openacr-validation.json">validation result</a></li>'
+        f'<li><a href="./acr.html">ACR draft</a></li></ul>'
+        '<p class="meta">The ACR is a derived draft, not an approved conformance report.</p></nav>'
+    )
+    html.append(_section_nav([
+        ("scope", "Assessment scope"),
+        ("summary", "Evidence summary"),
+        ("criteria", "WCAG criterion evidence"),
+        ("issues", "Issue evidence"),
+        ("gaps", "Verification gaps"),
+        ("method", "Method and limitations"),
+        ("provenance", "Provenance"),
+    ]))
     html.append('<section id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Assessment scope</h2>')
     html.append('<p>This report describes one declared assessment target. It is not a statement about every Drupal installation, '
                 'configuration or release.</p>')
-    html.append(_facts(rows))
+    html.append(_facts([
+        ("Product", esc(assessment.get("product"))),
+        ("Release", esc(release)),
+        ("Support status", esc(_support_label(support))),
+        ("Assessment date", esc(display_date(analysis.get("generated_at")))),
+        ("Target commit", f'<code>{esc(target.get("tag_commit_short") or "Not resolved")}</code>'),
+        ("Evidence completeness", f'{esc(full_evidence)} full · {esc(inventory_evidence)} metadata-only'),
+        ("Assessment identifier", esc(assessment.get("id"))),
+    ]))
     if target.get("scope_note"):
         html.append(f'<p class="scope-note">{esc(target["scope_note"])}</p>')
+    html.append('<h3>Complete assessment metadata</h3>')
+    html.append(_facts(rows))
     html.append("</section>")
     html.append('<section id="summary" aria-labelledby="summary-heading"><h2 id="summary-heading">Evidence summary</h2>')
-    html.append('<p><strong>This is not an accessibility score.</strong> The table counts evidence states for the collected active issues. '
+    html.append('<p><strong>This is not an accessibility score.</strong> The counts describe evidence states for the collected active issues. '
                 'A low issue count does not mean the release is accessible; a high count does not prove a conformance failure.</p>')
+    html.append(_metric_grid([
+        ("Active findings", len(findings), "Collected active review-relevant issues represented as findings."),
+        ("Full evidence", full_evidence, "Issue, comments and every merge-request state were collected."),
+        ("Metadata-only", inventory_evidence, "Source, status, tags, component and version only."),
+        ("Likely affected", likely, "Report-based evidence that the issue may affect this release; not a reproduction."),
+        ("Unknown applicability", unknown, "Insufficient release-specific evidence to decide."),
+        ("Needing verification", needs, "Findings that still need reproduction, testing or independent review."),
+    ]))
     html.append(_summary_table(findings))
     html.append(_status_table(findings))
     html.append(
@@ -412,6 +459,7 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     html.append('<section id="criteria" aria-labelledby="criteria-heading"><h2 id="criteria-heading">WCAG criterion evidence</h2>')
     html.append('<p>Criteria are grouped from explicit Drupal.org tags such as <code>wcag143</code>. '
                 'Tags are candidate evidence, not conformance results. Issues without a criterion tag are listed separately.</p>')
+    html.append(_criterion_index(findings))
     for criterion in sorted(finding_groups):
         html.append(_criterion_section(criterion, finding_groups[criterion]))
     if unmapped:
@@ -430,11 +478,18 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     html.append('<p>Detailed issues retain their source URL, tracker status, observation time, candidate criteria, comments and '
                 'release-specific reasoning. Inventory records are compact metadata rows. Raw upstream responses are kept privately '
                 'and are not published here.</p>')
+    html.append(_issue_index(findings))
+    html.append('<h3 id="canonical-issues-heading">Canonical issue records</h3>')
+    html.append('<p class="meta">The full records follow, in issue-ID order. Each is the canonical target-specific evidence for its finding.</p>')
     for finding in sorted(findings, key=lambda item: item.get("issue_id") or ""):
         html.append(_issue_article(finding, issues.get(finding.get("issue_id"))))
     html.append("</section>")
     html.append('<section id="gaps" aria-labelledby="gaps-heading"><h2 id="gaps-heading">Verification gaps</h2>')
-    html.append('<p>These are the findings that need reproduction, testing or independent review before an ACR statement can rely on them.</p>')
+    html.append('<p>These are the findings that need reproduction, testing or independent review before an ACR statement can rely on them. '
+                'Missing evidence is not a failed test.</p>')
+    html.append(f'<p><strong>{esc(needs)} findings need verification.</strong> '
+                f'{esc(likely)} likely affected; {esc(unknown)} unknown; all require a human decision before a conformance term is used. '
+                'See the issue index for the source and evidence detail.</p>')
     html.append(_gaps(findings))
     html.append('<p>No issue in this report was reproduced against an installed Drupal 11.4.12 site in this phase. '
                 'No screen-reader, keyboard, zoom or forced-colors testing of the assessed release is claimed.</p>')
@@ -524,12 +579,257 @@ def _support_label(value):
     return SUPPORT_STATUS_LABELS.get(value, value or "Unknown")
 
 
+
+def _slug(value):
+    return "".join(ch if ch.isalnum() else "-" for ch in str(value).lower()).strip("-") or "value"
+
+
+def _support_class(value):
+    return {
+        "supported": "supported",
+        "pre-release": "pre-release",
+        "development": "development",
+    }.get(value or "", "unknown")
+
+
+def _artifact_links(target_id):
+    return (
+        '<ul class="artifact-links">'
+        '<li><span class="label">Downloads:</span></li>'
+        f'<li><a href="./{esc(target_id)}/evidence.json">evidence.json</a></li>'
+        f'<li><a href="./{esc(target_id)}/summary.json">summary.json</a></li>'
+        f'<li><a href="./{esc(target_id)}/openacr.yaml">OpenACR draft YAML</a></li>'
+        f'<li><a href="./{esc(target_id)}/openacr-validation.json">validation</a></li>'
+        f'<li><a href="./{esc(target_id)}/acr.html">ACR draft</a></li>'
+        "</ul>"
+    )
+
+
+def _target_card(analysis):
+    target = analysis.get("target") or {}
+    summary = analysis.get("summary") or {}
+    collection_summary = (analysis.get("collection") or {}).get("summary") or {}
+    target_id = target.get("assessment_id")
+    release = target.get("release") or target.get("ref") or "Unknown release"
+    support = target.get("support_status") or "unknown"
+    line = target.get("release_line") or "unknown"
+    counts = summary.get("by_applicability") or {}
+    full = collection_summary.get("detailed", "Not recorded")
+    inventory = collection_summary.get("inventory", "Not recorded")
+    with_mrs = collection_summary.get("with_merge_requests", "Not recorded")
+    ref_type = target.get("ref_type") or "tag"
+    fixed = summary.get("fix_included_in_target", summary.get("fix_included_in_release", 0))
+    return (
+        f'<li class="release-card" id="target-{esc(target_id)}" '
+        f'data-support="{esc(support)}" data-line="{esc(_slug(line))}">'
+        f'<h3><a href="./{esc(target_id)}/">{esc(target.get("product") or "Product")} {esc(release)}</a></h3>'
+        '<div class="badges">'
+        f'<span class="badge badge-{esc(_support_class(support))}">{esc(_support_label(support))}</span>'
+        f'<span class="badge">{esc(ref_type)}</span>'
+        f'<span class="badge">{esc(line)} line</span>'
+        "</div>"
+        '<dl class="release-meta">'
+        f'<div><dt>Exact version</dt><dd>{esc(release)}</dd></div>'
+        f'<div><dt>Release line</dt><dd>{esc(line)}</dd></div>'
+        f'<div><dt>Snapshot</dt><dd>{esc(display_date(analysis.get("generated_at")))}</dd></div>'
+        f'<div><dt>Findings represented</dt><dd>{esc(summary.get("findings", 0))}</dd></div>'
+        f'<div><dt>Likely affected</dt><dd>{esc(counts.get("likely-affected", 0))}</dd></div>'
+        f'<div><dt>Unknown applicability</dt><dd>{esc(counts.get("unknown", 0))}</dd></div>'
+        f'<div><dt>Full evidence</dt><dd>{esc(full)}</dd></div>'
+        f'<div><dt>Metadata-only</dt><dd>{esc(inventory)}</dd></div>'
+        f'<div><dt>Issues with merge requests</dt><dd>{esc(with_mrs)}</dd></div>'
+        "</dl>"
+        f'<p class="summary-line">{esc(summary.get("findings", 0))} findings · {esc(fixed)} with a fix in the target · '
+        f'{esc(counts.get("likely-affected", 0))} likely affected · {esc(counts.get("unknown", 0))} unknown. '
+        "Counts are evidence states, not an accessibility score.</p>"
+        '<p class="card-actions">'
+        f'<a class="primary-action" href="./{esc(target_id)}/">Open evidence report</a>'
+        f'<span class="meta">{esc(target.get("parent_project") or "Top-level product")}</span>'
+        "</p>"
+        f"{_artifact_links(target_id)}"
+        "</li>"
+    )
+
+
+def _release_finder(analyses):
+    lines = []
+    for analysis in analyses:
+        line = (analysis.get("target") or {}).get("release_line") or "unknown"
+        if line not in lines:
+            lines.append(line)
+    index = ['<nav aria-label="Release index"><h3>Release index</h3><ul class="release-index">']
+    for analysis in analyses:
+        target = analysis.get("target") or {}
+        target_id = target.get("assessment_id")
+        index.append(
+            f'<li><a href="#target-{esc(target_id)}">{esc(target.get("product") or "Product")} '
+            f'{esc(target.get("release") or target.get("ref"))}</a> '
+            f'<span class="meta">— {esc(target.get("release_line") or "unknown")} line, '
+            f'{esc(_support_label(target.get("support_status")))}</span></li>'
+        )
+    index.append("</ul></nav>")
+    filter_html = [
+        '<form class="filters" aria-describedby="filter-note">',
+        '<fieldset><legend>Support status</legend><div class="filter-options">',
+        '<label><input type="radio" name="status" id="filter-status-all" checked> All releases</label>',
+        '<label><input type="radio" name="status" id="filter-status-supported"> Supported release line</label>',
+        '<label><input type="radio" name="status" id="filter-status-pre-release"> Pre-release</label>',
+        '<label><input type="radio" name="status" id="filter-status-development"> Development branch</label>',
+        "</div></fieldset>",
+        '<fieldset><legend>Release line</legend><div class="filter-options">',
+        '<label><input type="radio" name="line" id="filter-line-all" checked> All lines</label>',
+    ]
+    for line in lines:
+        filter_html.append(
+            f'<label><input type="radio" name="line" id="filter-line-{esc(_slug(line))}"> {esc(line)}</label>'
+        )
+    filter_html.extend(["</div></fieldset></form>"])
+    css = []
+    for line in lines:
+        css.append(
+            f'body:has(#filter-line-{_slug(line)}:checked) '
+            f'.release-card:not([data-line="{_slug(line)}"]){{display:none}}'
+        )
+    return (
+        '<section class="finder" aria-labelledby="finder-heading">'
+        '<h3 id="finder-heading">Filter and jump to a release</h3>'
+        '<p>Choose a support status or release line, or use the release index. '
+        "The exact version is shown on every card and in the report title.</p>"
+        + "".join(index)
+        + "".join(filter_html)
+        + '<p class="filter-note" id="filter-note">Filters use CSS only and do not remove any release from the page. '
+        "If your browser does not support CSS filtering, all releases remain visible. "
+        "For exact-version search, use your browser's Find command (Ctrl/Cmd+F).</p>"
+        "</section>",
+        "".join(css),
+    )
+
+
+def _matrix_table(issue_ids, issue_titles, analyses, caption):
+    parts = ['<table class="matrix-table">', f"<caption>{esc(caption)}</caption>"]
+    parts.append("<thead><tr><th scope=\"col\">Issue</th>")
+    for analysis in analyses:
+        target = analysis["target"]
+        parts.append(
+            f'<th scope="col"><a href="./{esc(target.get("assessment_id"))}/">{esc(target.get("release"))}</a>'
+            f'<br><span class="meta">{esc(_support_label(target.get("support_status")))}</span></th>'
+        )
+    parts.append("</tr></thead><tbody>")
+    for issue_id in issue_ids:
+        anchor = anchor_for(issue_id)
+        first_id = analyses[0]["target"]["assessment_id"]
+        parts.append(f'<tr><th scope="row"><a href="./{esc(first_id)}/#{anchor}">{esc(issue_titles[issue_id])}</a></th>')
+        for analysis in analyses:
+            target = analysis["target"]
+            finding = next((item for item in analysis.get("findings") or [] if item["issue_id"] == issue_id), None)
+            if finding:
+                parts.append(
+                    f'<td><a href="./{esc(target["assessment_id"])}/#{anchor}">{esc(_short_state(finding["applicability"]))}</a></td>'
+                )
+            else:
+                parts.append('<td>Not collected</td>')
+        parts.append("</tr>")
+    parts.append("</tbody></table>")
+    return "".join(parts)
+
+
+def _criterion_index(findings):
+    groups = {}
+    for finding in findings:
+        for criterion in finding.get("wcag_candidates") or []:
+            groups.setdefault(criterion, []).append(finding)
+    parts = [
+        '<h3 id="criterion-index-heading">Criterion index</h3>',
+        '<p>Every WCAG criterion with an explicit issue tag, linked to its full evidence section. '
+        'Counts are issue tags, not conformance results.</p>',
+        '<div class="table-scroll" tabindex="0" role="region" aria-label="WCAG criterion index">',
+        '<table class="index-table">',
+        '<caption>WCAG criterion index: issues and evidence detail</caption>',
+        '<thead><tr><th scope="col">Criterion</th><th scope="col">Title</th><th scope="col">Issues</th>'
+        '<th scope="col">Full evidence</th><th scope="col">Metadata-only</th></tr></thead><tbody>',
+    ]
+    for criterion in sorted(groups):
+        info = criterion_info(criterion)
+        group = groups[criterion]
+        full = sum(1 for item in group if item.get("evidence_status") != "inventory")
+        inventory = len(group) - full
+        section_id = "sc-" + criterion.replace(".", "-")
+        parts.append(
+            f'<tr><th scope="row"><a href="#{section_id}">{esc(criterion)}</a></th>'
+            f'<td>{esc(info["title"])}</td><td>{len(group)}</td><td>{full}</td><td>{inventory}</td></tr>'
+        )
+    parts.extend(["</tbody></table></div>"])
+    return "".join(parts)
+
+
+def _issue_index(findings):
+    parts = [
+        '<h3 id="issue-index-heading">Issue index</h3>',
+        '<p>Compact scan of every finding. The complete evidence for each issue follows in the same order; '
+        'links go to its canonical anchor.</p>',
+        '<div class="table-scroll" tabindex="0" role="region" aria-label="Issue index. Scroll horizontally if needed.">',
+        '<table class="index-table issue-index">',
+        '<caption>Issue index: identity, component, criteria, status, applicability and evidence detail</caption>',
+        '<thead><tr><th scope="col">Issue</th><th scope="col">Component</th><th scope="col">WCAG criteria</th>'
+        '<th scope="col">Tracker status</th><th scope="col">Release applicability</th><th scope="col">Evidence</th>'
+        '<th scope="col">Merge requests</th></tr></thead><tbody>',
+    ]
+    for finding in sorted(findings, key=lambda item: item.get("issue_id") or ""):
+        anchor = anchor_for(finding["issue_id"])
+        criteria = ", ".join(finding.get("wcag_candidates") or []) or "Untagged"
+        evidence = "Metadata-only" if finding.get("evidence_status") == "inventory" else "Full"
+        mrs = len(finding.get("merge_requests") or [])
+        parts.append(
+            f'<tr><th scope="row"><a href="#{anchor}">{esc(finding["issue_id"])}</a><br>'
+            f'<span class="meta">{esc(finding.get("title") or "")}</span></th>'
+            f'<td>{esc(finding.get("component") or "Not recorded")}</td>'
+            f'<td>{esc(criteria)}</td>'
+            f'<td>{esc(finding.get("tracker_status_label") or "Unknown")}</td>'
+            f'<td>{esc(app_label(finding.get("applicability")))}</td>'
+            f'<td>{esc(evidence)}</td><td>{mrs}</td></tr>'
+        )
+    parts.append("</tbody></table></div>")
+    return "".join(parts)
+
+
+def _metric_grid(rows):
+    parts = ['<dl class="metric-grid">']
+    for label, value, note in rows:
+        parts.append(
+            f'<div><dt>{esc(label)}</dt><dd>{esc(value)}'
+            f'<span class="metric-note">{esc(note)}</span></dd></div>'
+        )
+    parts.append("</dl>")
+    return "".join(parts)
+
+
+def _section_nav(items):
+    return (
+        '<nav class="section-nav" aria-label="Report sections"><h2>On this page</h2><ol>'
+        + "".join(f'<li><a href="#{esc(anchor)}">{esc(label)}</a></li>' for anchor, label in items)
+        + "</ol></nav>"
+    )
+
+
+def _report_actions(target_id):
+    return (
+        '<section class="report-actions" aria-labelledby="report-actions-heading">'
+        '<h2 id="report-actions-heading">Supporting outputs</h2><ul>'
+        f'<li><a href="./{esc(target_id)}/evidence.json">evidence.json</a></li>'
+        f'<li><a href="./{esc(target_id)}/summary.json">summary.json</a></li>'
+        f'<li><a href="./{esc(target_id)}/openacr.yaml">OpenACR draft YAML</a></li>'
+        f'<li><a href="./{esc(target_id)}/openacr-validation.json">validation result</a></li>'
+        f'<li><a href="./{esc(target_id)}/acr.html">ACR draft</a></li>'
+        "</ul><p class=\"meta\">The ACR is a draft derived from this evidence, not an approved conformance report.</p></section>"
+    )
+
+
 def render_landing(analyses, output_dir, targets_config=None):
     """Render the multi-target landing page and cross-release matrix.
 
-    The matrix is a data table and may scroll horizontally at narrow widths; it
-    is wrapped in a focusable region with a visible caption. Every cell links to
-    the per-target finding so the summary never replaces the evidence.
+    The page is static and has no script. The release finder uses CSS-only radio
+    filters; all releases remain in the document and are visible without CSS
+    filtering support. The full matrix stays in a disclosure with a real table.
     """
     analyses = list(analyses)
     if not analyses:
@@ -543,10 +843,17 @@ def render_landing(analyses, output_dir, targets_config=None):
     css_href = f"./{first_target['assessment_id']}/report.css"
     generated = max((analysis.get("generated_at") or "") for analysis in analyses)
     issue_titles = {}
+    full = inventory = 0
+    with_mrs = 0
     for analysis in analyses:
+        collection_summary = (analysis.get("collection") or {}).get("summary") or {}
+        full = max(full, int(collection_summary.get("detailed") or 0))
+        inventory = max(inventory, int(collection_summary.get("inventory") or 0))
+        with_mrs = max(with_mrs, int(collection_summary.get("with_merge_requests") or 0))
         for finding in analysis.get("findings") or []:
             issue_titles.setdefault(finding["issue_id"], finding.get("title") or finding["issue_id"])
     issue_ids = sorted(issue_titles)
+    finder_html, line_css = _release_finder(analyses)
 
     html = [
         "<!doctype html>",
@@ -558,52 +865,51 @@ def render_landing(analyses, output_dir, targets_config=None):
         '<meta name="robots" content="noindex">',
         f"<title>{esc(product)} release evidence reports</title>",
         f'<link rel="stylesheet" href="{esc(css_href)}">',
+        f"<style>{line_css}</style>",
         "</head>",
         "<body>",
         '<a class="skip" href="#main">Skip to main content</a>',
         '<header class="page-header">',
         '<p class="eyebrow">OpenACR Release Evidence</p>',
         f"<h1>{esc(product)} release evidence reports</h1>",
-        '<p class="status-banner"><strong>Draft evidence, not Accessibility Conformance Reports or certification.</strong> '
-        "The matrix shows evidence states for active, review-relevant reported issues. Closed and fixed issues are excluded. "
-        "It is not an accessibility score, and the absence of a reported issue is not evidence of WCAG support.</p>",
-        f'<p class="meta">Generated {esc(display_date(generated))} · '
-        f'{esc(len(analyses))} targets · {esc(len(issue_ids))} active issues in the shared collection.</p>',
+        '<p class="lede">Automatically generated accessibility evidence from Drupal Core issue queues, '
+        'release metadata, and available development records. Explore issues by release, accessibility '
+        'requirement, or component.</p>',
+        '<p class="status-banner"><strong>These reports summarize collected evidence.</strong> '
+        'They are not accessibility scores or verified conformance assessments. '
+        'Closed and fixed issues are excluded; absence of a reported issue is not evidence of WCAG support.</p>',
+        f'<dl class="snapshot-meta" aria-label="Evidence snapshot metadata">'
+        f'<div><dt>Generated</dt><dd>{esc(display_date(generated))}</dd></div>'
+        f'<div><dt>Release targets</dt><dd>{esc(len(analyses))}</dd></div>'
+        f'<div><dt>Unique active issues</dt><dd>{esc(len(issue_ids))}</dd></div>'
+        f'<div><dt>Full evidence</dt><dd>{esc(full)}</dd></div>'
+        f'<div><dt>Metadata-only</dt><dd>{esc(inventory)}</dd></div>'
+        f'<div><dt>Issues with merge requests</dt><dd>{esc(with_mrs)}</dd></div>'
+        f'<div><dt>Collection source</dt><dd>Drupal.org issue queue</dd></div>'
+        f'<div><dt>Standards baseline</dt><dd>WCAG 2.2 AA · Section 508</dd></div>'
+        "</dl>",
         "</header>",
         '<main id="main" tabindex="-1">',
     ]
-    html.append('<section aria-labelledby="targets-heading"><h2 id="targets-heading">Targets in this snapshot</h2>')
+    # Release finder and cards
+    html.append('<section aria-labelledby="targets-heading">')
+    html.append('<h2 id="targets-heading">Find a release report</h2>')
     if policy.get("note"):
         html.append(f'<p>{esc(policy["note"])}</p>')
     if policy.get("source_url"):
         html.append(f'<p class="meta">Release policy: {safe_link(policy["source_url"], "Drupal core release cycle schedule")}. '
                     "Support status is a policy label, not a promise about a specific release.</p>")
-    html.append('<ul class="target-list">')
+    html.append(finder_html)
+    html.append('<h3 id="release-list-heading">Release reports</h3>')
+    html.append('<ul class="target-list" aria-labelledby="release-list-heading">')
     for analysis in analyses:
-        target = analysis["target"]
-        summary = analysis.get("summary") or {}
-        target_id = target.get("assessment_id")
-        counts = summary.get("by_applicability") or {}
-        fixed = summary.get("fix_included_in_target", summary.get("fix_included_in_release", 0))
-        html.append(
-            "<li>"
-            f'<h3><a href="./{esc(target_id)}/">{esc(product)} {esc(target.get("release"))}</a></h3>'
-            f'<p class="meta">{esc(target.get("ref_type") or "tag")} <code>{esc(target.get("ref"))}</code> · '
-            f'{esc(_support_label(target.get("support_status")))} · line {esc(target.get("release_line") or "unknown")} · '
-            f'parent {esc(target.get("parent_project") or "none (top-level product)")}</p>'
-            f'<p>{esc(summary.get("findings", 0))} findings · {esc(fixed)} with a fix in the target · '
-            f'{esc(counts.get("likely-affected", 0))} likely affected · {esc(counts.get("unknown", 0))} unknown. '
-            f'<a href="./{esc(target_id)}/">Open the report</a>.</p>'
-            f'<p class="meta"><a href="./{esc(target_id)}/evidence.json">evidence.json</a> · '
-            f'<a href="./{esc(target_id)}/summary.json">summary.json</a> · '
-            f'<a href="./{esc(target_id)}/openacr.yaml">OpenACR draft YAML</a> · '
-            f'<a href="./{esc(target_id)}/openacr-validation.json">validation</a> · '
-            f'<a href="./{esc(target_id)}/acr.html">ACR draft</a></p>'
-            "</li>"
-        )
+        html.append(_target_card(analysis))
     html.append("</ul>")
-    html.append('<p class="meta">Targets marked pre-release or development are not supported releases. Their findings can change at any commit and must not be presented as release conformance claims.</p>')
+    html.append('<p class="meta">Targets marked pre-release or development are not supported releases. '
+                'Their findings can change at any commit and must not be presented as release conformance claims.</p>')
     html.append("</section>")
+
+    # ATAG
     atag_dir = output / "drupal-core-atag"
     if (atag_dir / "index.html").exists():
         html.append('<section aria-labelledby="atag-heading"><h2 id="atag-heading">ATAG 2.0 authoring evidence</h2>')
@@ -615,38 +921,23 @@ def render_landing(analyses, output_dir, targets_config=None):
                     '<a href="./drupal-core-atag/atag-evidence.json">atag-evidence.json</a></p>')
         html.append("</section>")
 
+    # Matrix preview + full disclosure
+    preview_count = min(12, len(issue_ids))
     html.append('<section aria-labelledby="matrix-heading"><h2 id="matrix-heading">Cross-release applicability matrix</h2>')
-    html.append('<p>Each cell links to the issue-specific finding in that target report. A fix may be included in one target and absent from another; the table does not claim that an issue was reproduced on any target.</p>')
-    html.append('<p class="meta">This is a two-dimensional data table. At narrow widths it scrolls horizontally; focus the table region and use arrow keys or horizontal scrolling.</p>')
-    html.append('<div class="table-scroll" tabindex="0" role="region" aria-label="Cross-target applicability matrix. Scroll horizontally to compare targets.">')
-    html.append('<table class="matrix-table">')
-    html.append(f'<caption>Issue applicability across {len(analyses)} declared {esc(product)} targets. '
-                "Values are evidence states, not WCAG conformance results.</caption>")
-    html.append("<thead><tr><th scope=\"col\">Issue</th>")
-    for analysis in analyses:
-        target = analysis["target"]
-        html.append(
-            f'<th scope="col"><a href="./{esc(target.get("assessment_id"))}/">{esc(target.get("release"))}</a>'
-            f'<br><span class="meta">{esc(_support_label(target.get("support_status")))}</span></th>'
-        )
-    html.append("</tr></thead><tbody>")
-    for issue_id in issue_ids:
-        anchor = anchor_for(issue_id)
-        first_id = analyses[0]["target"]["assessment_id"]
-        html.append(
-            f'<tr><th scope="row"><a href="./{esc(first_id)}/#{anchor}">{esc(issue_titles[issue_id])}</a></th>'
-        )
-        for analysis in analyses:
-            target = analysis["target"]
-            finding = next((item for item in analysis.get("findings") or [] if item["issue_id"] == issue_id), None)
-            if finding:
-                html.append(
-                    f'<td><a href="./{esc(target["assessment_id"])}/#{anchor}">{esc(_short_state(finding["applicability"]))}</a></td>'
-                )
-            else:
-                html.append('<td>Not collected</td>')
-        html.append("</tr>")
-    html.append("</tbody></table></div>")
+    html.append('<p>Each cell links to the issue-specific finding in that target report. A fix may be included in one target and absent from another; '
+                'the table does not claim that an issue was reproduced on any target.</p>')
+    html.append('<p class="meta">The preview shows the first 12 issues. The complete matrix remains available in a real data table below. '
+                'At narrow widths the table scrolls horizontally; focus the table region and use arrow keys or horizontal scrolling.</p>')
+    html.append('<div class="table-scroll" tabindex="0" role="region" aria-label="Cross-target applicability matrix preview. Scroll horizontally to compare targets.">')
+    html.append(_matrix_table(
+        issue_ids[:preview_count], issue_titles, analyses,
+        f"Preview: first {preview_count} of {len(issue_ids)} issues across {len(analyses)} declared {product} targets. "
+        "Values are evidence states, not WCAG conformance results.",
+    ))
+    html.append("</div>")
+    html.append(f'<p><a class="primary-action" href="./matrix.html">Open the complete {len(issue_ids)}-issue matrix</a></p>')
+    html.append('<p class="meta">The complete matrix is a separate page so this release overview stays scannable; '
+                'it contains every issue and every target as a real data table.</p>')
     html.append("</section>")
 
     html.append('<section aria-labelledby="responsibility-heading"><h2 id="responsibility-heading">Project responsibility and parent ACRs</h2>')
@@ -690,4 +981,51 @@ def render_landing(analyses, output_dir, targets_config=None):
     )
     html.append("</body></html>")
     (output / "index.html").write_text("\n".join(html) + "\n", encoding="utf-8")
+
+    matrix = [
+        "<!doctype html>",
+        '<html lang="en">',
+        "<head>",
+        '<meta charset="utf-8">',
+        '<meta name="viewport" content="width=device-width, initial-scale=1">',
+        '<meta name="description" content="Complete cross-release accessibility applicability matrix. Evidence states, not conformance results.">',
+        '<meta name="robots" content="noindex">',
+        f"<title>{esc(product)} cross-release applicability matrix</title>",
+        f'<link rel="stylesheet" href="{esc(css_href)}">',
+        "</head>",
+        "<body>",
+        '<a class="skip" href="#main">Skip to main content</a>',
+        '<header class="page-header">',
+        '<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>'
+        '<li><a href="./">All release reports</a></li>'
+        '<li><span aria-current="page">Cross-release matrix</span></li></ol></nav>',
+        '<p class="eyebrow">OpenACR Release Evidence · matrix</p>',
+        f"<h1>{esc(product)} cross-release applicability matrix</h1>",
+        '<p class="lede">Every unique active issue in this snapshot, compared across the declared release targets. '
+        'Each cell links to the target-specific finding.</p>',
+        '<p class="status-banner"><strong>Evidence states, not conformance results.</strong> '
+        'A fix may be included in one target and absent from another; this table does not claim that an issue was reproduced on any target.</p>',
+        f'<p class="meta">Generated {esc(display_date(generated))} · {esc(len(issue_ids))} issues × '
+        f'{esc(len(analyses))} targets · <a href="./">Back to release reports</a></p>',
+        "</header>",
+        '<main id="main" tabindex="-1">',
+        '<section aria-labelledby="matrix-heading">',
+        '<h2 id="matrix-heading">Issue applicability by target</h2>',
+        '<p class="meta">This is a two-dimensional data table. At narrow widths it scrolls horizontally; '
+        'focus the table region and use arrow keys or horizontal scrolling.</p>',
+        '<div class="table-scroll" tabindex="0" role="region" aria-label="Complete cross-target applicability matrix. Scroll horizontally to compare targets.">',
+        _matrix_table(
+            issue_ids, issue_titles, analyses,
+            f"Issue applicability across {len(analyses)} declared {product} targets. Values are evidence states, not WCAG conformance results.",
+        ),
+        "</div>",
+        "</section>",
+        "</main>",
+        '<footer><p>Draft target evidence. Not an Accessibility Conformance Report. '
+        'Standards baseline: WCAG 2.2 AA. <a href="./">All release reports</a> · '
+        '<a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2</a> · '
+        '<a href="https://github.com/GSA/openacr">OpenACR</a>.</p></footer>',
+        "</body></html>",
+    ]
+    (output / "matrix.html").write_text("\n".join(matrix) + "\n", encoding="utf-8")
     return output / "index.html"

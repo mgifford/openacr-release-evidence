@@ -41,6 +41,9 @@ jobs:
           mkdir -p _site
           test -f reports/index.html
           cp reports/index.html _site/index.html
+          if [ -f reports/matrix.html ]; then
+            cp reports/matrix.html _site/matrix.html
+          fi
           for dir in reports/*/; do
             name="$(basename "$dir")"
             [ -f "$dir/index.html" ] || continue

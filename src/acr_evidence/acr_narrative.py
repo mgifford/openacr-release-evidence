@@ -30,6 +30,11 @@ CORE_SCOPE = {
 STATUS_ORDER = ("Active", "Needs review", "Needs work", "Reviewed & tested by the community", "Patch")
 
 
+def _slug(value):
+    text = "".join(ch if ch.isalnum() else "-" for ch in str(value).lower()).strip("-")
+    return text or "section"
+
+
 class Cell:
     def __init__(self, text, url=None):
         self.text = "" if text is None else str(text)
@@ -84,6 +89,14 @@ class Doc:
         return "\n".join(out).rstrip() + "\n"
 
     def html(self):
+        headings = [value for kind, value in self.blocks if kind == "h2"]
+        used = {}
+        heading_ids = []
+        for heading in headings:
+            base = _slug(heading)
+            count = used.get(base, 0)
+            used[base] = count + 1
+            heading_ids.append(base if count == 0 else f"{base}-{count + 1}")
         parts = [
             "<!doctype html>",
             '<html lang="en">',
@@ -98,17 +111,30 @@ class Doc:
             "<body>",
             '<a class="skip" href="#main">Skip to main content</a>',
             '<header class="page-header">',
+            '<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>'
+            '<li><a href="../">All release reports</a></li>'
+            '<li><a href="./index.html">Release evidence report</a></li>'
+            '<li><span aria-current="page">ACR draft</span></li></ol></nav>',
             '<p class="eyebrow">OpenACR Release Evidence · ACR draft</p>',
             f"<h1>{escape(self.title)}</h1>",
             f'<p class="status-banner"><strong>Draft for human review, not an approved ACR.</strong> {escape(self.description)}</p>',
             "</header>",
-            '<main id="main" tabindex="-1">',
+            '<nav class="section-nav" aria-label="ACR sections"><h2>On this page</h2><ol>',
         ]
+        for heading, heading_id in zip(headings, heading_ids):
+            parts.append(f'<li><a href="#{heading_id}">{escape(heading)}</a></li>')
+        parts.extend([
+            "</ol></nav>",
+            '<main id="main" tabindex="-1">',
+        ])
+        heading_index = 0
         for kind, value in self.blocks:
             if kind == "h1":
                 parts.append(f"<h2>{escape(value)}</h2>")
             elif kind == "h2":
-                parts.append(f"<h2>{escape(value)}</h2>")
+                heading_id = heading_ids[heading_index]
+                heading_index += 1
+                parts.append(f'<h2 id="{heading_id}">{escape(value)}</h2>')
             elif kind == "h3":
                 parts.append(f"<h3>{escape(value)}</h3>")
             elif kind == "p":
