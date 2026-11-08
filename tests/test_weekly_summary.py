@@ -154,6 +154,7 @@ class WeeklySummaryTests(unittest.TestCase):
         )
         self.assertEqual("One active issue. A human must review this digest.", text)
         self.assertEqual("org/model", seen["client"]["model"])
+        self.assertIsNone(seen["client"]["base_url"])
         self.assertIn("messages", seen)
         self.assertIn("Drupal Core is a web CMS", seen["messages"][0]["content"])
         self.assertNotIn("Issue 1", seen["messages"][1]["content"])

@@ -395,6 +395,11 @@ def validate_ai_output(text, facts):
 
 
 def summarize_with_huggingface(facts, model, provider=None, endpoint=None, token=None, client_factory=None, context=None):
+    endpoint = endpoint or None
+    # An empty HF_ENDPOINT environment variable overrides huggingface_hub's
+    # default with an empty base URL, producing `/api/models/...` URLs.
+    if not os.environ.get("HF_ENDPOINT"):
+        os.environ.pop("HF_ENDPOINT", None)
     token = token or os.environ.get("HF_TOKEN")
     if not token:
         raise SummarizerError("HF_TOKEN is not configured")

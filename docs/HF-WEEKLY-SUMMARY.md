@@ -194,6 +194,27 @@ depend on it.
 Use **Actions → Weekly Drupal Core evidence snapshot → Run workflow**, or wait for
 the Monday 13:00 UTC schedule.
 
+### Empty `HF_ENDPOINT`
+
+Leave `HF_ENDPOINT` unset unless you use a dedicated endpoint. An empty variable
+previously became an empty base URL in `huggingface_hub`, producing
+`Invalid URL '/api/models/...'`. The code and workflow now remove an empty
+`HF_ENDPOINT` before creating the client, so an unset variable is safe.
+
+### PR creation permission
+
+The weekly job opens a review PR. If it stops at:
+
+```text
+GitHub Actions is not permitted to create or approve pull requests
+```
+
+enable **Settings → Actions → General → Workflow permissions → Allow GitHub
+Actions to create and approve pull requests**. Alternatively, run the job with a
+fine-grained token that can create pull requests. Pushing the snapshot branch
+succeeds even when PR creation is blocked, so the branch may already exist; the
+job now prints a specific error for this setting.
+
 The weekly PR will contain `reports/weekly/<date>.md`. Review the digest and the
 provenance before merging.
 

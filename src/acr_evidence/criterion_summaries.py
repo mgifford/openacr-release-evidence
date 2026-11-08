@@ -6,6 +6,7 @@ falls back to deterministic issue-title summaries.
 """
 import hashlib
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -94,6 +95,9 @@ def _parse_json(text):
 
 
 def _client(model, provider, endpoint, token, client_factory):
+    endpoint = endpoint or None
+    if not os.environ.get("HF_ENDPOINT"):
+        os.environ.pop("HF_ENDPOINT", None)
     if client_factory:
         return client_factory(model=model, provider=provider, token=token, base_url=endpoint)
     try:
