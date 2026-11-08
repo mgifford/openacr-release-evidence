@@ -8,6 +8,7 @@ contains raw upstream payloads.
 import json
 import os
 import tempfile
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -146,16 +147,28 @@ def collect_issues(
         # Drupal.org API does not reliably apply field_issue_status filters.
         page = 0
         while page < max_pages and len(nodes) < max_issues:
-            batch = rest.find_issues(
-                project=project,
-                project_id=project_id,
-                tag_tid=tag_tid,
-                statuses=None,
-                component=query.get("component"),
-                since=query.get("since"),
-                limit=min(50, max_issues - len(nodes)),
-                page=page,
-            )
+            batch = None
+            last_error = None
+            for attempt in range(2):
+                try:
+                    batch = rest.find_issues(
+                        project=project,
+                        project_id=project_id,
+                        tag_tid=tag_tid,
+                        statuses=None,
+                        component=query.get("component"),
+                        since=query.get("since"),
+                        limit=min(50, max_issues - len(nodes)),
+                        page=page,
+                    )
+                    break
+                except Exception as exc:
+                    last_error = exc
+                    if attempt == 0:
+                        time.sleep(2)
+            if batch is None:
+                errors.append({"stage": "discovery", "page": page, "error": f"{type(last_error).__name__}: {last_error}"})
+                break
             if not batch:
                 break
             discovered += len(batch)
@@ -169,6 +182,7 @@ def collect_issues(
             if len(batch) < 50:
                 break
             page += 1
+            time.sleep(0.4)
 
     # Full CLI/comment/MR evidence is expensive at queue scale. Select a
     # review-priority subset for detail; the rest remain complete inventory
@@ -345,4 +359,13 @@ def collect_issues(
     }
     artifact["evidence_digest"] = digest_artifact(artifact)
     atomic_write_json(output, artifact, mode=0o644)
+    discovery_failures = [
+        error for error in errors
+        if error.get("stage") == "discovery" and error.get("page") is not None
+    ]
+    if discovery_failures:
+        raise RuntimeError(
+            "Discovery incomplete after retries; refusing to treat a partial queue as a complete snapshot: "
+            + "; ".join(error.get("error", "unknown") for error in discovery_failures[:3])
+        )
     return artifact

@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 98 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 101 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -212,6 +212,11 @@ After the first audit and report:
   stale per-target collection were removed, `evidence.json` is a compact
   published artifact, and inventory issue HTML is a compact metadata row. The
   report set fell from about 50 MB to about 16 MB.
+- **Drupal API resilience:** the first manual weekly run failed during
+  discovery with a Drupal.org read timeout. HTTP fetches now use four bounded
+  retries with backoff, a 45-second timeout, a page-level retry and a short
+  inter-page delay. Incomplete discovery now raises instead of publishing a
+  partial queue as a complete snapshot.
 - **Weekly ACR digest:** `weekly-summary` compares the current active
   collection with the previous snapshot, writes immutable facts/Markdown/
   provenance files under `reports/weekly/`, and optionally asks a pinned
