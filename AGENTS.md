@@ -79,8 +79,12 @@ For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
 
-The ACR narrative must keep every criterion `Not Evaluated` until a human
-reviewer assigns terms. Never convert issue counts or tags into Supports,
+The ACR narrative may show proposed component-level results (Web and Authoring
+Tool Partially Supports; Electronic Documents and Software Not Applicable), but
+must mark them proposed and keep every criterion `Not Evaluated` until a human
+reviewer assigns terms. `/admin` and login/reproduction cues classify the
+authoring surface; otherwise default to web. Never infer component support from
+an empty issue queue. Never convert issue counts or tags into Supports,
 Partially Supports or Does Not Support, and never remove the draft disclaimer.
 
 ATAG evidence is separate from WCAG/OpenACR. The `atag` tag marks a reported

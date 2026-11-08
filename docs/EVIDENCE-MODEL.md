@@ -259,7 +259,9 @@ WCAG conclusions are never inherited from each other.
 
 `openacr.yaml` is validated against the pinned Civicactions/GSA OpenACR 0.1.0
 schema and the OpenACR 2.5 WCAG 2.2 + Section 508 catalog. It lists all 182 catalog
-criteria and all seven chapters, but **no components or adherence values**.
+criteria and all seven chapters. WCAG criteria carry the four Section 508
+component names (`web`, `electronic-docs`, `software`, `authoring-tool`) with
+**no adherence values**.
 `draft: true`, a placeholder reviewer and notes force human review. A reviewer
 must replace the author, assess every criterion, populate adherence, set
 `draft: false`, and run `openacr-validate --strict`. `not-evaluated` is rejected
@@ -273,6 +275,13 @@ Conformance is a separate, human-reviewed decision for each applicable
 requirement and target. It must not be derived from issue counts, issue status,
 commit inclusion, automated checks or model output. No artifact in this
 repository currently contains a WCAG conformance decision.
+
+## Surface classification
+
+Each normalized issue and finding has a `surface` object: `authoring` when the
+issue text contains an `/admin` path or a login/reproduction step; otherwise
+`web` by default. The basis is recorded as `admin-path`, `login-step` or
+`default-web`. This is a review classification, not a conformance decision.
 
 ## Weekly digest
 

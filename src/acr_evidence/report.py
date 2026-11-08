@@ -202,6 +202,7 @@ def _issue_article(finding, issue):
             ("Tracker status (not release status)", esc(finding.get("tracker_status_label") or "Unknown")),
             ("Version field at last fetch", esc(finding.get("tracker_version") or "Not recorded")),
             ("Component", esc(finding.get("component") or "Not recorded")),
+            ("Surface", esc((finding.get("surface") or {}).get("surface", "web")) + " (" + esc((finding.get("surface") or {}).get("basis", "default-web")) + ")"),
             ("Created / updated", f'{esc(display_date(finding.get("created_at")))} / {esc(display_date(issue.get("updated_at") if issue else None))}'),
             ("Observed at", esc(finding.get("observed_at") or "Not recorded")),
             ("Candidate WCAG criteria", criterion_links),
@@ -334,6 +335,8 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         ("Composer lock SHA-256", esc(installation.get("composer_lock_sha256") or "Not recorded")),
         ("Enabled themes", esc(theme_text)),
         ("In-scope components", esc(", ".join(assessment.get("components") or []) or "Not recorded")),
+        ("Surface split", f'{sum(1 for f in findings if (f.get("surface") or {}).get("surface", "web") == "web")} web · '
+                         f'{sum(1 for f in findings if (f.get("surface") or {}).get("surface", "web") == "authoring")} authoring'),
         ("Configuration note", esc(installation.get("configuration") or "Not recorded")),
         ("Collection source", "Drupal.org REST API for discovery, tags and inventory; drupalorg-cli JSON for detailed issues, comments and all MR states"),
         ("Collection timestamp", esc((collection.get("summary") or {}).get("retrieved_at") or analysis.get("generated_at"))),

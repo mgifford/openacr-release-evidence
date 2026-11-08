@@ -14,15 +14,32 @@ This document converts the active issue evidence into an ACR narrative. It is de
 | Version / release | 11.4.12 |
 | Target ref | 11.4.12 (tag) |
 | Support status | supported |
-| Report date | 2026-11-07 |
+| Report date | 2026-11-08 |
 | Report status | DRAFT — not approved for publication |
 | Prepared by | Unassigned reviewer (draft) |
 | Assessment identifier | drupal-core-11.4.12-default-admin |
 | Standards baseline | WCAG 2.2 AA, Section 508 (revised, 2017) |
 
+## Component scope and proposed result
+
+These are proposed component-level labels for review, not final ACR terms. Every per-criterion result below remains Not Evaluated until a reviewer completes it.
+
+**Section 508 component scope**
+
+| Component | Proposed result | Evidence | Rationale |
+| --- | --- | --- | --- |
+| Web | Partially Supports (proposed) | 415 active findings classified as front-end/web | Partially Supports is proposed because active front-end accessibility issues exist in the published evidence. This label needs a specific explanation and independent review. |
+| Electronic Documents | Not Applicable (proposed) | No core electronic-document product | Not Applicable is proposed: Drupal Core is a web CMS, not a standalone electronic-document authoring or playback product. Uploaded documents are delivered as web content. |
+| Software | Not Applicable (proposed) | No packaged/non-web software product | Not Applicable is proposed: Drupal Core is web software. The Section 508 software chapter is not a separate installed application in this scope. |
+| Authoring Tool | Partially Supports (proposed) | 13 active findings classified as authoring/admin UI | Partially Supports is proposed because active authoring-interface issues exist. The /admin and login/reproduction cues are the classification basis; a reviewer must confirm. |
+
+Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.
+
+Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split.
+
 ## Draft status and ACR result terms
 
-ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no term to any criterion. A reviewer must select each term from the definitions below after evaluating the product.
+ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. This draft assigns no per-criterion term. A reviewer must select each term from the definitions below after evaluating the product.
 
 **ACR result terms used in review**
 
@@ -32,7 +49,7 @@ ACR result terms are defined here so the draft uses the same vocabulary as a com
 | Partially Supports | Some product functionality meets the criterion; other functionality does not, and the reviewer can explain the boundary. |
 | Does Not Support | The majority of product functionality does not meet the criterion. |
 | Not Applicable | The criterion is not relevant to the product, and the reviewer records why. |
-| Not Evaluated | The reviewer has not completed enough evaluation to select a term. This is the only term used in this draft. |
+| Not Evaluated | The reviewer has not completed enough evaluation to select a per-criterion term. Every criterion row uses this; the component proposals above are not per-criterion terms. |
 
 ## Scope and evaluation method
 
@@ -108,8 +125,8 @@ The largest explicitly tagged criterion clusters are listed below. A count refle
 
 | Criterion | Level | Active issue evidence | Draft result | Remarks and explanations |
 | --- | --- | --- | --- | --- |
-| 1.2.4 — Captions (Live) | AA | No active tagged issue | Not Evaluated (draft — reviewer must select an ACR result) | No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. |
-| 1.2.5 — Audio Description (Prerecorded) | AA | No active tagged issue | Not Evaluated (draft — reviewer must select an ACR result) | No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. |
+| 1.2.4 — Captions (Live) | AA | No active tagged issue | Not Evaluated (draft — reviewer must select an ACR result) | No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. Core scope: Drupal Core does not provide live audio/video. Proposed Not Applicable for Core; evaluate the contrib Video or AblePlayer modules separately. |
+| 1.2.5 — Audio Description (Prerecorded) | AA | No active tagged issue | Not Evaluated (draft — reviewer must select an ACR result) | No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. Core scope: Drupal Core does not provide a video player or audio-description feature. Proposed Not Applicable for Core; audio/video caption and description support belongs to contrib Video or AblePlayer. |
 | 1.3.4 — Orientation | AA | 1 active (0 detailed, 1 inventory) | Not Evaluated (draft — reviewer must select an ACR result) | 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1. Examples: Extend site information page to generate a manifest.json file (drupal:2698127, Needs work). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis. |
 | 1.3.5 — Identify Input Purpose | AA | 2 active (0 detailed, 2 inventory) | Not Evaluated (draft — reviewer must select an ACR result) | 2 active issues tagged to this criterion: 0 detailed, 2 metadata-only inventory. Tracker statuses: Needs work: 2. Target evidence states: unknown: 2. Examples: IME enhancement stops autocomplete search event in Android when typing an English word (drupal:2928820, Needs work); Provide a new library to replace jQuery UI autocomplete (drupal:3076171, Needs work). This is issue-queue evidence, not a conformance result; verify the barrier and select the ACR result. Inventory records have no comments, merge requests or commit analysis. |
 | 1.4.3 — Contrast (Minimum) | AA | No active tagged issue | Not Evaluated (draft — reviewer must select an ACR result) | No active issue in this snapshot carries this WCAG tag. Absence of a tagged issue is not evidence that the criterion is met; a reviewer must evaluate it and select an ACR result. |
@@ -160,6 +177,7 @@ See ../drupal-core-atag/ for the ATAG evidence report. It must not be copied int
 
 The evidence report lists all active issues and their source links. It distinguishes full-detail evidence from metadata-only inventory records. Use it to review the criterion remarks above, collect missing evidence and decide each ACR result.
 
+- Use the generic templates/drupal-acr-template.md as the reusable ACR shell.
 - Open ./index.html#issues and review the active issue evidence.
 - For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.
 - Verify each criterion against the installed product; do not convert issue counts into Supports or Does Not Support.

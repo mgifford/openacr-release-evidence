@@ -15,6 +15,7 @@ from urllib.error import HTTPError
 from .adapters.http import fetch_json
 from .collect import atomic_write_json
 from .model import SCHEMA_VERSION, digest_artifact, sha256_json
+from .normalize import classify_surface
 
 GITLAB_PROJECT = "project/drupal"
 GITLAB_PROJECT_ENCODED = urllib.parse.quote(GITLAB_PROJECT, safe="")
@@ -275,6 +276,7 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
         if not commit.get("in_target", commit.get("in_release"))
     ]
     workflow = (issue.get("status") or {}).get("workflow_state") or "unknown"
+    surface = issue.get("surface") or classify_surface(issue)
     created_at = _parse_time(issue.get("created_at"))
     target_date = _parse_time(target.get("tag_date") or target.get("target_date"))
     after_release = bool(created_at and target_date and created_at > target_date)
@@ -389,6 +391,7 @@ def classify_issue(issue, manifest, target, commits, feature_present=True):
         "observed_at": (issue.get("provenance") or {}).get("retrieved_at"),
         "wcag_candidates": issue.get("wcag_candidates") or [],
         "atag": issue.get("atag"),
+        "surface": surface,
         "applicability": applicability,
         "basis": basis,
         "reason": reason,

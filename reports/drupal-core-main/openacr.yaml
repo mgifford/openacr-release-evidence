@@ -8,22 +8,24 @@ product:
 author:
   name: Unassigned reviewer (draft)
   email: reviewer@example.invalid
-report_date: '2026-11-07'
-last_modified_date: '2026-11-07'
+report_date: '2026-11-08'
+last_modified_date: '2026-11-08'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.x-dev (branch main). Evidence
-  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: db29899ed28346d56fb4c122378b9c5e4e78b59f011d9a7730c712ac4d377827.
-  Evidence scope: active/review-relevant issues only (Active, Needs review, Needs
-  work, RTBC, Patch); fixed and closed issues are excluded. Some active issues are
-  metadata-only inventory records; complete comments/merge-request evidence was collected
-  only for a review-priority subset. No WCAG conformance values are populated. The
-  author is a placeholder; a human reviewer must replace it, assess every criterion,
+  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: 3e62ac515b67337bb3787a55eb4b037fddcb0d39e3da27b10b25efd39e661bda.
+  Component scope: Web and Authoring Tool are proposed Partially Supports; Electronic
+  Documents and Software are proposed Not Applicable. These are proposed component
+  labels only. Evidence scope: active/review-relevant issues only (Active, Needs review,
+  Needs work, RTBC, Patch); fixed and closed issues are excluded. Some active issues
+  are metadata-only inventory records; complete comments/merge-request evidence was
+  collected only for a review-priority subset. No WCAG conformance values are populated.
+  The author is a placeholder; a human reviewer must replace it, assess every criterion,
   select components and adherence levels, and run `acr-evidence openacr-validate --file
   openacr.yaml --strict` before publishing. An ACR narrative is at acr.html; it assigns
-  no ACR result and marks the evaluation Not Evaluated. ATAG 2.0 authoring evidence
-  is tracked separately at ../drupal-core-atag/index.html; this OpenACR does not populate
-  ATAG criteria or the authoring-tool component. This file has not been round-tripped
-  through the Civicactions/GSA ACR editor.'
+  no per-criterion ACR result and marks the evaluation Not Evaluated. ATAG 2.0 authoring
+  evidence is tracked separately at ../drupal-core-atag/index.html; this OpenACR does
+  not populate ATAG criteria or the authoring-tool component. This file has not been
+  round-tripped through the Civicactions/GSA ACR editor.'
 evaluation_methods_used: No WCAG-EM sample was evaluated; this is an evidence-only
   skeleton, not a completed ACR. Public Drupal.org issue-queue evidence collection,
   commit/tag containment analysis, and explicit WCAG candidate tag grouping were used.
@@ -36,6 +38,25 @@ legal_disclaimer: DRAFT for human review. This is not a final Accessibility Conf
 repository: https://github.com/mgifford/openacr-release-evidence
 feedback: https://github.com/mgifford/openacr-release-evidence/issues
 catalog: 2.5-edition-wcag-2.2-508-en
+component_scope:
+  web:
+    proposed_result: partially-supports
+    review_status: proposed
+    notes: Front-end evidence only; a reviewer must confirm the result and explanation.
+  electronic-docs:
+    proposed_result: not-applicable
+    review_status: proposed
+    notes: Drupal Core is a web CMS, not a standalone electronic-document product.
+  software:
+    proposed_result: not-applicable
+    review_status: proposed
+    notes: Drupal Core is web software; no separate packaged/non-web software product
+      is in scope.
+  authoring-tool:
+    proposed_result: partially-supports
+    review_status: proposed
+    notes: Authoring/admin UI evidence; /admin and login/reproduction cues; reviewer
+      must confirm.
 chapters:
   success_criteria_level_a:
     notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
@@ -43,217 +64,842 @@ chapters:
       components and adherence levels.'
     criteria:
     - num: 1.1.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.2.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.2.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.2.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.3.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.3.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.3.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.1.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.1.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.1.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.2.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.2.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.3.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.5.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.5.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.5.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.5.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.1.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.2.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.2.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.2.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.7
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 4.1.1
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 4.1.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
   success_criteria_level_aa:
     notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
       A reviewer must assess every criterion in this chapter and select the applicable
       components and adherence levels.'
     criteria:
     - num: 1.2.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.2.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.3.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.3.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.10
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.11
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.12
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.13
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.7
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.11
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.5.7
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.5.8
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.1.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.2.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.2.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.8
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 4.1.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
   success_criteria_level_aaa:
     notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
       A reviewer must assess every criterion in this chapter and select the applicable
       components and adherence levels.'
     criteria:
     - num: 1.2.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.2.7
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.2.8
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.2.9
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.3.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.7
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.8
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 1.4.9
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.1.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.2.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.2.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.2.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.2.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.3.2
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.3.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.8
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.9
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.10
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.12
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.4.13
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.5.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 2.5.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.1.3
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.1.4
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.1.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.1.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.2.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.5
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.6
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
     - num: 3.3.9
+      components:
+      - name: web
+      - name: electronic-docs
+      - name: software
+      - name: authoring-tool
   functional_performance_criteria:
     notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
       A reviewer must assess every criterion in this chapter and select the applicable
       components and adherence levels.'
     criteria:
     - num: '302.1'
+      components:
+      - name: none
     - num: '302.2'
+      components:
+      - name: none
     - num: '302.3'
+      components:
+      - name: none
     - num: '302.4'
+      components:
+      - name: none
     - num: '302.5'
+      components:
+      - name: none
     - num: '302.6'
+      components:
+      - name: none
     - num: '302.7'
+      components:
+      - name: none
     - num: '302.8'
+      components:
+      - name: none
     - num: '302.9'
+      components:
+      - name: none
   hardware:
     notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
       A reviewer must assess every criterion in this chapter and select the applicable
       components and adherence levels.'
     criteria:
     - num: 402.2.1
+      components:
+      - name: none
     - num: 402.2.2
+      components:
+      - name: none
     - num: 402.2.3
+      components:
+      - name: none
     - num: 402.2.4
+      components:
+      - name: none
     - num: 402.2.5
+      components:
+      - name: none
     - num: 402.3.1
+      components:
+      - name: none
     - num: 402.3.2
+      components:
+      - name: none
     - num: '402.4'
+      components:
+      - name: none
     - num: '402.5'
+      components:
+      - name: none
     - num: '403.1'
+      components:
+      - name: none
     - num: '404.1'
+      components:
+      - name: none
     - num: '405.1'
+      components:
+      - name: none
     - num: '406.1'
+      components:
+      - name: none
     - num: '407.2'
+      components:
+      - name: none
     - num: 407.3.1
+      components:
+      - name: none
     - num: 407.3.2
+      components:
+      - name: none
     - num: 407.3.3
+      components:
+      - name: none
     - num: '407.4'
+      components:
+      - name: none
     - num: '407.5'
+      components:
+      - name: none
     - num: '407.6'
+      components:
+      - name: none
     - num: '407.7'
+      components:
+      - name: none
     - num: 407.8.1
+      components:
+      - name: none
     - num: 407.8.1.1
+      components:
+      - name: none
     - num: 407.8.1.2
+      components:
+      - name: none
     - num: 407.8.2
+      components:
+      - name: none
     - num: 407.8.2.1
+      components:
+      - name: none
     - num: 407.8.2.2
+      components:
+      - name: none
     - num: 407.8.3
+      components:
+      - name: none
     - num: 407.8.3.1
+      components:
+      - name: none
     - num: 407.8.3.2
+      components:
+      - name: none
     - num: 407.8.3.2.1
+      components:
+      - name: none
     - num: 407.8.3.2.2
+      components:
+      - name: none
     - num: '408.2'
+      components:
+      - name: none
     - num: '408.3'
+      components:
+      - name: none
     - num: '409.1'
+      components:
+      - name: none
     - num: '410.1'
+      components:
+      - name: none
     - num: '411.1'
+      components:
+      - name: none
     - num: 412.2.1
+      components:
+      - name: none
     - num: 412.2.2
+      components:
+      - name: none
     - num: 412.3.1
+      components:
+      - name: none
     - num: 412.3.2
+      components:
+      - name: none
     - num: '412.4'
+      components:
+      - name: none
     - num: '412.5'
+      components:
+      - name: none
     - num: '412.6'
+      components:
+      - name: none
     - num: '412.7'
+      components:
+      - name: none
     - num: 412.8.1
+      components:
+      - name: none
     - num: 412.8.2
+      components:
+      - name: none
     - num: 412.8.3
+      components:
+      - name: none
     - num: 412.8.4
+      components:
+      - name: none
     - num: 413.1.1
+      components:
+      - name: none
     - num: 413.1.2
+      components:
+      - name: none
     - num: 414.1.1
+      components:
+      - name: none
     - num: 414.1.2
+      components:
+      - name: none
     - num: 415.1.1
+      components:
+      - name: none
     - num: 415.1.2
+      components:
+      - name: none
   software:
     notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
       A reviewer must assess every criterion in this chapter and select the applicable
       components and adherence levels.'
     criteria:
     - num: 502.2.1
+      components:
+      - name: none
     - num: 502.2.2
+      components:
+      - name: none
     - num: 502.3.1
+      components:
+      - name: none
     - num: 502.3.2
+      components:
+      - name: none
     - num: 502.3.3
+      components:
+      - name: none
     - num: 502.3.4
+      components:
+      - name: none
     - num: 502.3.5
+      components:
+      - name: none
     - num: 502.3.6
+      components:
+      - name: none
     - num: 502.3.7
+      components:
+      - name: none
     - num: 502.3.8
+      components:
+      - name: none
     - num: 502.3.9
+      components:
+      - name: none
     - num: 502.3.10
+      components:
+      - name: none
     - num: 502.3.11
+      components:
+      - name: none
     - num: 502.3.12
+      components:
+      - name: none
     - num: 502.3.13
+      components:
+      - name: none
     - num: 502.3.14
+      components:
+      - name: none
     - num: '502.4'
+      components:
+      - name: none
     - num: '503.2'
+      components:
+      - name: none
     - num: '503.3'
+      components:
+      - name: none
     - num: 503.4.1
+      components:
+      - name: none
     - num: 503.4.2
+      components:
+      - name: none
     - num: '504.2'
+      components:
+      - name: none
     - num: 504.2.1
+      components:
+      - name: none
     - num: 504.2.2
+      components:
+      - name: none
     - num: '504.3'
+      components:
+      - name: none
     - num: '504.4'
+      components:
+      - name: none
   support_documentation_and_services:
     notes: 'DRAFT: no conformance values are populated. Evidence report: index.html.
       A reviewer must assess every criterion in this chapter and select the applicable
       components and adherence levels.'
     criteria:
     - num: '602.2'
+      components:
+      - name: none
     - num: '602.3'
+      components:
+      - name: none
     - num: '602.4'
+      components:
+      - name: none
     - num: '603.2'
+      components:
+      - name: none
     - num: '603.3'
+      components:
+      - name: none
 draft: true
 target:
   product: Drupal Core
@@ -264,7 +910,7 @@ target:
   release_line: main
   parent_project: null
   assessment_id: drupal-core-main
-  evidence_digest: db29899ed28346d56fb4c122378b9c5e4e78b59f011d9a7730c712ac4d377827
+  evidence_digest: 3e62ac515b67337bb3787a55eb4b037fddcb0d39e3da27b10b25efd39e661bda
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr

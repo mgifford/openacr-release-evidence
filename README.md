@@ -178,7 +178,7 @@ command is called. Raw output is private and never published.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 104 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 110 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -209,7 +209,7 @@ OpenACR 2.5 WCAG 2.2 + Revised Section 508 catalog (commit `d6d18a9…`).
 It is a **draft skeleton**, not an approved ACR:
 
 - all 182 catalog criteria and all seven chapters are present;
-- no components or adherence levels are populated;
+- the four Section 508 component names are present on WCAG criteria, but no adherence levels are populated;
 - the author is a placeholder (`reviewer@example.invalid`);
 - notes link the evidence report and require human review;
 - `not-evaluated` is never used for Level A/AA.
@@ -234,17 +234,21 @@ Each target also exports a human-readable ACR narrative:
 - `acr.html` — static, no-JavaScript narrative
 - `acr.md` — editable Markdown source
 
-The narrative follows the ACR shape: product information, term definitions,
-scope and method, executive summary, WCAG 2.2 A/AA remarks and explanations,
-non-WCAG chapters, ATAG separation, reviewer actions and limitations.
+The narrative follows the ACR/OpenACR shape: product information, four
+Section 508 component scopes, term definitions, scope and method, executive
+summary, WCAG 2.2 A/AA remarks and explanations, non-WCAG chapters, ATAG
+separation, reviewer actions and limitations.
 
-It deliberately assigns **no ACR result**. Every criterion is **Not Evaluated**
+Web and Authoring Tool are shown as **proposed Partially Supports**; Electronic
+Documents and Software as **proposed Not Applicable**. These are proposed labels
+for review, not final terms. Every criterion is **Not Evaluated**
 until a named reviewer completes the evaluation. Issue counts are described as
-triage evidence, never converted into Supports, Partially Supports or Does Not
-Support. The narrative uses the same active-issue scope (428 issues; 30 detailed,
+triage evidence and are not converted into per-criterion terms. The narrative
+uses the same active-issue scope (428 issues; 30 detailed,
 398 inventory-only) and links back to the evidence report.
 
-See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md).
+See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md) and the reusable
+[`templates/drupal-acr-template.md`](templates/drupal-acr-template.md).
 
 ## Weekly ACR digest (optional Hugging Face)
 
@@ -397,6 +401,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [OpenACR export](docs/OPENACR-EXPORT.md)
 - [Hugging Face weekly summary](docs/HF-WEEKLY-SUMMARY.md)
 - [ACR narrative](docs/ACR-NARRATIVE.md)
+- [Drupal ACR template](templates/drupal-acr-template.md)
 - [ATAG 2.0 authoring evidence](docs/ATAG-EVIDENCE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Deferred sources](docs/FUTURE-SOURCES.md)
