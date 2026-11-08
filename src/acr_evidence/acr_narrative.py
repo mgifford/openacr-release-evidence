@@ -271,7 +271,7 @@ def render_acr_narrative(analysis, output_dir):
             evidence = f"{surface_counts['authoring']} active findings classified as authoring/admin UI"
             rationale = (
                 "Partially Supports is proposed because active authoring-interface issues exist. "
-                "The /admin and login/reproduction cues are the classification basis; a reviewer must confirm."
+                "The /admin, Drupal /user login and login/reproduction cues are the classification basis; a reviewer must confirm."
             )
         elif component_id == "electronic-docs":
             evidence = "No core electronic-document product"

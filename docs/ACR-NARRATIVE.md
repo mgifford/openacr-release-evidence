@@ -64,9 +64,10 @@ The narrative does **not** claim:
 
 ## Authoring vs web classification
 
-Use explicit evidence: `/admin` paths, login/reproduction steps or an
-administrator account indicate the authoring interface; public front-end pages
-indicate web. Record the basis (`admin-path`, `login-step` or `default-web`) and
+Use explicit evidence: `/admin` paths, Drupal login paths (`/user`,
+`/user/login`, `/user/password`), login/reproduction steps or an administrator
+account indicate the authoring interface; public front-end pages indicate web.
+Public profiles such as `/user/1` remain web. Record the basis (`admin-path`, `login-step` or `default-web`) and
 review ambiguous cases. An authoring interface may also serve live content, so
 the boundary must be explained.
 

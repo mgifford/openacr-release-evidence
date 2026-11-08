@@ -39,6 +39,41 @@ class SurfaceTests(unittest.TestCase):
         self.assertEqual("web", result["surface"])
         self.assertEqual("default-web", result["basis"])
 
+
+    def test_drupal_user_path_is_authoring_login(self):
+        result = classify_surface({
+            "title": "Editor issue",
+            "description_text": "Visit /user and sign in, then edit the page.",
+            "comments": [],
+        })
+        self.assertEqual("authoring", result["surface"])
+        self.assertEqual("user-path", result["basis"])
+
+    def test_drupal_user_login_path_is_authoring(self):
+        result = classify_surface({
+            "title": "Editor issue",
+            "description_text": "Open /user/login and authenticate.",
+            "comments": [],
+        })
+        self.assertEqual("authoring", result["surface"])
+        self.assertEqual("user-path", result["basis"])
+
+    def test_public_user_profile_is_web(self):
+        result = classify_surface({
+            "title": "Profile heading",
+            "description_text": "The public profile at /user/1 has a heading issue.",
+            "comments": [],
+        })
+        self.assertEqual("web", result["surface"])
+
+    def test_user_registration_is_web(self):
+        result = classify_surface({
+            "title": "Registration copy",
+            "description_text": "The /user/register page needs clearer instructions.",
+            "comments": [],
+        })
+        self.assertEqual("web", result["surface"])
+
     def test_admin_theme_without_admin_or_login_is_web(self):
         result = classify_surface({
             "title": "Admin theme styling",

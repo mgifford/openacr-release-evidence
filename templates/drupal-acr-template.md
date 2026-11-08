@@ -45,8 +45,11 @@ specific explanation; `Not Applicable` needs a scope rationale.
 Use explicit evidence, not guesswork:
 
 - `/admin` in the reproduction path or steps → authoring interface.
+- Drupal login paths `/user`, `/user/login` or `/user/password` → authoring
+  interface.
 - Reproduction requires logging in, an administrator account, or the authoring
-  UI → authoring interface.
+  UI → authoring interface. Public profiles such as `/user/1` remain web.
+- `/user/register` is public registration, not an authoring interface.
 - A public front-end page, anonymous view, or published content → web.
 
 Some authoring interfaces can expose front-end content. Classify the issue by

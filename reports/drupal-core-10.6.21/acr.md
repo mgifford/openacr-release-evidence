@@ -31,7 +31,7 @@ These are proposed component-level labels for review, not final ACR terms. Every
 | Web | Partially Supports (proposed) | 415 active findings classified as front-end/web | Partially Supports is proposed because active front-end accessibility issues exist in the published evidence. This label needs a specific explanation and independent review. |
 | Electronic Documents | Not Applicable (proposed) | No core electronic-document product | Not Applicable is proposed: Drupal Core is a web CMS, not a standalone electronic-document authoring or playback product. Uploaded documents are delivered as web content. |
 | Software | Not Applicable (proposed) | No packaged/non-web software product | Not Applicable is proposed: Drupal Core is web software. The Section 508 software chapter is not a separate installed application in this scope. |
-| Authoring Tool | Partially Supports (proposed) | 13 active findings classified as authoring/admin UI | Partially Supports is proposed because active authoring-interface issues exist. The /admin and login/reproduction cues are the classification basis; a reviewer must confirm. |
+| Authoring Tool | Partially Supports (proposed) | 13 active findings classified as authoring/admin UI | Partially Supports is proposed because active authoring-interface issues exist. The /admin, Drupal /user login and login/reproduction cues are the classification basis; a reviewer must confirm. |
 
 Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.
 

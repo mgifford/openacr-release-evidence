@@ -82,8 +82,9 @@ to reject private paths and client-side scripts.
 The ACR narrative may show proposed component-level results (Web and Authoring
 Tool Partially Supports; Electronic Documents and Software Not Applicable), but
 must mark them proposed and keep every criterion `Not Evaluated` until a human
-reviewer assigns terms. `/admin` and login/reproduction cues classify the
-authoring surface; otherwise default to web. Never infer component support from
+reviewer assigns terms. `/admin`, Drupal `/user` login paths and login/reproduction cues classify the
+authoring surface; otherwise default to web. Public profiles such as `/user/1`
+remain web. Never infer component support from
 an empty issue queue. Never convert issue counts or tags into Supports,
 Partially Supports or Does Not Support, and never remove the draft disclaimer.
 
