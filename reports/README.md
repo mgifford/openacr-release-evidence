@@ -34,6 +34,10 @@ acr-evidence multi --collection reports/collection.json   --targets config/drupa
 `reports/index.html` is the release finder; `reports/matrix.html` contains the
 complete cross-release matrix. Both are static and require no JavaScript.
 
+`reports/acr-summaries.json` is an optional, committed cache of validated
+model-assisted criterion barrier paragraphs. It is not published to Pages; the
+ACR falls back to deterministic issue-title text when it is absent.
+
 The weekly workflow passes `--previous-collection reports/collection.json`, so
 unchanged issues are reused from the committed normalized cache and only changed
 nodes are fetched. The cache is refreshed before the PR; it is not raw CLI output.

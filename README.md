@@ -182,7 +182,7 @@ command is called. Raw output is private and never published.
 - Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 118 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 121 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -250,9 +250,15 @@ Web and Authoring Tool are shown as **proposed Partially Supports**; Electronic
 Documents and Software as **proposed Not Applicable**. These are proposed labels
 for review, not final terms. Criteria with active tagged issues use a draft
 **Partially Supports** result based on the open issue queue; criteria without a
-tagged issue remain **Not Evaluated**. No issue is treated as reproduced against
-this release. The narrative uses the same active-issue scope (428 issues; 30
-detailed, 398 inventory-only) and links back to the evidence report.
+tagged issue remain **Not Evaluated**. Web and Authoring Tool remarks are
+separate; issue statistics and examples sit at the bottom of each remarks cell,
+with direct Drupal.org links and a per-criterion reference list in the footer.
+The narrative uses the same active-issue scope (428 issues; 30 detailed, 398
+inventory-only) and links back to the evidence report.
+
+An optional `criterion-summaries` step can add model-assisted Web/Authoring
+barrier paragraphs, cached by issue-content hash. Without a configured model it
+falls back to deterministic issue-title summaries.
 
 See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md), the reusable
 [`templates/drupal-acr-template.md`](templates/drupal-acr-template.md), and the

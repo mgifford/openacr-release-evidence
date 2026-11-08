@@ -47,20 +47,22 @@ The narrative does **not** claim:
    - criterion number, title and W3C link;
    - conformance level for Web, Electronic Documents, Software and Authoring
      Tool;
-   - remarks and explanations with issue evidence, statuses, target evidence
-     states, examples and the explicit warning that no issue was reproduced.
+   - separate Web and Authoring Tool barrier paragraphs;
+   - statistics and examples at the bottom with direct Drupal.org issue links
+     and a link to the criterion's full reference list.
    - issue-tagged criteria use draft `Partially Supports`; untagged criteria
      remain `Not Evaluated`.
 7. **AAA table** — outside the declared AA target; issue-tagged criteria use the
    same draft rule; untagged criteria remain `Not Evaluated`.
-8. **Functional performance, hardware, software and support documentation** —
+8. **References** — every cited issue grouped by criterion, with public links.
+9. **Functional performance, hardware, software and support documentation** —
    outside the web issue-evidence method’s coverage; reviewer must evaluate or
    mark Not Applicable with a rationale.
-9. **ATAG** — separate standard; links to the ATAG evidence, never copied into a
+10. **ATAG** — separate standard; links to the ATAG evidence, never copied into a
    WCAG criterion.
-10. **Review actions** — collect missing evidence, verify the product, select each
+11. **Review actions** — collect missing evidence, verify the product, select each
    ACR result, complete reviewer identity and approval, remove the draft status.
-11. **Limitations and sources** — active-only scope, no reproduction, inventory
+12. **Limitations and sources** — active-only scope, no reproduction, inventory
     limits, source links.
 
 ## Authoring vs web classification
@@ -90,7 +92,10 @@ They are not evidence and do not assign conformance.
   `partially-supports` values for Web and Authoring Tool; Electronic Documents
   and Software are `not-applicable`; untagged Web/Authoring values are unset.
 - **ACR narrative** is the human-readable explanation for reviewers. It presents
-  the same draft issue-queue evaluation with full remarks.
+  the same draft issue-queue evaluation with separate Web/Authoring remarks,
+  bottom-of-cell statistics/examples and per-criterion references. Where an
+  accepted `acr-summaries.json` cache exists, the paragraph is a model-assisted
+  draft; otherwise it is a deterministic issue-title extract.
 - **ATAG evidence** is a separate authoring-tool report. It is not part of the
   ACR WCAG chapters.
 

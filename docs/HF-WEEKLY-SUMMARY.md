@@ -41,6 +41,17 @@ Use a different context file for Drupal CMS, LocalGov Drupal or CKEditor:
 
 Context changes are recorded as `context_sha256` in the provenance file.
 
+## Optional per-criterion barrier summaries
+
+The weekly workflow can also generate short Web and Authoring Tool barrier
+paragraphs for the ACR. Each criterion is one Hugging Face request, cached by
+issue-content hash, model and prompt version in `reports/acr-summaries.json`.
+Rejected or failed responses are never used; the ACR falls back to deterministic
+issue-title summaries.
+
+The cache file is internal review material, not a Pages artifact. It is committed
+with the weekly PR so subsequent weeks reuse unchanged criteria.
+
 ## Only issues with new activity
 
 The weekly digest does not ask the model to summarize the whole 428-issue queue.

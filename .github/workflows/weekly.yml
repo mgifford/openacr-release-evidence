@@ -68,6 +68,24 @@ jobs:
           acr-evidence atag-report \
             --collection reports/drupal-core-atag/collection.json \
             --output reports/drupal-core-atag
+      - name: Summarize criterion barriers (optional AI)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_MODEL: ${{ vars.HF_MODEL }}
+          HF_PROVIDER: ${{ vars.HF_PROVIDER }}
+          HF_ENDPOINT: ${{ vars.HF_ENDPOINT }}
+        run: |
+          if [ -n "${HF_TOKEN:-}" ] && [ -n "${HF_MODEL:-}" ]; then
+            acr-evidence criterion-summaries \
+              --collection reports/collection.json \
+              --output reports/acr-summaries.json \
+              --provider huggingface \
+              --model "$HF_MODEL" \
+              --provider-name "${HF_PROVIDER:-}" \
+              --endpoint "${HF_ENDPOINT:-}"
+          else
+            echo "Criterion AI summaries disabled; deterministic issue-title summaries will be used."
+          fi
       - name: Analyze supported, pre-release and development targets
         run: |
           acr-evidence multi \
