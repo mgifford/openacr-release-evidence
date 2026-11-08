@@ -279,9 +279,8 @@ repository currently contains a WCAG conformance decision.
 ## Surface classification
 
 Each normalized issue and finding has a `surface` object: `authoring` when the
-issue text contains an `/admin` path, a Drupal login path (`/user`,
-`/user/login`, `/user/password`) or a login/reproduction step; otherwise `web`
-by default. The basis is recorded as `admin-path`, `login-step` or
+issue text contains an `/admin` path, a Drupal login path (`/user`, `/user/login`, `/user/1`, `/user/register`) or a login/reproduction
+step; otherwise `web` by default. The basis is recorded as `admin-path`, `login-step` or
 `default-web`. This is a review classification, not a conformance decision.
 
 ## Weekly digest

@@ -394,15 +394,23 @@ def validate_ai_output(text, facts):
     return True, "ok"
 
 
-def summarize_with_huggingface(facts, model, provider=None, endpoint=None, token=None, client_factory=None):
+def summarize_with_huggingface(facts, model, provider=None, endpoint=None, token=None, client_factory=None, context=None):
     token = token or os.environ.get("HF_TOKEN")
     if not token:
         raise SummarizerError("HF_TOKEN is not configured")
     if not model:
         raise SummarizerError("HF_MODEL is not configured")
     prompt = json.dumps(facts, ensure_ascii=False, sort_keys=True)
+    system = SYSTEM_PROMPT
+    if context:
+        system += (
+            "\n\nHuman-authored project context follows. It is trusted for scope, "
+            "terminology and issue-reference rules, not as evidence. It may contain "
+            "proposed ACR labels for human review; do not repeat those labels as "
+            "conclusions.\n\n" + str(context)[:6000]
+        )
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": system},
         {"role": "user", "content": prompt},
     ]
     if client_factory:
@@ -438,7 +446,7 @@ def _hash_text(value):
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
-def _provenance(provider, model, provider_name, endpoint, revision, prompt_version, input_hash, output_hash, status, error=None):
+def _provenance(provider, model, provider_name, endpoint, revision, prompt_version, input_hash, output_hash, status, error=None, context_hash=None, context_path=None):
     result = {
         "provider": provider,
         "model": model,
@@ -450,6 +458,10 @@ def _provenance(provider, model, provider_name, endpoint, revision, prompt_versi
         "output_sha256": output_hash,
         "status": status,
     }
+    if context_hash:
+        result["context_sha256"] = context_hash
+    if context_path:
+        result["context_path"] = context_path
     if error:
         result["error"] = error[:300]
     return result
@@ -616,7 +628,7 @@ def _update_index(output):
     (output / "index.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-def generate_weekly(current_collection, previous_collection=None, reports="reports", previous_reports=None, output="reports/weekly", provider="none", model=None, provider_name=None, endpoint=None, prompt_version=PROMPT_VERSION, date=None, token=None, client_factory=None):
+def generate_weekly(current_collection, previous_collection=None, reports="reports", previous_reports=None, output="reports/weekly", provider="none", model=None, provider_name=None, endpoint=None, prompt_version=PROMPT_VERSION, date=None, token=None, client_factory=None, context=None):
     current = _read_json(current_collection, {})
     previous = _read_json(previous_collection) if previous_collection else None
     stamp = date or datetime.now(timezone.utc).date().isoformat()
@@ -625,7 +637,13 @@ def generate_weekly(current_collection, previous_collection=None, reports="repor
     # The model only needs changed issues and aggregate context. Do not give it
     # the full unchanged RTBC list or unchanged issue titles.
     ai_facts = {key: value for key, value in facts.items() if key != "rtbc"}
-    ai_input = json.dumps(ai_facts, ensure_ascii=False, sort_keys=True)
+    context_text = None
+    if context:
+        try:
+            context_text = Path(context).read_text(encoding="utf-8").strip()
+        except OSError:
+            context_text = None
+    ai_input = json.dumps({"facts": ai_facts, "context": context_text or ""}, ensure_ascii=False, sort_keys=True)
     input_hash = _hash_text(ai_input)
     output_dir = Path(output)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -641,6 +659,7 @@ def generate_weekly(current_collection, previous_collection=None, reports="repor
             ai_text = summarize_with_huggingface(
                 ai_facts, model=model, provider=provider_name, endpoint=endpoint,
                 token=token or os.environ.get("HF_TOKEN"), client_factory=client_factory,
+                context=context_text,
             )
             ai_text = re.sub(r"<[^>]+>", "", ai_text).strip()
             valid, reason = validate_ai_output(ai_text, ai_facts)
@@ -664,6 +683,8 @@ def generate_weekly(current_collection, previous_collection=None, reports="repor
         provider, model, provider_name, endpoint,
         os.environ.get("HF_MODEL_REVISION"), prompt_version, input_hash,
         _hash_text(ai_text or ""), status, error,
+        context_hash=_hash_text(context_text or "") if context_text else None,
+        context_path=str(context) if context_text else None,
     )
     facts_path = output_dir / f"{stamp}.facts.json"
     facts_path.write_text(json.dumps(facts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

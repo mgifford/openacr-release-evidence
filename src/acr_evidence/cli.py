@@ -147,6 +147,7 @@ def main(argv=None):
     weekly = sub.add_parser("weekly-summary", help="Generate deterministic weekly facts and an optional Hugging Face executive summary")
     weekly.add_argument("--current-collection", required=True)
     weekly.add_argument("--previous-collection", default=None)
+    weekly.add_argument("--context", default="context/DRUPAL.md", help="Human-authored ACR/AI context file")
     weekly.add_argument("--reports", default="reports")
     weekly.add_argument("--previous-reports", default=None)
     weekly.add_argument("--output", default="reports/weekly")
@@ -301,6 +302,7 @@ def main(argv=None):
             previous_collection=args.previous_collection,
             reports=args.reports,
             previous_reports=args.previous_reports,
+            context=args.context,
             output=args.output,
             provider=args.provider,
             model=args.model,

@@ -67,13 +67,20 @@ The narrative does **not** claim:
 Use explicit evidence: `/admin` paths, Drupal login paths (`/user`,
 `/user/login`, `/user/password`), login/reproduction steps or an administrator
 account indicate the authoring interface; public front-end pages indicate web.
-Public profiles such as `/user/1` remain web. Record the basis (`admin-path`, `login-step` or `default-web`) and
+All `/user` paths, including `/user/1`, are authoring/account surfaces. Record the basis (`admin-path`, `login-step` or `default-web`) and
 review ambiguous cases. An authoring interface may also serve live content, so
 the boundary must be explained.
 
 Drupal Core has no live audio/video feature. For 1.2.4 and 1.2.5 the narrative
 records a proposed Not Applicable for Core and points to the contrib Video or
 AblePlayer modules for separate assessment.
+
+## Project context notes
+
+Human-maintained scope and AI wording notes live in [`context/DRUPAL.md`](../context/DRUPAL.md)
+for Drupal Core, with separate files for Drupal CMS, LocalGov Drupal and CKEditor.
+They describe component treatment, authoring boundaries and issue references.
+They are not evidence and do not assign conformance.
 
 ## Relationship to OpenACR and ATAG
 

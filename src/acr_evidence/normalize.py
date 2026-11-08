@@ -19,9 +19,9 @@ from .model import (
 
 WCAG_TAG_RE = re.compile(r"^wcag(\d+)$", re.IGNORECASE)
 ADMIN_PATH_RE = re.compile(r"/admin(?:/|\b)", re.IGNORECASE)
-# Drupal's login is /user or /user/login, not /login. Do not classify a public
-# profile such as /user/1 as authoring.
-USER_PATH_RE = re.compile(r"(?:^|[\s(])/user(?:/(?:login|password))?/?(?=$|[\s?#)])", re.IGNORECASE)
+# Drupal's login/account area is /user, including /user/login and /user/1.
+# All /user paths are authoring/account surfaces, not front-end web.
+USER_PATH_RE = re.compile(r"(?:^|[\s(])/user(?:/[^\s?#)]*)?(?=$|[\s?#)])", re.IGNORECASE)
 LOGIN_RE = re.compile(
     r"\b(?:log\s*in|login|logged\s+in|sign\s*in|signin|administrator|admin\s+user)\b",
     re.IGNORECASE,

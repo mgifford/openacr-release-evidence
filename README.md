@@ -178,7 +178,7 @@ command is called. Raw output is private and never published.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into Part A/Part B candidates, with a WAI ATAG Report Tool JSON draft.
-- 114 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 115 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -247,8 +247,9 @@ triage evidence and are not converted into per-criterion terms. The narrative
 uses the same active-issue scope (428 issues; 30 detailed,
 398 inventory-only) and links back to the evidence report.
 
-See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md) and the reusable
-[`templates/drupal-acr-template.md`](templates/drupal-acr-template.md).
+See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md), the reusable
+[`templates/drupal-acr-template.md`](templates/drupal-acr-template.md), and the
+human-maintained [`context/DRUPAL.md`](context/DRUPAL.md) scope notes.
 
 ## Weekly ACR digest (optional Hugging Face)
 
@@ -402,6 +403,8 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Hugging Face weekly summary](docs/HF-WEEKLY-SUMMARY.md)
 - [ACR narrative](docs/ACR-NARRATIVE.md)
 - [Drupal ACR template](templates/drupal-acr-template.md)
+- [Drupal ecosystem AI/ACR context](context/README.md)
+- [Drupal Core context notes](DRUPAL.md)
 - [ATAG 2.0 authoring evidence](docs/ATAG-EVIDENCE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Deferred sources](docs/FUTURE-SOURCES.md)

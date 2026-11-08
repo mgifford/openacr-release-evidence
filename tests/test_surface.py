@@ -58,21 +58,23 @@ class SurfaceTests(unittest.TestCase):
         self.assertEqual("authoring", result["surface"])
         self.assertEqual("user-path", result["basis"])
 
-    def test_public_user_profile_is_web(self):
+    def test_user_profile_path_is_authoring(self):
         result = classify_surface({
             "title": "Profile heading",
-            "description_text": "The public profile at /user/1 has a heading issue.",
+            "description_text": "The account page at /user/1 has a heading issue.",
             "comments": [],
         })
-        self.assertEqual("web", result["surface"])
+        self.assertEqual("authoring", result["surface"])
+        self.assertEqual("user-path", result["basis"])
 
-    def test_user_registration_is_web(self):
+    def test_user_registration_path_is_authoring(self):
         result = classify_surface({
             "title": "Registration copy",
             "description_text": "The /user/register page needs clearer instructions.",
             "comments": [],
         })
-        self.assertEqual("web", result["surface"])
+        self.assertEqual("authoring", result["surface"])
+        self.assertEqual("user-path", result["basis"])
 
     def test_admin_theme_without_admin_or_login_is_web(self):
         result = classify_surface({

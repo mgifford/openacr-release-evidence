@@ -169,7 +169,7 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
             "authoring-tool": {
                 "proposed_result": "partially-supports",
                 "review_status": "proposed",
-                "notes": "Authoring/admin UI evidence; /admin, Drupal /user login and login/reproduction cues; reviewer must confirm.",
+                "notes": "Authoring/admin UI evidence; /admin, Drupal /user account paths and login/reproduction cues; reviewer must confirm.",
             },
         },
         "chapters": chapters,

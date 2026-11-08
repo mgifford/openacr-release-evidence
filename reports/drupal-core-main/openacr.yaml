@@ -55,7 +55,7 @@ component_scope:
   authoring-tool:
     proposed_result: partially-supports
     review_status: proposed
-    notes: Authoring/admin UI evidence; /admin, Drupal /user login and login/reproduction
+    notes: Authoring/admin UI evidence; /admin, Drupal /user account paths and login/reproduction
       cues; reviewer must confirm.
 chapters:
   success_criteria_level_a:

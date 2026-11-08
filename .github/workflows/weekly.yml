@@ -93,6 +93,7 @@ jobs:
             --previous-collection /tmp/previous-reports/collection.json \
             --reports reports \
             --previous-reports /tmp/previous-reports \
+            --context context/DRUPAL.md \
             --output reports/weekly \
             --provider "$PROVIDER" \
             --model "${HF_MODEL:-}" \

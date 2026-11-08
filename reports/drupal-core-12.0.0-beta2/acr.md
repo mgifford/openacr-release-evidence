@@ -31,7 +31,7 @@ These are proposed component-level labels for review, not final ACR terms. Every
 | Web | Partially Supports (proposed) | 415 active findings classified as front-end/web | Partially Supports is proposed because active front-end accessibility issues exist in the published evidence. This label needs a specific explanation and independent review. |
 | Electronic Documents | Not Applicable (proposed) | No core electronic-document product | Not Applicable is proposed: Drupal Core is a web CMS, not a standalone electronic-document authoring or playback product. Uploaded documents are delivered as web content. |
 | Software | Not Applicable (proposed) | No packaged/non-web software product | Not Applicable is proposed: Drupal Core is web software. The Section 508 software chapter is not a separate installed application in this scope. |
-| Authoring Tool | Partially Supports (proposed) | 13 active findings classified as authoring/admin UI | Partially Supports is proposed because active authoring-interface issues exist. The /admin, Drupal /user login and login/reproduction cues are the classification basis; a reviewer must confirm. |
+| Authoring Tool | Partially Supports (proposed) | 13 active findings classified as authoring/admin UI | Partially Supports is proposed because active authoring-interface issues exist. The /admin, Drupal /user account paths and login/reproduction cues are the classification basis; a reviewer must confirm. |
 
 Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.
 
@@ -178,6 +178,7 @@ See ../drupal-core-atag/ for the ATAG evidence report. It must not be copied int
 The evidence report lists all active issues and their source links. It distinguishes full-detail evidence from metadata-only inventory records. Use it to review the criterion remarks above, collect missing evidence and decide each ACR result.
 
 - Use the generic templates/drupal-acr-template.md as the reusable ACR shell.
+- Record scope and wording notes in context/DRUPAL.md (or the matching product context file); context is not evidence.
 - Open ./index.html#issues and review the active issue evidence.
 - For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.
 - Verify each criterion against the installed product; do not convert issue counts into Supports or Does Not Support.

@@ -271,7 +271,7 @@ def render_acr_narrative(analysis, output_dir):
             evidence = f"{surface_counts['authoring']} active findings classified as authoring/admin UI"
             rationale = (
                 "Partially Supports is proposed because active authoring-interface issues exist. "
-                "The /admin, Drupal /user login and login/reproduction cues are the classification basis; a reviewer must confirm."
+                "The /admin, Drupal /user account paths and login/reproduction cues are the classification basis; a reviewer must confirm."
             )
         elif component_id == "electronic-docs":
             evidence = "No core electronic-document product"
@@ -367,6 +367,7 @@ def render_acr_narrative(analysis, output_dir):
     doc.p("The evidence report lists all active issues and their source links. It distinguishes full-detail evidence from metadata-only inventory records. Use it to review the criterion remarks above, collect missing evidence and decide each ACR result.")
     doc.ul([
         "Use the generic templates/drupal-acr-template.md as the reusable ACR shell.",
+        "Record scope and wording notes in context/DRUPAL.md (or the matching product context file); context is not evidence.",
         "Open ./index.html#issues and review the active issue evidence.",
         "For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.",
         "Verify each criterion against the installed product; do not convert issue counts into Supports or Does Not Support.",

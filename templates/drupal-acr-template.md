@@ -48,8 +48,9 @@ Use explicit evidence, not guesswork:
 - Drupal login paths `/user`, `/user/login` or `/user/password` → authoring
   interface.
 - Reproduction requires logging in, an administrator account, or the authoring
-  UI → authoring interface. Public profiles such as `/user/1` remain web.
-- `/user/register` is public registration, not an authoring interface.
+  UI → authoring interface.
+- All `/user` paths, including profiles such as `/user/1` and `/user/register`,
+  are authoring/account surfaces for this classification.
 - A public front-end page, anonymous view, or published content → web.
 
 Some authoring interfaces can expose front-end content. Classify the issue by
