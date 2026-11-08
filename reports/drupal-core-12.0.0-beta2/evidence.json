@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Pre-release beta. Default Admin is the default and admin theme; Claro and Olivero are no longer core themes. Not a supported release."
   },
-  "generated_at": "2026-11-08T14:32:27Z",
+  "generated_at": "2026-11-08T15:24:29Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -129,19 +129,20 @@
       "component": null,
       "since": null
     },
-    "collection_digest": "cefcdf8275de2cc4bd395f9abf065f76b14e0e027cba9fe6dd05f776bce3b74c",
+    "collection_digest": "2e947f6ce520cb5cd291d36257128274d221bbb5419fa62decb68296cd7f4e3c",
     "summary": {
-      "requested": 428,
-      "retrieved_at": "2026-11-07T20:09:16Z",
-      "collected": 428,
-      "cached": 30,
-      "fetched": 0,
+      "requested": 430,
+      "retrieved_at": "2026-11-08T15:18:41Z",
+      "collected": 430,
+      "cached": 0,
+      "reused": 426,
+      "fetched": 4,
       "failed": 0,
       "with_merge_requests": 29,
-      "with_wcag_tags": 193,
-      "detailed": 30,
+      "with_wcag_tags": 195,
+      "detailed": 32,
       "inventory": 398,
-      "excluded_by_status": 1196,
+      "excluded_by_status": 46,
       "statuses": [
         1,
         8,
@@ -149,16 +150,16 @@
         14,
         15
       ],
-      "comments": 1611,
+      "comments": 1622,
       "by_workflow": {
-        "needs-review": 14,
+        "needs-review": 15,
         "needs-work": 172,
-        "open": 235,
+        "open": 236,
         "rtbc": 7
       },
       "by_status": {
-        "Active": 235,
-        "Needs review": 14,
+        "Active": 236,
+        "Needs review": 15,
         "Needs work": 172,
         "Reviewed & tested by the community": 7
       },
@@ -167,24 +168,24 @@
     "cli_version": "Drupal.org CLI 0.15.0"
   },
   "summary": {
-    "findings": 428,
+    "findings": 430,
     "by_applicability": {
       "likely-affected": 26,
-      "unknown": 402
+      "unknown": 404
     },
     "by_workflow": {
-      "needs-review": 14,
+      "needs-review": 15,
       "needs-work": 172,
-      "open": 235,
+      "open": 236,
       "rtbc": 7
     },
     "by_evidence_status": {
-      "full": 30,
+      "full": 32,
       "inventory": 398
     },
     "fix_included_in_target": 0,
     "fix_included_in_release": 0,
-    "needs_verification": 428,
+    "needs_verification": 430,
     "unmapped_criteria": 235,
     "criteria": [
       "1.1.1",
@@ -236,14 +237,14 @@
         "main"
       ],
       "since": "2026-04-17T16:29:18-05:00",
-      "commits": 1015,
-      "retrieved_at": "2026-11-08T10:25:53+00:00"
+      "commits": 1019,
+      "retrieved_at": "2026-11-08T15:24:29Z"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/12.0.0-beta2",
-    "commit_index": "2026-11-08T10:25:53+00:00"
+    "commit_index": "2026-11-08T15:24:29Z"
   },
   "manifest_digest": "9347808a8e34d6b2e00b13006344cd0bc0be6166859870f372b154429b5e94c9",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -21195,16 +21196,17 @@
       "labels": [
         "Accessibility",
         "wcag1411",
-        "Usability"
+        "Usability",
+        "ai-ni"
       ],
       "status": {
-        "code": 1,
-        "label": "Active",
-        "workflow_state": "open",
-        "raw_label": "Active"
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
       },
       "created_at": "2026-11-07T06:35:51+00:00",
-      "updated_at": "2026-11-07T17:21:30+00:00",
+      "updated_at": "2026-11-07T20:13:09+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -21227,10 +21229,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T17:43:45Z",
+        "retrieved_at": "2026-11-08T15:18:41Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636027",
-        "content_hash": "d906e29f7d2ea7fbdc890075d19e000640f92f3af2881b2ffc42a9c0064449ea",
-        "raw_ref": "private-evidence/raw/3636027-20261107T174345Z.json"
+        "content_hash": "726ae7bcaef8b631b501e669fce80d86aa1ccaf4e9a7acadb3a8fd386e7419e0",
+        "raw_ref": "private-evidence/raw/3636027-20261108T151841Z.json"
       }
     },
     {
@@ -21254,7 +21256,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2026-11-07T06:54:10+00:00",
-      "updated_at": "2026-11-07T17:26:08+00:00",
+      "updated_at": "2026-11-08T10:57:48+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -21277,10 +21279,110 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T17:43:43Z",
+        "retrieved_at": "2026-11-08T15:18:34Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
-        "content_hash": "3178a3a99a519d90e7fe87233094f9c37fc2504aad1ff89e9a302815fa05e735",
-        "raw_ref": "private-evidence/raw/3636028-20261107T174343Z.json"
+        "content_hash": "5b9ecb1d9910991201623c7bc7f1661c4e449247e4b184b405ea66359a94ecf4",
+        "raw_ref": "private-evidence/raw/3636028-20261108T151834Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636128",
+      "project_scoped_id": "drupal:drupal:3636128",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636128",
+      "url": "https://www.drupal.org/project/drupal/issues/3636128",
+      "title": "In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode",
+      "labels": [
+        "Accessibility",
+        "wcag1411",
+        "Usability"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-07T23:18:43+00:00",
+      "updated_at": "2026-11-07T23:19:38+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Major",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.0",
+        "retrieved_at": "2026-11-08T15:18:39Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636128",
+        "content_hash": "51bd6d6a20af900e8488b57e434a1043c2fe46392c486e7baf790dead27b1627",
+        "raw_ref": "private-evidence/raw/3636128-20261108T151839Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636143",
+      "project_scoped_id": "drupal:drupal:3636143",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636143",
+      "url": "https://www.drupal.org/project/drupal/issues/3636143",
+      "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
+      "labels": [
+        "Accessibility",
+        "wcag1411",
+        "Usability"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-08T01:31:11+00:00",
+      "updated_at": "2026-11-08T01:31:46+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.0",
+        "retrieved_at": "2026-11-08T15:18:37Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636143",
+        "content_hash": "7c274aaaa4fa229baf3d1f0274fe2dfba5d427ffb00b63fafe48a01aa7bfbfe1",
+        "raw_ref": "private-evidence/raw/3636143-20261108T151837Z.json"
       }
     },
     {
@@ -43342,12 +43444,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3636027",
       "title": "The active primary local task has a too low color contrast and shapeshifting compared to the active secondary local task",
       "component": "Admin theme",
-      "tracker_status": 1,
-      "tracker_status_label": "Active",
+      "tracker_status": 8,
+      "tracker_status_label": "Needs review",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-07T06:35:51+00:00",
-      "observed_at": "2026-11-07T17:43:45Z",
+      "observed_at": "2026-11-08T15:18:41Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43382,7 +43484,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-07T17:21:29Z",
+          "updated_at": "2026-11-07T20:12:12Z",
           "author": "kentr"
         }
       ],
@@ -43414,7 +43516,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-07T06:54:10+00:00",
-      "observed_at": "2026-11-07T17:43:43Z",
+      "observed_at": "2026-11-08T15:18:34Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43449,13 +43551,115 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-07T12:08:34Z",
+          "updated_at": "2026-11-08T10:48:06Z",
           "author": "leandro713"
         }
       ],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/3636028",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/17724"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-12.0.0-beta2",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.0-beta2",
+        "ref": "12.0.0-beta2",
+        "ref_type": "tag",
+        "support_status": "pre-release",
+        "release_line": "12.0.x",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3636128",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3636128",
+      "title": "In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-07T23:18:43+00:00",
+      "observed_at": "2026-11-08T15:18:39Z",
+      "wcag_candidates": [
+        "1.4.11"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
+      "applicability": "unknown",
+      "basis": "report-after-release",
+      "reason": "The issue was reported after the target date (2026-10-14T16:29:18.000-05:00) and no fix was found in tag 12.0.0-beta2. It may describe a later regression or a pre-existing barrier; reproduce on the target before assigning applicability.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3636128"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-12.0.0-beta2",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.0-beta2",
+        "ref": "12.0.0-beta2",
+        "ref_type": "tag",
+        "support_status": "pre-release",
+        "release_line": "12.0.x",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3636143",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3636143",
+      "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-08T01:31:11+00:00",
+      "observed_at": "2026-11-08T15:18:37Z",
+      "wcag_candidates": [
+        "1.4.11"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
+      "applicability": "unknown",
+      "basis": "report-after-release",
+      "reason": "The issue was reported after the target date (2026-10-14T16:29:18.000-05:00) and no fix was found in tag 12.0.0-beta2. It may describe a later regression or a pre-existing barrier; reproduce on the target before assigning applicability.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3636143"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -43874,5 +44078,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "2d637e27a8a35c801a159a60f39111a1700b22a0cc26091a5d547c6de9d43a0e"
+  "evidence_digest": "2f554ba991e30ff1fc88bc3f4a5949853f8601ea54f2e013b4877675adfaabc1"
 }
