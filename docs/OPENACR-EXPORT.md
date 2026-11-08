@@ -77,9 +77,11 @@ narrative and unset for Web/Authoring in the YAML.
   0.1.0 schema permits additional properties; the official editor may ignore
   them.
 
-The absence of adherence values is intentional. The evidence pipeline has not
-performed a WCAG evaluation, and `not-evaluated` is restricted to AAA in this
-catalog. A human must select the applicable components and values.
+The adherence values are draft issue-queue proposals, not a WCAG evaluation.
+Issue-tagged criteria carry proposed `partially-supports` values; untagged
+Web/Authoring components are left unset and the narrative marks them Not
+Evaluated. `not-evaluated` remains restricted to AAA in this catalog. A human
+must confirm every component and value.
 
 ## Validation
 

@@ -144,17 +144,25 @@ AI is optional and off by default. It must never make applicability or
 conformance decisions, approve findings or invent evidence. If an AI provider is
 added, keep a no-AI path, validate structured responses, record provider/model/
 prompt version/input hash/date, and evaluate against gold-standard Drupal issues
-before enabling it. No AI is used in the current evidence report.
+before enabling it. AI is never used to assign applicability or conformance; optional
+criterion-summary prose is validated and falls back to deterministic text.
 
 Human-maintained ACR/AI context lives in `context/` (`DRUPAL.md`, `DRUPAL-CMS.md`,
 `LOCALGOV.md`, `CKEDITOR.md`). It is scope/wording guidance, never evidence. Pass
 the matching context to the weekly model and record its hash; never merge one
 product's context or conformance result into another's.
 
+Optional ACR criterion summaries are model-assisted drafts cached by issue-content
+hash. Only accepted, validated summaries may be used; rejected or failed output
+falls back to deterministic issue-title text. They never replace issue references
+or human review.
+
 Weekly AI summaries are optional and off by default. The facts and diff are
 deterministic; only changed/new/no-longer-active issues are sent to the model,
 and the model is skipped when there is no activity. AI may write only an
 executive summary. Validate every number and issue ID against the facts, reject
 conformance language, record provenance, and fall back to the deterministic
-digest on failure. Never let the summary modify
-OpenACR or the ACR narrative.
+digest on failure. The weekly executive summary must never modify
+OpenACR or the ACR narrative. The separate, validated criterion-summary cache may
+supply draft ACR paragraphs as described above; it never supplies issue
+references, statistics or a final conformance result.

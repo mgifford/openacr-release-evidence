@@ -5,6 +5,7 @@ assigns an ACR result: every criterion is "Not Evaluated" until a reviewer
 completes the evaluation. Issue-queue evidence is described, not converted into
 Supports/Partially Supports/Does Not Support.
 """
+import json
 from html import escape
 from pathlib import Path
 
@@ -30,6 +31,20 @@ CORE_SCOPE = {
 STATUS_ORDER = ("Active", "Needs review", "Needs work", "Reviewed & tested by the community", "Patch")
 
 
+def _load_criterion_summaries(output_dir):
+    path = Path(output_dir).parent / "acr-summaries.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    criteria = data.get("criteria") or {}
+    return {
+        criterion: item
+        for criterion, item in criteria.items()
+        if item.get("status") == "accepted"
+    }
+
+
 def _slug(value):
     text = "".join(ch if ch.isalnum() else "-" for ch in str(value).lower()).strip("-")
     return text or "section"
@@ -39,6 +54,13 @@ class Cell:
     def __init__(self, text, url=None):
         self.text = "" if text is None else str(text)
         self.url = url if isinstance(url, str) and url.startswith("https://") else None
+
+
+class RichCell:
+    """A table cell containing text and multiple links."""
+
+    def __init__(self, *parts):
+        self.parts = parts
 
 
 class Doc:
@@ -62,6 +84,12 @@ class Doc:
     def ul(self, items):
         self.blocks.append(("ul", list(items)))
 
+    def heading(self, text, anchor):
+        self.blocks.append(("heading", (text, anchor)))
+
+    def links(self, items):
+        self.blocks.append(("links", list(items)))
+
     def table(self, caption, headers, rows, css_class=None):
         self.blocks.append(("table", (caption, list(headers), [list(row) for row in rows], css_class)))
 
@@ -78,6 +106,11 @@ class Doc:
                 out.extend([value, ""])
             elif kind == "ul":
                 out.extend([f"- {item}" for item in value] + [""])
+            elif kind == "heading":
+                text, _anchor = value
+                out.extend([f"### {text}", ""])
+            elif kind == "links":
+                out.extend([f"- [{label}]({url})" if url else f"- {label}" for label, url in value] + [""])
             elif kind == "table":
                 caption, headers, rows, _css_class = value
                 out.extend([f"**{caption}**", ""])
@@ -141,6 +174,17 @@ class Doc:
                 parts.append(f"<p>{escape(value)}</p>")
             elif kind == "ul":
                 parts.append("<ul>" + "".join(f"<li>{escape(item)}</li>" for item in value) + "</ul>")
+            elif kind == "heading":
+                text, anchor = value
+                parts.append(f'<h3 id="{escape(anchor)}">{escape(text)}</h3>')
+            elif kind == "links":
+                items = []
+                for label, url in value:
+                    if url:
+                        items.append(f'<li><a href="{escape(url)}">{escape(label)}</a></li>')
+                    else:
+                        items.append(f"<li>{escape(label)}</li>")
+                parts.append("<ul>" + "".join(items) + "</ul>")
             elif kind == "table":
                 caption, headers, rows, css_class = value
                 parts.append(f'<div class="table-scroll" tabindex="0" role="region" aria-label="{escape(caption)}">')
@@ -163,6 +207,15 @@ def _md(value):
     if isinstance(value, Cell):
         text = value.text.replace("|", "\\|").replace("\n", "; ")
         return f"[{text}]({value.url})" if value.url else text
+    if isinstance(value, RichCell):
+        rendered = []
+        for part in value.parts:
+            if isinstance(part, tuple) and len(part) == 2:
+                label, url = part
+                rendered.append(f"[{str(label).replace('|', '\\|')}]({url})")
+            else:
+                rendered.append(str(part).replace("|", "\\|"))
+        return " ".join(rendered).replace("\n", " ")
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
@@ -171,6 +224,15 @@ def _html_cell(value):
         if value.url:
             return f'<a href="{escape(value.url)}">{escape(value.text)}</a>'
         return escape(value.text)
+    if isinstance(value, RichCell):
+        rendered = []
+        for part in value.parts:
+            if isinstance(part, tuple) and len(part) == 2:
+                label, url = part
+                rendered.append(f'<a href="{escape(url)}">{escape(str(label))}</a>')
+            else:
+                rendered.append(escape(str(part)))
+        return "".join(rendered)
     return escape(str(value))
 
 
@@ -255,23 +317,91 @@ def _levels_text(criterion, issues):
     return "\n".join(f"{name}: {level}" for name, level in levels.items())
 
 
-def _acr_remarks(criterion, issues):
-    if criterion in CORE_SCOPE:
-        return "All components: Not Applicable for Drupal Core. " + CORE_SCOPE[criterion]
-    evidence = _criterion_remark(criterion, issues)
-    if issues:
+def _surface_items(items, surface):
+    return [item for item in items if (item.get("surface") or {}).get("surface", "web") == surface]
+
+
+def _barrier_summary(items, surface):
+    label = "web" if surface == "web" else "authoring"
+    if not items:
         return (
-            "Web and Authoring Tool: " + evidence +
-            " The issue-tagged criteria use a draft Partially Supports result based on the open issue queue; "
-            "they are not a release reproduction or a final conformance claim. "
-            "Electronic Documents and Software: Not Applicable; Drupal Core does not ship a standalone "
-            "electronic-document or packaged software product in this scope."
+            f"No {label}-classified issue is tagged in this snapshot; the "
+            f"{'Web' if surface == 'web' else 'Authoring Tool'} result is proposed from the overall issue "
+            "queue and needs review."
         )
+    titles = []
+    for item in items[:3]:
+        title = (item.get("title") or "Untitled issue").strip()
+        if len(title) > 95:
+            title = title[:92].rstrip() + "…"
+        titles.append(title)
+    return f"Reported {label} barriers include: " + "; ".join(titles) + "."
+
+
+def _evidence_text(items):
+    detailed = sum(1 for item in items if item.get("evidence_status") != "inventory")
+    inventory = len(items) - detailed
+    states = {}
+    for item in items:
+        key = item.get("applicability") or "unknown"
+        states[key] = states.get(key, 0) + 1
+    state_text = ", ".join(f"{key}: {value}" for key, value in sorted(states.items()))
     return (
-        "Web and Authoring Tool: " + evidence +
-        " Electronic Documents and Software: Not Applicable; Drupal Core does not ship a standalone "
-        "electronic-document or packaged software product in this scope."
+        f"{len(items)} active {_plural(len(items), 'issue')} tagged to this criterion: "
+        f"{detailed} detailed, {inventory} metadata-only inventory. "
+        f"Tracker statuses: {_status_summary(items)}. Target evidence states: {state_text}."
     )
+
+
+def _example_parts(items, limit=3):
+    parts = []
+    for index, item in enumerate(items[:limit]):
+        if index:
+            parts.append("; ")
+        title = (item.get("title") or item.get("issue_id") or "Untitled issue").strip()
+        if len(title) > 80:
+            title = title[:77].rstrip() + "…"
+        url = item.get("source_url")
+        label = f"{title} ({item.get('issue_id')}, {item.get('tracker_status_label') or 'unknown status'})"
+        parts.append((label, url) if url else label)
+    return parts
+
+
+def _reference_items(items):
+    refs = []
+    for item in items:
+        title = (item.get("title") or item.get("issue_id") or "Untitled issue").strip()
+        label = f"{item.get('issue_id')} — {title} ({item.get('tracker_status_label') or 'unknown status'})"
+        refs.append((label, item.get("source_url")))
+    return refs
+
+
+def _remarks_cell(criterion, issues, ai_summary=None):
+    if criterion in CORE_SCOPE:
+        return RichCell("All components: Not Applicable for Drupal Core. " + CORE_SCOPE[criterion])
+    web = _surface_items(issues, "web")
+    authoring = _surface_items(issues, "authoring")
+    ai_summary = ai_summary or {}
+    if not issues:
+        return RichCell(
+            "Web: No active tagged issue; remains Not Evaluated.\n"
+            "Authoring Tool: No active tagged issue; remains Not Evaluated.\n"
+            "Evidence: No active tagged issue in this snapshot."
+        )
+    parts = [
+        "Web: ", ai_summary.get("web") or _barrier_summary(web, "web"), "\n",
+        "Authoring Tool: ", ai_summary.get("authoring") or _barrier_summary(authoring, "authoring"), "\n",
+        "Evidence: ", _evidence_text(issues), "\n",
+        "Examples: ",
+    ]
+    examples = _example_parts(issues)
+    parts.extend(examples or ["No examples available."])
+    parts.extend([
+        "\n",
+        "All issue references: ",
+        (f"{criterion} reference list", f"#ref-{_slug(criterion)}"),
+    ])
+    return RichCell(*parts)
 
 
 def _table_number(level):
@@ -292,6 +422,7 @@ def render_acr_narrative(analysis, output_dir):
     for finding in findings:
         for criterion in finding.get("wcag_candidates") or []:
             by_criterion.setdefault(str(criterion), []).append(finding)
+    ai_summaries = _load_criterion_summaries(output)
     chapter_a = next((c for c in catalog["chapters"] if c["id"] == "success_criteria_level_a"), None)
     chapter_aa = next((c for c in catalog["chapters"] if c["id"] == "success_criteria_level_aa"), None)
     chapter_aaa = next((c for c in catalog["chapters"] if c["id"] == "success_criteria_level_aaa"), None)
@@ -373,7 +504,12 @@ def render_acr_narrative(analysis, output_dir):
         component_rows,
     )
     doc.p("Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.")
-    doc.p("Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split.")
+    doc.p("Reading the tables: Open issue reports are treated as reported barrier evidence; no issue was reproduced against this release. Inventory records have no comments, merge requests or commit analysis. Issue-tagged criteria use draft Partially Supports for Web and Authoring Tool; criteria without a tagged issue remain Not Evaluated. Electronic Documents and Software are Not Applicable because Drupal Core does not ship a standalone electronic-document or packaged software product in this scope.")
+    doc.p("Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split. A Web result can include barriers that also affect the authoring interface; the per-component remarks identify the classified evidence.")
+    if ai_summaries:
+        doc.p("Some Web/Authoring paragraphs are model-assisted draft summaries generated from the cited issue evidence. They are suggestions for human review, not conformance conclusions; the issue list, statistics and references remain the source record.")
+    else:
+        doc.p("No accepted AI summary cache is present for this build. The Web/Authoring paragraphs are deterministic extracts from issue titles; add the optional criterion-summary step to enable model-assisted draft summaries.")
     doc.h2("Draft status and ACR result terms")
     doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. Issue-tagged criteria use draft Partially Supports; criteria without a tagged issue remain Not Evaluated. A reviewer must confirm every term after evaluating the product.")
     doc.table("ACR result terms used in review", ["Term", "Meaning"], [
@@ -417,7 +553,7 @@ def render_acr_narrative(analysis, output_dir):
             rows.append([
                 Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
                 Cell(_levels_text(criterion_id, items)),
-                Cell(_acr_remarks(criterion_id, items)),
+                _remarks_cell(criterion_id, items, ai_summaries.get(criterion_id)),
             ])
         doc.table(
             f"Table {_table_number(level)}: Success Criteria, Level {level}",
@@ -465,6 +601,21 @@ def render_acr_narrative(analysis, output_dir):
         "The product is a declared Drupal Core configuration; it is not every Drupal site.",
         "The draft does not establish legal compliance or a procurement-safe conformance claim.",
     ])
+    doc.h2("References")
+    doc.p("Every Drupal.org issue cited in the criterion tables is listed below by criterion. Each link goes to the public issue where the barrier is discussed.")
+    for criterion_id in sorted(by_criterion):
+        items = by_criterion[criterion_id]
+        handle = next(
+            (
+                criterion.get("handle")
+                for chapter in catalog.get("chapters") or []
+                for criterion in chapter.get("criteria") or []
+                if str(criterion.get("id")) == criterion_id
+            ),
+            "",
+        )
+        doc.heading(f"{criterion_id} — {handle or 'WCAG criterion'}", f"ref-{_slug(criterion_id)}")
+        doc.links(_reference_items(items))
     doc.h2("Sources")
     doc.table("Authoritative sources", ["Source", "Link"], [
         ["Drupal Core Accessibility queue", Cell("Drupal.org Accessibility issue queue", "https://www.drupal.org/project/issues/search?text=&projects=Drupal+core&assigned=&submitted=&project_issue_followers=&status%5B%5D=Open&issue_tags_op=%3D&issue_tags=Accessibility")],

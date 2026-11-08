@@ -6,6 +6,7 @@ accessible draft artifact for human review.
 """
 import argparse
 import json
+import os
 from pathlib import Path
 
 from .build import build
@@ -15,6 +16,7 @@ from .atag import load_scope, render_atag_report
 from .openacr import export_worksheet
 from .openacr_export import OpenACRError, export_openacr, validate_file
 from .weekly_summary import generate_weekly
+from .criterion_summaries import summarize_collection
 from .acr_narrative import render_acr_narrative
 from .release import analyze_collection
 from .report import render_landing, render_report
@@ -158,6 +160,14 @@ def main(argv=None):
     weekly.add_argument("--prompt-version", default="weekly-evidence-v1")
     weekly.add_argument("--date", default=None)
 
+    criteria = sub.add_parser("criterion-summaries", help="Generate optional AI barrier summaries for ACR criteria")
+    criteria.add_argument("--collection", required=True)
+    criteria.add_argument("--output", default="reports/acr-summaries.json")
+    criteria.add_argument("--provider", choices=["none", "huggingface"], default="none")
+    criteria.add_argument("--model", default=None)
+    criteria.add_argument("--provider-name", default=None)
+    criteria.add_argument("--endpoint", default=None)
+
     oa = sub.add_parser("openacr-export", help="Export and validate a draft OpenACR YAML skeleton")
     oa.add_argument("--analysis", required=True)
     oa.add_argument("--output", required=True)
@@ -296,6 +306,18 @@ def main(argv=None):
             f"({result['summary']['issues']} ATAG-tagged issues; "
             f"{result['summary']['missing_accessibility_tag']} missing the Accessibility tag)"
         )
+    elif args.command == "criterion-summaries":
+        if args.provider == "none":
+            print("Criterion AI summaries disabled; deterministic issue-title summaries will be used.")
+        else:
+            result = summarize_collection(
+                load_json(args.collection), args.output,
+                provider=args.provider, model=args.model,
+                provider_name=args.provider_name, endpoint=args.endpoint,
+                token=os.environ.get("HF_TOKEN"),
+            )
+            accepted = sum(1 for item in result["criteria"].values() if item.get("status") == "accepted")
+            print(f"Wrote {len(result['criteria'])} criterion summaries to {args.output} ({accepted} accepted).")
     elif args.command == "weekly-summary":
         result = generate_weekly(
             args.current_collection,

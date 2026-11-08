@@ -241,8 +241,11 @@ collection and are not duplicated in the JSON. The committed analysis artifact i
 no longer produced by `multi`; this keeps the report set small.
 
 `acr.html`/`acr.md` convert the active evidence into an ACR narrative.
-They describe issue counts and evidence states. Criteria with active tagged
-issues carry a draft Partially Supports result based on the open issue queue;
+They describe issue counts and evidence states. Optional model-assisted criterion
+paragraphs are cached by issue-content hash and must pass the same validation as
+other AI output; failed summaries fall back to deterministic issue titles.
+Criteria with active tagged issues carry a draft Partially Supports result based
+on the open issue queue;
 criteria without a tagged issue remain `Not Evaluated`. The narrative is a draft,
 does not claim release reproduction, and does not inherit ATAG or OpenACR results.
 

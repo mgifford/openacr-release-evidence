@@ -95,6 +95,26 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory", md)
         self.assertIn("1 active issue tagged to this criterion: 1 detailed, 0 metadata-only inventory", md)
 
+
+    def test_accepted_criterion_summary_is_used(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            target = root / "target"
+            (root / "acr-summaries.json").write_text(json.dumps({
+                "criteria": {
+                    "1.1.1": {
+                        "status": "accepted",
+                        "web": "AI web barrier summary.",
+                        "authoring": "AI authoring barrier summary.",
+                    }
+                }
+            }), encoding="utf-8")
+            result = render_acr_narrative(analysis(), target)
+            md = Path(result["markdown"]).read_text(encoding="utf-8")
+        self.assertIn("AI web barrier summary.", md)
+        self.assertIn("AI authoring barrier summary.", md)
+        self.assertIn("model-assisted draft summaries", md)
+
     def test_no_fabricated_reviewer(self):
         with tempfile.TemporaryDirectory() as folder:
             result = render_acr_narrative(analysis(), folder)

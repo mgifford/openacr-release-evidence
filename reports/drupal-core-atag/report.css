@@ -153,3 +153,4 @@ body:has(#filter-status-development:checked) .release-card:not([data-support="de
 .acr-table th:nth-child(1),.acr-table td:nth-child(1){width:18%}
 .acr-table th:nth-child(2),.acr-table td:nth-child(2){width:24%;white-space:pre-line}
 .acr-table th:nth-child(3),.acr-table td:nth-child(3){width:58%}
+.acr-table td:nth-child(3){white-space:pre-line}
