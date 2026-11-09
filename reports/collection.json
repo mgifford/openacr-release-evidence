@@ -106,7 +106,7 @@
       "detail_limit": 30
     }
   },
-  "generated_at": "2026-11-08T15:18:12Z",
+  "generated_at": "2026-11-09T02:53:18Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -26815,7 +26815,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2023-03-16T18:09:09+00:00",
-      "updated_at": "2026-11-01T23:01:28+00:00",
+      "updated_at": "2026-11-08T17:47:21+00:00",
       "component": "theme system",
       "version": "main",
       "priority": "Normal",
@@ -27759,18 +27759,6 @@
           "content_hash": "38721b095189207b15bbfa9ce1ba9808e87324b5206f744a92f49fef77b98dbc"
         },
         {
-          "id": "16524496",
-          "url": "https://www.drupal.org/node/3348552#comment-16524496",
-          "author": "kentr",
-          "author_id": "456718",
-          "author_url": "https://www.drupal.org/user/456718",
-          "created_at": "2026-03-25T03:23:02Z",
-          "body_html": "<p>Regarding #77:</p>\n<blockquote><p>I am more inclined on the comment #62 here.<br />\n<a href=\"https://www.drupal.org/project/drupal/issues/3348552#comment-16318835\" rel=\"nofollow\">https://www.drupal.org/project/drupal/issues/3348552#comment-16318835</a><br />\nIt is not correct to add aria-label to elipsis. As it is a non-interactive element and might be missed by some assistive technology and in that case, it will read it as dot dot dot.<br />\nBetter approach would be use aria-hidden and using Ellipsis indicating non-visible pages like suggested in the comment. Any thoughts?</p></blockquote>\n<p>It was RTBC by @mgifford (Accessibility Maintainer) in <a href=\"#comment-16389926\" rel=\"nofollow\">#68</a>.</p>\n<p>The discussion in the #accessibility Slack channel is <a href=\"https://github.com/uswds/uswds/pull/5197\" rel=\"nofollow\">here</a>.</p>",
-          "body_text": "Regarding #77:\nI am more inclined on the comment #62 here.\nhttps://www.drupal.org/project/drupal/issues/3348552#comment-16318835\nIt is not correct to add aria-label to elipsis. As it is a non-interactive element and might be missed by some assistive technology and in that case, it will read it as dot dot dot.\nBetter approach would be use aria-hidden and using Ellipsis indicating non-visible pages like suggested in the comment. Any thoughts?\nIt was RTBC by @mgifford (Accessibility Maintainer) in #68.\nThe discussion in the #accessibility Slack channel is here.",
-          "machine_generated": false,
-          "content_hash": "20f88e538e1074f20660e24f051cf9fdc11e285e2a25b9fcbe60378fba5ed361"
-        },
-        {
           "id": "16827439",
           "url": "https://www.drupal.org/node/3348552#comment-16827439",
           "author": "dmundra",
@@ -27781,6 +27769,42 @@
           "body_text": "I rebased and resolved some comments. core/themes/default_admin/templates/views/pager.html.twig should be covered in the MR",
           "machine_generated": false,
           "content_hash": "dc3d60371c78b6d913274fbf9fb68ea562a9762354ff7f5a1947651c68126127"
+        },
+        {
+          "id": "16524496",
+          "url": "https://www.drupal.org/node/3348552#comment-16524496",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-03-25T03:23:02Z",
+          "body_html": "<p>Regarding #77:</p>\n<blockquote><p>I am more inclined on the comment #62 here.<br />\n<a href=\"https://www.drupal.org/project/drupal/issues/3348552#comment-16318835\" rel=\"nofollow\">https://www.drupal.org/project/drupal/issues/3348552#comment-16318835</a><br />\nIt is not correct to add aria-label to elipsis. As it is a non-interactive element and might be missed by some assistive technology and in that case, it will read it as dot dot dot.<br />\nBetter approach would be use aria-hidden and using Ellipsis indicating non-visible pages like suggested in the comment. Any thoughts?</p></blockquote>\n<p>It was RTBC by @mgifford (Accessibility Maintainer) in <a href=\"#comment-16389926\" rel=\"nofollow\">#68</a>.</p>\n<p>The discussion in the #accessibility Slack channel is <a href=\"https://drupal.slack.com/archives/C2ANFUGGG/p1765404920881279\" rel=\"nofollow\">here</a>.</p>",
+          "body_text": "Regarding #77:\nI am more inclined on the comment #62 here.\nhttps://www.drupal.org/project/drupal/issues/3348552#comment-16318835\nIt is not correct to add aria-label to elipsis. As it is a non-interactive element and might be missed by some assistive technology and in that case, it will read it as dot dot dot.\nBetter approach would be use aria-hidden and using Ellipsis indicating non-visible pages like suggested in the comment. Any thoughts?\nIt was RTBC by @mgifford (Accessibility Maintainer) in #68.\nThe discussion in the #accessibility Slack channel is here.",
+          "machine_generated": false,
+          "content_hash": "a71abbaa6cd1214bb66df1286af4d2508b9d8d173e8a833f0f5b73813e8f4a6f"
+        },
+        {
+          "id": "16834253",
+          "url": "https://www.drupal.org/node/3348552#comment-16834253",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-11-08T17:05:28Z",
+          "body_html": "<p>In #83, I put the wrong URL for the Slack reference. </p>\n<p>I edited my comment, and here it is again: <a href=\"https://drupal.slack.com/archives/C2ANFUGGG/p1765404920881279\" rel=\"nofollow\">https://drupal.slack.com/archives/C2ANFUGGG/p1765404920881279</a></p>\n<p>Summarizing the discussion, the decision was to follow the GOV.UK pattern that @mgifford referenced in <a href=\"#comment-16389926\" rel=\"nofollow\">#68</a> because they do a lot of user research (also with screen readers, from what I've seen).</p>\n<blockquote><p>Maybe thats the best solution for now. They do a lot of user research compared to any other government.</p></blockquote>",
+          "body_text": "In #83, I put the wrong URL for the Slack reference.\nI edited my comment, and here it is again: https://drupal.slack.com/archives/C2ANFUGGG/p1765404920881279\nSummarizing the discussion, the decision was to follow the GOV.UK pattern that @mgifford referenced in #68 because they do a lot of user research (also with screen readers, from what I've seen).\nMaybe thats the best solution for now. They do a lot of user research compared to any other government.",
+          "machine_generated": false,
+          "content_hash": "ae33f71a9884952fbdc87bbd81d30d1f463f565fd83b873076b8e9abf014b768"
+        },
+        {
+          "id": "16834277",
+          "url": "https://www.drupal.org/node/3348552#comment-16834277",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-08T17:47:21Z",
+          "body_html": "<p>I've manually tested MR5245 on macOS 26.7.2 with VoiceOver in Safari. AxeCore is not raising an error against SC1.3.1 with the MR checked out. The interesting detail to denote Arc Toolkit isnt flagging the pager with the main branch checked out even.</p>\n<p>There is only one thing that feels odd. You are only running into the ellipsis announcement if you are using the VoiceOver stepper. In my previous test I've posted in the thread linked in <a href=\"https://www.drupal.org/project/drupal/issues/3348552#comment-16834253\" rel=\"nofollow\">#85</a> the ellipsis was a single step (pager.mp4). But with the current state of the MR that encounter has three steps  now because it is announced as group? One announcement to get into the group, one announcement for the ellipsis, and then another announcement to get out of the group (safari_mr.mp4)... with the main branch checked out the behavior is as follows (safari_main.mp4). So that grouping sounds overly verbose and looking at the DOM i have no real idea what might be causing that kind of verbosity? </p>\n<p>And I've raised the concern in the thread on Slack referenced in <a href=\"https://www.drupal.org/project/drupal/issues/3348552#comment-16834253\" rel=\"nofollow\">#85</a> that the ellipsis might potentially go unnoticed for screenreader users. One thing to improve that in a follow up might be to apply a pattern like that: </p>\n<p><img src=\"/files/issues/2026-11-08/dialog.jpg\" alt=\"a forum with a pager that has a dialog modal expanded where the user is able to choose a page to go to\" /></p>\n<p>That way the ellipsis would be focusable and would expand a dialog modal where the user would be able to go to a specific page. That would be useful for pagers with dozens of pages. Currently the only option is to go through the pages step by step or straight to the last/first page. While with that kind of functionality instead of going from for example page 3 to the end at page 64 the user could choose that they want to go to page 10 instead for example. But as I said completely out of scope for this issue, it would require a follow up. But that way the ellipsis would become functional with a purpose and could be easier discoverable also for screenreader users as well. </p>",
+          "body_text": "I've manually tested MR5245 on macOS 26.7.2 with VoiceOver in Safari. AxeCore is not raising an error against SC1.3.1 with the MR checked out. The interesting detail to denote Arc Toolkit isnt flagging the pager with the main branch checked out even.\nThere is only one thing that feels odd. You are only running into the ellipsis announcement if you are using the VoiceOver stepper. In my previous test I've posted in the thread linked in #85 the ellipsis was a single step (pager.mp4). But with the current state of the MR that encounter has three steps now because it is announced as group? One announcement to get into the group, one announcement for the ellipsis, and then another announcement to get out of the group (safari_mr.mp4)... with the main branch checked out the behavior is as follows (safari_main.mp4). So that grouping sounds overly verbose and looking at the DOM i have no real idea what might be causing that kind of verbosity?\nAnd I've raised the concern in the thread on Slack referenced in #85 that the ellipsis might potentially go unnoticed for screenreader users. One thing to improve that in a follow up might be to apply a pattern like that:\nThat way the ellipsis would be focusable and would expand a dialog modal where the user would be able to go to a specific page. That would be useful for pagers with dozens of pages. Currently the only option is to go through the pages step by step or straight to the last/first page. While with that kind of functionality instead of going from for example page 3 to the end at page 64 the user could choose that they want to go to page 10 instead for example. But as I said completely out of scope for this issue, it would require a follow up. But that way the ellipsis would become functional with a purpose and could be easier discoverable also for screenreader users as well.",
+          "machine_generated": false,
+          "content_hash": "acb7bb6e79b31e0ba2a4f69be3e12d9edc9a29cf93daa56e780de9bb9c1cc555"
         }
       ],
       "merge_requests": [
@@ -27812,15 +27836,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:01:23Z",
+        "retrieved_at": "2026-11-09T02:53:37Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
-        "content_hash": "140fee89edf2dbaf71ec94d00bf396f0dbed41574f17c155060685848bce4e78",
-        "raw_ref": "private-evidence/raw/3348552-20261107T200123Z.json"
+        "content_hash": "f12d003afa3f07aae399a7d4a66ef4f6de731e26f7c3808beef2ed858f63b9c6",
+        "raw_ref": "private-evidence/raw/3348552-20261109T025337Z.json"
       }
     },
     {
@@ -39879,13 +39907,13 @@
         "Accessibility"
       ],
       "status": {
-        "code": 14,
-        "label": "Reviewed & tested by the community",
-        "workflow_state": "rtbc",
-        "raw_label": "RTBC"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-08-26T00:03:31+00:00",
-      "updated_at": "2026-11-05T09:43:26+00:00",
+      "updated_at": "2026-11-08T17:19:51+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -40227,6 +40255,18 @@
           "body_text": "",
           "machine_generated": false,
           "content_hash": "4976c1bfd37d6e476b57ef1fdfada1b471be3b774b907dd0bcdb31f072035369"
+        },
+        {
+          "id": "16834266",
+          "url": "https://www.drupal.org/node/3619154#comment-16834266",
+          "author": "needs-review-queue-bot",
+          "author_id": "3747965",
+          "author_url": "https://www.drupal.org/user/3747965",
+          "created_at": "2026-11-08T17:19:51Z",
+          "body_html": "<p>The <a href=\"https://www.drupal.org/u/needs-review-queue-bot\" rel=\"nofollow\">Needs Review Queue Bot</a> tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".</p>\n<p>This does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.</p>\n<p>Consult the <a href=\"https://www.drupal.org/community/contributor-guide/find-a-task\" rel=\"nofollow\">Drupal Contributor Guide</a> to find step-by-step guides for working with issues.</p>",
+          "body_text": "The Needs Review Queue Bot tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".\nThis does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.\nConsult the Drupal Contributor Guide to find step-by-step guides for working with issues.",
+          "machine_generated": false,
+          "content_hash": "95c1de5be4a4bc9538cb085804d715b0eb94b37bde91133cd2167be931e0610c"
         }
       ],
       "merge_requests": [
@@ -40241,7 +40281,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-03T19:19:20Z",
+          "updated_at": "2026-11-08T23:23:10Z",
           "author": "mherchel"
         }
       ],
@@ -40255,15 +40295,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T17:43:49Z",
+        "retrieved_at": "2026-11-09T02:53:40Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
-        "content_hash": "c983435668359295398b9780ebb8d77917f664cba61fc823027d6f8f1bccf4ff",
-        "raw_ref": "private-evidence/raw/3619154-20261107T174349Z.json"
+        "content_hash": "28049b3b466676c502bd7d614963d596d02bef5518645b099567533dd53abad8",
+        "raw_ref": "private-evidence/raw/3619154-20261109T025340Z.json"
       }
     },
     {
@@ -40275,7 +40319,7 @@
       "source_id": "3619387",
       "url": "https://www.drupal.org/project/drupal/issues/3619387",
       "title": "Indicate on forms sidebar toggle button that sidebar has child element errors",
-      "description_html": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>Spin off from <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-14\"><a href=\"/project/drupal/issues/3604037\" title=\"Status: Reviewed &amp; tested by the community\">#3604037: Indicate that grouping elements have child element errors for UX and a11y</a></span>.</p>\n<p>Child elements in the forms sidebar are invisible to the user when the sidebar is closed. It's the same fundamental problem as with the related grouping element issues.</p>\n<p>To improve the user experience and accessibility we should indicate when there are errors 'inside' the closed sidebar. Currently it is hard for the user to find the actual problematic field when the (child) field itself is invisible.</p>\n<p>I'm assuming this is Major for the same reasons that the issues for standard grouping elements are. </p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<ol>\n<li>Standard installation</li>\n<li>Log in as admin</li>\n<li>Set Default Admin as the admin theme.</li>\n<li>Install the article test recipe (<code class=\"language-php\">drush recipe core/tests/fixtures/recipes/article_content_type</code>),<br />\nor create an Article content type &amp; install the Path module (aka <code class=\"language-php\">path_alias</code>).</li>\n<li>Go to <code class=\"language-php\">/node/add/article</code>.</li>\n<li>Reduce viewport width until the sidebar on the right containing the \"advanced\" fields collapses.</li>\n<li>Enter a value in the <code class=\"language-php\">Title</code> field to limit errors.</li>\n<li>Click the toggle button to expand the right sidebar.</li>\n<li>Enter a value <em>without</em> a beginning slash in the <code class=\" language-php\">URL alias</code> field.</li>\n<li>Close the sidebar.</li>\n<li><del>Clear / reset caches (<code class=\"language-php\">drush cr</code>). This is a temporary measure.</del><br />\n(Tested on the MR tugboat preview as of 2026-09-07, and clearing the cache was not necessary. Also, the UX team experienced no issues with it in their second review.)</li>\n<li>Click the <code class=\"language-php\">Save</code> button.<br />\n  This should cause a validation error: \"The alias path has to start with a slash\".</li>\n</ol>\n<h5>Expected</h5>\n<p>The closed sidebar indicates that there is an invalid field within it, for the same reasons that details and vertical tabs elements indicate that there are child errors for <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-14\"><a href=\"/project/drupal/issues/3604037\" title=\"Status: Reviewed &amp; tested by the community\">#3604037: Indicate that grouping elements have child element errors for UX and a11y</a></span>.</p>\n<p>See the <a href=\"#summary-proposed-resolution\" rel=\"nofollow\">Proposed resolution</a> for details on the new indicators.</p>\n<h5>Actual</h5>\n<p>There's no indication that the closed sidebar contains an invalid field.</p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Add visual and visually-hidden indicators to the toggle button as so:</p>\n<ol>\n<li>Place the prohibition icon from the top error block at the logical inline start of the toggle button, previous to the sidebar icon.<br />\nThis means on the left for LTR and on the right for RTL.\n</li>\n<li>In the toggle control's default state the prohibition and sidebar icons are red. (see screenshot in <a href=\"#summary-ui-changes\" rel=\"nofollow\">the User interface changes section</a>.)</li>\n<li>In the hover and focus states, the prohibition icon is red and the sidebar icon is the same as it is now. (see screenshot in <a href=\"#summary-ui-changes\" rel=\"nofollow\">the User interface changes section</a>.)</li>\n<li>Use the input error color from invalid fields for the sidebar icon and the prohibition icon  (<code class=\"language-php\">var(--input--error-color)</code>).</li>\n<li>Append visually hidden \" (sidebar contains error)\" to the text content of the toggle control. This is mostly consistent with the hidden text in <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-14\"><a href=\"/project/drupal/issues/3604037\" title=\"Status: Reviewed &amp; tested by the community\">#3604037: Indicate that grouping elements have child element errors for UX and a11y</a></span> and <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-3\"><a href=\"/project/drupal/issues/2848507\" title=\"Status: Closed (duplicate)\">#2848507: Indicate that grouping elements have child element errors for ux and a11y</a></span>.</li>\n<li>Append \" (sidebar contains error)\" to the <code class=\"language-php\">title</code> attribute so that it appears in the tooltip text when hovering over the button.</li>\n<li>Include both icons in the clickable area of the button.</li>\n</ol>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<ol>\n<li><del>Add a visual indicator to the toggle control.</del></li>\n<li><del>Create merge request.</del></li>\n<li><del>Add test.</del></li>\n<li><del>Refactor code to bust the render cache for the toggle button when there are validation errors in the advanced sidebar.</del></li>\n<li><del>Update test.</del></li>\n<li><del>Usability / UX review.</del></li>\n<li><del>Make the element uncacheable</del>, possibly with a lazy builder as <a href=\"https://drupal.slack.com/archives/C079NQPQUEN/p1788851889244939?thread_ts=1788624693.299369&amp;cid=C079NQPQUEN\" rel=\"nofollow\">@berdir suggested in Slack</a> (?)</li>\n<li>Take screenshots for the User interface changes section of the issue summary, performing any manual testing that's not covered by the UX review.</li>\n<li>Create change record (?)</li>\n</ol>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<p><img src=\"/files/issues/2026-09-21/3619387-29-proposed-resolution-all-states.png\" width=\"179\" alt=\"Toggle control in normal, error, error plus hover, and error plus focus states.\" /></p>\n<p>New toggle button tooltip when hovered:</p>\n<p><img src=\"/files/issues/2026-09-25/3619387-32-error-toggle-with-tooltip.png\" width=\"248\" alt=\"\" /></p>\n<p>New markup (formatted for readability):</p>\n<pre class=\"codeblock\"><code class=\"language-php\">&lt;a \n  class=\"meta-sidebar__trigger trigger has-error\" \n  href=\"#toggle-sidebar\" \n  role=\"button\"\n  title=\"Show sidebar panel (sidebar contains error)\" \n  aria-controls=\"default_admin_sidebar\"\n  data-drupal-selector=\"edit-default-admin-sidebar-toggle\" \n  data-once=\"adminSidebarToggle\" \n  aria-expanded=\"false\"&gt;\n  &lt;span\n    class=\"visually-hidden\" \n    data-drupal-selector=\"edit-text\"&gt;\n      Show sidebar panel (sidebar contains error)\n    &lt;/span&gt;\n&lt;/a&gt;\n</code></pre><h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "description_html": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>Spin off from <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-13\"><a href=\"/project/drupal/issues/3604037\" title=\"Status: Needs work\">#3604037: Indicate that grouping elements have child element errors for UX and a11y</a></span>.</p>\n<p>Child elements in the forms sidebar are invisible to the user when the sidebar is closed. It's the same fundamental problem as with the related grouping element issues.</p>\n<p>To improve the user experience and accessibility we should indicate when there are errors 'inside' the closed sidebar. Currently it is hard for the user to find the actual problematic field when the (child) field itself is invisible.</p>\n<p>I'm assuming this is Major for the same reasons that the issues for standard grouping elements are. </p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<ol>\n<li>Standard installation</li>\n<li>Log in as admin</li>\n<li>Set Default Admin as the admin theme.</li>\n<li>Install the article test recipe (<code class=\"language-php\">drush recipe core/tests/fixtures/recipes/article_content_type</code>),<br />\nor create an Article content type &amp; install the Path module (aka <code class=\"language-php\">path_alias</code>).</li>\n<li>Go to <code class=\"language-php\">/node/add/article</code>.</li>\n<li>Reduce viewport width until the sidebar on the right containing the \"advanced\" fields collapses.</li>\n<li>Enter a value in the <code class=\"language-php\">Title</code> field to limit errors.</li>\n<li>Click the toggle button to expand the right sidebar.</li>\n<li>Enter a value <em>without</em> a beginning slash in the <code class=\" language-php\">URL alias</code> field.</li>\n<li>Close the sidebar.</li>\n<li><del>Clear / reset caches (<code class=\"language-php\">drush cr</code>). This is a temporary measure.</del><br />\n(Tested on the MR tugboat preview as of 2026-09-07, and clearing the cache was not necessary. Also, the UX team experienced no issues with it in their second review.)</li>\n<li>Click the <code class=\"language-php\">Save</code> button.<br />\n  This should cause a validation error: \"The alias path has to start with a slash\".</li>\n</ol>\n<h5>Expected</h5>\n<p>The closed sidebar indicates that there is an invalid field within it, for the same reasons that details and vertical tabs elements indicate that there are child errors for <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-13\"><a href=\"/project/drupal/issues/3604037\" title=\"Status: Needs work\">#3604037: Indicate that grouping elements have child element errors for UX and a11y</a></span>.</p>\n<p>See the <a href=\"#summary-proposed-resolution\" rel=\"nofollow\">Proposed resolution</a> for details on the new indicators.</p>\n<h5>Actual</h5>\n<p>There's no indication that the closed sidebar contains an invalid field.</p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Add visual and visually-hidden indicators to the toggle button as so:</p>\n<ol>\n<li>Place the prohibition icon from the top error block at the logical inline start of the toggle button, previous to the sidebar icon.<br />\nThis means on the left for LTR and on the right for RTL.\n</li>\n<li>In the toggle control's default state the prohibition and sidebar icons are red. (see screenshot in <a href=\"#summary-ui-changes\" rel=\"nofollow\">the User interface changes section</a>.)</li>\n<li>In the hover and focus states, the prohibition icon is red and the sidebar icon is the same as it is now. (see screenshot in <a href=\"#summary-ui-changes\" rel=\"nofollow\">the User interface changes section</a>.)</li>\n<li>Use the input error color from invalid fields for the sidebar icon and the prohibition icon  (<code class=\"language-php\">var(--input--error-color)</code>).</li>\n<li>Append visually hidden \" (sidebar contains error)\" to the text content of the toggle control. This is mostly consistent with the hidden text in <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-13\"><a href=\"/project/drupal/issues/3604037\" title=\"Status: Needs work\">#3604037: Indicate that grouping elements have child element errors for UX and a11y</a></span> and <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-3\"><a href=\"/project/drupal/issues/2848507\" title=\"Status: Closed (duplicate)\">#2848507: Indicate that grouping elements have child element errors for ux and a11y</a></span>.</li>\n<li>Append \" (sidebar contains error)\" to the <code class=\"language-php\">title</code> attribute so that it appears in the tooltip text when hovering over the button.</li>\n<li>Include both icons in the clickable area of the button.</li>\n</ol>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<ol>\n<li><del>Add a visual indicator to the toggle control.</del></li>\n<li><del>Create merge request.</del></li>\n<li><del>Add test.</del></li>\n<li><del>Refactor code to bust the render cache for the toggle button when there are validation errors in the advanced sidebar.</del></li>\n<li><del>Update test.</del></li>\n<li><del>Usability / UX review.</del></li>\n<li><del>Make the element uncacheable</del>, possibly with a lazy builder as <a href=\"https://drupal.slack.com/archives/C079NQPQUEN/p1788851889244939?thread_ts=1788624693.299369&amp;cid=C079NQPQUEN\" rel=\"nofollow\">@berdir suggested in Slack</a> (?)</li>\n<li>Take screenshots for the User interface changes section of the issue summary, performing any manual testing that's not covered by the UX review.</li>\n<li>Create change record (?)</li>\n</ol>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<p><img src=\"/files/issues/2026-09-21/3619387-29-proposed-resolution-all-states.png\" width=\"179\" alt=\"Toggle control in normal, error, error plus hover, and error plus focus states.\" /></p>\n<p>New toggle button tooltip when hovered:</p>\n<p><img src=\"/files/issues/2026-09-25/3619387-32-error-toggle-with-tooltip.png\" width=\"248\" alt=\"\" /></p>\n<p>New markup (formatted for readability):</p>\n<pre class=\"codeblock\"><code class=\"language-php\">&lt;a \n  class=\"meta-sidebar__trigger trigger has-error\" \n  href=\"#toggle-sidebar\" \n  role=\"button\"\n  title=\"Show sidebar panel (sidebar contains error)\" \n  aria-controls=\"default_admin_sidebar\"\n  data-drupal-selector=\"edit-default-admin-sidebar-toggle\" \n  data-once=\"adminSidebarToggle\" \n  aria-expanded=\"false\"&gt;\n  &lt;span\n    class=\"visually-hidden\" \n    data-drupal-selector=\"edit-text\"&gt;\n      Show sidebar panel (sidebar contains error)\n    &lt;/span&gt;\n&lt;/a&gt;\n</code></pre><h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
       "description_text": "Problem/Motivation\nSpin off from #3604037: Indicate that grouping elements have child element errors for UX and a11y.\nChild elements in the forms sidebar are invisible to the user when the sidebar is closed. It's the same fundamental problem as with the related grouping element issues.\nTo improve the user experience and accessibility we should indicate when there are errors 'inside' the closed sidebar. Currently it is hard for the user to find the actual problematic field when the (child) field itself is invisible.\nI'm assuming this is Major for the same reasons that the issues for standard grouping elements are.\nSteps to reproduce\nStandard installation\nLog in as admin\nSet Default Admin as the admin theme.\nInstall the article test recipe (drush recipe core/tests/fixtures/recipes/article_content_type),\nor create an Article content type & install the Path module (aka path_alias).\nGo to /node/add/article.\nReduce viewport width until the sidebar on the right containing the \"advanced\" fields collapses.\nEnter a value in the Title field to limit errors.\nClick the toggle button to expand the right sidebar.\nEnter a value without a beginning slash in the URL alias field.\nClose the sidebar.\nClear / reset caches (drush cr). This is a temporary measure.\n(Tested on the MR tugboat preview as of 2026-09-07, and clearing the cache was not necessary. Also, the UX team experienced no issues with it in their second review.)\nClick the Save button.\nThis should cause a validation error: \"The alias path has to start with a slash\".\nExpected\nThe closed sidebar indicates that there is an invalid field within it, for the same reasons that details and vertical tabs elements indicate that there are child errors for #3604037: Indicate that grouping elements have child element errors for UX and a11y.\nSee the Proposed resolution for details on the new indicators.\nActual\nThere's no indication that the closed sidebar contains an invalid field.\nProposed resolution\nAdd visual and visually-hidden indicators to the toggle button as so:\nPlace the prohibition icon from the top error block at the logical inline start of the toggle button, previous to the sidebar icon.\nThis means on the left for LTR and on the right for RTL.\nIn the toggle control's default state the prohibition and sidebar icons are red. (see screenshot in the User interface changes section.)\nIn the hover and focus states, the prohibition icon is red and the sidebar icon is the same as it is now. (see screenshot in the User interface changes section.)\nUse the input error color from invalid fields for the sidebar icon and the prohibition icon (var(--input--error-color)).\nAppend visually hidden \" (sidebar contains error)\" to the text content of the toggle control. This is mostly consistent with the hidden text in #3604037: Indicate that grouping elements have child element errors for UX and a11y and #2848507: Indicate that grouping elements have child element errors for ux and a11y.\nAppend \" (sidebar contains error)\" to the title attribute so that it appears in the tooltip text when hovering over the button.\nInclude both icons in the clickable area of the button.\nRemaining tasks\nAdd a visual indicator to the toggle control.\nCreate merge request.\nAdd test.\nRefactor code to bust the render cache for the toggle button when there are validation errors in the advanced sidebar.\nUpdate test.\nUsability / UX review.\nMake the element uncacheable, possibly with a lazy builder as @berdir suggested in Slack (?)\nTake screenshots for the User interface changes section of the issue summary, performing any manual testing that's not covered by the UX review.\nCreate change record (?)\nUser interface changes\nNew toggle button tooltip when hovered:\nNew markup (formatted for readability):\n<a\nclass=\"meta-sidebar__trigger trigger has-error\"\nhref=\"#toggle-sidebar\"\nrole=\"button\"\ntitle=\"Show sidebar panel (sidebar contains error)\"\naria-controls=\"default_admin_sidebar\"\ndata-drupal-selector=\"edit-default-admin-sidebar-toggle\"\ndata-once=\"adminSidebarToggle\"\naria-expanded=\"false\">\n<span\nclass=\"visually-hidden\"\ndata-drupal-selector=\"edit-text\">\nShow sidebar panel (sidebar contains error)\n</span>\n</a>\nIntroduced terminology\nAPI changes\nData model changes\nRelease notes snippet",
       "labels": [
         "Accessibility",
@@ -40284,13 +40328,13 @@
         "ai-ni"
       ],
       "status": {
-        "code": 14,
-        "label": "Reviewed & tested by the community",
-        "workflow_state": "rtbc",
-        "raw_label": "RTBC"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-08-27T00:02:53+00:00",
-      "updated_at": "2026-10-07T15:13:23+00:00",
+      "updated_at": "2026-11-08T17:15:54+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -40752,6 +40796,18 @@
           "body_text": "Fine by me =)",
           "machine_generated": false,
           "content_hash": "2bf5279eb1cc695bbed978fc8a7bcdc9eaae6b18bed3610f177486f1eae0ed70"
+        },
+        {
+          "id": "16834263",
+          "url": "https://www.drupal.org/node/3619387#comment-16834263",
+          "author": "needs-review-queue-bot",
+          "author_id": "3747965",
+          "author_url": "https://www.drupal.org/user/3747965",
+          "created_at": "2026-11-08T17:15:54Z",
+          "body_html": "<p>The <a href=\"https://www.drupal.org/u/needs-review-queue-bot\" rel=\"nofollow\">Needs Review Queue Bot</a> tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".</p>\n<p>This does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.</p>\n<p>Consult the <a href=\"https://www.drupal.org/community/contributor-guide/find-a-task\" rel=\"nofollow\">Drupal Contributor Guide</a> to find step-by-step guides for working with issues.</p>",
+          "body_text": "The Needs Review Queue Bot tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".\nThis does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.\nConsult the Drupal Contributor Guide to find step-by-step guides for working with issues.",
+          "machine_generated": false,
+          "content_hash": "33d35b9f2de97536990627f19c0610a9182881b73497a377bd2399f20f649e2e"
         }
       ],
       "merge_requests": [
@@ -40780,15 +40836,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:02:49Z",
+        "retrieved_at": "2026-11-09T02:53:43Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619387",
-        "content_hash": "2ba52b7b685aa3bd344dea79ff1d58ad41ab0457df7e5768fa22f8b8dcd060e1",
-        "raw_ref": "private-evidence/raw/3619387-20261107T200249Z.json"
+        "content_hash": "245a5888e775e27b89f991a7aa20c2c79b695f4ff60ac8e411942eb0c31b471b",
+        "raw_ref": "private-evidence/raw/3619387-20261109T025343Z.json"
       }
     },
     {
@@ -42902,10 +42962,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-08T15:18:34Z",
+        "retrieved_at": "2026-11-09T02:53:45Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
-        "content_hash": "5b9ecb1d9910991201623c7bc7f1661c4e449247e4b184b405ea66359a94ecf4",
-        "raw_ref": "private-evidence/raw/3636028-20261108T151834Z.json"
+        "content_hash": "636f3930738eddc8e2d88c91dc96ecb57f1cd0d61a195cb7ccb80582c559e13e",
+        "raw_ref": "private-evidence/raw/3636028-20261109T025345Z.json"
       }
     },
     {
@@ -43543,7 +43603,7 @@
   ],
   "summary": {
     "requested": 430,
-    "retrieved_at": "2026-11-08T15:18:41Z",
+    "retrieved_at": "2026-11-09T02:53:45Z",
     "collected": 430,
     "cached": 0,
     "reused": 426,
@@ -43561,22 +43621,22 @@
       14,
       15
     ],
-    "comments": 1622,
+    "comments": 1626,
     "by_workflow": {
       "needs-review": 15,
-      "needs-work": 172,
+      "needs-work": 174,
       "open": 236,
-      "rtbc": 7
+      "rtbc": 5
     },
     "by_status": {
       "Active": 236,
       "Needs review": 15,
-      "Needs work": 172,
-      "Reviewed & tested by the community": 7
+      "Needs work": 174,
+      "Reviewed & tested by the community": 5
     },
     "errors": []
   },
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641",
   "digest_scope": "sha256 over this artifact excluding generated_at and evidence_digest",
-  "evidence_digest": "2e947f6ce520cb5cd291d36257128274d221bbb5419fa62decb68296cd7f4e3c"
+  "evidence_digest": "dab38a326ad16d9022bfdd3ec0de30e99433963e2d10d69476e66fc32893013b"
 }

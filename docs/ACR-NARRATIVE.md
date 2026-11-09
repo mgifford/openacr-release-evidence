@@ -77,9 +77,12 @@ All `/user` paths, including `/user/1`, are authoring/account surfaces. Record t
 review ambiguous cases. An authoring interface may also serve live content, so
 the boundary must be explained.
 
-Drupal Core has no live audio/video feature. For 1.2.4 and 1.2.5 the narrative
-records a proposed Not Applicable for Core and points to the contrib Video or
-AblePlayer modules for separate assessment.
+Drupal Core has no audio/video playback, live audio/video, or core video player.
+The narrative marks 1.2.1, 1.2.3, 1.2.4 and 1.2.5 as **N/A for Core** and points
+to the contrib Able Player or Video modules for separate assessment. Component
+labels are bold; `Not Applicable` is shortened to `N/A` in the table display;
+`Evidence:` is omitted for simple no-issue rows and retained, bolded, for rows
+with active issue evidence.
 
 ## Project context notes
 

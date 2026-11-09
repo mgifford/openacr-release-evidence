@@ -65,8 +65,10 @@ Use the OpenACR catalog to list every applicable criterion. A template row:
 | Criterion | Level | Web | Electronic Documents | Software | Authoring Tool | Remarks and explanations |
 |---|---|---|---|---|---|---|
 | 1.1.1 Non-text Content | A | Partially Supports | Not Applicable | Not Applicable | Partially Supports | [Explain the evidence, sample scope and remaining barriers.] |
-| 1.2.4 Captions (Live) | AA | Not Applicable | Not Applicable | Not Applicable | Not Applicable | Drupal Core has no live audio/video feature. Evaluate the contrib Video or AblePlayer module separately. |
-| 1.2.5 Audio Description (Prerecorded) | AA | Not Applicable | Not Applicable | Not Applicable | Not Applicable | Drupal Core has no core video player/audio-description feature. Evaluate contrib Video or AblePlayer separately. |
+| 1.2.1 Audio-only and Video-only (Prerecorded) | A | N/A | N/A | N/A | N/A | Drupal Core has no audio/video playback; evaluate contrib Able Player or Video separately. |
+| 1.2.3 Audio Description or Media Alternative (Prerecorded) | A | N/A | N/A | N/A | N/A | Content/media concern; evaluate contrib Able Player or Video separately. |
+| 1.2.4 Captions (Live) | AA | N/A | N/A | N/A | N/A | Drupal Core has no live audio/video feature. Evaluate the contrib Video or AblePlayer module separately. |
+| 1.2.5 Audio Description (Prerecorded) | AA | N/A | N/A | N/A | N/A | Drupal Core has no core video player/audio-description feature. Evaluate contrib Video or AblePlayer separately. |
 
 Do not infer `Supports` from an empty issue queue. A closed or missing issue is
 not a completed evaluation.
