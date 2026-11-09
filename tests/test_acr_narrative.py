@@ -87,6 +87,9 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("ACR result terms", html)
         self.assertIn("reviewer", html)
         self.assertIn("Drupal.org Accessibility issue queue", html)
+        self.assertIn("Why this ACR is different", md)
+        self.assertIn("Conventional vendor ACR and this issue-queue attestation", md)
+        self.assertIn("https://github.com/GSA/openacr/issues/180", md)
 
     def test_inventory_and_detailed_evidence_are_distinguished(self):
         with tempfile.TemporaryDirectory() as folder:

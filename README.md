@@ -260,6 +260,9 @@ An optional `criterion-summaries` step can add model-assisted Web/Authoring
 barrier paragraphs, cached by issue-content hash. Without a configured model it
 falls back to deterministic issue-title summaries.
 
+The generated reports explicitly contrast this issue-queue attestation with a
+periodic, sample-based vendor ACR. See [`docs/ACR-POSITION.md`](docs/ACR-POSITION.md).
+
 See [`docs/ACR-NARRATIVE.md`](docs/ACR-NARRATIVE.md), the reusable
 [`templates/drupal-acr-template.md`](templates/drupal-acr-template.md), and the
 human-maintained [`context/DRUPAL.md`](context/DRUPAL.md) scope notes.
@@ -416,6 +419,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Hugging Face weekly summary](docs/HF-WEEKLY-SUMMARY.md)
 - [ACR narrative](docs/ACR-NARRATIVE.md)
 - [Drupal ACR template](templates/drupal-acr-template.md)
+- [Why this ACR is different](docs/ACR-POSITION.md)
 - [Drupal ecosystem AI/ACR context](context/README.md)
 - [Drupal Core context notes](DRUPAL.md)
 - [ATAG 2.0 authoring evidence](docs/ATAG-EVIDENCE.md)

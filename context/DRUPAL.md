@@ -58,6 +58,17 @@ Captions (Live) and 1.2.5 Audio Description (Prerecorded), use a proposed
 **Not Applicable for Core** and point to the contrib Video or AblePlayer modules
 for separate assessment.
 
+## What kind of attestation this is
+
+This is an **issue-queue accessibility attestation**, not a WCAG-EM evaluation,
+not a periodic sample-based vendor ACR and not a certification. When summarizing:
+
+- describe known reported barriers, not a complete census;
+- do not claim that an untagged criterion is supported;
+- do not imply independent manual or assistive-technology testing;
+- explain that the evidence is the public Drupal issue queue and linked issues;
+- keep the report's draft and human-review status.
+
 ## AI summary rules
 
 - Use only the supplied facts; do not invent issues, numbers or fixes.

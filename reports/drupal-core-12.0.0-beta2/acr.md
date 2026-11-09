@@ -14,7 +14,7 @@ This document converts the active issue evidence into an ACR narrative. It is de
 | Version / release | 12.0.0-beta2 |
 | Target ref | 12.0.0-beta2 (tag) |
 | Support status | pre-release |
-| Report date | 2026-11-08 |
+| Report date | 2026-11-09 |
 | Report status | DRAFT — not approved for publication |
 | Prepared by | Unassigned reviewer (draft) |
 | Assessment identifier | drupal-core-12.0.0-beta2 |
@@ -67,6 +67,29 @@ The evidence collection covers active, review-relevant Drupal Core Accessibility
 - Open issue reports are treated as draft barrier evidence; they are not a release reproduction.
 - No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.
 - No AI was used to assign applicability or an ACR result.
+
+## Why this ACR is different
+
+A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor's issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked.
+
+**Conventional vendor ACR and this issue-queue attestation**
+
+| Dimension | Conventional vendor ACR | This ACR |
+| --- | --- | --- |
+| Cadence | Annual, biennial or procurement-driven | Every weekly tracker snapshot |
+| Evidence | Selected pages, flows or a WCAG-EM sample | Full active Accessibility queue; comments/MRs where collected |
+| Traceability | Summary claims, often without issue links | Every cited issue links to the public Drupal.org source |
+| Authoring | Often folded into web or omitted | Explicit Authoring Tool component and separate remarks |
+| Change | Static until the next report | Incremental; new issues and status changes appear next snapshot |
+| Independence | Often a commissioned assessment | Community-reported issue evidence; no independent WCAG-EM audit |
+
+It is stronger on completeness of known reports, traceability, recency and connection to the remediation backlog. It is weaker on independent page sampling and manual assistive-technology coverage. It is not a WCAG-EM evaluation, a certification or a substitute for a procurement-specific ACR. A missing tagged issue is not evidence of support.
+
+Read the queue as reported barrier evidence. The criterion result is a draft issue-queue attestation subject to human confirmation. See the GSA OpenACR discussion and Drupal's ACR process for the wider model.
+
+- [GSA OpenACR issue #180](https://github.com/GSA/openacr/issues/180)
+- [Drupal ACR process](https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process)
+- [WCAG-EM 2.0](https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/)
 
 ## Executive summary
 

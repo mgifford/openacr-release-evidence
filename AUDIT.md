@@ -227,6 +227,11 @@ After the first audit and report:
   axe-core reports 0 violations on the tested pages and 320 px has no page
   overflow. Issue-level search/filtering remains deferred because the Pages
   workflow rejects client-side scripts.
+- **Issue-queue attestation positioning:** the ACR, release report and homepage
+  now explain how this weekly, full-queue attestation differs from a periodic
+  sample-based vendor ACR. They state the stronger traceability/completeness and
+  the weaker independent manual coverage, and link GSA OpenACR #180, the Drupal
+  ACR process and WCAG-EM. See `docs/ACR-POSITION.md`.
 - **ACR component scope:** the ACR narrative now reports the four Section 508
   components. Web and Authoring Tool are proposed Partially Supports;
   Electronic Documents and Software are proposed Not Applicable. Proposed labels
