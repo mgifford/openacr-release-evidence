@@ -56,7 +56,7 @@
 <table>
 <caption>Section 508 component scope</caption>
 <thead><tr><th scope="col">Component</th><th scope="col">Proposed result</th><th scope="col">Evidence</th><th scope="col">Rationale</th></tr></thead><tbody>
-<tr><td>Web</td><td>Partially Supports (proposed)</td><td>415 active findings classified as front-end/web</td><td>Partially Supports is proposed because active front-end accessibility issues exist in the published evidence. This label needs a specific explanation and independent review.</td></tr>
+<tr><td>Web</td><td>Partially Supports (proposed)</td><td>417 active findings classified as front-end/web</td><td>Partially Supports is proposed because active front-end accessibility issues exist in the published evidence. This label needs a specific explanation and independent review.</td></tr>
 <tr><td>Electronic Documents</td><td>Not Applicable (proposed)</td><td>No core electronic-document product</td><td>Not Applicable is proposed: Drupal Core is a web CMS, not a standalone electronic-document authoring or playback product. Uploaded documents are delivered as web content.</td></tr>
 <tr><td>Software</td><td>Not Applicable (proposed)</td><td>No packaged/non-web software product</td><td>Not Applicable is proposed: Drupal Core is web software. The Section 508 software chapter is not a separate installed application in this scope.</td></tr>
 <tr><td>Authoring Tool</td><td>Partially Supports (proposed)</td><td>13 active findings classified as authoring/admin UI</td><td>Partially Supports is proposed because active authoring-interface issues exist. The /admin, Drupal /user account paths and login/reproduction cues are the classification basis; a reviewer must confirm.</td></tr>
@@ -65,7 +65,7 @@
 <p>Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.</p>
 <p>Reading the tables: Open issue reports are treated as reported barrier evidence; no issue was reproduced against this release. Inventory records have no comments, merge requests or commit analysis. Issue-tagged criteria use draft Partially Supports for Web and Authoring Tool; criteria without a tagged issue remain Not Evaluated. Electronic Documents and Software are Not Applicable because Drupal Core does not ship a standalone electronic-document or packaged software product in this scope.</p>
 <p>Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split. A Web result can include barriers that also affect the authoring interface; the per-component remarks identify the classified evidence.</p>
-<p>No accepted AI summary cache is present for this build. The Web/Authoring paragraphs are deterministic extracts from issue titles; add the optional criterion-summary step to enable model-assisted draft summaries.</p>
+<p>Some Web/Authoring paragraphs are model-assisted draft summaries generated from the cited issue evidence. They are suggestions for human review, not conformance conclusions; the issue list, statistics and references remain the source record.</p>
 <h2 id="draft-status-and-acr-result-terms">Draft status and ACR result terms</h2>
 <p>ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. Issue-tagged criteria use draft Partially Supports; criteria without a tagged issue remain Not Evaluated. A reviewer must confirm every term after evaluating the product.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="ACR result terms used in review">
@@ -80,13 +80,13 @@
 </tbody></table>
 </div>
 <h2 id="scope-and-evaluation-method">Scope and evaluation method</h2>
-<p>The evidence collection covers active, review-relevant Drupal Core Accessibility issues: Active, Needs review, Needs work, RTBC and Patch. Fixed, closed and postponed issues are excluded. The snapshot contains 428 active findings, of which 193 carry at least one explicit WCAG issue tag.</p>
-<p>30 findings have full comments and merge-request evidence; 398 are metadata-only inventory records. The inventory records identify active issues but do not include comments, merge requests or commit analysis. All findings are unreviewed.</p>
+<p>The evidence collection covers active, review-relevant Drupal Core Accessibility issues: Active, Needs review, Needs work, RTBC and Patch. Fixed, closed and postponed issues are excluded. The snapshot contains 430 active findings, of which 195 carry at least one explicit WCAG issue tag.</p>
+<p>32 findings have full comments and merge-request evidence; 398 are metadata-only inventory records. The inventory records identify active issues but do not include comments, merge requests or commit analysis. All findings are unreviewed.</p>
 <ul><li>Discovery pages the complete Accessibility queue; it does not stop at the first API page.</li><li>WCAG tags are candidate relevance signals from the issue queue, not conformance determinations.</li><li>No issue was reproduced against an installed Drupal target in this pass.</li><li>Open issue reports are treated as draft barrier evidence; they are not a release reproduction.</li><li>No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.</li><li>No AI was used to assign applicability or an ACR result.</li></ul>
 <h2 id="executive-summary">Executive summary</h2>
-<p>The active queue contains 428 issues. Tracker states are: Active: 235, Needs review: 14, Needs work: 172, Reviewed &amp; tested by the community: 7. 30 issues have detailed evidence and 398 are inventory-only. The queue is a triage input, not an accessibility score.</p>
+<p>The active queue contains 430 issues. Tracker states are: Active: 236, Needs review: 15, Needs work: 172, Reviewed &amp; tested by the community: 7. 32 issues have detailed evidence and 398 are inventory-only. The queue is a triage input, not an accessibility score.</p>
 <p>The largest explicitly tagged criterion clusters are listed below. A count reflects issue tagging, not severity or conformance.</p>
-<ul><li>WCAG 4.1.2: 39 active issues</li><li>WCAG 1.3.1: 23 active issues</li><li>WCAG 3.3.1: 18 active issues</li><li>WCAG 1.4.11: 15 active issues</li><li>WCAG 1.1.1: 12 active issues</li><li>WCAG 2.4.3: 9 active issues</li><li>WCAG 2.5.3: 9 active issues</li><li>WCAG 3.1.2: 9 active issues</li></ul>
+<ul><li>WCAG 4.1.2: 39 active issues</li><li>WCAG 1.3.1: 23 active issues</li><li>WCAG 3.3.1: 18 active issues</li><li>WCAG 1.4.11: 17 active issues</li><li>WCAG 1.1.1: 12 active issues</li><li>WCAG 2.4.3: 9 active issues</li><li>WCAG 2.5.3: 9 active issues</li><li>WCAG 3.1.2: 9 active issues</li></ul>
 <p>235 active findings have no WCAG criterion tag. They remain in the evidence report and may still describe accessibility barriers; no criterion is inferred from their prose.</p>
 <h2 id="wcag-2-2-level-a-criteria">WCAG 2.2 Level A criteria</h2>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Table 1: Success Criteria, Level A">
@@ -110,8 +110,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#captions-prerecorded">1.2.2 Captions (Prerecorded)</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Provide authors with tools to manage transcripts and captions/subtitles for local video and…; Provide a FieldType and FieldWidget to represent a WebVTT file for the HTML track element; Update audio and video file field formatters to include track elements.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle to manage transcripts and captions for videos due to missing tools. Authoring tools lack fields and formatters for WebVTT files and track elements.
+Authoring Tool: No issues classified for authoring tools.
 Evidence: 3 active issues tagged to this criterion: 0 detailed, 3 metadata-only inventory. Tracker statuses: Active: 1, Needs work: 2. Target evidence states: unknown: 3.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3002770">Provide authors with tools to manage transcripts and captions/subtitles for l… (drupal:3002770, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/3056714">Provide a FieldType and FieldWidget to represent a WebVTT file for the HTML t… (drupal:3056714, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3057144">Update audio and video file field formatters to include track elements (drupal:3057144, Needs work)</a>
 All issue references: <a href="#ref-1-2-2">1.2.2 reference list</a></td></tr>
@@ -124,8 +124,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#info-and-relationships">1.3.1 Info and Relationships</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Allow a custom HTML element to be selected for a grouping field; #description_display broken for details elements; [Meta] Set the required state for all fields in Core in the Accessibility Object Model (AOM).
-Authoring Tool: Reported authoring barriers include: Do not use a CSS-only required marker in forms per WCAG 2.0; Pager template fails accessibility tests for Ellipsis (&quot;...&quot;).
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter issues with required fields not having proper labels or explanations, and forms with asterisks for required fields lacking context. Assistive technologies might struggle with form elements missing the required attribute, and system messages may not be accessible. Vertical tabs and certain table headers also pose accessibility challenges.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 23 active issues tagged to this criterion: 3 detailed, 20 metadata-only inventory. Tracker statuses: Active: 7, Needs review: 1, Needs work: 15. Target evidence states: likely-affected: 3, unknown: 20.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/1383696">Allow a custom HTML element to be selected for a grouping field (drupal:1383696, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2443815">#description_display broken for details elements (drupal:2443815, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2852874">[Meta] Set the required state for all fields in Core in the Accessibility Obj… (drupal:2852874, Active)</a>
 All issue references: <a href="#ref-1-3-1">1.3.1 reference list</a></td></tr>
@@ -138,16 +138,16 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#sensory-characteristics">1.3.3 Sensory Characteristics</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Top-level menu items in the footer region are too far away from their submenu items.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users with visual disabilities may struggle to find and access submenu items in the footer due to their distance from top-level menu items.
+Authoring Tool: No issues classified for authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3531948">Top-level menu items in the footer region are too far away from their submenu… (drupal:3531948, Needs work)</a>
 All issue references: <a href="#ref-1-3-3">1.3.3 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#use-of-color">1.4.1 Use of Color</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Style state select as a button bar; Add an exposed filter to the Taxonomy overview view page; Improve accessibility of Views table sortable columns.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with style state select as a button bar and tabledrag due to lack of accessible visual feedback. The severity column icons and &#x27;unpublished&#x27; entity style are also inaccessible.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 7 active issues tagged to this criterion: 0 detailed, 7 metadata-only inventory. Tracker statuses: Active: 2, Needs work: 5. Target evidence states: unknown: 7.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2863052">Style state select as a button bar (drupal:2863052, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/2975863">Add an exposed filter to the Taxonomy overview view page (drupal:2975863, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3038386">Improve accessibility of Views table sortable columns (drupal:3038386, Needs work)</a>
 All issue references: <a href="#ref-1-4-1">1.4.1 reference list</a></td></tr>
@@ -160,24 +160,24 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#keyboard">2.1.1 Keyboard</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Return to tab position when exiting dialog opened from contextual link; 508 Compliance - Tooltips not displayed for keyboard navigation; Re-evaluate whether Contextual Links are the best interaction for configuring/moving/deletin….
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with navigating dialogues and contextual links, and may have difficulty with keyboard navigation and focus management. Datepickers and hotkeys may also lack accessibility, impacting users who rely on these features.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 8 active issues tagged to this criterion: 1 detailed, 7 metadata-only inventory. Tracker statuses: Active: 6, Needs review: 1, Needs work: 1. Target evidence states: likely-affected: 1, unknown: 7.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2915762">Return to tab position when exiting dialog opened from contextual link (drupal:2915762, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2933984">508 Compliance - Tooltips not displayed for keyboard navigation (drupal:2933984, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/3042516">Re-evaluate whether Contextual Links are the best interaction for configuring… (drupal:3042516, Active)</a>
 All issue references: <a href="#ref-2-1-1">2.1.1 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#no-keyboard-trap">2.1.2 No Keyboard Trap</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Accessing a toolbar sub-menu seems to result in a keyboard trap.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter a keyboard trap when accessing a toolbar sub-menu, making it difficult to navigate away without using a mouse.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Active: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3559162">Accessing a toolbar sub-menu seems to result in a keyboard trap (drupal:3559162, Active)</a>
 All issue references: <a href="#ref-2-1-2">2.1.2 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#character-key-shortcuts">2.1.4 Character Key Shortcuts</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Add an API for hotkeys to Drupal core.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may face barriers if they rely on keyboard navigation, as Drupal core lacks an API for hotkeys, potentially making navigation less accessible.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Active: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3532392">Add an API for hotkeys to Drupal core (drupal:3532392, Active)</a>
 All issue references: <a href="#ref-2-1-4">2.1.4 reference list</a></td></tr>
@@ -190,48 +190,48 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#pause-stop-hide">2.2.2 Pause, Stop, Hide</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: [policy, no patch] Use &quot;prefers-reduced-motion&quot; media query to disable animations.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users with motion sensitivity may experience disorientation or seizures due to animations that do not respect their preference for reduced motion.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Active: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2928103">[policy, no patch] Use &quot;prefers-reduced-motion&quot; media query to disable animat… (drupal:2928103, Active)</a>
 All issue references: <a href="#ref-2-2-2">2.2.2 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#three-flashes-or-below-threshold">2.3.1 Three Flashes or Below Threshold</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: [policy, no patch] Use &quot;prefers-reduced-motion&quot; media query to disable animations.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users with motion sensitivity may encounter animations that trigger their symptoms, as the site does not use the &#x27;prefers-reduced-motion&#x27; media query to disable animations.
+Authoring Tool: No issues classified for authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Active: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2928103">[policy, no patch] Use &quot;prefers-reduced-motion&quot; media query to disable animat… (drupal:2928103, Active)</a>
 All issue references: <a href="#ref-2-3-1">2.3.1 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#bypass-blocks">2.4.1 Bypass Blocks</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Use $element[&#x27;#attributes][&#x27;id&#x27;] instead of $element[&#x27;#id&#x27;] to create a link anchor.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter broken link anchors for form elements with validation errors, making it difficult to navigate to specific error messages.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 1 detailed, 0 metadata-only inventory. Tracker statuses: Needs review: 1. Target evidence states: likely-affected: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3557245">Use $element[&#x27;#attributes][&#x27;id&#x27;] instead of $element[&#x27;#id&#x27;] to create a link… (drupal:3557245, Needs review)</a>
 All issue references: <a href="#ref-2-4-1">2.4.1 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#page-titled">2.4.2 Page Titled</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Allow global tokens (and therefore page numbers) in display title; Page title should contextualize the local navigation.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with understanding page titles that lack context, making it hard to orient themselves within the site structure.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 2 active issues tagged to this criterion: 0 detailed, 2 metadata-only inventory. Tracker statuses: Needs work: 2. Target evidence states: unknown: 2.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2509716">Allow global tokens (and therefore page numbers) in display title (drupal:2509716, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3370946">Page title should contextualize the local navigation (drupal:3370946, Needs work)</a>
 All issue references: <a href="#ref-2-4-2">2.4.2 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#focus-order">2.4.3 Focus Order</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Make sure controls within hidden content are not focusable; When enabling or disabling a block, don&#x27;t move the focus to the top of the page; Return focus to point of action when the off-canvas dialog closes.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may face issues with focus management, such as controls within hidden content becoming focusable, and losing focus when interacting with certain elements like table headers or off-canvas dialogs.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 9 active issues tagged to this criterion: 0 detailed, 9 metadata-only inventory. Tracker statuses: Active: 9. Target evidence states: unknown: 9.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2925295">Make sure controls within hidden content are not focusable (drupal:2925295, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/2973114">When enabling or disabling a block, don&#x27;t move the focus to the top of the page (drupal:2973114, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/3019849">Return focus to point of action when the off-canvas dialog closes (drupal:3019849, Active)</a>
 All issue references: <a href="#ref-2-4-3">2.4.3 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#link-purpose-in-context">2.4.4 Link Purpose (In Context)</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: &quot;Add new comment&quot; and &quot;@count comments&quot; links are not following accessibility good practices; Make the link descriptions more descriptive, helpful, and clear..
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with links like &quot;Add new comment&quot; and &quot;@count comments&quot; due to lack of descriptive text, hindering understanding and navigation.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 2 active issues tagged to this criterion: 0 detailed, 2 metadata-only inventory. Tracker statuses: Needs work: 2. Target evidence states: unknown: 2.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2922435">&quot;Add new comment&quot; and &quot;@count comments&quot; links are not following accessibility… (drupal:2922435, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3439721">Make the link descriptions more descriptive, helpful, and clear. (drupal:3439721, Needs work)</a>
 All issue references: <a href="#ref-2-4-4">2.4.4 reference list</a></td></tr>
@@ -246,16 +246,16 @@ All issue references: <a href="#ref-2-5-1">2.5.1 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#pointer-cancellation">2.5.2 Pointer Cancellation</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Right click should not submit buttons with Ajax behaviors; Assess JavaScript behaviours for WCAG 2.1 Pointer Cancellation; Replace javascript event listeners which use &quot;down&quot; events in the ajax component.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may face issues with right-click functionality and JavaScript behaviors, particularly with Ajax submissions and pointer cancellation, hindering their ability to interact with the site effectively.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 4 active issues tagged to this criterion: 0 detailed, 4 metadata-only inventory. Tracker statuses: Active: 1, Needs work: 3. Target evidence states: unknown: 4.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2616184">Right click should not submit buttons with Ajax behaviors (drupal:2616184, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2958654">Assess JavaScript behaviours for WCAG 2.1 Pointer Cancellation (drupal:2958654, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2960840">Replace javascript event listeners which use &quot;down&quot; events in the ajax component (drupal:2960840, Active)</a>
 All issue references: <a href="#ref-2-5-2">2.5.2 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#label-in-name">2.5.3 Label in Name</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Link labels generated by the Entity List Builder should provide more context for a11y; Provide better context in accessible names of EntityOperation views plugin drop-button opera…; Assess Drupal core for WCAG success criterion 2.5.3 Label in Name.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with links and buttons that lack sufficient context, especially when using speech recognition. For example, the &#x27;Extend&#x27; button in the navigation menu has an accessible name that starts with &#x27;Extend&#x27; rather than the visible label, potentially causing mismatches in commands.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 9 active issues tagged to this criterion: 1 detailed, 8 metadata-only inventory. Tracker statuses: Active: 6, Needs review: 1, Needs work: 2. Target evidence states: likely-affected: 1, unknown: 8.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2960828">Link labels generated by the Entity List Builder should provide more context… (drupal:2960828, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2973124">Provide better context in accessible names of EntityOperation views plugin dr… (drupal:2973124, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3015239">Assess Drupal core for WCAG success criterion 2.5.3 Label in Name (drupal:3015239, Active)</a>
 All issue references: <a href="#ref-2-5-3">2.5.3 reference list</a></td></tr>
@@ -274,8 +274,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#on-focus">3.2.1 On Focus</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Redundant aural interface and the general interaction with CKEditor toolbar configuration; Selecting a column in a table header by keyboard drops the focus; Select field in modal dialog has jumpy focus.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with redundant aural interfaces and jumpy focus in select fields, affecting navigation and interaction. Keyboard users might also lose focus when selecting table headers.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 3 active issues tagged to this criterion: 0 detailed, 3 metadata-only inventory. Tracker statuses: Active: 3. Target evidence states: unknown: 3.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3506324">Redundant aural interface and the general interaction with CKEditor toolbar c… (drupal:3506324, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/3506339">Selecting a column in a table header by keyboard drops the focus (drupal:3506339, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/3611769">Select field in modal dialog has jumpy focus (drupal:3611769, Active)</a>
 All issue references: <a href="#ref-3-2-1">3.2.1 reference list</a></td></tr>
@@ -294,16 +294,16 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#error-identification">3.3.1 Error Identification</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: The file upload field needs a progress indicator that expresses to screen reading user agent…; Error highlighting and reporting problems for the current password on the user profile form; Inline Errors not shown for container elements.
-Authoring Tool: Reported authoring barriers include: #states not affecting visibility/requirement of managed_file; Indicate that grouping elements have child element errors for UX and a11y.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter issues with file uploads lacking progress indicators, form validation errors not being properly announced, and server-side validation causing focus and screen reader problems. Screen reader users might also miss inline errors and media library widget errors.
+Authoring Tool: No issues are classified for the authoring tool.
 Evidence: 18 active issues tagged to this criterion: 2 detailed, 16 metadata-only inventory. Tracker statuses: Active: 4, Needs review: 1, Needs work: 13. Target evidence states: likely-affected: 2, unknown: 16.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2089703">The file upload field needs a progress indicator that expresses to screen rea… (drupal:2089703, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2455933">Error highlighting and reporting problems for the current password on the use… (drupal:2455933, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2560467">Inline Errors not shown for container elements (drupal:2560467, Needs work)</a>
 All issue references: <a href="#ref-3-3-1">3.3.1 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#labels-or-instructions">3.3.2 Labels or Instructions</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Elements on grouped exposed filters configuration form are missing accessible names; [Meta] Set the required state for all fields in Core in the Accessibility Object Model (AOM); Admin list filter fields are inconsistently labelled..
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with form elements on grouped exposed filters lacking accessible names, inconsistent field labeling, and unclear required field indicators. CKEditor 5 text areas also lack appropriate aria-labels for screen readers.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 7 active issues tagged to this criterion: 0 detailed, 7 metadata-only inventory. Tracker statuses: Active: 2, Needs work: 5. Target evidence states: unknown: 7.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2608212">Elements on grouped exposed filters configuration form are missing accessible… (drupal:2608212, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2852874">[Meta] Set the required state for all fields in Core in the Accessibility Obj… (drupal:2852874, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/2942037">Admin list filter fields are inconsistently labelled. (drupal:2942037, Active)</a>
 All issue references: <a href="#ref-3-3-2">3.3.2 reference list</a></td></tr>
@@ -322,8 +322,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#name-role-value">4.1.2 Name, Role, Value</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Allow modules to classify blocks when defining them, so WAI-ARIA roles can automatically be…; Cached render elements can have duplicate HTML IDs; Add &quot;changed&quot; hints to translation settings page.
-Authoring Tool: Reported authoring barriers include: Pager template fails accessibility tests for Ellipsis (&quot;...&quot;).
+Authoring Tool: Partially Supports</td><td>Web: Drupal issues include missing accessible names for form elements, incorrect ARIA roles, and issues with screen reader navigation. These can make it difficult for users with disabilities to interact with the web content effectively.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 39 active issues tagged to this criterion: 2 detailed, 37 metadata-only inventory. Tracker statuses: Active: 17, Needs review: 1, Needs work: 21. Target evidence states: likely-affected: 2, unknown: 37.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/1402250">Allow modules to classify blocks when defining them, so WAI-ARIA roles can au… (drupal:1402250, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/1852090">Cached render elements can have duplicate HTML IDs (drupal:1852090, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/1854046">Add &quot;changed&quot; hints to translation settings page (drupal:1854046, Needs work)</a>
 All issue references: <a href="#ref-4-1-2">4.1.2 reference list</a></td></tr>
@@ -345,16 +345,16 @@ Authoring Tool: Not Applicable</td><td>All components: Not Applicable for Drupal
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#orientation">1.3.4 Orientation</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Extend site information page to generate a manifest.json file.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may face issues with missing site manifest, hindering proper functioning of assistive technologies.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2698127">Extend site information page to generate a manifest.json file (drupal:2698127, Needs work)</a>
 All issue references: <a href="#ref-1-3-4">1.3.4 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#identify-input-purpose">1.3.5 Identify Input Purpose</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: IME enhancement stops autocomplete search event in Android when typing an English word; Provide a new library to replace jQuery UI autocomplete.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users with screen readers may face issues with autocomplete functionality, as the IME enhancement in Android stops autocomplete search events when typing English words.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 2 active issues tagged to this criterion: 0 detailed, 2 metadata-only inventory. Tracker statuses: Needs work: 2. Target evidence states: unknown: 2.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2928820">IME enhancement stops autocomplete search event in Android when typing an Eng… (drupal:2928820, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3076171">Provide a new library to replace jQuery UI autocomplete (drupal:3076171, Needs work)</a>
 All issue references: <a href="#ref-1-3-5">1.3.5 reference list</a></td></tr>
@@ -367,8 +367,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#visual-audio-contrast-scale">1.4.4 Resize text</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Improve indentation in hierarchical select lists.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users with visual impairments may struggle with the indentation in hierarchical select lists, making it difficult to understand the structure.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2384203">Improve indentation in hierarchical select lists (drupal:2384203, Needs work)</a>
 All issue references: <a href="#ref-1-4-4">1.4.4 reference list</a></td></tr>
@@ -381,8 +381,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#reflow">1.4.10 Reflow</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Dialogs sub-optimal when fully zoomed; Add another responsive tables solution that doesn&#x27;t hide content; Re-wrap text in views interface when zooming in mobile.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with dialogues and table content visibility when fully zoomed, and find it difficult to access action links on small screens.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 4 active issues tagged to this criterion: 0 detailed, 4 metadata-only inventory. Tracker statuses: Active: 2, Needs work: 2. Target evidence states: unknown: 4.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2234745">Dialogs sub-optimal when fully zoomed (drupal:2234745, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/2280035">Add another responsive tables solution that doesn&#x27;t hide content (drupal:2280035, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2313471">Re-wrap text in views interface when zooming in mobile (drupal:2313471, Active)</a>
 All issue references: <a href="#ref-1-4-10">1.4.10 reference list</a></td></tr>
@@ -391,22 +391,22 @@ Electronic Documents: Not Applicable
 Software: Not Applicable
 Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Add new Splitbutton render element to eventually replace Dropbutton; Refine the layout selection UI; Improve icon color contrast for WCAG 2.1.
 Authoring Tool: Reported authoring barriers include: Expose triggering update of media metadata + thumbnail to end users; The active primary local task has a too low color contrast and shapeshifting compared to the….
-Evidence: 15 active issues tagged to this criterion: 3 detailed, 12 metadata-only inventory. Tracker statuses: Active: 9, Needs review: 2, Needs work: 4. Target evidence states: likely-affected: 1, unknown: 14.
+Evidence: 17 active issues tagged to this criterion: 5 detailed, 12 metadata-only inventory. Tracker statuses: Active: 10, Needs review: 3, Needs work: 4. Target evidence states: likely-affected: 1, unknown: 16.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/1899236">Add new Splitbutton render element to eventually replace Dropbutton (drupal:1899236, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2848549">Refine the layout selection UI (drupal:2848549, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/2910102">Improve icon color contrast for WCAG 2.1 (drupal:2910102, Active)</a>
 All issue references: <a href="#ref-1-4-11">1.4.11 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#text-spacing">1.4.12 Text Spacing</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Page title ellipsis accessibility issue.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter an accessibility issue where page titles are truncated with an ellipsis, potentially making them unclear.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Active: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3623836">Page title ellipsis accessibility issue (drupal:3623836, Active)</a>
 All issue references: <a href="#ref-1-4-12">1.4.12 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#content-on-hover-or-focus">1.4.13 Content on Hover or Focus</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Top-level menu items in the footer region are too far away from their submenu items.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users with visual disabilities may struggle to find and access submenu items in the footer due to their distance from top-level menu items.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3531948">Top-level menu items in the footer region are too far away from their submenu… (drupal:3531948, Needs work)</a>
 All issue references: <a href="#ref-1-4-13">1.4.13 reference list</a></td></tr>
@@ -419,24 +419,24 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#headings-and-labels">2.4.6 Headings and Labels</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Add option for visually-hidden block titles; Allow wrapping field labels in a heading tag; [ATAG] Text editor should alert user when headings are out of order.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with visually-hidden block titles, misordered headings, and unclear local navigation, hindering understanding and navigation.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 4 active issues tagged to this criterion: 0 detailed, 4 metadata-only inventory. Tracker statuses: Active: 1, Needs work: 3. Target evidence states: unknown: 4.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2614950">Add option for visually-hidden block titles (drupal:2614950, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3277785">Allow wrapping field labels in a heading tag (drupal:3277785, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3293673">[ATAG] Text editor should alert user when headings are out of order (drupal:3293673, Active)</a>
 All issue references: <a href="#ref-2-4-6">2.4.6 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#focus-visible">2.4.7 Focus Visible</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Build API to Replace Links using Title Attributes with Proper Accessible, Themable Tooltips; Add option to un-sticky table headers to benefit assistive tech users; [drupalImage] Scroll to last image when uploading multiple images.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter issues with improperly accessible tooltips, sticky table headers without un-sticky options, and visually hidden labels with links causing focus problems. Errors in link anchors can lead to incorrect navigation. Sidebar logo links sometimes lack focus indicators.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 7 active issues tagged to this criterion: 1 detailed, 6 metadata-only inventory. Tracker statuses: Active: 3, Needs review: 1, Needs work: 3. Target evidence states: likely-affected: 1, unknown: 6.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/1919940">Build API to Replace Links using Title Attributes with Proper Accessible, The… (drupal:1919940, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3163765">Add option to un-sticky table headers to benefit assistive tech users (drupal:3163765, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3272493">[drupalImage] Scroll to last image when uploading multiple images (drupal:3272493, Active)</a>
 All issue references: <a href="#ref-2-4-7">2.4.7 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum">2.4.11 Focus Not Obscured (Minimum)</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: CKEditor 5 has its own focus styles, should use the admin theme&#x27;s (e.g. Claro&#x27;s); Some top-level menus obscure unrelated focused items in sidebar.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may face issues with focus styles in CKEditor 5, as it uses its own styles instead of the admin theme&#x27;s, and top-level menus can obscure focused items in the sidebar, causing confusion.
+Authoring Tool: No issues classified for authoring tool.
 Evidence: 2 active issues tagged to this criterion: 0 detailed, 2 metadata-only inventory. Tracker statuses: Active: 1, Needs work: 1. Target evidence states: unknown: 2.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3272592">CKEditor 5 has its own focus styles, should use the admin theme&#x27;s (e.g. Claro&#x27;s) (drupal:3272592, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3573225">Some top-level menus obscure unrelated focused items in sidebar (drupal:3573225, Active)</a>
 All issue references: <a href="#ref-2-4-11">2.4.11 reference list</a></td></tr>
@@ -449,24 +449,24 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#target-size-minimum">2.5.8 Target Size (Minimum)</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Add a &#x27;#select_all&#x27; option for checkboxes element.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may face difficulty selecting all checkboxes one by one, leading to poor user experience.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 1 detailed, 0 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: likely-affected: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3459246">Add a &#x27;#select_all&#x27; option for checkboxes element (drupal:3459246, Needs work)</a>
 All issue references: <a href="#ref-2-5-8">2.5.8 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#language-of-parts">3.1.2 Language of Parts</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Views containing content not in the page&#x27;s language need to add tags which mark the language…; DateList and date range inline form errors are repeated; Links in language switcher block do not conform to WCAG language-of-parts.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter issues with language tagging, leading to content not being properly marked. This can affect screen reader users who rely on language cues.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 9 active issues tagged to this criterion: 0 detailed, 9 metadata-only inventory. Tracker statuses: Active: 6, Needs work: 3. Target evidence states: unknown: 9.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2496223">Views containing content not in the page&#x27;s language need to add tags which ma… (drupal:2496223, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/2827034">DateList and date range inline form errors are repeated (drupal:2827034, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3020305">Links in language switcher block do not conform to WCAG language-of-parts (drupal:3020305, Needs work)</a>
 All issue references: <a href="#ref-3-1-2">3.1.2 reference list</a></td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#consistent-navigation">3.2.3 Consistent Navigation</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Modules uninstall filter does not filter by machine name; Make admin list filters behave more consistently.; Scrolling problems when adding a block via layout builder.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle with inconsistent admin list filters and encounter scrolling issues when adding blocks via layout builder.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 3 active issues tagged to this criterion: 0 detailed, 3 metadata-only inventory. Tracker statuses: Active: 1, Needs work: 2. Target evidence states: unknown: 3.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2895388">Modules uninstall filter does not filter by machine name (drupal:2895388, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/3015494">Make admin list filters behave more consistently. (drupal:3015494, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/3209129">Scrolling problems when adding a block via layout builder (drupal:3209129, Needs work)</a>
 All issue references: <a href="#ref-3-2-3">3.2.3 reference list</a></td></tr>
@@ -479,8 +479,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#error-suggestion">3.3.3 Error Suggestion</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Forms sidebar doesn&#x27;t open with error links from Inline Form Errors module.
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter a barrier where error links from Inline Form Errors do not open the sidebar in Default Admin mode, preventing them from accessing invalid fields.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 1 detailed, 0 metadata-only inventory. Tracker statuses: Needs review: 1. Target evidence states: likely-affected: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3619127">Forms sidebar doesn&#x27;t open with error links from Inline Form Errors module (drupal:3619127, Needs review)</a>
 All issue references: <a href="#ref-3-3-3">3.3.3 reference list</a></td></tr>
@@ -499,8 +499,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#status-messages">4.1.3 Status Messages</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Dropbutton should report open/closed state to assistive technology; After enabling or disabling a view, convey changes to screen reader users.; Make the show/hide row weights button more informative for assistive tech users..
-Authoring Tool: Reported authoring barriers include: Convey AJAX progress messages to assistive technology..
+Authoring Tool: Partially Supports</td><td>Web: Users may face issues with dropbutton states not being reported to assistive technologies, and AJAX progress messages not being conveyed to screen readers. View changes and status messages also lack proper accessibility labels.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 6 active issues tagged to this criterion: 1 detailed, 5 metadata-only inventory. Tracker statuses: Active: 3, Needs review: 1, Needs work: 2. Target evidence states: likely-affected: 1, unknown: 5.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2893663">Dropbutton should report open/closed state to assistive technology (drupal:2893663, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/2973116">After enabling or disabling a view, convey changes to screen reader users. (drupal:2973116, Active)</a>; <a href="https://www.drupal.org/project/drupal/issues/2973140">Convey AJAX progress messages to assistive technology. (drupal:2973140, Needs review)</a>
 All issue references: <a href="#ref-4-1-3">4.1.3 reference list</a></td></tr>
@@ -616,8 +616,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#link-purpose-link-only">2.4.9 Link Purpose (Link Only)</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: Improve link text on available updates page to address WCAG SC 2.4.9 Link purpose (link only).
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may struggle to understand the purpose of links on the available updates page without descriptive link text.
+Authoring Tool: No issues classified for the authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3080853">Improve link text on available updates page to address WCAG SC 2.4.9 Link pur… (drupal:3080853, Needs work)</a>
 All issue references: <a href="#ref-2-4-9">2.4.9 reference list</a></td></tr>
@@ -636,8 +636,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#focus-appearance">2.4.13 Focus Appearance</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Reported web barriers include: CKEditor 5 has its own focus styles, should use the admin theme&#x27;s (e.g. Claro&#x27;s).
-Authoring Tool: No authoring-classified issue is tagged in this snapshot; the Authoring Tool result is proposed from the overall issue queue and needs review.
+Authoring Tool: Partially Supports</td><td>Web: Users may face issues with focus styles in CKEditor 5, as it uses its own styles instead of the admin theme&#x27;s, potentially causing confusion.
+Authoring Tool: No issues classified for authoring tool.
 Evidence: 1 active issue tagged to this criterion: 0 detailed, 1 metadata-only inventory. Tracker statuses: Needs work: 1. Target evidence states: unknown: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/3272592">CKEditor 5 has its own focus styles, should use the admin theme&#x27;s (e.g. Claro&#x27;s) (drupal:3272592, Needs work)</a>
 All issue references: <a href="#ref-2-4-13">2.4.13 reference list</a></td></tr>
@@ -680,8 +680,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#change-on-request">3.2.5 Change on Request</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: No web-classified issue is tagged in this snapshot; the Web result is proposed from the overall issue queue and needs review.
-Authoring Tool: Reported authoring barriers include: Add a native dialog element using HTMX to deprecate the jQuery UI dialog.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter issues as the jQuery UI dialog is being deprecated, requiring a transition to a native dialog element. This change aims to improve accessibility but may initially cause confusion or errors until fully implemented.
+Authoring Tool: No issues classified for the authoring tool related to this change.
 Evidence: 1 active issue tagged to this criterion: 1 detailed, 0 metadata-only inventory. Tracker statuses: Needs review: 1. Target evidence states: likely-affected: 1.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/2158943">Add a native dialog element using HTMX to deprecate the jQuery UI dialog (drupal:2158943, Needs review)</a>
 All issue references: <a href="#ref-3-2-5">3.2.5 reference list</a></td></tr>
@@ -744,7 +744,7 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <h3 id="ref-1-4-10">1.4.10 — Reflow</h3>
 <ul><li><a href="https://www.drupal.org/project/drupal/issues/2234745">drupal:2234745 — Dialogs sub-optimal when fully zoomed (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2280035">drupal:2280035 — Add another responsive tables solution that doesn&#x27;t hide content (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2313471">drupal:2313471 — Re-wrap text in views interface when zooming in mobile (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2574721">drupal:2574721 — Provide access to action links in the modules page on small screens (Needs work)</a></li></ul>
 <h3 id="ref-1-4-11">1.4.11 — Non-text Contrast</h3>
-<ul><li><a href="https://www.drupal.org/project/drupal/issues/1899236">drupal:1899236 — Add new Splitbutton render element to eventually replace Dropbutton (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2848549">drupal:2848549 — Refine the layout selection UI (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2910102">drupal:2910102 — Improve icon color contrast for WCAG 2.1 (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2975863">drupal:2975863 — Add an exposed filter to the Taxonomy overview view page (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2983456">drupal:2983456 — Expose triggering update of media metadata + thumbnail to end users (Needs review)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3037742">drupal:3037742 — The toggle that makes Contextual Links visible at all times might not be sufficiently discoverable (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3269342">drupal:3269342 — &quot;Edit&quot; cog icon for Field UI does not meet contrast minimums when in forced colors (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3272592">drupal:3272592 — CKEditor 5 has its own focus styles, should use the admin theme&#x27;s (e.g. Claro&#x27;s) (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3426468">drupal:3426468 — Make the active menu item visually stand out more (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3631335">drupal:3631335 — The red accent color is too close to the error color (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3634547">drupal:3634547 — [PP-1] Make CKEditor balloon tooltips respect Admin light or dark mode (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3634562">drupal:3634562 — Media placeholder icons fail non-text contrast in the default admin theme&#x27;s dark mode (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3636027">drupal:3636027 — The active primary local task has a too low color contrast and shapeshifting compared to the active secondary local task (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3636028">drupal:3636028 — The active accent color is not communicated (Needs review)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/867830">drupal:867830 — &quot;Unpublished&quot; style of rendered entities is not accessible (and looks bad) (Active)</a></li></ul>
+<ul><li><a href="https://www.drupal.org/project/drupal/issues/1899236">drupal:1899236 — Add new Splitbutton render element to eventually replace Dropbutton (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2848549">drupal:2848549 — Refine the layout selection UI (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2910102">drupal:2910102 — Improve icon color contrast for WCAG 2.1 (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2975863">drupal:2975863 — Add an exposed filter to the Taxonomy overview view page (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/2983456">drupal:2983456 — Expose triggering update of media metadata + thumbnail to end users (Needs review)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3037742">drupal:3037742 — The toggle that makes Contextual Links visible at all times might not be sufficiently discoverable (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3269342">drupal:3269342 — &quot;Edit&quot; cog icon for Field UI does not meet contrast minimums when in forced colors (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3272592">drupal:3272592 — CKEditor 5 has its own focus styles, should use the admin theme&#x27;s (e.g. Claro&#x27;s) (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3426468">drupal:3426468 — Make the active menu item visually stand out more (Needs work)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3631335">drupal:3631335 — The red accent color is too close to the error color (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3634547">drupal:3634547 — [PP-1] Make CKEditor balloon tooltips respect Admin light or dark mode (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3634562">drupal:3634562 — Media placeholder icons fail non-text contrast in the default admin theme&#x27;s dark mode (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3636027">drupal:3636027 — The active primary local task has a too low color contrast and shapeshifting compared to the active secondary local task (Needs review)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3636028">drupal:3636028 — The active accent color is not communicated (Needs review)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3636128">drupal:3636128 — In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/3636143">drupal:3636143 — Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode (Active)</a></li><li><a href="https://www.drupal.org/project/drupal/issues/867830">drupal:867830 — &quot;Unpublished&quot; style of rendered entities is not accessible (and looks bad) (Active)</a></li></ul>
 <h3 id="ref-1-4-12">1.4.12 — Text Spacing</h3>
 <ul><li><a href="https://www.drupal.org/project/drupal/issues/3623836">drupal:3623836 — Page title ellipsis accessibility issue (Active)</a></li></ul>
 <h3 id="ref-1-4-13">1.4.13 — Content on Hover or Focus</h3>

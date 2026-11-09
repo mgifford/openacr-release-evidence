@@ -59,7 +59,7 @@
       "detail_limit": 100
     }
   },
-  "generated_at": "2026-11-07T20:05:48Z",
+  "generated_at": "2026-11-08T15:18:42Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -543,15 +543,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:38Z",
+        "retrieved_at": "2026-11-08T15:22:08Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/1291262",
         "content_hash": "161c331e53665606ffed436383ed75cde68469dc3a87d1a744b5cc4d772edd1b",
-        "raw_ref": "private-evidence/raw/1291262-20261107T192238Z.json"
+        "raw_ref": "private-evidence/raw/1291262-20261108T152208Z.json"
       }
     },
     {
@@ -903,15 +907,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:03Z",
+        "retrieved_at": "2026-11-08T15:21:57Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/1323338",
         "content_hash": "5f59d4df91a5b5bf7ba2f7bf0c5166fc12f95ecd86368756735816f1dbe1d345",
-        "raw_ref": "private-evidence/raw/1323338-20261107T192203Z.json"
+        "raw_ref": "private-evidence/raw/1323338-20261108T152157Z.json"
       }
     },
     {
@@ -3112,15 +3120,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:21:24Z",
+        "retrieved_at": "2026-11-08T15:21:41Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/1899236",
         "content_hash": "27bb0f4b1c918e77b73890557656eb4ed64932727a4a3a8eb2a9c525ee5d9646",
-        "raw_ref": "private-evidence/raw/1899236-20261107T192124Z.json"
+        "raw_ref": "private-evidence/raw/1899236-20261108T152141Z.json"
       }
     },
     {
@@ -3445,15 +3457,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:10Z",
+        "retrieved_at": "2026-11-08T15:20:12Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2034909",
         "content_hash": "4d8754ba1ba8eacb19ce33bbb1d8f7eee3731f35ca4933bce612fb5cf58b1837",
-        "raw_ref": "private-evidence/raw/2034909-20261107T192010Z.json"
+        "raw_ref": "private-evidence/raw/2034909-20261108T152012Z.json"
       }
     },
     {
@@ -3611,15 +3627,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:42Z",
+        "retrieved_at": "2026-11-08T15:22:12Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2135341",
         "content_hash": "a7934144686e9db156a1765bdc7a92fcf951202625b73104c38148544ed19530",
-        "raw_ref": "private-evidence/raw/2135341-20261107T192242Z.json"
+        "raw_ref": "private-evidence/raw/2135341-20261108T152212Z.json"
       }
     },
     {
@@ -3908,15 +3928,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:21:57Z",
+        "retrieved_at": "2026-11-08T15:21:50Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2145035",
         "content_hash": "66fc8ab36a987360d492eeb32575a041b3080dd7adaeb8d11f82c7eefe815e18",
-        "raw_ref": "private-evidence/raw/2145035-20261107T192157Z.json"
+        "raw_ref": "private-evidence/raw/2145035-20261108T152150Z.json"
       }
     },
     {
@@ -4125,15 +4149,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:21:03Z",
+        "retrieved_at": "2026-11-08T15:21:16Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2305109",
         "content_hash": "f7d9b40b94ed0c0e24be42b95b6fe8e4e970c895bfa8a146bdaeda89e5fc361c",
-        "raw_ref": "private-evidence/raw/2305109-20261107T192103Z.json"
+        "raw_ref": "private-evidence/raw/2305109-20261108T152116Z.json"
       }
     },
     {
@@ -4386,15 +4414,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:21:53Z",
+        "retrieved_at": "2026-11-08T15:21:46Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2307175",
         "content_hash": "1e2b6828c806361d0de1073736604f4bb123f8eba4a68b6090478d7a38ae3877",
-        "raw_ref": "private-evidence/raw/2307175-20261107T192153Z.json"
+        "raw_ref": "private-evidence/raw/2307175-20261108T152146Z.json"
       }
     },
     {
@@ -4514,15 +4546,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:48Z",
+        "retrieved_at": "2026-11-08T15:22:19Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2307279",
         "content_hash": "df95daa979547024a194a2d3cd73e96cdb832b581aff05a212fa68bacf136480",
-        "raw_ref": "private-evidence/raw/2307279-20261107T192248Z.json"
+        "raw_ref": "private-evidence/raw/2307279-20261108T152219Z.json"
       }
     },
     {
@@ -4630,15 +4666,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:45Z",
+        "retrieved_at": "2026-11-08T15:22:15Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2307541",
         "content_hash": "e2919f1cddb21f51fa527ff85ee1167337181f57c9c283c9e367b86ad55e8f5c",
-        "raw_ref": "private-evidence/raw/2307541-20261107T192245Z.json"
+        "raw_ref": "private-evidence/raw/2307541-20261108T152215Z.json"
       }
     },
     {
@@ -4943,15 +4983,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:58Z",
+        "retrieved_at": "2026-11-08T15:21:11Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2467827",
         "content_hash": "5d724fc4756cbaea7c71e178970499b76b7145c2685d60add703e156e4d87510",
-        "raw_ref": "private-evidence/raw/2467827-20261107T192058Z.json"
+        "raw_ref": "private-evidence/raw/2467827-20261108T152111Z.json"
       }
     },
     {
@@ -5095,15 +5139,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:23:05Z",
+        "retrieved_at": "2026-11-08T15:22:34Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2474687",
         "content_hash": "926f304833aafef03703ae8ab49f432281d4bbb5a38ac57b71667b9552fc2190",
-        "raw_ref": "private-evidence/raw/2474687-20261107T192305Z.json"
+        "raw_ref": "private-evidence/raw/2474687-20261108T152234Z.json"
       }
     },
     {
@@ -6458,15 +6506,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:19:18Z",
+        "retrieved_at": "2026-11-08T15:19:40Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2614950",
         "content_hash": "b2bd192a782a723cc177d461c48ae7da64838fbc5ae7dbff281afc06b390252b",
-        "raw_ref": "private-evidence/raw/2614950-20261107T191918Z.json"
+        "raw_ref": "private-evidence/raw/2614950-20261108T151940Z.json"
       }
     },
     {
@@ -8437,15 +8489,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:54Z",
+        "retrieved_at": "2026-11-08T15:21:05Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2698127",
         "content_hash": "c5fbb43d310b8fc3e3531e7fa5720553669d93d3b61ba600b0736236dc6d0e7b",
-        "raw_ref": "private-evidence/raw/2698127-20261107T192054Z.json"
+        "raw_ref": "private-evidence/raw/2698127-20261108T152105Z.json"
       }
     },
     {
@@ -9339,15 +9395,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:22Z",
+        "retrieved_at": "2026-11-08T15:20:27Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2731373",
         "content_hash": "00f32f50fa2147f86a71099a053c5aba59c4f68decd145a69ede2c215c61d089",
-        "raw_ref": "private-evidence/raw/2731373-20261107T192022Z.json"
+        "raw_ref": "private-evidence/raw/2731373-20261108T152027Z.json"
       }
     },
     {
@@ -9808,15 +9868,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:27Z",
+        "retrieved_at": "2026-11-08T15:20:32Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2893640",
         "content_hash": "a313f096910f850d6127f55c61c6f58287948dffa8020649380946c8d3def95e",
-        "raw_ref": "private-evidence/raw/2893640-20261107T192027Z.json"
+        "raw_ref": "private-evidence/raw/2893640-20261108T152032Z.json"
       }
     },
     {
@@ -10014,15 +10078,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:18:50Z",
+        "retrieved_at": "2026-11-08T15:19:20Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2910102",
         "content_hash": "ee8ce2b5e830d162e360c24cad7c372563b61a058c5ea951b0a5085591c8e0c4",
-        "raw_ref": "private-evidence/raw/2910102-20261107T191850Z.json"
+        "raw_ref": "private-evidence/raw/2910102-20261108T151920Z.json"
       }
     },
     {
@@ -10481,15 +10549,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:09Z",
+        "retrieved_at": "2026-11-08T15:20:07Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2934405",
         "content_hash": "c994f3a60dcda728dbdaff88bfaeec0ca08854421ef23f8d65c850a176e7dbec",
-        "raw_ref": "private-evidence/raw/2934405-20261107T192009Z.json"
+        "raw_ref": "private-evidence/raw/2934405-20261108T152007Z.json"
       }
     },
     {
@@ -11014,15 +11086,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:59Z",
+        "retrieved_at": "2026-11-08T15:22:31Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3002770",
         "content_hash": "a391d0d4d3b06184cb2ab70d0e9158e9d47d94dbd9b8fa758e46c8b391c85e07",
-        "raw_ref": "private-evidence/raw/3002770-20261107T192259Z.json"
+        "raw_ref": "private-evidence/raw/3002770-20261108T152231Z.json"
       }
     },
     {
@@ -11277,15 +11353,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:07Z",
+        "retrieved_at": "2026-11-08T15:22:02Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3037742",
         "content_hash": "5aa932f06408b88d2ea63693dc685aa857577966a283d31f5807a514cdcfb05e",
-        "raw_ref": "private-evidence/raw/3037742-20261107T192207Z.json"
+        "raw_ref": "private-evidence/raw/3037742-20261108T152202Z.json"
       }
     },
     {
@@ -11447,15 +11527,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:52Z",
+        "retrieved_at": "2026-11-08T15:22:23Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3050928",
         "content_hash": "70b6314c7ce3a7bca93d20b23a5eed741ac30a075c50a02fb0a1a529c943f4eb",
-        "raw_ref": "private-evidence/raw/3050928-20261107T192252Z.json"
+        "raw_ref": "private-evidence/raw/3050928-20261108T152223Z.json"
       }
     },
     {
@@ -11918,15 +12002,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:19:53Z",
+        "retrieved_at": "2026-11-08T15:20:02Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3056714",
         "content_hash": "28b4b067b7cfaa3e836f7c2b4cec95488b9b6e4d94043b4e4d6318081d7d0037",
-        "raw_ref": "private-evidence/raw/3056714-20261107T191953Z.json"
+        "raw_ref": "private-evidence/raw/3056714-20261108T152002Z.json"
       }
     },
     {
@@ -12194,15 +12282,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:14Z",
+        "retrieved_at": "2026-11-08T15:20:17Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3083583",
         "content_hash": "8b86b4b9e3f5d49b6388eda9522871d1ae5b69a8073a9652eecc9791ba4dad06",
-        "raw_ref": "private-evidence/raw/3083583-20261107T192014Z.json"
+        "raw_ref": "private-evidence/raw/3083583-20261108T152017Z.json"
       }
     },
     {
@@ -12482,15 +12574,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:33Z",
+        "retrieved_at": "2026-11-08T15:20:39Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3084011",
         "content_hash": "3111f8bf8eafaa87147e1a89458f7c6f4ed18b346151f6a7b800c2e651427aa9",
-        "raw_ref": "private-evidence/raw/3084011-20261107T192033Z.json"
+        "raw_ref": "private-evidence/raw/3084011-20261108T152039Z.json"
       }
     },
     {
@@ -12626,15 +12722,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:19:21Z",
+        "retrieved_at": "2026-11-08T15:19:43Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3171916",
         "content_hash": "a3cddaae9ff6078ca8bfe42cc8d660dc9fe8c230c24d4bcb88a404fc701d5871",
-        "raw_ref": "private-evidence/raw/3171916-20261107T191921Z.json"
+        "raw_ref": "private-evidence/raw/3171916-20261108T151943Z.json"
       }
     },
     {
@@ -12721,15 +12821,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:23:09Z",
+        "retrieved_at": "2026-11-08T15:22:36Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3174111",
         "content_hash": "f27500f05a9c74ba803b4e066efadbe61d96011e9609f7b757e4c9044602354c",
-        "raw_ref": "private-evidence/raw/3174111-20261107T192309Z.json"
+        "raw_ref": "private-evidence/raw/3174111-20261108T152236Z.json"
       }
     },
     {
@@ -12828,15 +12932,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "login-step"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:50Z",
+        "retrieved_at": "2026-11-08T15:22:20Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3216307",
         "content_hash": "60f4561a0a9e4cbe307c0e8781ae7148168536b2a9d38415e8e7b0f7573905bd",
-        "raw_ref": "private-evidence/raw/3216307-20261107T192250Z.json"
+        "raw_ref": "private-evidence/raw/3216307-20261108T152220Z.json"
       }
     },
     {
@@ -13030,15 +13138,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:20:30Z",
+        "retrieved_at": "2026-11-08T15:20:36Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3217241",
         "content_hash": "9facfaf120770cd609f367acef5c455a3e0d109d1eebfc509a2c9d34eadc7d8a",
-        "raw_ref": "private-evidence/raw/3217241-20261107T192030Z.json"
+        "raw_ref": "private-evidence/raw/3217241-20261108T152036Z.json"
       }
     },
     {
@@ -13827,15 +13939,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:18:46Z",
+        "retrieved_at": "2026-11-08T15:19:16Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3232414",
         "content_hash": "95eb00b34f9462be141c3d0b618d5f26d87f269f9d87f0cfe756aa3b409e3f20",
-        "raw_ref": "private-evidence/raw/3232414-20261107T191846Z.json"
+        "raw_ref": "private-evidence/raw/3232414-20261108T151916Z.json"
       }
     },
     {
@@ -13947,15 +14063,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:22:54Z",
+        "retrieved_at": "2026-11-08T15:22:25Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3293673",
         "content_hash": "071be278a7d85fa0d7c3a704232c62ee53f6e2b09656d13de114e3d427537b4d",
-        "raw_ref": "private-evidence/raw/3293673-20261107T192254Z.json"
+        "raw_ref": "private-evidence/raw/3293673-20261108T152225Z.json"
       }
     },
     {
@@ -14062,15 +14182,19 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "user-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:21:59Z",
+        "retrieved_at": "2026-11-08T15:21:52Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3393367",
         "content_hash": "9f3978a6c79944f73570bf414362b02cd174ea4ea4a8986e8d6bc8e5d389189c",
-        "raw_ref": "private-evidence/raw/3393367-20261107T192159Z.json"
+        "raw_ref": "private-evidence/raw/3393367-20261108T152152Z.json"
       }
     },
     {
@@ -14957,24 +15081,29 @@
           "atag"
         ]
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T19:19:38Z",
+        "retrieved_at": "2026-11-08T15:19:55Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/893530",
         "content_hash": "e70506f15308c0c6799de6bc5eadda24becac258a7ace8f33e34492c51cc4a84",
-        "raw_ref": "private-evidence/raw/893530-20261107T191938Z.json"
+        "raw_ref": "private-evidence/raw/893530-20261108T151955Z.json"
       }
     }
   ],
   "summary": {
     "requested": 32,
-    "retrieved_at": "2026-11-07T19:23:09Z",
+    "retrieved_at": "2026-11-08T15:22:36Z",
     "collected": 32,
-    "cached": 32,
-    "fetched": 0,
+    "cached": 0,
+    "reused": 0,
+    "fetched": 32,
     "failed": 0,
     "with_merge_requests": 6,
     "with_wcag_tags": 14,
@@ -15001,5 +15130,5 @@
   },
   "manifest_digest": "e8f54003ff784f82760215d2b40e9b7d462c9012e9dacf7558e913395b8bdae0",
   "digest_scope": "sha256 over this artifact excluding generated_at and evidence_digest",
-  "evidence_digest": "887ffcf870e823b4465a6194e3bdfe901829880437e8fc1c589a5ccce75a4344"
+  "evidence_digest": "5d5d37f044fa35359feb5e8819c1d451fa749725f46aecefcc2b03c0eb9a1d7f"
 }

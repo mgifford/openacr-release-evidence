@@ -14,7 +14,7 @@ last_modified_date: '2026-11-08'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.0-alpha1 (tag 12.0.0-alpha1).
   Evidence report: index.html. Machine-readable evidence: evidence.json. Evidence
-  digest: b19c1af3ab6450ed1d3585e0d9a2a0401c803bc10afd80b8367edb571af15878. Component
+  digest: 627ba4dbd4faedf2835b20f73006dddade2d3d697757a2ff5e46ca3e52d74ad9. Component
   scope: Web and Authoring Tool are proposed Partially Supports; Electronic Documents
   and Software are proposed Not Applicable. These are proposed component labels only.
   Evidence scope: active/review-relevant issues only (Active, Needs review, Needs
@@ -853,7 +853,7 @@ chapters:
       - name: web
         adherence:
           level: partially-supports
-          notes: 'Draft issue-queue evidence: 15 active tagged issue(s). No release
+          notes: 'Draft issue-queue evidence: 17 active tagged issue(s). No release
             reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
@@ -868,7 +868,7 @@ chapters:
       - name: authoring-tool
         adherence:
           level: partially-supports
-          notes: 'Draft issue-queue evidence: 15 active tagged issue(s). No release
+          notes: 'Draft issue-queue evidence: 17 active tagged issue(s). No release
             reproduction; a reviewer must confirm.'
     - num: 1.4.12
       components:
@@ -1938,7 +1938,7 @@ target:
   release_line: 12.0.x
   parent_project: null
   assessment_id: drupal-core-12.0.0-alpha1
-  evidence_digest: b19c1af3ab6450ed1d3585e0d9a2a0401c803bc10afd80b8367edb571af15878
+  evidence_digest: 627ba4dbd4faedf2835b20f73006dddade2d3d697757a2ff5e46ca3e52d74ad9
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr
