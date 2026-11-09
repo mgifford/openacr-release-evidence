@@ -123,7 +123,7 @@
     "parent_project": null,
     "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
   },
-  "generated_at": "2026-11-09T18:57:22Z",
+  "generated_at": "2026-11-09T19:26:05Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -24583,8 +24583,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:views ui"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25459,8 +25459,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:views ui"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -25713,7 +25713,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "term:node edit form"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -26983,8 +26983,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29026,8 +29026,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29181,8 +29181,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29381,8 +29381,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29581,8 +29581,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30488,8 +30488,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30588,8 +30588,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -30737,8 +30737,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31159,8 +31159,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31559,8 +31559,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31963,8 +31963,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32163,8 +32163,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32370,8 +32370,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32568,8 +32568,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32619,8 +32619,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32670,8 +32670,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32719,8 +32719,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32768,8 +32768,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -32817,8 +32817,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -34362,8 +34362,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35025,8 +35025,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field ui"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36696,8 +36696,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36941,8 +36941,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37092,8 +37092,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37190,8 +37190,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37634,8 +37634,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37834,8 +37834,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -37983,8 +37983,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -38084,8 +38084,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:node edit form"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -38809,8 +38809,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -39006,8 +39006,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39205,8 +39205,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39254,8 +39254,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39305,8 +39305,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -39356,8 +39356,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40081,8 +40081,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40132,8 +40132,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:node edit form"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40183,8 +40183,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40234,8 +40234,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40283,8 +40283,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40332,8 +40332,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40740,8 +40740,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41368,8 +41368,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:media library"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41470,8 +41470,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -42789,8 +42789,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:navigation.module"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -42854,8 +42854,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:layout builder"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -43197,8 +43197,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:views ui"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -44095,5 +44095,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "adc69fafcc9253b728c8c98da12b007825bbc0ac07840a4967b6ec6bb020b8ef"
+  "evidence_digest": "d67b2a31cc5bb60be413437cfd29d3192448084a4b621d17ff4c7d319b558fbb"
 }

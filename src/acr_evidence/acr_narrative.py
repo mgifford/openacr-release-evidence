@@ -9,6 +9,7 @@ import json
 from html import escape
 from pathlib import Path
 
+from .criterion_summaries import PROMPT_VERSION as CRITERION_PROMPT_VERSION
 from .openacr_export import load_catalog
 
 DRAFT_TERM = "Not Evaluated (draft — reviewer must select an ACR result)"
@@ -58,6 +59,8 @@ def _load_criterion_summaries(output_dir):
             break
         except (OSError, ValueError):
             continue
+    if data.get("prompt_version") != CRITERION_PROMPT_VERSION:
+        return {}
     criteria = data.get("criteria") or {}
     return {
         criterion: item
@@ -87,6 +90,11 @@ class RichCell:
 class Bold:
     def __init__(self, text):
         self.text = "" if text is None else str(text)
+
+
+class Gap:
+    """A larger visual separation between sections in a table cell."""
+    pass
 
 
 class Doc:
@@ -241,6 +249,8 @@ def _md(value):
                 rendered.append(f"[{str(label).replace('|', '\\|')}]({url})")
             elif isinstance(part, Bold):
                 rendered.append(f"**{part.text.replace('|', '\\|')}**")
+            elif isinstance(part, Gap):
+                rendered.append("<br><br>")
             else:
                 rendered.append(str(part).replace("|", "\\|"))
         return " ".join(rendered).replace("\n", " ")
@@ -260,6 +270,8 @@ def _html_cell(value):
                 rendered.append(f'<a href="{escape(url)}">{escape(str(label))}</a>')
             elif isinstance(part, Bold):
                 rendered.append(f"<strong>{escape(part.text)}</strong>")
+            elif isinstance(part, Gap):
+                rendered.append("<br><br>")
             else:
                 rendered.append(escape(str(part)))
         return "".join(rendered)
@@ -327,18 +339,13 @@ def _criterion_levels(criterion, issues):
             "Software": "Not Applicable",
             "Authoring Tool": "Not Applicable",
         }
-    if issues:
-        return {
-            "Web": "Partially Supports",
-            "Electronic Documents": "Not Applicable",
-            "Software": "Not Applicable",
-            "Authoring Tool": "Partially Supports",
-        }
+    web = bool(_surface_items(issues, "web"))
+    authoring = bool(_surface_items(issues, "authoring"))
     return {
-        "Web": "Not Evaluated",
+        "Web": "Partially Supports" if web else "Not Evaluated",
         "Electronic Documents": "Not Applicable",
         "Software": "Not Applicable",
-        "Authoring Tool": "Not Evaluated",
+        "Authoring Tool": "Partially Supports" if authoring else "Not Evaluated",
     }
 
 
@@ -352,7 +359,7 @@ def _levels_cell(criterion, issues):
     parts = []
     for index, (name, level) in enumerate(levels.items()):
         if index:
-            parts.append("\n")
+            parts.append(Gap())
         parts.extend([Bold(name + ":"), " ", "N/A" if level == "Not Applicable" else level])
     return RichCell(*parts)
 
@@ -366,16 +373,18 @@ def _barrier_summary(items, surface):
     if not items:
         return (
             f"No {label}-classified issue is tagged in this snapshot; the "
-            f"{'Web' if surface == 'web' else 'Authoring Tool'} result is proposed from the overall issue "
-            "queue and needs review."
+            f"{'Web' if surface == 'web' else 'Authoring Tool'} component remains Not Evaluated."
         )
     titles = []
-    for item in items[:3]:
+    for item in items[:6]:
         title = (item.get("title") or "Untitled issue").strip()
-        if len(title) > 95:
-            title = title[:92].rstrip() + "…"
+        if len(title) > 110:
+            title = title[:107].rstrip() + "…"
         titles.append(title)
-    return f"Reported {label} barriers include: " + "; ".join(titles) + "."
+    return (
+        f"Reported {label} barriers include: " + "; ".join(titles) +
+        f". These are {len(items)} active issue-queue reports; they describe known patterns rather than a complete census."
+    )
 
 
 def _evidence_text(items):
@@ -422,18 +431,21 @@ def _remarks_cell(criterion, issues, ai_summary=None):
             return RichCell(
                 Bold("Web:"), " Drupal Core doesn't support audio/video out of the box. Consider ",
                 ("Able Player", "https://www.drupal.org/project/ableplayer"),
-                " for pre-recorded audio/video support.\n",
+                " for pre-recorded audio/video support.",
+                Gap(),
                 Bold("Authoring Tool:"), " Drupal Core doesn't support audio/video authoring out of the box.",
             )
         if criterion == "1.2.3":
             return RichCell(
                 Bold("Web:"), " Drupal Core doesn't support audio description or media alternatives out of the box. Consider ",
                 ("Able Player", "https://www.drupal.org/project/ableplayer"),
-                " for pre-recorded media.\n",
+                " for pre-recorded media.",
+                Gap(),
                 Bold("Authoring Tool:"), " Drupal Core doesn't support audio description authoring out of the box.",
             )
         return RichCell(
-            Bold("Web:"), " " + CORE_SCOPE[criterion], "\n",
+            Bold("Web:"), " " + CORE_SCOPE[criterion],
+            Gap(),
             Bold("Authoring Tool:"), " Drupal Core does not provide this audio/video feature in its authoring interface.",
         )
     web = _surface_items(issues, "web")
@@ -441,19 +453,23 @@ def _remarks_cell(criterion, issues, ai_summary=None):
     ai_summary = ai_summary or {}
     if not issues:
         return RichCell(
-            Bold("Web:"), " No active tagged issue; remains Not Evaluated.\n",
+            Bold("Web:"), " No active tagged issue; remains Not Evaluated.",
+            Gap(),
             Bold("Authoring Tool:"), " No active tagged issue; remains Not Evaluated.",
         )
     parts = [
-        Bold("Web:"), " ", ai_summary.get("web") or _barrier_summary(web, "web"), "\n",
-        Bold("Authoring Tool:"), " ", ai_summary.get("authoring") or _barrier_summary(authoring, "authoring"), "\n",
-        Bold("Evidence:"), " ", _evidence_text(issues), "\n",
+        Bold("Web:"), " ", ai_summary.get("web") or _barrier_summary(web, "web"),
+        Gap(),
+        Bold("Authoring Tool:"), " ", ai_summary.get("authoring") or _barrier_summary(authoring, "authoring"),
+        Gap(),
+        Bold("Evidence:"), " ", _evidence_text(issues),
+        Gap(),
         "Examples: ",
     ]
     examples = _example_parts(issues)
     parts.extend(examples or ["No examples available."])
     parts.extend([
-        "\n",
+        Gap(),
         "All issue references: ",
         (f"{criterion} reference list", f"#ref-{_slug(criterion)}"),
     ])

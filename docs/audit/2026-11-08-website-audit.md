@@ -170,8 +170,13 @@ Before and after, verify:
 - Added a section navigation list with stable heading IDs.
 - Restored the reference ACR table layout: `Criteria | Conformance Level |
   Remarks and Explanations`, grouped as Table 1/2/3 for A/AA/AAA.
-- Issue-tagged criteria use draft Partially Supports for Web and Authoring Tool;
-  untagged criteria remain Not Evaluated. The draft banner and component
+- Issue-tagged criteria use draft Partially Supports only for the surface with
+  classified issues; untagged criteria remain Not Evaluated.
+- `N/A` is displayed for Not Applicable; component labels are bold and sections
+  are separated vertically.
+- 1.2.1/1.2.3 are N/A for Core with Able Player guidance, alongside 1.2.4/1.2.5.
+- `navigation.module` is mapped to the Authoring Tool surface through
+  `config/surface-policy.json`, not default Web. The draft banner and component
   proposals are preserved.
 - Web and Authoring Tool remarks are separate. Statistics, examples and direct
   Drupal.org links sit at the bottom of each remarks cell; a per-criterion
@@ -227,7 +232,7 @@ matrix generation assertions are in `tests/test_usability.py`.
 
 ## Test and accessibility results
 
-- **121 offline tests pass**.
+- **122 offline tests pass**.
 - axe-core: **0 violations** on the homepage, complete matrix, 12.0.0-alpha1
   report, ACR draft and ATAG report at 1280 px.
 - 320 px: `scrollWidth` = 320 on all five pages; wide tables scroll inside
@@ -241,7 +246,7 @@ matrix generation assertions are in `tests/test_usability.py`.
 - CSS-only filters were exercised: All 5 → Supported 2 → line 12.0.x 2 →
   reset 5.
 - Approximate page sizes after the change: homepage 28 KB, complete matrix
-  228 KB, 12.0.0-alpha1 report 924 KB, ACR 124 KB. The matrix moved off the
+  228 KB, 12.0.0-alpha1 report 924 KB, ACR 144 KB. The matrix moved off the
   homepage, so the homepage fell from about 240 KB to 28 KB.
 
 ## Remaining limitations and next PR

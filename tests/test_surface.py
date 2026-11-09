@@ -76,6 +76,16 @@ class SurfaceTests(unittest.TestCase):
         self.assertEqual("authoring", result["surface"])
         self.assertEqual("user-path", result["basis"])
 
+    def test_navigation_component_is_authoring(self):
+        result = classify_surface({
+            "title": "Top-level menu items in the footer region are too far away",
+            "component": "navigation.module",
+            "description_text": "The footer submenu is hard to reach.",
+            "comments": [],
+        })
+        self.assertEqual("authoring", result["surface"])
+        self.assertEqual("component:navigation.module", result["basis"])
+
     def test_admin_theme_without_admin_or_login_is_web(self):
         result = classify_surface({
             "title": "Admin theme styling",

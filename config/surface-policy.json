@@ -1,0 +1,30 @@
+{
+  "authoring_components": [
+    "navigation.module",
+    "navigation",
+    "toolbar",
+    "toolbar.module",
+    "ckeditor",
+    "ckeditor5",
+    "editor",
+    "media_library",
+    "layout_builder",
+    "views_ui",
+    "field_ui"
+  ],
+  "authoring_terms": [
+    "admin toolbar",
+    "administration interface",
+    "administrative interface",
+    "authoring interface",
+    "editor interface",
+    "content editing interface",
+    "media library",
+    "layout builder",
+    "views ui",
+    "field ui",
+    "node edit form",
+    "node add form"
+  ],
+  "issue_overrides": {}
+}

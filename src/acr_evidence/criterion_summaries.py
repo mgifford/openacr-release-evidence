@@ -11,7 +11,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-PROMPT_VERSION = "acr-criterion-v1"
+PROMPT_VERSION = "acr-criterion-v2"
 MODEL_DEFAULT = "Qwen/Qwen2.5-7B-Instruct"
 BANNED = re.compile(
     r"\b(?:supports?|partially\s+supports?|does\s+not\s+support|conformant|"
@@ -24,7 +24,7 @@ SYSTEM_PROMPT = """You write concise barrier summaries for a draft Accessibility
 Use only the supplied Drupal issue evidence. Return JSON only, with this shape:
 {"web": "one short paragraph", "authoring": "one short paragraph"}
 
-Each paragraph must be at most 45 words. Explain the known barriers a person with a disability may encounter on the public web and in the authoring tool. If a component has no classified issue, say that no issue is classified for it. Do not use conformance terms (Supports, Partially Supports, Does Not Support, compliant, pass, fail, fixed or resolved). Do not invent issue IDs, numbers, causes, severity or reviewers. Do not repeat the raw issue list. This is a draft suggestion for human review.
+Each paragraph should be 80-140 words and three to five sentences. Explain the known barrier patterns, the tasks and people affected, and the practical impact for the public web and for the authoring tool separately. If a component has no classified issue, say that no issue is classified for it rather than inventing a barrier. Do not use conformance terms (Supports, Partially Supports, Does Not Support, compliant, pass, fail, fixed or resolved). Do not invent issue IDs, numbers, causes, severity or reviewers. Do not repeat the raw issue list. This is a draft suggestion for human review.
 """
 
 
@@ -67,7 +67,7 @@ def _evidence(collection):
 def _valid(text, evidence):
     if not isinstance(text, str) or not text.strip():
         return False
-    if len(re.findall(r"\S+", text)) > 55:
+    if len(re.findall(r"\S+", text)) > 180:
         return False
     if BANNED.search(text):
         return False
@@ -168,7 +168,7 @@ def summarize_collection(
         try:
             if client is None:
                 client = _client(model, provider_name, endpoint, token, client_factory)
-            response = client.chat_completion(messages=messages, max_tokens=300, temperature=0.0, seed=17)
+            response = client.chat_completion(messages=messages, max_tokens=900, temperature=0.0, seed=17)
             raw = response.choices[0].message.content or ""
             parsed = _parse_json(raw)
             web = str(parsed.get("web") or "").strip()

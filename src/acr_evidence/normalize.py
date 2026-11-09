@@ -7,6 +7,7 @@ are archived separately (private evidence), never merged into the public record.
 import re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
+from pathlib import Path
 
 from .atag import classify as classify_atag
 from .model import (
@@ -22,6 +23,20 @@ ADMIN_PATH_RE = re.compile(r"/admin(?:/|\b)", re.IGNORECASE)
 # Drupal's login/account area is /user, including /user/login and /user/1.
 # All /user paths are authoring/account surfaces, not front-end web.
 USER_PATH_RE = re.compile(r"(?:^|[\s(])/user(?:/[^\s?#)]*)?(?=$|[\s?#)])", re.IGNORECASE)
+_SURFACE_POLICY = None
+
+
+def _surface_policy():
+    global _SURFACE_POLICY
+    if _SURFACE_POLICY is None:
+        _SURFACE_POLICY = {}
+        try:
+            import json
+            path = Path(__file__).resolve().parents[2] / "config" / "surface-policy.json"
+            _SURFACE_POLICY = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError, ImportError):
+            _SURFACE_POLICY = {}
+    return _SURFACE_POLICY
 LOGIN_RE = re.compile(
     r"\b(?:log\s*in|login|logged\s+in|sign\s*in|signin|administrator|admin\s+user)\b",
     re.IGNORECASE,
@@ -136,13 +151,26 @@ def wcag_from_labels(labels):
 
 
 def classify_surface(issue):
-    """Classify an issue as authoring or web using explicit text cues.
+    """Classify an issue as authoring or web using explicit evidence.
 
-    `/admin` paths and login/reproduction steps indicate the authoring
-    interface. Everything else is treated as web by default. This is a draft
-    classification for review, not a conformance decision.
+    Priority: explicit issue override, component mapping, `/admin`, `/user`
+    paths, named authoring terms, login/reproduction steps, then web. This is a
+    draft classification for review, not a conformance decision.
     """
     issue = issue or {}
+    policy = _surface_policy()
+    issue_id = issue.get("id") or ""
+    override = (policy.get("issue_overrides") or {}).get(issue_id)
+    if override in {"web", "authoring"}:
+        return {"surface": override, "basis": "issue-override"}
+    if issue.get("surface") in {"web", "authoring"}:
+        return {"surface": issue["surface"], "basis": issue.get("surface_basis") or "explicit"}
+
+    component = str(issue.get("component") or "").strip().casefold()
+    authoring_components = {str(value).casefold() for value in policy.get("authoring_components") or []}
+    if component and component in authoring_components:
+        return {"surface": "authoring", "basis": f"component:{component}"}
+
     parts = [issue.get("title") or "", issue.get("description_text") or ""]
     for comment in issue.get("comments") or []:
         parts.append(comment.get("body_text") or "")
@@ -151,6 +179,10 @@ def classify_surface(issue):
         return {"surface": "authoring", "basis": "admin-path"}
     if USER_PATH_RE.search(text):
         return {"surface": "authoring", "basis": "user-path"}
+    lowered = text.casefold()
+    for term in policy.get("authoring_terms") or []:
+        if str(term).casefold() in lowered:
+            return {"surface": "authoring", "basis": f"term:{term}"}
     if LOGIN_RE.search(text):
         return {"surface": "authoring", "basis": "login-step"}
     return {"surface": "web", "basis": "default-web"}
@@ -261,6 +293,7 @@ def normalize_drupal_issue(
     )
     surface = classify_surface({
         "title": issue.get("title") or node.get("title"),
+        "component": issue.get("field_issue_component") or node.get("field_issue_component"),
         "description_text": html_to_text(description_html),
         "comments": comments,
     })

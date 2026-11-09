@@ -122,11 +122,27 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
                             "notes": core_notes[str(criterion["id"])],
                         }
                     elif by_criterion.get(str(criterion["id"])):
-                        component["adherence"] = {
-                            "level": "partially-supports",
-                            "notes": f"Draft issue-queue evidence: {len(by_criterion[str(criterion['id'])])} "
-                                     "active tagged issue(s). No release reproduction; a reviewer must confirm.",
-                        }
+                        items = by_criterion[str(criterion["id"])]
+                        surface = (name if name in {"web", "authoring-tool"} else None)
+                        if name == "web":
+                            surface_items = [
+                                item for item in items
+                                if (item.get("surface") or {}).get("surface", "web") == "web"
+                            ]
+                        elif name == "authoring-tool":
+                            surface_items = [
+                                item for item in items
+                                if (item.get("surface") or {}).get("surface", "web") == "authoring"
+                            ]
+                        else:
+                            surface_items = []
+                        if surface_items:
+                            component["adherence"] = {
+                                "level": "partially-supports",
+                                "notes": f"Draft issue-queue evidence: {len(surface_items)} "
+                                         f"{surface} active tagged issue(s). No release reproduction; "
+                                         "a reviewer must confirm.",
+                            }
                     components.append(component)
                 item["components"] = components
             else:

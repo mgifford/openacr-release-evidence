@@ -73,8 +73,11 @@ The narrative does **not** claim:
 Use explicit evidence: `/admin` paths, Drupal login paths (`/user`,
 `/user/login`, `/user/password`), login/reproduction steps or an administrator
 account indicate the authoring interface; public front-end pages indicate web.
-All `/user` paths, including `/user/1`, are authoring/account surfaces. Record the basis (`admin-path`, `login-step` or `default-web`) and
-review ambiguous cases. An authoring interface may also serve live content, so
+All `/user` paths, including `/user/1`, are authoring/account surfaces. The
+component policy in `config/surface-policy.json` maps `navigation.module`,
+toolbar, CKEditor, media library, Layout Builder, Views UI and Field UI to
+authoring, with issue-specific overrides available. Record the basis and review
+ambiguous cases. An authoring interface may also serve live content, so
 the boundary must be explained.
 
 Drupal Core has no audio/video playback, live audio/video, or core video player.

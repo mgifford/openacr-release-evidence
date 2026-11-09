@@ -36,7 +36,11 @@ Treat the following as **authoring/account** surfaces:
 
 Everything else defaults to **web**. An authoring interface can also serve live
 content; classify the surface where the barrier occurs and explain ambiguity.
-Record the basis (`admin-path`, `user-path`, `login-step`, `default-web`).
+Record the basis (`admin-path`, `user-path`, `login-step`, `component:...`,
+`issue-override`, `term:...`, `default-web`). `navigation.module` and the admin
+toolbar components are authoring even when the title describes a footer menu.
+The mapping is in `config/surface-policy.json`; add issue-specific overrides
+there when an issue explicitly names its surface.
 
 ## Issue references
 
