@@ -19,6 +19,7 @@ def analysis():
             "ref": "11.4.12",
             "ref_type": "tag",
             "support_status": "supported",
+            "release_line": "11.4.x",
         },
         "generated_at": "2026-11-07T00:00:00Z",
         "summary": {"findings": 3},
@@ -95,6 +96,7 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("Why this ACR is different", md)
         self.assertIn("Conventional vendor ACR and this issue-queue attestation", md)
         self.assertIn("https://github.com/GSA/openacr/issues/180", md)
+        self.assertIn("Theme availability for 11.4.x", md)
 
     def test_inventory_and_detailed_evidence_are_distinguished(self):
         with tempfile.TemporaryDirectory() as folder:

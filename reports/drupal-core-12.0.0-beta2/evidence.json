@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Pre-release beta. Default Admin is the default and admin theme; Claro and Olivero are no longer core themes. Not a supported release."
   },
-  "generated_at": "2026-11-09T19:26:06Z",
+  "generated_at": "2026-11-09T19:37:27Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -26014,8 +26014,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:content_moderation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26864,8 +26864,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:dblog.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28827,8 +28827,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31395,8 +31395,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:dblog.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35879,8 +35879,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36630,8 +36630,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:content_moderation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40413,8 +40413,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40462,8 +40462,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40511,8 +40511,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40772,8 +40772,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:content_moderation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41019,8 +41019,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41122,7 +41122,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "admin-path"
+        "basis": "theme:admin theme"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41520,8 +41520,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:workflows.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42132,8 +42132,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42230,8 +42230,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42281,8 +42281,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -42476,8 +42476,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42625,8 +42625,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42723,8 +42723,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42838,7 +42838,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "term:layout builder"
+        "basis": "theme:admin theme"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -43031,8 +43031,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -43082,8 +43082,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -43131,8 +43131,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -43296,8 +43296,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -43853,8 +43853,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -44078,5 +44078,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "fdf56aaefc6ab8bbf702eb1db75b5f099f2a4c4c480423500ca79dc52ceac61e"
+  "evidence_digest": "bac4122a4e8d7b3e1bd2dc45a6617adbeea4a2741c346eaabfa6c1104e80d1c2"
 }

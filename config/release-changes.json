@@ -1,0 +1,36 @@
+{
+  "description": "Curated theme/component availability changes for surface interpretation. Source links are the release notes.",
+  "source": "https://www.drupal.org/project/drupal/releases",
+  "release_lines": {
+    "10.6.x": {
+      "front_end_themes": [
+        "olivero"
+      ],
+      "admin_themes": [
+        "claro"
+      ],
+      "notes": "Drupal 10 standard profile uses Olivero front end and Claro admin theme."
+    },
+    "11.4.x": {
+      "front_end_themes": [
+        "olivero"
+      ],
+      "admin_themes": [
+        "claro",
+        "default_admin"
+      ],
+      "notes": "Drupal 11 includes Olivero; Default Admin is present in the 11.4 target."
+    },
+    "12.0.x": {
+      "front_end_themes": [],
+      "admin_themes": [
+        "claro",
+        "default_admin"
+      ],
+      "removed": [
+        "olivero"
+      ],
+      "notes": "Drupal 12 removes Olivero and other front-end themes; treat Olivero-only issues as out of scope for 12.x targets."
+    }
+  }
+}

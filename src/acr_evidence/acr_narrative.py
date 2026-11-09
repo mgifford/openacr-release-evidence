@@ -40,6 +40,14 @@ CORE_SCOPE = {
 STATUS_ORDER = ("Active", "Needs review", "Needs work", "Reviewed & tested by the community", "Patch")
 
 
+def _load_release_changes():
+    try:
+        data = json.loads((Path(__file__).resolve().parents[2] / "config" / "release-changes.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return data.get("release_lines") or {}
+
+
 def _load_criterion_summaries(output_dir):
     """Load the shared cache without relying only on the output directory.
 
@@ -602,6 +610,17 @@ def render_acr_narrative(analysis, output_dir):
         "No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.",
         "No AI was used to assign applicability or an ACR result.",
     ])
+    release_line = str(target.get("release_line") or "")
+    theme_info = _load_release_changes().get(release_line) or {}
+    if theme_info:
+        front = ", ".join(theme_info.get("front_end_themes") or []) or "none recorded"
+        admin = ", ".join(theme_info.get("admin_themes") or []) or "none recorded"
+        removed = ", ".join(theme_info.get("removed") or [])
+        note = f"Theme availability for {release_line}: front-end themes {front}; admin themes {admin}."
+        if removed:
+            note += f" Removed in this line: {removed}."
+        note += (" The core collection does not include the theme project queues; a theme's own ACR must cover those issues.")
+        doc.p(note)
     doc.h2("Why this ACR is different")
     doc.p("A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor's issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked.")
     doc.table("Conventional vendor ACR and this issue-queue attestation", ["Dimension", "Conventional vendor ACR", "This ACR"], [

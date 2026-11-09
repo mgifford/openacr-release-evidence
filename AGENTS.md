@@ -88,8 +88,10 @@ that no issue was reproduced against the target, and require human confirmation.
 `/admin`, Drupal `/user` login paths, the component mapping in
 `config/surface-policy.json` and login/reproduction cues classify the authoring
 surface; otherwise default to web. Component mappings (for example
-`navigation.module`) take precedence over title-only guesses. Use issue-specific
-overrides when the issue explicitly states its surface. All `/user` paths, including
+`navigation.module`, `content_moderation.module`, `dblog.module`) take precedence
+over title-only guesses. Theme mappings and per-release theme changes live in
+`config/surface-policy.json` and `config/release-changes.json`. Use issue-specific
+overrides for mixed components such as `taxonomy.module` or `javascript`. All `/user` paths, including
 `/user/1`, are authoring/account surfaces. Never infer Supports from an empty
 issue queue, never remove the draft disclaimer.
 

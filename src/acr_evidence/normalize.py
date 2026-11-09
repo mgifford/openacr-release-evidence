@@ -167,6 +167,9 @@ def classify_surface(issue):
         return {"surface": issue["surface"], "basis": issue.get("surface_basis") or "explicit"}
 
     component = str(issue.get("component") or "").strip().casefold()
+    themes = {str(key).casefold(): value for key, value in (policy.get("themes") or {}).items()}
+    if component and component in themes:
+        return {"surface": themes[component], "basis": f"theme:{component}"}
     authoring_components = {str(value).casefold() for value in policy.get("authoring_components") or []}
     if component and component in authoring_components:
         return {"surface": "authoring", "basis": f"component:{component}"}

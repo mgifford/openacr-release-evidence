@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Development branch. Findings are not release claims and can change at any commit. Default Admin is the default theme; Claro and Olivero are contributed projects."
   },
-  "generated_at": "2026-11-09T19:26:06Z",
+  "generated_at": "2026-11-09T19:37:27Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -26013,8 +26013,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:content_moderation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -26863,8 +26863,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:dblog.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -28826,8 +28826,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31394,8 +31394,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:dblog.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -35878,8 +35878,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -36629,8 +36629,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:content_moderation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40412,8 +40412,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40461,8 +40461,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40510,8 +40510,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40771,8 +40771,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:content_moderation.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41018,8 +41018,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -41121,7 +41121,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "admin-path"
+        "basis": "theme:admin theme"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -41519,8 +41519,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "component:workflows.module"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42131,8 +42131,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42229,8 +42229,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42280,8 +42280,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -42475,8 +42475,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42624,8 +42624,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42722,8 +42722,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -42837,7 +42837,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "term:layout builder"
+        "basis": "theme:admin theme"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -43030,8 +43030,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -43081,8 +43081,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -43130,8 +43130,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -43295,8 +43295,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -43852,8 +43852,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -44077,5 +44077,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "82298d25544c3506be514daeee1cd104909743a085cca9c58ece40332f923582"
+  "evidence_digest": "577b3a608f5eb3eeb521188198fea7440810c36acea050936c9ace216d08fcb4"
 }
