@@ -4,7 +4,7 @@
   "provider": "huggingface",
   "provider_name": "auto",
   "model": "Qwen/Qwen2.5-7B-Instruct",
-  "generated_at": "2026-11-08T15:22:36Z",
+  "generated_at": "2026-11-09T02:55:53Z",
   "criteria": {
     "1.1.1": {
       "input_sha256": "3ee99c1c04b8efb697c6cc0ba324296036b9c9fb02ba16044d3223d998a939a0",
@@ -24,12 +24,12 @@
       "authoring": "No issues classified for authoring tools."
     },
     "1.3.1": {
-      "input_sha256": "0482aff4ecfc8bba1b05accd2a04d1184c59a9facffe653e6d28effb8c32fe98",
+      "input_sha256": "af108ac612682c2cf1bb0ef7416d0f77c5519425d21639cf0c0cca7f59a4b679",
       "model": "Qwen/Qwen2.5-7B-Instruct",
       "prompt_version": "acr-criterion-v1",
       "status": "accepted",
-      "web": "Users may encounter issues with required fields not having proper labels or explanations, and forms with asterisks for required fields lacking context. Assistive technologies might struggle with form elements missing the required attribute, and system messages may not be accessible. Vertical tabs and certain table headers also pose accessibility challenges.",
-      "authoring": "No issues classified for the authoring tool."
+      "web": "Users may encounter issues with form fields missing required attributes, unclear asterisk markers, and inaccessible system messages. Assistive technologies might struggle with empty regions and missing fieldset titles.",
+      "authoring": "Authors might face challenges with pager templates failing accessibility tests, particularly with the use of ellipsis, which can misstructure lists."
     },
     "1.3.3": {
       "input_sha256": "f180bbaebc9f03d5662a3d6fd3f91db425dcf5a887f648d17eeab4504fc1ec75",
@@ -314,12 +314,12 @@
       "authoring": "No issues classified for the authoring tool."
     },
     "4.1.2": {
-      "input_sha256": "2fe3d2edfd5d1373647bed22b79e35e551116108d78420fcf9a0982ddea7287a",
+      "input_sha256": "9430c428aa3db313a0acb14b3d1861b204c1bd72cb2b4e8d1a5433e99190bf15",
       "model": "Qwen/Qwen2.5-7B-Instruct",
       "prompt_version": "acr-criterion-v1",
       "status": "accepted",
-      "web": "Drupal issues include missing accessible names for form elements, incorrect ARIA roles, and issues with screen reader navigation. These can make it difficult for users with disabilities to interact with the web content effectively.",
-      "authoring": "No issues classified for the authoring tool."
+      "web": "Users may encounter issues with duplicate IDs, missing accessible names, and incorrect ARIA roles, hindering navigation and understanding of web content. Screen readers may struggle with dynamic changes and missing title attributes on buttons.",
+      "authoring": "Authors might face challenges with improperly structured pagers, leading to accessibility issues. Ensuring lists contain only allowed elements like <li> is crucial for correct list structure."
     },
     "4.1.3": {
       "input_sha256": "2573f3f296eadacf7d806f1572cb5418707a4cbd64915cd40f97cf87ae6fd593",

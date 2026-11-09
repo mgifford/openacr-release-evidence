@@ -123,7 +123,7 @@
     "parent_project": null,
     "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
   },
-  "generated_at": "2026-11-09T03:01:40Z",
+  "generated_at": "2026-11-09T18:42:29Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -144,10 +144,10 @@
       "component": null,
       "since": null
     },
-    "collection_digest": "2e947f6ce520cb5cd291d36257128274d221bbb5419fa62decb68296cd7f4e3c",
+    "collection_digest": "dab38a326ad16d9022bfdd3ec0de30e99433963e2d10d69476e66fc32893013b",
     "summary": {
       "requested": 430,
-      "retrieved_at": "2026-11-08T15:18:41Z",
+      "retrieved_at": "2026-11-09T02:53:45Z",
       "collected": 430,
       "cached": 0,
       "reused": 426,
@@ -165,18 +165,18 @@
         14,
         15
       ],
-      "comments": 1622,
+      "comments": 1626,
       "by_workflow": {
         "needs-review": 15,
-        "needs-work": 172,
+        "needs-work": 174,
         "open": 236,
-        "rtbc": 7
+        "rtbc": 5
       },
       "by_status": {
         "Active": 236,
         "Needs review": 15,
-        "Needs work": 172,
-        "Reviewed & tested by the community": 7
+        "Needs work": 174,
+        "Reviewed & tested by the community": 5
       },
       "errors": []
     },
@@ -190,9 +190,9 @@
     },
     "by_workflow": {
       "needs-review": 15,
-      "needs-work": 172,
+      "needs-work": 174,
       "open": 236,
-      "rtbc": 7
+      "rtbc": 5
     },
     "by_evidence_status": {
       "full": 32,
@@ -254,14 +254,14 @@
         "main"
       ],
       "since": "2026-05-10T16:05:10-06:00",
-      "commits": 1794,
-      "retrieved_at": "2026-11-09T03:01:40Z"
+      "commits": 1823,
+      "retrieved_at": "2026-11-09T18:42:29Z"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/11.4.12",
-    "commit_index": "2026-11-09T03:01:40Z"
+    "commit_index": "2026-11-09T18:42:29Z"
   },
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -14563,7 +14563,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2023-03-16T18:09:09+00:00",
-      "updated_at": "2026-11-01T23:01:28+00:00",
+      "updated_at": "2026-11-08T17:47:21+00:00",
       "component": "theme system",
       "version": "main",
       "priority": "Normal",
@@ -14587,10 +14587,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:01:23Z",
+        "retrieved_at": "2026-11-09T02:53:37Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
-        "content_hash": "140fee89edf2dbaf71ec94d00bf396f0dbed41574f17c155060685848bce4e78",
-        "raw_ref": "private-evidence/raw/3348552-20261107T200123Z.json"
+        "content_hash": "f12d003afa3f07aae399a7d4a66ef4f6de731e26f7c3808beef2ed858f63b9c6",
+        "raw_ref": "private-evidence/raw/3348552-20261109T025337Z.json"
       }
     },
     {
@@ -20265,13 +20265,13 @@
         "Accessibility"
       ],
       "status": {
-        "code": 14,
-        "label": "Reviewed & tested by the community",
-        "workflow_state": "rtbc",
-        "raw_label": "RTBC"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-08-26T00:03:31+00:00",
-      "updated_at": "2026-11-05T09:43:26+00:00",
+      "updated_at": "2026-11-08T17:19:51+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -20292,10 +20292,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T17:43:49Z",
+        "retrieved_at": "2026-11-09T02:53:40Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
-        "content_hash": "c983435668359295398b9780ebb8d77917f664cba61fc823027d6f8f1bccf4ff",
-        "raw_ref": "private-evidence/raw/3619154-20261107T174349Z.json"
+        "content_hash": "28049b3b466676c502bd7d614963d596d02bef5518645b099567533dd53abad8",
+        "raw_ref": "private-evidence/raw/3619154-20261109T025340Z.json"
       }
     },
     {
@@ -20314,13 +20314,13 @@
         "ai-ni"
       ],
       "status": {
-        "code": 14,
-        "label": "Reviewed & tested by the community",
-        "workflow_state": "rtbc",
-        "raw_label": "RTBC"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-08-27T00:02:53+00:00",
-      "updated_at": "2026-10-07T15:13:23+00:00",
+      "updated_at": "2026-11-08T17:15:54+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -20341,10 +20341,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:02:49Z",
+        "retrieved_at": "2026-11-09T02:53:43Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619387",
-        "content_hash": "2ba52b7b685aa3bd344dea79ff1d58ad41ab0457df7e5768fa22f8b8dcd060e1",
-        "raw_ref": "private-evidence/raw/3619387-20261107T200249Z.json"
+        "content_hash": "245a5888e775e27b89f991a7aa20c2c79b695f4ff60ac8e411942eb0c31b471b",
+        "raw_ref": "private-evidence/raw/3619387-20261109T025343Z.json"
       }
     },
     {
@@ -21296,10 +21296,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-08T15:18:34Z",
+        "retrieved_at": "2026-11-09T02:53:45Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
-        "content_hash": "5b9ecb1d9910991201623c7bc7f1661c4e449247e4b184b405ea66359a94ecf4",
-        "raw_ref": "private-evidence/raw/3636028-20261108T151834Z.json"
+        "content_hash": "636f3930738eddc8e2d88c91dc96ecb57f1cd0d61a195cb7ccb80582c559e13e",
+        "raw_ref": "private-evidence/raw/3636028-20261109T025345Z.json"
       }
     },
     {
@@ -36262,7 +36262,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2023-03-16T18:09:09+00:00",
-      "observed_at": "2026-11-07T20:01:23Z",
+      "observed_at": "2026-11-09T02:53:37Z",
       "wcag_candidates": [
         "1.3.1",
         "4.1.2"
@@ -42346,12 +42346,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
       "title": "Accessibility fixes for Admin theme's node add/edit sidebar toggle control",
       "component": "Admin theme",
-      "tracker_status": 14,
-      "tracker_status_label": "Reviewed & tested by the community",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-08-26T00:03:31+00:00",
-      "observed_at": "2026-11-07T17:43:49Z",
+      "observed_at": "2026-11-09T02:53:40Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -42384,7 +42384,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-03T19:19:20Z",
+          "updated_at": "2026-11-08T23:23:10Z",
           "author": "mherchel"
         }
       ],
@@ -42411,12 +42411,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3619387",
       "title": "Indicate on forms sidebar toggle button that sidebar has child element errors",
       "component": "Admin theme",
-      "tracker_status": 14,
-      "tracker_status_label": "Reviewed & tested by the community",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-08-27T00:02:53+00:00",
-      "observed_at": "2026-11-07T20:02:49Z",
+      "observed_at": "2026-11-09T02:53:43Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -43533,7 +43533,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-07T06:54:10+00:00",
-      "observed_at": "2026-11-08T15:18:34Z",
+      "observed_at": "2026-11-09T02:53:45Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -44095,5 +44095,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "2187d0adb0554a128385fe9acf2c9e7a4d55d7a9f5be3783467aac4e7b939e3c"
+  "evidence_digest": "19dd50e3b7959aa8a1c09870e08514b823e8154eb77e72a33d836a64633243eb"
 }

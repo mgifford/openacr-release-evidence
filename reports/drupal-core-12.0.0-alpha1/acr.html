@@ -102,7 +102,7 @@
 <p>Read the queue as reported barrier evidence. The criterion result is a draft issue-queue attestation subject to human confirmation. See the GSA OpenACR discussion and Drupal&#x27;s ACR process for the wider model.</p>
 <ul><li><a href="https://github.com/GSA/openacr/issues/180">GSA OpenACR issue #180</a></li><li><a href="https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process">Drupal ACR process</a></li><li><a href="https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/">WCAG-EM 2.0</a></li></ul>
 <h2 id="executive-summary">Executive summary</h2>
-<p>The active queue contains 430 issues. Tracker states are: Active: 236, Needs review: 15, Needs work: 172, Reviewed &amp; tested by the community: 7. 32 issues have detailed evidence and 398 are inventory-only. The queue is a triage input, not an accessibility score.</p>
+<p>The active queue contains 430 issues. Tracker states are: Active: 236, Needs review: 15, Needs work: 174, Reviewed &amp; tested by the community: 5. 32 issues have detailed evidence and 398 are inventory-only. The queue is a triage input, not an accessibility score.</p>
 <p>The largest explicitly tagged criterion clusters are listed below. A count reflects issue tagging, not severity or conformance.</p>
 <ul><li>WCAG 4.1.2: 39 active issues</li><li>WCAG 1.3.1: 23 active issues</li><li>WCAG 3.3.1: 18 active issues</li><li>WCAG 1.4.11: 17 active issues</li><li>WCAG 1.1.1: 12 active issues</li><li>WCAG 2.4.3: 9 active issues</li><li>WCAG 2.5.3: 9 active issues</li><li>WCAG 3.1.2: 9 active issues</li></ul>
 <p>235 active findings have no WCAG criterion tag. They remain in the evidence report and may still describe accessibility barriers; no criterion is inferred from their prose.</p>
@@ -142,8 +142,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#info-and-relationships">1.3.1 Info and Relationships</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Users may encounter issues with required fields not having proper labels or explanations, and forms with asterisks for required fields lacking context. Assistive technologies might struggle with form elements missing the required attribute, and system messages may not be accessible. Vertical tabs and certain table headers also pose accessibility challenges.
-Authoring Tool: No issues classified for the authoring tool.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter issues with form fields missing required attributes, unclear asterisk markers, and inaccessible system messages. Assistive technologies might struggle with empty regions and missing fieldset titles.
+Authoring Tool: Authors might face challenges with pager templates failing accessibility tests, particularly with the use of ellipsis, which can misstructure lists.
 Evidence: 23 active issues tagged to this criterion: 3 detailed, 20 metadata-only inventory. Tracker statuses: Active: 7, Needs review: 1, Needs work: 15. Target evidence states: likely-affected: 3, unknown: 20.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/1383696">Allow a custom HTML element to be selected for a grouping field (drupal:1383696, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2443815">#description_display broken for details elements (drupal:2443815, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/2852874">[Meta] Set the required state for all fields in Core in the Accessibility Obj… (drupal:2852874, Active)</a>
 All issue references: <a href="#ref-1-3-1">1.3.1 reference list</a></td></tr>
@@ -340,8 +340,8 @@ Evidence: No active tagged issue in this snapshot.</td></tr>
 <tr><td><a href="https://www.w3.org/TR/WCAG22/#name-role-value">4.1.2 Name, Role, Value</a></td><td>Web: Partially Supports
 Electronic Documents: Not Applicable
 Software: Not Applicable
-Authoring Tool: Partially Supports</td><td>Web: Drupal issues include missing accessible names for form elements, incorrect ARIA roles, and issues with screen reader navigation. These can make it difficult for users with disabilities to interact with the web content effectively.
-Authoring Tool: No issues classified for the authoring tool.
+Authoring Tool: Partially Supports</td><td>Web: Users may encounter issues with duplicate IDs, missing accessible names, and incorrect ARIA roles, hindering navigation and understanding of web content. Screen readers may struggle with dynamic changes and missing title attributes on buttons.
+Authoring Tool: Authors might face challenges with improperly structured pagers, leading to accessibility issues. Ensuring lists contain only allowed elements like &lt;li&gt; is crucial for correct list structure.
 Evidence: 39 active issues tagged to this criterion: 2 detailed, 37 metadata-only inventory. Tracker statuses: Active: 17, Needs review: 1, Needs work: 21. Target evidence states: likely-affected: 2, unknown: 37.
 Examples: <a href="https://www.drupal.org/project/drupal/issues/1402250">Allow modules to classify blocks when defining them, so WAI-ARIA roles can au… (drupal:1402250, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/1852090">Cached render elements can have duplicate HTML IDs (drupal:1852090, Needs work)</a>; <a href="https://www.drupal.org/project/drupal/issues/1854046">Add &quot;changed&quot; hints to translation settings page (drupal:1854046, Needs work)</a>
 All issue references: <a href="#ref-4-1-2">4.1.2 reference list</a></td></tr>

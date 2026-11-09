@@ -8,9 +8,9 @@
     "ref_label": "branch main",
     "tag": null,
     "branch": "main",
-    "tag_commit": "9b26fc7ce1d590d3d6e0b4f0f59ed7594bf83ae7",
-    "tag_commit_short": "9b26fc7c",
-    "tag_date": "2026-11-09T07:33:55.000+10:00",
+    "tag_commit": "abb6fd19c230ab4300cbc78a038909c54f8ac2e1",
+    "tag_commit_short": "abb6fd19",
+    "tag_date": "2026-11-09T17:52:03.000+00:00",
     "support_status": "development",
     "release_line": "main",
     "parent_project": null,
@@ -113,9 +113,9 @@
     },
     "by_workflow": {
       "needs-review": 15,
-      "needs-work": 172,
+      "needs-work": 174,
       "open": 236,
-      "rtbc": 7
+      "rtbc": 5
     },
     "by_evidence_status": {
       "full": 32,
@@ -173,12 +173,12 @@
       "branches": [
         "main"
       ],
-      "since": "2026-05-13T07:33:55+10:00",
-      "commits": 758,
-      "retrieved_at": "2026-11-09T03:02:33Z"
+      "since": "2026-05-13T17:52:03Z",
+      "commits": 768,
+      "retrieved_at": "2026-11-09T18:43:19Z"
     }
   },
-  "generated_at": "2026-11-09T03:02:33Z",
-  "evidence_digest": "d48cecc1a6faf7f2202efd3fc5bfc8e3104818bae2325890f666655f8bc5f05f",
+  "generated_at": "2026-11-09T18:43:19Z",
+  "evidence_digest": "20b151cc7ff06d7804e4b1d29c15dc3d84cd531d211fe0173204870967eeaa51",
   "manifest_digest": "8b29349cd220d8aef660f667fade5a117e90f398386f114e3f52ddcc01818d05"
 }

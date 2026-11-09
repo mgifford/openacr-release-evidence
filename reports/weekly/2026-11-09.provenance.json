@@ -1,0 +1,14 @@
+{
+  "provider": "huggingface",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "provider_name": "auto",
+  "endpoint": "",
+  "model_revision": "",
+  "prompt_version": "weekly-evidence-v1",
+  "input_sha256": "993dc9bc2a9ede37bb557204ded2846def8a1ff49aa9fb75051939c0a4645f8d",
+  "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "status": "rejected",
+  "context_sha256": "3a6e13f5b7862490d045152b33306b83c502d725024c3081815dfcc8e2a711ce",
+  "context_path": "context/DRUPAL.md",
+  "error": "response contains a banned conformance term"
+}
