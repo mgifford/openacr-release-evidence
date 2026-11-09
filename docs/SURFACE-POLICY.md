@@ -22,7 +22,10 @@ whether an issue title contains `/admin` or “login.”
   Views UI, Field UI, `content_moderation.module`, `workflows`,
   `dblog.module`, admin themes.
 - `authoring_terms` — explicit phrases such as “admin toolbar”,
-  “administration interface”, “media library”.
+  “administration interface”, “media library”, “provide authors with tools”,
+  FieldWidget.
+- `issue_overrides` also covers the three 1.2.2 caption/transcript issues:
+  they are authoring-tool support, not public web playback.
 
 Priority order:
 

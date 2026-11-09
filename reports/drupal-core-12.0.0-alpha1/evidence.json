@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Pre-release alpha. Claro is the admin theme at this tag; Default Admin is present but not default. Not a supported release."
   },
-  "generated_at": "2026-11-09T20:25:28Z",
+  "generated_at": "2026-11-09T21:09:48Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -24164,8 +24164,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field widget"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29115,8 +29115,8 @@
         ]
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31244,8 +31244,8 @@
         ]
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31295,8 +31295,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33098,8 +33098,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field widget"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40610,7 +40610,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "term:fieldwidget"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -42902,8 +42902,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field widget"
       },
       "applicability": "unknown",
       "basis": "report-after-release",
@@ -43396,8 +43396,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field widget"
       },
       "applicability": "unknown",
       "basis": "report-after-release",
@@ -44078,5 +44078,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "d81ae0a169320e48653ad54966cfdc331e224ccf71f23c6460e2c2630a173570"
+  "evidence_digest": "84e042be72b1ed2ed32c24d17030e92303729957c16ce68a2b51ca8569cd770c"
 }
