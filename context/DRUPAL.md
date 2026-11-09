@@ -40,7 +40,10 @@ Record the basis (`admin-path`, `user-path`, `login-step`, `component:...`,
 `issue-override`, `term:...`, `default-web`). `navigation.module` and the admin
 toolbar components are authoring even when the title describes a footer menu.
 The mapping is in `config/surface-policy.json`; add issue-specific overrides
-there when an issue explicitly names its surface.
+there when an issue explicitly names its surface. Per-release theme changes are
+recorded in `config/release-changes.json` (for example Olivero is web in Drupal
+10/11 and removed in Drupal 12). Do not infer that the whole `taxonomy.module`
+or `views.module` is one surface; use an issue override for a mixed component.
 
 ## Issue references
 

@@ -76,6 +76,37 @@ class SurfaceTests(unittest.TestCase):
         self.assertEqual("authoring", result["surface"])
         self.assertEqual("user-path", result["basis"])
 
+    def test_admin_modules_are_authoring(self):
+        for component in ("content_moderation.module", "dblog.module", "claro"):
+            result = classify_surface({
+                "title": "Admin interface issue",
+                "component": component,
+                "description_text": "",
+                "comments": [],
+            })
+            self.assertEqual("authoring", result["surface"], component)
+
+    def test_olivero_is_web(self):
+        result = classify_surface({
+            "title": "Front-end theme issue",
+            "component": "Olivero",
+            "description_text": "",
+            "comments": [],
+        })
+        self.assertEqual("web", result["surface"])
+        self.assertEqual("theme:olivero", result["basis"])
+
+    def test_explicit_issue_override(self):
+        result = classify_surface({
+            "id": "drupal:2975863",
+            "title": "Taxonomy overview",
+            "component": "taxonomy.module",
+            "description_text": "",
+            "comments": [],
+        })
+        self.assertEqual("authoring", result["surface"])
+        self.assertEqual("issue-override", result["basis"])
+
     def test_navigation_component_is_authoring(self):
         result = classify_surface({
             "title": "Top-level menu items in the footer region are too far away",

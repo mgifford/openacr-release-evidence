@@ -522,6 +522,20 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     html.append('<p class="meta">Discovery and tag resolution use the public Drupal.org API. Git containment uses '
                 'git.drupalcode.org. The in-scope configuration intentionally enables the Default Admin theme; the standard '
                 'profile in Drupal 11.4.12 uses Claro and Olivero, so this is a declared configuration rather than the stock default.</p>')
+    try:
+        release_changes = json.loads((Path(__file__).resolve().parents[2] / "config" / "release-changes.json").read_text(encoding="utf-8")).get("release_lines") or {}
+    except (OSError, ValueError):
+        release_changes = {}
+    theme_info = release_changes.get(str(target.get("release_line") or "")) or {}
+    if theme_info:
+        front = ", ".join(theme_info.get("front_end_themes") or []) or "none recorded"
+        admin = ", ".join(theme_info.get("admin_themes") or []) or "none recorded"
+        removed = ", ".join(theme_info.get("removed") or [])
+        theme_note = f"Theme availability for {target.get('release_line')}: front-end themes {front}; admin themes {admin}."
+        if removed:
+            theme_note += f" Removed in this line: {removed}."
+        theme_note += " The core collection does not include the theme project queues; a theme ACR must cover those issues."
+        html.append(f'<p class="scope-note">{esc(theme_note)}</p>')
     html.append('<h3>Limitations</h3><ul>'
                 '<li>The report covers active review-relevant issues carrying the Accessibility tag; it is not a census of every barrier. '
                 'Closed and fixed issues are excluded by policy. Some active issues are metadata-only inventory records; their '

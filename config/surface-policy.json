@@ -10,7 +10,16 @@
     "media_library",
     "layout_builder",
     "views_ui",
-    "field_ui"
+    "field_ui",
+    "content_moderation.module",
+    "content_moderation",
+    "workflows.module",
+    "workflows",
+    "dblog.module",
+    "dblog",
+    "admin theme",
+    "claro",
+    "default_admin"
   ],
   "authoring_terms": [
     "admin toolbar",
@@ -26,5 +35,14 @@
     "node edit form",
     "node add form"
   ],
-  "issue_overrides": {}
+  "issue_overrides": {
+    "drupal:2975863": "authoring",
+    "drupal:3332668": "authoring"
+  },
+  "themes": {
+    "olivero": "web",
+    "claro": "authoring",
+    "default_admin": "authoring",
+    "admin theme": "authoring"
+  }
 }
