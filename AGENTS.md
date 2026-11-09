@@ -85,8 +85,11 @@ with active tagged issues may carry a draft Partially Supports result based on
 the open issue queue. Criteria without a tagged issue remain `Not Evaluated`;
 absence is never evidence of support. Mark every derived value as draft, state
 that no issue was reproduced against the target, and require human confirmation.
-`/admin`, Drupal `/user` login paths and login/reproduction cues classify the
-authoring surface; otherwise default to web. All `/user` paths, including
+`/admin`, Drupal `/user` login paths, the component mapping in
+`config/surface-policy.json` and login/reproduction cues classify the authoring
+surface; otherwise default to web. Component mappings (for example
+`navigation.module`) take precedence over title-only guesses. Use issue-specific
+overrides when the issue explicitly states its surface. All `/user` paths, including
 `/user/1`, are authoring/account surfaces. Never infer Supports from an empty
 issue queue, never remove the draft disclaimer.
 

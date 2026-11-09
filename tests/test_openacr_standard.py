@@ -90,11 +90,20 @@ class OpenACRExportTests(unittest.TestCase):
     def test_issue_tagged_criterion_gets_proposed_partial_support(self):
         catalog = load_catalog()
         document = analysis()
-        document["findings"] = [{
-            "issue_id": "drupal:1",
-            "wcag_candidates": ["1.1.1"],
-            "evidence_status": "inventory",
-        }]
+        document["findings"] = [
+            {
+                "issue_id": "drupal:1",
+                "wcag_candidates": ["1.1.1"],
+                "evidence_status": "inventory",
+                "surface": {"surface": "web", "basis": "default-web"},
+            },
+            {
+                "issue_id": "drupal:4",
+                "wcag_candidates": ["1.1.1"],
+                "evidence_status": "inventory",
+                "surface": {"surface": "authoring", "basis": "admin-path"},
+            },
+        ]
         draft = build_draft(document, catalog)
         criterion = draft["chapters"]["success_criteria_level_a"]["criteria"][0]
         components = {component["name"]: component for component in criterion["components"]}

@@ -109,6 +109,7 @@ class AcrNarrativeTests(unittest.TestCase):
             root = Path(folder)
             target = root / "target"
             (root / "acr-summaries.json").write_text(json.dumps({
+                "prompt_version": "acr-criterion-v2",
                 "criteria": {
                     "1.1.1": {
                         "status": "accepted",
