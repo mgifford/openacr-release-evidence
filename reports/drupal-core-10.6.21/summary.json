@@ -113,9 +113,9 @@
     },
     "by_workflow": {
       "needs-review": 15,
-      "needs-work": 172,
+      "needs-work": 174,
       "open": 236,
-      "rtbc": 7
+      "rtbc": 5
     },
     "by_evidence_status": {
       "full": 32,
@@ -175,10 +175,10 @@
       ],
       "since": "2026-05-10T16:13:09-06:00",
       "commits": 83,
-      "retrieved_at": "2026-11-08T15:24:01Z"
+      "retrieved_at": "2026-11-09T02:56:05Z"
     }
   },
-  "generated_at": "2026-11-08T15:24:01Z",
-  "evidence_digest": "dfcb68262b72ded0dce0ff0fb7f0131d03372a5d5db883dd6881cff6a89dd551",
+  "generated_at": "2026-11-09T02:56:05Z",
+  "evidence_digest": "8049e8926823b886ed0a18a0682d218d88762c69feda689d12603a1a7e975424",
   "manifest_digest": "a4ab5ac92b84ca9bd7328c7aaf10523d9c0447a597e247b80e6ad52ded4033b6"
 }
