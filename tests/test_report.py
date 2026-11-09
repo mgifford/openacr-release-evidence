@@ -185,6 +185,9 @@ class ReportTests(unittest.TestCase):
         self.assertIn("criterion-index", html)
         self.assertIn("issue-index", html)
         self.assertIn("Complete assessment metadata", html)
+        self.assertIn('id="position-heading"', html)
+        self.assertIn("Why this is different", html)
+        self.assertIn("WCAG-EM", html)
 
     def test_outputs_are_written_and_digest_preserved(self):
         folder, artifact = self.render()

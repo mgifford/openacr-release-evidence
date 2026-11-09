@@ -178,6 +178,10 @@ Before and after, verify:
   reference list in the footer links every cited issue.
 - The repeated caveats (no reproduction, inventory limits, component scope) were
   moved into the introduction instead of being repeated in every row.
+- Added a **Why this ACR is different** section to the ACR, release report and
+  homepage. It contrasts periodic sample-based vendor ACRs with this weekly
+  issue-queue attestation, states the strengths and limits, and links GSA
+  OpenACR #180, the Drupal ACR process and WCAG-EM.
 - Added an optional `criterion-summaries` AI step. Accepted summaries are cached
   by issue-content hash; the current build has no accepted cache, so it uses
   deterministic issue-title paragraphs and says so in the introduction.
@@ -194,6 +198,9 @@ Before and after, verify:
 - [Verification gaps](screenshots/after/report-gaps-desktop.png)
 - [ACR draft top](screenshots/after/acr-top-desktop.png)
 - [ACR WCAG table with separate Web/Authoring remarks](screenshots/after/acr-wcag-desktop.png)
+- [ACR — Why this ACR is different](screenshots/after/acr-position-desktop.png)
+- [Release report — Why this is different](screenshots/after/report-position-desktop.png)
+- [Homepage — Why this ACR is different](screenshots/after/home-position-desktop.png)
 - [Complete matrix](screenshots/after/matrix-desktop.png)
 
 Before versions are in [`screenshots/before/`](screenshots/before/).
@@ -211,6 +218,9 @@ Before versions are in [`screenshots/before/`](screenshots/before/).
 - Every target issue anchor and WCAG criterion anchor.
 - The ACR keeps the component proposals and explicitly distinguishes
   issue-tagged draft results from untagged Not Evaluated criteria.
+- Added a **Why this ACR is different** section to the ACR, release report and
+  homepage, with a conventional vendor-ACR comparison, strengths/limitations and
+  links to GSA OpenACR #180, the Drupal ACR process and WCAG-EM.
 
 The data-preservation assertions are in `tests/test_pages.py`; the finder and
 matrix generation assertions are in `tests/test_usability.py`.

@@ -38,6 +38,9 @@ class PagesTests(unittest.TestCase):
         self.assertIn('id="filter-status-supported"', html)
         self.assertIn('href="./matrix.html"', html)
         self.assertIn("release-card", html)
+        self.assertIn('id="position-heading"', html)
+        self.assertIn("Why this ACR is different", html)
+        self.assertIn("GSA OpenACR issue #180", html)
         self.assertNotRegex(html, r'href="[^"]*(?:collection|analysis)\.json"')
         self.assertNotIn("supports", html.casefold())
 

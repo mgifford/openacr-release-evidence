@@ -67,6 +67,25 @@ criteria without a tagged issue remain `Not Evaluated`. Issue reports are not
 release reproductions, and a reviewer must confirm every term and sign off. The
 narrative does not replace the OpenACR YAML and does not inherit ATAG results.
 
+## Issue-queue attestation versus a periodic vendor ACR
+
+This project publishes an **issue-queue accessibility attestation**, not a
+WCAG-EM evaluation. Standard vendor ACRs are often periodic, sample-based
+snapshots approved by legal or product management, with the issue queue kept
+separate. This report reads the full active Drupal Core Accessibility queue,
+links every cited issue, separates Web and Authoring Tool, and regenerates
+weekly.
+
+It is stronger on known-report completeness, traceability, recency and backlog
+connection. It is weaker on independent page sampling, manual assistive-
+technology coverage and visibility of unreported barriers. It is not a
+certification, not a substitute for a procurement-specific ACR, and does not
+claim that an untagged criterion is supported.
+
+See [Why this ACR is different](ACR-POSITION.md), [GSA OpenACR issue
+#180](https://github.com/GSA/openacr/issues/180) and the [Drupal ACR
+process](https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process).
+
 ## ATAG evidence
 
 ATAG 2.0 authoring evidence is separate from WCAG/OpenACR. The `atag` issue tag

@@ -543,6 +543,23 @@ def render_acr_narrative(analysis, output_dir):
         "No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.",
         "No AI was used to assign applicability or an ACR result.",
     ])
+    doc.h2("Why this ACR is different")
+    doc.p("A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor's issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked.")
+    doc.table("Conventional vendor ACR and this issue-queue attestation", ["Dimension", "Conventional vendor ACR", "This ACR"], [
+        ["Cadence", "Annual, biennial or procurement-driven", "Every weekly tracker snapshot"],
+        ["Evidence", "Selected pages, flows or a WCAG-EM sample", "Full active Accessibility queue; comments/MRs where collected"],
+        ["Traceability", "Summary claims, often without issue links", "Every cited issue links to the public Drupal.org source"],
+        ["Authoring", "Often folded into web or omitted", "Explicit Authoring Tool component and separate remarks"],
+        ["Change", "Static until the next report", "Incremental; new issues and status changes appear next snapshot"],
+        ["Independence", "Often a commissioned assessment", "Community-reported issue evidence; no independent WCAG-EM audit"],
+    ])
+    doc.p("It is stronger on completeness of known reports, traceability, recency and connection to the remediation backlog. It is weaker on independent page sampling and manual assistive-technology coverage. It is not a WCAG-EM evaluation, a certification or a substitute for a procurement-specific ACR. A missing tagged issue is not evidence of support.")
+    doc.p("Read the queue as reported barrier evidence. The criterion result is a draft issue-queue attestation subject to human confirmation. See the GSA OpenACR discussion and Drupal's ACR process for the wider model.")
+    doc.links([
+        ("GSA OpenACR issue #180", "https://github.com/GSA/openacr/issues/180"),
+        ("Drupal ACR process", "https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process"),
+        ("WCAG-EM 2.0", "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/"),
+    ])
     doc.h2("Executive summary")
     doc.p(f"The active queue contains {len(findings)} {_plural(len(findings), 'issue')}. Tracker states are: {_status_summary(findings)}. {detailed} {_plural(detailed, 'issue')} {_plural(detailed, 'has', 'have')} detailed evidence and {inventory} are inventory-only. The queue is a triage input, not an accessibility score.")
     if top:

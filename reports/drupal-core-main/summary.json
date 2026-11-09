@@ -8,9 +8,9 @@
     "ref_label": "branch main",
     "tag": null,
     "branch": "main",
-    "tag_commit": "8d0055d8dcc13b67b33791ba42d28fdff7fa426c",
-    "tag_commit_short": "8d0055d8",
-    "tag_date": "2026-11-08T13:22:11.000+00:00",
+    "tag_commit": "9b26fc7ce1d590d3d6e0b4f0f59ed7594bf83ae7",
+    "tag_commit_short": "9b26fc7c",
+    "tag_date": "2026-11-09T07:33:55.000+10:00",
     "support_status": "development",
     "release_line": "main",
     "parent_project": null,
@@ -173,12 +173,12 @@
       "branches": [
         "main"
       ],
-      "since": "2026-05-12T13:22:11Z",
+      "since": "2026-05-13T07:33:55+10:00",
       "commits": 758,
-      "retrieved_at": "2026-11-08T15:24:39Z"
+      "retrieved_at": "2026-11-09T03:02:33Z"
     }
   },
-  "generated_at": "2026-11-08T15:24:39Z",
-  "evidence_digest": "8e73f6e434b7144d3de79b84957295b0d26a7303d614568102302bcae9d8a821",
+  "generated_at": "2026-11-09T03:02:33Z",
+  "evidence_digest": "d48cecc1a6faf7f2202efd3fc5bfc8e3104818bae2325890f666655f8bc5f05f",
   "manifest_digest": "8b29349cd220d8aef660f667fade5a117e90f398386f114e3f52ddcc01818d05"
 }

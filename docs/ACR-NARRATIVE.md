@@ -41,9 +41,12 @@ The narrative does **not** claim:
    Support, Not Applicable and Not Evaluated.
 4. **Scope and method** — active statuses, full-queue pagination, detailed vs
    metadata-only inventory, no reproduction, no AI.
-5. **Executive summary** — active issue counts, status distribution, largest
+5. **Why this ACR is different** — direct comparison with a periodic,
+   sample-based vendor ACR; issue-queue attestation scope; strengths and
+   limitations; links to GSA OpenACR #180 and the Drupal ACR process.
+6. **Executive summary** — active issue counts, status distribution, largest
    explicitly tagged criterion clusters and unmapped issues.
-6. **WCAG 2.2 Level A and AA tables** — one row per catalog criterion with:
+7. **WCAG 2.2 Level A and AA tables** — one row per catalog criterion with:
    - criterion number, title and W3C link;
    - conformance level for Web, Electronic Documents, Software and Authoring
      Tool;
@@ -52,17 +55,17 @@ The narrative does **not** claim:
      and a link to the criterion's full reference list.
    - issue-tagged criteria use draft `Partially Supports`; untagged criteria
      remain `Not Evaluated`.
-7. **AAA table** — outside the declared AA target; issue-tagged criteria use the
+8. **AAA table** — outside the declared AA target; issue-tagged criteria use the
    same draft rule; untagged criteria remain `Not Evaluated`.
-8. **References** — every cited issue grouped by criterion, with public links.
-9. **Functional performance, hardware, software and support documentation** —
+9. **References** — every cited issue grouped by criterion, with public links.
+10. **Functional performance, hardware, software and support documentation** —
    outside the web issue-evidence method’s coverage; reviewer must evaluate or
    mark Not Applicable with a rationale.
-10. **ATAG** — separate standard; links to the ATAG evidence, never copied into a
+11. **ATAG** — separate standard; links to the ATAG evidence, never copied into a
    WCAG criterion.
-11. **Review actions** — collect missing evidence, verify the product, select each
+12. **Review actions** — collect missing evidence, verify the product, select each
    ACR result, complete reviewer identity and approval, remove the draft status.
-12. **Limitations and sources** — active-only scope, no reproduction, inventory
+13. **Limitations and sources** — active-only scope, no reproduction, inventory
     limits, source links.
 
 ## Authoring vs web classification

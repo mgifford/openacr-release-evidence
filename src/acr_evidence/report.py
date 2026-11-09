@@ -413,6 +413,7 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     html.append(_section_nav([
         ("scope", "Assessment scope"),
         ("summary", "Evidence summary"),
+        ("position", "Why this is different"),
         ("criteria", "WCAG criterion evidence"),
         ("issues", "Issue evidence"),
         ("gaps", "Verification gaps"),
@@ -455,6 +456,22 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         f'{esc(summary.get("unmapped_criteria", 0))} findings without a WCAG criterion tag · '
         f'{esc(summary.get("needs_verification", 0))} need further verification.</p>'
     )
+    html.append("</section>")
+    html.append('<section id="position" aria-labelledby="position-heading"><h2 id="position-heading">Why this is different</h2>')
+    html.append('<p>A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked. It is stronger on known-report completeness, traceability and recency; it is weaker on independent page sampling and manual assistive-technology coverage.</p>')
+    html.append('<div class="table-scroll" tabindex="0" role="region" aria-label="Comparison with a conventional vendor ACR"><table class="summary-table"><caption>Conventional vendor ACR and this issue-queue attestation</caption><thead><tr><th scope="col">Dimension</th><th scope="col">Conventional vendor ACR</th><th scope="col">This report</th></tr></thead><tbody>')
+    for row in (
+        ("Cadence", "Annual, biennial or procurement-driven", "Every weekly tracker snapshot"),
+        ("Evidence", "Selected pages, flows or a WCAG-EM sample", "Full active Accessibility queue; detailed comments/MRs where collected"),
+        ("Traceability", "Summary claims, often without issue links", "Every cited issue links to the public Drupal.org source"),
+        ("Authoring", "Often folded into web or omitted", "Explicit Authoring Tool component and separate remarks"),
+        ("Change", "Static until the next report", "Incremental; new issues and status changes appear next snapshot"),
+        ("Independence", "Often a commissioned assessment", "Community-reported issue evidence; no independent WCAG-EM audit"),
+    ):
+        html.append(f'<tr><th scope="row">{esc(row[0])}</th><td>{esc(row[1])}</td><td>{esc(row[2])}</td></tr>')
+    html.append('</tbody></table></div>')
+    html.append('<p>This is not a WCAG-EM evaluation, a certification or a substitute for a procurement-specific ACR. A missing tagged issue is not evidence of support. Read the queue as reported barrier evidence and confirm every criterion with a reviewer.</p>')
+    html.append('<p class="meta">Background: <a href="https://github.com/GSA/openacr/issues/180">GSA OpenACR issue #180</a> · <a href="https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process">Drupal ACR process</a> · <a href="https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/">WCAG-EM 2.0</a>.</p>')
     html.append("</section>")
     html.append('<section id="criteria" aria-labelledby="criteria-heading"><h2 id="criteria-heading">WCAG criterion evidence</h2>')
     html.append('<p>Criteria are grouped from explicit Drupal.org tags such as <code>wcag143</code>. '
@@ -911,6 +928,13 @@ def render_landing(analyses, output_dir, targets_config=None):
     html.append("</ul>")
     html.append('<p class="meta">Targets marked pre-release or development are not supported releases. '
                 'Their findings can change at any commit and must not be presented as release conformance claims.</p>')
+    html.append("</section>")
+
+    # Position: explain the difference from a periodic vendor ACR.
+    html.append('<section id="position" aria-labelledby="position-heading"><h2 id="position-heading">Why this ACR is different</h2>')
+    html.append('<p>Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management; the vendor issue queue is separate and can remain open after the report is signed. This site publishes an issue-queue attestation generated from the full active Drupal Core Accessibility queue and regenerated weekly. Every cited issue stays linked to its public discussion.</p>')
+    html.append('<ul><li><strong>Stronger on known-report completeness and traceability.</strong> Every active queue item is represented and linked, not just a page sample.</li><li><strong>Stronger on recency and backlog connection.</strong> New issues and status changes appear in the next snapshot.</li><li><strong>Weaker on independent manual coverage.</strong> This is not a WCAG-EM evaluation, not an independent audit and not a certification. A missing tagged issue is not evidence of support.</li></ul>')
+    html.append('<p class="meta"><a href="https://github.com/mgifford/openacr-release-evidence/blob/main/docs/ACR-POSITION.md">Read the full position</a> · <a href="https://github.com/GSA/openacr/issues/180">GSA OpenACR issue #180</a> · <a href="https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process">Drupal ACR process</a>.</p>')
     html.append("</section>")
 
     # ATAG
