@@ -5,10 +5,9 @@
   "endpoint": "",
   "model_revision": "",
   "prompt_version": "weekly-evidence-v1",
-  "input_sha256": "993dc9bc2a9ede37bb557204ded2846def8a1ff49aa9fb75051939c0a4645f8d",
-  "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "status": "rejected",
-  "context_sha256": "3a6e13f5b7862490d045152b33306b83c502d725024c3081815dfcc8e2a711ce",
-  "context_path": "context/DRUPAL.md",
-  "error": "response contains a banned conformance term"
+  "input_sha256": "17f1bf0bd9091c51c573506a978323b94589e297e41c715355c3775388edc9e1",
+  "output_sha256": "7767304fc5fc27e30f63dbadeb39d1d724a8d96b06c2bbaa462216eb3af0f787",
+  "status": "accepted",
+  "context_sha256": "7486831e27609b51fb74fe84027b899807d88daa70ebf8112813790c3f6fc655",
+  "context_path": "context/DRUPAL.md"
 }
