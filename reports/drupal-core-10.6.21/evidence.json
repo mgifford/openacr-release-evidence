@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Stock standard profile. Claro is the admin theme; Default Admin is not present. The generic 'Admin theme' component needs reproduction before a finding is applied to this line."
   },
-  "generated_at": "2026-11-09T18:42:27Z",
+  "generated_at": "2026-11-09T18:57:21Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -237,13 +237,13 @@
       ],
       "since": "2026-05-10T16:13:09-06:00",
       "commits": 83,
-      "retrieved_at": "2026-11-09T18:42:27Z"
+      "retrieved_at": "2026-11-09T18:42:27+00:00"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/10.6.21",
-    "commit_index": "2026-11-09T18:42:27Z"
+    "commit_index": "2026-11-09T18:42:27+00:00"
   },
   "manifest_digest": "a4ab5ac92b84ca9bd7328c7aaf10523d9c0447a597e247b80e6ad52ded4033b6",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -44077,5 +44077,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "9d166f84f404a717ce01b906f7b875b1aae8ae042b0ec90501223071329a360c"
+  "evidence_digest": "d4f4e92763dec65e4547a59b72c20fd5375e089508a9199ab2f3f85638ebdc8e"
 }

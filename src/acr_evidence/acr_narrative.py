@@ -19,6 +19,14 @@ COMPONENTS = (
     ("Authoring Tool", "Partially Supports", "authoring-tool"),
 )
 CORE_SCOPE = {
+    "1.2.1": (
+        "Drupal Core does not provide audio/video playback out of the box. Consider Able Player for "
+        "pre-recorded audio/video."
+    ),
+    "1.2.3": (
+        "Drupal Core does not provide audio description or media alternatives out of the box. Consider "
+        "Able Player for pre-recorded media."
+    ),
     "1.2.4": (
         "Drupal Core does not provide live audio/video. Proposed Not Applicable for Core; "
         "evaluate the contrib Video or AblePlayer modules separately."
@@ -70,10 +78,15 @@ class Cell:
 
 
 class RichCell:
-    """A table cell containing text and multiple links."""
+    """A table cell containing text, links and emphasis."""
 
     def __init__(self, *parts):
         self.parts = parts
+
+
+class Bold:
+    def __init__(self, text):
+        self.text = "" if text is None else str(text)
 
 
 class Doc:
@@ -226,6 +239,8 @@ def _md(value):
             if isinstance(part, tuple) and len(part) == 2:
                 label, url = part
                 rendered.append(f"[{str(label).replace('|', '\\|')}]({url})")
+            elif isinstance(part, Bold):
+                rendered.append(f"**{part.text.replace('|', '\\|')}**")
             else:
                 rendered.append(str(part).replace("|", "\\|"))
         return " ".join(rendered).replace("\n", " ")
@@ -243,6 +258,8 @@ def _html_cell(value):
             if isinstance(part, tuple) and len(part) == 2:
                 label, url = part
                 rendered.append(f'<a href="{escape(url)}">{escape(str(label))}</a>')
+            elif isinstance(part, Bold):
+                rendered.append(f"<strong>{escape(part.text)}</strong>")
             else:
                 rendered.append(escape(str(part)))
         return "".join(rendered)
@@ -330,6 +347,16 @@ def _levels_text(criterion, issues):
     return "\n".join(f"{name}: {level}" for name, level in levels.items())
 
 
+def _levels_cell(criterion, issues):
+    levels = _criterion_levels(criterion, issues)
+    parts = []
+    for index, (name, level) in enumerate(levels.items()):
+        if index:
+            parts.append("\n")
+        parts.extend([Bold(name + ":"), " ", "N/A" if level == "Not Applicable" else level])
+    return RichCell(*parts)
+
+
 def _surface_items(items, surface):
     return [item for item in items if (item.get("surface") or {}).get("surface", "web") == surface]
 
@@ -391,20 +418,36 @@ def _reference_items(items):
 
 def _remarks_cell(criterion, issues, ai_summary=None):
     if criterion in CORE_SCOPE:
-        return RichCell("All components: Not Applicable for Drupal Core. " + CORE_SCOPE[criterion])
+        if criterion == "1.2.1":
+            return RichCell(
+                Bold("Web:"), " Drupal Core doesn't support audio/video out of the box. Consider ",
+                ("Able Player", "https://www.drupal.org/project/ableplayer"),
+                " for pre-recorded audio/video support.\n",
+                Bold("Authoring Tool:"), " Drupal Core doesn't support audio/video authoring out of the box.",
+            )
+        if criterion == "1.2.3":
+            return RichCell(
+                Bold("Web:"), " Drupal Core doesn't support audio description or media alternatives out of the box. Consider ",
+                ("Able Player", "https://www.drupal.org/project/ableplayer"),
+                " for pre-recorded media.\n",
+                Bold("Authoring Tool:"), " Drupal Core doesn't support audio description authoring out of the box.",
+            )
+        return RichCell(
+            Bold("Web:"), " " + CORE_SCOPE[criterion], "\n",
+            Bold("Authoring Tool:"), " Drupal Core does not provide this audio/video feature in its authoring interface.",
+        )
     web = _surface_items(issues, "web")
     authoring = _surface_items(issues, "authoring")
     ai_summary = ai_summary or {}
     if not issues:
         return RichCell(
-            "Web: No active tagged issue; remains Not Evaluated.\n"
-            "Authoring Tool: No active tagged issue; remains Not Evaluated.\n"
-            "Evidence: No active tagged issue in this snapshot."
+            Bold("Web:"), " No active tagged issue; remains Not Evaluated.\n",
+            Bold("Authoring Tool:"), " No active tagged issue; remains Not Evaluated.",
         )
     parts = [
-        "Web: ", ai_summary.get("web") or _barrier_summary(web, "web"), "\n",
-        "Authoring Tool: ", ai_summary.get("authoring") or _barrier_summary(authoring, "authoring"), "\n",
-        "Evidence: ", _evidence_text(issues), "\n",
+        Bold("Web:"), " ", ai_summary.get("web") or _barrier_summary(web, "web"), "\n",
+        Bold("Authoring Tool:"), " ", ai_summary.get("authoring") or _barrier_summary(authoring, "authoring"), "\n",
+        Bold("Evidence:"), " ", _evidence_text(issues), "\n",
         "Examples: ",
     ]
     examples = _example_parts(issues)
@@ -582,7 +625,7 @@ def render_acr_narrative(analysis, output_dir):
             criterion_url = f"https://www.w3.org/TR/WCAG22/#{alt_id}" if alt_id else "https://www.w3.org/TR/WCAG22/"
             rows.append([
                 Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
-                Cell(_levels_text(criterion_id, items)),
+                _levels_cell(criterion_id, items),
                 _remarks_cell(criterion_id, items, ai_summaries.get(criterion_id)),
             ])
         doc.table(

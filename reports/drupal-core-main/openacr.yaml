@@ -12,7 +12,7 @@ report_date: '2026-11-09'
 last_modified_date: '2026-11-09'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.x-dev (branch main). Evidence
-  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: 20b151cc7ff06d7804e4b1d29c15dc3d84cd531d211fe0173204870967eeaa51.
+  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: 68e51f307dd24c86f466308bd92b51d21233ac48aa425c884cd28de5fd355ebf.
   Component scope: Web and Authoring Tool are proposed Partially Supports; Electronic
   Documents and Software are proposed Not Applicable. These are proposed component
   labels only. Evidence scope: active/review-relevant issues only (Active, Needs review,
@@ -90,6 +90,10 @@ chapters:
     - num: 1.2.1
       components:
       - name: web
+        adherence:
+          level: not-applicable
+          notes: 'Not present: Drupal Core does not provide audio/video playback out
+            of the box; consider Able Player for pre-recorded media.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -101,6 +105,10 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: not-applicable
+          notes: 'Not present: Drupal Core does not provide audio/video playback out
+            of the box; consider Able Player for pre-recorded media.'
     - num: 1.2.2
       components:
       - name: web
@@ -126,6 +134,10 @@ chapters:
     - num: 1.2.3
       components:
       - name: web
+        adherence:
+          level: not-applicable
+          notes: 'Not present: Drupal Core does not provide audio description or media
+            alternatives out of the box; consider Able Player for pre-recorded media.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -137,6 +149,10 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: not-applicable
+          notes: 'Not present: Drupal Core does not provide audio description or media
+            alternatives out of the box; consider Able Player for pre-recorded media.'
     - num: 1.3.1
       components:
       - name: web
@@ -691,8 +707,8 @@ chapters:
       - name: web
         adherence:
           level: not-applicable
-          notes: 'Not present: Drupal Core has no core live audio/video or audio-description
-            feature. Evaluate contrib Video/AblePlayer separately.'
+          notes: 'Not present: Drupal Core has no core live audio/video feature; evaluate
+            contrib Video or AblePlayer separately.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -706,15 +722,15 @@ chapters:
       - name: authoring-tool
         adherence:
           level: not-applicable
-          notes: 'Not present: Drupal Core has no core live audio/video or audio-description
-            feature. Evaluate contrib Video/AblePlayer separately.'
+          notes: 'Not present: Drupal Core has no core live audio/video feature; evaluate
+            contrib Video or AblePlayer separately.'
     - num: 1.2.5
       components:
       - name: web
         adherence:
           level: not-applicable
-          notes: 'Not present: Drupal Core has no core live audio/video or audio-description
-            feature. Evaluate contrib Video/AblePlayer separately.'
+          notes: 'Not present: Drupal Core has no core video player or audio-description
+            feature; evaluate contrib Video or AblePlayer separately.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -728,8 +744,8 @@ chapters:
       - name: authoring-tool
         adherence:
           level: not-applicable
-          notes: 'Not present: Drupal Core has no core live audio/video or audio-description
-            feature. Evaluate contrib Video/AblePlayer separately.'
+          notes: 'Not present: Drupal Core has no core video player or audio-description
+            feature; evaluate contrib Video or AblePlayer separately.'
     - num: 1.3.4
       components:
       - name: web
@@ -1936,7 +1952,7 @@ target:
   release_line: main
   parent_project: null
   assessment_id: drupal-core-main
-  evidence_digest: 20b151cc7ff06d7804e4b1d29c15dc3d84cd531d211fe0173204870967eeaa51
+  evidence_digest: 68e51f307dd24c86f466308bd92b51d21233ac48aa425c884cd28de5fd355ebf
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr

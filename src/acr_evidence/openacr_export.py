@@ -89,7 +89,17 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
     for finding in findings:
         for criterion_id in finding.get("wcag_candidates") or []:
             by_criterion.setdefault(str(criterion_id), []).append(finding)
-    core_na = {"1.2.4", "1.2.5"}
+    core_na = {"1.2.1", "1.2.3", "1.2.4", "1.2.5"}
+    core_notes = {
+        "1.2.1": "Not present: Drupal Core does not provide audio/video playback out of the box; "
+                 "consider Able Player for pre-recorded media.",
+        "1.2.3": "Not present: Drupal Core does not provide audio description or media alternatives "
+                 "out of the box; consider Able Player for pre-recorded media.",
+        "1.2.4": "Not present: Drupal Core has no core live audio/video feature; evaluate contrib "
+                 "Video or AblePlayer separately.",
+        "1.2.5": "Not present: Drupal Core has no core video player or audio-description feature; "
+                 "evaluate contrib Video or AblePlayer separately.",
+    }
     component_names = ("web", "electronic-docs", "software", "authoring-tool")
     wcag_chapters = {"success_criteria_level_a", "success_criteria_level_aa", "success_criteria_level_aaa"}
     for chapter in catalog.get("chapters") or []:
@@ -109,8 +119,7 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
                     elif str(criterion["id"]) in core_na:
                         component["adherence"] = {
                             "level": "not-applicable",
-                            "notes": "Not present: Drupal Core has no core live audio/video or "
-                                     "audio-description feature. Evaluate contrib Video/AblePlayer separately.",
+                            "notes": core_notes[str(criterion["id"])],
                         }
                     elif by_criterion.get(str(criterion["id"])):
                         component["adherence"] = {

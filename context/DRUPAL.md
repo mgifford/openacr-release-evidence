@@ -53,10 +53,11 @@ Record the basis (`admin-path`, `user-path`, `login-step`, `default-web`).
 
 ## Video scope
 
-Drupal Core has no live audio/video feature and no core video player. For 1.2.4
-Captions (Live) and 1.2.5 Audio Description (Prerecorded), use a proposed
-**Not Applicable for Core** and point to the contrib Video or AblePlayer modules
-for separate assessment.
+Drupal Core has no audio/video playback, live audio/video, or core video player.
+For 1.2.1 Audio-only and Video-only, 1.2.3 Audio Description or Media
+Alternative, 1.2.4 Captions (Live) and 1.2.5 Audio Description (Prerecorded),
+use **N/A for Core** and point to the contrib Able Player or Video modules for
+separate assessment. These are content/media concerns, not core CMS features.
 
 ## What kind of attestation this is
 

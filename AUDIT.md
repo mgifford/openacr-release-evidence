@@ -235,7 +235,9 @@ After the first audit and report:
 - **ACR component scope:** the ACR narrative now reports the four Section 508
   components. Web and Authoring Tool are proposed Partially Supports;
   Electronic Documents and Software are proposed Not Applicable. Proposed labels
-  are clearly marked. Criteria with active tagged issues now carry a draft
+  are clearly marked. The ACR displays `N/A` for Not Applicable, bolds component
+  labels, marks 1.2.1/1.2.3/1.2.4/1.2.5 as N/A for Core with Able Player guidance,
+  and omits the Evidence line for simple rows. Criteria with active tagged issues now carry a draft
   Partially Supports result based on the open issue queue; untagged criteria
   remain Not Evaluated. Issues are
   classified authoring vs web from `/admin` and login/reproduction cues, with
