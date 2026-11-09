@@ -33,11 +33,18 @@
     "views ui",
     "field ui",
     "node edit form",
-    "node add form"
+    "node add form",
+    "provide authors with tools",
+    "authors with tools",
+    "fieldwidget",
+    "field widget"
   ],
   "issue_overrides": {
     "drupal:2975863": "authoring",
-    "drupal:3332668": "authoring"
+    "drupal:3332668": "authoring",
+    "drupal:3002770": "authoring",
+    "drupal:3056714": "authoring",
+    "drupal:3057144": "authoring"
   },
   "themes": {
     "olivero": "web",

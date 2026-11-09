@@ -83,6 +83,8 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("**Authoring Tool:**", md)
         self.assertIn("Partially Supports", md)
         self.assertIn("N/A", md)
+        self.assertIn("**Example:**", md)
+        self.assertNotIn("All issue references:", md)
         self.assertIn("https://www.drupal.org/project/ableplayer", md)
         self.assertIn("metadata-only", md)
         self.assertIn("ATAG 2.0", md)

@@ -51,8 +51,11 @@ The narrative does **not** claim:
    - conformance level for Web, Electronic Documents, Software and Authoring
      Tool;
    - separate Web and Authoring Tool barrier paragraphs;
-   - statistics and examples at the bottom with direct Drupal.org issue links
-     and a link to the criterion's full reference list.
+   - statistics and examples at the bottom with direct Drupal.org issue links;
+   - examples are a bulleted list, labelled **Example:** when there is one and
+     **Examples:** otherwise;
+   - the **All issue references** link is omitted when every issue is already
+     shown in the examples.
    - issue-tagged criteria use draft `Partially Supports`; untagged criteria
      remain `Not Evaluated`.
 8. **AAA table** — outside the declared AA target; issue-tagged criteria use the

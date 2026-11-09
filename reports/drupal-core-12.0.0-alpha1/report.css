@@ -154,3 +154,6 @@ body:has(#filter-status-development:checked) .release-card:not([data-support="de
 .acr-table th:nth-child(2),.acr-table td:nth-child(2){width:24%;white-space:pre-line}
 .acr-table th:nth-child(3),.acr-table td:nth-child(3){width:58%}
 .acr-table td:nth-child(3){white-space:pre-line}
+/* Inline bullet lists used in ACR Remarks cells. */
+.acr-table .cell-list{margin:.2rem 0 .2rem 1.2rem;padding:0}
+.acr-table .cell-list li{margin:.25rem 0}

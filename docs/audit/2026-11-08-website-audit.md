@@ -175,6 +175,9 @@ Before and after, verify:
 - `N/A` is displayed for Not Applicable; component labels are bold and sections
   are separated vertically.
 - 1.2.1/1.2.3 are N/A for Core with Able Player guidance, alongside 1.2.4/1.2.5.
+- Examples are rendered as a real bulleted list; **Example:** is singular for one;
+  bold **All issue references** is omitted when all issues are already in the
+  examples.
 - `navigation.module`, `content_moderation.module`, `dblog.module` and admin
   themes map to Authoring Tool through `config/surface-policy.json`.
 - `taxonomy.module` overview and `javascript` tabledrag issues use explicit issue
@@ -237,7 +240,7 @@ matrix generation assertions are in `tests/test_usability.py`.
 
 ## Test and accessibility results
 
-- **125 offline tests pass**.
+- **126 offline tests pass**.
 - axe-core: **0 violations** on the homepage, complete matrix, 12.0.0-alpha1
   report, ACR draft and ATAG report at 1280 px.
 - 320 px: `scrollWidth` = 320 on all five pages; wide tables scroll inside

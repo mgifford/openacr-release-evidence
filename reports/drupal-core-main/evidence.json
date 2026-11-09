@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Development branch. Findings are not release claims and can change at any commit. Default Admin is the default theme; Claro and Olivero are contributed projects."
   },
-  "generated_at": "2026-11-09T19:37:27Z",
+  "generated_at": "2026-11-09T21:09:49Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -24163,8 +24163,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field widget"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -29114,8 +29114,8 @@
         ]
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31243,8 +31243,8 @@
         ]
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -31294,8 +31294,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "issue-override"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -33097,8 +33097,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field widget"
       },
       "applicability": "unknown",
       "basis": "inventory-only",
@@ -40609,7 +40609,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "term:fieldwidget"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -42901,8 +42901,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field widget"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -43395,8 +43395,8 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "term:field widget"
       },
       "applicability": "likely-affected",
       "basis": "tracker-report",
@@ -44077,5 +44077,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "577b3a608f5eb3eeb521188198fea7440810c36acea050936c9ace216d08fcb4"
+  "evidence_digest": "d6f37d406998c5b5366dfd8168293dccf6b0cd39237de44ec551bfef3aa8fae0"
 }

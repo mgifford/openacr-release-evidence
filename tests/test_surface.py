@@ -96,6 +96,18 @@ class SurfaceTests(unittest.TestCase):
         self.assertEqual("web", result["surface"])
         self.assertEqual("theme:olivero", result["basis"])
 
+    def test_media_caption_issues_are_authoring(self):
+        for issue_id in ("drupal:3002770", "drupal:3056714", "drupal:3057144"):
+            result = classify_surface({
+                "id": issue_id,
+                "title": "Provide authors with tools to manage transcripts and captions",
+                "component": "media system",
+                "description_text": "",
+                "comments": [],
+            })
+            self.assertEqual("authoring", result["surface"], issue_id)
+            self.assertEqual("issue-override", result["basis"], issue_id)
+
     def test_explicit_issue_override(self):
         result = classify_surface({
             "id": "drupal:2975863",
