@@ -175,6 +175,9 @@ Before and after, verify:
 - `N/A` is displayed for Not Applicable; component labels are bold and sections
   are separated vertically.
 - 1.2.1/1.2.3 are N/A for Core with Able Player guidance, alongside 1.2.4/1.2.5.
+- Examples are rendered as a real bulleted list; **Example:** is singular for one;
+  bold **All issue references** is omitted when all issues are already in the
+  examples.
 - `navigation.module`, `content_moderation.module`, `dblog.module` and admin
   themes map to Authoring Tool through `config/surface-policy.json`.
 - `taxonomy.module` overview and `javascript` tabledrag issues use explicit issue

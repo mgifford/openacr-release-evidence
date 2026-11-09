@@ -105,6 +105,11 @@ class Gap:
     pass
 
 
+class BulletList:
+    def __init__(self, items):
+        self.items = list(items)
+
+
 class Doc:
     def __init__(self, title, description):
         self.title = title
@@ -259,6 +264,15 @@ def _md(value):
                 rendered.append(f"**{part.text.replace('|', '\\|')}**")
             elif isinstance(part, Gap):
                 rendered.append("<br><br>")
+            elif isinstance(part, BulletList):
+                bullets = []
+                for item in part.items:
+                    if isinstance(item, tuple) and len(item) == 2:
+                        label, url = item
+                        bullets.append(f"• [{str(label).replace('|', '\\|')}]({url})")
+                    else:
+                        bullets.append(f"• {str(item).replace('|', '\\|')}")
+                rendered.append("<br>".join(bullets))
             else:
                 rendered.append(str(part).replace("|", "\\|"))
         return " ".join(rendered).replace("\n", " ")
@@ -280,6 +294,15 @@ def _html_cell(value):
                 rendered.append(f"<strong>{escape(part.text)}</strong>")
             elif isinstance(part, Gap):
                 rendered.append("<br><br>")
+            elif isinstance(part, BulletList):
+                rendered.append('<ul class="cell-list">')
+                for item in part.items:
+                    if isinstance(item, tuple) and len(item) == 2:
+                        label, url = item
+                        rendered.append(f'<li><a href="{escape(url)}">{escape(str(label))}</a></li>')
+                    else:
+                        rendered.append(f"<li>{escape(str(item))}</li>")
+                rendered.append("</ul>")
             else:
                 rendered.append(escape(str(part)))
         return "".join(rendered)
@@ -410,18 +433,16 @@ def _evidence_text(items):
     )
 
 
-def _example_parts(items, limit=3):
-    parts = []
-    for index, item in enumerate(items[:limit]):
-        if index:
-            parts.append("; ")
+def _example_items(items, limit=3):
+    examples = []
+    for item in items[:limit]:
         title = (item.get("title") or item.get("issue_id") or "Untitled issue").strip()
         if len(title) > 80:
             title = title[:77].rstrip() + "…"
         url = item.get("source_url")
         label = f"{title} ({item.get('issue_id')}, {item.get('tracker_status_label') or 'unknown status'})"
-        parts.append((label, url) if url else label)
-    return parts
+        examples.append((label, url) if url else label)
+    return examples
 
 
 def _reference_items(items):
@@ -472,15 +493,17 @@ def _remarks_cell(criterion, issues, ai_summary=None):
         Gap(),
         Bold("Evidence:"), " ", _evidence_text(issues),
         Gap(),
-        "Examples: ",
     ]
-    examples = _example_parts(issues)
-    parts.extend(examples or ["No examples available."])
-    parts.extend([
-        Gap(),
-        "All issue references: ",
-        (f"{criterion} reference list", f"#ref-{_slug(criterion)}"),
-    ])
+    examples = _example_items(issues)
+    if examples:
+        label = "Example:" if len(examples) == 1 else "Examples:"
+        parts.extend([Bold(label), BulletList(examples)])
+    if len(issues) > len(examples):
+        parts.extend([
+            Gap(),
+            Bold("All issue references:"), " ",
+            (f"{criterion} reference list", f"#ref-{_slug(criterion)}"),
+        ])
     return RichCell(*parts)
 
 
