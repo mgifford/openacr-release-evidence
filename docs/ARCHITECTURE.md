@@ -41,7 +41,7 @@ report.py     →  per-target report + landing page and cross-release matrix
   is checked against containing branches, the finding is labelled as a
   development result, and it never uses release language for a branch.
 - `atag.py` — classifies ATAG-tagged issues by explicit tags, curated scope and
-  component candidates; renders the ATAG evidence page and WAI ATAG Report Tool
+  explicit or human-curated Part A/B scope; renders the ATAG evidence page and WAI ATAG Report Tool
   JSON with all criteria `Not checked`.
 - `acr.py` — turns active findings, WCAG tags and the OpenACR catalog into a
   human-readable ACR narrative. It never assigns an ACR result.

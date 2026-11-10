@@ -706,7 +706,7 @@ def render_acr_narrative(analysis, output_dir):
     doc.table("Non-WCAG ACR chapters", ["Chapter", "Criteria", "Draft result", "Remarks and explanations"], rows)
 
     doc.h2("ATAG 2.0 authoring evidence")
-    doc.p("ATAG 2.0 is a separate standard from WCAG and is not part of this ACR narrative. Drupal Core's authoring-tool evidence is reported separately, with Part A/Part B candidates and a WAI ATAG Report Tool JSON draft containing no conformance values.")
+    doc.p("ATAG 2.0 is a separate standard from WCAG and is not part of this ACR narrative. Drupal Core's authoring-tool evidence is reported separately. Part A/B is assigned only from explicit tags or a reviewed issue mapping; unassigned issues remain for human triage. The WAI ATAG Report Tool JSON draft contains no conformance values.")
     doc.p("See ../drupal-core-atag/ for the ATAG evidence report. It must not be copied into a WCAG criterion result.")
 
     doc.h2("Active issue evidence and review actions")

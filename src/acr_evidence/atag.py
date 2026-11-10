@@ -1,8 +1,10 @@
 """ATAG 2.0 authoring-tool evidence and WAI ATAG Report Tool draft export.
 
 ATAG is separate from WCAG/OpenACR. This module identifies issues tagged
-``atag`` (and future Part A/B tags), groups them by Part A/Part B, and writes a
-WAI ATAG Report Tool JSON with every criterion set to "Not checked".
+``atag`` (and explicit Part A/B tags), groups only explicitly classified issues
+by Part A/Part B, and writes a WAI ATAG Report Tool JSON with every criterion
+set to "Not checked". Generic ``atag`` issues are left unassigned for human
+triage; component names are never used to guess a Part.
 """
 import html
 import json
@@ -14,7 +16,6 @@ from .model import sha256_json
 
 STANDARDS_DIR = Path(__file__).resolve().parent / "standards" / "atag"
 CATALOG_PATH = STANDARDS_DIR / "atag-2.0.json"
-COMPONENT_SCOPE_PATH = STANDARDS_DIR / "component-scope.json"
 REPORT_CSS = Path(__file__).resolve().parent / "static" / "report.css"
 SITE_URL = "https://mgifford.github.io/openacr-release-evidence/drupal-core-atag/"
 SPEC_URL = "https://www.w3.org/TR/ATAG20/"
@@ -39,10 +40,6 @@ def _load_json(path):
 
 def load_catalog(path=None):
     return _load_json(path or CATALOG_PATH)
-
-
-def load_component_scope(path=None):
-    return _load_json(path or COMPONENT_SCOPE_PATH).get("components", {})
 
 
 def load_scope(path=None):
@@ -105,7 +102,7 @@ def _parse_tag(label):
 
 
 def classify(labels, component=None, issue_id=None, scope=None):
-    """Classify ATAG tags, optional curated scope and component candidates."""
+    """Classify ATAG tags and explicit curated scope, without component guesses."""
     scope = scope or {}
     labels = [str(label) for label in labels or []]
     parts = set()
@@ -130,14 +127,9 @@ def classify(labels, component=None, issue_id=None, scope=None):
         basis.append(entry.get("basis") or "scope-config")
     valid = _catalog_index()
     criteria = {num for num in criteria if num in valid}
-    candidates = set()
-    if is_atag and not parts and component:
-        for key, value in load_component_scope().items():
-            if key.casefold() == str(component).casefold():
-                candidates |= {part.upper() for part in value}
-                break
-        if candidates:
-            basis.append("component-heuristic")
+    # Do not infer Part A/B from a Drupal component. A generic "atag" issue is
+    # evidence of an ATAG-related report, not evidence of which Part it belongs
+    # to; a human or an explicit tag must supply the Part.
     if entry and entry.get("review_status"):
         review_status = entry["review_status"]
     elif not is_atag:
@@ -149,7 +141,7 @@ def classify(labels, component=None, issue_id=None, scope=None):
     return {
         "is_atag": is_atag,
         "parts": sorted(parts),
-        "candidate_parts": sorted(candidates),
+        "candidate_parts": [],
         "criteria": sorted(criteria),
         "basis": "+".join(dict.fromkeys(basis)) or "none",
         "review_status": review_status,
@@ -184,10 +176,8 @@ def _issue_item(issue):
     labels = []
     if atag.get("parts"):
         labels.extend(PART_LABELS[p] for p in atag["parts"])
-    if atag.get("candidate_parts"):
-        labels.extend(f"{PART_LABELS[p]} (candidate)" for p in atag["candidate_parts"])
     if not labels:
-        labels.append("ATAG-tagged, part not specified")
+        labels.append("ATAG-tagged; Part A/B not specified")
     status = (issue.get("status") or {}).get("label") or "Unknown status"
     kind = " · meta/tracker" if issue.get("issue_kind") == "meta" else ""
     return (
@@ -278,9 +268,7 @@ def render_atag_report(collection, output_dir, scope=None):
     substantive = [issue for issue in atag_issues if issue.get("issue_kind") != "meta"]
     explicit_a = [issue for issue in substantive if "A" in issue["atag"]["parts"]]
     explicit_b = [issue for issue in substantive if "B" in issue["atag"]["parts"]]
-    candidate_a = [issue for issue in substantive if not issue["atag"]["parts"] and "A" in issue["atag"]["candidate_parts"]]
-    candidate_b = [issue for issue in substantive if not issue["atag"]["parts"] and "B" in issue["atag"]["candidate_parts"]]
-    unspecified = [issue for issue in substantive if not issue["atag"]["parts"] and not issue["atag"]["candidate_parts"]]
+    unspecified = [issue for issue in substantive if not issue["atag"]["parts"]]
     missing_accessibility = [issue for issue in atag_issues if issue["missing_accessibility_tag"]]
     assessment = collection.get("assessment") or {}
     release = assessment.get("release") or "unknown"
@@ -288,8 +276,6 @@ def render_atag_report(collection, output_dir, scope=None):
         "issues": len(atag_issues),
         "explicit_part_a": len(explicit_a),
         "explicit_part_b": len(explicit_b),
-        "candidate_part_a": len(candidate_a),
-        "candidate_part_b": len(candidate_b),
         "unspecified": len(unspecified),
         "meta_issues": len(meta_issues),
         "missing_accessibility_tag": len(missing_accessibility),
@@ -310,6 +296,7 @@ def render_atag_report(collection, output_dir, scope=None):
             "atag_queue_url": ATAG_QUEUE_URL,
             "atag_spec": SPEC_URL,
             "wai_report_tool": TOOL_URL,
+            "wai_report_tool_repository": "https://github.com/w3c/wai-atag-report-tool",
         },
         "summary": summary,
         "issues": [
@@ -343,8 +330,7 @@ def render_atag_report(collection, output_dir, scope=None):
         ("Collection date", _esc(_date(collection.get("generated_at")))),
         ("ATAG-tagged issues", _esc(summary["issues"])),
         ("Explicit Part A / Part B (non-meta)", f'{summary["explicit_part_a"]} / {summary["explicit_part_b"]}'),
-        ("Candidate Part A / Part B (non-meta)", f'{summary["candidate_part_a"]} / {summary["candidate_part_b"]}'),
-        ("Unspecified (non-meta)", _esc(summary["unspecified"])),
+        ("ATAG-tagged, part not specified (non-meta)", _esc(summary["unspecified"])),
         ("Meta/tracker issues", _esc(summary["meta_issues"])),
         ("Missing Accessibility tag", _esc(summary["missing_accessibility_tag"])),
         ("ATAG criteria", _esc(summary["criteria"]) + " (WAI ATAG Report Tool)"),
@@ -385,16 +371,13 @@ def render_atag_report(collection, output_dir, scope=None):
         '<section aria-labelledby="parts-heading"><h2 id="parts-heading">Part A and Part B evidence</h2>',
         "<p><strong>Part A</strong> covers accessibility of the authoring tool user interface. "
         "<strong>Part B</strong> covers support for producing accessible content. Explicit "
-        "<code>atag-a</code>/<code>atag-b</code> tags or a curated <code>config/atag-scope.json</code> mapping are "
-        "authoritative. Component-based candidates are a triage heuristic, not a determination.</p>",
+        "<code>atag-a</code>/<code>atag-b</code> tags or a reviewed <code>config/atag-scope.json</code> mapping are "
+        "authoritative. A generic <code>atag</code> tag is not assigned to a Part; component names are not used "
+        "to guess one.</p>",
         '<h3>Part A — explicit</h3>',
         _issue_list(explicit_a),
-        '<h3>Part A — component candidates</h3>',
-        _issue_list(candidate_a),
         '<h3>Part B — explicit</h3>',
         _issue_list(explicit_b),
-        '<h3>Part B — component candidates</h3>',
-        _issue_list(candidate_b),
         '<h3>ATAG-tagged, part not specified</h3>',
         _issue_list(unspecified),
         '<h3>ATAG meta/tracker issues</h3>',
@@ -410,12 +393,13 @@ def render_atag_report(collection, output_dir, scope=None):
         "the evaluator name and organization are placeholders. A human reviewer must complete the evaluation, "
         "record observations and export the final ATAG report.</p>",
         '<p class="meta">Machine-readable evidence: <a href="./atag-evidence.json">atag-evidence.json</a>. '
+        f'Report Tool source: {_link("https://github.com/w3c/wai-atag-report-tool", "w3c/wai-atag-report-tool")}. '
         "No ATAG conformance values are populated.</p>",
         "</section>",
         '<section aria-labelledby="limits-heading"><h2 id="limits-heading">Limitations</h2><ul>',
         "<li>The queue currently uses a generic <code>atag</code> tag. Part A/B tags were not present in the "
-        "snapshot, so most issues are unspecified or only component candidates.</li>",
-        "<li>The component heuristic is editorial triage, not evidence that a criterion is met or failed.</li>",
+        "snapshot, so most issues are unassigned and need human triage.</li>",
+        "<li>No Part A/B assignment is inferred from a component name or issue title.</li>",
         "<li>No ATAG evaluation was performed against the authoring tool; no assistive-technology testing is claimed.</li>",
         "<li>ATAG Part A/B applies to the authoring tool UI; release-specific behaviour may differ and must be "
         "reproduced on the installed version.</li>",

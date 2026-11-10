@@ -295,3 +295,11 @@ The 10.6 result is deliberately conservative. The generic “Admin theme”
 component spans Claro and Default Admin, and fixes landed on newer branches; the
 model cannot yet prove that a Default Admin issue is or is not a Claro issue.
 Issue-level component/feature evidence is the next accuracy improvement.
+
+## ATAG mapping correction (2026-11-10)
+
+The ATAG evidence report no longer assigns Part A/B from Drupal component names.
+A generic `atag` tag establishes ATAG relevance only. Part A/B requires an explicit
+tag or a documented, reviewed `config/atag-scope.json` entry. The previous
+component-scope heuristic was removed, and the guessed meta-tracker mapping was
+cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.

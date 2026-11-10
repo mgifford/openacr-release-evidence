@@ -45,7 +45,7 @@
 - [x] Add a reusable Drupal ACR template
 - [x] Add a no-script release finder, grouped downloads and a separate complete matrix page
 - [x] Add report utility links, criterion/issue indexes and ACR section navigation
-- [x] Collect ATAG-tagged authoring issues, classify Part A/B candidates and export a WAI ATAG Report Tool JSON draft
+- [x] Collect ATAG-tagged authoring issues, classify only explicit or human-curated Part A/B scope, and export a WAI ATAG Report Tool JSON draft
 - [x] Verify ATAG JSON import in the live WAI ATAG Report Tool
 - [ ] Complete human ATAG editing/export and add release-scoped ATAG applicability
 - [ ] Round-trip the reviewed YAML in the ACR Editor and reuse the official HTML renderer

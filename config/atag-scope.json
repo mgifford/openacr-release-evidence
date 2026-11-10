@@ -1,12 +1,4 @@
 {
-  "notes": "Optional curated ATAG Part A/B mapping. Key by normalized issue ID. Explicit tags still take precedence over component heuristics; this file is for human triage.",
-  "issues": {
-    "drupal:2034909": {
-      "parts": ["A", "B"],
-      "criteria": [],
-      "basis": "atag-meta-tracker",
-      "source_url": "https://www.drupal.org/node/2034909",
-      "review_status": "needs-triage"
-    }
-  }
+  "notes": "Optional human-curated ATAG Part A/B mapping. Key by issue ID. Do not add an entry unless the part assignment is documented and reviewed.",
+  "issues": {}
 }
