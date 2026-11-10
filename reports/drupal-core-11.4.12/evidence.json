@@ -123,7 +123,7 @@
     "parent_project": null,
     "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
   },
-  "generated_at": "2026-11-10T18:17:18Z",
+  "generated_at": "2026-11-10T18:29:28Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -144,20 +144,20 @@
       "component": null,
       "since": null
     },
-    "collection_digest": "c5e1a9cbac8fe17285a4deec7e54f361d434bba20b9b152fe5abf13ada3d0dfa",
+    "collection_digest": "f77e352a57d98c74c0dc5c1365e106a7c429d91f4688f68f6191a7cea7ec0bd1",
     "summary": {
       "requested": 432,
-      "retrieved_at": "2026-11-10T16:30:55Z",
+      "retrieved_at": "2026-11-10T17:42:46Z",
       "collected": 432,
       "cached": 0,
-      "reused": 419,
-      "fetched": 13,
+      "reused": 430,
+      "fetched": 2,
       "failed": 0,
       "with_merge_requests": 33,
       "with_wcag_tags": 196,
       "detailed": 38,
       "inventory": 394,
-      "excluded_by_status": 37,
+      "excluded_by_status": 48,
       "statuses": [
         1,
         8,
@@ -165,7 +165,7 @@
         14,
         15
       ],
-      "comments": 1720,
+      "comments": 1721,
       "by_workflow": {
         "needs-review": 18,
         "needs-work": 173,
@@ -14557,7 +14557,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2023-03-16T18:09:09+00:00",
-      "updated_at": "2026-11-09T18:56:43+00:00",
+      "updated_at": "2026-11-10T17:16:01+00:00",
       "component": "theme system",
       "version": "main",
       "priority": "Normal",
@@ -14581,10 +14581,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:30:21Z",
+        "retrieved_at": "2026-11-10T17:42:40Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
-        "content_hash": "2682b753685cae86639849eedff890396f5ea8ce2bdade02d61f8971c1c69bd0",
-        "raw_ref": "private-evidence/raw/3348552-20261110T163021Z.json"
+        "content_hash": "e41472555e71496d405a7c7accbabb360424da370e170ddf70dd3b8c299245a6",
+        "raw_ref": "private-evidence/raw/3348552-20261110T174240Z.json"
       }
     },
     {
@@ -20286,10 +20286,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:29:56Z",
+        "retrieved_at": "2026-11-10T17:42:46Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
         "content_hash": "475d2abb59a4ababeef79b4167bcc56000a26756a819e4b90b3b81b367f2305e",
-        "raw_ref": "private-evidence/raw/3619154-20261110T162956Z.json"
+        "raw_ref": "private-evidence/raw/3619154-20261110T174246Z.json"
       }
     },
     {
@@ -36351,7 +36351,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2023-03-16T18:09:09+00:00",
-      "observed_at": "2026-11-10T16:30:21Z",
+      "observed_at": "2026-11-10T17:42:40Z",
       "wcag_candidates": [
         "1.3.1",
         "4.1.2"
@@ -42456,7 +42456,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-08-26T00:03:31+00:00",
-      "observed_at": "2026-11-10T16:29:56Z",
+      "observed_at": "2026-11-10T17:42:46Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -44350,5 +44350,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "f5687df8f8aa5930b0b5ecdb9441f37c9e7cb532a49d67c3068f485ab59525c0"
+  "evidence_digest": "7dcdbd479d30d709c2b5f560076a2d3bac2e5c942ed3065fa6491379b5ffab17"
 }

@@ -64,6 +64,8 @@ python3 -m compileall -q src
 If `python` is absent on your platform, use `python3`. Do not document a check
 that fails on a clean checkout.
 
+The separate release-transition ledger may collect recently closed-fixed issues. It never changes active-issue counts or criterion results. A fix is `included` only when a commit is contained in that exact target; otherwise use `not-included`, `not-established` or `removed`. Never describe a Drupal 12 fix as a Drupal 10/11 fix without containment evidence.
+
 ACR evidence covers active, review-relevant statuses only: 1, 8, 13, 14 and 15.
 Fixed/closed/postponed statuses are excluded; RTBC stays in until closed. Page
 the full queue rather than taking the first API page. Inventory records must be
@@ -159,7 +161,8 @@ the matching context to the weekly model and record its hash; never merge one
 product's context or conformance result into another's.
 
 Optional ACR criterion summaries are model-assisted drafts cached by issue-content
-hash. Only accepted, validated summaries may be used; rejected or failed output
+hash. Hugging Face is the default; Cloudflare Workers AI is an opt-in comparison/
+fallback provider with separate credentials and output cache. Only accepted, validated summaries may be used; rejected or failed output
 falls back to deterministic issue-title text. They never replace issue references
 or human review.
 
