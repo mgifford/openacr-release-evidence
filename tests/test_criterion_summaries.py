@@ -69,6 +69,25 @@ class CriterionSummaryTests(unittest.TestCase):
             )
             self.assertEqual("accepted", second["criteria"]["1.1.1"]["status"])
 
+    def test_json_with_trailing_prose_is_accepted(self):
+        class ProseClient:
+            def chat_completion(self, **kwargs):
+                class Message:
+                    content = '{"web": "Users may miss decorative-image semantics.", "authoring": "Authors may lack a clear alt-text prompt."}\n\nExplanation follows.'
+                class Choice:
+                    message = Message()
+                class Response:
+                    choices = [Choice()]
+                return Response()
+
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / "acr-summaries.json"
+            result = summarize_collection(
+                collection(), output, model="org/model", token="test",
+                client_factory=lambda **kwargs: ProseClient(),
+            )
+            self.assertEqual("accepted", result["criteria"]["1.1.1"]["status"])
+
     def test_invalid_response_is_rejected(self):
         class BadClient:
             def chat_completion(self, **kwargs):

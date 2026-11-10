@@ -88,10 +88,12 @@ def _parse_json(text):
         text = re.sub(r"^```(?:json)?\s*", "", text)
         text = re.sub(r"\s*```$", "", text)
     start = text.find("{")
-    end = text.rfind("}")
-    if start < 0 or end <= start:
+    if start < 0:
         raise ValueError("no JSON object in response")
-    return json.loads(text[start:end + 1])
+    # Models often append a prose explanation after the JSON object. Parse the
+    # first complete object instead of taking the last closing brace.
+    value, _end = json.JSONDecoder().raw_decode(text[start:])
+    return value
 
 
 def _client(model, provider, endpoint, token, client_factory):
