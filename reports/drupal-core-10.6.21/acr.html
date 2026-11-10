@@ -22,6 +22,7 @@
 <li><a href="#draft-status-and-acr-result-terms">Draft status and ACR result terms</a></li>
 <li><a href="#scope-and-evaluation-method">Scope and evaluation method</a></li>
 <li><a href="#why-this-acr-is-different">Why this ACR is different</a></li>
+<li><a href="#between-release-fix-notes--not-active-issue-results">Between-release fix notes (not active-issue results)</a></li>
 <li><a href="#executive-summary">Executive summary</a></li>
 <li><a href="#wcag-2-2-level-a-criteria">WCAG 2.2 Level A criteria</a></li>
 <li><a href="#wcag-2-2-level-aa-criteria">WCAG 2.2 Level AA criteria</a></li>
@@ -102,6 +103,33 @@
 <p>It is stronger on completeness of known reports, traceability, recency and connection to the remediation backlog. It is weaker on independent page sampling and manual assistive-technology coverage. It is not a WCAG-EM evaluation, a certification or a substitute for a procurement-specific ACR. A missing tagged issue is not evidence of support.</p>
 <p>Read the queue as reported barrier evidence. The criterion result is a draft issue-queue attestation subject to human confirmation. See the GSA OpenACR discussion and Drupal&#x27;s ACR process for the wider model.</p>
 <ul><li><a href="https://github.com/GSA/openacr/issues/180">GSA OpenACR issue #180</a></li><li><a href="https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process">Drupal ACR process</a></li><li><a href="https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/">WCAG-EM 2.0</a></li></ul>
+<h2 id="between-release-fix-notes--not-active-issue-results">Between-release fix notes (not active-issue results)</h2>
+<p>These closed-fixed issues are separate from the active queue and do not change any criterion result. A newer target is listed only when a fix commit is contained there and is absent from this selected target. Absence is not proof that a backport will never happen.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Closed-fixed issues with newer-target commits">
+<table>
+<caption>Closed-fixed issues with newer-target commits</caption>
+<thead><tr><th scope="col">Issue</th><th scope="col">State in selected target</th><th scope="col">Newer target with the fix</th><th scope="col">Commit</th></tr></thead><tbody>
+<tr><td><a href="https://www.drupal.org/node/2638250">The label &quot;Member for&quot; on user profiles is hardcoded markup that is different from other user fields</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-beta2, drupal-core-main</td><td>92812efaed0f</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3506333">Improve the perceptibility of contextual link buttons</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-beta2, drupal-core-main</td><td>09fef26db8c0</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3583516">Breadcrumb separators are exposed to the accessibility tree</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-beta2, drupal-core-main</td><td>8dbb13095178</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3587678">Ensure status message ARIA landmarks are unique</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-alpha1, drupal-core-12.0.0-beta2, drupal-core-main</td><td>0c13b6a376be</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3587995">Default admin theme settings form color pickers missing accessible names</a></td><td>Fix commit not included in this target</td><td>drupal-core-11.4.12, drupal-core-12.0.0-alpha1, drupal-core-12.0.0-beta2, drupal-core-main</td><td>18e364b05b1d, 16ba75529b31</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3604071">Change default to auto for light/dark mode</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-alpha1, drupal-core-12.0.0-beta2, drupal-core-main</td><td>73524b05a7f0</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3612323">Do not use strong element for vertical tabs titles</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-beta2, drupal-core-main</td><td>de104d38df19</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3615331">Invalid ARIA attribute aria-toolbar-link__labelledby on toolbar menus strips their accessible name</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-alpha1, drupal-core-12.0.0-beta2, drupal-core-main</td><td>141cdc1f0a35</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3617875">Better Dark Mode Support for Disabled Elements</a></td><td>Fix commit not included in this target</td><td>drupal-core-11.4.12, drupal-core-12.0.0-beta2, drupal-core-main</td><td>21ca2cb4a43f, 41b0b4eabf9e</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3618127">Navigation top bar action buttons in dark mode have low color contrast</a></td><td>Fix commit not included in this target</td><td>drupal-core-11.4.12, drupal-core-12.0.0-alpha1, drupal-core-12.0.0-beta2, drupal-core-main</td><td>851e26388d4e, f48d0a58b3ec</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3618140">Improve the accessibility of focus outlines</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-beta2, drupal-core-main</td><td>d946182a6cf8</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3619155">Forced-colors problems with admin theme&#x27;s sidebar toggle button</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-beta2, drupal-core-main</td><td>77b938beabd6</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3621109">Skip link in dark mode has low color contrast</a></td><td>Fix commit not included in this target</td><td>drupal-core-11.4.12, drupal-core-12.0.0-beta2, drupal-core-main</td><td>4096729546d5, 254a60c7c988</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3621157">Admin theme should override top-bar.html.twig directly</a></td><td>Fix commit not included in this target</td><td>drupal-core-main</td><td>096c6ad233bc</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3621244">Navigation mobile sidebar close button in dark mode has low color contrast</a></td><td>Fix commit not included in this target</td><td>drupal-core-12.0.0-beta2, drupal-core-main</td><td>263b7b802ce7</td></tr>
+<tr><td><a href="https://www.drupal.org/node/3623388">Details summary summary has low contrast</a></td><td>Fix commit not included in this target</td><td>drupal-core-11.4.12, drupal-core-12.0.0-beta2, drupal-core-main</td><td>67a1bbf5616a, 1b8c7c58ee47</td></tr>
+</tbody></table>
+</div>
+<p>A removed component or theme is a scope change, not a fix. Olivero-specific issues in a release that no longer ships Olivero are out of scope for that target and remain relevant to the release lines that still include it.</p>
+<p>This ledger is not a promise that a future backport will occur. It records commit containment in the named targets at this snapshot.</p>
+<ul><li><a href="https://www.drupal.org/project/drupal/releases">Drupal release notes</a></li><li><a href="https://www.drupal.org/project/issues/search?projects=Drupal+core&amp;issue_tags=Accessibility">Drupal Core Accessibility queue</a></li></ul>
 <h2 id="executive-summary">Executive summary</h2>
 <p>The active queue contains 432 issues. Tracker states are: Active: 234, Needs review: 18, Needs work: 173, Reviewed &amp; tested by the community: 7. 38 issues have detailed evidence and 394 are inventory-only. The queue is a triage input, not an accessibility score.</p>
 <p>The largest explicitly tagged criterion clusters are listed below. A count reflects issue tagging, not severity or conformance.</p>

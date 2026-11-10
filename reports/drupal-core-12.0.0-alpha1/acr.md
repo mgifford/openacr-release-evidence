@@ -68,7 +68,7 @@ The evidence collection covers active, review-relevant Drupal Core Accessibility
 - No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.
 - No AI was used to assign applicability or an ACR result.
 
-Theme availability for 12.0.x: front-end themes none recorded; admin themes claro, default_admin. Removed in this line: olivero. The core collection does not include the theme project queues; a theme's own ACR must cover those issues.
+Theme availability for 12.0.x: front-end themes none recorded; admin themes default_admin. Removed in this line: olivero, claro. The core collection does not include the theme project queues; a theme's own ACR must cover those issues.
 
 ## Why this ACR is different
 
@@ -92,6 +92,34 @@ Read the queue as reported barrier evidence. The criterion result is a draft iss
 - [GSA OpenACR issue #180](https://github.com/GSA/openacr/issues/180)
 - [Drupal ACR process](https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process)
 - [WCAG-EM 2.0](https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/)
+
+## Between-release fix notes (not active-issue results)
+
+These closed-fixed issues are separate from the active queue and do not change any criterion result. A newer target is listed only when a fix commit is contained there and is absent from this selected target. Absence is not proof that a backport will never happen.
+
+**Closed-fixed issues with newer-target commits**
+
+| Issue | State in selected target | Newer target with the fix | Commit |
+| --- | --- | --- | --- |
+| [The label "Member for" on user profiles is hardcoded markup that is different from other user fields](https://www.drupal.org/node/2638250) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 92812efaed0f |
+| [a11y revision for Claro](https://www.drupal.org/node/3026317) | Component or theme removed from this release; out of scope | Not a fix for this target | No contained commit |
+| [Improve the perceptibility of contextual link buttons](https://www.drupal.org/node/3506333) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 09fef26db8c0 |
+| [Breadcrumb separators are exposed to the accessibility tree](https://www.drupal.org/node/3583516) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 8dbb13095178 |
+| [Do not use strong element for vertical tabs titles](https://www.drupal.org/node/3612323) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | de104d38df19 |
+| [Better Dark Mode Support for Disabled Elements](https://www.drupal.org/node/3617875) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 41b0b4eabf9e |
+| [Improve the accessibility of focus outlines](https://www.drupal.org/node/3618140) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | d946182a6cf8 |
+| [Forced-colors problems with admin theme's sidebar toggle button](https://www.drupal.org/node/3619155) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 77b938beabd6 |
+| [Skip link in dark mode has low color contrast](https://www.drupal.org/node/3621109) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 254a60c7c988 |
+| [Admin theme should override top-bar.html.twig directly](https://www.drupal.org/node/3621157) | Fix commit not included in this target | drupal-core-main | 096c6ad233bc |
+| [Navigation mobile sidebar close button in dark mode has low color contrast](https://www.drupal.org/node/3621244) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 263b7b802ce7 |
+| [Details summary summary has low contrast](https://www.drupal.org/node/3623388) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 1b8c7c58ee47 |
+
+A removed component or theme is a scope change, not a fix. Olivero-specific issues in a release that no longer ships Olivero are out of scope for that target and remain relevant to the release lines that still include it.
+
+This ledger is not a promise that a future backport will occur. It records commit containment in the named targets at this snapshot.
+
+- [Drupal release notes](https://www.drupal.org/project/drupal/releases)
+- [Drupal Core Accessibility queue](https://www.drupal.org/project/issues/search?projects=Drupal+core&issue_tags=Accessibility)
 
 ## Executive summary
 

@@ -123,7 +123,7 @@
     "parent_project": null,
     "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
   },
-  "generated_at": "2026-11-10T16:36:45Z",
+  "generated_at": "2026-11-10T17:10:41Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -254,13 +254,13 @@
       ],
       "since": "2026-05-10T16:05:10-06:00",
       "commits": 1842,
-      "retrieved_at": "2026-11-10T16:36:45Z"
+      "retrieved_at": "2026-11-10T17:03:13+00:00"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/11.4.12",
-    "commit_index": "2026-11-10T16:36:45Z"
+    "commit_index": "2026-11-10T17:03:13+00:00"
   },
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -44350,5 +44350,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "4649dc38292df6841a1aa22125af300e8730cfd9abb7bc57ab1baed25ebf3937"
+  "evidence_digest": "f5687df8f8aa5930b0b5ecdb9441f37c9e7cb532a49d67c3068f485ab59525c0"
 }
