@@ -1,333 +1,349 @@
 {
   "schema_version": "0.1.0",
-  "prompt_version": "acr-criterion-v1",
+  "prompt_version": "acr-criterion-v2",
   "provider": "huggingface",
   "provider_name": "auto",
   "model": "Qwen/Qwen2.5-7B-Instruct",
-  "generated_at": "2026-11-09T02:55:53Z",
+  "generated_at": "2026-11-10T01:21:13Z",
   "criteria": {
     "1.1.1": {
       "input_sha256": "3ee99c1c04b8efb697c6cc0ba324296036b9c9fb02ba16044d3223d998a939a0",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "rejected",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
       "web": "",
       "authoring": "",
-      "error": "summary failed validation"
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 509)"
     },
     "1.2.2": {
       "input_sha256": "9d2dd005ab5dc120c86ea37016fc30667cf031ffedadc85ad9246413a23b949f",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle to manage transcripts and captions for videos due to missing tools. Authoring tools lack fields and formatters for WebVTT files and track elements.",
-      "authoring": "No issues classified for authoring tools."
+      "prompt_version": "acr-criterion-v2",
+      "status": "rejected",
+      "web": "",
+      "authoring": "",
+      "error": "summary failed validation"
     },
     "1.3.1": {
       "input_sha256": "af108ac612682c2cf1bb0ef7416d0f77c5519425d21639cf0c0cca7f59a4b679",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter issues with form fields missing required attributes, unclear asterisk markers, and inaccessible system messages. Assistive technologies might struggle with empty regions and missing fieldset titles.",
-      "authoring": "Authors might face challenges with pager templates failing accessibility tests, particularly with the use of ellipsis, which can misstructure lists."
+      "prompt_version": "acr-criterion-v2",
+      "status": "rejected",
+      "web": "",
+      "authoring": "",
+      "error": "summary failed validation"
     },
     "1.3.3": {
       "input_sha256": "f180bbaebc9f03d5662a3d6fd3f91db425dcf5a887f648d17eeab4504fc1ec75",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users with visual disabilities may struggle to find and access submenu items in the footer due to their distance from top-level menu items.",
-      "authoring": "No issues classified for authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 387)"
     },
     "1.3.4": {
       "input_sha256": "1f75e148d247ce28836774c957be85e7e6a636ca3df0f04b8150eba1189e1178",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may face issues with missing site manifest, hindering proper functioning of assistive technologies.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "rejected",
+      "web": "",
+      "authoring": "",
+      "error": "summary failed validation"
     },
     "1.3.5": {
       "input_sha256": "7d27bba911dd048d391cf9fb4f349749f8ab0adc674684d7488f9ca5601894c5",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users with screen readers may face issues with autocomplete functionality, as the IME enhancement in Android stops autocomplete search events when typing English words.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 570)"
     },
     "1.4.1": {
       "input_sha256": "86c18fd97cf9da70c4fcacdeb61c079c27b6bdb9cd4cdb49065f797fab117098",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with style state select as a button bar and tabledrag due to lack of accessible visual feedback. The severity column icons and 'unpublished' entity style are also inaccessible.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 588)"
     },
     "1.4.10": {
       "input_sha256": "6c2748f80adf9724f4e9cc3efa004b5632af4ab0764423aae9cfad9e46759396",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with dialogues and table content visibility when fully zoomed, and find it difficult to access action links on small screens.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "1.4.11": {
-      "input_sha256": "7a4ab66e8a9e01898f111ebc218b290d25045a6cac1e86c23a13c6c4d899432f",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "rejected",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
       "web": "",
       "authoring": "",
-      "error": "summary failed validation"
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 619)"
+    },
+    "1.4.11": {
+      "input_sha256": "b6170d0efdf90c064fe749be3f6d761a3b9f6a678555de9c7d3156becb714a88",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 3 column 1 (char 530)"
     },
     "1.4.12": {
       "input_sha256": "6d2004c07bbfcb82fea5fc9d9ecdce5262e3269899809ad2b07e29d140583d06",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
+      "prompt_version": "acr-criterion-v2",
       "status": "accepted",
-      "web": "Users may encounter an accessibility issue where page titles are truncated with an ellipsis, potentially making them unclear.",
-      "authoring": "No issues classified for the authoring tool."
+      "web": "The page title ellipsis issue causes the title to be truncated, making it difficult for users with screen readers to understand the full context of the page. This affects users who rely on screen readers, potentially leading to confusion and a poor user experience. For the public web, this barrier can result in missed opportunities for information clarity and user engagement.",
+      "authoring": "No issues are classified for the authoring tool related to this criterion."
     },
     "1.4.13": {
       "input_sha256": "f180bbaebc9f03d5662a3d6fd3f91db425dcf5a887f648d17eeab4504fc1ec75",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users with visual disabilities may struggle to find and access submenu items in the footer due to their distance from top-level menu items.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 458)"
     },
     "1.4.4": {
       "input_sha256": "e82b7dafdcf502ea8814065fa19d3540865c019b95ab9fcc3031474c03417682",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users with visual impairments may struggle with the indentation in hierarchical select lists, making it difficult to understand the structure.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 317)"
     },
     "2.1.1": {
       "input_sha256": "fdd0c049118bde7c13dd09f579833248b2a6496c48307c8d853bf90462079803",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with navigating dialogues and contextual links, and may have difficulty with keyboard navigation and focus management. Datepickers and hotkeys may also lack accessibility, impacting users who rely on these features.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 684)"
     },
     "2.1.2": {
       "input_sha256": "973466f9dfc6751b177329fc4b3962297851043c4bc8cdf1f17a277b4ff49ec4",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter a keyboard trap when accessing a toolbar sub-menu, making it difficult to navigate away without using a mouse.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 306)"
     },
     "2.1.4": {
       "input_sha256": "09be907fcff290af5441a32d16778b66703225dec496af605b0dbc17b230390f",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may face barriers if they rely on keyboard navigation, as Drupal core lacks an API for hotkeys, potentially making navigation less accessible.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "2.2.2": {
-      "input_sha256": "9f80f501dfc8cf8dae63d24503bc64cf1c5654f8de8bbda5922395a35b5253f2",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users with motion sensitivity may experience disorientation or seizures due to animations that do not respect their preference for reduced motion.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "2.3.1": {
-      "input_sha256": "9f80f501dfc8cf8dae63d24503bc64cf1c5654f8de8bbda5922395a35b5253f2",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users with motion sensitivity may encounter animations that trigger their symptoms, as the site does not use the 'prefers-reduced-motion' media query to disable animations.",
-      "authoring": "No issues classified for authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 360)"
     },
     "2.4.1": {
       "input_sha256": "298156bd4e07bca449ce1cce7848475c7822e0dfd5a022fd6788b506d7b8ccbd",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter broken link anchors for form elements with validation errors, making it difficult to navigate to specific error messages.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 390)"
     },
     "2.4.11": {
       "input_sha256": "bbbf21ec8ccd00a88574b3d76f0ec4718ced5ba982f678ae1a376bf761504a0f",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may face issues with focus styles in CKEditor 5, as it uses its own styles instead of the admin theme's, and top-level menus can obscure focused items in the sidebar, causing confusion.",
-      "authoring": "No issues classified for authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 445)"
     },
     "2.4.13": {
       "input_sha256": "ceb7cf8ed0ee8dd53b23191618c27cf41f252cf132bc907332887c2fd96c52a1",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may face issues with focus styles in CKEditor 5, as it uses its own styles instead of the admin theme's, potentially causing confusion.",
-      "authoring": "No issues classified for authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 330)"
     },
     "2.4.2": {
       "input_sha256": "cec8806cc8d9171e9ab6ecb584ddc40662abf4b7595ab750f7165134e526f13f",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with understanding page titles that lack context, making it hard to orient themselves within the site structure.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 682)"
     },
     "2.4.3": {
       "input_sha256": "f568630f15601f7c60158d7d07cb1187e94c59fd1c7bbbcf6365b816c65c6488",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may face issues with focus management, such as controls within hidden content becoming focusable, and losing focus when interacting with certain elements like table headers or off-canvas dialogs.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 635)"
     },
     "2.4.4": {
       "input_sha256": "6a3e3b1eb1f7707cb37ff23e000682b95e76ed3343b8eafeef9eaf03e69b66da",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with links like \"Add new comment\" and \"@count comments\" due to lack of descriptive text, hindering understanding and navigation.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Expecting ',' delimiter: line 1 column 15 (char 14)"
     },
     "2.4.6": {
       "input_sha256": "82c7a1a0ba39945934673f5fcd76165d326a7eb1b73fdb8e34bd775d2f4d974e",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with visually-hidden block titles, misordered headings, and unclear local navigation, hindering understanding and navigation.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 480)"
     },
     "2.4.7": {
       "input_sha256": "fc4868e015ed4ddf6e9e47cf77db2d1e0a35ff171199ca8068ceffb5e55a2d78",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter issues with improperly accessible tooltips, sticky table headers without un-sticky options, and visually hidden labels with links causing focus problems. Errors in link anchors can lead to incorrect navigation. Sidebar logo links sometimes lack focus indicators.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Expecting ',' delimiter: line 1 column 672 (char 671)"
     },
     "2.4.9": {
       "input_sha256": "c8164cbeaa7d96baf85d26a69af42886253ebe38172babefb4654233041de63a",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle to understand the purpose of links on the available updates page without descriptive link text.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 340)"
     },
     "2.5.1": {
       "input_sha256": "bcf8170b44b1ec6d0f5924d59edcbc97a8ea0f6f3825543c7d9881238919a91e",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 522)"
+    },
+    "2.5.2": {
+      "input_sha256": "af3dd2d00242829c5f2870110805ae062ebbcbc4f8241f3506bbce4ae6c271d5",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 521)"
+    },
+    "2.5.3": {
+      "input_sha256": "7ff2b61e3ab4f76add5032094f12fc321703087deeb813582d2769b123d5046f",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "accepted",
+      "web": "Several issues affect the accessible names of interactive elements on the web, particularly with buttons and links. For example, the 'Extend' button in the navigation admin menu has hidden text that precedes the visible title, leading to an accessible name that starts with 'Extend' rather than the visible 'Content' or 'Structure'. This can confuse users relying on speech recognition, as they may not match the intended action. Additionally, repeated 'Edit' and 'Delete' links without disambiguation can also cause confusion, as users might not know which specific item they are editing or deleting.",
+      "authoring": "No issues are classified for the authoring tool in this evidence."
+    },
+    "2.5.8": {
+      "input_sha256": "a4049915bc1e4391f5a3849e4e2cacb4a3295cabaa4a81b747ad1a84a07620cb",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 382)"
+    },
+    "3.1.2": {
+      "input_sha256": "60b2d9b0e44198d6c9db0071cf0ca3b92539825dbd33ae21e958a54be6bd0b89",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "accepted",
+      "web": "The web issues include several barriers related to language of parts, such as untranslatable fields and untranslated field labels not being marked correctly. This affects users who navigate between languages and screen readers that rely on these tags to understand the content's language. For example, untranslated field labels on translations of nodes can confuse users and screen readers, impacting the accessibility and usability of the site for non-native speakers. Additionally, content not in the page's language needing to add appropriate tags can cause confusion and misinterpretation of content, particularly for users who rely on language markers for navigation and comprehension.",
+      "authoring": "No issues are classified for the authoring tool in this evidence."
+    },
+    "3.2.1": {
+      "input_sha256": "322a8714850cadcfa578bc186218ea69cc8ad807db22ffb4afc6f71826b94a8c",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 570)"
+    },
+    "3.2.3": {
+      "input_sha256": "c0eac67845030d4eaea534e5489984f29f63dd8c1e5ea2c194fd373290d11431",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 634)"
+    },
+    "3.2.5": {
+      "input_sha256": "88c7a0f499bdc3b8b0f3c96ce986b3d86c73d4f18a6f9e86b6b60d591dbfa783",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 453)"
+    },
+    "3.2.7": {
+      "input_sha256": "e0cb7fe50ce214a2fdca83c0ab9f7660056a38bfadd592f05e845475f29630f8",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 375)"
+    },
+    "3.3.1": {
+      "input_sha256": "28283b87c564f89f5d35cd49a0ef3f5ea419c774459ef7b79c6ccbb4c4bd47be",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 3 column 1 (char 833)"
+    },
+    "3.3.2": {
+      "input_sha256": "b725ef2bf53b2b675f4c0fc0d766a93255deedd197c17dadddab2582f8e8c90e",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 555)"
+    },
+    "3.3.3": {
+      "input_sha256": "8e6d6411cd5d7a0f8ef89b2c86b33a2b1f72bc35fe48d67b5ace4b4e1c14dec0",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 444)"
+    },
+    "4.1.2": {
+      "input_sha256": "9430c428aa3db313a0acb14b3d1861b204c1bd72cb2b4e8d1a5433e99190bf15",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "prompt_version": "acr-criterion-v2",
       "status": "rejected",
       "web": "",
       "authoring": "",
       "error": "summary failed validation"
     },
-    "2.5.2": {
-      "input_sha256": "af3dd2d00242829c5f2870110805ae062ebbcbc4f8241f3506bbce4ae6c271d5",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may face issues with right-click functionality and JavaScript behaviors, particularly with Ajax submissions and pointer cancellation, hindering their ability to interact with the site effectively.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "2.5.3": {
-      "input_sha256": "7ff2b61e3ab4f76add5032094f12fc321703087deeb813582d2769b123d5046f",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with links and buttons that lack sufficient context, especially when using speech recognition. For example, the 'Extend' button in the navigation menu has an accessible name that starts with 'Extend' rather than the visible label, potentially causing mismatches in commands.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "2.5.8": {
-      "input_sha256": "a4049915bc1e4391f5a3849e4e2cacb4a3295cabaa4a81b747ad1a84a07620cb",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may face difficulty selecting all checkboxes one by one, leading to poor user experience.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "3.1.2": {
-      "input_sha256": "60b2d9b0e44198d6c9db0071cf0ca3b92539825dbd33ae21e958a54be6bd0b89",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter issues with language tagging, leading to content not being properly marked. This can affect screen reader users who rely on language cues.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "3.2.1": {
-      "input_sha256": "322a8714850cadcfa578bc186218ea69cc8ad807db22ffb4afc6f71826b94a8c",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with redundant aural interfaces and jumpy focus in select fields, affecting navigation and interaction. Keyboard users might also lose focus when selecting table headers.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "3.2.3": {
-      "input_sha256": "c0eac67845030d4eaea534e5489984f29f63dd8c1e5ea2c194fd373290d11431",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with inconsistent admin list filters and encounter scrolling issues when adding blocks via layout builder.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "3.2.5": {
-      "input_sha256": "88c7a0f499bdc3b8b0f3c96ce986b3d86c73d4f18a6f9e86b6b60d591dbfa783",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter issues as the jQuery UI dialog is being deprecated, requiring a transition to a native dialog element. This change aims to improve accessibility but may initially cause confusion or errors until fully implemented.",
-      "authoring": "No issues classified for the authoring tool related to this change."
-    },
-    "3.2.7": {
-      "input_sha256": "e0cb7fe50ce214a2fdca83c0ab9f7660056a38bfadd592f05e845475f29630f8",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may miss screen-reader feedback when Views UI filterable options are updated, leading to confusion.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "3.3.1": {
-      "input_sha256": "28283b87c564f89f5d35cd49a0ef3f5ea419c774459ef7b79c6ccbb4c4bd47be",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter issues with file uploads lacking progress indicators, form validation errors not being properly announced, and server-side validation causing focus and screen reader problems. Screen reader users might also miss inline errors and media library widget errors.",
-      "authoring": "No issues are classified for the authoring tool."
-    },
-    "3.3.2": {
-      "input_sha256": "b725ef2bf53b2b675f4c0fc0d766a93255deedd197c17dadddab2582f8e8c90e",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may struggle with form elements on grouped exposed filters lacking accessible names, inconsistent field labeling, and unclear required field indicators. CKEditor 5 text areas also lack appropriate aria-labels for screen readers.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "3.3.3": {
-      "input_sha256": "8e6d6411cd5d7a0f8ef89b2c86b33a2b1f72bc35fe48d67b5ace4b4e1c14dec0",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter a barrier where error links from Inline Form Errors do not open the sidebar in Default Admin mode, preventing them from accessing invalid fields.",
-      "authoring": "No issues classified for the authoring tool."
-    },
-    "4.1.2": {
-      "input_sha256": "9430c428aa3db313a0acb14b3d1861b204c1bd72cb2b4e8d1a5433e99190bf15",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may encounter issues with duplicate IDs, missing accessible names, and incorrect ARIA roles, hindering navigation and understanding of web content. Screen readers may struggle with dynamic changes and missing title attributes on buttons.",
-      "authoring": "Authors might face challenges with improperly structured pagers, leading to accessibility issues. Ensuring lists contain only allowed elements like <li> is crucial for correct list structure."
-    },
     "4.1.3": {
-      "input_sha256": "2573f3f296eadacf7d806f1572cb5418707a4cbd64915cd40f97cf87ae6fd593",
+      "input_sha256": "bf8ac5cdd51c25a577fc1174e36cd7a5b303c3b5791d79742543721c1a2ffe81",
       "model": "Qwen/Qwen2.5-7B-Instruct",
-      "prompt_version": "acr-criterion-v1",
-      "status": "accepted",
-      "web": "Users may face issues with dropbutton states not being reported to assistive technologies, and AJAX progress messages not being conveyed to screen readers. View changes and status messages also lack proper accessibility labels.",
-      "authoring": "No issues classified for the authoring tool."
+      "prompt_version": "acr-criterion-v2",
+      "status": "failed",
+      "web": "",
+      "authoring": "",
+      "error": "JSONDecodeError: Extra data: line 2 column 1 (char 863)"
     }
   }
 }

@@ -8,11 +8,11 @@ product:
 author:
   name: Unassigned reviewer (draft)
   email: reviewer@example.invalid
-report_date: '2026-11-09'
-last_modified_date: '2026-11-09'
+report_date: '2026-11-10'
+last_modified_date: '2026-11-10'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.x-dev (branch main). Evidence
-  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: d6f37d406998c5b5366dfd8168293dccf6b0cd39237de44ec551bfef3aa8fae0.
+  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: eba64864c34055ff264f2b87b137c718ccf0dc08e02bfe8609869a1a2402fc65.
   Component scope: Web and Authoring Tool are proposed Partially Supports; Electronic
   Documents and Software are proposed Not Applicable. These are proposed component
   labels only. Evidence scope: active/review-relevant issues only (Active, Needs review,
@@ -314,10 +314,6 @@ chapters:
     - num: 2.2.2
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -332,10 +328,6 @@ chapters:
     - num: 2.3.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -803,7 +795,7 @@ chapters:
       - name: web
         adherence:
           level: partially-supports
-          notes: 'Draft issue-queue evidence: 9 web active tagged issue(s). No release
+          notes: 'Draft issue-queue evidence: 6 web active tagged issue(s). No release
             reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
@@ -818,7 +810,7 @@ chapters:
       - name: authoring-tool
         adherence:
           level: partially-supports
-          notes: 'Draft issue-queue evidence: 8 authoring-tool active tagged issue(s).
+          notes: 'Draft issue-queue evidence: 11 authoring-tool active tagged issue(s).
             No release reproduction; a reviewer must confirm.'
     - num: 1.4.12
       components:
@@ -1852,7 +1844,7 @@ target:
   release_line: main
   parent_project: null
   assessment_id: drupal-core-main
-  evidence_digest: d6f37d406998c5b5366dfd8168293dccf6b0cd39237de44ec551bfef3aa8fae0
+  evidence_digest: eba64864c34055ff264f2b87b137c718ccf0dc08e02bfe8609869a1a2402fc65
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr
