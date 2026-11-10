@@ -175,10 +175,10 @@
       ],
       "since": "2026-03-06T20:18:51+01:00",
       "commits": 1162,
-      "retrieved_at": "2026-11-10T16:37:00Z"
+      "retrieved_at": "2026-11-10T17:03:33+00:00"
     }
   },
-  "generated_at": "2026-11-10T16:37:00Z",
-  "evidence_digest": "336f088ee2b131011fbc004343b2bf277d955fd548240e7da1150495c9c7a159",
+  "generated_at": "2026-11-10T18:17:19Z",
+  "evidence_digest": "d6c20d1aaa211c46d59f878a3407913bdf712ffc8c4f30470064eef63f1f0a53",
   "manifest_digest": "3087bbc4d975c12e7b73d025aa298152d1af3902da541355fbc3f2a46ab7798f"
 }
