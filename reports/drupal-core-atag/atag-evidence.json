@@ -12,15 +12,14 @@
     "queue_url": "https://www.drupal.org/project/issues/search?text=&projects=&assigned=&submitted=&project_issue_followers=&issue_tags_op=%3D&issue_tags=Accessibility",
     "atag_queue_url": "https://www.drupal.org/project/issues/search?text=&projects=&assigned=&submitted=&project_issue_followers=&issue_tags_op=%3D&issue_tags=atag",
     "atag_spec": "https://www.w3.org/TR/ATAG20/",
-    "wai_report_tool": "https://www.w3.org/WAI/atag/report-tool/"
+    "wai_report_tool": "https://www.w3.org/WAI/atag/report-tool/",
+    "wai_report_tool_repository": "https://github.com/w3c/wai-atag-report-tool"
   },
   "summary": {
     "issues": 32,
     "explicit_part_a": 0,
     "explicit_part_b": 0,
-    "candidate_part_a": 8,
-    "candidate_part_b": 20,
-    "unspecified": 4,
+    "unspecified": 26,
     "meta_issues": 6,
     "missing_accessibility_tag": 0,
     "criteria": 63
@@ -36,11 +35,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -59,11 +56,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -82,11 +77,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -104,13 +97,10 @@
       "issue_kind": "meta",
       "atag": {
         "is_atag": true,
-        "parts": [
-          "A",
-          "B"
-        ],
+        "parts": [],
         "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+atag-meta-tracker",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -129,11 +119,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -152,11 +140,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -175,11 +161,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -198,11 +182,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -221,11 +203,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -244,11 +224,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -267,11 +245,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -290,11 +266,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -313,11 +287,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -336,12 +308,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -360,12 +329,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -384,12 +350,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -429,11 +392,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -452,11 +413,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -496,12 +455,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -541,12 +497,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -565,11 +518,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -588,11 +539,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -611,11 +560,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -634,12 +581,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -658,12 +602,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -682,11 +623,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -705,11 +644,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -749,11 +686,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -765,5 +700,5 @@
   ],
   "review_status": "unreviewed",
   "notes": "ATAG is separate from WCAG/OpenACR. No ATAG conformance values are populated.",
-  "evidence_digest": "c21a33aff7d86378858e86b3310acb00043a3c50cfddbe485c76aa0189ddceb0"
+  "evidence_digest": "580c87d4c561b40cd7ec343a5c8c0071a411f8527574412ab7dcf25ebc81b848"
 }

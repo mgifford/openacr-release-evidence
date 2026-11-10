@@ -98,8 +98,9 @@ overrides for mixed components such as `taxonomy.module` or `javascript`. All `/
 issue queue, never remove the draft disclaimer.
 
 ATAG evidence is separate from WCAG/OpenACR. The `atag` tag marks a reported
-authoring-tool issue, not an ATAG result. Do not turn component candidates into
-Part A/B determinations, do not populate ATAG results automatically, and do not
+authoring-tool issue, not an ATAG result. Do not infer Part A/B from a component
+name or issue title: only an explicit ATAG Part tag or a documented human-reviewed
+mapping may assign a Part. Do not populate ATAG results automatically, and do not
 inherit ATAG conclusions into OpenACR (or the reverse). The WAI ATAG Report Tool
 JSON must keep every criterion `Not checked` until a human reviewer edits it.
 

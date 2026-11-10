@@ -41,25 +41,32 @@ convention, add it to `src/acr_evidence/atag.py` and a test.
 ## Classification order
 
 1. Explicit Part A/B tags.
-2. Curated `config/atag-scope.json` entries for particular issue IDs.
-3. Component candidate mapping in
-   `src/acr_evidence/standards/atag/component-scope.json` (for example
-   `ckeditor.module` → Part A+B, `filter.module` → Part B, `toolbar` → Part A).
-4. `ATAG-tagged, part not specified`.
+2. A reviewed `config/atag-scope.json` entry for a specific issue ID.
+3. `ATAG-tagged; Part A/B not specified`.
+
+There is **no component-based Part A/B inference**. A component such as CKEditor,
+Views or the toolbar does not establish whether an issue is Part A or Part B.
+The generic `atag` tag establishes only that the issue is ATAG-relevant.
 
 `[meta]` tracker issues are kept separate: they are useful navigation, but they
-are not counted as Part A/B bug evidence.
-
-Component candidates are **triage hints**, not evidence that a criterion is met
-or failed. They are labelled as candidates and remain `needs-triage`.
+are not counted as Part A/B bug evidence. The default scope file is empty until
+a human documents a Part assignment.
 
 ## Report
 
-Current snapshot: 32 active ATAG-tagged issues, 6 meta/tracker issues, 8 Part A
-component candidates, 20 Part B component candidates (overlapping), 4
-unspecified, 0 explicit Part A/B issue tags and 0 missing Accessibility tags.
-The meta tracker `2034909` is mapped to both parts in `config/atag-scope.json`
-but is excluded from the bug counts.
+Current snapshot: 32 active ATAG-tagged issues, 6 meta/tracker issues, 0 explicit
+Part A issue tags, 0 explicit Part B issue tags, 26 unspecified non-meta issues
+and 0 missing Accessibility tags.
+
+`reports/drupal-core-atag/` contains:
+
+- `index.html` — static, no-JavaScript ATAG evidence report with explicit
+  Part A/Part B sections, an unassigned section, data-quality findings and
+  limitations.
+- `atag-evidence.json` — machine-readable issue/part classification; no
+  candidate Part fields.
+- `atag-report.json` — WAI ATAG Report Tool JSON draft.
+- `report.css`.
 
 `reports/drupal-core-atag/` contains:
 
@@ -87,7 +94,8 @@ results and observations criterion by criterion, and exports the final ATAG
 report from the tool.
 
 Import was verified on 2026-11-07 in the live
-[WAI ATAG Report Tool](https://www.w3.org/WAI/atag/report-tool/): the draft name,
+[WAI ATAG Report Tool](https://www.w3.org/WAI/atag/report-tool/). The tool source
+is <https://github.com/w3c/wai-atag-report-tool>. In that verification: the draft name,
 website, evaluation ID and placeholder evaluator loaded, and the report page
 showed **0 of 52 Level A/AA criteria reported** with all 52 **Not checked**
 (AAA criteria are outside the AA summary). Export and sign-off remain human
@@ -121,9 +129,10 @@ conclusions into a WCAG conformance value.
 
 ## Limitations
 
-- The queue currently uses a generic `atag` tag; most issues are component
-  candidates or unspecified until Part A/B tags or curated mappings are added.
-- The component mapping is editorial triage, not a conformance determination.
+- The queue currently uses a generic `atag` tag; most issues are unassigned
+  until explicit Part A/B tags or reviewed mappings are added.
+- No Part A/B assignment is inferred from a component name or issue title.
+- An unassigned issue is not evidence that a criterion is met or failed.
 - No ATAG evaluation or assistive-technology testing was performed.
 - ATAG behaviour can differ between releases; reproduce on the installed target.
 - Import into the live WAI ATAG Report Tool was verified; human editing, export and sign-off were not performed.
