@@ -394,17 +394,10 @@ def validate_ai_output(text, facts):
     return True, "ok"
 
 
-def summarize_with_huggingface(facts, model, provider=None, endpoint=None, token=None, client_factory=None, context=None):
+def summarize_with_huggingface(facts, model, provider=None, endpoint=None, token=None, client_factory=None, context=None, account_id=None, ai_provider=None):
     endpoint = endpoint or None
-    # An empty HF_ENDPOINT environment variable overrides huggingface_hub's
-    # default with an empty base URL, producing `/api/models/...` URLs.
     if not os.environ.get("HF_ENDPOINT"):
         os.environ.pop("HF_ENDPOINT", None)
-    token = token or os.environ.get("HF_TOKEN")
-    if not token:
-        raise SummarizerError("HF_TOKEN is not configured")
-    if not model:
-        raise SummarizerError("HF_MODEL is not configured")
     prompt = json.dumps(facts, ensure_ascii=False, sort_keys=True)
     system = SYSTEM_PROMPT
     if context:
@@ -418,19 +411,40 @@ def summarize_with_huggingface(facts, model, provider=None, endpoint=None, token
         {"role": "system", "content": system},
         {"role": "user", "content": prompt},
     ]
-    if client_factory:
-        client = client_factory(model=model, provider=provider, token=token, base_url=endpoint)
+    if ai_provider == "cloudflare":
+        token = token or os.environ.get("CLOUDFLARE_API_TOKEN")
+        account_id = account_id or os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+        if not token or not account_id:
+            raise SummarizerError("CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID are required")
+        if not model:
+            raise SummarizerError("CLOUDFLARE_MODEL is not configured")
+        from .ai import CloudflareChatClient
+        if client_factory:
+            client = client_factory(
+                model=model, provider="cloudflare", token=token,
+                base_url=endpoint, account_id=account_id,
+            )
+        else:
+            client = CloudflareChatClient(account_id, token, model, base_url=endpoint)
     else:
-        try:
-            from huggingface_hub import InferenceClient
-        except ImportError as exc:
-            raise SummarizerError("Install the summaries extra: pip install -e '.[summaries]'") from exc
-        kwargs = {"token": token, "model": model}
-        if provider:
-            kwargs["provider"] = provider
-        if endpoint:
-            kwargs["base_url"] = endpoint
-        client = InferenceClient(**kwargs)
+        token = token or os.environ.get("HF_TOKEN")
+        if not token:
+            raise SummarizerError("HF_TOKEN is not configured")
+        if not model:
+            raise SummarizerError("HF_MODEL is not configured")
+        if client_factory:
+            client = client_factory(model=model, provider=provider, token=token, base_url=endpoint)
+        else:
+            try:
+                from huggingface_hub import InferenceClient
+            except ImportError as exc:
+                raise SummarizerError("Install the summaries extra: pip install -e '.[summaries]'") from exc
+            kwargs = {"token": token, "model": model}
+            if provider:
+                kwargs["provider"] = provider
+            if endpoint:
+                kwargs["base_url"] = endpoint
+            client = InferenceClient(**kwargs)
     response = client.chat_completion(
         messages=messages,
         max_tokens=700,
@@ -440,12 +454,7 @@ def summarize_with_huggingface(facts, model, provider=None, endpoint=None, token
     try:
         return response.choices[0].message.content or ""
     except (AttributeError, IndexError, TypeError) as exc:
-        raise SummarizerError("Unexpected Hugging Face response shape") from exc
-
-
-def _hash_json(value):
-    return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()
-
+        raise SummarizerError("Unexpected model response shape") from exc
 
 def _hash_text(value):
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
@@ -656,15 +665,22 @@ def generate_weekly(current_collection, previous_collection=None, reports="repor
     status = "disabled"
     error = None
     changed_count = facts["activity"]["changed_count"]
-    if provider == "huggingface" and changed_count == 0:
+    if provider in {"huggingface", "cloudflare"} and changed_count == 0:
         status = "skipped"
         error = "No changed issues in this snapshot; the model was not called."
-    elif provider == "huggingface":
+    elif provider in {"huggingface", "cloudflare"}:
         try:
             ai_text = summarize_with_huggingface(
                 ai_facts, model=model, provider=provider_name, endpoint=endpoint,
-                token=token or os.environ.get("HF_TOKEN"), client_factory=client_factory,
+                token=token or (
+                    os.environ.get("CLOUDFLARE_API_TOKEN")
+                    if provider == "cloudflare"
+                    else os.environ.get("HF_TOKEN")
+                ),
+                client_factory=client_factory,
                 context=context_text,
+                account_id=os.environ.get("CLOUDFLARE_ACCOUNT_ID"),
+                ai_provider=provider,
             )
             ai_text = re.sub(r"<[^>]+>", "", ai_text).strip()
             valid, reason = validate_ai_output(ai_text, ai_facts)

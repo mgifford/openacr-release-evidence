@@ -158,7 +158,8 @@ the matching context to the weekly model and record its hash; never merge one
 product's context or conformance result into another's.
 
 Optional ACR criterion summaries are model-assisted drafts cached by issue-content
-hash. Only accepted, validated summaries may be used; rejected or failed output
+hash. Hugging Face is the default; Cloudflare Workers AI is an opt-in comparison/
+fallback provider with separate credentials and output cache. Only accepted, validated summaries may be used; rejected or failed output
 falls back to deterministic issue-title text. They never replace issue references
 or human review.
 

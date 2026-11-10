@@ -41,6 +41,13 @@ Use a different context file for Drupal CMS, LocalGov Drupal or CKEditor:
 
 Context changes are recorded as `context_sha256` in the provenance file.
 
+## Cloudflare comparison
+
+Cloudflare Workers AI can be used as an optional alternative/comparison provider.
+See [Cloudflare summaries](CLOUDFLARE-SUMMARIES.md). It is not enabled by default
+and uses a separate cache/output path so the primary Hugging Face result is not
+overwritten.
+
 ## Optional per-criterion barrier summaries
 
 The weekly workflow can also generate short Web and Authoring Tool barrier

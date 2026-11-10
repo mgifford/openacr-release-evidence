@@ -88,6 +88,17 @@ class CriterionSummaryTests(unittest.TestCase):
             )
             self.assertEqual("accepted", result["criteria"]["1.1.1"]["status"])
 
+    def test_cloudflare_provider_uses_client(self):
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / "acr-summaries-cloudflare.json"
+            result = summarize_collection(
+                collection(), output, provider="cloudflare",
+                model="@cf/meta/llama-3.1-8b-instruct", token="test",
+                account_id="account123", client_factory=lambda **kwargs: Client(),
+            )
+            self.assertEqual("accepted", result["criteria"]["1.1.1"]["status"])
+            self.assertEqual("cloudflare", result["criteria"]["1.1.1"]["provider"])
+
     def test_barrier_words_are_allowed(self):
         class BarrierClient:
             def chat_completion(self, **kwargs):

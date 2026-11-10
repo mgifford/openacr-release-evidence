@@ -153,7 +153,7 @@ def main(argv=None):
     weekly.add_argument("--reports", default="reports")
     weekly.add_argument("--previous-reports", default=None)
     weekly.add_argument("--output", default="reports/weekly")
-    weekly.add_argument("--provider", choices=["none", "huggingface"], default="none")
+    weekly.add_argument("--provider", choices=["none", "huggingface", "cloudflare"], default="none")
     weekly.add_argument("--model", default=None)
     weekly.add_argument("--provider-name", default=None)
     weekly.add_argument("--endpoint", default=None)
@@ -163,7 +163,7 @@ def main(argv=None):
     criteria = sub.add_parser("criterion-summaries", help="Generate optional AI barrier summaries for ACR criteria")
     criteria.add_argument("--collection", required=True)
     criteria.add_argument("--output", default="reports/acr-summaries.json")
-    criteria.add_argument("--provider", choices=["none", "huggingface"], default="none")
+    criteria.add_argument("--provider", choices=["none", "huggingface", "cloudflare"], default="none")
     criteria.add_argument("--model", default=None)
     criteria.add_argument("--provider-name", default=None)
     criteria.add_argument("--endpoint", default=None)
@@ -314,7 +314,11 @@ def main(argv=None):
                 load_json(args.collection), args.output,
                 provider=args.provider, model=args.model,
                 provider_name=args.provider_name, endpoint=args.endpoint,
-                token=os.environ.get("HF_TOKEN"),
+                token=(
+                    os.environ.get("CLOUDFLARE_API_TOKEN")
+                    if args.provider == "cloudflare"
+                    else os.environ.get("HF_TOKEN")
+                ),
             )
             accepted = sum(1 for item in result["criteria"].values() if item.get("status") == "accepted")
             print(f"Wrote {len(result['criteria'])} criterion summaries to {args.output} ({accepted} accepted).")
