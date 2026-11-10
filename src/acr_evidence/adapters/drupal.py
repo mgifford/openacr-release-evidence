@@ -12,6 +12,8 @@ from .http import fetch_json
 # additional projects explicitly when their IDs are confirmed; do not guess.
 KNOWN_PROJECT_IDS = {
     "drupal": "3060",
+    "drupal_cms": "3466967",
+    "localgov": "3154243",
 }
 
 
