@@ -8,9 +8,9 @@
     "ref_label": "branch main",
     "tag": null,
     "branch": "main",
-    "tag_commit": "abb6fd19c230ab4300cbc78a038909c54f8ac2e1",
-    "tag_commit_short": "abb6fd19",
-    "tag_date": "2026-11-09T17:52:03.000+00:00",
+    "tag_commit": "7312a1251af9c7a2e7b19f1f85afc3382dca4a32",
+    "tag_commit_short": "7312a125",
+    "tag_date": "2026-11-10T13:51:07.000+00:00",
     "support_status": "development",
     "release_line": "main",
     "parent_project": null,
@@ -106,25 +106,25 @@
     }
   },
   "summary": {
-    "findings": 430,
+    "findings": 432,
     "by_applicability": {
-      "likely-affected": 32,
-      "unknown": 398
+      "likely-affected": 38,
+      "unknown": 394
     },
     "by_workflow": {
-      "needs-review": 15,
-      "needs-work": 174,
-      "open": 236,
-      "rtbc": 5
+      "needs-review": 18,
+      "needs-work": 173,
+      "open": 234,
+      "rtbc": 7
     },
     "by_evidence_status": {
-      "full": 32,
-      "inventory": 398
+      "full": 38,
+      "inventory": 394
     },
     "fix_included_in_target": 0,
     "fix_included_in_release": 0,
-    "needs_verification": 430,
-    "unmapped_criteria": 235,
+    "needs_verification": 432,
+    "unmapped_criteria": 236,
     "criteria": [
       "1.1.1",
       "1.2.2",
@@ -137,12 +137,11 @@
       "1.4.11",
       "1.4.12",
       "1.4.13",
+      "1.4.3",
       "1.4.4",
       "2.1.1",
       "2.1.2",
       "2.1.4",
-      "2.2.2",
-      "2.3.1",
       "2.4.1",
       "2.4.11",
       "2.4.13",
@@ -173,12 +172,12 @@
       "branches": [
         "main"
       ],
-      "since": "2026-05-13T17:52:03Z",
-      "commits": 768,
-      "retrieved_at": "2026-11-09T18:43:19+00:00"
+      "since": "2026-05-14T13:51:07Z",
+      "commits": 774,
+      "retrieved_at": "2026-11-10T16:37:25Z"
     }
   },
-  "generated_at": "2026-11-09T21:09:49Z",
-  "evidence_digest": "d6f37d406998c5b5366dfd8168293dccf6b0cd39237de44ec551bfef3aa8fae0",
+  "generated_at": "2026-11-10T16:37:25Z",
+  "evidence_digest": "13c9737388d51c51101883f7edc0611f219b61567e2d8e8c60dabce5c3245ee6",
   "manifest_digest": "8b29349cd220d8aef660f667fade5a117e90f398386f114e3f52ddcc01818d05"
 }
