@@ -12,6 +12,13 @@ header{border-bottom:2px solid CanvasText;padding:2rem 0 1.25rem}
 h1{line-height:1.12;font-size:clamp(1.9rem,4vw,3rem);margin:.25rem 0 .7rem;max-width:56rem}
 h2{font-size:clamp(1.35rem,2.2vw,1.65rem);margin-top:2.75rem;border-bottom:1px solid ButtonBorder;padding-bottom:.35rem}
 h3{font-size:1.15rem;margin-top:1.75rem}
+.heading-with-anchor{display:flex;align-items:baseline;gap:.45rem;flex-wrap:wrap}
+.heading-with-anchor h2,.heading-with-anchor h3{margin-block-end:.35rem}
+.permalink{display:inline-flex;align-items:center;justify-content:center;min-inline-size:1.75rem;min-block-size:1.75rem;font-size:.9em;font-weight:700;text-decoration:none;padding:.15rem;border:1px solid transparent;border-radius:.2rem}
+.permalink:hover{text-decoration:underline}
+.permalink:focus-visible{outline:3px solid Highlight;outline-offset:2px;border-color:CanvasText}
+h2[id],h3[id],tr[id]{scroll-margin-block-start:1rem}
+tr[id]:target{outline:3px solid Highlight;outline-offset:-3px}
 h4{font-size:1rem;margin:1rem 0 .35rem}
 .eyebrow{text-transform:uppercase;letter-spacing:.1em;font-weight:750;font-size:.78rem;margin:0;color:CanvasText}
 .lede{font-size:1.1rem;max-width:62rem}
@@ -33,7 +40,9 @@ nav ul{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem;padding-inline-start:1.1rem
 nav a{padding:.15rem 0}
 .section-nav{margin:1rem 0 1.5rem;padding:.7rem 1rem;border:1px solid ButtonBorder;background:Canvas}
 .section-nav h2{font-size:1rem;margin:0 0 .3rem;border:0;padding:0}
-.section-nav ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.3rem 1.25rem;margin:.2rem 0;padding:0;list-style:none}
+.section-nav>ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.3rem 1.25rem;margin:.2rem 0;padding:0;list-style:none}
+.section-nav ol ol{display:block;margin:.2rem 0 .35rem 1rem;padding:0;list-style:disc;font-size:.92rem}
+.section-nav ol ol li{margin:.1rem 0}
 .report-actions{margin:1rem 0 1.5rem;padding:.75rem 1rem;border:1px solid ButtonBorder;background:Canvas}
 .report-actions h2{font-size:1rem;margin:0 0 .35rem;border:0;padding:0}
 .report-actions ul{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;list-style:none;padding:0;margin:0}
@@ -51,8 +60,9 @@ li{margin:.35rem 0}
 .facts dt{font-weight:650}
 .facts dd{margin:0;min-width:0}
 table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:.94rem}
-caption{text-align:start;font-weight:650;padding:.35rem 0 .6rem}
+caption{text-align:start;font-weight:650;padding:1rem .4rem .95rem}
 th,td{border:1px solid ButtonBorder;padding:.45rem .55rem;text-align:start;vertical-align:top}
+th{overflow-wrap:normal;word-break:normal;hyphens:none}
 thead th{background:Canvas;font-weight:750}
 tbody th{font-weight:650}
 .finding-list{list-style:disc}
