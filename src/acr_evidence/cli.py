@@ -21,6 +21,8 @@ from .acr_narrative import render_acr_narrative
 from .release import analyze_collection
 from .report import render_landing, render_report
 from .adapters.drupal import fetch_issues as fetch_drupal
+from .adapters.drupal import find_issues as find_drupal_issues
+from .release_ledger import collect_and_build_ledger
 from .adapters.drupalorg_cli import collect_issue, collect_releases, save_private_snapshot
 
 
@@ -141,6 +143,17 @@ def main(argv=None):
     multi.add_argument("--cache-dir", default=".cache/acr-evidence")
     multi.add_argument("--refresh", action="store_true")
 
+    ledger = sub.add_parser("release-ledger", help="Build the separate closed-fixed release transition ledger")
+    ledger.add_argument("--project", default="drupal")
+    ledger.add_argument("--project-id", default=None)
+    ledger.add_argument("--tag-tid", default="1101")
+    ledger.add_argument("--since", default=None)
+    ledger.add_argument("--targets", default="config/drupal-core-targets.json")
+    ledger.add_argument("--release-changes", default="config/release-changes.json")
+    ledger.add_argument("--output", default="reports/release-ledger.json")
+    ledger.add_argument("--cache-dir", default=".cache/acr-evidence")
+    ledger.add_argument("--refresh", action="store_true")
+
     atag = sub.add_parser("atag-report", help="Render ATAG 2.0 authoring evidence and a WAI ATAG Report Tool JSON draft")
     atag.add_argument("--collection", required=True)
     atag.add_argument("--output", required=True)
@@ -153,7 +166,7 @@ def main(argv=None):
     weekly.add_argument("--reports", default="reports")
     weekly.add_argument("--previous-reports", default=None)
     weekly.add_argument("--output", default="reports/weekly")
-    weekly.add_argument("--provider", choices=["none", "huggingface"], default="none")
+    weekly.add_argument("--provider", choices=["none", "huggingface", "cloudflare"], default="none")
     weekly.add_argument("--model", default=None)
     weekly.add_argument("--provider-name", default=None)
     weekly.add_argument("--endpoint", default=None)
@@ -163,7 +176,7 @@ def main(argv=None):
     criteria = sub.add_parser("criterion-summaries", help="Generate optional AI barrier summaries for ACR criteria")
     criteria.add_argument("--collection", required=True)
     criteria.add_argument("--output", default="reports/acr-summaries.json")
-    criteria.add_argument("--provider", choices=["none", "huggingface"], default="none")
+    criteria.add_argument("--provider", choices=["none", "huggingface", "cloudflare"], default="none")
     criteria.add_argument("--model", default=None)
     criteria.add_argument("--provider-name", default=None)
     criteria.add_argument("--endpoint", default=None)
@@ -298,6 +311,17 @@ def main(argv=None):
                 f'{summary["fix_included_in_target"]} fixes in target'
             )
         print(f"Wrote {len(analyses)} reports and the cross-target matrix to {output}/index.html")
+    elif args.command == "release-ledger":
+        targets = load_json(args.targets)
+        release_changes = load_json(args.release_changes) if Path(args.release_changes).exists() else {}
+        ledger = collect_and_build_ledger(
+            find_drupal_issues, args.project, args.project_id, targets, release_changes,
+            args.output, tag_tid=args.tag_tid, since=args.since,
+            cache_dir=args.cache_dir, refresh=args.refresh,
+        )
+        summary = ledger["summary"]
+        print(f"Wrote {summary['issues']} closed-fixed transition records to {args.output} "
+              f"({summary.get('included', 0)} included in at least one target)")
     elif args.command == "atag-report":
         scope = load_scope(args.scope) if args.scope else None
         result = render_atag_report(load_json(args.collection), args.output, scope=scope)
@@ -314,7 +338,11 @@ def main(argv=None):
                 load_json(args.collection), args.output,
                 provider=args.provider, model=args.model,
                 provider_name=args.provider_name, endpoint=args.endpoint,
-                token=os.environ.get("HF_TOKEN"),
+                token=(
+                    os.environ.get("CLOUDFLARE_API_TOKEN")
+                    if args.provider == "cloudflare"
+                    else os.environ.get("HF_TOKEN")
+                ),
             )
             accepted = sum(1 for item in result["criteria"].values() if item.get("status") == "accepted")
             print(f"Wrote {len(result['criteria'])} criterion summaries to {args.output} ({accepted} accepted).")

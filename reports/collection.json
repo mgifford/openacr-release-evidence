@@ -106,7 +106,7 @@
       "detail_limit": 30
     }
   },
-  "generated_at": "2026-11-10T16:29:25Z",
+  "generated_at": "2026-11-10T17:42:15Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -27599,7 +27599,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2023-03-16T18:09:09+00:00",
-      "updated_at": "2026-11-09T18:56:43+00:00",
+      "updated_at": "2026-11-10T17:16:01+00:00",
       "component": "theme system",
       "version": "main",
       "priority": "Normal",
@@ -28601,6 +28601,18 @@
           "body_text": "Turns out the grouping announcement, adding the two additional steps in the voiceover stepper, is caused by the use of the aria-label attribute. I've realized that after @kentr sent me again a link to a gov.uk example at https://design-system.service.gov.uk/components/pagination/for-list-pages/... So they get just the ellipsis announced without any additional context. That made me thinking. I previously held back my thoughts about the proposed label Ellipsis indicating non-visible pages cuz i dont wanted to bikeshed and hold this issue back any further. but i think \"indicating non-visible pages\" might be ambiguous and potentially confusing cuz you dont know what the statement \"non visible pages\" refers to and what the implications are. are those pages unpublished or not accessible via the menu? i mean it is nitpicky. but still it is not necessarily clear. So I wonder about the following two options.\na) remove the aria label attribute and make this issue only about removing the role=\"representation\" attribute.\nb) if the label should be kept, instead of using an aria-label attribute it could be replaced with a visually hidden text. that would avoid the problems with the grouping in for example voice over. and in regard of the wording i could raise the string in one of the next ux meetings on friday.",
           "machine_generated": false,
           "content_hash": "e63fceeb78c275b896282ce212f679764e739b6b17eacdff09dfc5931c0d3450"
+        },
+        {
+          "id": "16836899",
+          "url": "https://www.drupal.org/node/3348552#comment-16836899",
+          "author": "cwilcox808",
+          "author_id": "3747828",
+          "author_url": "https://www.drupal.org/user/3747828",
+          "created_at": "2026-11-10T17:16:01Z",
+          "body_html": "<p>I agree with removing <code class=\"language-php\">role=\"presentation\"</code> and not adding a name to the list items, leaving questions about whether the ellipsis as list item content is understood for another time.</p>",
+          "body_text": "I agree with removing role=\"presentation\" and not adding a name to the list items, leaving questions about whether the ellipsis as list item content is understood for another time.",
+          "machine_generated": false,
+          "content_hash": "eef876a2271354fa1429b3e67235b305e102b7fda008d648f85d32a23a96490a"
         }
       ],
       "merge_requests": [
@@ -28641,10 +28653,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:30:21Z",
+        "retrieved_at": "2026-11-10T17:42:40Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
-        "content_hash": "2682b753685cae86639849eedff890396f5ea8ce2bdade02d61f8971c1c69bd0",
-        "raw_ref": "private-evidence/raw/3348552-20261110T163021Z.json"
+        "content_hash": "e41472555e71496d405a7c7accbabb360424da370e170ddf70dd3b8c299245a6",
+        "raw_ref": "private-evidence/raw/3348552-20261110T174240Z.json"
       }
     },
     {
@@ -41310,10 +41322,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:29:56Z",
+        "retrieved_at": "2026-11-10T17:42:46Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
         "content_hash": "475d2abb59a4ababeef79b4167bcc56000a26756a819e4b90b3b81b367f2305e",
-        "raw_ref": "private-evidence/raw/3619154-20261110T162956Z.json"
+        "raw_ref": "private-evidence/raw/3619154-20261110T174246Z.json"
       }
     },
     {
@@ -44926,17 +44938,17 @@
   ],
   "summary": {
     "requested": 432,
-    "retrieved_at": "2026-11-10T16:30:55Z",
+    "retrieved_at": "2026-11-10T17:42:46Z",
     "collected": 432,
     "cached": 0,
-    "reused": 419,
-    "fetched": 13,
+    "reused": 430,
+    "fetched": 2,
     "failed": 0,
     "with_merge_requests": 33,
     "with_wcag_tags": 196,
     "detailed": 38,
     "inventory": 394,
-    "excluded_by_status": 37,
+    "excluded_by_status": 48,
     "statuses": [
       1,
       8,
@@ -44944,7 +44956,7 @@
       14,
       15
     ],
-    "comments": 1720,
+    "comments": 1721,
     "by_workflow": {
       "needs-review": 18,
       "needs-work": 173,
@@ -44961,5 +44973,5 @@
   },
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641",
   "digest_scope": "sha256 over this artifact excluding generated_at and evidence_digest",
-  "evidence_digest": "c5e1a9cbac8fe17285a4deec7e54f361d434bba20b9b152fe5abf13ada3d0dfa"
+  "evidence_digest": "f77e352a57d98c74c0dc5c1365e106a7c429d91f4688f68f6191a7cea7ec0bd1"
 }
