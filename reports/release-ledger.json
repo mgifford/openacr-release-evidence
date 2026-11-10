@@ -2,8 +2,8 @@
   "schema_version": "0.2.0",
   "artifact_type": "drupal-release-transition-ledger",
   "disclaimer": "Closed-fixed issue ledger only. It does not change active-issue ACR results.",
-  "generated_at": "2026-11-10T17:10:40Z",
-  "since": "2026-05-14T17:09:31Z",
+  "generated_at": "2026-11-10T17:47:17Z",
+  "since": "2026-05-14T17:46:25Z",
   "target_order": [
     "drupal-core-10.6.21",
     "drupal-core-11.4.12",
