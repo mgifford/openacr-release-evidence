@@ -56,6 +56,13 @@ The narrative does **not** claim:
      **Examples:** otherwise;
    - the **All issue references** link is omitted when every issue is already
      shown in the examples.
+- Every section heading has a visible `#` permalink with a descriptive
+  accessible name; the “On this page” navigation also lists subsection headings.
+- Every WCAG criterion row has a stable `#criterion-x-y-z` target and a local
+  permalink, so a long report can be linked at the criterion level.
+- Anchors use native fragment navigation, `scroll-margin`, and the existing
+  skip link. No SkipTo JavaScript is required or published; the static heading
+  index provides the same section/heading jump function without client scripts.
    - issue-tagged criteria use draft `Partially Supports`; untagged criteria
      remain `Not Evaluated`.
 8. **AAA table** — outside the declared AA target; issue-tagged criteria use the

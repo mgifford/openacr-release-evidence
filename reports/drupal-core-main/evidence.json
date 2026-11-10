@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Development branch. Findings are not release claims and can change at any commit. Default Admin is the default theme; Claro and Olivero are contributed projects."
   },
-  "generated_at": "2026-11-10T18:17:20Z",
+  "generated_at": "2026-11-10T18:26:21Z",
   "collection": {
     "query": {
       "project": "drupal",

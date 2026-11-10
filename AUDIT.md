@@ -303,3 +303,13 @@ A generic `atag` tag establishes ATAG relevance only. Part A/B requires an expli
 tag or a documented, reviewed `config/atag-scope.json` entry. The previous
 component-scope heuristic was removed, and the guessed meta-tracker mapping was
 cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.
+
+## ACR formatting and anchors (2026-11-10)
+
+- Table headers use normal word wrapping so a narrow column cannot split
+  “Component” into a single trailing letter.
+- Table captions have explicit vertical padding.
+- Section headings and WCAG criterion rows have native fragment permalinks.
+- The “On this page” navigation includes subsection headings.
+- No SkipTo JavaScript was added; the static heading index preserves the
+  no-JavaScript requirement.

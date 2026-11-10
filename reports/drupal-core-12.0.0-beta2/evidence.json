@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Pre-release beta. Default Admin is the default and admin theme; Claro and Olivero are no longer core themes. Not a supported release."
   },
-  "generated_at": "2026-11-10T18:17:20Z",
+  "generated_at": "2026-11-10T18:26:20Z",
   "collection": {
     "query": {
       "project": "drupal",

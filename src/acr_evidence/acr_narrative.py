@@ -110,6 +110,24 @@ class BulletList:
         self.items = list(items)
 
 
+class Permalink:
+    """A visible # link with a descriptive name for its heading or row."""
+
+    def __init__(self, label, url):
+        self.label = label
+        self.url = url
+
+
+def _heading_with_permalink(level, text, heading_id):
+    label = "Permalink to " + str(text)
+    return (
+        f'<div class="heading-with-anchor"><h{level} id="{escape(heading_id)}">{escape(text)}</h{level}>'
+        f'<a class="permalink" href="#{escape(heading_id)}">'
+        f'<span aria-hidden="true">#</span>'
+        f'<span class="visually-hidden">{escape(label)}</span></a></div>'
+    )
+
+
 class Doc:
     def __init__(self, title, description):
         self.title = title
@@ -137,8 +155,8 @@ class Doc:
     def links(self, items):
         self.blocks.append(("links", list(items)))
 
-    def table(self, caption, headers, rows, css_class=None):
-        self.blocks.append(("table", (caption, list(headers), [list(row) for row in rows], css_class)))
+    def table(self, caption, headers, rows, css_class=None, row_ids=None):
+        self.blocks.append(("table", (caption, list(headers), [list(row) for row in rows], css_class, list(row_ids) if row_ids else None)))
 
     def markdown(self):
         out = [f"# {self.title}", "", f"_{self.description}_", ""]
@@ -159,7 +177,7 @@ class Doc:
             elif kind == "links":
                 out.extend([f"- [{label}]({url})" if url else f"- {label}" for label, url in value] + [""])
             elif kind == "table":
-                caption, headers, rows, _css_class = value
+                caption, headers, rows, _css_class, _row_ids = value
                 out.extend([f"**{caption}**", ""])
                 out.append("| " + " | ".join(_md(head) for head in headers) + " |")
                 out.append("|" + "|".join(" --- " for _ in headers) + "|")
@@ -169,14 +187,22 @@ class Doc:
         return "\n".join(out).rstrip() + "\n"
 
     def html(self):
-        headings = [value for kind, value in self.blocks if kind == "h2"]
         used = {}
-        heading_ids = []
-        for heading in headings:
-            base = _slug(heading)
+        heading_ids = {}
+        for index, (kind, value) in enumerate(self.blocks):
+            if kind in {"h2", "h3"}:
+                base = _slug(value)
+            elif kind == "heading":
+                base = value[1]
+            else:
+                continue
             count = used.get(base, 0)
             used[base] = count + 1
-            heading_ids.append(base if count == 0 else f"{base}-{count + 1}")
+            heading_ids[index] = base if count == 0 else f"{base}-{count + 1}"
+        h2_indexes = [
+            index for index, (kind, _value) in enumerate(self.blocks)
+            if kind == "h2"
+        ]
         parts = [
             "<!doctype html>",
             '<html lang="en">',
@@ -201,29 +227,42 @@ class Doc:
             "</header>",
             '<nav class="section-nav" aria-label="ACR sections"><h2>On this page</h2><ol>',
         ]
-        for heading, heading_id in zip(headings, heading_ids):
-            parts.append(f'<li><a href="#{heading_id}">{escape(heading)}</a></li>')
+        nav_groups = []
+        current_group = None
+        for index, (kind, value) in enumerate(self.blocks):
+            if kind == "h2":
+                current_group = [index, []]
+                nav_groups.append(current_group)
+            elif kind in {"h3", "heading"} and current_group is not None:
+                current_group[1].append(index)
+        for index, children in nav_groups:
+            heading = self.blocks[index][1]
+            parts.append(f'<li><a href="#{heading_ids[index]}">{escape(heading)}</a>')
+            if children:
+                parts.append('<ol>')
+                for child in children:
+                    child_text = self.blocks[child][1][0] if self.blocks[child][0] == "heading" else self.blocks[child][1]
+                    parts.append(f'<li><a href="#{heading_ids[child]}">{escape(child_text)}</a></li>')
+                parts.append('</ol>')
+            parts.append('</li>')
         parts.extend([
             "</ol></nav>",
             '<main id="main" tabindex="-1">',
         ])
-        heading_index = 0
-        for kind, value in self.blocks:
+        for index, (kind, value) in enumerate(self.blocks):
             if kind == "h1":
                 parts.append(f"<h2>{escape(value)}</h2>")
             elif kind == "h2":
-                heading_id = heading_ids[heading_index]
-                heading_index += 1
-                parts.append(f'<h2 id="{heading_id}">{escape(value)}</h2>')
+                parts.append(_heading_with_permalink("2", value, heading_ids[index]))
             elif kind == "h3":
-                parts.append(f"<h3>{escape(value)}</h3>")
+                parts.append(_heading_with_permalink("3", value, heading_ids[index]))
             elif kind == "p":
                 parts.append(f"<p>{escape(value)}</p>")
             elif kind == "ul":
                 parts.append("<ul>" + "".join(f"<li>{escape(item)}</li>" for item in value) + "</ul>")
             elif kind == "heading":
-                text, anchor = value
-                parts.append(f'<h3 id="{escape(anchor)}">{escape(text)}</h3>')
+                text, _anchor = value
+                parts.append(_heading_with_permalink("3", text, heading_ids[index]))
             elif kind == "links":
                 items = []
                 for label, url in value:
@@ -233,13 +272,14 @@ class Doc:
                         items.append(f"<li>{escape(label)}</li>")
                 parts.append("<ul>" + "".join(items) + "</ul>")
             elif kind == "table":
-                caption, headers, rows, css_class = value
+                caption, headers, rows, css_class, row_ids = value
                 parts.append(f'<div class="table-scroll" tabindex="0" role="region" aria-label="{escape(caption)}">')
                 parts.append(f'<table class="{escape(css_class)}">' if css_class else "<table>")
                 parts.append(f"<caption>{escape(caption)}</caption>")
                 parts.append("<thead><tr>" + "".join(f'<th scope="col">{escape(head)}</th>' for head in headers) + "</tr></thead><tbody>")
-                for row in rows:
-                    parts.append("<tr>" + "".join(f"<td>{_html_cell(cell)}</td>" for cell in row) + "</tr>")
+                for index, row in enumerate(rows):
+                    row_id = f' id="{escape(row_ids[index])}"' if row_ids and index < len(row_ids) and row_ids[index] else ""
+                    parts.append(f"<tr{row_id}>" + "".join(f"<td>{_html_cell(cell)}</td>" for cell in row) + "</tr>")
                 parts.append("</tbody></table>")
                 parts.append("</div>")
         # Close any open section wrappers conservatively: use a flat main instead.
@@ -273,6 +313,10 @@ def _md(value):
                     else:
                         bullets.append(f"• {str(item).replace('|', '\\|')}")
                 rendered.append("<br>".join(bullets))
+            elif isinstance(part, Permalink):
+                rendered.append(f"[#]({part.url})")
+            elif isinstance(part, Cell):
+                rendered.append(_md(part))
             else:
                 rendered.append(str(part).replace("|", "\\|"))
         return " ".join(rendered).replace("\n", " ")
@@ -303,6 +347,14 @@ def _html_cell(value):
                     else:
                         rendered.append(f"<li>{escape(str(item))}</li>")
                 rendered.append("</ul>")
+            elif isinstance(part, Permalink):
+                rendered.append(
+                    f'<a class="permalink" href="{escape(part.url)}">'
+                    f'<span aria-hidden="true">#</span>'
+                    f'<span class="visually-hidden">{escape(part.label)}</span></a>'
+                )
+            elif isinstance(part, Cell):
+                rendered.append(_html_cell(part))
             else:
                 rendered.append(escape(str(part)))
         return "".join(rendered)
@@ -676,13 +728,20 @@ def render_acr_narrative(analysis, output_dir):
             continue
         doc.h2(f"WCAG 2.2 Level {level} criteria")
         rows = []
+        row_ids = []
         for criterion in chapter.get("criteria") or []:
             criterion_id = str(criterion.get("id"))
             items = by_criterion.get(criterion_id, [])
             alt_id = criterion.get("alt_id") or ""
             criterion_url = f"https://www.w3.org/TR/WCAG22/#{alt_id}" if alt_id else "https://www.w3.org/TR/WCAG22/"
+            row_id = f"criterion-{_slug(criterion_id)}"
+            row_ids.append(row_id)
             rows.append([
-                Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
+                RichCell(
+                    Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
+                    " ",
+                    Permalink(f"Permalink to criterion {criterion_id} {criterion.get('handle') or ''}", f"#{row_id}"),
+                ),
                 _levels_cell(criterion_id, items),
                 _remarks_cell(criterion_id, items, ai_summaries.get(criterion_id)),
             ])
@@ -691,6 +750,7 @@ def render_acr_narrative(analysis, output_dir):
             ["Criteria", "Conformance Level", "Remarks and Explanations"],
             rows,
             css_class="acr-table",
+            row_ids=row_ids,
         )
 
     doc.h2("Functional performance, hardware, software and support documentation")
