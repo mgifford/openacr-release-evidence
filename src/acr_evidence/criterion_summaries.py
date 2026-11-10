@@ -15,9 +15,11 @@ from .ai import CloudflareChatClient, CloudflareError
 
 PROMPT_VERSION = "acr-criterion-v2"
 MODEL_DEFAULT = "Qwen/Qwen2.5-7B-Instruct"
+# Barrier prose legitimately uses words such as "support", "fail" and
+# "resolved". Only reject explicit ACR/conformance claims.
 BANNED = re.compile(
-    r"\b(?:supports?|partially\s+supports?|does\s+not\s+support|conformant|"
-    r"compliant|compliance|pass(?:es|ed)?|fail(?:s|ed)?|fixed|resolved)\b|%",
+    r"\b(?:partially\s+supports?|does\s+not\s+support|conformant|"
+    r"compliant|compliance)\b|%",
     re.IGNORECASE,
 )
 ISSUE_ID = re.compile(r"drupal:\d+")

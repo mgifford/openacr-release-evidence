@@ -99,6 +99,28 @@ class CriterionSummaryTests(unittest.TestCase):
             self.assertEqual("accepted", result["criteria"]["1.1.1"]["status"])
             self.assertEqual("cloudflare", result["criteria"]["1.1.1"]["provider"])
 
+    def test_barrier_words_are_allowed(self):
+        class BarrierClient:
+            def chat_completion(self, **kwargs):
+                class Message:
+                    content = json.dumps({
+                        "web": "Users may fail to find the control, and support for decorative images is unclear.",
+                        "authoring": "Authors may not be able to set alt text.",
+                    })
+                class Choice:
+                    message = Message()
+                class Response:
+                    choices = [Choice()]
+                return Response()
+
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder) / "acr-summaries.json"
+            result = summarize_collection(
+                collection(), output, model="org/model", token="test",
+                client_factory=lambda **kwargs: BarrierClient(),
+            )
+            self.assertEqual("accepted", result["criteria"]["1.1.1"]["status"])
+
     def test_invalid_response_is_rejected(self):
         class BadClient:
             def chat_completion(self, **kwargs):

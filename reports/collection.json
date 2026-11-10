@@ -106,7 +106,7 @@
       "detail_limit": 30
     }
   },
-  "generated_at": "2026-11-09T02:53:18Z",
+  "generated_at": "2026-11-10T16:29:25Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -11722,41 +11722,805 @@
       "source_id": "2928103",
       "url": "https://www.drupal.org/project/drupal/issues/2928103",
       "title": "[policy, no patch] Use \"prefers-reduced-motion\" media query to disable animations",
-      "description_html": "",
-      "description_text": "",
+      "description_html": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>WCAG 2.1 introduces Success Criterion <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/animation-from-interactions.html\" rel=\"nofollow\">2.3.3 Animation from Interactions</a>, and using the <code class=\"language-php\">prefers-reduced-motion</code> media query is recognized as a sufficient technique to address it.  Notably, it's classed at level AAA, so it isn't a blocker for the Drupal core accessibility gate (which targets level AA).  However it looks <em>easy to address</em> using the <code class=\"language-php\">prefers-reduced-motion</code> media query, and being able to turn animations off <em>has a very high value for affected users</em> in several groups.</p>\n<p><strong>TODO:</strong> explain the problem better, background on vestibular disorders, etc.  Also the difficulty of assessing high-risk vs low-risk for individual designs.  Also benefits to users with some cognitive disabilities. Animations can be very unfriendly (\"too loud\") for people with autistic-spectrum disorders. People with attention difficulties can lose their focus when a notification grabs their attention. </p>\n<p><strong>TODO:</strong> Do we want to disallow or at least discourage autoplay if prefers-reduced-motion is set to reduce?</p>\n<p>A user preference in Windows, Android, macOS, iOS, and Windows (see #34) now have an OS-level user preference for turning animations off.  Safari already implements the CSS5 <code class=\"language-php\">prefers-reduced-motion</code> media query. </p>\n<p>Many of the browsers supported by Drupal core have implemented the <code class=\"language-php\">prefers-reduced-motion</code> media feature:</p>\n<ul>\n<li><a href=\"https://caniuse.com/#feat=prefers-reduced-motion\" rel=\"nofollow\">prefers-reduced-motion support (caniuse.com)</a></li>\n<li>Firefox</li>\n<li>Chrome</li>\n<li>Opera</li>\n<li>Safari</li>\n<li>Edge (as of version 76, Chromium-based)</li>\n</ul>\n<p>Browsers activate the <code class=\"language-php\">prefers-reduced-motion</code> media feature based on OS-level user preferences:</p>\n<ul>\n<li>Windows 11: <em>\"Animation effects\"</em></li>\n<li>Windows 10: <em>\"Show animations in Windows\"</em></li>\n<li>Windows 7: <em>\"Turn off all unnecessary animations (when possible)\"</em></li>\n<li>Android (9+): <em>\"Remove animations\"</em></li>\n<li>macOS, iOS: <em>\"Reduce motion\"</em></li>\n</ul>\n<p>Note that the name of the user preference varies by OS, and this sets user expectations. While the media query uses the term <em>\"reduce\"</em>, most operating system UIs present it in a way that means <em>\"remove\"</em>.</p>\n<p>iOS 13 additionally implements Prefer Cross-Fade Transitions, which replaces menu slide-ins with cross fades, as a separate preference.</p>\n<p>An article on the WebKit blog this summer,  <a href=\"https://webkit.org/blog/7551/responsive-design-for-motion/\" rel=\"nofollow\">Responsive Design for Motion</a>, breaks down different kinds of animation trigger for VIMS with video demonstrations of each one. This is the first easy guide I've seen about assessing animations. A demo page linked at the bottom of the article shows different ways to use the prefers-reduced-motion media query.</p>\n<p>An article on A List Apart, <a href=\"https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity\" rel=\"nofollow\">Designing Safer Web Animation For Motion Sensitivity</a> gives another good explanation of the issue. <b>Warning:</b> Two commenters on that article reports that they found the (stationary) illustration at the top of the article triggering as a simulation of the disorder. Also provides videos. </p>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Form guidelines for developers and designers, about how to use the <code class=\"language-php\">prefers-reduced-motion</code><br />\n media query effectively.</p>\n<p>MOOD: optimistic - animations are actually welcome, as they can help users understand what buttons actually do, make notifications noticable, indicate that a component is busy, and a bunch of other nice design benefits.  We aren't trying to hold designers back from using animation.</p>\n<p>We can frame this as an achievable DESIGN CONSTRAINT: you can use animations to enhance usability/understanding, but designs should not RELY on animation to convey important information, and designs must be understandable/operable when animations are disabled.  (This is following an established principle for use of colour; don't rely on colour alone to convey information/meaning.)</p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<ul>\n<li>Frame this as a policy which other contributors can follow.</li>\n<li>WCAG SC 2.3.3 \"Animations from interactions\" contains an exemption for animations which are deemed essential to understanding.  We should address this in the policy, because sooner or later someone will try to claim that exemption. Such essential animations are expected to be very rare.  Suggestion: using this exception should require explicit justification, followed by accessibility maintainer review + sign-off.</li>\n<li>A documentation page in the developer handbook.</li>\n<li>DONE. <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2940012\" title=\"Status: Closed (fixed)\">#2940012: Use prefers-reduced-motion media query on batch progress bar</a></span>. The batch API progress bar would make a good proof-of-concept demo for this plan.</li>\n<li>The little progress \"throbbers\" used by AJAX autocomplete lookups, etc, present a distinct challenge, see comments #25-29. Ideally, find a throbber design which will work without any animation.  Failing that, find a thobber design which will work without <em>motion</em>animation.  NEEDS CHILD ISSUE.</li>\n</ul>\n<h4>Core issues with animation (monitor these)</h4>\n<p>We don't have many animations in core (as of 8.4.0), but we are expecting some more animations in future.   In particular, the design mockups from the outside-in initiative show several large animations framing the whole page.  Open child issues to fix individual animations.  </p>\n<ul>\n<li><span class=\"project-issue-issue-link project-issue-status-info project-issue-status-13\"><a href=\"/project/drupal/issues/2940677\" title=\"Status: Needs work\">#2940677: Support prefers-reduced-motion in off-canvas dialog</a></span>. Off-canvas dialog has an animation where the tray slides in.</li>\n<li>Monitor the designs from various other core plans, in particular JS/Admin-UX and other site-builder experience initiatives.</li>\n<li>The proposed Workspaces UI designs look like it could present a HIGH-RISK animation.  They cover a large part of the screen, and use zooming and growing simultaneously.\n<ul>\n<li>Update: the drop-down tray in Workspace UI re-uses the off-canvas dialog, so this part of the design will presumably be fixed by <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-13\"><a href=\"/project/drupal/issues/2940677\" title=\"Status: Needs work\">#2940677: Support prefers-reduced-motion in off-canvas dialog</a></span></li>\n<li><a href=\"https://dri.es/an-update-on-the-workflow-initiative-for-drupal-8-4-8-5\" rel=\"nofollow\">An update on the Workflow Initiative for Drupal 8.4/8.5</a></li>\n<li><span class=\"project-issue-issue-link project-issue-status-info project-issue-status-3\"><a href=\"/project/drupal/issues/2732081\" title=\"Status: Closed (duplicate)\">#2732081: WI: Phase G2: Full-site preview with Workspace UI</a></span></li>\n<li><span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/comment/12099414#comment-12099414\" title=\"Status: Closed (fixed)\">#2784921-32: Add Workspaces experimental module</a></span></li>\n</ul>\n</li>\n<li><span class=\"project-issue-issue-link project-issue-status-info project-issue-status-13\"><a href=\"/project/claro/issues/2279049\" title=\"Status: Needs work\">#2279049: Add a CSS animation to expanding of details elements</a></span>. There's an issue for adding animation to details/summary open + close.</li>\n<li><span class=\"project-issue-issue-link project-issue-status-info project-issue-status-4\"><a href=\"/project/drupal/issues/2940023\" title=\"Status: Postponed\">#2940023: [PP-1] Improve accessibility of Umami's responsive main menu</a></span>. The mobile menu on Umami theme uses animation to open/close. The latest patch uses the media query to disable animation.</li>\n</ul>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<p>No design changes as such.  Instead we propose to:\n</p><ul>\n<li>Improve the current design implementations to follow an emerging accessibility practice, and respect OS-level accessibility settings.</li>\n<li>Recommend that new UI designs/themes are created in a such a way that they will work without relying on animation. Users should be still be able to understand and use the UI when animations are disabled.</li>\n</ul>\n<p>Most users will see no change to the existing design, but users can turn off animations if they need to. This is a high-impact improvement for affected user groups.</p>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<p>None.  We decided <strong>against</strong> introducing Drupal-specific API and user preferences, in favour designing our animations to respect CSS <code class=\"language-php\">prefers-reduced-motion</code> media query.</p>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<p>None.</p>\n<h3 id=\"summary-original-report\">Original report</h3>\n<p>See <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/comment/12186635#comment-12186635\" title=\"Status: Closed (fixed)\">#2316205-72: Provide a way to disable animations for a11y</a></span>.  That issue tried introducing an animation preferences API to Drupal, but we eventually decided upon supporting OS/platform-level preferences via the new CSS <code class=\"language-php\">prefers-reduced-motion</code> media query.</p>",
+      "description_text": "Problem/Motivation\nWCAG 2.1 introduces Success Criterion 2.3.3 Animation from Interactions, and using the prefers-reduced-motion media query is recognized as a sufficient technique to address it. Notably, it's classed at level AAA, so it isn't a blocker for the Drupal core accessibility gate (which targets level AA). However it looks easy to address using the prefers-reduced-motion media query, and being able to turn animations off has a very high value for affected users in several groups.\nTODO: explain the problem better, background on vestibular disorders, etc. Also the difficulty of assessing high-risk vs low-risk for individual designs. Also benefits to users with some cognitive disabilities. Animations can be very unfriendly (\"too loud\") for people with autistic-spectrum disorders. People with attention difficulties can lose their focus when a notification grabs their attention.\nTODO: Do we want to disallow or at least discourage autoplay if prefers-reduced-motion is set to reduce?\nA user preference in Windows, Android, macOS, iOS, and Windows (see #34) now have an OS-level user preference for turning animations off. Safari already implements the CSS5 prefers-reduced-motion media query.\nMany of the browsers supported by Drupal core have implemented the prefers-reduced-motion media feature:\nprefers-reduced-motion support (caniuse.com)\nFirefox\nChrome\nOpera\nSafari\nEdge (as of version 76, Chromium-based)\nBrowsers activate the prefers-reduced-motion media feature based on OS-level user preferences:\nWindows 11: \"Animation effects\"\nWindows 10: \"Show animations in Windows\"\nWindows 7: \"Turn off all unnecessary animations (when possible)\"\nAndroid (9+): \"Remove animations\"\nmacOS, iOS: \"Reduce motion\"\nNote that the name of the user preference varies by OS, and this sets user expectations. While the media query uses the term \"reduce\", most operating system UIs present it in a way that means \"remove\".\niOS 13 additionally implements Prefer Cross-Fade Transitions, which replaces menu slide-ins with cross fades, as a separate preference.\nAn article on the WebKit blog this summer, Responsive Design for Motion, breaks down different kinds of animation trigger for VIMS with video demonstrations of each one. This is the first easy guide I've seen about assessing animations. A demo page linked at the bottom of the article shows different ways to use the prefers-reduced-motion media query.\nAn article on A List Apart, Designing Safer Web Animation For Motion Sensitivity gives another good explanation of the issue. Warning: Two commenters on that article reports that they found the (stationary) illustration at the top of the article triggering as a simulation of the disorder. Also provides videos.\nProposed resolution\nForm guidelines for developers and designers, about how to use the prefers-reduced-motion\nmedia query effectively.\nMOOD: optimistic - animations are actually welcome, as they can help users understand what buttons actually do, make notifications noticable, indicate that a component is busy, and a bunch of other nice design benefits. We aren't trying to hold designers back from using animation.\nWe can frame this as an achievable DESIGN CONSTRAINT: you can use animations to enhance usability/understanding, but designs should not RELY on animation to convey important information, and designs must be understandable/operable when animations are disabled. (This is following an established principle for use of colour; don't rely on colour alone to convey information/meaning.)\nRemaining tasks\nFrame this as a policy which other contributors can follow.\nWCAG SC 2.3.3 \"Animations from interactions\" contains an exemption for animations which are deemed essential to understanding. We should address this in the policy, because sooner or later someone will try to claim that exemption. Such essential animations are expected to be very rare. Suggestion: using this exception should require explicit justification, followed by accessibility maintainer review + sign-off.\nA documentation page in the developer handbook.\nDONE. #2940012: Use prefers-reduced-motion media query on batch progress bar. The batch API progress bar would make a good proof-of-concept demo for this plan.\nThe little progress \"throbbers\" used by AJAX autocomplete lookups, etc, present a distinct challenge, see comments #25-29. Ideally, find a throbber design which will work without any animation. Failing that, find a thobber design which will work without motionanimation. NEEDS CHILD ISSUE.\nCore issues with animation (monitor these)\nWe don't have many animations in core (as of 8.4.0), but we are expecting some more animations in future. In particular, the design mockups from the outside-in initiative show several large animations framing the whole page. Open child issues to fix individual animations.\n#2940677: Support prefers-reduced-motion in off-canvas dialog. Off-canvas dialog has an animation where the tray slides in.\nMonitor the designs from various other core plans, in particular JS/Admin-UX and other site-builder experience initiatives.\nThe proposed Workspaces UI designs look like it could present a HIGH-RISK animation. They cover a large part of the screen, and use zooming and growing simultaneously.\nUpdate: the drop-down tray in Workspace UI re-uses the off-canvas dialog, so this part of the design will presumably be fixed by #2940677: Support prefers-reduced-motion in off-canvas dialog\nAn update on the Workflow Initiative for Drupal 8.4/8.5\n#2732081: WI: Phase G2: Full-site preview with Workspace UI\n#2784921-32: Add Workspaces experimental module\n#2279049: Add a CSS animation to expanding of details elements. There's an issue for adding animation to details/summary open + close.\n#2940023: [PP-1] Improve accessibility of Umami's responsive main menu. The mobile menu on Umami theme uses animation to open/close. The latest patch uses the media query to disable animation.\nUser interface changes\nNo design changes as such. Instead we propose to:\nImprove the current design implementations to follow an emerging accessibility practice, and respect OS-level accessibility settings.\nRecommend that new UI designs/themes are created in a such a way that they will work without relying on animation. Users should be still be able to understand and use the UI when animations are disabled.\nMost users will see no change to the existing design, but users can turn off animations if they need to. This is a high-impact improvement for affected user groups.\nAPI changes\nNone. We decided against introducing Drupal-specific API and user preferences, in favour designing our animations to respect CSS prefers-reduced-motion media query.\nData model changes\nNone.\nOriginal report\nSee #2316205-72: Provide a way to disable animations for a11y. That issue tried introducing an animation preferences API to Drupal, but we eventually decided upon supporting OS/platform-level preferences via the new CSS prefers-reduced-motion media query.",
       "labels": [
         "Accessibility",
         "JavaScript",
         "VIMS",
         "CSS",
         "Usability",
-        "wcag21",
         "WCAG",
         "CSKyiv18",
         "Needs issue summary update",
         "Needs change record",
-        "wcag222",
-        "wcag231"
+        "prefers-reduced-motion"
       ],
       "status": {
         "code": 1,
         "label": "Active",
         "workflow_state": "open",
-        "raw_label": null
+        "raw_label": "Active"
       },
-      "created_at": "2017-12-03T13:56:56Z",
-      "updated_at": "2026-06-02T22:55:12Z",
+      "created_at": "2017-12-03T13:56:56+00:00",
+      "updated_at": "2026-11-09T19:56:54+00:00",
       "component": "CSS",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
-      "comments": [],
-      "merge_requests": [],
-      "wcag_candidates": [
-        "2.2.2",
-        "2.3.1"
+      "priority": "Normal",
+      "category": "Plan",
+      "evidence_status": "full",
+      "comments": [
+        {
+          "id": "12368409",
+          "url": "https://www.drupal.org/node/2928103#comment-12368409",
+          "author": "nod_",
+          "author_id": "598310",
+          "author_url": "https://www.drupal.org/user/598310",
+          "created_at": "2017-12-03T13:56:56Z",
+          "body_html": "<p><a href=\"/u/nod_\" title=\"View user profile.\" data-uid=\"598310\" class=\"username\" rel=\"nofollow\">nod_</a> created an issue. See <a href=\"/node/2928103/revisions/10743214/view\" rel=\"nofollow\">original summary</a>.</p>",
+          "body_text": "nod_ created an issue. See original summary.",
+          "machine_generated": true,
+          "content_hash": "28a85ada2dd952928774798699387bd6b806843af9995380be591361c77aac06"
+        },
+        {
+          "id": "12368410",
+          "url": "https://www.drupal.org/node/2928103#comment-12368410",
+          "author": "nod_",
+          "author_id": "598310",
+          "author_url": "https://www.drupal.org/user/598310",
+          "created_at": "2017-12-03T13:58:07Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "ff2fb1c8756e61bde19a564442498d533d2106c891555907d3266cfef44ba7f9"
+        },
+        {
+          "id": "12368411",
+          "url": "https://www.drupal.org/node/2928103#comment-12368411",
+          "author": "nod_",
+          "author_id": "598310",
+          "author_url": "https://www.drupal.org/user/598310",
+          "created_at": "2017-12-03T13:58:43Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "e6cd5d86fb5b8f96870a387fb73056c26b92310ec9bf899aaffa0945d67fa5e7"
+        },
+        {
+          "id": "12368413",
+          "url": "https://www.drupal.org/node/2928103#comment-12368413",
+          "author": "nod_",
+          "author_id": "598310",
+          "author_url": "https://www.drupal.org/user/598310",
+          "created_at": "2017-12-03T14:03:02Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "7ebea76ace04f6c532b78512fee723ca5ea045dcf675b3875752842738da1077"
+        },
+        {
+          "id": "12368414",
+          "url": "https://www.drupal.org/node/2928103#comment-12368414",
+          "author": "nod_",
+          "author_id": "598310",
+          "author_url": "https://www.drupal.org/user/598310",
+          "created_at": "2017-12-03T14:03:24Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "33a47ab372cddf8a878a00e56f781133775ab13c6cd55a22d8428a3c46c7c42e"
+        },
+        {
+          "id": "12368416",
+          "url": "https://www.drupal.org/node/2928103#comment-12368416",
+          "author": "nod_",
+          "author_id": "598310",
+          "author_url": "https://www.drupal.org/user/598310",
+          "created_at": "2017-12-03T14:04:33Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "7f5124e692dd33a6046f8cef376f827d8a5d2fc2166e7ca8ae1204830269d33a"
+        },
+        {
+          "id": "12371887",
+          "url": "https://www.drupal.org/node/2928103#comment-12371887",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2017-12-05T22:26:16Z",
+          "body_html": "<p>Added Windows 7 and up as having a reduced-motion preference.</p>",
+          "body_text": "Added Windows 7 and up as having a reduced-motion preference.",
+          "machine_generated": false,
+          "content_hash": "c43e8b7cfc2052f11c1275958ee7bf9750acf2645f4c1e04152e658abdaa151c"
+        },
+        {
+          "id": "12394447",
+          "url": "https://www.drupal.org/node/2928103#comment-12394447",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2017-12-22T00:12:43Z",
+          "body_html": "<p>Just noting from an experience today with a new interface that even very brief (sub-second) animations can set me off if they take up a sufficiently large portion of the screen (in this case, about 50% but it was the 50% in the middle and which I was focusing on).</p>",
+          "body_text": "Just noting from an experience today with a new interface that even very brief (sub-second) animations can set me off if they take up a sufficiently large portion of the screen (in this case, about 50% but it was the 50% in the middle and which I was focusing on).",
+          "machine_generated": false,
+          "content_hash": "186b580166d23dc3a7a9a64e92fe89349bc10dc57b6bf930e47f398f315d6639"
+        },
+        {
+          "id": "12408100",
+          "url": "https://www.drupal.org/node/2928103#comment-12408100",
+          "author": "ivan berezhnov",
+          "author_id": "3161543",
+          "author_url": "https://www.drupal.org/user/3161543",
+          "created_at": "2018-01-05T19:06:21Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "3d86dabb941665c02ca8c9e0a50a533857cd3098b1dd79203eb827cc77a63efa"
+        },
+        {
+          "id": "12408584",
+          "url": "https://www.drupal.org/node/2928103#comment-12408584",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-01-06T01:46:28Z",
+          "body_html": "<p>Thanks for tagging this issue for your sprint in Ukraine, Ivan.  I'll be taking part in the Global Sprint weekend too, working at the <a href=\"https://groups.drupal.org/node/517967\" rel=\"nofollow\">Leeds, UK meeting</a>.  I'll be reviewing &amp; mentoring with accessibility issues, and will be available via the Drupal Slack #accessibility channel.</p>\n<p>The idea here is to build guidelines, as a [policy,no patch] issue.  I've updated the issue summary to clarify this.</p>\n<p>If you'd prefer to dive into CSS code, you could work on the animations in the Batch API progress bars, or the Settings Tray module.  Please open child issues for those - I've included placeholders in the remaining tasks section.</p>",
+          "body_text": "Thanks for tagging this issue for your sprint in Ukraine, Ivan. I'll be taking part in the Global Sprint weekend too, working at the Leeds, UK meeting. I'll be reviewing & mentoring with accessibility issues, and will be available via the Drupal Slack #accessibility channel.\nThe idea here is to build guidelines, as a [policy,no patch] issue. I've updated the issue summary to clarify this.\nIf you'd prefer to dive into CSS code, you could work on the animations in the Batch API progress bars, or the Settings Tray module. Please open child issues for those - I've included placeholders in the remaining tasks section.",
+          "machine_generated": false,
+          "content_hash": "6d18035ecabbae4589f4c5812e90df2ebc8c3bf771e6939ad147ed323dce40b2"
+        },
+        {
+          "id": "12408585",
+          "url": "https://www.drupal.org/node/2928103#comment-12408585",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-01-06T01:46:43Z",
+          "body_html": "<p>We still need to update the issue summary to describe the problem better.  It would be a good idea to look back over the previous issue <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2316205\" title=\"Status: Closed (fixed)\">#2316205: Provide a way to disable animations for a11y</a></span> for relevant points we want to keep.</p>",
+          "body_text": "We still need to update the issue summary to describe the problem better. It would be a good idea to look back over the previous issue #2316205: Provide a way to disable animations for a11y for relevant points we want to keep.",
+          "machine_generated": false,
+          "content_hash": "383ec43fc8548474c1f4c09aaa5c63c77e862d592caa8e7d0ee9652fcc1fabc1"
+        },
+        {
+          "id": "12408586",
+          "url": "https://www.drupal.org/node/2928103#comment-12408586",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-01-06T01:51:01Z",
+          "body_html": "<p>The core ideas/plan queue is the appropriate place for this just now.</p>",
+          "body_text": "The core ideas/plan queue is the appropriate place for this just now.",
+          "machine_generated": false,
+          "content_hash": "cf3e2096428dbb6669c2061b00f6569c68c3331f6fae82409cd91755331df7cd"
+        },
+        {
+          "id": "12453194",
+          "url": "https://www.drupal.org/node/2928103#comment-12453194",
+          "author": "john cook",
+          "author_id": "536990",
+          "author_url": "https://www.drupal.org/user/536990",
+          "created_at": "2018-01-27T12:57:17Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "b82122c5c9f9002f2e9ddd57d2ef0316333c0d8006327c48936d488f06adabb2"
+        },
+        {
+          "id": "12457371",
+          "url": "https://www.drupal.org/node/2928103#comment-12457371",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-01-30T11:40:37Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "6908458b8922a5edd222630320695de82bbd7560e6fd2be4ed3ce2634a9a8d1d"
+        },
+        {
+          "id": "12457383",
+          "url": "https://www.drupal.org/node/2928103#comment-12457383",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-01-30T11:43:39Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "9aef409b18a0c7916c82528253e1f461a81f7c68724585de2529dac661f6e303"
+        },
+        {
+          "id": "12457390",
+          "url": "https://www.drupal.org/node/2928103#comment-12457390",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-01-30T11:46:05Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "d695c7c2385a4ab5fcb615e4226d20ded843ec6219625f3087d382808f1a88a6"
+        },
+        {
+          "id": "12458025",
+          "url": "https://www.drupal.org/node/2928103#comment-12458025",
+          "author": "tedbow",
+          "author_id": "240860",
+          "author_url": "https://www.drupal.org/user/240860",
+          "created_at": "2018-01-30T16:33:52Z",
+          "body_html": "<p><span class=\"project-issue-issue-link project-issue-status-info project-issue-status-13\"><a href=\"/project/drupal/issues/2940677\" title=\"Status: Needs work\">#2940677: Support prefers-reduced-motion in off-canvas dialog</a></span> created</p>",
+          "body_text": "#2940677: Support prefers-reduced-motion in off-canvas dialog created",
+          "machine_generated": false,
+          "content_hash": "7077746a047d58b7e733f55e206258726e275853f7a709109614672c4c08b354"
+        },
+        {
+          "id": "12459710",
+          "url": "https://www.drupal.org/node/2928103#comment-12459710",
+          "author": "john cook",
+          "author_id": "536990",
+          "author_url": "https://www.drupal.org/user/536990",
+          "created_at": "2018-01-31T13:48:28Z",
+          "body_html": "<p>I've changed the example in the summary to use the more verbose <code class=\"language-php\">prefers-reduced-motion: reduce</code>.</p>\n<p>This matches what has been done in <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2940012\" title=\"Status: Closed (fixed)\">#2940012: Use prefers-reduced-motion media query on batch progress bar</a></span> and is clearer on what is being checked.</p>",
+          "body_text": "I've changed the example in the summary to use the more verbose prefers-reduced-motion: reduce.\nThis matches what has been done in #2940012: Use prefers-reduced-motion media query on batch progress bar and is clearer on what is being checked.",
+          "machine_generated": false,
+          "content_hash": "37b9b2881d68c1f21b8d57319634287f3a7387a6eef985315dd7dc5bb4409cc6"
+        },
+        {
+          "id": "12465650",
+          "url": "https://www.drupal.org/node/2928103#comment-12465650",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-02-04T14:02:49Z",
+          "body_html": "<p>Fleshing out he summary - links to related issues, a few more todo items.</p>",
+          "body_text": "Fleshing out he summary - links to related issues, a few more todo items.",
+          "machine_generated": false,
+          "content_hash": "d780f4542c4eef0138a88c8770c113b87877acf3443dcc3756850baa7d065cae"
+        },
+        {
+          "id": "12465656",
+          "url": "https://www.drupal.org/node/2928103#comment-12465656",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-02-04T14:12:48Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "10482c29703ba020988b52f590a36897e2f84bdfe8a9e7a47ac2daa729504669"
+        },
+        {
+          "id": "12465907",
+          "url": "https://www.drupal.org/node/2928103#comment-12465907",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-02-04T20:04:10Z",
+          "body_html": "<p>In <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2940012\" title=\"Status: Closed (fixed)\">#2940012: Use prefers-reduced-motion media query on batch progress bar</a></span>, @John Cook noticed that Opera is a bit fussy about <code class=\"language-php\">transition: none</code>, and seems to need <code class=\"language-php\">-o-transition: all 0 none</code> or <code class=\"language-php\">transition-duration: 0s;</code>.</p>\n<p>Details in this StackOverflow page: <a href=\"https://stackoverflow.com/questions/6634470/disable-turn-off-inherited-css3-transitions#answer-6634504\" rel=\"nofollow\">https://stackoverflow.com/questions/6634470/disable-turn-off-inherited-c...</a></p>\n<p>Adding this potential WTF to the issue summary.</p>",
+          "body_text": "In #2940012: Use prefers-reduced-motion media query on batch progress bar, @John Cook noticed that Opera is a bit fussy about transition: none, and seems to need -o-transition: all 0 none or transition-duration: 0s;.\nDetails in this StackOverflow page: https://stackoverflow.com/questions/6634470/disable-turn-off-inherited-c...\nAdding this potential WTF to the issue summary.",
+          "machine_generated": false,
+          "content_hash": "aecaf61b066c9a8c93ad528e5da0a21f3d720d67cffd2d9b0ca778c930830922"
+        },
+        {
+          "id": "12546345",
+          "url": "https://www.drupal.org/node/2928103#comment-12546345",
+          "author": "mgifford",
+          "author_id": "27930",
+          "author_url": "https://www.drupal.org/user/27930",
+          "created_at": "2018-03-27T18:06:05Z",
+          "body_html": "<p>Just adding this new link to this topic <a href=\"https://hugogiraudel.com/2018/03/19/implementing-a-reduced-motion-mode/\" rel=\"nofollow\">https://hugogiraudel.com/2018/03/19/implementing-a-reduced-motion-mode/</a></p>",
+          "body_text": "Just adding this new link to this topic https://hugogiraudel.com/2018/03/19/implementing-a-reduced-motion-mode/",
+          "machine_generated": false,
+          "content_hash": "d834f0a8711104efb60d8f041eb3d9abcdebd81bf88fc126829c68f8c80711c2"
+        },
+        {
+          "id": "12626968",
+          "url": "https://www.drupal.org/node/2928103#comment-12626968",
+          "author": "duaelfr",
+          "author_id": "931394",
+          "author_url": "https://www.drupal.org/user/931394",
+          "created_at": "2018-05-24T08:08:15Z",
+          "body_html": "<p>I've found in some a11y best practices around the web that this could be handled globally as follow (vendor prefixes to be added):</p>\n<pre class=\"codeblock\"><code class=\"language-php\">@media (prefers-reduced-motion: reduce) {\n  * {\n    animation: none !important;\n    transition: none !important;\n  }\n}</code></pre><p>\nI think we should think about getting this code in Core to send a strong message about these issues AND avoid to fix all animations and transitions of Core one by one.</p>",
+          "body_text": "I've found in some a11y best practices around the web that this could be handled globally as follow (vendor prefixes to be added):\n@media (prefers-reduced-motion: reduce) {\n* {\nanimation: none !important;\ntransition: none !important;\n}\n}\nI think we should think about getting this code in Core to send a strong message about these issues AND avoid to fix all animations and transitions of Core one by one.",
+          "machine_generated": false,
+          "content_hash": "f097f630136daf28b6e8052dc11494d59014dfaa41bfd37d951a2d771742d65a"
+        },
+        {
+          "id": "12626982",
+          "url": "https://www.drupal.org/node/2928103#comment-12626982",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-05-24T08:18:23Z",
+          "body_html": "<p>Thanks @DuaelFr - that's a really exciting idea. I like part about \"sending a strong message about these issues\".</p>\n<p>I grabbed this from our chat in #accessibility channel on Drupal Slack today (slightly edited.)</p>\n<pre class=\"codeblock\"><code class=\"language-php\">andrewmacpherson [9:00 AM]\nI'm not sure about the `important!` bit.  If we can avoid that it would be better.  Because it would could limit a someone who had a userstyles, and actually wanted some animation on certain elements, like a slight animation on focus style to help follow it around.\n\nDuaelFr [9:01 AM]\nThe thing is that if we don't add `important` this rules are going to be overriden by any other CSS rule as the \"*\" selector has a very low score\n\nandrewmacpherson [9:01 AM]\nright.\nthere might also be some places where we want to have an animation, if it's deemed low risk.  e.g. a small progress thobber.\n\nDuaelFr [9:03 AM]\nsmall throbber is only small for people that doesn't use a huge zoom :slightly_smiling_face:\n\nandrewmacpherson [9:04 AM]\nI know :slightly_smiling_face:\n\nalso, e.g. on the settings tray, this patch proposes to kill the big animated slide-in, but keep some slight animations on button background colour.  <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-13\"><a href=\"/project/drupal/issues/2940677\" title=\"Status: Needs work\">#2940677: Support prefers-reduced-motion in off-canvas dialog</a></span>\n\nDuaelFr [9:05 AM]\nI don't know people that suffer VIMS but we should ask them\nIs that opacity transition really important?\n\nandrewmacpherson [9:06 AM]\nIf you can find them!  We know Charles in the issue queue.  A big difficulty is in finding people in our community with disabilities and/or assistive tech.  We have to wait for them to self-identify.\nMy view is we'd kill all animations.  I've been thinking about a principle: \"Designs shouldn't rely on animations\".  Just like they shouldn't rely on colour.\n</code></pre>",
+          "body_text": "Thanks @DuaelFr - that's a really exciting idea. I like part about \"sending a strong message about these issues\".\nI grabbed this from our chat in #accessibility channel on Drupal Slack today (slightly edited.)\nandrewmacpherson [9:00 AM]\nI'm not sure about the `important!` bit. If we can avoid that it would be better. Because it would could limit a someone who had a userstyles, and actually wanted some animation on certain elements, like a slight animation on focus style to help follow it around.\nDuaelFr [9:01 AM]\nThe thing is that if we don't add `important` this rules are going to be overriden by any other CSS rule as the \"*\" selector has a very low score\nandrewmacpherson [9:01 AM]\nright.\nthere might also be some places where we want to have an animation, if it's deemed low risk. e.g. a small progress thobber.\nDuaelFr [9:03 AM]\nsmall throbber is only small for people that doesn't use a huge zoom :slightly_smiling_face:\nandrewmacpherson [9:04 AM]\nI know :slightly_smiling_face:\nalso, e.g. on the settings tray, this patch proposes to kill the big animated slide-in, but keep some slight animations on button background colour. #2940677: Support prefers-reduced-motion in off-canvas dialog\nDuaelFr [9:05 AM]\nI don't know people that suffer VIMS but we should ask them\nIs that opacity transition really important?\nandrewmacpherson [9:06 AM]\nIf you can find them! We know Charles in the issue queue. A big difficulty is in finding people in our community with disabilities and/or assistive tech. We have to wait for them to self-identify.\nMy view is we'd kill all animations. I've been thinking about a principle: \"Designs shouldn't rely on animations\". Just like they shouldn't rely on colour.",
+          "machine_generated": false,
+          "content_hash": "b0f39a35c16de04718a81a507982ff221f2922522ff1ed42899af9d955b83793"
+        },
+        {
+          "id": "12628309",
+          "url": "https://www.drupal.org/node/2928103#comment-12628309",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2018-05-25T00:41:16Z",
+          "body_html": "<p>Throbbers don't make me sick but they distract me. I'd really prefer no animation.</p>\n<p>If someone is telling you they don't want animation (through the setting), the best practice would be to not have any. The old-school stationary word \"Loading...\" is sufficient.</p>",
+          "body_text": "Throbbers don't make me sick but they distract me. I'd really prefer no animation.\nIf someone is telling you they don't want animation (through the setting), the best practice would be to not have any. The old-school stationary word \"Loading...\" is sufficient.",
+          "machine_generated": false,
+          "content_hash": "9b632f0a647ecaf11fde7b8f27cbed379eb7a46d54c40bd9c1c52875c7cab30a"
+        },
+        {
+          "id": "12628492",
+          "url": "https://www.drupal.org/node/2928103#comment-12628492",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-05-25T06:13:07Z",
+          "body_html": "<blockquote><p>If someone is telling you they don't want animation (through the setting), the best practice would be to not have any. </p></blockquote>\n<p>It's confusing that the media query, and settings in the UI, called it \"reduce motion\".  That's different from \"kill all animation\".</p>\n<p>I'm also strongly in favour of treating reduce-motion as no animations at all, as a policy.  It's just easier if we don't have to triage them as high or low risk, which would lead to bikeshedding.</p>",
+          "body_text": "If someone is telling you they don't want animation (through the setting), the best practice would be to not have any.\nIt's confusing that the media query, and settings in the UI, called it \"reduce motion\". That's different from \"kill all animation\".\nI'm also strongly in favour of treating reduce-motion as no animations at all, as a policy. It's just easier if we don't have to triage them as high or low risk, which would lead to bikeshedding.",
+          "machine_generated": false,
+          "content_hash": "1810f5074ea67b2963832afb005fe5f4e8bb4b60677e27c65b9240485373503c"
+        },
+        {
+          "id": "12629824",
+          "url": "https://www.drupal.org/node/2928103#comment-12629824",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2018-05-26T01:37:09Z",
+          "body_html": "<p>I'm guessing the wording came from iOS and macOS, where, at Settings &gt; General &gt; Accessibility for iOS and System Preferences &gt; Accessibility &gt; Display for macOS, the setting label reads \"Reduce Motion.\" <a href=\"https://developer.apple.com/macos/human-interface-guidelines/visual-design/animation/\" rel=\"nofollow\">About the reduce motion setting, Apple Human Interface Guidelines reads</a>: </p>\n<blockquote><p>Make animations optional. When the option to reduce motion is enabled in accessibility preferences, your app should minimize or eliminate application animations.</p></blockquote>\n<p>On the PC, where, alas, no browsers yet support it, at Control Panel &gt; Ease of Access Center &gt; Make the computer easier to see, the setting label reads \"Turn off all unneccessary animations (when possible)\" which is much clearer.</p>\n<p>That said, the throbber, over and above being an unneccessary animation, comes under the category of animations (potentially) lasting longer than 5 seconds. Animations longer than 5 seconds are supposed to, under WCAG 2.0 AA, have a pause button. That would be odd for a throbber, so it would be better to just not animate it as an unneccessary animation if Reduce Motion or Turn off all unneccessary animations is enabled.</p>",
+          "body_text": "I'm guessing the wording came from iOS and macOS, where, at Settings > General > Accessibility for iOS and System Preferences > Accessibility > Display for macOS, the setting label reads \"Reduce Motion.\" About the reduce motion setting, Apple Human Interface Guidelines reads:\nMake animations optional. When the option to reduce motion is enabled in accessibility preferences, your app should minimize or eliminate application animations.\nOn the PC, where, alas, no browsers yet support it, at Control Panel > Ease of Access Center > Make the computer easier to see, the setting label reads \"Turn off all unneccessary animations (when possible)\" which is much clearer.\nThat said, the throbber, over and above being an unneccessary animation, comes under the category of animations (potentially) lasting longer than 5 seconds. Animations longer than 5 seconds are supposed to, under WCAG 2.0 AA, have a pause button. That would be odd for a throbber, so it would be better to just not animate it as an unneccessary animation if Reduce Motion or Turn off all unneccessary animations is enabled.",
+          "machine_generated": false,
+          "content_hash": "523ab4daa3981d56044e20d029d16e232ef0c0a54e797c13c513bb3d428c3315"
+        },
+        {
+          "id": "12715974",
+          "url": "https://www.drupal.org/node/2928103#comment-12715974",
+          "author": "effulgentsia",
+          "author_id": "78040",
+          "author_url": "https://www.drupal.org/user/78040",
+          "created_at": "2018-08-02T18:47:43Z",
+          "body_html": "<p>In general, huge +1 to this issue. Looks like the selector is already <a href=\"https://bugzilla.mozilla.org/show_bug.cgi?id=1365045\" rel=\"nofollow\">supported by Firefox 63 nightlies for Windows</a> and <a href=\"https://caniuse.com/#feat=prefers-reduced-motion\" rel=\"nofollow\">may come to Firefox for Mac soon after</a>. As far as I know, I don't have VIMS, but I personally dislike most web animations, so I may well switch from Chrome to Firefox in order to improve my web browsing experience via this setting.</p>\n<p><a href=\"https://www.w3.org/TR/WCAG21/#dfn-motion-animation\" rel=\"nofollow\">https://www.w3.org/TR/WCAG21/#dfn-motion-animation</a> distinguishes <em>motion</em> animation from non-motion animations:</p>\n<blockquote><p>For example, an element which moves into place or changes size while appearing is considered to be animated... Motion animation does not include changes of color, blurring or opacity.</p></blockquote>\n<p>Therefore, do we want \"prefers-reduced-motion\" queries to remove only motion animations, but leave in-tact color, blur, and opacity animations? In which case, do we want a loading throbber animation that only animates those properties?</p>\n<p>I understand that some people dislike all animations, but is the scope of this issue to cater to that preference, or to respect the fact that the selector is named \"prefers-reduced-motion\" rather than \"prefers-zero-animation\"?</p>",
+          "body_text": "In general, huge +1 to this issue. Looks like the selector is already supported by Firefox 63 nightlies for Windows and may come to Firefox for Mac soon after. As far as I know, I don't have VIMS, but I personally dislike most web animations, so I may well switch from Chrome to Firefox in order to improve my web browsing experience via this setting.\nhttps://www.w3.org/TR/WCAG21/#dfn-motion-animation distinguishes motion animation from non-motion animations:\nFor example, an element which moves into place or changes size while appearing is considered to be animated... Motion animation does not include changes of color, blurring or opacity.\nTherefore, do we want \"prefers-reduced-motion\" queries to remove only motion animations, but leave in-tact color, blur, and opacity animations? In which case, do we want a loading throbber animation that only animates those properties?\nI understand that some people dislike all animations, but is the scope of this issue to cater to that preference, or to respect the fact that the selector is named \"prefers-reduced-motion\" rather than \"prefers-zero-animation\"?",
+          "machine_generated": false,
+          "content_hash": "d475c7da30dff9e8e7b44b5603b073cf6aa0f9490aa8072111534e9d60efc2d9"
+        },
+        {
+          "id": "12736326",
+          "url": "https://www.drupal.org/node/2928103#comment-12736326",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-08-21T15:54:57Z",
+          "body_html": "<p>@effulgentsia - Thanks for the update about Firefox implementation.</p>\n<blockquote><p>\nIn which case, do we want a loading throbber animation that only animates those properties?</p></blockquote>\n<p>Good idea, that's worth a child issue for sure!  This could be something we do in the new Admin UI (replacing the Seven theme).  Over in one of the Admin UI planning issues, I suggested that if the new theme targets WCAG 2.1, then we might not need to commit to addressing all the new WCAG 2.1 Success Criteria in Seven.  The current thobber is in core/misc, so I wouldn't expect to be able to change that before D9.    However: bonus points if a new throbber in Admin UI also takes Bartik/Seven into account.</p>\n<p>Animations from Interactions is level AAA, and the thobbers might be classed as \"essential\" for an exemption.  This is still worth doing though.  We can also consider the WCAG 2.0 \"Pause, Stop, Hide\" at level-A - In the case of busy throbbers, they have an indefinite duration.  Especially in the case of AJAX autocompletes, etc., they could easily go over the 5 seconds for this criteria.  But here again, they arguably get the \"essential\" exemption.  I like Charles's about a stationary \"loading\" word, so the indicator doesn't solely rely on animation to convey what's happening.</p>\n<blockquote><p>remove only motion animations, but leave in-tact color, blur, and opacity animations?</p></blockquote>\n<p>Now, it would still be possible to create motion animations using just those properties.  For instance, the classic radial-spokes thobber designs work by fading individual lines in and out, in sequence, which adds up to an effect like spinning clock hands.</p>\n<blockquote><p>I understand that some people dislike all animations, but is the scope of this issue to cater to that preference, or to respect the fact that the selector is named \"prefers-reduced-motion\" rather than \"prefers-zero-animation\"?</p></blockquote>\n<p>Mmm, I keep swaying from one side of the fence to the other on this point.  For me it hinges on how we assess them; it's not clear to me where (or if...) we can draw a threshold for high-risk vs. low-risk animations.  (I think that's how \"Animations from Interactions\" ended up being demoted from level-AA to to level-AAA during the WCAG 2.1 Working Drafts.)   The zero-animation outlook removes this tricky judgment call, makes triage easier, and provides a clear design constraint.</p>",
+          "body_text": "@effulgentsia - Thanks for the update about Firefox implementation.\nIn which case, do we want a loading throbber animation that only animates those properties?\nGood idea, that's worth a child issue for sure! This could be something we do in the new Admin UI (replacing the Seven theme). Over in one of the Admin UI planning issues, I suggested that if the new theme targets WCAG 2.1, then we might not need to commit to addressing all the new WCAG 2.1 Success Criteria in Seven. The current thobber is in core/misc, so I wouldn't expect to be able to change that before D9. However: bonus points if a new throbber in Admin UI also takes Bartik/Seven into account.\nAnimations from Interactions is level AAA, and the thobbers might be classed as \"essential\" for an exemption. This is still worth doing though. We can also consider the WCAG 2.0 \"Pause, Stop, Hide\" at level-A - In the case of busy throbbers, they have an indefinite duration. Especially in the case of AJAX autocompletes, etc., they could easily go over the 5 seconds for this criteria. But here again, they arguably get the \"essential\" exemption. I like Charles's about a stationary \"loading\" word, so the indicator doesn't solely rely on animation to convey what's happening.\nremove only motion animations, but leave in-tact color, blur, and opacity animations?\nNow, it would still be possible to create motion animations using just those properties. For instance, the classic radial-spokes thobber designs work by fading individual lines in and out, in sequence, which adds up to an effect like spinning clock hands.\nI understand that some people dislike all animations, but is the scope of this issue to cater to that preference, or to respect the fact that the selector is named \"prefers-reduced-motion\" rather than \"prefers-zero-animation\"?\nMmm, I keep swaying from one side of the fence to the other on this point. For me it hinges on how we assess them; it's not clear to me where (or if...) we can draw a threshold for high-risk vs. low-risk animations. (I think that's how \"Animations from Interactions\" ended up being demoted from level-AA to to level-AAA during the WCAG 2.1 Working Drafts.) The zero-animation outlook removes this tricky judgment call, makes triage easier, and provides a clear design constraint.",
+          "machine_generated": false,
+          "content_hash": "6dd017a806da890983f8a47c98faeefe7db130554fe686d54066359ef319a3cf"
+        },
+        {
+          "id": "12754799",
+          "url": "https://www.drupal.org/node/2928103#comment-12754799",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2018-08-30T19:23:11Z",
+          "body_html": "<p>The Windows 10 preference simply states \"Show animation in Windows\" (yes/no). So that would imply No=Don't animate at all.</p>",
+          "body_text": "The Windows 10 preference simply states \"Show animation in Windows\" (yes/no). So that would imply No=Don't animate at all.",
+          "machine_generated": false,
+          "content_hash": "07648d31b2609edd8b31ac60700cfa9683d4aa6ce49691020ad4967e27dc0110"
+        },
+        {
+          "id": "12756752",
+          "url": "https://www.drupal.org/node/2928103#comment-12756752",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2018-09-01T00:01:17Z",
+          "body_html": "<p>Split the Firefox issue link into two links to reflect Bugzilla bifurcation of the issue by operating system.</p>",
+          "body_text": "Split the Firefox issue link into two links to reflect Bugzilla bifurcation of the issue by operating system.",
+          "machine_generated": false,
+          "content_hash": "9bc5fd86fb361fea57f34c905f57783e3eb986585154b4ee351184732b44a295"
+        },
+        {
+          "id": "12756753",
+          "url": "https://www.drupal.org/node/2928103#comment-12756753",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2018-09-01T00:06:19Z",
+          "body_html": "<p>Noted impending availability of the media query in Firefox 63 for October 23, 2018.</p>",
+          "body_text": "Noted impending availability of the media query in Firefox 63 for October 23, 2018.",
+          "machine_generated": false,
+          "content_hash": "b461cf65cd77246c03459b04fc23ab8bf62cd810df170ebc8d9670ca4702c7aa"
+        },
+        {
+          "id": "12756971",
+          "url": "https://www.drupal.org/node/2928103#comment-12756971",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-09-01T11:17:25Z",
+          "body_html": "<p>Re: #30 - thanks Charles, that's a really useful point. So, we should consider that the phrasing on the OS preferences UI sets user expectations.</p>\n<p>I'm excited to try the firefox nightly now.</p>\n<p>Meanwhile, I found the upstream issue to implement it on Firefox for Android too.</p>",
+          "body_text": "Re: #30 - thanks Charles, that's a really useful point. So, we should consider that the phrasing on the OS preferences UI sets user expectations.\nI'm excited to try the firefox nightly now.\nMeanwhile, I found the upstream issue to implement it on Firefox for Android too.",
+          "machine_generated": false,
+          "content_hash": "b683f80a3092e5c8213780e1fa8e338aaed716a6b72a28e8dadc73d9e3deb77d"
+        },
+        {
+          "id": "12756999",
+          "url": "https://www.drupal.org/node/2928103#comment-12756999",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-09-01T12:27:31Z",
+          "body_html": "<p>I tried the Firefox Nightly 63-alpha1 with Windows 10, and saw it working!</p>\n<p>I confirmed it was working with:</p>\n<ul>\n<li>Drupal 8.6 batch progress bar (introduced by <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2940012\" title=\"Status: Closed (fixed)\">#2940012: Use prefers-reduced-motion media query on batch progress bar</a></span></li>\n<li>The <a href=\"https://webkit.org/blog-files/prefers-reduced-motion/prm.htm\" rel=\"nofollow\">reduced motion demos</a> from the WebKit blog.</li>\n</ul>\n<p>As Charles reports, the media query is tied to the OS-level \"Show animations in Windows\" user setting. They have different names depending on which version of Windows it is:</p>\n<ul>\n<li>\"Turn off all unnecessary animations (when possible)\" user setting in Windows 7.</li>\n<li>\"Show animations in Windows\" user setting in Windows 10.</li>\n</ul>",
+          "body_text": "I tried the Firefox Nightly 63-alpha1 with Windows 10, and saw it working!\nI confirmed it was working with:\nDrupal 8.6 batch progress bar (introduced by #2940012: Use prefers-reduced-motion media query on batch progress bar\nThe reduced motion demos from the WebKit blog.\nAs Charles reports, the media query is tied to the OS-level \"Show animations in Windows\" user setting. They have different names depending on which version of Windows it is:\n\"Turn off all unnecessary animations (when possible)\" user setting in Windows 7.\n\"Show animations in Windows\" user setting in Windows 10.",
+          "machine_generated": false,
+          "content_hash": "5a5ba2e2de72f95684ad13eafbc28dad4fa770194315deafd5768e295e22e709"
+        },
+        {
+          "id": "12757101",
+          "url": "https://www.drupal.org/node/2928103#comment-12757101",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-09-01T15:54:52Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "0a252d72c8b8cd80efb7e6d7d59e0151b02ccfe1ad1ef7e22e5e841dbafe76d5"
+        },
+        {
+          "id": "12757100",
+          "url": "https://www.drupal.org/node/2928103#comment-12757100",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-09-01T15:55:59Z",
+          "body_html": "<p>Started re-organizing the issue summary.</p>\n<p>This is moving along well. The progress on browser implementation is encouraging, and WCAG 2.1 is finalized.  The batch progress bar has been fixed as a proof-of-concept, and we have other insights about throbbers, catch-all CSS rules, and guiding design principles. Plus a should-resolve question over the reduce-motion vs kill-all-motion approach.</p>\n<p>We're at the stage where we can turn this into a policy, which other contributors can follow.  So the next step is to tidy this up, so we can present it as something which is workable and justified.</p>\n<p>The throbber design is definitely worth a child issue - @Charles would you like to start that off, perhaps? I think the JS + Admin UI initiative team would appreciate a clear statement of that problem.</p>",
+          "body_text": "Started re-organizing the issue summary.\nThis is moving along well. The progress on browser implementation is encouraging, and WCAG 2.1 is finalized. The batch progress bar has been fixed as a proof-of-concept, and we have other insights about throbbers, catch-all CSS rules, and guiding design principles. Plus a should-resolve question over the reduce-motion vs kill-all-motion approach.\nWe're at the stage where we can turn this into a policy, which other contributors can follow. So the next step is to tidy this up, so we can present it as something which is workable and justified.\nThe throbber design is definitely worth a child issue - @Charles would you like to start that off, perhaps? I think the JS + Admin UI initiative team would appreciate a clear statement of that problem.",
+          "machine_generated": false,
+          "content_hash": "ab37898ee1f32753a6e14196b2e41aa8f5ed1501300f62b1731703af7810a4ac"
+        },
+        {
+          "id": "12766050",
+          "url": "https://www.drupal.org/node/2928103#comment-12766050",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-09-09T22:40:58Z",
+          "body_html": "<p>Android 9 introduces an OS accessibility preference called \"Remove animations\". Perhaps Firefox for Android will tie the media query to that? We'll learn soon enough.</p>\n<p>Source: <a href=\"http://www.hollier.info/androidpie/\" rel=\"nofollow\">Android 9.0 Pie accessibility hands-on</a>, and lots of other articles.  It's getting mentioned in quite a lot of those \"10 hidden features in Android 9\" hype articles.</p>",
+          "body_text": "Android 9 introduces an OS accessibility preference called \"Remove animations\". Perhaps Firefox for Android will tie the media query to that? We'll learn soon enough.\nSource: Android 9.0 Pie accessibility hands-on, and lots of other articles. It's getting mentioned in quite a lot of those \"10 hidden features in Android 9\" hype articles.",
+          "machine_generated": false,
+          "content_hash": "e6667e743d5b25ffc7c5f76d3e85dc6db5b805d61e87016b2d55288f3568268b"
+        },
+        {
+          "id": "12808913",
+          "url": "https://www.drupal.org/node/2928103#comment-12808913",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-10-10T11:57:41Z",
+          "body_html": "<p>re: the throbber, just adding a related issue so we don't lose it</p>",
+          "body_text": "re: the throbber, just adding a related issue so we don't lose it",
+          "machine_generated": false,
+          "content_hash": "671ad535e03672981c4a4a06061fb9e49748485250227ba974612fb8a41b24dd"
+        },
+        {
+          "id": "12809301",
+          "url": "https://www.drupal.org/node/2928103#comment-12809301",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-10-10T15:37:28Z",
+          "body_html": "<p>I took part in a design call today with the #admin-ui initiative, for the new design system and admin theme refresh.  We talked about having a busy/loading indicator with a fallback for prefers-reduced motion!</p>\n<p>One idea was for an autocomplete ajax text box.  It would have a rotating icon inside the textbox, and a \"Loading...\" message would appear as small text just outside the text box. With prefers-reduced-motion, the icon animation would be killed, and just the stationary \"Loading...\" message would appear.</p>",
+          "body_text": "I took part in a design call today with the #admin-ui initiative, for the new design system and admin theme refresh. We talked about having a busy/loading indicator with a fallback for prefers-reduced motion!\nOne idea was for an autocomplete ajax text box. It would have a rotating icon inside the textbox, and a \"Loading...\" message would appear as small text just outside the text box. With prefers-reduced-motion, the icon animation would be killed, and just the stationary \"Loading...\" message would appear.",
+          "machine_generated": false,
+          "content_hash": "06c6385038dac90d9729112e2dc5d8e04f924a43d63b8e4494891d88cd0c68ff"
+        },
+        {
+          "id": "12866295",
+          "url": "https://www.drupal.org/node/2928103#comment-12866295",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2018-11-22T10:24:54Z",
+          "body_html": "<p><code class=\"language-php\">prefers-reduced-motion</code> has apparently landed in Firefox for Android now, and will ship with v64 in December 2018, according to <a href=\"https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/64#CSS\" rel=\"nofollow\">Firefox 64 for developers</a> release notes.  I'm not clear if it requires the new \"remove animations\" OS-level accessibility setting in Android 9? (I couldn't make it work in Android 8.)</p>\n<p>It also landed in Firefox for Mac in v63, according to <a href=\"https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/63#CSS\" rel=\"nofollow\">Firefox 63 for developers</a> release notes.</p>",
+          "body_text": "prefers-reduced-motion has apparently landed in Firefox for Android now, and will ship with v64 in December 2018, according to Firefox 64 for developers release notes. I'm not clear if it requires the new \"remove animations\" OS-level accessibility setting in Android 9? (I couldn't make it work in Android 8.)\nIt also landed in Firefox for Mac in v63, according to Firefox 63 for developers release notes.",
+          "machine_generated": false,
+          "content_hash": "d60f86b9bf7ef55cbaa45c2812e155105a1ba75d9c4a97e9aafff1629afb5ec0"
+        },
+        {
+          "id": "12868849",
+          "url": "https://www.drupal.org/node/2928103#comment-12868849",
+          "author": "mgifford",
+          "author_id": "27930",
+          "author_url": "https://www.drupal.org/user/27930",
+          "created_at": "2018-11-24T23:53:17Z",
+          "body_html": "<p>I dropped by the Mozilla offices in Toronto this week &amp; had a great chat with some of their accessibility folks. Pretty sure VIMS came up.  Happy that prefers-reduced-motion has landed in FF.  </p>\n<p>Thanks for the update @andrewmacpherson</p>",
+          "body_text": "I dropped by the Mozilla offices in Toronto this week & had a great chat with some of their accessibility folks. Pretty sure VIMS came up. Happy that prefers-reduced-motion has landed in FF.\nThanks for the update @andrewmacpherson",
+          "machine_generated": false,
+          "content_hash": "ce3e0df82c3dd00adbafca6ffa364f59295584d2e48cb68c49c494863a4db13e"
+        },
+        {
+          "id": "12869156",
+          "url": "https://www.drupal.org/node/2928103#comment-12869156",
+          "author": "mgifford",
+          "author_id": "27930",
+          "author_url": "https://www.drupal.org/user/27930",
+          "created_at": "2018-11-25T16:34:51Z",
+          "body_html": "<p>Just adding this link about toggling animations:<br />\n<a href=\"https://www.kirupa.com/html5/toggling_animations_on_off.htm\" rel=\"nofollow\">https://www.kirupa.com/html5/toggling_animations_on_off.htm</a></p>",
+          "body_text": "Just adding this link about toggling animations:\nhttps://www.kirupa.com/html5/toggling_animations_on_off.htm",
+          "machine_generated": false,
+          "content_hash": "dec1b86074c025ba002cb070da2641c62d30f3019c026cf07cb983cbf2db07f1"
+        },
+        {
+          "id": "12872446",
+          "url": "https://www.drupal.org/node/2928103#comment-12872446",
+          "author": "effulgentsia",
+          "author_id": "78040",
+          "author_url": "https://www.drupal.org/user/78040",
+          "created_at": "2018-11-27T20:01:34Z",
+          "body_html": "<p>According to <a href=\"#comment-12754799\" rel=\"nofollow\">#30</a> / <a href=\"#comment-12756999\" rel=\"nofollow\">#34</a>, Windows 10 labels the setting <em>\"Show animations in Windows\"</em>.</p>\n<p>According to <a href=\"#comment-12866295\" rel=\"nofollow\">#40</a>, Android 9 labels the setting <em>\"remove animations\"</em>.</p>\n<p>Yet the link in <a href=\"#comment-12869156\" rel=\"nofollow\">#42</a> says:</p>\n<blockquote><p>...what is the right behavior when someone specifies that they want to see fewer animations. The answer isn't always to disable all animations. Doing so may actually hinder the usability of your app greatly. This is where testing with real users who may have visual/motion-related disorders can be helpful. On iOS, when you enable the setting to reduce animations, what happens is that each animation effect is adjusted different. Zooming effects get turned into more subtle fades. Parallax effects, on the other hand, are fully disabled. The main takeaway is that you need to be thoughtful about how you handle a user's preference for reducing animations.</p></blockquote>\n<p>And <a href=\"https://webkit.org/blog/7551/responsive-design-for-motion/\" rel=\"nofollow\">https://webkit.org/blog/7551/responsive-design-for-motion/</a> has more info on that as well.</p>\n<p>So I'm eager to see how this all gets synthesized into recommendations for Drupal.</p>",
+          "body_text": "According to #30 / #34, Windows 10 labels the setting \"Show animations in Windows\".\nAccording to #40, Android 9 labels the setting \"remove animations\".\nYet the link in #42 says:\n...what is the right behavior when someone specifies that they want to see fewer animations. The answer isn't always to disable all animations. Doing so may actually hinder the usability of your app greatly. This is where testing with real users who may have visual/motion-related disorders can be helpful. On iOS, when you enable the setting to reduce animations, what happens is that each animation effect is adjusted different. Zooming effects get turned into more subtle fades. Parallax effects, on the other hand, are fully disabled. The main takeaway is that you need to be thoughtful about how you handle a user's preference for reducing animations.\nAnd https://webkit.org/blog/7551/responsive-design-for-motion/ has more info on that as well.\nSo I'm eager to see how this all gets synthesized into recommendations for Drupal.",
+          "machine_generated": false,
+          "content_hash": "a272b65973638d7c8cfa3462a1f3b28c8c2a722dcd3da19eec2bc8c72149cb0a"
+        },
+        {
+          "id": "12889117",
+          "url": "https://www.drupal.org/node/2928103#comment-12889117",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2018-12-11T01:19:25Z",
+          "body_html": "<p>For clarification, animation sensitivity isn't just about VIMS. It can also be about hypervigilance or, for that matter, preserving battery life.</p>",
+          "body_text": "For clarification, animation sensitivity isn't just about VIMS. It can also be about hypervigilance or, for that matter, preserving battery life.",
+          "machine_generated": false,
+          "content_hash": "d959a086d644c66b71fa643730cdf07c7493ff3042a112e61aba753c3ea04587"
+        },
+        {
+          "id": "12922389",
+          "url": "https://www.drupal.org/node/2928103#comment-12922389",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2019-01-10T20:15:47Z",
+          "body_html": "<p>As of January 9, 2019, Chrome has committed to implementing and shipping this feature.</p>\n<p><a href=\"https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/NZ3c9d4ivA8\" rel=\"nofollow\">blink-dev › Intent to Implement and Ship: CSS prefers-reduced-motion media query</a></p>\n<p><a href=\"https://www.chromestatus.com/feature/5597964353404928\" rel=\"nofollow\">Chrome Platform Status &gt; CSS prefers-reduced-motion media query</a></p>\n<p><a href=\"https://bugs.chromium.org/p/chromium/issues/detail?id=722548\" rel=\"nofollow\">Issue &gt;Add support for CSS prefers-reduced-motion media feature</a></p>",
+          "body_text": "As of January 9, 2019, Chrome has committed to implementing and shipping this feature.\nblink-dev › Intent to Implement and Ship: CSS prefers-reduced-motion media query\nChrome Platform Status > CSS prefers-reduced-motion media query\nIssue >Add support for CSS prefers-reduced-motion media feature",
+          "machine_generated": false,
+          "content_hash": "8f047c28fe53c6a8a79f583b1717d4d92cc20ced083353be712e127d2a987b5b"
+        },
+        {
+          "id": "12922412",
+          "url": "https://www.drupal.org/node/2928103#comment-12922412",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2019-01-10T20:49:10Z",
+          "body_html": "<p>I made a couple of updates to the issue discussion.</p>\n<p>In the Todo, I raised the question of whether animations triggered by cursor movement could inadvertently trigger epileptic seizures by producing flashing within the rate specified by WCAG 2.0 Guideline 2.3 Seizures: Do not design content in a way that is known to cause seizures. I add this because I was recently presented with a design which involved multiple color-inverting flipping tiles on hover. Given sufficiently fast cursor movement, this could result in more than three flashes per second.</p>\n<p>I added a link to a second reference article, from A List Apart, as discussion of vestibular disorder.</p>\n<p>As a comment on the Webkit article, they recommend only removing animation if it is known to trigger vestibular disorder. I disagree, in that, as noted, other disorders can be triggered as well, and most people would not have the expertise to know whether a particular animation would trigger someone.</p>",
+          "body_text": "I made a couple of updates to the issue discussion.\nIn the Todo, I raised the question of whether animations triggered by cursor movement could inadvertently trigger epileptic seizures by producing flashing within the rate specified by WCAG 2.0 Guideline 2.3 Seizures: Do not design content in a way that is known to cause seizures. I add this because I was recently presented with a design which involved multiple color-inverting flipping tiles on hover. Given sufficiently fast cursor movement, this could result in more than three flashes per second.\nI added a link to a second reference article, from A List Apart, as discussion of vestibular disorder.\nAs a comment on the Webkit article, they recommend only removing animation if it is known to trigger vestibular disorder. I disagree, in that, as noted, other disorders can be triggered as well, and most people would not have the expertise to know whether a particular animation would trigger someone.",
+          "machine_generated": false,
+          "content_hash": "811d824e0c9f62b266edde0e000e882e3284488c925f4153658c766b4922d9e8"
+        },
+        {
+          "id": "13045877",
+          "url": "https://www.drupal.org/node/2928103#comment-13045877",
+          "author": "mgifford",
+          "author_id": "27930",
+          "author_url": "https://www.drupal.org/user/27930",
+          "created_at": "2019-03-29T14:13:47Z",
+          "body_html": "<p>Following up on @Charles Belov's post.  Looks like Google's Chrome will have this enabled by default in release 74:<br />\n  <a href=\"https://developers.google.com/web/updates/2019/03/prefers-reduced-motion\" rel=\"nofollow\">https://developers.google.com/web/updates/2019/03/prefers-reduced-motion</a></p>",
+          "body_text": "Following up on @Charles Belov's post. Looks like Google's Chrome will have this enabled by default in release 74:\nhttps://developers.google.com/web/updates/2019/03/prefers-reduced-motion",
+          "machine_generated": false,
+          "content_hash": "12470016c1c098dadda8d176622e4568dec882d3aa0c40f1cd994917401cc729"
+        },
+        {
+          "id": "13083349",
+          "url": "https://www.drupal.org/node/2928103#comment-13083349",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2019-04-25T23:40:42Z",
+          "body_html": "<p>Chrome 74 has been released. I've confirmed with the <a href=\"https://webkit.org/blog-files/prefers-reduced-motion/prm.htm\" rel=\"nofollow\">Webkit prefer-reduced-motion demo</a> that prefers-reduced-motion is supported.</p>",
+          "body_text": "Chrome 74 has been released. I've confirmed with the Webkit prefer-reduced-motion demo that prefers-reduced-motion is supported.",
+          "machine_generated": false,
+          "content_hash": "d345381b01d2b47701802f6303f012fb3dd561ea3ab1e71d260d066eb9988deb"
+        },
+        {
+          "id": "13083353",
+          "url": "https://www.drupal.org/node/2928103#comment-13083353",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2019-04-25T23:44:18Z",
+          "body_html": "<p>Corrected typo \"loose\" for \"lose\"</p>",
+          "body_text": "Corrected typo \"loose\" for \"lose\"",
+          "machine_generated": false,
+          "content_hash": "fdbeffc20a639291f47aa8f4020f0d63c1bed3cf3185b3046d218c7d04c6732a"
+        },
+        {
+          "id": "13355027",
+          "url": "https://www.drupal.org/node/2928103#comment-13355027",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2019-11-15T16:56:42Z",
+          "body_html": "<p>The only outstanding question here is about treating \"reduce\" as \"remove/turn off\". We've been back and forth on this a lot.</p>\n<p>To my mind, the overriding factor is that the majority-share OS (Windows and Android) convey it as \"remove\". However, it occurred to me to check what the <a href=\"https://drafts.csswg.org/mediaqueries-5/#descdef-media-prefers-reduced-motion\" rel=\"nofollow\">CSS Media Queries level 5 working draft</a> actually says. Today I noticed this definition (emphasis mine):</p>\n<blockquote><p><code class=\"language-php\">`reduce`</code><br />\n    Indicates that user has notified the system that they prefer an interface that minimizes the amount of movement or animation, preferably to the point where <strong>all non-essential movement is removed.</strong></p></blockquote>\n<p>That wording seems to settle it. We've already seen how the OS-level preferences are phrased, so the expectation of the majority of users will be to remove (not reduce) animations. The wording of the CSS definition aligns with this too.</p>\n<p>So, I propose we move this policy to the finishing line:</p>\n<ul>\n<li>Designs for Drupal themes and components can make sensible use of animation to aid understanding.</li>\n<li>Designs <em>should not rely</em> on animation, and are still understandable and operable when animation is turned off.</li>\n<li>Treat <code class=\"language-php\">prefers-reduce-motion: reduce</code> as meaning \"completely remove\", per the CSS definition, and in harmony with how the user preference is actually called on most OS.</li>\n<li>Recommend themes turn off all animation (using a global selector) as the simplest and most robust approach. Components which warrant an exception (hopefully rare) can explicitly override this. Include a specimen CSS rule.</li>\n<li>Update the suggested background reading. Browser/OS support notes, CSS spec, design articles, disability articles.</li>\n</ul>\n<p>I'll update the the issue summary so it reads like a policy.</p>\n<p>This comment updates the sections on supported browsers and OS preferences. Most have implemented it now.</p>",
+          "body_text": "The only outstanding question here is about treating \"reduce\" as \"remove/turn off\". We've been back and forth on this a lot.\nTo my mind, the overriding factor is that the majority-share OS (Windows and Android) convey it as \"remove\". However, it occurred to me to check what the CSS Media Queries level 5 working draft actually says. Today I noticed this definition (emphasis mine):\n`reduce`\nIndicates that user has notified the system that they prefer an interface that minimizes the amount of movement or animation, preferably to the point where all non-essential movement is removed.\nThat wording seems to settle it. We've already seen how the OS-level preferences are phrased, so the expectation of the majority of users will be to remove (not reduce) animations. The wording of the CSS definition aligns with this too.\nSo, I propose we move this policy to the finishing line:\nDesigns for Drupal themes and components can make sensible use of animation to aid understanding.\nDesigns should not rely on animation, and are still understandable and operable when animation is turned off.\nTreat prefers-reduce-motion: reduce as meaning \"completely remove\", per the CSS definition, and in harmony with how the user preference is actually called on most OS.\nRecommend themes turn off all animation (using a global selector) as the simplest and most robust approach. Components which warrant an exception (hopefully rare) can explicitly override this. Include a specimen CSS rule.\nUpdate the suggested background reading. Browser/OS support notes, CSS spec, design articles, disability articles.\nI'll update the the issue summary so it reads like a policy.\nThis comment updates the sections on supported browsers and OS preferences. Most have implemented it now.",
+          "machine_generated": false,
+          "content_hash": "12e7226e6a47ae05c3a37d074befd047f5186d12ff82353b1684465213adde88"
+        },
+        {
+          "id": "13355554",
+          "url": "https://www.drupal.org/node/2928103#comment-13355554",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2019-11-15T20:04:44Z",
+          "body_html": "<p>Added note on iOS splitting out the preference for slide-in menus. I don't know whether macOS Catalina similarly implements a split-out preference, but, as they came out around the same time, I would not be surprised if this has been done. Given that this is not currently supported by any browser nor implemented in Windows, I suggest we focus on prefers-reduced-motion as the sole arbiter.</p>\n<p>As for necessary animations, and I imagine there are some, those would need to respect Pause, Stop, Hide. I added a TODO on whether we want to disallow autoplay when prefers-reduced-motion is set to reduce. I know autoplay is an issue for me.</p>",
+          "body_text": "Added note on iOS splitting out the preference for slide-in menus. I don't know whether macOS Catalina similarly implements a split-out preference, but, as they came out around the same time, I would not be surprised if this has been done. Given that this is not currently supported by any browser nor implemented in Windows, I suggest we focus on prefers-reduced-motion as the sole arbiter.\nAs for necessary animations, and I imagine there are some, those would need to respect Pause, Stop, Hide. I added a TODO on whether we want to disallow autoplay when prefers-reduced-motion is set to reduce. I know autoplay is an issue for me.",
+          "machine_generated": false,
+          "content_hash": "2d9cbaac3c554a317127f6310c6d722c2e00c8470acf658ff512ec521f0f08d4"
+        },
+        {
+          "id": "13358312",
+          "url": "https://www.drupal.org/node/2928103#comment-13358312",
+          "author": "mherchel",
+          "author_id": "118428",
+          "author_url": "https://www.drupal.org/user/118428",
+          "created_at": "2019-11-18T21:53:51Z",
+          "body_html": "<p>I would caution against completely removing the animations (as suggested in #23). </p>\n<pre class=\"codeblock\"><code class=\"language-php\">@media (prefers-reduced-motion: reduce) {\n  * {\n    animation: none !important;\n    transition: none !important;\n  }\n}</code></pre><p>\nThis would cause any <code class=\"language-php\">transitionend</code> and <code class=\"language-php\">animationend</code> events not to fire. I personally use these events for setting focus to a textfield after something slides in. </p>\n<p>A better way (assuming the decision is made to implement this) would be to use an \"almost 0s\" duration</p>\n<pre class=\"codeblock\"><code class=\"language-php\"> animation-duration: 0.001s !important;\n transition-duration: 0.001s !important;</code></pre><p>\nThat all being said, I strongly suggest that we read through this Mozilla github issue: <a href=\"https://github.com/mozdevs/cssremedy/issues/11\" rel=\"nofollow\">https://github.com/mozdevs/cssremedy/issues/11</a></p>\n<p>There's a ton of research done on this very question. Val Head (who is a very respected authority on web animations) added</p>\n<blockquote><p>This is definitely a more complex problem than it initially seems as has been stated above. In my research so far I haven't found a blanket solution that isn't without issues. </p></blockquote>",
+          "body_text": "I would caution against completely removing the animations (as suggested in #23).\n@media (prefers-reduced-motion: reduce) {\n* {\nanimation: none !important;\ntransition: none !important;\n}\n}\nThis would cause any transitionend and animationend events not to fire. I personally use these events for setting focus to a textfield after something slides in.\nA better way (assuming the decision is made to implement this) would be to use an \"almost 0s\" duration\nanimation-duration: 0.001s !important;\ntransition-duration: 0.001s !important;\nThat all being said, I strongly suggest that we read through this Mozilla github issue: https://github.com/mozdevs/cssremedy/issues/11\nThere's a ton of research done on this very question. Val Head (who is a very respected authority on web animations) added\nThis is definitely a more complex problem than it initially seems as has been stated above. In my research so far I haven't found a blanket solution that isn't without issues.",
+          "machine_generated": false,
+          "content_hash": "8111f32773d966c2a065f2100033cc0ba18a06f378004fd7b65f10538b5f1bab"
+        },
+        {
+          "id": "13359830",
+          "url": "https://www.drupal.org/node/2928103#comment-13359830",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2019-11-19T22:08:30Z",
+          "body_html": "<p>Thanks @mherchel.</p>\n<p>I too have seen the approaches with 1ms duration, and the issue of whether transition events fire. I was meaning to raise this myself, which is why I haven't put the <code class=\"language-php\">transition: none</code> snippet into the issue summary yet.</p>\n<p>Thanks for the github issue. There's a lot of detail there. I have a few other bookmarks which cover this, but not in as much depth.</p>\n<p>I've heard some reasonable uses for JS transition events, and if they don't fire because of <code class=\"language-php\">transition:none</code> I expect that would complicate a lot of JS. In particular, I've seen approaches which update dynamic ARIA properties on <code class=\"language-php\">transitionstart</code>.</p>\n<p>The 1ms approach sounds better based on what I've heard so far.</p>",
+          "body_text": "Thanks @mherchel.\nI too have seen the approaches with 1ms duration, and the issue of whether transition events fire. I was meaning to raise this myself, which is why I haven't put the transition: none snippet into the issue summary yet.\nThanks for the github issue. There's a lot of detail there. I have a few other bookmarks which cover this, but not in as much depth.\nI've heard some reasonable uses for JS transition events, and if they don't fire because of transition:none I expect that would complicate a lot of JS. In particular, I've seen approaches which update dynamic ARIA properties on transitionstart.\nThe 1ms approach sounds better based on what I've heard so far.",
+          "machine_generated": false,
+          "content_hash": "44022ddeaa93f3ee5516c2c49ba132d0007c6187ace0f0a0d90862e60a646771"
+        },
+        {
+          "id": "13360030",
+          "url": "https://www.drupal.org/node/2928103#comment-13360030",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2019-11-20T03:36:03Z",
+          "body_html": "<p>From the mozdevs/cssremedy Github issue mentioned by @mherchel in #52 (<a href=\"https://github.com/mozdevs/cssremedy/issues/11\" rel=\"nofollow\"> What's best for prefers-reduced-motion?</a>)</p>\n<blockquote><p>This is definitely a more complex problem than it initially seems as has been stated above. In my research so far I haven't found a blanket solution that isn't without issues. </p></blockquote>\n<p>Yes, I'll buy that. The Github issue (particularly Val Head's comments) go into greater depth than I've ever considered. I'm not an animation designer, and some properties discussed there are beyond my present knowledge (e.g. <code class=\"language-php\">animation-fill-mode</code>).  However, what @DuaelFr and myself are proposing is a <em>safety-oriented baseline</em> for common animation uses, not a single rule for all situations. Specific components could still over-ride this baseline.</p>\n<p>Also from the same Gitub issue, some quotes from our old friend Jen Simmons who is thinking along the same lines (emphasis mine)....</p>\n<blockquote><p>I'm left thinking we should include this in Remedy, not because the CSSWG \"got it wrong\", but because <strong>this is a good default</strong> for all of the web developers (Authors) who don't bother thinking about prefers-reduced-motion at all. It gives people who need animations eliminated or reduced what they need. And while this might potentially 'break' some UX, <strong>developers can easily fix those less-frequent cases by overriding Remedy's code</strong> [...]</p>\n<p>The other choice is to not do this at all. To leave it all up to the developers. I just don't like that. <strong>I'd rather risk breaking fancy animations</strong> than risk no websites bothering to write good code for people who can't take motion very well.\n</p></blockquote>\n<p>Jen Simmons was the original Bartik theme designer/maintainer, so she knows our situation well!  (Heck, CSSRemedy sounds like the sort of library any major CMS might consider adopting wholesale, like we do with <code class=\"language-php\">normalize.css</code>).</p>\n<p>The main purpose of such a baseline in Drupal core themes (and hopefully contrib base themes and starter kits) is to safeguard against CSS animations in contrib/custom modules where the developer hasn't supported <code class=\"language-php\">prefers-reduced-motion</code>. For example, a contrib module might provide an alternative admin UI geared towards managing large taxonomy trees; with a progressive tree-disclosure widget which animates the <code class=\"language-php\">max-height</code> when a deeper level is opened. Such a case would work fine with the sort of global baseline proposed here, and the module maintainer wouldn't have to do anything special.</p>\n<p>FWIW, <a href=\"https://github.com/twbs/bootstrap/issues/25249\" rel=\"nofollow\">Bootstrap went for <code class=\"language-php\">transition: none</code></a>, and consequently Joomla has that too:</p>\n<pre class=\"codeblock\"><code class=\"language-php\">  @media screen and (prefers-reduced-motion: reduce) {\n    transition: none;\n  }</code></pre><p>\nThe Bootstrap issue queue gives some insight into how this was received among developers: <a href=\"https://github.com/twbs/bootstrap/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+reduced-motion\" rel=\"nofollow\">Bootstrap issues containing \"prefers-reduced-motion\"</a>.</p>\n<p>As each new browser implemented <code class=\"language-php\">prefers-reduced-motion</code> (first Safari, then Firefox), new bugs were filed to say some Bootstrap component was broken. In most cases it was deemed \"by design\", and developers had just run into the global baseline <code class=\"language-php\">prefers-reduced-motion</code> for the first time.</p>\n<p>When we put a similar baseline into core Drupal themes, we might expect a similar run of issues in contrib modules. That's OK - I'd view it as an opportunity to raise awareness of the issue among developers and themers. Most users won't encounter it unless they have turned the OS preference on.</p>\n<p>Note that core themes are marked as \"internal\" so this is fine for backwards-compatibility policy. I think it should be implemented directly in Bartik, Seven, Umami, and Claro, but NOT Classy because many live websites are using that. In any case there's a plan to remove Classy in D9.</p>\n<p>Nonetheless, this policy warrants a change record and handbook page.</p>",
+          "body_text": "From the mozdevs/cssremedy Github issue mentioned by @mherchel in #52 ( What's best for prefers-reduced-motion?)\nThis is definitely a more complex problem than it initially seems as has been stated above. In my research so far I haven't found a blanket solution that isn't without issues.\nYes, I'll buy that. The Github issue (particularly Val Head's comments) go into greater depth than I've ever considered. I'm not an animation designer, and some properties discussed there are beyond my present knowledge (e.g. animation-fill-mode). However, what @DuaelFr and myself are proposing is a safety-oriented baseline for common animation uses, not a single rule for all situations. Specific components could still over-ride this baseline.\nAlso from the same Gitub issue, some quotes from our old friend Jen Simmons who is thinking along the same lines (emphasis mine)....\nI'm left thinking we should include this in Remedy, not because the CSSWG \"got it wrong\", but because this is a good default for all of the web developers (Authors) who don't bother thinking about prefers-reduced-motion at all. It gives people who need animations eliminated or reduced what they need. And while this might potentially 'break' some UX, developers can easily fix those less-frequent cases by overriding Remedy's code [...]\nThe other choice is to not do this at all. To leave it all up to the developers. I just don't like that. I'd rather risk breaking fancy animations than risk no websites bothering to write good code for people who can't take motion very well.\nJen Simmons was the original Bartik theme designer/maintainer, so she knows our situation well! (Heck, CSSRemedy sounds like the sort of library any major CMS might consider adopting wholesale, like we do with normalize.css).\nThe main purpose of such a baseline in Drupal core themes (and hopefully contrib base themes and starter kits) is to safeguard against CSS animations in contrib/custom modules where the developer hasn't supported prefers-reduced-motion. For example, a contrib module might provide an alternative admin UI geared towards managing large taxonomy trees; with a progressive tree-disclosure widget which animates the max-height when a deeper level is opened. Such a case would work fine with the sort of global baseline proposed here, and the module maintainer wouldn't have to do anything special.\nFWIW, Bootstrap went for transition: none, and consequently Joomla has that too:\n@media screen and (prefers-reduced-motion: reduce) {\ntransition: none;\n}\nThe Bootstrap issue queue gives some insight into how this was received among developers: Bootstrap issues containing \"prefers-reduced-motion\".\nAs each new browser implemented prefers-reduced-motion (first Safari, then Firefox), new bugs were filed to say some Bootstrap component was broken. In most cases it was deemed \"by design\", and developers had just run into the global baseline prefers-reduced-motion for the first time.\nWhen we put a similar baseline into core Drupal themes, we might expect a similar run of issues in contrib modules. That's OK - I'd view it as an opportunity to raise awareness of the issue among developers and themers. Most users won't encounter it unless they have turned the OS preference on.\nNote that core themes are marked as \"internal\" so this is fine for backwards-compatibility policy. I think it should be implemented directly in Bartik, Seven, Umami, and Claro, but NOT Classy because many live websites are using that. In any case there's a plan to remove Classy in D9.\nNonetheless, this policy warrants a change record and handbook page.",
+          "machine_generated": false,
+          "content_hash": "47b59de636b4fc055c6bd7e6a4b3bc0e69e6687a09354d8389b83bf0f9664af0"
+        },
+        {
+          "id": "13360038",
+          "url": "https://www.drupal.org/node/2928103#comment-13360038",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2019-11-20T04:13:03Z",
+          "body_html": "<p>@Charles Belov, re. #51:</p>\n<p>Thanks for the note on iOS 13 \"Prefer Cross-Fade Transitions\". My iPod Touch isn't eligible for iOS 13 so I haven't seen that yet.  However, does it actually have an effect on web content? Unless it's something that we can address in Drupal, then it's out of scope here.</p>\n<p>SOME instances of WCAG \"Pause, Stop, Hide\" and \"Three flashes\" might be caught by the <code class=\"language-php\">prefers-reduced-motion</code> baseline we propose, but only if the animation is implemented using CSS animation/transition.  My expectation is that most occurences of the these will come from content such as video, or custom JS slideshows etc.  These are the sort of thing the baseline won't catch.</p>\n<p>We can certainly advise developers and authors about it in this policy and in the accessibility handbook pages. This policy issue title could be a bit more general, e.g. \"Guidance on safe use of animation\".</p>\n<blockquote><p>I added a TODO on whether we want to disallow autoplay when prefers-reduced-motion is set to reduce.</p></blockquote>\n<p>This might be possible, but I think it's going to hard to catch in a generic approach. Speculation:</p>\n<ul>\n<li>The core audio and video file field formatters have a setting for the HTML autoplay attribute. We could attach some JS to those, with a <code class=\"language-php\">matchMedia()</code> check for <code class=\"language-php\">prefers-reduced-motion</code>, to turn the HTML autoplay attribute off. Perhaps explore this in a follow-up issue?</li>\n<li>Third-party JS media players, slideshows, etc., are too diverse in their implementations for us to fix. It's probably better to file issues with the upstream projects.</li>\n</ul>",
+          "body_text": "@Charles Belov, re. #51:\nThanks for the note on iOS 13 \"Prefer Cross-Fade Transitions\". My iPod Touch isn't eligible for iOS 13 so I haven't seen that yet. However, does it actually have an effect on web content? Unless it's something that we can address in Drupal, then it's out of scope here.\nSOME instances of WCAG \"Pause, Stop, Hide\" and \"Three flashes\" might be caught by the prefers-reduced-motion baseline we propose, but only if the animation is implemented using CSS animation/transition. My expectation is that most occurences of the these will come from content such as video, or custom JS slideshows etc. These are the sort of thing the baseline won't catch.\nWe can certainly advise developers and authors about it in this policy and in the accessibility handbook pages. This policy issue title could be a bit more general, e.g. \"Guidance on safe use of animation\".\nI added a TODO on whether we want to disallow autoplay when prefers-reduced-motion is set to reduce.\nThis might be possible, but I think it's going to hard to catch in a generic approach. Speculation:\nThe core audio and video file field formatters have a setting for the HTML autoplay attribute. We could attach some JS to those, with a matchMedia() check for prefers-reduced-motion, to turn the HTML autoplay attribute off. Perhaps explore this in a follow-up issue?\nThird-party JS media players, slideshows, etc., are too diverse in their implementations for us to fix. It's probably better to file issues with the upstream projects.",
+          "machine_generated": false,
+          "content_hash": "6baec07b9d7e93d541689515b72f5ce2122baac0e0c0e79f6ac09288b2fa0ab1"
+        },
+        {
+          "id": "13362992",
+          "url": "https://www.drupal.org/node/2928103#comment-13362992",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2019-11-21T22:06:50Z",
+          "body_html": "<p>@andrewmacpherson: Thank you for your detailed response.</p>\n<p>Prefer Cross-Fade Transition replaces menu and dialog box slide-in with a fade transition. That menus and dialog box slide-ins were not previously included in Prefers Reduced Motion had been raised as a justification for not including all cosmetic animation under Prefers Reduced Motion. I'm not sure why Apple chose to break it out, but it is clear that it bothers enough people (myself included) that Apple chose to address it.</p>\n<p>Prefer Cross-Fade Transition for menus/dialogues is not currently relevant to any browser implementations in any implementable way, so far as I know, so I'm not suggesting it be added to the scope. It was included more as an indicator of where the industry is heading in terms of best practices. Since we can't implement it, I suggest that we treat <code class=\"language-php\">prefers-reduced-motion: reduce</code> in Drupal as if it included an identical choice for Prefer Cross-Fade Transition.</p>\n<p>However, Prefer Cross-Fade Transition does point the way to a possible solution for dealing with not being able to fully disable transition through <code class=\"language-php\">transition:none</code>. That is, where there must be some kind of transition, implementing it as a cross-fade rather than as motion.</p>",
+          "body_text": "@andrewmacpherson: Thank you for your detailed response.\nPrefer Cross-Fade Transition replaces menu and dialog box slide-in with a fade transition. That menus and dialog box slide-ins were not previously included in Prefers Reduced Motion had been raised as a justification for not including all cosmetic animation under Prefers Reduced Motion. I'm not sure why Apple chose to break it out, but it is clear that it bothers enough people (myself included) that Apple chose to address it.\nPrefer Cross-Fade Transition for menus/dialogues is not currently relevant to any browser implementations in any implementable way, so far as I know, so I'm not suggesting it be added to the scope. It was included more as an indicator of where the industry is heading in terms of best practices. Since we can't implement it, I suggest that we treat prefers-reduced-motion: reduce in Drupal as if it included an identical choice for Prefer Cross-Fade Transition.\nHowever, Prefer Cross-Fade Transition does point the way to a possible solution for dealing with not being able to fully disable transition through transition:none. That is, where there must be some kind of transition, implementing it as a cross-fade rather than as motion.",
+          "machine_generated": false,
+          "content_hash": "db6401e4588133e5852ca57bd98bac772ef4e8cd3a07ef22dd68ae3acc823045"
+        },
+        {
+          "id": "13364511",
+          "url": "https://www.drupal.org/node/2928103#comment-13364511",
+          "author": "andrewmacpherson",
+          "author_id": "265648",
+          "author_url": "https://www.drupal.org/user/265648",
+          "created_at": "2019-11-23T04:13:58Z",
+          "body_html": "<p>Treating \"motion\" separate from animation or transition is splitting hairs.  The CSS definition talks about \"movement or animation\" in one breath, and the user preference name on Windows and Android refers to \"animation\" not motion. It's clear that the intention of the media query is to turn off animation in general.</p>\n<p>Apple != \"the industry\".</p>\n<p>There is also a prefers-reduced-transparency media query in the CSS draft too, but I don't think that's been implemented yet. An animated cross-fade could count as animation and transparency; I think you'd turn it off if either media query matched.</p>",
+          "body_text": "Treating \"motion\" separate from animation or transition is splitting hairs. The CSS definition talks about \"movement or animation\" in one breath, and the user preference name on Windows and Android refers to \"animation\" not motion. It's clear that the intention of the media query is to turn off animation in general.\nApple != \"the industry\".\nThere is also a prefers-reduced-transparency media query in the CSS draft too, but I don't think that's been implemented yet. An animated cross-fade could count as animation and transparency; I think you'd turn it off if either media query matched.",
+          "machine_generated": false,
+          "content_hash": "f78b4755faaf276de6e28fd29004c55ad698b3518b23350662b66604993bf429"
+        },
+        {
+          "id": "15082574",
+          "url": "https://www.drupal.org/node/2928103#comment-15082574",
+          "author": "mgifford",
+          "author_id": "27930",
+          "author_url": "https://www.drupal.org/user/27930",
+          "created_at": "2023-05-29T21:16:35Z",
+          "body_html": "<p>Tagging for accessibility. </p>",
+          "body_text": "Tagging for accessibility.",
+          "machine_generated": false,
+          "content_hash": "d6b93aab597842e5a2f0c7bdc532a166d4914ddde5524da4d8e66da2a1bd9ca1"
+        },
+        {
+          "id": "16125257",
+          "url": "https://www.drupal.org/node/2928103#comment-16125257",
+          "author": "quietone",
+          "author_id": "2572884",
+          "author_url": "https://www.drupal.org/user/2572884",
+          "created_at": "2025-05-28T05:11:23Z",
+          "body_html": "<p>The Ideas project is being deprecated. This issue is moved to the Drupal project. Check that the selected component is correct. Also, add the relevant tags, especially any 'needs manager review' tags. </p>",
+          "body_text": "The Ideas project is being deprecated. This issue is moved to the Drupal project. Check that the selected component is correct. Also, add the relevant tags, especially any 'needs manager review' tags.",
+          "machine_generated": false,
+          "content_hash": "9552cede27dd93a5e3da2122b95c97a683fcc22430f799df59a9d263d5ceaf78"
+        },
+        {
+          "id": "16126461",
+          "url": "https://www.drupal.org/node/2928103#comment-16126461",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2025-05-28T18:50:26Z",
+          "body_html": "<p>Added Windows 11 wording for setting.</p>",
+          "body_text": "Added Windows 11 wording for setting.",
+          "machine_generated": false,
+          "content_hash": "6770c1b0e2857f242ece435178deb252977587349d55ca7a5bdc3c48673bda6d"
+        },
+        {
+          "id": "16587516",
+          "url": "https://www.drupal.org/node/2928103#comment-16587516",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2026-05-14T20:30:37Z",
+          "body_html": "<p>Regarding:</p>\n<blockquote><p>WCAG SC 2.3.3 \"Animations from interactions\" contains an exemption for animations which are deemed essential to understanding. We should address this in the policy, because sooner or later someone will try to claim that exemption. Such essential animations are expected to be very rare. Suggestion: using this exception should require explicit justification, followed by accessibility maintainer review + sign-off.</p></blockquote>\n<p>I would like to see the policy in such a case be that a pause/play button be required for any animations that are deemed essential. I am strongly in favor of not autoplaying if reduce motion/disable animation has been requested by the site visitor.</p>",
+          "body_text": "Regarding:\nWCAG SC 2.3.3 \"Animations from interactions\" contains an exemption for animations which are deemed essential to understanding. We should address this in the policy, because sooner or later someone will try to claim that exemption. Such essential animations are expected to be very rare. Suggestion: using this exception should require explicit justification, followed by accessibility maintainer review + sign-off.\nI would like to see the policy in such a case be that a pause/play button be required for any animations that are deemed essential. I am strongly in favor of not autoplaying if reduce motion/disable animation has been requested by the site visitor.",
+          "machine_generated": false,
+          "content_hash": "9a6afeda17a872558112b2053d16edfc9bf58b2e357d6293ea2df851d23931fb"
+        },
+        {
+          "id": "16588711",
+          "url": "https://www.drupal.org/node/2928103#comment-16588711",
+          "author": "mgifford",
+          "author_id": "27930",
+          "author_url": "https://www.drupal.org/user/27930",
+          "created_at": "2026-05-16T08:07:38Z",
+          "body_html": "<p>@charles belov - This is for places where the animation is deemed so important that it can ignore prefers-reduced-motion?</p>\n<p>I really don't see a pause/play button being added to most animations. Maybe. I'd really want to see some examples. That said, I haven't found an instance where animations are actually required. </p>\n<p>I would love to see a list of use cases where ignoring reduce motion/disable animation needs to be overridden for some reason. </p>",
+          "body_text": "@charles belov - This is for places where the animation is deemed so important that it can ignore prefers-reduced-motion?\nI really don't see a pause/play button being added to most animations. Maybe. I'd really want to see some examples. That said, I haven't found an instance where animations are actually required.\nI would love to see a list of use cases where ignoring reduce motion/disable animation needs to be overridden for some reason.",
+          "machine_generated": false,
+          "content_hash": "268dcb94bacb859d907bd254c47ef3c48b7da799377e369a832ed8077139490d"
+        },
+        {
+          "id": "16605376",
+          "url": "https://www.drupal.org/node/2928103#comment-16605376",
+          "author": "charles belov",
+          "author_id": "569178",
+          "author_url": "https://www.drupal.org/user/569178",
+          "created_at": "2026-06-02T22:55:12Z",
+          "body_html": "<p>@mgifford - I suspect examples of animation which would be necessary for understanding would be things like tutorials where you have to do a certain motion in order to accomplish something, such as clear a jam on a printer. For such animations, whether they are triggering or not for me can depend on how professionally the animations are done. Computer animation can often be triggering for me and I need a way to stop it quickly if it does. It is sufficiently problematic for me that I use the Firefox setting layout.frame_rate at a setting of 6 frames per second when viewing untrusted videos and typically surf the web at 3 frames per second.</p>\n<p>There is also the cognitive component that sometimes people may need to pause an animation in order to be able to ingest the information or re-view a point they need to view multiple times in order to understand. This is an issue for me as well with un-pausable animations.</p>",
+          "body_text": "@mgifford - I suspect examples of animation which would be necessary for understanding would be things like tutorials where you have to do a certain motion in order to accomplish something, such as clear a jam on a printer. For such animations, whether they are triggering or not for me can depend on how professionally the animations are done. Computer animation can often be triggering for me and I need a way to stop it quickly if it does. It is sufficiently problematic for me that I use the Firefox setting layout.frame_rate at a setting of 6 frames per second when viewing untrusted videos and typically surf the web at 3 frames per second.\nThere is also the cognitive component that sometimes people may need to pause an animation in order to be able to ingest the information or re-view a point they need to view multiple times in order to understand. This is an issue for me as well with un-pausable animations.",
+          "machine_generated": false,
+          "content_hash": "63b434390a72d86fe1255d739c749cbda3e01ceaae3bae2f605e6bc89bf37f8e"
+        },
+        {
+          "id": "16835584",
+          "url": "https://www.drupal.org/node/2928103#comment-16835584",
+          "author": "mgifford",
+          "author_id": "27930",
+          "author_url": "https://www.drupal.org/user/27930",
+          "created_at": "2026-11-09T19:56:54Z",
+          "body_html": "<p>I don't think that WCAG <a href=\"https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html\" rel=\"nofollow\">SC 2.3.1 Three Flashes or Below Threshold</a> is relevant here.</p>\n<p>Same with <a href=\"https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html\" rel=\"nofollow\">SC 2.2.2 Pause, Stop, Hide</a> (AA).</p>\n<p>They are some what related, but really different issues.</p>\n<p>It can be a valid accessibility barrier without breaking WCAG. We are not limited by WCAG 2.2.</p>\n<p><a href=\"https://www.properaccess.nl/en/blog/wcag-2-2-2-pause-stop-hide/\" rel=\"nofollow\">https://www.properaccess.nl/en/blog/wcag-2-2-2-pause-stop-hide/</a><br />\n<a href=\"https://dequeuniversity.com/resources/wcag2.1/2.3.3-animations-from-interactions\" rel=\"nofollow\">https://dequeuniversity.com/resources/wcag2.1/2.3.3-animations-from-inte...</a><br />\n<a href=\"https://medium.com/\" rel=\"nofollow\">https://medium.com/</a>@marketing_58999/pause-stop-hide-accessibility-requirements-for-moving-content-956153147c31</p>\n<p>EDIT: Also, I am also \"I am strongly in favor of not autoplaying if reduce motion/disable animation has been requested by the site visitor.\"</p>\n<p>I would hope we could do that site-wide.</p>",
+          "body_text": "I don't think that WCAG SC 2.3.1 Three Flashes or Below Threshold is relevant here.\nSame with SC 2.2.2 Pause, Stop, Hide (AA).\nThey are some what related, but really different issues.\nIt can be a valid accessibility barrier without breaking WCAG. We are not limited by WCAG 2.2.\nhttps://www.properaccess.nl/en/blog/wcag-2-2-2-pause-stop-hide/\nhttps://dequeuniversity.com/resources/wcag2.1/2.3.3-animations-from-inte...\nhttps://medium.com/@marketing_58999/pause-stop-hide-accessibility-requirements-for-moving-content-956153147c31\nEDIT: Also, I am also \"I am strongly in favor of not autoplaying if reduce motion/disable animation has been requested by the site visitor.\"\nI would hope we could do that site-wide.",
+          "machine_generated": false,
+          "content_hash": "635131ef45032e95fd608ba832c6c573cbc02f57051ea365e446a4bf9348f556"
+        }
       ],
+      "merge_requests": [],
+      "wcag_candidates": [],
       "atag": {
         "is_atag": false,
         "parts": [],
@@ -11766,15 +12530,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
+        "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "retrieved_at": "2026-11-10T16:30:08Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2928103",
-        "content_hash": "c2ff626e4fba3b2f4e753ee037e92dbf6a3e36cf77f208eeb037b81a61ec0a0f",
-        "raw_ref": "private-evidence/raw/2928103-20261107T200916Z.json"
+        "content_hash": "4c9b77135aced6630394a95cdf2bf7f4a9467343cc69de17feb3264b1df8926a",
+        "raw_ref": "private-evidence/raw/2928103-20261110T163008Z.json"
       }
     },
     {
@@ -14563,13 +15331,13 @@
         "Needs steps to reproduce"
       ],
       "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2018-05-15T20:39:51+00:00",
-      "updated_at": "2026-11-03T15:52:06+00:00",
+      "updated_at": "2026-11-09T11:39:43+00:00",
       "component": "ajax system",
       "version": "main",
       "priority": "Major",
@@ -15535,6 +16303,18 @@
           "body_text": "",
           "machine_generated": false,
           "content_hash": "f19884bcf617c94bf60caa74c233279b94cf1a2829ec2808abca5284f5da45d0"
+        },
+        {
+          "id": "16834808",
+          "url": "https://www.drupal.org/node/2973140#comment-16834808",
+          "author": "needs-review-queue-bot",
+          "author_id": "3747965",
+          "author_url": "https://www.drupal.org/user/3747965",
+          "created_at": "2026-11-09T11:39:43Z",
+          "body_html": "<p>The <a href=\"https://www.drupal.org/u/needs-review-queue-bot\" rel=\"nofollow\">Needs Review Queue Bot</a> tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".</p>\n<p>This does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.</p>\n<p>Consult the <a href=\"https://www.drupal.org/community/contributor-guide/find-a-task\" rel=\"nofollow\">Drupal Contributor Guide</a> to find step-by-step guides for working with issues.</p>",
+          "body_text": "The Needs Review Queue Bot tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".\nThis does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.\nConsult the Drupal Contributor Guide to find step-by-step guides for working with issues.",
+          "machine_generated": false,
+          "content_hash": "bf5d45691ccdcec8c7d37dd423711dc58a6766fdf108018888dcbc92537d911e"
         }
       ],
       "merge_requests": [
@@ -15565,15 +16345,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:00:51Z",
+        "retrieved_at": "2026-11-10T16:30:51Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2973140",
-        "content_hash": "e2ef52b63891aa856411a4b8a61341d6f3e0d7771913388263d2d190ad19cea9",
-        "raw_ref": "private-evidence/raw/2973140-20261107T200051Z.json"
+        "content_hash": "6cc6281640e13f9de829872cb0e30142d91677f5b1019c830db10126be203902",
+        "raw_ref": "private-evidence/raw/2973140-20261110T163051Z.json"
       }
     },
     {
@@ -26815,7 +27599,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2023-03-16T18:09:09+00:00",
-      "updated_at": "2026-11-08T17:47:21+00:00",
+      "updated_at": "2026-11-09T18:56:43+00:00",
       "component": "theme system",
       "version": "main",
       "priority": "Normal",
@@ -27805,6 +28589,18 @@
           "body_text": "I've manually tested MR5245 on macOS 26.7.2 with VoiceOver in Safari. AxeCore is not raising an error against SC1.3.1 with the MR checked out. The interesting detail to denote Arc Toolkit isnt flagging the pager with the main branch checked out even.\nThere is only one thing that feels odd. You are only running into the ellipsis announcement if you are using the VoiceOver stepper. In my previous test I've posted in the thread linked in #85 the ellipsis was a single step (pager.mp4). But with the current state of the MR that encounter has three steps now because it is announced as group? One announcement to get into the group, one announcement for the ellipsis, and then another announcement to get out of the group (safari_mr.mp4)... with the main branch checked out the behavior is as follows (safari_main.mp4). So that grouping sounds overly verbose and looking at the DOM i have no real idea what might be causing that kind of verbosity?\nAnd I've raised the concern in the thread on Slack referenced in #85 that the ellipsis might potentially go unnoticed for screenreader users. One thing to improve that in a follow up might be to apply a pattern like that:\nThat way the ellipsis would be focusable and would expand a dialog modal where the user would be able to go to a specific page. That would be useful for pagers with dozens of pages. Currently the only option is to go through the pages step by step or straight to the last/first page. While with that kind of functionality instead of going from for example page 3 to the end at page 64 the user could choose that they want to go to page 10 instead for example. But as I said completely out of scope for this issue, it would require a follow up. But that way the ellipsis would become functional with a purpose and could be easier discoverable also for screenreader users as well.",
           "machine_generated": false,
           "content_hash": "acb7bb6e79b31e0ba2a4f69be3e12d9edc9a29cf93daa56e780de9bb9c1cc555"
+        },
+        {
+          "id": "16835531",
+          "url": "https://www.drupal.org/node/3348552#comment-16835531",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-09T18:56:43Z",
+          "body_html": "<p>Turns out the grouping announcement, adding the two additional steps in the voiceover stepper, is caused by the use of the <code class=\"language-php\">aria-label</code> attribute. I've realized that after @kentr sent me again a link to a gov.uk example at <a href=\"https://design-system.service.gov.uk/components/pagination/for-list-pages/\" rel=\"nofollow\">https://design-system.service.gov.uk/components/pagination/for-list-pages/</a>... So they get just the ellipsis announced without any additional context. That made me thinking. I previously held back my thoughts about the proposed label <code class=\"language-php\">Ellipsis indicating non-visible pages</code> cuz i dont wanted to bikeshed and hold this issue back any further. but i think \"indicating non-visible pages\" might be ambiguous and potentially confusing cuz you dont know what the statement \"non visible pages\" refers to and what the implications are. are those pages unpublished or not accessible via the menu? i mean it is nitpicky. but still it is not necessarily clear. So I wonder about the following two options. </p>\n<p>a) remove the aria label attribute and make this issue only about removing the <code class=\"language-php\">role=\"representation\"</code> attribute.<br />\nb) if the label should be kept, instead of using an aria-label attribute it could be replaced with a visually hidden text. that would avoid the problems with the grouping in for example voice over. and in regard of the wording i could raise the string in one of the next ux meetings on friday. </p>",
+          "body_text": "Turns out the grouping announcement, adding the two additional steps in the voiceover stepper, is caused by the use of the aria-label attribute. I've realized that after @kentr sent me again a link to a gov.uk example at https://design-system.service.gov.uk/components/pagination/for-list-pages/... So they get just the ellipsis announced without any additional context. That made me thinking. I previously held back my thoughts about the proposed label Ellipsis indicating non-visible pages cuz i dont wanted to bikeshed and hold this issue back any further. but i think \"indicating non-visible pages\" might be ambiguous and potentially confusing cuz you dont know what the statement \"non visible pages\" refers to and what the implications are. are those pages unpublished or not accessible via the menu? i mean it is nitpicky. but still it is not necessarily clear. So I wonder about the following two options.\na) remove the aria label attribute and make this issue only about removing the role=\"representation\" attribute.\nb) if the label should be kept, instead of using an aria-label attribute it could be replaced with a visually hidden text. that would avoid the problems with the grouping in for example voice over. and in regard of the wording i could raise the string in one of the next ux meetings on friday.",
+          "machine_generated": false,
+          "content_hash": "e63fceeb78c275b896282ce212f679764e739b6b17eacdff09dfc5931c0d3450"
         }
       ],
       "merge_requests": [
@@ -27845,10 +28641,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-09T02:53:37Z",
+        "retrieved_at": "2026-11-10T16:30:21Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
-        "content_hash": "f12d003afa3f07aae399a7d4a66ef4f6de731e26f7c3808beef2ed858f63b9c6",
-        "raw_ref": "private-evidence/raw/3348552-20261109T025337Z.json"
+        "content_hash": "2682b753685cae86639849eedff890396f5ea8ce2bdade02d61f8971c1c69bd0",
+        "raw_ref": "private-evidence/raw/3348552-20261110T163021Z.json"
       }
     },
     {
@@ -30922,8 +31718,8 @@
       "source_id": "3499464",
       "url": "https://www.drupal.org/project/drupal/issues/3499464",
       "title": "[META] Drupal terminology research, validation, and testing",
-      "description_html": "",
-      "description_text": "",
+      "description_html": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>Meta issue for the discovery phase for <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-1\"><a href=\"/project/drupal/issues/3499462\" title=\"Status: Active\">#3499462: [PLAN] Clarify and maintain Drupal’s terminology</a></span> </p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "description_text": "Problem/Motivation\nMeta issue for the discovery phase for #3499462: [PLAN] Clarify and maintain Drupal’s terminology\nSteps to reproduce\nProposed resolution\nRemaining tasks\nUser interface changes\nIntroduced terminology\nAPI changes\nData model changes\nRelease notes snippet",
       "labels": [
         "Usability",
         "Accessibility"
@@ -30932,16 +31728,53 @@
         "code": 1,
         "label": "Active",
         "workflow_state": "open",
-        "raw_label": null
+        "raw_label": "Active"
       },
-      "created_at": "2025-01-13T17:50:08Z",
-      "updated_at": "2025-01-18T00:00:33Z",
+      "created_at": "2025-01-13T17:50:08+00:00",
+      "updated_at": "2026-11-09T08:23:04+00:00",
       "component": "documentation",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
-      "comments": [],
+      "priority": "Normal",
+      "category": "Plan",
+      "evidence_status": "full",
+      "comments": [
+        {
+          "id": "15947571",
+          "url": "https://www.drupal.org/node/3499464#comment-15947571",
+          "author": "quietone",
+          "author_id": "2572884",
+          "author_url": "https://www.drupal.org/user/2572884",
+          "created_at": "2025-01-18T00:00:33Z",
+          "body_html": "<p>How does <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-1\"><a href=\"/project/drupal/issues/3381734\" title=\"Status: Active, Assigned to: emma horrell\">#3381734: Locate drupalisms that might create confusion among users</a></span> fit into this 'discovery phase'?</p>",
+          "body_text": "How does #3381734: Locate drupalisms that might create confusion among users fit into this 'discovery phase'?",
+          "machine_generated": false,
+          "content_hash": "67ac45d395efeffad2774c06aa3bfec07208b59b404f0486574db36e86870b0c"
+        },
+        {
+          "id": "15939940",
+          "url": "https://www.drupal.org/node/3499464#comment-15939940",
+          "author": "emma horrell",
+          "author_id": "3714625",
+          "author_url": "https://www.drupal.org/user/3714625",
+          "created_at": "2025-01-13T17:50:08Z",
+          "body_html": "<p><a href=\"/u/emma-horrell\" title=\"View user profile.\" data-uid=\"3714625\" class=\"username\" rel=\"nofollow\">emma horrell</a> created an issue. See <a href=\"/node/3499464/revisions/13849837/view\" rel=\"nofollow\">original summary</a>.</p>",
+          "body_text": "emma horrell created an issue. See original summary.",
+          "machine_generated": true,
+          "content_hash": "33bb6593a346f668cdbfd60bc56b5298cfe034029727b69e1dcc495571b6670c"
+        },
+        {
+          "id": "16834596",
+          "url": "https://www.drupal.org/node/3499464#comment-16834596",
+          "author": "quietone",
+          "author_id": "2572884",
+          "author_url": "https://www.drupal.org/user/2572884",
+          "created_at": "2026-11-09T08:23:04Z",
+          "body_html": "<p>This seems like a duplicate of <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-1\"><a href=\"/project/drupal/issues/2513398\" title=\"Status: Active\">#2513398: Conduct a full-scale terminology review of Drupal (Fix Drupal terminology so that it is more accessible to users)</a></span> to me. </p>",
+          "body_text": "This seems like a duplicate of #2513398: Conduct a full-scale terminology review of Drupal (Fix Drupal terminology so that it is more accessible to users) to me.",
+          "machine_generated": false,
+          "content_hash": "42df187fd271dc4d6cdd0644a0139c1635388a5d11146e5990a2acd6eda56d2e"
+        }
+      ],
       "merge_requests": [],
       "wcag_candidates": [],
       "atag": {
@@ -30953,15 +31786,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
+        "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "retrieved_at": "2026-11-10T16:30:55Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3499464",
-        "content_hash": "030ac1fbddd8adeb57440914ed61b5d28091aba347fe3a0cb448004f7a7245c2",
-        "raw_ref": "private-evidence/raw/3499464-20261107T200916Z.json"
+        "content_hash": "d61823d553ce894861221ca7d652e160ec4bf31f263772fbc865022ef87cfc60",
+        "raw_ref": "private-evidence/raw/3499464-20261110T163055Z.json"
       }
     },
     {
@@ -30973,8 +31810,8 @@
       "source_id": "3499467",
       "url": "https://www.drupal.org/project/drupal/issues/3499467",
       "title": "[META] Establish the words that make up Drupal’s terminology",
-      "description_html": "",
-      "description_text": "",
+      "description_html": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>Six stage process to make an inventory of the words in use in Drupal, audit them, and produce a controlled vocabulary </p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "description_text": "Problem/Motivation\nSix stage process to make an inventory of the words in use in Drupal, audit them, and produce a controlled vocabulary\nSteps to reproduce\nProposed resolution\nRemaining tasks\nUser interface changes\nIntroduced terminology\nAPI changes\nData model changes\nRelease notes snippet",
       "labels": [
         "Usability",
         "Accessibility"
@@ -30983,16 +31820,41 @@
         "code": 1,
         "label": "Active",
         "workflow_state": "open",
-        "raw_label": null
+        "raw_label": "Active"
       },
-      "created_at": "2025-01-13T17:54:16Z",
-      "updated_at": "2025-01-13T17:54:16Z",
+      "created_at": "2025-01-13T17:54:16+00:00",
+      "updated_at": "2026-11-09T08:27:52+00:00",
       "component": "documentation",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
-      "comments": [],
+      "priority": "Normal",
+      "category": "Plan",
+      "evidence_status": "full",
+      "comments": [
+        {
+          "id": "15939948",
+          "url": "https://www.drupal.org/node/3499467#comment-15939948",
+          "author": "emma horrell",
+          "author_id": "3714625",
+          "author_url": "https://www.drupal.org/user/3714625",
+          "created_at": "2025-01-13T17:54:16Z",
+          "body_html": "<p><a href=\"/u/emma-horrell\" title=\"View user profile.\" data-uid=\"3714625\" class=\"username\" rel=\"nofollow\">emma horrell</a> created an issue. See <a href=\"/node/3499467/revisions/13849844/view\" rel=\"nofollow\">original summary</a>.</p>",
+          "body_text": "emma horrell created an issue. See original summary.",
+          "machine_generated": true,
+          "content_hash": "98b91021c965d0d4004269b5dec8f4f92660439768974cbabd0d79456d4b26bb"
+        },
+        {
+          "id": "16834597",
+          "url": "https://www.drupal.org/node/3499467#comment-16834597",
+          "author": "quietone",
+          "author_id": "2572884",
+          "author_url": "https://www.drupal.org/user/2572884",
+          "created_at": "2026-11-09T08:27:52Z",
+          "body_html": "<p>This may be a duplicate of <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-16\"><a href=\"/project/drupal/issues/2738393\" title=\"Status: Postponed (maintainer needs more info)\">#2738393: Compile UI (Text) Standards for module developers</a></span></p>",
+          "body_text": "This may be a duplicate of #2738393: Compile UI (Text) Standards for module developers",
+          "machine_generated": false,
+          "content_hash": "a9db95dcd890ee5b9431225cdc7bc7e333bb267a52f3550a673ad6f2de44ec1b"
+        }
+      ],
       "merge_requests": [],
       "wcag_candidates": [],
       "atag": {
@@ -31004,15 +31866,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
+        "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "retrieved_at": "2026-11-10T16:30:54Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3499467",
-        "content_hash": "4484de74729cbaddf05c1d679676f40cea296040dde67b25d945e97dd673937e",
-        "raw_ref": "private-evidence/raw/3499467-20261107T200916Z.json"
+        "content_hash": "1668faf69451d5212a3457dc262af762f7b92c610b2fbed6cd9337f069956d1e",
+        "raw_ref": "private-evidence/raw/3499467-20261110T163054Z.json"
       }
     },
     {
@@ -35413,27 +36279,127 @@
       "source_id": "3590502",
       "url": "https://www.drupal.org/project/drupal/issues/3590502",
       "title": "Move local tasks out of the more actions button into the content header on admin pages",
-      "description_html": "",
-      "description_text": "",
+      "description_html": "<h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>On edit forms under <code class=\"language-php\">admin/content</code>, <code class=\"language-php\">admin/content/block</code>, <code class=\"language-php\">admin/content/media</code>, as well as on user pages under <code class=\"language-php\">user/[uid]</code> the local items are getting removed from the page and moved as option into the top bars <code class=\"language-php\">More action</code> button in the upper right corner of the page.</p>\n<p>For the front end, when you view one of the corresponding entity pages, it is a reasonable step to remove the local items and move them into the <code class=\"language-php\">More action</code> button to avoid any theming related issues - so you don't have to deal with any components themed by another theme in the active front end theme. In the context of the admin theme however,  that measure is potentially confusing and challenging to the user - the cognitive load gets increased significantly. </p>\n<ul>\n<li>It breaks with the pattern users are familiar from other entities and pages within the admin UI. Those local tasks provide the user the situational awareness about the structure of an entity plus which of the local tasks at hand is the active one. At the moment you have to chop yourself together that bit of information via the breadcrumb, and the URL in the browser - which of the options however is the active one in the <code class=\"language-php\">More action</code> button is not really communicated at all. Plus the order of options differs, in case of <code class=\"language-php\">Edit</code> being the active option for for example a content type, the option is getting moved out to a dedicated button and the order and number of options for the <code class=\"language-php\">More action</code> button changes.</li>\n<li>The <code class=\"language-php\">More action</code> button itself is really hard to spot (see <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-1\"><a href=\"/project/drupal/issues/3540337\" title=\"Status: Active\">#3540337: Improve visibility of More actions menu button</a></span>). By removing the local task and having a dedicated button you are barely able to notice, that button gets sort of out of sight and out of mind easily - I always tend to forget myself that there is the <code class=\"language-php\">More action</code> on a widescreen monitor. There is the feeling of isolation and that the entity got stripped of its structure. In addition to that, you have all the time, except for the <code class=\"language-php\">Edit</code> page is the current page, one additional click to reach that list of available options for an entity.</li>\n<li>One additional problem that also applies to the local tasks strictly speaking, local tasks as well as the options in the <code class=\"language-php\">More action</code> button are masked objects, they provide no additional cues to differentiate them in a glimpse of an eye. The user has to thoroughly read the labels each and every time to be sure.</li>\n</ul>\n<p>It was part of a set of problems identified during <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/comment/16554986#comment-16554986\" title=\"Status: Closed (fixed)\">#3578994-12: Drupal Usability Meeting 2026-03-20</a></span>. The attendees were: @benjifisher, @pallavi singh3013, @rkoller, @simohell, @the_g_bomb, and @worldlinemine.</p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<ul>\n<li>Go to <code class=\"language-php\">admin/content</code>, <code class=\"language-php\">admin/content/block</code>, <code class=\"language-php\">admin/content/media</code>, and/or <code class=\"language-php\">user/[uid]</code> and expand the context menu for the <code class=\"language-php\">More action</code> button in the top bar</li>\n<li>Go to <code class=\"language-php\">admin/structure/types</code>, create and edit a content type, and compare that content type with one of the previous pages for an entity or user.</li>\n</ul>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>For every page in the context of the default theme keep the current behavior and keep local tasks as options within the <code class=\"language-php\">More action</code> button</p>\n<p>For every page in the context of the administration theme local tasks should be moved to the content header again right underneath the h1 - the <code class=\"language-php\">More action</code> button should only contain additional actions / CTAs that are no local tasks. </p>\n<p><del>There should be a check that hides the <code class=\"language-php\">More action</code> button if it contains no options, like it already happens in case of the view page for a user page.</del> The empty menu is a preexisting problem (eg, at the user view page <code class=\"language-php\">/user/*</code>). @rkoller and @kentr discussed making the check for the empty menu a followup.</p>\n<p><img src=\"/files/issues/2026-05-17/empty.jpg\" alt=\"the user edit page of the user rkoller using the claro admin theme and the more actions button in the upper right corner in the top bar is expanded but its context menu is empty\" /></p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "description_text": "Problem/Motivation\nOn edit forms under admin/content, admin/content/block, admin/content/media, as well as on user pages under user/[uid] the local items are getting removed from the page and moved as option into the top bars More action button in the upper right corner of the page.\nFor the front end, when you view one of the corresponding entity pages, it is a reasonable step to remove the local items and move them into the More action button to avoid any theming related issues - so you don't have to deal with any components themed by another theme in the active front end theme. In the context of the admin theme however, that measure is potentially confusing and challenging to the user - the cognitive load gets increased significantly.\nIt breaks with the pattern users are familiar from other entities and pages within the admin UI. Those local tasks provide the user the situational awareness about the structure of an entity plus which of the local tasks at hand is the active one. At the moment you have to chop yourself together that bit of information via the breadcrumb, and the URL in the browser - which of the options however is the active one in the More action button is not really communicated at all. Plus the order of options differs, in case of Edit being the active option for for example a content type, the option is getting moved out to a dedicated button and the order and number of options for the More action button changes.\nThe More action button itself is really hard to spot (see #3540337: Improve visibility of More actions menu button). By removing the local task and having a dedicated button you are barely able to notice, that button gets sort of out of sight and out of mind easily - I always tend to forget myself that there is the More action on a widescreen monitor. There is the feeling of isolation and that the entity got stripped of its structure. In addition to that, you have all the time, except for the Edit page is the current page, one additional click to reach that list of available options for an entity.\nOne additional problem that also applies to the local tasks strictly speaking, local tasks as well as the options in the More action button are masked objects, they provide no additional cues to differentiate them in a glimpse of an eye. The user has to thoroughly read the labels each and every time to be sure.\nIt was part of a set of problems identified during #3578994-12: Drupal Usability Meeting 2026-03-20. The attendees were: @benjifisher, @pallavi singh3013, @rkoller, @simohell, @the_g_bomb, and @worldlinemine.\nSteps to reproduce\nGo to admin/content, admin/content/block, admin/content/media, and/or user/[uid] and expand the context menu for the More action button in the top bar\nGo to admin/structure/types, create and edit a content type, and compare that content type with one of the previous pages for an entity or user.\nProposed resolution\nFor every page in the context of the default theme keep the current behavior and keep local tasks as options within the More action button\nFor every page in the context of the administration theme local tasks should be moved to the content header again right underneath the h1 - the More action button should only contain additional actions / CTAs that are no local tasks.\nThere should be a check that hides the More action button if it contains no options, like it already happens in case of the view page for a user page. The empty menu is a preexisting problem (eg, at the user view page /user/*). @rkoller and @kentr discussed making the check for the empty menu a followup.\nRemaining tasks\nUser interface changes\nIntroduced terminology\nAPI changes\nData model changes\nRelease notes snippet",
       "labels": [
         "Usability",
         "Accessibility"
       ],
       "status": {
-        "code": 1,
-        "label": "Active",
-        "workflow_state": "open",
-        "raw_label": null
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
       },
-      "created_at": "2026-05-17T13:53:16Z",
-      "updated_at": "2026-10-31T00:58:45Z",
+      "created_at": "2026-05-17T13:53:16+00:00",
+      "updated_at": "2026-11-09T18:16:28+00:00",
       "component": "navigation.module",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
-      "comments": [],
-      "merge_requests": [],
+      "priority": "Normal",
+      "category": "Feature request",
+      "evidence_status": "full",
+      "comments": [
+        {
+          "id": "16589336",
+          "url": "https://www.drupal.org/node/3590502#comment-16589336",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-05-17T13:53:16Z",
+          "body_html": "<p><a href=\"/u/rkoller\" title=\"View user profile.\" data-uid=\"3217695\" class=\"username\" rel=\"nofollow\">rkoller</a> created an issue. See <a href=\"/node/3590502/revisions/14354804/view\" rel=\"nofollow\">original summary</a>.</p>",
+          "body_text": "rkoller created an issue. See original summary.",
+          "machine_generated": true,
+          "content_hash": "63e7e62270ee3f65fe654494a2f1dd13838e69fd126003c03e904a6103cb4e68"
+        },
+        {
+          "id": "16589338",
+          "url": "https://www.drupal.org/node/3590502#comment-16589338",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-05-17T13:55:54Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "fc9f76833a78dbaaf941a10e3dda1d89219ac6fdfd6baba71839ce2fc3337839"
+        },
+        {
+          "id": "16589580",
+          "url": "https://www.drupal.org/node/3590502#comment-16589580",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-05-18T01:10:38Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "75691487c6f22fd96f6521c9d29af81c6bd6274157155c3ebdb651fccb80c38f"
+        },
+        {
+          "id": "16590398",
+          "url": "https://www.drupal.org/node/3590502#comment-16590398",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-05-18T16:13:56Z",
+          "body_html": "<p>+1 to this.</p>\n<p>As a regular user who's not well-versed in the finer points of UX, I've found this menu to be unpredictable and baffling. @rkoller and I were discussing the case where it's empty and wondering what is causing that. </p>\n<p>It's not empty when you're on the Edit page, so presumably the problem is because the \"Edit\" option is permanently moved out of the menu and the active menu item is also removed. </p>\n<p>So to go to the \"Edit\" page, you click the button in the top bar. But to go to the \"View\" page, you open the menu. It doesn't make sense to me.</p>",
+          "body_text": "+1 to this.\nAs a regular user who's not well-versed in the finer points of UX, I've found this menu to be unpredictable and baffling. @rkoller and I were discussing the case where it's empty and wondering what is causing that.\nIt's not empty when you're on the Edit page, so presumably the problem is because the \"Edit\" option is permanently moved out of the menu and the active menu item is also removed.\nSo to go to the \"Edit\" page, you click the button in the top bar. But to go to the \"View\" page, you open the menu. It doesn't make sense to me.",
+          "machine_generated": false,
+          "content_hash": "20f832d5ed096de6bf33845ccb95314fee0cc7105442b418a865e10c4ec028f8"
+        },
+        {
+          "id": "16820179",
+          "url": "https://www.drupal.org/node/3590502#comment-16820179",
+          "author": "mortona2k",
+          "author_id": "1029484",
+          "author_url": "https://www.drupal.org/user/1029484",
+          "created_at": "2026-10-26T18:13:42Z",
+          "body_html": "<p>Here is a module that can modify local task/action settings, including preserving the local tasks in place on all or specified pages.</p>\n<p><a href=\"https://www.drupal.org/project/manage_top_bar\" rel=\"nofollow\">https://www.drupal.org/project/manage_top_bar</a></p>\n<p>This provides a workaround for many top bar issues being discussed, and can help experiment to figure out the UX we want.</p>",
+          "body_text": "Here is a module that can modify local task/action settings, including preserving the local tasks in place on all or specified pages.\nhttps://www.drupal.org/project/manage_top_bar\nThis provides a workaround for many top bar issues being discussed, and can help experiment to figure out the UX we want.",
+          "machine_generated": false,
+          "content_hash": "4d8f1fc4661b9cc71ac0456aa8b0570d98bac19de3906f5402b2246085b0d81e"
+        },
+        {
+          "id": "16835452",
+          "url": "https://www.drupal.org/node/3590502#comment-16835452",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-11-09T17:47:50Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "831c3c8d241747f0e380b23347530ba35d9045b093bfc1f7d2554ba6530547a8"
+        },
+        {
+          "id": "16835484",
+          "url": "https://www.drupal.org/node/3590502#comment-16835484",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-11-09T18:16:28Z",
+          "body_html": "<p>The MR removes local tasks from the More Actions menu, with the exception of one for Layout Builder because tests fail without that.</p>\n<p>The Layout Builder item is hidden elsewhere, which results in an empty More Actions menu rendered on the page. </p>\n<p>The empty menu is a preexisting problem (eg, at the user view page <code class=\"language-php\">/user/*</code>). @rkoller and I discussed making the check for the empty menu a followup.</p>",
+          "body_text": "The MR removes local tasks from the More Actions menu, with the exception of one for Layout Builder because tests fail without that.\nThe Layout Builder item is hidden elsewhere, which results in an empty More Actions menu rendered on the page.\nThe empty menu is a preexisting problem (eg, at the user view page /user/*). @rkoller and I discussed making the check for the empty menu a followup.",
+          "machine_generated": false,
+          "content_hash": "9e275ad0ce6f683e924fcd71b00e15a77f3df6a1ffe1ad9b2476c22d4b7f26a6"
+        }
+      ],
+      "merge_requests": [
+        {
+          "iid": 17640,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17640",
+          "title": "Fix NavigationUserBlockTest test",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3590502-move-local-tasks",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-06T21:55:47Z",
+          "author": "kentr"
+        }
+      ],
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -35444,15 +36410,19 @@
         "review_status": "not-authoring",
         "tag_basis": []
       },
+      "surface": {
+        "surface": "authoring",
+        "basis": "component:navigation.module"
+      },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
+        "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "retrieved_at": "2026-11-10T16:30:24Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3590502",
-        "content_hash": "0f5a422094d09541e0cf61cc9789f7c2c9203a71c282f04e421237eb9ea9db54",
-        "raw_ref": "private-evidence/raw/3590502-20261107T200916Z.json"
+        "content_hash": "e9567b4a62c1828413956e9a16c257780f153bc32094ea6ab8cde52f47142bf3",
+        "raw_ref": "private-evidence/raw/3590502-20261110T163024Z.json"
       }
     },
     {
@@ -39907,13 +40877,13 @@
         "Accessibility"
       ],
       "status": {
-        "code": 13,
-        "label": "Needs work",
-        "workflow_state": "needs-work",
-        "raw_label": "Needs Work"
+        "code": 14,
+        "label": "Reviewed & tested by the community",
+        "workflow_state": "rtbc",
+        "raw_label": "RTBC"
       },
       "created_at": "2026-08-26T00:03:31+00:00",
-      "updated_at": "2026-11-08T17:19:51+00:00",
+      "updated_at": "2026-11-10T13:41:50+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -40267,6 +41237,42 @@
           "body_text": "The Needs Review Queue Bot tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".\nThis does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.\nConsult the Drupal Contributor Guide to find step-by-step guides for working with issues.",
           "machine_generated": false,
           "content_hash": "95c1de5be4a4bc9538cb085804d715b0eb94b37bde91133cd2167be931e0610c"
+        },
+        {
+          "id": "16834994",
+          "url": "https://www.drupal.org/node/3619154#comment-16834994",
+          "author": "mherchel",
+          "author_id": "118428",
+          "author_url": "https://www.drupal.org/user/118428",
+          "created_at": "2026-11-09T13:22:48Z",
+          "body_html": "<p>Re-RTBC per #26</p>",
+          "body_text": "Re-RTBC per #26",
+          "machine_generated": false,
+          "content_hash": "5f3d170c670f0e547b4fb32c3915b17b413287d21764b76f4975b2476374f21b"
+        },
+        {
+          "id": "16834995",
+          "url": "https://www.drupal.org/node/3619154#comment-16834995",
+          "author": "needs-review-queue-bot",
+          "author_id": "3747965",
+          "author_url": "https://www.drupal.org/user/3747965",
+          "created_at": "2026-11-09T13:24:46Z",
+          "body_html": "<p>The <a href=\"https://www.drupal.org/u/needs-review-queue-bot\" rel=\"nofollow\">Needs Review Queue Bot</a> tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".</p>\n<p>This does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.</p>\n<p>Consult the <a href=\"https://www.drupal.org/community/contributor-guide/find-a-task\" rel=\"nofollow\">Drupal Contributor Guide</a> to find step-by-step guides for working with issues.</p>",
+          "body_text": "The Needs Review Queue Bot tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".\nThis does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.\nConsult the Drupal Contributor Guide to find step-by-step guides for working with issues.",
+          "machine_generated": false,
+          "content_hash": "28a636029e5ba3afde4745827bee648f744e0dc07668506c846a13b1e3e509b6"
+        },
+        {
+          "id": "16836546",
+          "url": "https://www.drupal.org/node/3619154#comment-16836546",
+          "author": "mherchel",
+          "author_id": "118428",
+          "author_url": "https://www.drupal.org/user/118428",
+          "created_at": "2026-11-10T13:41:50Z",
+          "body_html": "<p>fix tests</p>",
+          "body_text": "fix tests",
+          "machine_generated": false,
+          "content_hash": "815b6691ce1577b031d1107cba927834dc60c0e2573d65f8291e052cf9c66e06"
         }
       ],
       "merge_requests": [
@@ -40281,7 +41287,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-08T23:23:10Z",
+          "updated_at": "2026-11-10T13:21:33Z",
           "author": "mherchel"
         }
       ],
@@ -40296,18 +41302,18 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-09T02:53:40Z",
+        "retrieved_at": "2026-11-10T16:29:56Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
-        "content_hash": "28049b3b466676c502bd7d614963d596d02bef5518645b099567533dd53abad8",
-        "raw_ref": "private-evidence/raw/3619154-20261109T025340Z.json"
+        "content_hash": "475d2abb59a4ababeef79b4167bcc56000a26756a819e4b90b3b81b367f2305e",
+        "raw_ref": "private-evidence/raw/3619154-20261110T162956Z.json"
       }
     },
     {
@@ -40328,13 +41334,13 @@
         "ai-ni"
       ],
       "status": {
-        "code": 13,
-        "label": "Needs work",
-        "workflow_state": "needs-work",
-        "raw_label": "Needs Work"
+        "code": 14,
+        "label": "Reviewed & tested by the community",
+        "workflow_state": "rtbc",
+        "raw_label": "RTBC"
       },
       "created_at": "2026-08-27T00:02:53+00:00",
-      "updated_at": "2026-11-08T17:15:54+00:00",
+      "updated_at": "2026-11-09T17:46:59+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -40808,6 +41814,30 @@
           "body_text": "The Needs Review Queue Bot tested this issue. The merge request has merge conflicts and cannot be merged. Therefore, this issue status is now \"Needs work\".\nThis does not mean that the patch necessarily needs to be re-rolled or the MR rebased. Read the Issue Summary, the issue tags and the latest discussion here to determine what needs to be done.\nConsult the Drupal Contributor Guide to find step-by-step guides for working with issues.",
           "machine_generated": false,
           "content_hash": "33d35b9f2de97536990627f19c0610a9182881b73497a377bd2399f20f649e2e"
+        },
+        {
+          "id": "16835220",
+          "url": "https://www.drupal.org/node/3619387#comment-16835220",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-11-09T15:27:34Z",
+          "body_html": "<p>I'll rebase.</p>",
+          "body_text": "I'll rebase.",
+          "machine_generated": false,
+          "content_hash": "5b6935f71551d33a5fe8c0c740f830741fde81476187aa3e7677f4f035c3c44e"
+        },
+        {
+          "id": "16835451",
+          "url": "https://www.drupal.org/node/3619387#comment-16835451",
+          "author": "kentr",
+          "author_id": "456718",
+          "author_url": "https://www.drupal.org/user/456718",
+          "created_at": "2026-11-09T17:46:59Z",
+          "body_html": "<p>Back to RTBC.</p>",
+          "body_text": "Back to RTBC.",
+          "machine_generated": false,
+          "content_hash": "d525e7f189973b957b0e5ef66c4f9e7a109e2817fb1141ea6d4f2fb6ab19da44"
         }
       ],
       "merge_requests": [
@@ -40822,7 +41852,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-10-28T15:18:04Z",
+          "updated_at": "2026-11-09T16:14:09Z",
           "author": "kentr"
         }
       ],
@@ -40838,17 +41868,17 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "login-step"
+        "basis": "theme:admin theme"
       },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-09T02:53:43Z",
+        "retrieved_at": "2026-11-10T16:30:31Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619387",
-        "content_hash": "245a5888e775e27b89f991a7aa20c2c79b695f4ff60ac8e411942eb0c31b471b",
-        "raw_ref": "private-evidence/raw/3619387-20261109T025343Z.json"
+        "content_hash": "86d64ae760561dfd2c2f3d1077b553731df3cd354e2476aa5b6c7fad2443c0bb",
+        "raw_ref": "private-evidence/raw/3619387-20261110T163031Z.json"
       }
     },
     {
@@ -42809,7 +43839,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2026-11-07T06:54:10+00:00",
-      "updated_at": "2026-11-08T10:57:48+00:00",
+      "updated_at": "2026-11-09T16:57:52+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -42923,6 +43953,18 @@
           "body_text": "",
           "machine_generated": false,
           "content_hash": "0a1ec8ca1976e837d5b942039f6b4a1a3b7d8078516ed899d3a6a16af1344205"
+        },
+        {
+          "id": "16835374",
+          "url": "https://www.drupal.org/node/3636028#comment-16835374",
+          "author": "leandro713",
+          "author_id": "1071832",
+          "author_url": "https://www.drupal.org/user/1071832",
+          "created_at": "2026-11-09T16:57:52Z",
+          "body_html": "<p>Updated the selected accent color’s :checked styling so the selection ring follows the currently selected option. I verified the keyboard interaction on Fedora and adjusted the rings so they have the same thickness. I could not test Safari because I don’t have access to a macOS or iOS device; could someone with Safari verify the behavior?</p>",
+          "body_text": "Updated the selected accent color’s :checked styling so the selection ring follows the currently selected option. I verified the keyboard interaction on Fedora and adjusted the rings so they have the same thickness. I could not test Safari because I don’t have access to a macOS or iOS device; could someone with Safari verify the behavior?",
+          "machine_generated": false,
+          "content_hash": "e32acb7475e8a86f8737d062db46676018568200d8965726be2b43d3ade81716"
         }
       ],
       "merge_requests": [
@@ -42937,7 +43979,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-08T10:48:06Z",
+          "updated_at": "2026-11-09T16:53:31Z",
           "author": "leandro713"
         }
       ],
@@ -42954,18 +43996,18 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-09T02:53:45Z",
+        "retrieved_at": "2026-11-10T16:30:34Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
-        "content_hash": "636f3930738eddc8e2d88c91dc96ecb57f1cd0d61a195cb7ccb80582c559e13e",
-        "raw_ref": "private-evidence/raw/3636028-20261109T025345Z.json"
+        "content_hash": "f611bc91e95827cc82d7188c572263d061e040c0b5e1facfa8a77da53ec43e26",
+        "raw_ref": "private-evidence/raw/3636028-20261110T163034Z.json"
       }
     },
     {
@@ -42985,13 +44027,13 @@
         "Usability"
       ],
       "status": {
-        "code": 1,
-        "label": "Active",
-        "workflow_state": "open",
-        "raw_label": "Active"
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
       },
       "created_at": "2026-11-07T23:18:43+00:00",
-      "updated_at": "2026-11-07T23:19:38+00:00",
+      "updated_at": "2026-11-09T13:07:14+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -43033,9 +44075,48 @@
           "body_text": "",
           "machine_generated": false,
           "content_hash": "98b1edca971c269f8857d323a5061405e862c7ec19c36a91c0f520a7304b7f2e"
+        },
+        {
+          "id": "16834810",
+          "url": "https://www.drupal.org/node/3636128#comment-16834810",
+          "author": "sapnil_biswas",
+          "author_id": "3866517",
+          "author_url": "https://www.drupal.org/user/3866517",
+          "created_at": "2026-11-09T11:42:54Z",
+          "body_html": "<p>I would love to work on this issue!</p>",
+          "body_text": "I would love to work on this issue!",
+          "machine_generated": false,
+          "content_hash": "fda425bd45eb81c1e510cf0d2f4309e6d6e7b87a281e23c4d54ff1c8d451b4ef"
+        },
+        {
+          "id": "16834963",
+          "url": "https://www.drupal.org/node/3636128#comment-16834963",
+          "author": "sapnil_biswas",
+          "author_id": "3866517",
+          "author_url": "https://www.drupal.org/user/3866517",
+          "created_at": "2026-11-09T13:07:14Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "7e18b176e973a7bb48827fbb82a374a3bdef09ad919412a3952b730a987c78a2"
         }
       ],
-      "merge_requests": [],
+      "merge_requests": [
+        {
+          "iid": 17739,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17739",
+          "title": "Issue #3636128: Ensure switch component styling and color contrast meet SC 1.4.11 in Default Admin theme",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3636128-in-dark-mode",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-09T13:06:24Z",
+          "author": "sapnil_biswas"
+        }
+      ],
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43049,18 +44130,18 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-08T15:18:39Z",
+        "retrieved_at": "2026-11-10T16:30:37Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636128",
-        "content_hash": "51bd6d6a20af900e8488b57e434a1043c2fe46392c486e7baf790dead27b1627",
-        "raw_ref": "private-evidence/raw/3636128-20261108T151839Z.json"
+        "content_hash": "07ee8a8ba78095f723768cbf4ca85369dcaeebb74ae5f00acce1af9b1ce31af5",
+        "raw_ref": "private-evidence/raw/3636128-20261110T163037Z.json"
       }
     },
     {
@@ -43080,13 +44161,13 @@
         "Usability"
       ],
       "status": {
-        "code": 1,
-        "label": "Active",
-        "workflow_state": "open",
-        "raw_label": "Active"
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
       },
       "created_at": "2026-11-08T01:31:11+00:00",
-      "updated_at": "2026-11-08T01:31:46+00:00",
+      "updated_at": "2026-11-09T12:17:02+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -43116,9 +44197,60 @@
           "body_text": "",
           "machine_generated": false,
           "content_hash": "3ef17b8e402f021baa53ef65705a68185b3f5e9c5a88cb92af3cf0ed07f43c00"
+        },
+        {
+          "id": "16834806",
+          "url": "https://www.drupal.org/node/3636143#comment-16834806",
+          "author": "sapnil_biswas",
+          "author_id": "3866517",
+          "author_url": "https://www.drupal.org/user/3866517",
+          "created_at": "2026-11-09T11:36:56Z",
+          "body_html": "<p><a href=\"/u/sapnil_biswas\" title=\"View user profile.\" data-uid=\"3866517\" class=\"username\" rel=\"nofollow\">sapnil_biswas</a> made their first commit to this issue’s fork.</p>",
+          "body_text": "sapnil_biswas made their first commit to this issue’s fork.",
+          "machine_generated": true,
+          "content_hash": "ad4bed1a32263c11596a9589dcf35c5c00ace6822afcfc886c4da3d4a3b68877"
+        },
+        {
+          "id": "16834809",
+          "url": "https://www.drupal.org/node/3636143#comment-16834809",
+          "author": "sapnil_biswas",
+          "author_id": "3866517",
+          "author_url": "https://www.drupal.org/user/3866517",
+          "created_at": "2026-11-09T11:40:01Z",
+          "body_html": "<p>Working on this!</p>",
+          "body_text": "Working on this!",
+          "machine_generated": false,
+          "content_hash": "2cf7353cde87a0fe147e1668e6c4dc6332814131dbb5f886cd16f27a64457fe0"
+        },
+        {
+          "id": "16834836",
+          "url": "https://www.drupal.org/node/3636143#comment-16834836",
+          "author": "sapnil_biswas",
+          "author_id": "3866517",
+          "author_url": "https://www.drupal.org/user/3866517",
+          "created_at": "2026-11-09T12:17:02Z",
+          "body_html": "<p>MArking this for review!</p>",
+          "body_text": "MArking this for review!",
+          "machine_generated": false,
+          "content_hash": "4252177f29a5efed5f005ba42f9d2f95abac3cc720aab938cf5c2057bd0a9111"
         }
       ],
-      "merge_requests": [],
+      "merge_requests": [
+        {
+          "iid": 17738,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17738",
+          "title": "Issue #3636143: Ensure toggle button border meets color contrast in light mode in Default Admin theme",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3636143-regression-the-toggle",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-09T12:16:33Z",
+          "author": "sapnil_biswas"
+        }
+      ],
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43132,18 +44264,209 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "theme:admin theme"
       },
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-08T15:18:37Z",
+        "retrieved_at": "2026-11-10T16:30:39Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636143",
-        "content_hash": "7c274aaaa4fa229baf3d1f0274fe2dfba5d427ffb00b63fafe48a01aa7bfbfe1",
-        "raw_ref": "private-evidence/raw/3636143-20261108T151837Z.json"
+        "content_hash": "f130e72a50f18c16a25556eea6a5b525f549f77d7fcd0f445a92bbd542f00f2e",
+        "raw_ref": "private-evidence/raw/3636143-20261110T163039Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636640",
+      "project_scoped_id": "drupal:drupal:3636640",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636640",
+      "url": "https://www.drupal.org/project/drupal/issues/3636640",
+      "title": "Text color on hover has a too low color contrast on the full and mini page component",
+      "description_html": "<!-- <h3 id=\"ai-disclosure\">Generated with the help of an LLM.</h3>--><h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>If you hover on any of the focusable elements in the full pager component (first, previous, any page number, next, last)  or the mini pager component (&lt;, current page number, &gt;) the color contrast for the label is way too low. Label text needs a color contrast of at least 4.5:1. At the moment it looks like there are no labels on hover, but zooming in you'll notice them but they are barely visible: </p>\n<p><img src=\"/files/issues/2026-11-10/full1.jpg\" alt=\"full pager with 4 pages visible and the next button hovered but the label is not visible anymore\" /><br />\n<img src=\"/files/issues/2026-11-10/full2.jpg\" alt=\"full pager with 4 pages visible and the last button hovered but the label is not visible anymore\" /><br />\n<img src=\"/files/issues/2026-11-10/full3.jpg\" alt=\"full pager with 4 pages visible and the first page hovered but the label is not visible anymore\" /><br />\n<img src=\"/files/issues/2026-11-10/mini.jpg\" alt=\"mini pager on the third page  and the next page button hovered but the label is not visible anymore\" /></p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<ol>\n<li><code class=\"language-php\">Go to &lt;code&gt;admin/structure/views/view/content</code> to switch between the full and mini pager and set the items per page to 1</li>\n<li>Go to  <code class=\"language-php\">admin/content</code> and create 4 to 5 nodes</li>\n<li>hover over pager elements</li>\n</ol>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Ensure that the text labels have a color contrast of at least 4.5:1 against the background color also on hover</p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "description_text": "Problem/Motivation\nIf you hover on any of the focusable elements in the full pager component (first, previous, any page number, next, last) or the mini pager component (<, current page number, >) the color contrast for the label is way too low. Label text needs a color contrast of at least 4.5:1. At the moment it looks like there are no labels on hover, but zooming in you'll notice them but they are barely visible:\nSteps to reproduce\nGo to <code>admin/structure/views/view/content to switch between the full and mini pager and set the items per page to 1\nGo to admin/content and create 4 to 5 nodes\nhover over pager elements\nProposed resolution\nEnsure that the text labels have a color contrast of at least 4.5:1 against the background color also on hover\nRemaining tasks\nUser interface changes\nIntroduced terminology\nAPI changes\nData model changes\nRelease notes snippet",
+      "labels": [
+        "Accessibility",
+        "wcag143"
+      ],
+      "status": {
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
+      },
+      "created_at": "2026-11-10T02:06:26+00:00",
+      "updated_at": "2026-11-10T11:34:34+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "comments": [
+        {
+          "id": "16836312",
+          "url": "https://www.drupal.org/node/3636640#comment-16836312",
+          "author": "shank115",
+          "author_id": "3782013",
+          "author_url": "https://www.drupal.org/user/3782013",
+          "created_at": "2026-11-10T11:29:51Z",
+          "body_html": "<p><a href=\"/u/shank115\" title=\"View user profile.\" data-uid=\"3782013\" class=\"username\" rel=\"nofollow\">shank115</a> made their first commit to this issue’s fork.</p>",
+          "body_text": "shank115 made their first commit to this issue’s fork.",
+          "machine_generated": true,
+          "content_hash": "76970c0ba66453a579ac5c41894eca9002c32d2f8d848959dcfa28f567a18c47"
+        },
+        {
+          "id": "16835863",
+          "url": "https://www.drupal.org/node/3636640#comment-16835863",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-10T02:06:26Z",
+          "body_html": "<p><a href=\"/u/rkoller\" title=\"View user profile.\" data-uid=\"3217695\" class=\"username\" rel=\"nofollow\">rkoller</a> created an issue. See <a href=\"/node/3636640/revisions/14544975/view\" rel=\"nofollow\">original summary</a>.</p>",
+          "body_text": "rkoller created an issue. See original summary.",
+          "machine_generated": true,
+          "content_hash": "2d87613f5f1482418924a89173c1d6186a68751d372505f8738b0fd0e1f7250e"
+        },
+        {
+          "id": "16836322",
+          "url": "https://www.drupal.org/node/3636640#comment-16836322",
+          "author": "shank115",
+          "author_id": "3782013",
+          "author_url": "https://www.drupal.org/user/3782013",
+          "created_at": "2026-11-10T11:34:34Z",
+          "body_html": "<p>Tested with full and mini pagers, the taxonomy overview pager and an AJAX views pager, in light, dark, high contrast and RTL, and with the accent presets. Hover text is readable now, and the other states didn't change.</p>",
+          "body_text": "Tested with full and mini pagers, the taxonomy overview pager and an AJAX views pager, in light, dark, high contrast and RTL, and with the accent presets. Hover text is readable now, and the other states didn't change.",
+          "machine_generated": false,
+          "content_hash": "31d6615d6f507a7233b08e91120a716d4defef6f18814d3314ba211248769713"
+        }
+      ],
+      "merge_requests": [
+        {
+          "iid": 17754,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17754",
+          "title": "Issue #3636640: Fix low contrast pager link text on hover in Default Admin",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3636640-text-color-on",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-10T11:34:24Z",
+          "author": "Shank115"
+        }
+      ],
+      "wcag_candidates": [
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.0",
+        "retrieved_at": "2026-11-10T16:29:58Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636640",
+        "content_hash": "71da0e230e62565487b281ad72f7a788a8cb8a779987233b9c8e44ab4e6023ed",
+        "raw_ref": "private-evidence/raw/3636640-20261110T162958Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636643",
+      "project_scoped_id": "drupal:drupal:3636643",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636643",
+      "url": "https://www.drupal.org/project/drupal/issues/3636643",
+      "title": "The Default Admin theme is not meeting the minimum target size of at least 24x24px",
+      "description_html": "<!-- <h3 id=\"ai-disclosure\">Generated with the help of an LLM.</h3>--><h3 id=\"summary-problem-motivation\">Problem/Motivation</h3>\n<p>I've opened that issue already over in the Gin queue: <a href=\"https://git.drupalcode.org/project/gin/-/work_items/3506334\" rel=\"nofollow\">https://git.drupalcode.org/project/gin/-/work_items/3506334</a></p>\n<p>Several interface components don't meet the minimum target size of 24 by 24 pixels (SC2.5.8 - purple dots label focusable elements that are not meeting the success criterion while green dots label those that comply). The components affected are (but there might be more):</p>\n<ul>\n<li>Links (all links not constrained by line-height of non-target text)</li>\n<li>Radio buttons</li>\n<li>Checkboxes</li>\n<li>Form element labels</li>\n<li>Edit buttons for field widgets</li>\n</ul>\n<p><img src=\"/files/issues/2026-11-10/manage_form_display.jpg\" alt=\"the manage form display page for the article content type with the authored by field widget expanded and green and purple dots illustrating focusable elements with a large enough and too small target size\" /><br />\n<img src=\"/files/issues/2026-11-10/extend.jpg\" /><br />\n<img src=\"/files/issues/2026-11-10/manage_display.jpg\" alt=\"the manage display page for the article content type with the overview secondary tab active showing the enabled view modes and with green and purple dots illustrating focusable elements with a large enough and too small target size\" /><br />\n<img src=\"/files/issues/2026-11-10/view_list.jpg\" alt=\"the view list page with green and purple dots illustrating focusable elements with a large enough and too small target size\" /><br />\n<img src=\"/files/issues/2026-11-10/view_detail.jpg\" alt=\"the detail page for the content view with green and purple dots illustrating focusable elements with a large enough and too small target size\" /></p>\n<p>The breadcrumb got a fix in Claro per @kentr (<a href=\"https://git.drupalcode.org/project/gin/-/work_items/3506334\" rel=\"nofollow\">https://git.drupalcode.org/project/gin/-/work_items/3506334</a>) in <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/3223147\" title=\"Status: Closed (fixed)\">#3223147: Claro breadcrumb doesn't meet minimum target-size</a></span>. According to him Default Admin might likely be fixed in a similar manner. </p>\n<h4 id=\"summary-steps-reproduce\">Steps to reproduce</h4>\n<ul>\n<li>get the following bookmarklet <a href=\"https://github.com/stevefaulkner/targetsize/blob/main/bookmarklet.md\" rel=\"nofollow\">https://github.com/stevefaulkner/targetsize/blob/main/bookmarklet.md</a></li>\n<li>test different pages and their components, there might be more elements smaller 24x24px</li>\n</ul>\n<h3 id=\"summary-proposed-resolution\">Proposed resolution</h3>\n<p>Ensure for SC2.5.8 that at the very least a target size of 24x24px is met across the entire Default Admin theme</p>\n<p>Craft CMS is aiming even fo 44x44px <a href=\"https://craftcms.com/blog/accessible-target-sizes\" rel=\"nofollow\">https://craftcms.com/blog/accessible-target-sizes</a> per @mgifford in <a href=\"https://git.drupalcode.org/project/gin/-/work_items/3506334\" rel=\"nofollow\">https://git.drupalcode.org/project/gin/-/work_items/3506334</a></p>\n<h3 id=\"summary-remaining-tasks\">Remaining tasks</h3>\n<h3 id=\"summary-ui-changes\">User interface changes</h3>\n<h3 id=\"summary-introduced-terminology\">Introduced terminology</h3>\n<h3 id=\"summary-api-changes\">API changes</h3>\n<h3 id=\"summary-data-model-changes\">Data model changes</h3>\n<h3 id=\"summary-release-notes\">Release notes snippet</h3>",
+      "description_text": "Problem/Motivation\nI've opened that issue already over in the Gin queue: https://git.drupalcode.org/project/gin/-/work_items/3506334\nSeveral interface components don't meet the minimum target size of 24 by 24 pixels (SC2.5.8 - purple dots label focusable elements that are not meeting the success criterion while green dots label those that comply). The components affected are (but there might be more):\nLinks (all links not constrained by line-height of non-target text)\nRadio buttons\nCheckboxes\nForm element labels\nEdit buttons for field widgets\nThe breadcrumb got a fix in Claro per @kentr (https://git.drupalcode.org/project/gin/-/work_items/3506334) in #3223147: Claro breadcrumb doesn't meet minimum target-size. According to him Default Admin might likely be fixed in a similar manner.\nSteps to reproduce\nget the following bookmarklet https://github.com/stevefaulkner/targetsize/blob/main/bookmarklet.md\ntest different pages and their components, there might be more elements smaller 24x24px\nProposed resolution\nEnsure for SC2.5.8 that at the very least a target size of 24x24px is met across the entire Default Admin theme\nCraft CMS is aiming even fo 44x44px https://craftcms.com/blog/accessible-target-sizes per @mgifford in https://git.drupalcode.org/project/gin/-/work_items/3506334\nRemaining tasks\nUser interface changes\nIntroduced terminology\nAPI changes\nData model changes\nRelease notes snippet",
+      "labels": [
+        "Accessibility",
+        "wcag258"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-10T02:39:26+00:00",
+      "updated_at": "2026-11-10T02:39:58+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Major",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "comments": [
+        {
+          "id": "16835878",
+          "url": "https://www.drupal.org/node/3636643#comment-16835878",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-10T02:39:26Z",
+          "body_html": "<p><a href=\"/u/rkoller\" title=\"View user profile.\" data-uid=\"3217695\" class=\"username\" rel=\"nofollow\">rkoller</a> created an issue. See <a href=\"/node/3636643/revisions/14544988/view\" rel=\"nofollow\">original summary</a>.</p>",
+          "body_text": "rkoller created an issue. See original summary.",
+          "machine_generated": true,
+          "content_hash": "74358421c5ac451cef2f14de26a484181fc52b09e40b874fb6eae071fab86fb1"
+        },
+        {
+          "id": "16835879",
+          "url": "https://www.drupal.org/node/3636643#comment-16835879",
+          "author": "rkoller",
+          "author_id": "3217695",
+          "author_url": "https://www.drupal.org/user/3217695",
+          "created_at": "2026-11-10T02:39:58Z",
+          "body_html": "",
+          "body_text": "",
+          "machine_generated": false,
+          "content_hash": "36b60b623be28822c328e687094f08d0f157b1d711ec8ddccc1ca83c8a7e80d1"
+        }
+      ],
+      "merge_requests": [],
+      "wcag_candidates": [
+        "2.5.8"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.0",
+        "retrieved_at": "2026-11-10T16:30:00Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636643",
+        "content_hash": "ea35ef194938e469108e2727bc1360386949d6a6fa178d705844b0809b55506c",
+        "raw_ref": "private-evidence/raw/3636643-20261110T163000Z.json"
       }
     },
     {
@@ -43602,18 +44925,18 @@
     }
   ],
   "summary": {
-    "requested": 430,
-    "retrieved_at": "2026-11-09T02:53:45Z",
-    "collected": 430,
+    "requested": 432,
+    "retrieved_at": "2026-11-10T16:30:55Z",
+    "collected": 432,
     "cached": 0,
-    "reused": 426,
-    "fetched": 4,
+    "reused": 419,
+    "fetched": 13,
     "failed": 0,
-    "with_merge_requests": 29,
-    "with_wcag_tags": 195,
-    "detailed": 32,
-    "inventory": 398,
-    "excluded_by_status": 46,
+    "with_merge_requests": 33,
+    "with_wcag_tags": 196,
+    "detailed": 38,
+    "inventory": 394,
+    "excluded_by_status": 37,
     "statuses": [
       1,
       8,
@@ -43621,22 +44944,22 @@
       14,
       15
     ],
-    "comments": 1626,
+    "comments": 1720,
     "by_workflow": {
-      "needs-review": 15,
-      "needs-work": 174,
-      "open": 236,
-      "rtbc": 5
+      "needs-review": 18,
+      "needs-work": 173,
+      "open": 234,
+      "rtbc": 7
     },
     "by_status": {
-      "Active": 236,
-      "Needs review": 15,
-      "Needs work": 174,
-      "Reviewed & tested by the community": 5
+      "Active": 234,
+      "Needs review": 18,
+      "Needs work": 173,
+      "Reviewed & tested by the community": 7
     },
     "errors": []
   },
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641",
   "digest_scope": "sha256 over this artifact excluding generated_at and evidence_digest",
-  "evidence_digest": "dab38a326ad16d9022bfdd3ec0de30e99433963e2d10d69476e66fc32893013b"
+  "evidence_digest": "c5e1a9cbac8fe17285a4deec7e54f361d434bba20b9b152fe5abf13ada3d0dfa"
 }
