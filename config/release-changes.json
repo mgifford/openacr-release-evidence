@@ -24,11 +24,11 @@
     "12.0.x": {
       "front_end_themes": [],
       "admin_themes": [
-        "claro",
         "default_admin"
       ],
       "removed": [
-        "olivero"
+        "olivero",
+        "claro"
       ],
       "notes": "Drupal 12 removes Olivero and other front-end themes; treat Olivero-only issues as out of scope for 12.x targets."
     }

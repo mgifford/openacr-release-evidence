@@ -14,7 +14,7 @@ This document converts the active issue evidence into an ACR narrative. It is de
 | Version / release | 12.0.x-dev |
 | Target ref | main (branch) |
 | Support status | development |
-| Report date | 2026-11-09 |
+| Report date | 2026-11-10 |
 | Report status | DRAFT — not approved for publication |
 | Prepared by | Unassigned reviewer (draft) |
 | Assessment identifier | drupal-core-main |

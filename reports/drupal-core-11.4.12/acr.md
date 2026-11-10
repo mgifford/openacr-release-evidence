@@ -14,7 +14,7 @@ This document converts the active issue evidence into an ACR narrative. It is de
 | Version / release | 11.4.12 |
 | Target ref | 11.4.12 (tag) |
 | Support status | supported |
-| Report date | 2026-11-09 |
+| Report date | 2026-11-10 |
 | Report status | DRAFT — not approved for publication |
 | Prepared by | Unassigned reviewer (draft) |
 | Assessment identifier | drupal-core-11.4.12-default-admin |
@@ -92,6 +92,33 @@ Read the queue as reported barrier evidence. The criterion result is a draft iss
 - [GSA OpenACR issue #180](https://github.com/GSA/openacr/issues/180)
 - [Drupal ACR process](https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process)
 - [WCAG-EM 2.0](https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/)
+
+## Between-release fix notes (not active-issue results)
+
+These closed-fixed issues are separate from the active queue and do not change any criterion result. A newer target is listed only when a fix commit is contained there and is absent from this selected target. Absence is not proof that a backport will never happen.
+
+**Closed-fixed issues with newer-target commits**
+
+| Issue | State in selected target | Newer target with the fix | Commit |
+| --- | --- | --- | --- |
+| [The label "Member for" on user profiles is hardcoded markup that is different from other user fields](https://www.drupal.org/node/2638250) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 92812efaed0f |
+| [Improve the perceptibility of contextual link buttons](https://www.drupal.org/node/3506333) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 09fef26db8c0 |
+| [Breadcrumb separators are exposed to the accessibility tree](https://www.drupal.org/node/3583516) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 8dbb13095178 |
+| [Ensure status message ARIA landmarks are unique](https://www.drupal.org/node/3587678) | Fix commit not included in this target | drupal-core-12.0.0-alpha1, drupal-core-12.0.0-beta2, drupal-core-main | 0c13b6a376be |
+| [Change default to auto for light/dark mode](https://www.drupal.org/node/3604071) | Fix commit not included in this target | drupal-core-12.0.0-alpha1, drupal-core-12.0.0-beta2, drupal-core-main | 73524b05a7f0 |
+| [Do not use strong element for vertical tabs titles](https://www.drupal.org/node/3612323) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | de104d38df19 |
+| [Invalid ARIA attribute aria-toolbar-link__labelledby on toolbar menus strips their accessible name](https://www.drupal.org/node/3615331) | Fix commit not included in this target | drupal-core-12.0.0-alpha1, drupal-core-12.0.0-beta2, drupal-core-main | 141cdc1f0a35 |
+| [Improve the accessibility of focus outlines](https://www.drupal.org/node/3618140) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | d946182a6cf8 |
+| [Forced-colors problems with admin theme's sidebar toggle button](https://www.drupal.org/node/3619155) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 77b938beabd6 |
+| [Admin theme should override top-bar.html.twig directly](https://www.drupal.org/node/3621157) | Fix commit not included in this target | drupal-core-main | 096c6ad233bc |
+| [Navigation mobile sidebar close button in dark mode has low color contrast](https://www.drupal.org/node/3621244) | Fix commit not included in this target | drupal-core-12.0.0-beta2, drupal-core-main | 263b7b802ce7 |
+
+A removed component or theme is a scope change, not a fix. Olivero-specific issues in a release that no longer ships Olivero are out of scope for that target and remain relevant to the release lines that still include it.
+
+This ledger is not a promise that a future backport will occur. It records commit containment in the named targets at this snapshot.
+
+- [Drupal release notes](https://www.drupal.org/project/drupal/releases)
+- [Drupal Core Accessibility queue](https://www.drupal.org/project/issues/search?projects=Drupal+core&issue_tags=Accessibility)
 
 ## Executive summary
 

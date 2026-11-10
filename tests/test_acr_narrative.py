@@ -128,6 +128,42 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("AI authoring barrier summary.", md)
         self.assertIn("model-assisted draft summaries", md)
 
+    def test_between_release_fix_note_is_separate_from_active_counts(self):
+        with tempfile.TemporaryDirectory() as folder:
+            ledger = {
+                "artifact_type": "drupal-release-transition-ledger",
+                "target_order": [
+                    "drupal-core-10.6.21",
+                    "drupal-core-11.4.12",
+                    "drupal-core-12.0.0-alpha1",
+                ],
+                "issues": [{
+                    "issue_id": "drupal:99",
+                    "title": "A fix landed only in Drupal 12",
+                    "source_url": "https://www.drupal.org/node/99",
+                    "targets": {
+                        "drupal-core-10.6.21": "not-included",
+                        "drupal-core-11.4.12": "not-included",
+                        "drupal-core-12.0.0-alpha1": "included",
+                    },
+                    "commits": [{
+                        "sha": "abcdef1234567890",
+                        "targets": {
+                            "drupal-core-10.6.21": False,
+                            "drupal-core-11.4.12": False,
+                            "drupal-core-12.0.0-alpha1": True,
+                        },
+                    }],
+                }],
+            }
+            Path(folder, "release-ledger.json").write_text(json.dumps(ledger), encoding="utf-8")
+            result = render_acr_narrative(analysis(), folder)
+            md = Path(result["markdown"]).read_text(encoding="utf-8")
+        self.assertIn("Between-release fix notes", md)
+        self.assertIn("A fix landed only in Drupal 12", md)
+        self.assertIn("drupal-core-12.0.0-alpha1", md)
+        self.assertIn("not included in this target", md)
+
     def test_no_fabricated_reviewer(self):
         with tempfile.TemporaryDirectory() as folder:
             result = render_acr_narrative(analysis(), folder)

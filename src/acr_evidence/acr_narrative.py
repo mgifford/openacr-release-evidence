@@ -48,6 +48,21 @@ def _load_release_changes():
     return data.get("release_lines") or {}
 
 
+def _load_release_ledger(output_dir):
+    candidates = [
+        Path(output_dir) / "release-ledger.json",
+        Path.cwd() / "reports" / "release-ledger.json",
+    ]
+    for path in candidates:
+        try:
+            value = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if value.get("artifact_type") == "drupal-release-transition-ledger":
+            return value
+    return {}
+
+
 def _load_criterion_summaries(output_dir):
     """Load the shared cache without relying only on the output directory.
 
@@ -661,6 +676,53 @@ def render_acr_narrative(analysis, output_dir):
         ("Drupal ACR process", "https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process"),
         ("WCAG-EM 2.0", "https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/"),
     ])
+    ledger = _load_release_ledger(output_dir)
+    target_id = (analysis.get("target") or {}).get("assessment_id") or assessment.get("id")
+    target_order = ledger.get("target_order") or []
+    if ledger.get("issues") and target_id in target_order:
+        current_index = target_order.index(target_id)
+        transition_rows = []
+        for issue in ledger["issues"]:
+            states = issue.get("targets") or {}
+            state = states.get(target_id)
+            newer = [
+                candidate for candidate in target_order[current_index + 1:]
+                if states.get(candidate) == "included"
+            ]
+            if state not in {"not-included", "removed"} or (state == "not-included" and not newer):
+                continue
+            if state == "removed":
+                state_label = "Component or theme removed from this release; out of scope"
+                newer_label = "Not a fix for this target"
+            else:
+                state_label = "Fix commit not included in this target"
+                newer_label = ", ".join(newer)
+            commits = ", ".join(
+                commit.get("sha", "")[:12] for commit in issue.get("commits") or []
+                if any((commit.get("targets") or {}).get(candidate) for candidate in newer)
+            ) or "No contained commit"
+            transition_rows.append([
+                Cell(issue.get("title") or issue.get("issue_id"), issue.get("source_url")),
+                Cell(state_label),
+                Cell(newer_label),
+                Cell(commits),
+            ])
+        if transition_rows:
+            doc.h2("Between-release fix notes (not active-issue results)")
+            doc.p("These closed-fixed issues are separate from the active queue and do not change any criterion result. A newer target is listed only when a fix commit is contained there and is absent from this selected target. Absence is not proof that a backport will never happen.")
+            doc.table(
+                "Closed-fixed issues with newer-target commits",
+                ["Issue", "State in selected target", "Newer target with the fix", "Commit"],
+                transition_rows[:40],
+            )
+            if len(transition_rows) > 40:
+                doc.p(f"Only the first 40 of {len(transition_rows)} transition records are shown; see the release ledger for the full set.")
+            doc.p("A removed component or theme is a scope change, not a fix. Olivero-specific issues in a release that no longer ships Olivero are out of scope for that target and remain relevant to the release lines that still include it.")
+            doc.p("This ledger is not a promise that a future backport will occur. It records commit containment in the named targets at this snapshot.")
+            doc.links([
+                ("Drupal release notes", "https://www.drupal.org/project/drupal/releases"),
+                ("Drupal Core Accessibility queue", "https://www.drupal.org/project/issues/search?projects=Drupal+core&issue_tags=Accessibility"),
+            ])
     doc.h2("Executive summary")
     doc.p(f"The active queue contains {len(findings)} {_plural(len(findings), 'issue')}. Tracker states are: {_status_summary(findings)}. {detailed} {_plural(detailed, 'issue')} {_plural(detailed, 'has', 'have')} detailed evidence and {inventory} are inventory-only. The queue is a triage input, not an accessibility score.")
     if top:

@@ -14,7 +14,7 @@ This document converts the active issue evidence into an ACR narrative. It is de
 | Version / release | 12.0.0-beta2 |
 | Target ref | 12.0.0-beta2 (tag) |
 | Support status | pre-release |
-| Report date | 2026-11-09 |
+| Report date | 2026-11-10 |
 | Report status | DRAFT — not approved for publication |
 | Prepared by | Unassigned reviewer (draft) |
 | Assessment identifier | drupal-core-12.0.0-beta2 |
@@ -68,7 +68,7 @@ The evidence collection covers active, review-relevant Drupal Core Accessibility
 - No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.
 - No AI was used to assign applicability or an ACR result.
 
-Theme availability for 12.0.x: front-end themes none recorded; admin themes claro, default_admin. Removed in this line: olivero. The core collection does not include the theme project queues; a theme's own ACR must cover those issues.
+Theme availability for 12.0.x: front-end themes none recorded; admin themes default_admin. Removed in this line: olivero, claro. The core collection does not include the theme project queues; a theme's own ACR must cover those issues.
 
 ## Why this ACR is different
 
@@ -92,6 +92,24 @@ Read the queue as reported barrier evidence. The criterion result is a draft iss
 - [GSA OpenACR issue #180](https://github.com/GSA/openacr/issues/180)
 - [Drupal ACR process](https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process)
 - [WCAG-EM 2.0](https://www.w3.org/WAI/test-evaluate/conformance/wcag-em/)
+
+## Between-release fix notes (not active-issue results)
+
+These closed-fixed issues are separate from the active queue and do not change any criterion result. A newer target is listed only when a fix commit is contained there and is absent from this selected target. Absence is not proof that a backport will never happen.
+
+**Closed-fixed issues with newer-target commits**
+
+| Issue | State in selected target | Newer target with the fix | Commit |
+| --- | --- | --- | --- |
+| [a11y revision for Claro](https://www.drupal.org/node/3026317) | Component or theme removed from this release; out of scope | Not a fix for this target | No contained commit |
+| [Admin theme should override top-bar.html.twig directly](https://www.drupal.org/node/3621157) | Fix commit not included in this target | drupal-core-main | 096c6ad233bc |
+
+A removed component or theme is a scope change, not a fix. Olivero-specific issues in a release that no longer ships Olivero are out of scope for that target and remain relevant to the release lines that still include it.
+
+This ledger is not a promise that a future backport will occur. It records commit containment in the named targets at this snapshot.
+
+- [Drupal release notes](https://www.drupal.org/project/drupal/releases)
+- [Drupal Core Accessibility queue](https://www.drupal.org/project/issues/search?projects=Drupal+core&issue_tags=Accessibility)
 
 ## Executive summary
 

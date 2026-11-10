@@ -87,6 +87,15 @@ jobs:
           else
             echo "Criterion AI summaries disabled; deterministic issue-title summaries will be used."
           fi
+      - name: Build the separate release transition ledger
+        continue-on-error: true
+        run: |
+          acr-evidence release-ledger \
+            --project drupal \
+            --targets config/drupal-core-targets.json \
+            --release-changes config/release-changes.json \
+            --output reports/release-ledger.json \
+            --cache-dir .cache/acr-evidence
       - name: Analyze supported, pre-release and development targets
         run: |
           acr-evidence multi \

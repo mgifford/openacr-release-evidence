@@ -24,7 +24,7 @@
 - [x] GitHub Pages workflow with an explicit publication allowlist
 - [x] First live Pages deployment verified (https://mgifford.github.io/openacr-release-evidence/)
 - [x] Node 24 GitHub Actions runtimes
-- [x] 128 offline tests, trimmed real fixtures, caching and failure isolation
+- [x] 132 offline tests, trimmed real fixtures, caching and failure isolation
 - [ ] Reproduce `likely-affected` findings against an installed 11.4.12 site
 - [ ] Add a human review/approval workflow for `confirmed-fixed`
 - [ ] Add file/diff-level evidence for fixes that omit the issue number
