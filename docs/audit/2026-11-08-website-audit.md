@@ -240,10 +240,7 @@ matrix generation assertions are in `tests/test_usability.py`.
 
 ## Test and accessibility results
 
-- **132 offline tests pass**.
-- **Release transition ledger**: 23 recent closed-fixed issues, 16 with a
-  contained commit in at least one target, 6 not established and 1 removed-theme
-  record. The ACR lists newer-target fixes separately from active results.
+- **129 offline tests pass**.
 - axe-core: **0 violations** on the homepage, complete matrix, 12.0.0-alpha1
   report, ACR draft and ATAG report at 1280 px.
 - 320 px: `scrollWidth` = 320 on all five pages; wide tables scroll inside

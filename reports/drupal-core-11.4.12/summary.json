@@ -121,25 +121,25 @@
     }
   },
   "summary": {
-    "findings": 430,
+    "findings": 432,
     "by_applicability": {
-      "likely-affected": 28,
-      "unknown": 402
+      "likely-affected": 32,
+      "unknown": 400
     },
     "by_workflow": {
-      "needs-review": 15,
-      "needs-work": 174,
-      "open": 236,
-      "rtbc": 5
+      "needs-review": 18,
+      "needs-work": 173,
+      "open": 234,
+      "rtbc": 7
     },
     "by_evidence_status": {
-      "full": 32,
-      "inventory": 398
+      "full": 38,
+      "inventory": 394
     },
     "fix_included_in_target": 0,
     "fix_included_in_release": 0,
-    "needs_verification": 430,
-    "unmapped_criteria": 235,
+    "needs_verification": 432,
+    "unmapped_criteria": 236,
     "criteria": [
       "1.1.1",
       "1.2.2",
@@ -152,12 +152,11 @@
       "1.4.11",
       "1.4.12",
       "1.4.13",
+      "1.4.3",
       "1.4.4",
       "2.1.1",
       "2.1.2",
       "2.1.4",
-      "2.2.2",
-      "2.3.1",
       "2.4.1",
       "2.4.11",
       "2.4.13",
@@ -196,7 +195,7 @@
       "retrieved_at": "2026-11-10T17:03:13+00:00"
     }
   },
-  "generated_at": "2026-11-10T17:05:52Z",
-  "evidence_digest": "a9a9c5d38f2bfc3ba45032d7c35357f711979da6c34d472b3b8970d5c2d54661",
+  "generated_at": "2026-11-10T17:10:41Z",
+  "evidence_digest": "f5687df8f8aa5930b0b5ecdb9441f37c9e7cb532a49d67c3068f485ab59525c0",
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641"
 }
