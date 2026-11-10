@@ -11,6 +11,8 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .ai import CloudflareChatClient, CloudflareError
+
 PROMPT_VERSION = "acr-criterion-v2"
 MODEL_DEFAULT = "Qwen/Qwen2.5-7B-Instruct"
 BANNED = re.compile(
@@ -96,8 +98,15 @@ def _parse_json(text):
     return value
 
 
-def _client(model, provider, endpoint, token, client_factory):
+def _client(model, provider, endpoint, token, client_factory, account_id=None):
     endpoint = endpoint or None
+    if provider == "cloudflare":
+        if client_factory:
+            return client_factory(
+                model=model, provider=provider, token=token,
+                base_url=endpoint, account_id=account_id,
+            )
+        return CloudflareChatClient(account_id, token, model, base_url=endpoint)
     if not os.environ.get("HF_ENDPOINT"):
         os.environ.pop("HF_ENDPOINT", None)
     if client_factory:
@@ -123,14 +132,23 @@ def summarize_collection(
     endpoint=None,
     token=None,
     client_factory=None,
+    account_id=None,
 ):
     """Generate accepted per-criterion summaries and write the cache."""
-    if provider != "huggingface":
-        raise ValueError("Only the huggingface provider is supported")
-    if not token:
-        raise RuntimeError("HF_TOKEN is not configured")
-    if not model:
-        raise RuntimeError("HF_MODEL is not configured")
+    if provider not in {"huggingface", "cloudflare"}:
+        raise ValueError("provider must be huggingface or cloudflare")
+    if provider == "cloudflare":
+        token = token or os.environ.get("CLOUDFLARE_API_TOKEN")
+        account_id = account_id or os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+        if not token or not account_id:
+            raise RuntimeError("CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID are required")
+        if not model:
+            raise RuntimeError("CLOUDFLARE_MODEL is not configured")
+    else:
+        if not token:
+            raise RuntimeError("HF_TOKEN is not configured")
+        if not model:
+            raise RuntimeError("HF_MODEL is not configured")
     evidence = _evidence(collection)
     previous = _read(output)
     previous_criteria = previous.get("criteria") or {}
@@ -151,6 +169,7 @@ def summarize_collection(
             cached.get("status") == "accepted"
             and cached.get("input_sha256") == input_hash
             and cached.get("model") == model
+            and cached.get("provider") == provider
             and cached.get("prompt_version") == PROMPT_VERSION
         ):
             result["criteria"][criterion] = cached
@@ -161,6 +180,7 @@ def summarize_collection(
         ]
         entry = {
             "input_sha256": input_hash,
+            "provider": provider,
             "model": model,
             "prompt_version": PROMPT_VERSION,
             "status": "failed",
@@ -169,7 +189,7 @@ def summarize_collection(
         }
         try:
             if client is None:
-                client = _client(model, provider_name, endpoint, token, client_factory)
+                client = _client(model, provider, endpoint, token, client_factory, account_id=account_id)
             response = client.chat_completion(messages=messages, max_tokens=900, temperature=0.0, seed=17)
             raw = response.choices[0].message.content or ""
             parsed = _parse_json(raw)

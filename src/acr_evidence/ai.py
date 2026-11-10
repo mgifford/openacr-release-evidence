@@ -1,6 +1,9 @@
 """Opt-in Cloudflare summary suggestion; never called in normal build."""
 import json
 import os
+import time
+from types import SimpleNamespace
+from urllib.error import HTTPError, URLError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
@@ -31,3 +34,57 @@ def suggest_summary(issue):
     return {"prompt_version": PROMPT_VERSION, "provider": "Cloudflare Workers AI",
             "model": model, "source_url": issue["url"],
             "unreviewed_model_output": result, "review_status": "unreviewed"}
+
+
+class CloudflareError(RuntimeError):
+    pass
+
+
+class CloudflareChatClient:
+    """Minimal Workers AI chat client with the HF-shaped response used here."""
+
+    def __init__(self, account_id, api_token, model, base_url=None, timeout=60):
+        if not account_id or not api_token:
+            raise CloudflareError("CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN are required")
+        if not model or not str(model).startswith("@cf/"):
+            raise CloudflareError("CLOUDFLARE_MODEL must be a Workers AI @cf/ model id")
+        if not account_id.replace("-", "").isalnum():
+            raise CloudflareError("Invalid Cloudflare account ID")
+        self.account_id = account_id
+        self.api_token = api_token
+        self.model = model
+        self.base_url = (base_url or "https://api.cloudflare.com/client/v4").rstrip("/")
+        self.timeout = timeout
+
+    def chat_completion(self, messages, max_tokens=700, temperature=0.0, seed=None, **kwargs):
+        endpoint = (
+            f"{self.base_url}/accounts/{quote(self.account_id)}/ai/run/"
+            f"{quote(self.model, safe='@/')}"
+        )
+        body = json.dumps({
+            "messages": messages,
+            "max_tokens": int(max_tokens),
+            "temperature": float(temperature),
+        }).encode("utf-8")
+        headers = {
+            "Authorization": f"Bearer {self.api_token}",
+            "Content-Type": "application/json",
+        }
+        last_error = None
+        for attempt in range(3):
+            try:
+                request = Request(endpoint, data=body, headers=headers, method="POST")
+                with urlopen(request, timeout=self.timeout) as response:
+                    raw = json.loads(response.read(1_000_001))
+                result = raw.get("result") or {}
+                content = result.get("response") if isinstance(result, dict) else result
+                if not isinstance(content, str) or not content.strip():
+                    raise CloudflareError("Cloudflare returned no text response")
+                message = SimpleNamespace(content=content)
+                choice = SimpleNamespace(message=message)
+                return SimpleNamespace(choices=[choice])
+            except (HTTPError, URLError, TimeoutError, json.JSONDecodeError, CloudflareError) as exc:
+                last_error = exc
+                if attempt < 2:
+                    time.sleep(2 ** attempt)
+        raise CloudflareError(f"Cloudflare Workers AI request failed: {type(last_error).__name__}")
