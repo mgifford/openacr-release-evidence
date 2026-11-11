@@ -36,6 +36,10 @@ class CriterionEvidenceTests(unittest.TestCase):
         self.assertIsNone(web["conformance_result"])
         self.assertEqual("drupal:1", web["issues"][0]["issue_id"])
         self.assertEqual("insufficient-evidence", components["authoring-tool"]["evidence_state"])
+        self.assertEqual("partial", criterion["automation"]["coverage"])
+        self.assertIn("image-alt", criterion["automation"]["axe_rules"])
+        self.assertEqual("not-recorded", criterion["automation"]["result"])
+        self.assertEqual("method-available-not-recorded", criterion["automation"]["guidepup"])
         self.assertEqual(0, ledger["summary"]["formal_conformance_results"])
 
     def test_media_scope_is_recorded_separately_from_empty_queue(self):

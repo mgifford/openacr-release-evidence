@@ -84,6 +84,7 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("Not Evaluated", md)
         self.assertIn("N/A", md)
         self.assertIn("Evidence state:", md)
+        self.assertIn("Automated coverage: partial", md)
         self.assertNotIn("**Web:**   Partially Supports", md)
         self.assertNotIn("**Authoring Tool:**   Partially Supports", md)
         self.assertIn("**Example:**", md)

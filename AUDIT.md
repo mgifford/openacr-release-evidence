@@ -331,3 +331,14 @@ cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.
 - Web/Authoring OpenACR adherence is unset; Electronic Documents/Software and
   documented media scope exclusions remain Not Applicable.
 - Added regression tests for tagged, untagged, media-scope and artifact output.
+
+## Automated evaluation coverage (2026-11-11)
+
+- Vendored ACT/axe-core coverage from `mgifford/wcag-spine` as
+  `config/wcag-automation-coverage.json`.
+- Criterion evidence records `axe_rules`, `act_rules`, `coverage: partial|none`,
+  `result: not-recorded` and `guidepup: method-available-not-recorded`.
+- ACR rows disclose partial automated coverage; no pass/fail or Supports result
+  is inferred.
+- Guidepup is documented as a separate behavioral method. No Guidepup run is
+  claimed.

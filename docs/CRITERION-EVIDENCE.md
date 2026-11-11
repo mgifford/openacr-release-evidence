@@ -52,6 +52,31 @@ For Drupal Core, 1.2.1/1.2.3/1.2.4/1.2.5 are currently Not Applicable because th
 relevant media player/live feature is absent. 2.2.1/2.2.2/2.3.1 are Not Evaluated
 when no active issue is tagged; that is not a claim that they do not apply.
 
+## Automated evaluation coverage
+
+Axe-core and W3C ACT rule mappings are treated as **partial evaluation
+coverage**, not as a criterion-level result. They show that some part of a
+criterion can be checked automatically; they do not show that the whole
+criterion passes.
+
+The mapping is vendored from [`mgifford/wcag-spine`](https://github.com/mgifford/wcag-spine)
+into `config/wcag-automation-coverage.json` with its source date and axe-core
+version. Each criterion-evidence record carries:
+
+- `axe_rules`;
+- `act_rules`;
+- `coverage: partial | none`;
+- `result: not-recorded`;
+- `guidepup: method-available-not-recorded`.
+
+Axe/ACT coverage remains separate from `conformance_result`. A clean axe run is
+not a conformance claim. A recorded axe or Guidepup result would need its own
+evidence record, target, environment, scope and limitations.
+
+Guidepup can add behavioral screen-reader evidence for keyboard and focus tasks.
+It is a separate test method, not an ACT/axe rule and not a mapping that can be
+assumed for every criterion. No Guidepup run is claimed in the current snapshot.
+
 ## POUR summary
 
 A review dashboard should show Supports, Partially Supports, Not Applicable and

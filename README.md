@@ -423,6 +423,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Cloudflare summary option](docs/CLOUDFLARE-SUMMARIES.md)
 - [Surface policy for Web vs Authoring Tool](docs/SURFACE-POLICY.md)
 - [Criterion evidence beyond the issue queue](docs/CRITERION-EVIDENCE.md)
+- [Automated coverage mapping](config/wcag-automation-coverage.json)
 - [Onboarding Drupal CMS and LocalGov Drupal](docs/MULTI-PROJECT-ONBOARDING.md)
 - [Between-release accessibility commentary](docs/RELEASE-COMMENTARY.md)
 - [Drupal ecosystem AI/ACR context](context/README.md)

@@ -10,6 +10,7 @@ from html import escape
 from pathlib import Path
 
 from .criterion_summaries import PROMPT_VERSION as CRITERION_PROMPT_VERSION
+from .criterion_evidence import automation_for_criterion
 from .openacr_export import load_catalog
 
 DRAFT_TERM = "Not Evaluated (draft — reviewer must select an ACR result)"
@@ -486,6 +487,18 @@ def _surface_items(items, surface):
     return [item for item in items if (item.get("surface") or {}).get("surface", "web") == surface]
 
 
+def _automation_text(criterion):
+    coverage = automation_for_criterion(criterion)
+    if coverage["coverage"] == "none":
+        return "Automated coverage: none mapped. This is not evidence that no barriers exist."
+    return (
+        f"Automated coverage: partial — {len(coverage['axe_rules'])} axe-core "
+        f"{_plural(len(coverage['axe_rules']), 'rule')}, {len(coverage['act_rules'])} ACT "
+        f"{_plural(len(coverage['act_rules']), 'rule')}. Coverage is available; no pass/fail "
+        "is recorded here, and coverage is not a conformance result."
+    )
+
+
 def _barrier_summary(items, surface):
     label = "web" if surface == "web" else "authoring"
     if not items:
@@ -572,9 +585,13 @@ def _remarks_cell(criterion, issues, ai_summary=None):
             Bold("Web:"), " No active tagged issue; remains Not Evaluated. Absence is not evidence of support.",
             Gap(),
             Bold("Authoring Tool:"), " No active tagged issue; remains Not Evaluated. Absence is not evidence of support.",
+            Gap(),
+            _automation_text(criterion),
         )
     parts = [
         Bold("Evidence state:"), " Reported barrier, unverified. Candidate criterion mapping: issue tag, unreviewed. No conformance result assigned.",
+        Gap(),
+        _automation_text(criterion),
         Gap(),
         Bold("Web:"), " ", ai_summary.get("web") or _barrier_summary(web, "web"),
         Gap(),
@@ -721,6 +738,7 @@ def render_acr_narrative(analysis, output_dir):
         "Open issue reports are treated as draft barrier evidence; they are not a release reproduction.",
         "No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.",
         "No AI was used to assign applicability or an ACR result.",
+        "Automated coverage is partial: axe/ACT rule mappings show where some evaluation is possible, but no pass/fail result is recorded here. Guidepup can add behavioral screen-reader evidence when a run is recorded; no Guidepup run is claimed in this snapshot.",
     ])
     release_line = str(target.get("release_line") or "")
     theme_info = _load_release_changes().get(release_line) or {}
