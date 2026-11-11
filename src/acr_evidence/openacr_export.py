@@ -121,28 +121,6 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
                             "level": "not-applicable",
                             "notes": core_notes[str(criterion["id"])],
                         }
-                    elif by_criterion.get(str(criterion["id"])):
-                        items = by_criterion[str(criterion["id"])]
-                        surface = (name if name in {"web", "authoring-tool"} else None)
-                        if name == "web":
-                            surface_items = [
-                                item for item in items
-                                if (item.get("surface") or {}).get("surface", "web") == "web"
-                            ]
-                        elif name == "authoring-tool":
-                            surface_items = [
-                                item for item in items
-                                if (item.get("surface") or {}).get("surface", "web") == "authoring"
-                            ]
-                        else:
-                            surface_items = []
-                        if surface_items:
-                            component["adherence"] = {
-                                "level": "partially-supports",
-                                "notes": f"Draft issue-queue evidence: {len(surface_items)} "
-                                         f"{surface} active tagged issue(s). No release reproduction; "
-                                         "a reviewer must confirm.",
-                            }
                     components.append(component)
                 item["components"] = components
             else:
@@ -150,9 +128,9 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
             criteria.append(item)
         chapters[chapter["id"]] = {
             "notes": (
-                "DRAFT: issue-tagged criteria carry proposed partially-supports values from the open "
-                "issue queue; untagged web/authoring components remain unset. Evidence report: index.html. "
-                "A reviewer must confirm every value and explanation."
+                "DRAFT: no criterion-level adherence values are assigned from issue tags. "
+                "Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer must "
+                "complete the assessment."
             ),
             "criteria": criteria,
         }
@@ -160,14 +138,13 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         f"DRAFT OpenACR skeleton for {product} {release} ({target.get('ref_type') or 'tag'} "
         f"{target.get('ref') or 'unknown'}). Evidence report: index.html. Machine-readable "
         f"evidence: evidence.json. Evidence digest: {analysis.get('evidence_digest')}. "
-        "Component scope: Web and Authoring Tool are proposed Partially Supports; Electronic Documents and "
-        "Software are proposed Not Applicable. These are proposed component labels only. "
+        "Component scope: Web and Authoring Tool remain Not Evaluated; Electronic Documents and Software "
+        "are Not Applicable from documented product scope. No issue tag is promoted to a conformance term. "
         "Evidence scope: active/review-relevant issues only (Active, Needs review, Needs work, RTBC, Patch); "
         "fixed and closed issues are excluded. Some active issues are metadata-only inventory records; complete "
         "comments/merge-request evidence was collected only for a review-priority subset. "
-        "Issue-tagged criteria carry draft partially-supports values for Web and Authoring Tool; "
-        "criteria without a tagged issue remain unset and Not Evaluated. Electronic Documents and Software "
-        "are marked not-applicable for Drupal Core. The author is a placeholder; a human reviewer must replace it, "
+        "Issue-tagged and untagged criteria remain unset at criterion level; issue evidence is recorded in "
+        "criterion-evidence.json. Electronic Documents and Software are marked not-applicable for Drupal Core. The author is a placeholder; a human reviewer must replace it, "
         "confirm every value and explanation, and run `acr-evidence openacr-validate --file openacr.yaml --strict` "
         "before publishing. An ACR narrative is at acr.html; it presents the same draft issue-queue evaluation. "
         "ATAG 2.0 authoring evidence is tracked separately at ../drupal-core-atag/index.html; "
@@ -205,9 +182,8 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "catalog": catalog_name,
         "component_scope": {
             "web": {
-                "proposed_result": "partially-supports",
-                "review_status": "proposed",
-                "notes": "Front-end evidence only; a reviewer must confirm the result and explanation.",
+                "review_status": "not-assessed",
+                "notes": "Front-end issue evidence exists, but no conformance result is assigned; a reviewer must assess it.",
             },
             "electronic-docs": {
                 "proposed_result": "not-applicable",
@@ -220,9 +196,8 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
                 "notes": "Drupal Core is web software; no separate packaged/non-web software product is in scope.",
             },
             "authoring-tool": {
-                "proposed_result": "partially-supports",
-                "review_status": "proposed",
-                "notes": "Authoring/admin UI evidence; /admin, Drupal /user account paths and login/reproduction cues; reviewer must confirm.",
+                "review_status": "not-assessed",
+                "notes": "Authoring/admin issue evidence exists, but no conformance result is assigned; a reviewer must assess it.",
             },
         },
         "chapters": chapters,

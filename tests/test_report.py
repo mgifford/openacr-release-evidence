@@ -197,6 +197,9 @@ class ReportTests(unittest.TestCase):
         self.assertEqual("Drupal Core", summary["target"]["product"])
         self.assertTrue((folder / "report.css").exists())
         self.assertIn("overflow-wrap", (folder / "report.css").read_text(encoding="utf-8"))
+        criterion_evidence = json.loads((folder / "criterion-evidence.json").read_text(encoding="utf-8"))
+        self.assertEqual(0, criterion_evidence["summary"]["formal_conformance_results"])
+        self.assertIn("criterion evidence", (folder / "index.html").read_text(encoding="utf-8"))
 
     def test_report_contains_every_issue(self):
         folder, artifact = self.render()

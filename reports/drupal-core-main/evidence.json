@@ -100,15 +100,15 @@
     "ref_label": "branch main",
     "tag": null,
     "branch": "main",
-    "tag_commit": "7aceff830c049f91345e67e21e7e43d75d5565c6",
-    "tag_commit_short": "7aceff83",
-    "tag_date": "2026-11-11T20:10:55.000+00:00",
+    "tag_commit": "f3468222385057c4b55bb0ad508d58cbc3133c10",
+    "tag_commit_short": "f3468222",
+    "tag_date": "2026-11-11T20:30:21.000+00:00",
     "support_status": "development",
     "release_line": "main",
     "parent_project": null,
     "scope_note": "Development branch. Findings are not release claims and can change at any commit. Default Admin is the default theme; Claro and Olivero are contributed projects."
   },
-  "generated_at": "2026-11-11T20:19:23Z",
+  "generated_at": "2026-11-11T21:34:37Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -234,15 +234,15 @@
       "branches": [
         "main"
       ],
-      "since": "2026-05-15T20:10:55Z",
-      "commits": 781,
-      "retrieved_at": "2026-11-11T20:14:31+00:00"
+      "since": "2026-05-15T20:30:21Z",
+      "commits": 785,
+      "retrieved_at": "2026-11-11T21:34:37Z"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tree/main",
-    "commit_index": "2026-11-11T20:14:31+00:00"
+    "commit_index": "2026-11-11T21:34:37Z"
   },
   "manifest_digest": "8b29349cd220d8aef660f667fade5a117e90f398386f114e3f52ddcc01818d05",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -44347,5 +44347,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "c563d516fabc081fe8bffe21c60fcd11175059dc338f0883ca7663e1462fb2cb"
+  "evidence_digest": "573764ed78f86477dcefb9e6b082edca098d7a2eddfc9d28f17cca4552950655"
 }

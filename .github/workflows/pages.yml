@@ -52,7 +52,7 @@ jobs:
               *) echo "Unexpected report directory: $name" >&2; exit 1 ;;
             esac
             mkdir -p "_site/$name"
-            for file in index.html report.css evidence.json summary.json openacr.yaml openacr-validation.json acr.html acr.md atag-report.json atag-evidence.json; do
+            for file in index.html report.css evidence.json summary.json openacr.yaml openacr-validation.json criterion-evidence.json acr.html acr.md atag-report.json atag-evidence.json; do
               if [ -f "$dir/$file" ]; then
                 cp "$dir/$file" "_site/$name/$file"
               fi

@@ -8,6 +8,7 @@ import shutil
 from html import escape
 from pathlib import Path
 
+from .criterion_evidence import build_criterion_evidence
 from .model import digest_artifact
 from .wcag import (
     APPLICABILITY_LABELS,
@@ -407,6 +408,7 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         f'<li><a href="./summary.json">summary.json</a></li>'
         f'<li><a href="./openacr.yaml">OpenACR draft YAML</a></li>'
         f'<li><a href="./openacr-validation.json">validation result</a></li>'
+        f'<li><a href="./criterion-evidence.json">criterion evidence</a></li>'
         f'<li><a href="./acr.html">ACR draft</a></li></ul>'
         '<p class="meta">The ACR is a derived draft, not an approved conformance report.</p></nav>'
     )
@@ -598,6 +600,10 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     }
     (output / "summary.json").write_text(
         json.dumps(summary_doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    (output / "criterion-evidence.json").write_text(
+        json.dumps(build_criterion_evidence(analysis), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
     )
     return output
 

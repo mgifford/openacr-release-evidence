@@ -8,15 +8,15 @@ Supports.
 
 | State | Required evidence |
 |---|---|
-| Partially Supports | Active issue-queue reports, separated by Web/Authoring Tool |
+| Reported barrier, unverified | Active issue-queue reports, separated by Web/Authoring Tool; no conformance result |
 | Supports | Positive human-reviewed evidence: a test, code audit or documented implementation with a source and date |
 | Not Applicable | A documented product-scope decision showing that the content or feature is absent |
 | Not Evaluated | No positive evidence and no issue-queue evidence; a review gap |
 | Does Not Support | Reviewed evidence that the majority of relevant functionality fails |
 
-The issue-queue pipeline may propose **Partially Supports** for criteria with
-active tagged issues. It does not assign Supports, Not Applicable or Does Not
-Support automatically.
+The issue-queue pipeline does not assign Supports, Partially Supports, Not
+Applicable or Does Not Support. It records reported barriers and candidate
+criterion relationships. A formal term requires the reviewed evidence below.
 
 ## Evidence record
 
