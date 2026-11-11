@@ -350,3 +350,10 @@ cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.
 - External reproductions remain `target_applicability: not-established` and
   `target_verified: false`; none becomes a conformance result.
 - Guidepup is documented as target-specific behavioral evidence; no run is claimed.
+
+## Developer evidence index (2026-11-11)
+
+- Added a static component index with issue links and applicability/MR counts.
+- Added per-issue Next action and Verification state.
+- Verification states distinguish target reproduction, external lab evidence and
+  unreviewed external reproduction. No source files or fix claims are invented.
