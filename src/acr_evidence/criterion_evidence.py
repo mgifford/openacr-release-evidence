@@ -5,9 +5,39 @@ relationships. It cannot establish Supports, Partially Supports or Does Not
 Support. This artifact records what is known, what is unreviewed and what is
 still missing; conformance_result remains null until a human assessment exists.
 """
+import json
 from datetime import datetime, timezone
+from pathlib import Path
 
 from .openacr_export import load_catalog
+
+AUTOMATION_PATH = Path(__file__).resolve().parents[2] / "config" / "wcag-automation-coverage.json"
+_AUTOMATION = None
+
+
+def automation_for_criterion(criterion):
+    """Return partial automated coverage for a criterion, if any.
+
+    ACT/axe mappings indicate that a rule engine can evaluate some part of the
+    criterion. They do not establish that the rule passed or that the criterion
+    is supported. Guidepup is a separate behavioral method, not an ACT/axe rule.
+    """
+    global _AUTOMATION
+    if _AUTOMATION is None:
+        try:
+            _AUTOMATION = json.loads(AUTOMATION_PATH.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            _AUTOMATION = {"criteria": {}}
+    item = (_AUTOMATION.get("criteria") or {}).get(str(criterion)) or {}
+    axe = list(item.get("axe") or [])
+    act = list(item.get("act") or [])
+    return {
+        "axe_rules": axe,
+        "act_rules": act,
+        "coverage": "partial" if (axe or act) else "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded",
+    }
 
 SCHEMA_VERSION = "0.1.0"
 PRODUCT_SCOPE_NA = {
@@ -96,6 +126,7 @@ def build_criterion_evidence(analysis):
                 "criterion": criterion_id,
                 "handle": criterion.get("handle"),
                 "level": chapter.get("id"),
+                "automation": automation_for_criterion(criterion_id),
                 "components": components,
                 "review_status": "unreviewed",
                 "reviewer": None,
@@ -117,6 +148,10 @@ def build_criterion_evidence(analysis):
             1 for item in criteria
             for comp in item["components"]
             if comp["evidence_state"] == "outside-documented-scope"
+        ),
+        "automated_coverage": sum(
+            1 for item in criteria
+            if item["automation"]["coverage"] == "partial"
         ),
         "formal_conformance_results": 0,
         "reviewed_criteria": 0,

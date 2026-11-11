@@ -1,0 +1,657 @@
+{
+  "source": "https://github.com/mgifford/wcag-spine",
+  "source_data": "data/master_spine.json",
+  "retrieved_at": "2026-11-11",
+  "axe_version": "4.14",
+  "note": "ACT and axe rule mappings are upstream-sourced coverage indicators. Coverage is not a pass or conformance result. Guidepup is a separate behavioral test method and is not mapped automatically.",
+  "criteria": {
+    "1.1.1": {
+      "act": [
+        "23a2a8",
+        "3ea0c8",
+        "46ca7f",
+        "59796f",
+        "7d6734",
+        "8fc3b6",
+        "9eb3f6",
+        "a25f45",
+        "c3232f",
+        "c487ae",
+        "de46e4",
+        "e88epe",
+        "qt1vmo"
+      ],
+      "axe": [
+        "area-alt",
+        "aria-meter-name",
+        "aria-progressbar-name",
+        "image-alt",
+        "input-button-name",
+        "input-image-alt",
+        "object-alt",
+        "role-img-alt",
+        "svg-img-alt"
+      ]
+    },
+    "1.2.1": {
+      "act": [
+        "1a02b0",
+        "c3232f",
+        "e7aa44",
+        "ee13b5",
+        "f51b46"
+      ],
+      "axe": [
+        "audio-caption"
+      ]
+    },
+    "1.2.2": {
+      "act": [
+        "eac66b"
+      ],
+      "axe": [
+        "video-caption"
+      ]
+    },
+    "1.2.3": {
+      "act": [
+        "c5a4ea"
+      ],
+      "axe": []
+    },
+    "1.2.4": {
+      "act": [],
+      "axe": []
+    },
+    "1.2.5": {
+      "act": [
+        "1ec09b",
+        "c5a4ea"
+      ],
+      "axe": []
+    },
+    "1.2.6": {
+      "act": [],
+      "axe": []
+    },
+    "1.2.7": {
+      "act": [],
+      "axe": []
+    },
+    "1.2.8": {
+      "act": [
+        "1a02b0",
+        "c5a4ea"
+      ],
+      "axe": []
+    },
+    "1.2.9": {
+      "act": [],
+      "axe": []
+    },
+    "1.3.1": {
+      "act": [
+        "1a02b0",
+        "307n5z",
+        "3e12e1",
+        "4e8ab6",
+        "5c01ea",
+        "5f99a7",
+        "674b10",
+        "6a7281",
+        "78fd32",
+        "7d6734",
+        "a25f45",
+        "b49b2e",
+        "bc4a75",
+        "d0f69e",
+        "d9e9d9",
+        "e086e5",
+        "eba20a",
+        "ee13b5",
+        "f51b46",
+        "ff89c9",
+        "kb1m8s"
+      ],
+      "axe": [
+        "aria-hidden-body",
+        "aria-required-children",
+        "aria-required-parent",
+        "definition-list",
+        "dlitem",
+        "label",
+        "landmark-one-main",
+        "list",
+        "listitem",
+        "p-as-heading",
+        "table-duplicate-name",
+        "table-fake-caption",
+        "td-has-header",
+        "td-headers-attr",
+        "th-has-data-cells"
+      ]
+    },
+    "1.3.2": {
+      "act": [],
+      "axe": []
+    },
+    "1.3.3": {
+      "act": [
+        "9bd38c"
+      ],
+      "axe": []
+    },
+    "1.3.4": {
+      "act": [
+        "b33eff"
+      ],
+      "axe": [
+        "css-orientation-lock"
+      ]
+    },
+    "1.3.5": {
+      "act": [
+        "135hje",
+        "73f2c2"
+      ],
+      "axe": [
+        "autocomplete-valid"
+      ]
+    },
+    "1.3.6": {
+      "act": [],
+      "axe": []
+    },
+    "1.4.1": {
+      "act": [],
+      "axe": [
+        "link-in-text-block"
+      ]
+    },
+    "1.4.2": {
+      "act": [
+        "80f0bf"
+      ],
+      "axe": [
+        "no-autoplay-audio"
+      ]
+    },
+    "1.4.3": {
+      "act": [
+        "09o5cg",
+        "afw4f7"
+      ],
+      "axe": [
+        "color-contrast"
+      ]
+    },
+    "1.4.4": {
+      "act": [
+        "59br37",
+        "b4f0c3"
+      ],
+      "axe": [
+        "meta-viewport"
+      ]
+    },
+    "1.4.5": {
+      "act": [
+        "0va7u6"
+      ],
+      "axe": []
+    },
+    "1.4.6": {
+      "act": [
+        "09o5cg",
+        "afw4f7"
+      ],
+      "axe": [
+        "color-contrast",
+        "color-contrast-enhanced"
+      ]
+    },
+    "1.4.7": {
+      "act": [],
+      "axe": []
+    },
+    "1.4.8": {
+      "act": [],
+      "axe": []
+    },
+    "1.4.9": {
+      "act": [
+        "0va7u6"
+      ],
+      "axe": []
+    },
+    "1.4.10": {
+      "act": [
+        "b4f0c3"
+      ],
+      "axe": []
+    },
+    "1.4.11": {
+      "act": [
+        "4c31df"
+      ],
+      "axe": [
+        "non-text-color-contrast"
+      ]
+    },
+    "1.4.12": {
+      "act": [
+        "24afc2",
+        "78fd32",
+        "9e45ec"
+      ],
+      "axe": [
+        "avoid-inline-spacing"
+      ]
+    },
+    "1.4.13": {
+      "act": [],
+      "axe": []
+    },
+    "2.1.1": {
+      "act": [
+        "0ssw9k",
+        "akn7bn"
+      ],
+      "axe": [
+        "frame-focusable-content",
+        "scrollable-region-focusable",
+        "server-side-image-map"
+      ]
+    },
+    "2.1.2": {
+      "act": [
+        "80af7b"
+      ],
+      "axe": []
+    },
+    "2.1.3": {
+      "act": [
+        "0ssw9k",
+        "akn7bn"
+      ],
+      "axe": [
+        "scrollable-region-focusable"
+      ]
+    },
+    "2.1.4": {
+      "act": [
+        "ffbc54"
+      ],
+      "axe": []
+    },
+    "2.2.1": {
+      "act": [
+        "bc659a",
+        "bisz58"
+      ],
+      "axe": [
+        "meta-refresh"
+      ]
+    },
+    "2.2.2": {
+      "act": [
+        "efbfc7"
+      ],
+      "axe": [
+        "blink",
+        "marquee"
+      ]
+    },
+    "2.2.3": {
+      "act": [],
+      "axe": []
+    },
+    "2.2.4": {
+      "act": [
+        "bc659a",
+        "bisz58"
+      ],
+      "axe": [
+        "meta-refresh-no-exceptions"
+      ]
+    },
+    "2.2.5": {
+      "act": [],
+      "axe": []
+    },
+    "2.2.6": {
+      "act": [],
+      "axe": []
+    },
+    "2.3.1": {
+      "act": [],
+      "axe": []
+    },
+    "2.3.2": {
+      "act": [],
+      "axe": []
+    },
+    "2.3.3": {
+      "act": [],
+      "axe": []
+    },
+    "2.4.1": {
+      "act": [
+        "3e11da",
+        "cf77f2"
+      ],
+      "axe": [
+        "bypass"
+      ]
+    },
+    "2.4.2": {
+      "act": [
+        "2779a5",
+        "c4a8a4"
+      ],
+      "axe": [
+        "document-title"
+      ]
+    },
+    "2.4.3": {
+      "act": [],
+      "axe": []
+    },
+    "2.4.4": {
+      "act": [
+        "5effbb",
+        "c487ae",
+        "fd3a94"
+      ],
+      "axe": [
+        "area-alt",
+        "link-name"
+      ]
+    },
+    "2.4.5": {
+      "act": [],
+      "axe": []
+    },
+    "2.4.6": {
+      "act": [
+        "b49b2e",
+        "cc0f0a"
+      ],
+      "axe": []
+    },
+    "2.4.7": {
+      "act": [
+        "oj04fd"
+      ],
+      "axe": []
+    },
+    "2.4.8": {
+      "act": [],
+      "axe": []
+    },
+    "2.4.9": {
+      "act": [
+        "5effbb",
+        "aizyf1",
+        "b20e66",
+        "c487ae",
+        "fd3a94"
+      ],
+      "axe": [
+        "identical-links-same-purpose"
+      ]
+    },
+    "2.4.10": {
+      "act": [],
+      "axe": []
+    },
+    "2.4.11": {
+      "act": [
+        "04639e"
+      ],
+      "axe": [
+        "focus-not-obscured"
+      ]
+    },
+    "2.4.12": {
+      "act": [],
+      "axe": []
+    },
+    "2.4.13": {
+      "act": [
+        "674b10"
+      ],
+      "axe": [
+        "focus-appearance"
+      ]
+    },
+    "2.5.1": {
+      "act": [],
+      "axe": []
+    },
+    "2.5.2": {
+      "act": [],
+      "axe": []
+    },
+    "2.5.3": {
+      "act": [
+        "2ee8b8",
+        "e086e5"
+      ],
+      "axe": [
+        "label",
+        "label-content-name-mismatch"
+      ]
+    },
+    "2.5.4": {
+      "act": [
+        "7677a9",
+        "c249d5"
+      ],
+      "axe": []
+    },
+    "2.5.5": {
+      "act": [],
+      "axe": []
+    },
+    "2.5.6": {
+      "act": [],
+      "axe": []
+    },
+    "2.5.7": {
+      "act": [],
+      "axe": [
+        "dragging-movements"
+      ]
+    },
+    "2.5.8": {
+      "act": [
+        "a25f45"
+      ],
+      "axe": [
+        "target-size"
+      ]
+    },
+    "3.1.1": {
+      "act": [
+        "b5c3f8",
+        "bf051a",
+        "ucwvc8"
+      ],
+      "axe": [
+        "document-title",
+        "html-has-lang",
+        "html-lang-valid",
+        "html-xml-lang-mismatch"
+      ]
+    },
+    "3.1.2": {
+      "act": [
+        "de46e4",
+        "off6ek"
+      ],
+      "axe": [
+        "valid-lang"
+      ]
+    },
+    "3.1.3": {
+      "act": [],
+      "axe": []
+    },
+    "3.1.4": {
+      "act": [],
+      "axe": []
+    },
+    "3.1.5": {
+      "act": [],
+      "axe": []
+    },
+    "3.1.6": {
+      "act": [],
+      "axe": []
+    },
+    "3.2.1": {
+      "act": [],
+      "axe": []
+    },
+    "3.2.2": {
+      "act": [],
+      "axe": []
+    },
+    "3.2.3": {
+      "act": [],
+      "axe": []
+    },
+    "3.2.4": {
+      "act": [],
+      "axe": []
+    },
+    "3.2.5": {
+      "act": [
+        "bc659a",
+        "bisz58"
+      ],
+      "axe": [
+        "meta-refresh-no-exceptions"
+      ]
+    },
+    "3.2.6": {
+      "act": [
+        "30b328"
+      ],
+      "axe": []
+    },
+    "3.3.1": {
+      "act": [
+        "36b590"
+      ],
+      "axe": []
+    },
+    "3.3.2": {
+      "act": [],
+      "axe": [
+        "form-field-multiple-labels"
+      ]
+    },
+    "3.3.3": {
+      "act": [],
+      "axe": []
+    },
+    "3.3.4": {
+      "act": [],
+      "axe": []
+    },
+    "3.3.5": {
+      "act": [],
+      "axe": []
+    },
+    "3.3.6": {
+      "act": [],
+      "axe": []
+    },
+    "3.3.7": {
+      "act": [],
+      "axe": [
+        "no-redundant-entry"
+      ]
+    },
+    "3.3.8": {
+      "act": [],
+      "axe": []
+    },
+    "3.3.9": {
+      "act": [],
+      "axe": []
+    },
+    "4.1.2": {
+      "act": [
+        "07b338",
+        "1a02b0",
+        "2e1954",
+        "2t702h",
+        "307n5z",
+        "3e12e1",
+        "4b1c6c",
+        "4e8ab6",
+        "59796f",
+        "5c01ea",
+        "5f99a7",
+        "674b10",
+        "6a7281",
+        "6cfa84",
+        "97a4e1",
+        "c487ae",
+        "cae760",
+        "e086e5",
+        "eac66b",
+        "m6b1q3",
+        "rs8a50",
+        "sm249k"
+      ],
+      "axe": [
+        "area-alt",
+        "aria-allowed-attr",
+        "aria-braille-equivalent",
+        "aria-command-name",
+        "aria-conditional-attr",
+        "aria-deprecated-role",
+        "aria-hidden-body",
+        "aria-hidden-focus",
+        "aria-input-field-name",
+        "aria-meter-name",
+        "aria-progressbar-name",
+        "aria-prohibited-attr",
+        "aria-required-attr",
+        "aria-required-children",
+        "aria-required-parent",
+        "aria-roledescription",
+        "aria-roles",
+        "aria-tab-name",
+        "aria-toggle-field-name",
+        "aria-tooltip-name",
+        "aria-valid-attr",
+        "aria-valid-attr-value",
+        "button-name",
+        "duplicate-id-aria",
+        "frame-title",
+        "frame-title-unique",
+        "image-alt",
+        "input-button-name",
+        "input-image-alt",
+        "label",
+        "link-name",
+        "nested-interactive",
+        "select-name",
+        "summary-name"
+      ]
+    },
+    "4.1.3": {
+      "act": [
+        "0sstp9"
+      ],
+      "axe": [
+        "status-messages"
+      ]
+    }
+  }
+}

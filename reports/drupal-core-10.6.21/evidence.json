@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Stock standard profile. Claro is the admin theme; Default Admin is not present. The generic 'Admin theme' component needs reproduction before a finding is applied to this line."
   },
-  "generated_at": "2026-11-11T21:34:01Z",
+  "generated_at": "2026-11-11T21:46:53Z",
   "collection": {
     "query": {
       "project": "drupal",

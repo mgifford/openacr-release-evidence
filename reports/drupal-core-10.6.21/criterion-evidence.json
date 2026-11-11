@@ -6,13 +6,14 @@
   "release": "10.6.21",
   "target_id": "drupal-core-10.6.21",
   "target_ref": "10.6.21",
-  "generated_at": "2026-11-11T21:34:01Z",
+  "generated_at": "2026-11-11T21:46:53Z",
   "disclaimer": "Reported issue evidence only. No conformance result is assigned. Supports and Not Applicable require human-reviewed evidence.",
   "summary": {
     "criteria": 182,
     "reported_barrier": 52,
     "insufficient_evidence": 304,
     "outside_documented_scope": 372,
+    "automated_coverage": 48,
     "formal_conformance_results": 0,
     "reviewed_criteria": 0
   },
@@ -21,6 +22,37 @@
       "criterion": "1.1.1",
       "handle": "Non-text Content",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "area-alt",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "image-alt",
+          "input-button-name",
+          "input-image-alt",
+          "object-alt",
+          "role-img-alt",
+          "svg-img-alt"
+        ],
+        "act_rules": [
+          "23a2a8",
+          "3ea0c8",
+          "46ca7f",
+          "59796f",
+          "7d6734",
+          "8fc3b6",
+          "9eb3f6",
+          "a25f45",
+          "c3232f",
+          "c487ae",
+          "de46e4",
+          "e88epe",
+          "qt1vmo"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -219,6 +251,21 @@
       "criterion": "1.2.1",
       "handle": "Audio-only and Video-only (Prerecorded)",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "audio-caption"
+        ],
+        "act_rules": [
+          "1a02b0",
+          "c3232f",
+          "e7aa44",
+          "ee13b5",
+          "f51b46"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -281,6 +328,17 @@
       "criterion": "1.2.2",
       "handle": "Captions (Prerecorded)",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "video-caption"
+        ],
+        "act_rules": [
+          "eac66b"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -378,6 +436,15 @@
       "criterion": "1.2.3",
       "handle": "Audio Description or Media Alternative (Prerecorded)",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "c5a4ea"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -440,6 +507,51 @@
       "criterion": "1.3.1",
       "handle": "Info and Relationships",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "aria-hidden-body",
+          "aria-required-children",
+          "aria-required-parent",
+          "definition-list",
+          "dlitem",
+          "label",
+          "landmark-one-main",
+          "list",
+          "listitem",
+          "p-as-heading",
+          "table-duplicate-name",
+          "table-fake-caption",
+          "td-has-header",
+          "td-headers-attr",
+          "th-has-data-cells"
+        ],
+        "act_rules": [
+          "1a02b0",
+          "307n5z",
+          "3e12e1",
+          "4e8ab6",
+          "5c01ea",
+          "5f99a7",
+          "674b10",
+          "6a7281",
+          "78fd32",
+          "7d6734",
+          "a25f45",
+          "b49b2e",
+          "bc4a75",
+          "d0f69e",
+          "d9e9d9",
+          "e086e5",
+          "eba20a",
+          "ee13b5",
+          "f51b46",
+          "ff89c9",
+          "kb1m8s"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -759,6 +871,13 @@
       "criterion": "1.3.2",
       "handle": "Meaningful Sequence",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -821,6 +940,15 @@
       "criterion": "1.3.3",
       "handle": "Sensory Characteristics",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "9bd38c"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -896,6 +1024,15 @@
       "criterion": "1.4.1",
       "handle": "Use of Color",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "link-in-text-block"
+        ],
+        "act_rules": [],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1039,6 +1176,17 @@
       "criterion": "1.4.2",
       "handle": "Audio Control",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "no-autoplay-audio"
+        ],
+        "act_rules": [
+          "80f0bf"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1101,6 +1249,20 @@
       "criterion": "2.1.1",
       "handle": "Keyboard",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "frame-focusable-content",
+          "scrollable-region-focusable",
+          "server-side-image-map"
+        ],
+        "act_rules": [
+          "0ssw9k",
+          "akn7bn"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1255,6 +1417,15 @@
       "criterion": "2.1.2",
       "handle": "No Keyboard Trap",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "80af7b"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1330,6 +1501,15 @@
       "criterion": "2.1.4",
       "handle": "Character Key Shortcuts",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "ffbc54"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1405,6 +1585,18 @@
       "criterion": "2.2.1",
       "handle": "Timing Adjustable",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "meta-refresh"
+        ],
+        "act_rules": [
+          "bc659a",
+          "bisz58"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1467,6 +1659,18 @@
       "criterion": "2.2.2",
       "handle": "Pause, Stop, Hide",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "blink",
+          "marquee"
+        ],
+        "act_rules": [
+          "efbfc7"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1529,6 +1733,13 @@
       "criterion": "2.3.1",
       "handle": "Three Flashes or Below Threshold",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1591,6 +1802,18 @@
       "criterion": "2.4.1",
       "handle": "Bypass Blocks",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "bypass"
+        ],
+        "act_rules": [
+          "3e11da",
+          "cf77f2"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1666,6 +1889,18 @@
       "criterion": "2.4.2",
       "handle": "Page Titled",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "document-title"
+        ],
+        "act_rules": [
+          "2779a5",
+          "c4a8a4"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1752,6 +1987,13 @@
       "criterion": "2.4.3",
       "handle": "Focus Order",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -1917,6 +2159,20 @@
       "criterion": "2.4.4",
       "handle": "Link Purpose (In Context)",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "area-alt",
+          "link-name"
+        ],
+        "act_rules": [
+          "5effbb",
+          "c487ae",
+          "fd3a94"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2005,6 +2261,13 @@
       "criterion": "2.5.1",
       "handle": "Pointer Gestures",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2091,6 +2354,13 @@
       "criterion": "2.5.2",
       "handle": "Pointer Cancellation",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2199,6 +2469,19 @@
       "criterion": "2.5.3",
       "handle": "Label in Name",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "label",
+          "label-content-name-mismatch"
+        ],
+        "act_rules": [
+          "2ee8b8",
+          "e086e5"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2364,6 +2647,16 @@
       "criterion": "2.5.4",
       "handle": "Motion Actuation",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "7677a9",
+          "c249d5"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2426,6 +2719,22 @@
       "criterion": "3.1.1",
       "handle": "Language of Page",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "document-title",
+          "html-has-lang",
+          "html-lang-valid",
+          "html-xml-lang-mismatch"
+        ],
+        "act_rules": [
+          "b5c3f8",
+          "bf051a",
+          "ucwvc8"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2488,6 +2797,13 @@
       "criterion": "3.2.1",
       "handle": "On Focus",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2585,6 +2901,13 @@
       "criterion": "3.2.2",
       "handle": "On Input",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2647,6 +2970,15 @@
       "criterion": "3.2.6",
       "handle": "Consistent Help",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "30b328"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2709,6 +3041,15 @@
       "criterion": "3.3.1",
       "handle": "Error Identification",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "36b590"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -2973,6 +3314,15 @@
       "criterion": "3.3.2",
       "handle": "Labels or Instructions",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "form-field-multiple-labels"
+        ],
+        "act_rules": [],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -3114,6 +3464,15 @@
       "criterion": "3.3.7",
       "handle": "Redundant Entry",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "no-redundant-entry"
+        ],
+        "act_rules": [],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -3176,6 +3535,13 @@
       "criterion": "4.1.1",
       "handle": "Parsing",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -3238,6 +3604,71 @@
       "criterion": "4.1.2",
       "handle": "Name, Role, Value",
       "level": "success_criteria_level_a",
+      "automation": {
+        "axe_rules": [
+          "area-alt",
+          "aria-allowed-attr",
+          "aria-braille-equivalent",
+          "aria-command-name",
+          "aria-conditional-attr",
+          "aria-deprecated-role",
+          "aria-hidden-body",
+          "aria-hidden-focus",
+          "aria-input-field-name",
+          "aria-meter-name",
+          "aria-progressbar-name",
+          "aria-prohibited-attr",
+          "aria-required-attr",
+          "aria-required-children",
+          "aria-required-parent",
+          "aria-roledescription",
+          "aria-roles",
+          "aria-tab-name",
+          "aria-toggle-field-name",
+          "aria-tooltip-name",
+          "aria-valid-attr",
+          "aria-valid-attr-value",
+          "button-name",
+          "duplicate-id-aria",
+          "frame-title",
+          "frame-title-unique",
+          "image-alt",
+          "input-button-name",
+          "input-image-alt",
+          "label",
+          "link-name",
+          "nested-interactive",
+          "select-name",
+          "summary-name"
+        ],
+        "act_rules": [
+          "07b338",
+          "1a02b0",
+          "2e1954",
+          "2t702h",
+          "307n5z",
+          "3e12e1",
+          "4b1c6c",
+          "4e8ab6",
+          "59796f",
+          "5c01ea",
+          "5f99a7",
+          "674b10",
+          "6a7281",
+          "6cfa84",
+          "97a4e1",
+          "c487ae",
+          "cae760",
+          "e086e5",
+          "eac66b",
+          "m6b1q3",
+          "rs8a50",
+          "sm249k"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -3733,6 +4164,13 @@
       "criterion": "1.2.4",
       "handle": "Captions (Live)",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -3795,6 +4233,16 @@
       "criterion": "1.2.5",
       "handle": "Audio Description (Prerecorded)",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "1ec09b",
+          "c5a4ea"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -3857,6 +4305,17 @@
       "criterion": "1.3.4",
       "handle": "Orientation",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "css-orientation-lock"
+        ],
+        "act_rules": [
+          "b33eff"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -3932,6 +4391,18 @@
       "criterion": "1.3.5",
       "handle": "Identify Input Purpose",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "autocomplete-valid"
+        ],
+        "act_rules": [
+          "135hje",
+          "73f2c2"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4018,6 +4489,18 @@
       "criterion": "1.4.3",
       "handle": "Contrast (Minimum)",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "color-contrast"
+        ],
+        "act_rules": [
+          "09o5cg",
+          "afw4f7"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4093,6 +4576,18 @@
       "criterion": "1.4.4",
       "handle": "Resize text",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "meta-viewport"
+        ],
+        "act_rules": [
+          "59br37",
+          "b4f0c3"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4168,6 +4663,15 @@
       "criterion": "1.4.5",
       "handle": "Images of Text",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "0va7u6"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4230,6 +4734,15 @@
       "criterion": "1.4.10",
       "handle": "Reflow",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "b4f0c3"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4338,6 +4851,17 @@
       "criterion": "1.4.11",
       "handle": "Non-text Contrast",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "non-text-color-contrast"
+        ],
+        "act_rules": [
+          "4c31df"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4591,6 +5115,19 @@
       "criterion": "1.4.12",
       "handle": "Text Spacing",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "avoid-inline-spacing"
+        ],
+        "act_rules": [
+          "24afc2",
+          "78fd32",
+          "9e45ec"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4666,6 +5203,13 @@
       "criterion": "1.4.13",
       "handle": "Content on Hover or Focus",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4741,6 +5285,13 @@
       "criterion": "2.4.5",
       "handle": "Multiple Ways",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4803,6 +5354,16 @@
       "criterion": "2.4.6",
       "handle": "Headings and Labels",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "b49b2e",
+          "cc0f0a"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -4911,6 +5472,15 @@
       "criterion": "2.4.7",
       "handle": "Focus Visible",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "oj04fd"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5054,6 +5624,17 @@
       "criterion": "2.4.11",
       "handle": "Focus Not Obscured (Minimum)",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "focus-not-obscured"
+        ],
+        "act_rules": [
+          "04639e"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5142,6 +5723,15 @@
       "criterion": "2.5.7",
       "handle": "Dragging Movements",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "dragging-movements"
+        ],
+        "act_rules": [],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5204,6 +5794,17 @@
       "criterion": "2.5.8",
       "handle": "Target Size (Minimum)",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "target-size"
+        ],
+        "act_rules": [
+          "a25f45"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5290,6 +5891,18 @@
       "criterion": "3.1.2",
       "handle": "Language of Parts",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "valid-lang"
+        ],
+        "act_rules": [
+          "de46e4",
+          "off6ek"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5453,6 +6066,13 @@
       "criterion": "3.2.3",
       "handle": "Consistent Navigation",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5552,6 +6172,13 @@
       "criterion": "3.2.4",
       "handle": "Consistent Identification",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5614,6 +6241,13 @@
       "criterion": "3.3.3",
       "handle": "Error Suggestion",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5689,6 +6323,13 @@
       "criterion": "3.3.4",
       "handle": "Error Prevention (Legal, Financial, Data)",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5751,6 +6392,13 @@
       "criterion": "3.3.8",
       "handle": "Accessible Authentication (Minimum)",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5813,6 +6461,17 @@
       "criterion": "4.1.3",
       "handle": "Status Messages",
       "level": "success_criteria_level_aa",
+      "automation": {
+        "axe_rules": [
+          "status-messages"
+        ],
+        "act_rules": [
+          "0sstp9"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -5945,6 +6604,13 @@
       "criterion": "1.2.6",
       "handle": "Sign Language (Prerecorded)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6007,6 +6673,13 @@
       "criterion": "1.2.7",
       "handle": "Extended Audio Description (Prerecorded)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6069,6 +6742,16 @@
       "criterion": "1.2.8",
       "handle": "Media Alternative (Prerecorded)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "1a02b0",
+          "c5a4ea"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6131,6 +6814,13 @@
       "criterion": "1.2.9",
       "handle": "Audio-only (Live)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6193,6 +6883,13 @@
       "criterion": "1.3.6",
       "handle": "Identify Purpose",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6255,6 +6952,19 @@
       "criterion": "1.4.6",
       "handle": "Contrast (Enhanced)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [
+          "color-contrast",
+          "color-contrast-enhanced"
+        ],
+        "act_rules": [
+          "09o5cg",
+          "afw4f7"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6317,6 +7027,13 @@
       "criterion": "1.4.7",
       "handle": "Low or No Background Audio",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6379,6 +7096,13 @@
       "criterion": "1.4.8",
       "handle": "Visual Presentation",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6441,6 +7165,15 @@
       "criterion": "1.4.9",
       "handle": "Images of Text (No Exception)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [
+          "0va7u6"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6503,6 +7236,18 @@
       "criterion": "2.1.3",
       "handle": "Keyboard (No Exception)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [
+          "scrollable-region-focusable"
+        ],
+        "act_rules": [
+          "0ssw9k",
+          "akn7bn"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6565,6 +7310,13 @@
       "criterion": "2.2.3",
       "handle": "No Timing",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6627,6 +7379,18 @@
       "criterion": "2.2.4",
       "handle": "Interruptions",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [
+          "meta-refresh-no-exceptions"
+        ],
+        "act_rules": [
+          "bc659a",
+          "bisz58"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6689,6 +7453,13 @@
       "criterion": "2.2.5",
       "handle": "Re-authenticating",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6751,6 +7522,13 @@
       "criterion": "2.2.6",
       "handle": "Timeouts",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6813,6 +7591,13 @@
       "criterion": "2.3.2",
       "handle": "Three Flashes",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6875,6 +7660,13 @@
       "criterion": "2.3.3",
       "handle": "Animation from Interactions",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6937,6 +7729,13 @@
       "criterion": "2.4.8",
       "handle": "Location",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -6999,6 +7798,21 @@
       "criterion": "2.4.9",
       "handle": "Link Purpose (Link Only)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [
+          "identical-links-same-purpose"
+        ],
+        "act_rules": [
+          "5effbb",
+          "aizyf1",
+          "b20e66",
+          "c487ae",
+          "fd3a94"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7074,6 +7888,13 @@
       "criterion": "2.4.10",
       "handle": "Section Headings",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7136,6 +7957,13 @@
       "criterion": "2.4.12",
       "handle": "Focus Not Obscured (Enhanced)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7198,6 +8026,17 @@
       "criterion": "2.4.13",
       "handle": "Focus Appearance",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [
+          "focus-appearance"
+        ],
+        "act_rules": [
+          "674b10"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7273,6 +8112,13 @@
       "criterion": "2.5.5",
       "handle": "Target Size (Enhanced)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7335,6 +8181,13 @@
       "criterion": "2.5.6",
       "handle": "Concurrent Input Mechanisms",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7397,6 +8250,13 @@
       "criterion": "3.1.3",
       "handle": "Unusual Words",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7459,6 +8319,13 @@
       "criterion": "3.1.4",
       "handle": "Abbreviations",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7521,6 +8388,13 @@
       "criterion": "3.1.5",
       "handle": "Reading Level",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7583,6 +8457,13 @@
       "criterion": "3.1.6",
       "handle": "Pronunciation",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7645,6 +8526,18 @@
       "criterion": "3.2.5",
       "handle": "Change on Request",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [
+          "meta-refresh-no-exceptions"
+        ],
+        "act_rules": [
+          "bc659a",
+          "bisz58"
+        ],
+        "coverage": "partial",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7720,6 +8613,13 @@
       "criterion": "3.3.5",
       "handle": "Help",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7782,6 +8682,13 @@
       "criterion": "3.3.6",
       "handle": "Error Prevention (All)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7844,6 +8751,13 @@
       "criterion": "3.3.9",
       "handle": "Accessible Authentication (Enhanced)",
       "level": "success_criteria_level_aaa",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7906,6 +8820,13 @@
       "criterion": "302.1",
       "handle": "Without Vision",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -7968,6 +8889,13 @@
       "criterion": "302.2",
       "handle": "With Limited Vision",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8030,6 +8958,13 @@
       "criterion": "302.3",
       "handle": "Without Perception of Color",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8092,6 +9027,13 @@
       "criterion": "302.4",
       "handle": "Without Hearing",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8154,6 +9096,13 @@
       "criterion": "302.5",
       "handle": "With Limited Hearing",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8216,6 +9165,13 @@
       "criterion": "302.6",
       "handle": "Without Speech",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8278,6 +9234,13 @@
       "criterion": "302.7",
       "handle": "With Limited Manipulation",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8340,6 +9303,13 @@
       "criterion": "302.8",
       "handle": "With Limited Reach and Strength",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8402,6 +9372,13 @@
       "criterion": "302.9",
       "handle": "With Limited Language, Cognitive, and Learning Abilities",
       "level": "functional_performance_criteria",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8464,6 +9441,13 @@
       "criterion": "402.2.1",
       "handle": "Information Displayed On-Screen",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8526,6 +9510,13 @@
       "criterion": "402.2.2",
       "handle": "Transactional Outputs",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8588,6 +9579,13 @@
       "criterion": "402.2.3",
       "handle": "Speech Delivery Type and Coordination",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8650,6 +9648,13 @@
       "criterion": "402.2.4",
       "handle": "User Control",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8712,6 +9717,13 @@
       "criterion": "402.2.5",
       "handle": "Braille Instructions",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8774,6 +9786,13 @@
       "criterion": "402.3.1",
       "handle": "Private Listening",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8836,6 +9855,13 @@
       "criterion": "402.3.2",
       "handle": "Non-private Listening",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8898,6 +9924,13 @@
       "criterion": "402.4",
       "handle": "Characters on Display Screens",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -8960,6 +9993,13 @@
       "criterion": "402.5",
       "handle": "Characters on Variable Message Signs",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9022,6 +10062,13 @@
       "criterion": "403.1",
       "handle": "General (Biometrics)",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9084,6 +10131,13 @@
       "criterion": "404.1",
       "handle": "General (Preservation of Information Provided for Accessibility)",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9146,6 +10200,13 @@
       "criterion": "405.1",
       "handle": "General (Privacy)",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9208,6 +10269,13 @@
       "criterion": "406.1",
       "handle": "General (Standard Connections)",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9270,6 +10338,13 @@
       "criterion": "407.2",
       "handle": "Contrast (Operable Parts)",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9332,6 +10407,13 @@
       "criterion": "407.3.1",
       "handle": "Tactilely Discernible",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9394,6 +10476,13 @@
       "criterion": "407.3.2",
       "handle": "Alphabetic Keys",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9456,6 +10545,13 @@
       "criterion": "407.3.3",
       "handle": "Numeric Keys",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9518,6 +10614,13 @@
       "criterion": "407.4",
       "handle": "Key Repeat",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9580,6 +10683,13 @@
       "criterion": "407.5",
       "handle": "Timed Response",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9642,6 +10752,13 @@
       "criterion": "407.6",
       "handle": "Operation",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9704,6 +10821,13 @@
       "criterion": "407.7",
       "handle": "Tickets, Fare Cards, and Keycards",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9766,6 +10890,13 @@
       "criterion": "407.8.1",
       "handle": "Vertical Reference Plane",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9828,6 +10959,13 @@
       "criterion": "407.8.1.1",
       "handle": "Vertical Plane for Side Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9890,6 +11028,13 @@
       "criterion": "407.8.1.2",
       "handle": "Vertical Plane for Forward Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -9952,6 +11097,13 @@
       "criterion": "407.8.2",
       "handle": "Side Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10014,6 +11166,13 @@
       "criterion": "407.8.2.1",
       "handle": "Unobstructed Side Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10076,6 +11235,13 @@
       "criterion": "407.8.2.2",
       "handle": "Obstructed Side Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10138,6 +11304,13 @@
       "criterion": "407.8.3",
       "handle": "Forward Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10200,6 +11373,13 @@
       "criterion": "407.8.3.1",
       "handle": "Unobstructed Forward Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10262,6 +11442,13 @@
       "criterion": "407.8.3.2",
       "handle": "Obstructed Forward Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10324,6 +11511,13 @@
       "criterion": "407.8.3.2.1",
       "handle": "Operable Part Height for ICT with Obstructed Forward Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10386,6 +11580,13 @@
       "criterion": "407.8.3.2.2",
       "handle": "Knee and Toe Space under ICT with Obstructed Forward Reach",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10448,6 +11649,13 @@
       "criterion": "408.2",
       "handle": "Visibility",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10510,6 +11718,13 @@
       "criterion": "408.3",
       "handle": "Flashing",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10572,6 +11787,13 @@
       "criterion": "409.1",
       "handle": "General (Status Indicators)",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10634,6 +11856,13 @@
       "criterion": "410.1",
       "handle": "General (Color Coding)",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10696,6 +11925,13 @@
       "criterion": "411.1",
       "handle": "General (Audible Signals)",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10758,6 +11994,13 @@
       "criterion": "412.2.1",
       "handle": "Volume Gain for Wireline Telephones",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10820,6 +12063,13 @@
       "criterion": "412.2.2",
       "handle": "Volume Gain for Non-Wireline ICT",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10882,6 +12132,13 @@
       "criterion": "412.3.1",
       "handle": "Wireless Handsets",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -10944,6 +12201,13 @@
       "criterion": "412.3.2",
       "handle": "Wireline Handsets",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11006,6 +12270,13 @@
       "criterion": "412.4",
       "handle": "Digital Encoding of Speech",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11068,6 +12339,13 @@
       "criterion": "412.5",
       "handle": "Real-Time Text Functionality",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11130,6 +12408,13 @@
       "criterion": "412.6",
       "handle": "Caller ID",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11192,6 +12477,13 @@
       "criterion": "412.7",
       "handle": "Video Communication",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11254,6 +12546,13 @@
       "criterion": "412.8.1",
       "handle": "TTY Connectability",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11316,6 +12615,13 @@
       "criterion": "412.8.2",
       "handle": "Voice and Hearing Carry Over",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11378,6 +12684,13 @@
       "criterion": "412.8.3",
       "handle": "Signal Compatibility",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11440,6 +12753,13 @@
       "criterion": "412.8.4",
       "handle": "Voice Mail and Other Messaging Systems",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11502,6 +12822,13 @@
       "criterion": "413.1.1",
       "handle": "Decoding and Display of Closed Captions",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11564,6 +12891,13 @@
       "criterion": "413.1.2",
       "handle": "Pass-Through of Closed Caption Data",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11626,6 +12960,13 @@
       "criterion": "414.1.1",
       "handle": "Digital Television Tuners",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11688,6 +13029,13 @@
       "criterion": "414.1.2",
       "handle": "Other ICT",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11750,6 +13098,13 @@
       "criterion": "415.1.1",
       "handle": "Caption Controls",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11812,6 +13167,13 @@
       "criterion": "415.1.2",
       "handle": "Audio Description Controls",
       "level": "hardware",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11874,6 +13236,13 @@
       "criterion": "502.2.1",
       "handle": "User Control of Accessibility Features",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11936,6 +13305,13 @@
       "criterion": "502.2.2",
       "handle": "No Disruption of Accessibility Features",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -11998,6 +13374,13 @@
       "criterion": "502.3.1",
       "handle": "Object Information",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12060,6 +13443,13 @@
       "criterion": "502.3.2",
       "handle": "Modification of Object Information",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12122,6 +13512,13 @@
       "criterion": "502.3.3",
       "handle": "Row, Column, and Headers",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12184,6 +13581,13 @@
       "criterion": "502.3.4",
       "handle": "Values",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12246,6 +13650,13 @@
       "criterion": "502.3.5",
       "handle": "Modification of Values",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12308,6 +13719,13 @@
       "criterion": "502.3.6",
       "handle": "Label Relationships",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12370,6 +13788,13 @@
       "criterion": "502.3.7",
       "handle": "Hierarchical Relationships",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12432,6 +13857,13 @@
       "criterion": "502.3.8",
       "handle": "Text",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12494,6 +13926,13 @@
       "criterion": "502.3.9",
       "handle": "Modification of Text",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12556,6 +13995,13 @@
       "criterion": "502.3.10",
       "handle": "List of Actions",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12618,6 +14064,13 @@
       "criterion": "502.3.11",
       "handle": "Actions on Objects",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12680,6 +14133,13 @@
       "criterion": "502.3.12",
       "handle": "Focus Cursor",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12742,6 +14202,13 @@
       "criterion": "502.3.13",
       "handle": "Modification of Focus Cursor",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12804,6 +14271,13 @@
       "criterion": "502.3.14",
       "handle": "Event Notification",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12866,6 +14340,13 @@
       "criterion": "502.4",
       "handle": "Platform Accessibility Features",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12928,6 +14409,13 @@
       "criterion": "503.2",
       "handle": "User Preferences",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -12990,6 +14478,13 @@
       "criterion": "503.3",
       "handle": "Alternative User Interfaces",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13052,6 +14547,13 @@
       "criterion": "503.4.1",
       "handle": "Caption Controls",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13114,6 +14616,13 @@
       "criterion": "503.4.2",
       "handle": "Audio Description Controls",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13176,6 +14685,13 @@
       "criterion": "504.2",
       "handle": "Content Creation or Editing",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13238,6 +14754,13 @@
       "criterion": "504.2.1",
       "handle": "Preservation of Information Provided for Accessibility in Format Conversion",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13300,6 +14823,13 @@
       "criterion": "504.2.2",
       "handle": "PDF Export",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13362,6 +14892,13 @@
       "criterion": "504.3",
       "handle": "Prompts",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13424,6 +14961,13 @@
       "criterion": "504.4",
       "handle": "Templates",
       "level": "software",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13486,6 +15030,13 @@
       "criterion": "602.2",
       "handle": "Accessibility and Compatibility Features",
       "level": "support_documentation_and_services",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13548,6 +15099,13 @@
       "criterion": "602.3",
       "handle": "Electronic Support Documentation",
       "level": "support_documentation_and_services",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13610,6 +15168,13 @@
       "criterion": "602.4",
       "handle": "Alternate Formats for Non-Electronic Support Documentation",
       "level": "support_documentation_and_services",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13672,6 +15237,13 @@
       "criterion": "603.2",
       "handle": "Information on Accessibility and Compatibility Features",
       "level": "support_documentation_and_services",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
@@ -13734,6 +15306,13 @@
       "criterion": "603.3",
       "handle": "Accommodation of Communication Needs",
       "level": "support_documentation_and_services",
+      "automation": {
+        "axe_rules": [],
+        "act_rules": [],
+        "coverage": "none",
+        "result": "not-recorded",
+        "guidepup": "method-available-not-recorded"
+      },
       "components": [
         {
           "component": "web",
