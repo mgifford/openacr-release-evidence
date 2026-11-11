@@ -14,10 +14,10 @@ from .openacr_export import load_catalog
 
 DRAFT_TERM = "Not Evaluated (draft — reviewer must select an ACR result)"
 COMPONENTS = (
-    ("Web", "Partially Supports", "web"),
+    ("Web", "Not Evaluated", "web"),
     ("Electronic Documents", "Not Applicable", "electronic-docs"),
     ("Software", "Not Applicable", "software"),
-    ("Authoring Tool", "Partially Supports", "authoring-tool"),
+    ("Authoring Tool", "Not Evaluated", "authoring-tool"),
 )
 CORE_SCOPE = {
     "1.2.1": (
@@ -173,6 +173,9 @@ class Doc:
     def table(self, caption, headers, rows, css_class=None, row_ids=None):
         self.blocks.append(("table", (caption, list(headers), [list(row) for row in rows], css_class, list(row_ids) if row_ids else None)))
 
+    def details(self, summary, groups):
+        self.blocks.append(("details", (summary, list(groups))))
+
     def markdown(self):
         out = [f"# {self.title}", "", f"_{self.description}_", ""]
         for kind, value in self.blocks:
@@ -191,6 +194,14 @@ class Doc:
                 out.extend([f"### {text}", ""])
             elif kind == "links":
                 out.extend([f"- [{label}]({url})" if url else f"- {label}" for label, url in value] + [""])
+            elif kind == "details":
+                summary, groups = value
+                out.extend(["<details open>", f"<summary>{summary}</summary>", ""])
+                for heading, links in groups:
+                    out.extend([f"### {heading}", ""])
+                    out.extend(f"- [{label}]({url})" if url else f"- {label}" for label, url in links)
+                    out.append("")
+                out.extend(["</details>", ""])
             elif kind == "table":
                 caption, headers, rows, _css_class, _row_ids = value
                 out.extend([f"**{caption}**", ""])
@@ -286,6 +297,17 @@ class Doc:
                     else:
                         items.append(f"<li>{escape(label)}</li>")
                 parts.append("<ul>" + "".join(items) + "</ul>")
+            elif kind == "details":
+                summary, groups = value
+                parts.append(f'<details class="reference-group" open><summary>{escape(summary)}</summary>')
+                for heading, links in groups:
+                    anchor = _slug(heading.split(" — ", 1)[0])
+                    parts.append(_heading_with_permalink("3", heading, f"ref-{anchor}"))
+                    parts.append("<ul>" + "".join(
+                        f'<li><a href="{escape(url)}">{escape(label)}</a></li>' if url else f"<li>{escape(label)}</li>"
+                        for label, url in links
+                    ) + "</ul>")
+                parts.append("</details>")
             elif kind == "table":
                 caption, headers, rows, css_class, row_ids = value
                 parts.append(f'<div class="table-scroll" tabindex="0" role="region" aria-label="{escape(caption)}">')
@@ -437,13 +459,11 @@ def _criterion_levels(criterion, issues):
             "Software": "Not Applicable",
             "Authoring Tool": "Not Applicable",
         }
-    web = bool(_surface_items(issues, "web"))
-    authoring = bool(_surface_items(issues, "authoring"))
     return {
-        "Web": "Partially Supports" if web else "Not Evaluated",
+        "Web": "Not Evaluated",
         "Electronic Documents": "Not Applicable",
         "Software": "Not Applicable",
-        "Authoring Tool": "Partially Supports" if authoring else "Not Evaluated",
+        "Authoring Tool": "Not Evaluated",
     }
 
 
@@ -549,11 +569,13 @@ def _remarks_cell(criterion, issues, ai_summary=None):
     ai_summary = ai_summary or {}
     if not issues:
         return RichCell(
-            Bold("Web:"), " No active tagged issue; remains Not Evaluated.",
+            Bold("Web:"), " No active tagged issue; remains Not Evaluated. Absence is not evidence of support.",
             Gap(),
-            Bold("Authoring Tool:"), " No active tagged issue; remains Not Evaluated.",
+            Bold("Authoring Tool:"), " No active tagged issue; remains Not Evaluated. Absence is not evidence of support.",
         )
     parts = [
+        Bold("Evidence state:"), " Reported barrier, unverified. Candidate criterion mapping: issue tag, unreviewed. No conformance result assigned.",
+        Gap(),
         Bold("Web:"), " ", ai_summary.get("web") or _barrier_summary(web, "web"),
         Gap(),
         Bold("Authoring Tool:"), " ", ai_summary.get("authoring") or _barrier_summary(authoring, "authoring"),
@@ -617,11 +639,11 @@ def render_acr_narrative(analysis, output_dir):
     title = f"{product} {release} — Draft Accessibility Conformance Report (ACR) Narrative"
     doc = Doc(
         title,
-        "Issue-tagged criteria use a draft Partially Supports result based on the open Drupal issue queue; "
-        "criteria without a tagged issue remain Not Evaluated.",
+        "Issue evidence is reported without assigning a conformance result; "
+        "criteria remain Not Evaluated until human review.",
     )
 
-    doc.p("This document converts the active issue evidence into an ACR narrative. It is deliberately not a completed ACR: criteria with active tagged issues use a draft Partially Supports result from the open issue queue, while criteria without a tagged issue remain Not Evaluated. No issue was reproduced against this release, and a named reviewer must approve the report.")
+    doc.p("This document converts active issue evidence into an ACR narrative. It is deliberately not a completed ACR: issue-tagged and untagged criteria remain Not Evaluated until a reviewer completes the assessment. No issue was reproduced against this release, and a named reviewer must approve the report.")
     doc.h2("Product information")
     doc.table("Product and report identification", ["Field", "Value"], [
         ["Product", Cell(product)],
@@ -639,21 +661,21 @@ def render_acr_narrative(analysis, output_dir):
         surface = (finding.get("surface") or {}).get("surface", "web")
         if surface in surface_counts:
             surface_counts[surface] += 1
-    doc.h2("Component scope and proposed result")
-    doc.p("These are proposed component-level labels for review, not final ACR terms. Criteria with active tagged issues carry a draft Partially Supports result; criteria without a tagged issue remain Not Evaluated.")
+    doc.h2("Component scope and evidence status")
+    doc.p("No component-level conformance result is assigned. Web and Authoring Tool have reported issue evidence but remain Not Evaluated; Electronic Documents and Software have documented product-scope exclusions.")
     component_rows = []
     for component, proposed, component_id in COMPONENTS:
         if component_id == "web":
             evidence = f"{surface_counts['web']} active findings classified as front-end/web"
             rationale = (
-                "Partially Supports is proposed because active front-end accessibility issues exist in the "
-                "published evidence. This label needs a specific explanation and independent review."
+                "Reported front-end barriers exist in the issue queue, but no component-level conformance "
+                "result is assigned. Reproduction and human review are still required."
             )
         elif component_id == "authoring-tool":
             evidence = f"{surface_counts['authoring']} active findings classified as authoring/admin UI"
             rationale = (
-                "Partially Supports is proposed because active authoring-interface issues exist. "
-                "The /admin, Drupal /user account paths and login/reproduction cues are the classification basis; a reviewer must confirm."
+                "Reported authoring-interface barriers exist, but no component-level conformance result is "
+                "assigned. The /admin and /user-path classification is itself draft and needs review."
             )
         elif component_id == "electronic-docs":
             evidence = "No core electronic-document product"
@@ -667,21 +689,21 @@ def render_acr_narrative(analysis, output_dir):
                 "Not Applicable is proposed: Drupal Core is web software. The Section 508 software "
                 "chapter is not a separate installed application in this scope."
             )
-        component_rows.append([Cell(component), Cell(proposed + " (proposed)"), Cell(evidence), Cell(rationale)])
+        component_rows.append([Cell(component), Cell(proposed), Cell(evidence), Cell(rationale)])
     doc.table(
         "Section 508 component scope",
-        ["Component", "Proposed result", "Evidence", "Rationale"],
+        ["Component", "Conformance result", "Evidence", "Rationale"],
         component_rows,
     )
-    doc.p("Supports, Partially Supports and Not Applicable are conformance labels. A proposed Partially Supports result requires an explanation; a proposed Supports result must also be explained. The ACR template records this structure for reuse.")
-    doc.p("Reading the tables: Open issue reports are treated as reported barrier evidence; no issue was reproduced against this release. Inventory records have no comments, merge requests or commit analysis. Issue-tagged criteria use draft Partially Supports for Web and Authoring Tool; criteria without a tagged issue remain Not Evaluated. Electronic Documents and Software are Not Applicable because Drupal Core does not ship a standalone electronic-document or packaged software product in this scope.")
+    doc.p("Supports, Partially Supports, Does Not Support and Not Applicable are conformance labels. This report does not assign them from issue tags. The ACR template records the structure for a later human assessment.")
+    doc.p("Reading the tables: Open issue reports are treated as reported barrier evidence; no issue was reproduced against this release. Inventory records have no comments, merge requests or commit analysis. Issue-tagged criteria remain Not Evaluated and carry an evidence summary. Electronic Documents and Software are Not Applicable only because Drupal Core does not ship a standalone electronic-document or packaged software product in this scope.")
     doc.p("Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split. A Web result can include barriers that also affect the authoring interface; the per-component remarks identify the classified evidence.")
     if ai_summaries:
         doc.p("Some Web/Authoring paragraphs are model-assisted draft summaries generated from the cited issue evidence. They are suggestions for human review, not conformance conclusions; the issue list, statistics and references remain the source record.")
     else:
         doc.p("No accepted AI summary cache is present for this build. The Web/Authoring paragraphs are deterministic extracts from issue titles; add the optional criterion-summary step to enable model-assisted draft summaries.")
     doc.h2("Draft status and ACR result terms")
-    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. Issue-tagged criteria use draft Partially Supports; criteria without a tagged issue remain Not Evaluated. A reviewer must confirm every term after evaluating the product.")
+    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. No criterion result is assigned from an issue tag; issue-tagged and untagged criteria remain Not Evaluated until a reviewer completes the assessment.")
     doc.table("ACR result terms used in review", ["Term", "Meaning"], [
         ["Supports", "The product has at least one method of meeting the criterion, and the reviewer has evidence that it works for the evaluated scope."],
         ["Partially Supports", "Some product functionality meets the criterion; other functionality does not, and the reviewer can explain the boundary."],
@@ -711,6 +733,11 @@ def render_acr_narrative(analysis, output_dir):
             note += f" Removed in this line: {removed}."
         note += (" The core collection does not include the theme project queues; a theme's own ACR must cover those issues.")
         doc.p(note)
+    doc.h2("What Not Evaluated means")
+    doc.p("A Not Evaluated row means this issue-queue method has no positive evidence for that criterion. It is not a claim that the criterion does not apply, and the absence of an active tagged issue is not Supports.")
+    doc.p("This build does not assign Supports. A Supports or Not Applicable result requires a separate, human-reviewed evidence record: a test or code audit with a source and date, or a documented product-scope decision. The issue queue can establish reported barriers; it cannot establish that a criterion is met.")
+    doc.p("For example, 2.2.1 Timing Adjustable, 2.2.2 Pause, Stop, Hide and 2.3.1 Three Flashes or Below Threshold remain Not Evaluated when no active issue is tagged. That is a review gap, not a claim that Drupal does not need those criteria.")
+    doc.p("The media criteria 1.2.1, 1.2.3, 1.2.4 and 1.2.5 are different: they are Not Applicable because Drupal Core does not provide the relevant audio/video player or live-media feature. They are not Not Applicable because the queue is empty.")
     doc.h2("Why this ACR is different")
     doc.p("A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor's issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked.")
     doc.table("Conventional vendor ACR and this issue-queue attestation", ["Dimension", "Conventional vendor ACR", "This ACR"], [
@@ -841,7 +868,7 @@ def render_acr_narrative(analysis, output_dir):
         "Verify each criterion against the installed product; do not treat an issue count as a severity or percentage.",
         "Complete the reviewer name, organization and approval record outside this generated draft.",
         "Replace every Not Evaluated result with a reviewed ACR result, or record the remaining evaluation gap.",
-        "Confirm the proposed Partially Supports results for issue-tagged criteria or record why the queue evidence is insufficient.",
+        "Use the criterion-evidence ledger to review reported barriers and decide whether a formal ACR result is justified.",
         "Remove the draft status only after independent review and sign-off.",
     ])
 
@@ -855,20 +882,33 @@ def render_acr_narrative(analysis, output_dir):
         "The draft does not establish legal compliance or a procurement-safe conformance claim.",
     ])
     doc.h2("References")
-    doc.p("Every Drupal.org issue cited in the criterion tables is listed below by criterion. Each link goes to the public issue where the barrier is discussed.")
+    doc.p("Every Drupal.org issue cited in the criterion tables is listed below by WCAG principle. Each group can be collapsed; each criterion keeps a stable reference anchor. Each link goes to the public issue where the barrier is discussed.")
+    principle_labels = {
+        "1": "1. Perceivable",
+        "2": "2. Operable",
+        "3": "3. Understandable",
+        "4": "4. Robust",
+    }
+    handles = {
+        str(criterion.get("id")): criterion.get("handle") or ""
+        for chapter in catalog.get("chapters") or []
+        for criterion in chapter.get("criteria") or []
+    }
+    grouped = {}
     for criterion_id in sorted(by_criterion):
-        items = by_criterion[criterion_id]
-        handle = next(
-            (
-                criterion.get("handle")
-                for chapter in catalog.get("chapters") or []
-                for criterion in chapter.get("criteria") or []
-                if str(criterion.get("id")) == criterion_id
-            ),
-            "",
-        )
-        doc.heading(f"{criterion_id} — {handle or 'WCAG criterion'}", f"ref-{_slug(criterion_id)}")
-        doc.links(_reference_items(items))
+        grouped.setdefault(criterion_id.split(".", 1)[0], []).append(criterion_id)
+    for principle in ("1", "2", "3", "4"):
+        criterion_ids = grouped.get(principle) or []
+        if not criterion_ids:
+            continue
+        groups = []
+        for criterion_id in criterion_ids:
+            handle = handles.get(criterion_id, "")
+            groups.append((
+                f"{criterion_id} — {handle or 'WCAG criterion'}",
+                _reference_items(by_criterion[criterion_id]),
+            ))
+        doc.details(f"{principle_labels[principle]} ({len(groups)} {_plural(len(groups), 'criterion', 'criteria')})", groups)
     doc.h2("Sources")
     doc.table("Authoritative sources", ["Source", "Link"], [
         ["Drupal Core Accessibility queue", Cell("Drupal.org Accessibility issue queue", "https://www.drupal.org/project/issues/search?text=&projects=Drupal+core&assigned=&submitted=&project_issue_followers=&status%5B%5D=Open&issue_tags_op=%3D&issue_tags=Accessibility")],

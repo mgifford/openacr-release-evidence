@@ -87,7 +87,7 @@ class OpenACRExportTests(unittest.TestCase):
         self.assertIn("DRAFT", document["title"])
 
 
-    def test_issue_tagged_criterion_gets_proposed_partial_support(self):
+    def test_issue_tagged_criterion_does_not_assign_adherence(self):
         catalog = load_catalog()
         document = analysis()
         document["findings"] = [
@@ -107,8 +107,8 @@ class OpenACRExportTests(unittest.TestCase):
         draft = build_draft(document, catalog)
         criterion = draft["chapters"]["success_criteria_level_a"]["criteria"][0]
         components = {component["name"]: component for component in criterion["components"]}
-        self.assertEqual("partially-supports", components["web"]["adherence"]["level"])
-        self.assertEqual("partially-supports", components["authoring-tool"]["adherence"]["level"])
+        self.assertNotIn("adherence", components["web"])
+        self.assertNotIn("adherence", components["authoring-tool"])
         self.assertEqual("not-applicable", components["electronic-docs"]["adherence"]["level"])
         media = draft["chapters"]["success_criteria_level_a"]["criteria"][1]
         media_components = {component["name"]: component for component in media["components"]}

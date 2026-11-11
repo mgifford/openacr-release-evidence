@@ -49,9 +49,10 @@ write:
 
 The report page links both files and the ACR narrative
 (`acr.html`/`acr.md`). The narrative and YAML use draft issue-queue values:
-criteria with active tagged issues are proposed Partially Supports for Web and
-Authoring Tool; criteria without a tagged issue remain Not Evaluated in the
-narrative and unset for Web/Authoring in the YAML.
+no criterion-level Web/Authoring adherence value is assigned from an issue tag;
+issue-tagged and untagged criteria remain Not Evaluated in the narrative and
+unset in the YAML. Electronic Documents and Software are Not Applicable from
+documented product scope.
 
 ## What the draft contains
 
@@ -70,18 +71,21 @@ narrative and unset for Web/Authoring in the YAML.
 - All seven catalog chapters and all **182** catalog criteria, in catalog order.
 - Chapter-level draft notes linking the evidence report.
 - Four Section 508 component names on each WCAG criterion;
-- proposed `partially-supports` values on issue-tagged Web/Authoring components;
-- `not-applicable` on Electronic Documents/Software and on 1.2.4/1.2.5;
+- no `partially-supports` values from issue tags;
+- `not-applicable` on Electronic Documents/Software and on the documented media
+  criteria (1.2.1/1.2.3/1.2.4/1.2.5);
+- unset Web/Authoring adherence until human review;
 - no `not-evaluated` values.
 - Extension fields `draft`, `target` and `standard_source` for provenance. The
   0.1.0 schema permits additional properties; the official editor may ignore
   them.
 
-The adherence values are draft issue-queue proposals, not a WCAG evaluation.
-Issue-tagged criteria carry proposed `partially-supports` values; untagged
-Web/Authoring components are left unset and the narrative marks them Not
-Evaluated. `not-evaluated` remains restricted to AAA in this catalog. A human
-must confirm every component and value.
+No adherence value is assigned from an issue tag. The criterion-evidence ledger
+records reported barriers, candidate mappings, release applicability and
+verification gaps; it does not make a conformance decision. Web/Authoring
+components remain unset in the draft. `not-evaluated` remains restricted to AAA
+in this catalog. A human must complete the assessment and supply any formal
+adherence value.
 
 ## Validation
 

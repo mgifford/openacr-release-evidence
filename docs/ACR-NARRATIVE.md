@@ -13,7 +13,7 @@ reviewer actions, limitations and sources.
 ## What it does not do
 
 It uses a **draft issue-queue evaluation**. Criteria with active tagged issues
-carry a draft `Partially Supports` result for Web and Authoring Tool; criteria
+remain `Not Evaluated` for Web and Authoring Tool; criteria
 without a tagged issue remain `Not Evaluated`. No issue is treated as reproduced
 against an installed target. The four component results are draft proposals for
 human confirmation.
@@ -63,7 +63,7 @@ The narrative does **not** claim:
 - Anchors use native fragment navigation, `scroll-margin`, and the existing
   skip link. No SkipTo JavaScript is required or published; the static heading
   index provides the same section/heading jump function without client scripts.
-   - issue-tagged criteria use draft `Partially Supports`; untagged criteria
+   - issue-tagged and untagged criteria remain `Not Evaluated`; issue evidence
      remain `Not Evaluated`.
 8. **AAA table** — outside the declared AA target; issue-tagged criteria use the
    same draft rule; untagged criteria remain `Not Evaluated`.
@@ -108,7 +108,7 @@ They are not evidence and do not assign conformance.
 
 - **OpenACR YAML** is the machine-readable, schema/catalog-validated draft. It
   contains all 182 criteria. Issue-tagged criteria carry proposed
-  `partially-supports` values for Web and Authoring Tool; Electronic Documents
+  no adherence values from issue tags; Electronic Documents
   and Software are `not-applicable`; untagged Web/Authoring values are unset.
 - **ACR narrative** is the human-readable explanation for reviewers. It presents
   the same draft issue-queue evaluation with separate Web/Authoring remarks,
@@ -134,6 +134,19 @@ narrative is not a conformance claim.
 6. Replace the placeholder reviewer and complete the approval record outside the
    generated draft.
 7. Remove the draft statement only after independent review and sign-off.
+
+## References grouping
+
+References are grouped into collapsible POUR sections: Perceivable, Operable,
+Understandable and Robust. The groups are open by default so criterion reference
+anchors remain visible; they can be collapsed for scanning.
+
+## Not Evaluated and positive evidence
+
+A criterion with no active tagged issue remains Not Evaluated. That is not a
+claim that it does not apply, and it is not evidence of Supports. Supports and
+Not Applicable require separate human-reviewed evidence with a source and date,
+or a documented product-scope decision.
 
 ## References
 

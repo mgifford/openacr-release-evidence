@@ -167,3 +167,8 @@ body:has(#filter-status-development:checked) .release-card:not([data-support="de
 /* Inline bullet lists used in ACR Remarks cells. */
 .acr-table .cell-list{margin:.2rem 0 .2rem 1.2rem;padding:0}
 .acr-table .cell-list li{margin:.25rem 0}
+/* POUR reference groups: collapsible but open so fragment targets remain visible. */
+.reference-group{margin:.8rem 0;padding:0;border:1px solid ButtonBorder;background:Canvas}
+.reference-group>summary{padding:.55rem .8rem;background:Canvas;font-weight:700}
+.reference-group h3{margin:1rem .8rem .35rem}
+.reference-group ul{margin:.2rem .8rem .8rem}

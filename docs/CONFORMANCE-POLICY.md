@@ -37,10 +37,11 @@ re-review.
 ## OpenACR draft export
 
 `openacr.yaml` is a **validated draft**, not a final conformance decision. It
-lists every catalog criterion and the four Section 508 components. Criteria with
-active tagged issues carry proposed `partially-supports` values for Web and
-Authoring Tool; Electronic Documents and Software are `not-applicable`; untagged
-Web/Authoring values are unset. Schema/catalog validity is not evidence that a
+lists every catalog criterion and the four Section 508 components. Issue-tagged
+Web/Authoring components have no adherence value: issue tags are reported
+barriers, not conformance results. Electronic Documents and Software are
+`not-applicable` from documented product scope; all other unassessed values are
+unset. Schema/catalog validity is not evidence that a
 claim is true. A reviewer must confirm every value, complete the reviewer identity
 and independently approve the file; `--strict` rejects a draft, a placeholder
 reviewer and unfilled criteria. The official editor round-trip is not yet verified.
@@ -60,11 +61,11 @@ not receive a release applicability conclusion.
 
 ## ACR narrative
 
-The ACR narrative uses a draft issue-queue evaluation. Web and Authoring Tool are
-Partially Supports; Electronic Documents and Software are Not Applicable.
-Criteria with active tagged issues carry a draft Partially Supports result;
-criteria without a tagged issue remain `Not Evaluated`. Issue reports are not
-release reproductions, and a reviewer must confirm every term and sign off. The
+The ACR narrative uses a draft issue-queue evidence summary. Web and Authoring
+Tool remain `Not Evaluated`; Electronic Documents and Software are Not Applicable
+from documented product scope. Issue-tagged and untagged criteria remain `Not
+Evaluated`; issue reports are not release reproductions. A reviewer must assess
+the criterion-evidence ledger and sign off every term. The
 narrative does not replace the OpenACR YAML and does not inherit ATAG results.
 
 ## Issue-queue attestation versus a periodic vendor ACR

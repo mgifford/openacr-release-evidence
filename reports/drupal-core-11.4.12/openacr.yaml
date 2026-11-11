@@ -9,26 +9,25 @@ product:
 author:
   name: Unassigned reviewer (draft)
   email: reviewer@example.invalid
-report_date: '2026-11-10'
-last_modified_date: '2026-11-10'
+report_date: '2026-11-11'
+last_modified_date: '2026-11-11'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 11.4.12 (tag 11.4.12). Evidence report:
-  index.html. Machine-readable evidence: evidence.json. Evidence digest: 7dcdbd479d30d709c2b5f560076a2d3bac2e5c942ed3065fa6491379b5ffab17.
-  Component scope: Web and Authoring Tool are proposed Partially Supports; Electronic
-  Documents and Software are proposed Not Applicable. These are proposed component
-  labels only. Evidence scope: active/review-relevant issues only (Active, Needs review,
-  Needs work, RTBC, Patch); fixed and closed issues are excluded. Some active issues
-  are metadata-only inventory records; complete comments/merge-request evidence was
-  collected only for a review-priority subset. Issue-tagged criteria carry draft partially-supports
-  values for Web and Authoring Tool; criteria without a tagged issue remain unset
-  and Not Evaluated. Electronic Documents and Software are marked not-applicable for
-  Drupal Core. The author is a placeholder; a human reviewer must replace it, confirm
-  every value and explanation, and run `acr-evidence openacr-validate --file openacr.yaml
-  --strict` before publishing. An ACR narrative is at acr.html; it presents the same
-  draft issue-queue evaluation. ATAG 2.0 authoring evidence is tracked separately
-  at ../drupal-core-atag/index.html; this OpenACR does not populate ATAG criteria
-  or the authoring-tool component. This file has not been round-tripped through the
-  Civicactions/GSA ACR editor.'
+  index.html. Machine-readable evidence: evidence.json. Evidence digest: f27d6b6f5b3576153c84831329d8f38466b197c51834b652670b7b7ce9899a3a.
+  Component scope: Web and Authoring Tool remain Not Evaluated; Electronic Documents
+  and Software are Not Applicable from documented product scope. No issue tag is promoted
+  to a conformance term. Evidence scope: active/review-relevant issues only (Active,
+  Needs review, Needs work, RTBC, Patch); fixed and closed issues are excluded. Some
+  active issues are metadata-only inventory records; complete comments/merge-request
+  evidence was collected only for a review-priority subset. Issue-tagged and untagged
+  criteria remain unset at criterion level; issue evidence is recorded in criterion-evidence.json.
+  Electronic Documents and Software are marked not-applicable for Drupal Core. The
+  author is a placeholder; a human reviewer must replace it, confirm every value and
+  explanation, and run `acr-evidence openacr-validate --file openacr.yaml --strict`
+  before publishing. An ACR narrative is at acr.html; it presents the same draft issue-queue
+  evaluation. ATAG 2.0 authoring evidence is tracked separately at ../drupal-core-atag/index.html;
+  this OpenACR does not populate ATAG criteria or the authoring-tool component. This
+  file has not been round-tripped through the Civicactions/GSA ACR editor.'
 evaluation_methods_used: No WCAG-EM sample was evaluated; this is an issue-queue-based
   draft, not a completed ACR. Public Drupal.org issue-queue evidence collection, commit/tag
   containment analysis, and explicit WCAG candidate tag grouping were used. Open issue
@@ -43,9 +42,9 @@ feedback: https://github.com/mgifford/openacr-release-evidence/issues
 catalog: 2.5-edition-wcag-2.2-508-en
 component_scope:
   web:
-    proposed_result: partially-supports
-    review_status: proposed
-    notes: Front-end evidence only; a reviewer must confirm the result and explanation.
+    review_status: not-assessed
+    notes: Front-end issue evidence exists, but no conformance result is assigned;
+      a reviewer must assess it.
   electronic-docs:
     proposed_result: not-applicable
     review_status: proposed
@@ -56,23 +55,18 @@ component_scope:
     notes: Drupal Core is web software; no separate packaged/non-web software product
       is in scope.
   authoring-tool:
-    proposed_result: partially-supports
-    review_status: proposed
-    notes: Authoring/admin UI evidence; /admin, Drupal /user account paths and login/reproduction
-      cues; reviewer must confirm.
+    review_status: not-assessed
+    notes: Authoring/admin issue evidence exists, but no conformance result is assigned;
+      a reviewer must assess it.
 chapters:
   success_criteria_level_a:
-    notes: 'DRAFT: issue-tagged criteria carry proposed partially-supports values
-      from the open issue queue; untagged web/authoring components remain unset. Evidence
-      report: index.html. A reviewer must confirm every value and explanation.'
+    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
+      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
+      must complete the assessment.'
     criteria:
     - num: 1.1.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 10 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -84,10 +78,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 2 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 1.2.1
       components:
       - name: web
@@ -124,10 +114,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 3 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 1.2.3
       components:
       - name: web
@@ -153,10 +139,6 @@ chapters:
     - num: 1.3.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 20 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -168,10 +150,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 3 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 1.3.2
       components:
       - name: web
@@ -200,17 +178,9 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 1.4.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -222,10 +192,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 6 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 1.4.2
       components:
       - name: web
@@ -243,10 +209,6 @@ chapters:
     - num: 2.1.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 5 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -258,17 +220,9 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 3 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 2.1.2
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -283,10 +237,6 @@ chapters:
     - num: 2.1.4
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -343,10 +293,6 @@ chapters:
     - num: 2.4.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -361,10 +307,6 @@ chapters:
     - num: 2.4.2
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 2 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -379,10 +321,6 @@ chapters:
     - num: 2.4.3
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 7 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -394,17 +332,9 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 2 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 2.4.4
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -416,17 +346,9 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 2.5.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 2 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -441,10 +363,6 @@ chapters:
     - num: 2.5.2
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 4 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -459,10 +377,6 @@ chapters:
     - num: 2.5.3
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 7 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -474,10 +388,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 2 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 2.5.4
       components:
       - name: web
@@ -509,10 +419,6 @@ chapters:
     - num: 3.2.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 3 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -555,10 +461,6 @@ chapters:
     - num: 3.3.1
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 13 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -570,17 +472,9 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 5 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 3.3.2
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 7 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -623,10 +517,6 @@ chapters:
     - num: 4.1.2
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 33 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -638,14 +528,10 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 6 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
   success_criteria_level_aa:
-    notes: 'DRAFT: issue-tagged criteria carry proposed partially-supports values
-      from the open issue queue; untagged web/authoring components remain unset. Evidence
-      report: index.html. A reviewer must confirm every value and explanation.'
+    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
+      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
+      must complete the assessment.'
     criteria:
     - num: 1.2.4
       components:
@@ -694,10 +580,6 @@ chapters:
     - num: 1.3.4
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -712,10 +594,6 @@ chapters:
     - num: 1.3.5
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 2 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -741,17 +619,9 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 1.4.4
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -780,10 +650,6 @@ chapters:
     - num: 1.4.10
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 4 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -798,10 +664,6 @@ chapters:
     - num: 1.4.11
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 6 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -813,10 +675,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 11 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 1.4.12
       components:
       - name: web
@@ -831,10 +689,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 1.4.13
       components:
       - name: web
@@ -849,10 +703,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 2.4.5
       components:
       - name: web
@@ -870,10 +720,6 @@ chapters:
     - num: 2.4.6
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 4 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -888,10 +734,6 @@ chapters:
     - num: 2.4.7
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 6 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -903,17 +745,9 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 2.4.11
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -925,10 +759,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 2.5.7
       components:
       - name: web
@@ -957,17 +787,9 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 2 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 3.1.2
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 9 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -982,10 +804,6 @@ chapters:
     - num: 3.2.3
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 2 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -997,10 +815,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 3.2.4
       components:
       - name: web
@@ -1029,10 +843,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 3.3.4
       components:
       - name: web
@@ -1064,10 +874,6 @@ chapters:
     - num: 4.1.3
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 5 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1079,14 +885,10 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
   success_criteria_level_aaa:
-    notes: 'DRAFT: issue-tagged criteria carry proposed partially-supports values
-      from the open issue queue; untagged web/authoring components remain unset. Evidence
-      report: index.html. A reviewer must confirm every value and explanation.'
+    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
+      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
+      must complete the assessment.'
     criteria:
     - num: 1.2.6
       components:
@@ -1329,10 +1131,6 @@ chapters:
     - num: 2.4.9
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1375,10 +1173,6 @@ chapters:
     - num: 2.4.13
       components:
       - name: web
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 web active tagged issue(s). No release
-            reproduction; a reviewer must confirm.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1488,10 +1282,6 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
-        adherence:
-          level: partially-supports
-          notes: 'Draft issue-queue evidence: 1 authoring-tool active tagged issue(s).
-            No release reproduction; a reviewer must confirm.'
     - num: 3.3.5
       components:
       - name: web
@@ -1535,9 +1325,9 @@ chapters:
             electronic-document or packaged software product.'
       - name: authoring-tool
   functional_performance_criteria:
-    notes: 'DRAFT: issue-tagged criteria carry proposed partially-supports values
-      from the open issue queue; untagged web/authoring components remain unset. Evidence
-      report: index.html. A reviewer must confirm every value and explanation.'
+    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
+      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
+      must complete the assessment.'
     criteria:
     - num: '302.1'
       components:
@@ -1567,9 +1357,9 @@ chapters:
       components:
       - name: none
   hardware:
-    notes: 'DRAFT: issue-tagged criteria carry proposed partially-supports values
-      from the open issue queue; untagged web/authoring components remain unset. Evidence
-      report: index.html. A reviewer must confirm every value and explanation.'
+    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
+      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
+      must complete the assessment.'
     criteria:
     - num: 402.2.1
       components:
@@ -1737,9 +1527,9 @@ chapters:
       components:
       - name: none
   software:
-    notes: 'DRAFT: issue-tagged criteria carry proposed partially-supports values
-      from the open issue queue; untagged web/authoring components remain unset. Evidence
-      report: index.html. A reviewer must confirm every value and explanation.'
+    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
+      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
+      must complete the assessment.'
     criteria:
     - num: 502.2.1
       components:
@@ -1820,9 +1610,9 @@ chapters:
       components:
       - name: none
   support_documentation_and_services:
-    notes: 'DRAFT: issue-tagged criteria carry proposed partially-supports values
-      from the open issue queue; untagged web/authoring components remain unset. Evidence
-      report: index.html. A reviewer must confirm every value and explanation.'
+    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
+      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
+      must complete the assessment.'
     criteria:
     - num: '602.2'
       components:
@@ -1849,7 +1639,7 @@ target:
   release_line: 11.4.x
   parent_project: null
   assessment_id: drupal-core-11.4.12
-  evidence_digest: 7dcdbd479d30d709c2b5f560076a2d3bac2e5c942ed3065fa6491379b5ffab17
+  evidence_digest: f27d6b6f5b3576153c84831329d8f38466b197c51834b652670b7b7ce9899a3a
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr

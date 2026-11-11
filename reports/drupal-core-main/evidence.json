@@ -100,15 +100,15 @@
     "ref_label": "branch main",
     "tag": null,
     "branch": "main",
-    "tag_commit": "7312a1251af9c7a2e7b19f1f85afc3382dca4a32",
-    "tag_commit_short": "7312a125",
-    "tag_date": "2026-11-10T13:51:07.000+00:00",
+    "tag_commit": "f3468222385057c4b55bb0ad508d58cbc3133c10",
+    "tag_commit_short": "f3468222",
+    "tag_date": "2026-11-11T20:30:21.000+00:00",
     "support_status": "development",
     "release_line": "main",
     "parent_project": null,
     "scope_note": "Development branch. Findings are not release claims and can change at any commit. Default Admin is the default theme; Claro and Olivero are contributed projects."
   },
-  "generated_at": "2026-11-10T18:39:06Z",
+  "generated_at": "2026-11-11T21:34:37Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -183,7 +183,7 @@
       "full": 38,
       "inventory": 394
     },
-    "fix_included_in_target": 0,
+    "fix_included_in_target": 1,
     "fix_included_in_release": 0,
     "needs_verification": 432,
     "unmapped_criteria": 236,
@@ -234,15 +234,15 @@
       "branches": [
         "main"
       ],
-      "since": "2026-05-14T13:51:07Z",
-      "commits": 774,
-      "retrieved_at": "2026-11-10T17:04:12+00:00"
+      "since": "2026-05-15T20:30:21Z",
+      "commits": 785,
+      "retrieved_at": "2026-11-11T21:34:37Z"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tree/main",
-    "commit_index": "2026-11-10T17:04:12+00:00"
+    "commit_index": "2026-11-11T21:34:37Z"
   },
   "manifest_digest": "8b29349cd220d8aef660f667fade5a117e90f398386f114e3f52ddcc01818d05",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -42880,11 +42880,25 @@
         "basis": "component:navigation.module"
       },
       "applicability": "likely-affected",
-      "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
-      "fix_included_in_target": false,
+      "basis": "git-non-inclusion",
+      "reason": "Fix commit(s)  were found on main but are not contained in branch main. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "fix_included_in_target": true,
       "fix_included_in_release": false,
-      "commits": [],
+      "commits": [
+        {
+          "sha": "54b16efd900f1bd6d0da6d49184673a691eb11e6",
+          "short_id": "54b16efd",
+          "url": "https://git.drupalcode.org/project/drupal/-/commit/54b16efd900f1bd6d0da6d49184673a691eb11e6",
+          "branch": "main",
+          "branches": [
+            "main"
+          ],
+          "created_at": "2026-11-11T20:06:38.000+00:00",
+          "title": "fix: #3624877 Navigation icons contain hardcoded colors",
+          "in_target": true,
+          "in_release": false
+        }
+      ],
       "merge_requests": [
         {
           "iid": 17211,
@@ -42903,6 +42917,7 @@
       ],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/3624877",
+        "https://git.drupalcode.org/project/drupal/-/commit/54b16efd900f1bd6d0da6d49184673a691eb11e6",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/17211"
       ],
       "review_status": "unreviewed",
@@ -44332,5 +44347,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "8bf22fbf11ace64d1878493803dd5953c9f6df64c684e8cf8152710e2468742e"
+  "evidence_digest": "573764ed78f86477dcefb9e6b082edca098d7a2eddfc9d28f17cca4552950655"
 }

@@ -19,7 +19,7 @@ This project takes a different approach:
   surfaces with different users and barriers.
 - The ACR is regenerated from the current queue and declared release target; it
   is not a static document refreshed every year or two.
-- Issue-tagged criteria use a draft `Partially Supports` result; criteria with no
+- Issue-tagged criteria are summarized as unverified evidence and remain Not Evaluated; criteria with no
   tagged issue remain `Not Evaluated`, because absence of a reported issue is not
   evidence of support.
 - The weekly workflow opens a review PR. Merging that PR is the publication

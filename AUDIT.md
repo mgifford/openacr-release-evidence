@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 137 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 139 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -236,14 +236,13 @@ After the first audit and report:
   complement `/admin` and `/user` cues. `navigation.module` issues are
   authoring, so the ACR no longer reports “no authoring issue” while showing a
   navigation module issue as Web. See `config/surface-policy.json`.
-- **ACR component scope:** the ACR narrative now reports the four Section 508
-  components. Web and Authoring Tool are proposed Partially Supports;
-  Electronic Documents and Software are proposed Not Applicable. Proposed labels
-  are clearly marked. The ACR displays `N/A` for Not Applicable, bolds component
-  labels, marks 1.2.1/1.2.3/1.2.4/1.2.5 as N/A for Core with Able Player guidance,
-  and omits the Evidence line for simple rows. Criteria with active tagged issues now carry a draft
-  Partially Supports result based on the open issue queue; untagged criteria
-  remain Not Evaluated. Issues are
+- **ACR component scope:** the ACR narrative reports the four Section 508
+  components. Web and Authoring Tool remain Not Evaluated; Electronic Documents
+  and Software are Not Applicable from documented product scope. The ACR
+  displays `N/A` for Not Applicable, bolds component labels, marks
+  1.2.1/1.2.3/1.2.4/1.2.5 as N/A for Core with Able Player guidance, and omits
+  the Evidence line for simple rows. Issue-tagged and untagged criteria remain
+  Not Evaluated; issue tags never become Partially Supports. Issues are
   classified authoring vs web from `/admin` and login/reproduction cues, with
   the basis recorded.
 - **Drupal ACR template:** added `templates/drupal-acr-template.md` with the four
@@ -313,3 +312,22 @@ cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.
 - The “On this page” navigation includes subsection headings.
 - No SkipTo JavaScript was added; the static heading index preserves the
   no-JavaScript requirement.
+
+## POUR references and Not Evaluated clarity (2026-11-11)
+
+- References are grouped into collapsible POUR sections, open by default so
+  criterion anchors remain targetable.
+- Added an explicit explanation that Not Evaluated is not Supports and is not a
+  statement that a criterion does not apply.
+- Supports and Not Applicable still require separate human-reviewed evidence;
+  the issue queue cannot establish either.
+
+## Criterion evidence separated from conformance (2026-11-11)
+
+- Issue tags no longer produce `Partially Supports` in the ACR or OpenACR YAML.
+- Added `criterion-evidence.json` per target with reported barriers, candidate
+  mappings, release applicability, verification gaps and no conformance result.
+- Issue-tagged and untagged criteria remain Not Evaluated until human review.
+- Web/Authoring OpenACR adherence is unset; Electronic Documents/Software and
+  documented media scope exclusions remain Not Applicable.
+- Added regression tests for tagged, untagged, media-scope and artifact output.
