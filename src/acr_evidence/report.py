@@ -988,6 +988,24 @@ def render_landing(analyses, output_dir, targets_config=None):
                 'it contains every issue and every target as a real data table.</p>')
     html.append("</section>")
 
+    html.append('<section aria-labelledby="coverage-heading"><h2 id="coverage-heading">Products not yet covered</h2>')
+    html.append('<p><strong>Drupal CMS and LocalGov Drupal do not have published reports yet.</strong> '
+                'Their absence is not an accessibility result. No Core evidence is being relabelled as a distribution ACR.</p>')
+    html.append('<ul>'
+                '<li><strong>Drupal CMS:</strong> onboarding and scope are documented, but the distribution collector, '
+                'Composer-lock inventory and component-queue collection are not implemented. '
+                f'{safe_link("https://www.drupal.org/project/drupal_cms", "Drupal CMS project")} · '
+                f'{safe_link("https://project.pages.drupalcode.org/drupal_cms/get-started/install/", "installation guide")} · '
+                f'{safe_link("https://github.com/mgifford/openacr-release-evidence/blob/main/docs/MULTI-PROJECT-ONBOARDING.md", "onboarding plan")}.</li>'
+                '<li><strong>LocalGov Drupal:</strong> onboarding and scope are documented, but no distribution or '
+                'component reports are published. Its distribution queue alone is not a sufficient source. '
+                f'{safe_link("https://www.drupal.org/project/localgov", "LocalGov Drupal project")} · '
+                f'{safe_link("https://docs.localgovdrupal.org/", "LocalGov documentation")} · '
+                f'{safe_link("https://github.com/mgifford/openacr-release-evidence/blob/main/docs/MULTI-PROJECT-ONBOARDING.md", "onboarding plan")}.</li>'
+                '</ul>')
+    html.append('<p class="meta">A product appears here only after an exact release target, dependency inventory, '
+                'component evidence and a reviewable report exist. See the onboarding plan for the dependency-aware model.</p>')
+    html.append("</section>")
     html.append('<section aria-labelledby="responsibility-heading"><h2 id="responsibility-heading">Project responsibility and parent ACRs</h2>')
     html.append('<p>Drupal Core is the top-level product in this snapshot. Themes, recipes and distributions can publish '
                 'their own ACRs and point to a parent Core ACR, which makes responsibility visible without copying Core '

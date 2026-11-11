@@ -41,6 +41,11 @@ class PagesTests(unittest.TestCase):
         self.assertIn('id="position-heading"', html)
         self.assertIn("Why this ACR is different", html)
         self.assertIn("GSA OpenACR issue #180", html)
+        self.assertIn("Products not yet covered", html)
+        self.assertIn("Drupal CMS", html)
+        self.assertIn("LocalGov Drupal", html)
+        self.assertIn("do not have published reports yet", html)
+        self.assertIn("docs/MULTI-PROJECT-ONBOARDING.md", html)
         self.assertNotRegex(html, r'href="[^"]*(?:collection|analysis)\.json"')
         self.assertNotIn("supports", html.casefold())
 
