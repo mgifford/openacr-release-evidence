@@ -36,7 +36,7 @@ jobs:
             [ -f "$dir/evidence.json" ] || continue
             name="$(basename "$dir")"
             acr-evidence report --analysis "$dir/evidence.json" --collection reports/collection.json --output "/tmp/rebuilt-$name"
-            for file in index.html evidence.json summary.json report.css openacr.yaml openacr-validation.json criterion-evidence.json acr.html acr.md; do
+            for file in index.html evidence.json summary.json report.css openacr.yaml openacr-validation.json criterion-evidence.json reproduction-evidence.json acr.html acr.md; do
               diff "$dir/$file" "/tmp/rebuilt-$name/$file"
             done
           done

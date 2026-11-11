@@ -1,0 +1,129 @@
+{
+  "source": "Drupal Core Lab",
+  "source_repository": "https://github.com/mgifford/drupal-core-lab",
+  "retrieved_at": "2026-11-11",
+  "note": "External Core Lab evidence is not verification on the selected release. Only records with a documented end-to-end result are marked reproduced; index-only records are lab-evidence-present.",
+  "records": [
+    {
+      "issue_id": "drupal:3619127",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3619127/REPRODUCE.md",
+      "source_core_commit": "d29add7ebc18954dcb88877ed38b5bd88cdbf967",
+      "source_verified_at": "2026-10-01",
+      "source_result": "reproduced-and-fixed",
+      "source_scope": "Pinned Drupal Core and current main in Drupal Core Lab; not the selected OpenACR target.",
+      "methods": ["PHPUnit", "Playwright mouse and keyboard", "axe-core", "virtual screen reader", "served-file diff"],
+      "limitations": "No real VoiceOver/NVDA pass; Firefox unavailable; one theme; evidence is DRAFT until human review.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3619387",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3619387/REPRODUCE.md",
+      "source_core_commit": "cb915a48",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3619154",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3619154/REPRODUCE.md",
+      "source_core_commit": "175e6f17",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3426468",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3426468/REPRODUCE.md",
+      "source_core_commit": "da537706",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:867830",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/867830/REPRODUCE.md",
+      "source_core_commit": "0fcbb553",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3618405",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3618405/REPRODUCE.md",
+      "source_core_commit": "c95dbac4",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3604037",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3604037/REPRODUCE.md",
+      "source_core_commit": "e8b2e166",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3593502",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3593502/REPRODUCE.md",
+      "source_core_commit": "6d566c31",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3618230",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3618230/REPRODUCE.md",
+      "source_core_commit": "2d600f40",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3619933",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3619933/REPRODUCE.md",
+      "source_core_commit": "63ea50be",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    },
+    {
+      "issue_id": "drupal:3615469",
+      "source_url": "https://github.com/mgifford/drupal-core-lab/blob/main/reports/issues/3615469/REPRODUCE.md",
+      "source_core_commit": "21bbeeb1",
+      "source_verified_at": null,
+      "source_result": "lab-evidence-present-not-reviewed",
+      "source_scope": "Drupal Core Lab recorded a tested commit; no end-to-end result is imported here.",
+      "methods": [],
+      "limitations": "Index-level record only; inspect the Core Lab report before drawing a conclusion.",
+      "review_status": "unreviewed"
+    }
+  ]
+}

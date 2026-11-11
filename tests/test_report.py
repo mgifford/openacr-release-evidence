@@ -200,6 +200,9 @@ class ReportTests(unittest.TestCase):
         criterion_evidence = json.loads((folder / "criterion-evidence.json").read_text(encoding="utf-8"))
         self.assertEqual(0, criterion_evidence["summary"]["formal_conformance_results"])
         self.assertIn("criterion evidence", (folder / "index.html").read_text(encoding="utf-8"))
+        reproduction = json.loads((folder / "reproduction-evidence.json").read_text(encoding="utf-8"))
+        self.assertEqual(0, reproduction["summary"]["target_verified"])
+        self.assertIn("reproduction evidence", (folder / "index.html").read_text(encoding="utf-8"))
 
     def test_report_contains_every_issue(self):
         folder, artifact = self.render()

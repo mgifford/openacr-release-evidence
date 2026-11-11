@@ -64,6 +64,8 @@ python3 -m compileall -q src
 If `python` is absent on your platform, use `python3`. Do not document a check
 that fails on a clean checkout.
 
+External reproduction evidence (for example Drupal Core Lab) must remain separate from target verification and conformance. A record is `target_verified` only after exact target/config/result review. Guidepup and axe coverage are partial evidence, never automatic Supports.
+
 The separate release-transition ledger may collect recently closed-fixed issues. It never changes active-issue counts or criterion results. A fix is `included` only when a commit is contained in that exact target; otherwise use `not-included`, `not-established` or `removed`. Never describe a Drupal 12 fix as a Drupal 10/11 fix without containment evidence.
 
 ACR evidence covers active, review-relevant statuses only: 1, 8, 13, 14 and 15.

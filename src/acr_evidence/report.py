@@ -9,6 +9,7 @@ from html import escape
 from pathlib import Path
 
 from .criterion_evidence import build_criterion_evidence
+from .reproduction_evidence import build_reproduction_evidence
 from .model import digest_artifact
 from .wcag import (
     APPLICABILITY_LABELS,
@@ -409,12 +410,14 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         f'<li><a href="./openacr.yaml">OpenACR draft YAML</a></li>'
         f'<li><a href="./openacr-validation.json">validation result</a></li>'
         f'<li><a href="./criterion-evidence.json">criterion evidence</a></li>'
+        f'<li><a href="./reproduction-evidence.json">reproduction evidence</a></li>'
         f'<li><a href="./acr.html">ACR draft</a></li></ul>'
         '<p class="meta">The ACR is a derived draft, not an approved conformance report.</p></nav>'
     )
     html.append(_section_nav([
         ("scope", "Assessment scope"),
         ("summary", "Evidence summary"),
+        ("reproduction", "Reproduction evidence"),
         ("position", "Why this is different"),
         ("criteria", "WCAG criterion evidence"),
         ("issues", "Issue evidence"),
@@ -458,6 +461,28 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         f'{esc(summary.get("unmapped_criteria", 0))} findings without a WCAG criterion tag · '
         f'{esc(summary.get("needs_verification", 0))} need further verification.</p>'
     )
+    html.append("</section>")
+    reproduction = build_reproduction_evidence(analysis)
+    html.append('<section id="reproduction" aria-labelledby="reproduction-heading"><h2 id="reproduction-heading">Reproduction evidence</h2>')
+    html.append('<p><strong>External evidence is not verification on this target.</strong> '
+                'Drupal Core Lab records are listed for review, with their pinned commit and scope. '
+                'No entry establishes conformance on this release.</p>')
+    if reproduction["entries"]:
+        html.append(f'<p>{reproduction["summary"]["records"]} external records; '
+                    f'{reproduction["summary"]["in_active_collection"]} match active findings in this snapshot; '
+                    f'{reproduction["summary"]["target_verified"]} verified on this target.</p>')
+        html.append('<div class="table-scroll" tabindex="0" role="region" aria-label="External reproduction evidence"><table><caption>External Drupal Core Lab reproduction records</caption><thead><tr><th scope="col">Issue</th><th scope="col">External result</th><th scope="col">Source</th><th scope="col">This target</th><th scope="col">Review</th></tr></thead><tbody>')
+        for item in reproduction["entries"]:
+            issue = f'<a href="{esc(item.get("issue_url"))}">{esc(item.get("issue_id"))}</a>' if item.get("issue_url") else esc(item.get("issue_id"))
+            source = f'<a href="{esc(item.get("source_url"))}">Core Lab</a>' if item.get("source_url") else "Not linked"
+            html.append(f'<tr><td>{issue}</td><td>{esc(item.get("source_result"))}</td><td>{source}</td>'
+                        f'<td>{esc(item.get("target_applicability"))} · not verified</td>'
+                        f'<td>{esc(item.get("review_status"))}</td></tr>')
+        html.append("</tbody></table></div>")
+        html.append('<p class="meta">An external result remains external even when the issue appears in this target. '
+                    'A target verification requires the exact release, configuration and recorded result.</p>')
+    else:
+        html.append('<p>No external reproduction record is available for this snapshot.</p>')
     html.append("</section>")
     html.append('<section id="position" aria-labelledby="position-heading"><h2 id="position-heading">Why this is different</h2>')
     html.append('<p>A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked. It is stronger on known-report completeness, traceability and recency; it is weaker on independent page sampling and manual assistive-technology coverage.</p>')
@@ -603,6 +628,10 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     )
     (output / "criterion-evidence.json").write_text(
         json.dumps(build_criterion_evidence(analysis), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    (output / "reproduction-evidence.json").write_text(
+        json.dumps(reproduction, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     return output

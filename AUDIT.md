@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 139 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 141 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -342,3 +342,11 @@ cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.
   is inferred.
 - Guidepup is documented as a separate behavioral method. No Guidepup run is
   claimed.
+
+## Reproduction evidence layer (2026-11-11)
+
+- Added `config/reproduction-sources.json` with external Drupal Core Lab records.
+- Added `reproduction-evidence.json` and a report section.
+- External reproductions remain `target_applicability: not-established` and
+  `target_verified: false`; none becomes a conformance result.
+- Guidepup is documented as target-specific behavioral evidence; no run is claimed.
