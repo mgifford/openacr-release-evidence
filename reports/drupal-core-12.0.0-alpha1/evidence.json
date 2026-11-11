@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Pre-release alpha. Claro is the admin theme at this tag; Default Admin is present but not default. Not a supported release."
   },
-  "generated_at": "2026-11-10T18:39:04Z",
+  "generated_at": "2026-11-11T20:19:05Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -170,8 +170,8 @@
   "summary": {
     "findings": 432,
     "by_applicability": {
-      "likely-affected": 27,
-      "unknown": 405
+      "likely-affected": 28,
+      "unknown": 404
     },
     "by_workflow": {
       "needs-review": 18,
@@ -236,14 +236,14 @@
         "main"
       ],
       "since": "2026-03-06T20:18:51+01:00",
-      "commits": 1162,
-      "retrieved_at": "2026-11-10T17:03:33+00:00"
+      "commits": 1173,
+      "retrieved_at": "2026-11-11T20:09:56+00:00"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/12.0.0-alpha1",
-    "commit_index": "2026-11-10T17:03:33+00:00"
+    "commit_index": "2026-11-11T20:09:56+00:00"
   },
   "manifest_digest": "3087bbc4d975c12e7b73d025aa298152d1af3902da541355fbc3f2a46ab7798f",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -42880,12 +42880,39 @@
         "surface": "authoring",
         "basis": "component:navigation.module"
       },
-      "applicability": "unknown",
-      "basis": "report-after-release",
-      "reason": "The issue was reported after the target date (2026-09-02T20:18:51.000+01:00) and no fix was found in tag 12.0.0-alpha1. It may describe a later regression or a pre-existing barrier; reproduce on the target before assigning applicability.",
+      "applicability": "likely-affected",
+      "basis": "git-non-inclusion",
+      "reason": "Fix commit(s) 514b9ae3, 54b16efd were found on 12.0.x, main but are not contained in tag 12.0.0-alpha1. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
-      "commits": [],
+      "commits": [
+        {
+          "sha": "514b9ae3cf86e8c92bbdf9bf5d282695bc0c36b0",
+          "short_id": "514b9ae3",
+          "url": "https://git.drupalcode.org/project/drupal/-/commit/514b9ae3cf86e8c92bbdf9bf5d282695bc0c36b0",
+          "branch": "12.0.x",
+          "branches": [
+            "12.0.x"
+          ],
+          "created_at": "2026-11-11T20:06:51.000+00:00",
+          "title": "fix: #3624877 Navigation icons contain hardcoded colors",
+          "in_target": false,
+          "in_release": false
+        },
+        {
+          "sha": "54b16efd900f1bd6d0da6d49184673a691eb11e6",
+          "short_id": "54b16efd",
+          "url": "https://git.drupalcode.org/project/drupal/-/commit/54b16efd900f1bd6d0da6d49184673a691eb11e6",
+          "branch": "main",
+          "branches": [
+            "main"
+          ],
+          "created_at": "2026-11-11T20:06:38.000+00:00",
+          "title": "fix: #3624877 Navigation icons contain hardcoded colors",
+          "in_target": false,
+          "in_release": false
+        }
+      ],
       "merge_requests": [
         {
           "iid": 17211,
@@ -42904,6 +42931,8 @@
       ],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/3624877",
+        "https://git.drupalcode.org/project/drupal/-/commit/514b9ae3cf86e8c92bbdf9bf5d282695bc0c36b0",
+        "https://git.drupalcode.org/project/drupal/-/commit/54b16efd900f1bd6d0da6d49184673a691eb11e6",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/17211"
       ],
       "review_status": "unreviewed",
@@ -44333,5 +44362,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "669c4431ab7c27c32757c52e3b2ba5fd7bc9357381edd2757dc6797b8bb33935"
+  "evidence_digest": "88e91343410021717523f1c8dd408fbe0b78327b4194ff54eeac0a223e86195f"
 }

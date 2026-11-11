@@ -135,6 +135,19 @@ narrative is not a conformance claim.
    generated draft.
 7. Remove the draft statement only after independent review and sign-off.
 
+## References grouping
+
+References are grouped into collapsible POUR sections: Perceivable, Operable,
+Understandable and Robust. The groups are open by default so criterion reference
+anchors remain visible; they can be collapsed for scanning.
+
+## Not Evaluated and positive evidence
+
+A criterion with no active tagged issue remains Not Evaluated. That is not a
+claim that it does not apply, and it is not evidence of Supports. Supports and
+Not Applicable require separate human-reviewed evidence with a source and date,
+or a documented product-scope decision.
+
 ## References
 
 The structure follows common ACR reporting practice; **OpenACR is the

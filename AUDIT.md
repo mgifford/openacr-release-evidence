@@ -313,3 +313,12 @@ cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.
 - The “On this page” navigation includes subsection headings.
 - No SkipTo JavaScript was added; the static heading index preserves the
   no-JavaScript requirement.
+
+## POUR references and Not Evaluated clarity (2026-11-11)
+
+- References are grouped into collapsible POUR sections, open by default so
+  criterion anchors remain targetable.
+- Added an explicit explanation that Not Evaluated is not Supports and is not a
+  statement that a criterion does not apply.
+- Supports and Not Applicable still require separate human-reviewed evidence;
+  the issue queue cannot establish either.

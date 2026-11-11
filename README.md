@@ -422,6 +422,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Why this ACR is different](docs/ACR-POSITION.md)
 - [Cloudflare summary option](docs/CLOUDFLARE-SUMMARIES.md)
 - [Surface policy for Web vs Authoring Tool](docs/SURFACE-POLICY.md)
+- [Criterion evidence beyond the issue queue](docs/CRITERION-EVIDENCE.md)
 - [Onboarding Drupal CMS and LocalGov Drupal](docs/MULTI-PROJECT-ONBOARDING.md)
 - [Between-release accessibility commentary](docs/RELEASE-COMMENTARY.md)
 - [Drupal ecosystem AI/ACR context](context/README.md)

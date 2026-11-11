@@ -108,8 +108,8 @@
   "summary": {
     "findings": 432,
     "by_applicability": {
-      "likely-affected": 27,
-      "unknown": 405
+      "likely-affected": 28,
+      "unknown": 404
     },
     "by_workflow": {
       "needs-review": 18,
@@ -174,11 +174,11 @@
         "main"
       ],
       "since": "2026-03-06T20:18:51+01:00",
-      "commits": 1162,
-      "retrieved_at": "2026-11-10T17:03:33+00:00"
+      "commits": 1173,
+      "retrieved_at": "2026-11-11T20:09:56+00:00"
     }
   },
-  "generated_at": "2026-11-10T18:39:04Z",
-  "evidence_digest": "669c4431ab7c27c32757c52e3b2ba5fd7bc9357381edd2757dc6797b8bb33935",
+  "generated_at": "2026-11-11T20:19:05Z",
+  "evidence_digest": "88e91343410021717523f1c8dd408fbe0b78327b4194ff54eeac0a223e86195f",
   "manifest_digest": "3087bbc4d975c12e7b73d025aa298152d1af3902da541355fbc3f2a46ab7798f"
 }

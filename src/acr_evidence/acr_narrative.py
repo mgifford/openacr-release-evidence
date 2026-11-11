@@ -173,6 +173,9 @@ class Doc:
     def table(self, caption, headers, rows, css_class=None, row_ids=None):
         self.blocks.append(("table", (caption, list(headers), [list(row) for row in rows], css_class, list(row_ids) if row_ids else None)))
 
+    def details(self, summary, groups):
+        self.blocks.append(("details", (summary, list(groups))))
+
     def markdown(self):
         out = [f"# {self.title}", "", f"_{self.description}_", ""]
         for kind, value in self.blocks:
@@ -191,6 +194,14 @@ class Doc:
                 out.extend([f"### {text}", ""])
             elif kind == "links":
                 out.extend([f"- [{label}]({url})" if url else f"- {label}" for label, url in value] + [""])
+            elif kind == "details":
+                summary, groups = value
+                out.extend(["<details open>", f"<summary>{summary}</summary>", ""])
+                for heading, links in groups:
+                    out.extend([f"### {heading}", ""])
+                    out.extend(f"- [{label}]({url})" if url else f"- {label}" for label, url in links)
+                    out.append("")
+                out.extend(["</details>", ""])
             elif kind == "table":
                 caption, headers, rows, _css_class, _row_ids = value
                 out.extend([f"**{caption}**", ""])
@@ -286,6 +297,17 @@ class Doc:
                     else:
                         items.append(f"<li>{escape(label)}</li>")
                 parts.append("<ul>" + "".join(items) + "</ul>")
+            elif kind == "details":
+                summary, groups = value
+                parts.append(f'<details class="reference-group" open><summary>{escape(summary)}</summary>')
+                for heading, links in groups:
+                    anchor = _slug(heading.split(" — ", 1)[0])
+                    parts.append(_heading_with_permalink("3", heading, f"ref-{anchor}"))
+                    parts.append("<ul>" + "".join(
+                        f'<li><a href="{escape(url)}">{escape(label)}</a></li>' if url else f"<li>{escape(label)}</li>"
+                        for label, url in links
+                    ) + "</ul>")
+                parts.append("</details>")
             elif kind == "table":
                 caption, headers, rows, css_class, row_ids = value
                 parts.append(f'<div class="table-scroll" tabindex="0" role="region" aria-label="{escape(caption)}">')
@@ -711,6 +733,11 @@ def render_acr_narrative(analysis, output_dir):
             note += f" Removed in this line: {removed}."
         note += (" The core collection does not include the theme project queues; a theme's own ACR must cover those issues.")
         doc.p(note)
+    doc.h2("What Not Evaluated means")
+    doc.p("A Not Evaluated row means this issue-queue method has no positive evidence for that criterion. It is not a claim that the criterion does not apply, and the absence of an active tagged issue is not Supports.")
+    doc.p("This build does not assign Supports. A Supports or Not Applicable result requires a separate, human-reviewed evidence record: a test or code audit with a source and date, or a documented product-scope decision. The issue queue can establish reported barriers; it cannot establish that a criterion is met.")
+    doc.p("For example, 2.2.1 Timing Adjustable, 2.2.2 Pause, Stop, Hide and 2.3.1 Three Flashes or Below Threshold remain Not Evaluated when no active issue is tagged. That is a review gap, not a claim that Drupal does not need those criteria.")
+    doc.p("The media criteria 1.2.1, 1.2.3, 1.2.4 and 1.2.5 are different: they are Not Applicable because Drupal Core does not provide the relevant audio/video player or live-media feature. They are not Not Applicable because the queue is empty.")
     doc.h2("Why this ACR is different")
     doc.p("A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor's issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked.")
     doc.table("Conventional vendor ACR and this issue-queue attestation", ["Dimension", "Conventional vendor ACR", "This ACR"], [
@@ -855,20 +882,33 @@ def render_acr_narrative(analysis, output_dir):
         "The draft does not establish legal compliance or a procurement-safe conformance claim.",
     ])
     doc.h2("References")
-    doc.p("Every Drupal.org issue cited in the criterion tables is listed below by criterion. Each link goes to the public issue where the barrier is discussed.")
+    doc.p("Every Drupal.org issue cited in the criterion tables is listed below by WCAG principle. Each group can be collapsed; each criterion keeps a stable reference anchor. Each link goes to the public issue where the barrier is discussed.")
+    principle_labels = {
+        "1": "1. Perceivable",
+        "2": "2. Operable",
+        "3": "3. Understandable",
+        "4": "4. Robust",
+    }
+    handles = {
+        str(criterion.get("id")): criterion.get("handle") or ""
+        for chapter in catalog.get("chapters") or []
+        for criterion in chapter.get("criteria") or []
+    }
+    grouped = {}
     for criterion_id in sorted(by_criterion):
-        items = by_criterion[criterion_id]
-        handle = next(
-            (
-                criterion.get("handle")
-                for chapter in catalog.get("chapters") or []
-                for criterion in chapter.get("criteria") or []
-                if str(criterion.get("id")) == criterion_id
-            ),
-            "",
-        )
-        doc.heading(f"{criterion_id} — {handle or 'WCAG criterion'}", f"ref-{_slug(criterion_id)}")
-        doc.links(_reference_items(items))
+        grouped.setdefault(criterion_id.split(".", 1)[0], []).append(criterion_id)
+    for principle in ("1", "2", "3", "4"):
+        criterion_ids = grouped.get(principle) or []
+        if not criterion_ids:
+            continue
+        groups = []
+        for criterion_id in criterion_ids:
+            handle = handles.get(criterion_id, "")
+            groups.append((
+                f"{criterion_id} — {handle or 'WCAG criterion'}",
+                _reference_items(by_criterion[criterion_id]),
+            ))
+        doc.details(f"{principle_labels[principle]} ({len(groups)} {_plural(len(groups), 'criterion', 'criteria')})", groups)
     doc.h2("Sources")
     doc.table("Authoritative sources", ["Source", "Link"], [
         ["Drupal Core Accessibility queue", Cell("Drupal.org Accessibility issue queue", "https://www.drupal.org/project/issues/search?text=&projects=Drupal+core&assigned=&submitted=&project_issue_followers=&status%5B%5D=Open&issue_tags_op=%3D&issue_tags=Accessibility")],

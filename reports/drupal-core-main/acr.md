@@ -14,7 +14,7 @@ This document converts the active issue evidence into an ACR narrative. It is de
 | Version / release | 12.0.x-dev |
 | Target ref | main (branch) |
 | Support status | development |
-| Report date | 2026-11-10 |
+| Report date | 2026-11-11 |
 | Report status | DRAFT — not approved for publication |
 | Prepared by | Unassigned reviewer (draft) |
 | Assessment identifier | drupal-core-main |
@@ -67,6 +67,16 @@ The evidence collection covers active, review-relevant Drupal Core Accessibility
 - Open issue reports are treated as draft barrier evidence; they are not a release reproduction.
 - No keyboard, screen-reader, zoom, reduced-motion or forced-colors testing of the product is claimed.
 - No AI was used to assign applicability or an ACR result.
+
+## What Not Evaluated means
+
+A Not Evaluated row means this issue-queue method has no positive evidence for that criterion. It is not a claim that the criterion does not apply, and the absence of an active tagged issue is not Supports.
+
+This build does not assign Supports. A Supports or Not Applicable result requires a separate, human-reviewed evidence record: a test or code audit with a source and date, or a documented product-scope decision. The issue queue can establish reported barriers; it cannot establish that a criterion is met.
+
+For example, 2.2.1 Timing Adjustable, 2.2.2 Pause, Stop, Hide and 2.3.1 Three Flashes or Below Threshold remain Not Evaluated when no active issue is tagged. That is a review gap, not a claim that Drupal does not need those criteria.
+
+The media criteria 1.2.1, 1.2.3, 1.2.4 and 1.2.5 are different: they are Not Applicable because Drupal Core does not provide the relevant audio/video player or live-media feature. They are not Not Applicable because the queue is empty.
 
 ## Why this ACR is different
 
@@ -260,7 +270,10 @@ The evidence report lists all active issues and their source links. It distingui
 
 ## References
 
-Every Drupal.org issue cited in the criterion tables is listed below by criterion. Each link goes to the public issue where the barrier is discussed.
+Every Drupal.org issue cited in the criterion tables is listed below by WCAG principle. Each group can be collapsed; each criterion keeps a stable reference anchor. Each link goes to the public issue where the barrier is discussed.
+
+<details open>
+<summary>1. Perceivable (13 criteria)</summary>
 
 ### 1.1.1 — Non-text Content
 
@@ -375,6 +388,11 @@ Every Drupal.org issue cited in the criterion tables is listed below by criterio
 
 - [drupal:2384203 — Improve indentation in hierarchical select lists (Needs work)](https://www.drupal.org/project/drupal/issues/2384203)
 
+</details>
+
+<details open>
+<summary>2. Operable (16 criteria)</summary>
+
 ### 2.1.1 — Keyboard
 
 - [drupal:2915762 — Return to tab position when exiting dialog opened from contextual link (Needs work)](https://www.drupal.org/project/drupal/issues/2915762)
@@ -479,6 +497,11 @@ Every Drupal.org issue cited in the criterion tables is listed below by criterio
 - [drupal:3459246 — Add a '#select_all' option for checkboxes element (Needs work)](https://www.drupal.org/project/drupal/issues/3459246)
 - [drupal:3636643 — The Default Admin theme is not meeting the minimum target size of at least 24x24px (Active)](https://www.drupal.org/project/drupal/issues/3636643)
 
+</details>
+
+<details open>
+<summary>3. Understandable (8 criteria)</summary>
+
 ### 3.1.2 — Language of Parts
 
 - [drupal:2496223 — Views containing content not in the page's language need to add tags which mark the language of parts (Active)](https://www.drupal.org/project/drupal/issues/2496223)
@@ -546,6 +569,11 @@ Every Drupal.org issue cited in the criterion tables is listed below by criterio
 
 - [drupal:3619127 — Forms sidebar doesn't open with error links from Inline Form Errors module (Needs review)](https://www.drupal.org/project/drupal/issues/3619127)
 
+</details>
+
+<details open>
+<summary>4. Robust (2 criteria)</summary>
+
 ### 4.1.2 — Name, Role, Value
 
 - [drupal:1402250 — Allow modules to classify blocks when defining them, so WAI-ARIA roles can automatically be added in the theme layer (Needs work)](https://www.drupal.org/project/drupal/issues/1402250)
@@ -596,6 +624,8 @@ Every Drupal.org issue cited in the criterion tables is listed below by criterio
 - [drupal:3035435 — Make the show/hide row weights button more informative for assistive tech users. (Needs work)](https://www.drupal.org/project/drupal/issues/3035435)
 - [drupal:3159933 — Status Message in Claro on theme install should have role="status" or similar instead of contentinfo (Needs work)](https://www.drupal.org/project/drupal/issues/3159933)
 - [drupal:3360146 — Updates to AJAX view filters for assistive technology (Active)](https://www.drupal.org/project/drupal/issues/3360146)
+
+</details>
 
 ## Sources
 
