@@ -12,13 +12,16 @@ the current code.
 1. **The issue queue is a known-barrier register, not a conformance result.**
    A tagged issue is reported evidence; it does not prove reproduction or a
    criterion-level outcome.
-2. **Surface assessment policy is explicit.**
+2. **Surface assessment policy is explicit, but it does not grade the queue.**
    `config/surface-assessments.json` records the project-asserted Web/Authoring
-   assessment. Known issue → Partially Supports; assessed surface with no known
-   issue → Supports; documented feature absence → Not Applicable; Does Not
-   Support only with explicit broad-failure evidence.
-3. **Absence alone is not support.** Supports depends on the declared surface
-   assessment, not on an empty issue queue or a clean automated scan.
+   assessment. A reported issue is a potential barrier, not a conformance
+   result. Documented feature absence may be Not Applicable; Does Not Support
+   requires explicit broad-failure evidence. Every other criterion remains Not
+   Evaluated until a reviewer records reviewed evidence.
+3. **Neither presence nor absence of reports decides support.** An empty issue
+   queue is not evidence that a criterion is met, and an unreproduced report is
+   not evidence that it is not met. OpenACR adherence values are left unset for
+   human review rather than inferred from the queue.
 4. **N/A needs a factual basis.**
    Electronic Documents/Software and 1.2.1/1.2.3/1.2.4/1.2.5/1.4.2 are excluded
    for documented feature/product absence, not because no issue was tagged.
@@ -50,14 +53,17 @@ the current code.
 ## Corrections made during the session
 
 - The initial evidence/conformance separation overcorrected: every criterion
-  became Not Evaluated. That was truthful but not useful. The surface-assessment
-  policy was added so known issues produce Partially Supports and assessed
-  surfaces can produce Supports.
-- A known issue must be **Partially Supports**, not Supports. Supports means the
-  criterion is met, not that a barrier is known.
-- “No active issue” is not Supports by itself; it needs the declared assessment.
-- `Partially Supports` must never be inferred from a tag alone without the
-  documented policy and draft caveat.
+  became Not Evaluated. A later surface-assessment policy tried to make the
+  report more useful by turning known issues into Partially Supports and empty
+  assessed surfaces into Supports. That was not supportable either: an
+  unreproduced report is not a conformance finding, and an empty queue is not
+  positive evidence. The policy now leaves both at Not Evaluated.
+- A known issue is a potential barrier, not **Partially Supports**. Supports
+  means the criterion is met, not that no barrier is known.
+- “No active issue” is not Supports. It is Not Evaluated unless a reviewer
+  records positive evidence.
+- `Partially Supports` must never be inferred from a tag or an active issue
+  report without reviewed evidence.
 - 1.3.2 is not covered by axe/ACT; its Support result rests on the assessment, not
   automation.
 - 1.4.2 belongs with the native-media N/A scope.

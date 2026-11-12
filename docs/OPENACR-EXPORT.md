@@ -50,8 +50,8 @@ write:
 The report page links both files and the ACR narrative
 (`acr.html`/`acr.md`). The narrative and YAML use draft issue-queue values:
 the draft applies the declared Drupal surface assessment and known-barrier
-register: a known issue is Partially Supports, an assessed surface with no known
-issue is Supports, and documented feature absence is Not Applicable. Electronic
+register: reported issues are not conformance findings, so non-`Not Applicable`
+adherence values are left unset. Documented feature absence is Not Applicable. Electronic
 Documents and Software are Not Applicable from documented product scope.
 
 ## What the draft contains
@@ -71,8 +71,8 @@ Documents and Software are Not Applicable from documented product scope.
 - All seven catalog chapters and all **182** catalog criteria, in catalog order.
 - Chapter-level draft notes linking the evidence report.
 - Four Section 508 component names on each WCAG criterion;
-- `supports` on assessed surfaces with no known issue;
-- `partially-supports` where known issues are present;
+- no inferred `supports` or `partially-supports` values from issue presence or
+  absence;
 - `not-applicable` on Electronic Documents/Software and the documented media
   criteria (1.2.1/1.2.3/1.2.4/1.2.5);
 - no `does-not-support` without explicit broad-failure evidence;
@@ -84,8 +84,9 @@ Documents and Software are Not Applicable from documented product scope.
 No adherence value is assigned from an issue tag. The criterion-evidence ledger
 records reported barriers, candidate mappings, release applicability and
 verification gaps; it does not make a conformance decision. Web/Authoring
-components remain unset in the draft. `not-evaluated` remains restricted to AAA
-in this catalog. A human must complete the assessment and supply any formal
+components remain unset in the draft, and `component_scope` marks Web and
+Authoring Tool `unassessed`. `not-evaluated` remains restricted to AAA in this
+catalog. A human must complete the assessment and supply any formal
 adherence value.
 
 ## Validation
@@ -103,9 +104,10 @@ adherence value.
 A valid draft result means **the document structure is valid**, not that any
 accessibility claim is true.
 
-On 2026-11-07 all five target drafts were also checked with the official
+On 2026-11-07 all five target drafts were checked with the official
 `@civicactions/openacr` 0.3.11 CLI using the vendored catalog; each returned
-`Valid!`. That is a structural/schema/catalog check, not an accessibility review.
+`Valid!`. After the 2026-11-12 regeneration they were rechecked with the
+repository's vendored schema/catalog validator; all five returned valid. That is a structural/schema/catalog check, not an accessibility review.
 
 ## Human review workflow
 

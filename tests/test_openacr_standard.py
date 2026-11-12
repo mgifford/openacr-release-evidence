@@ -84,11 +84,20 @@ class OpenACRExportTests(unittest.TestCase):
         components = {component["name"]: component for component in first["components"]}
         self.assertEqual("not-applicable", components["electronic-docs"]["adherence"]["level"])
         self.assertIn("Not present", components["electronic-docs"]["adherence"]["notes"])
-        self.assertEqual("supports", components["web"]["adherence"]["level"])
+        self.assertNotIn("adherence", components["web"])
         self.assertIn("DRAFT", document["title"])
 
 
-    def test_issue_tagged_criterion_is_partially_supports(self):
+    def test_no_adherence_value_is_inferred_from_reports_or_absence(self):
+        catalog = load_catalog()
+        draft = build_draft(analysis(), catalog)
+        serialized = str(draft)
+        self.assertNotIn("'partially-supports'", serialized)
+        self.assertNotIn("'supports'", serialized)
+        self.assertEqual("unassessed", draft["component_scope"]["web"]["proposed_result"])
+        self.assertEqual("unassessed", draft["component_scope"]["web"]["review_status"])
+
+    def test_issue_tagged_criterion_is_not_graded(self):
         catalog = load_catalog()
         document = analysis()
         document["findings"] = [
@@ -108,8 +117,8 @@ class OpenACRExportTests(unittest.TestCase):
         draft = build_draft(document, catalog)
         criterion = draft["chapters"]["success_criteria_level_a"]["criteria"][0]
         components = {component["name"]: component for component in criterion["components"]}
-        self.assertEqual("partially-supports", components["web"]["adherence"]["level"])
-        self.assertEqual("partially-supports", components["authoring-tool"]["adherence"]["level"])
+        self.assertNotIn("adherence", components["web"])
+        self.assertNotIn("adherence", components["authoring-tool"])
         self.assertEqual("not-applicable", components["electronic-docs"]["adherence"]["level"])
         self.assertIn("Not present", components["electronic-docs"]["adherence"]["notes"])
         media = draft["chapters"]["success_criteria_level_a"]["criteria"][1]
@@ -122,7 +131,7 @@ class OpenACRExportTests(unittest.TestCase):
         self.assertIn("native audio", audio_components["web"]["adherence"]["notes"])
         untagged = draft["chapters"]["success_criteria_level_a"]["criteria"][4]
         untagged_components = {component["name"]: component for component in untagged["components"]}
-        self.assertEqual("supports", untagged_components["web"]["adherence"]["level"])
+        self.assertNotIn("adherence", untagged_components["web"])
         self.assertNotIn("does-not-support", str(draft))
 
     def test_export_writes_yaml_and_validation(self):

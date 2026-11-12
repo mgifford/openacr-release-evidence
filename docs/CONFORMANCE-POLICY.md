@@ -62,11 +62,11 @@ not receive a release applicability conclusion.
 ## ACR narrative
 
 The ACR narrative uses a draft issue-queue evidence summary. Web and Authoring
-Tool use Partially Supports for known active issues and Supports when the assessed
-surface has no known issue. Electronic Documents and Software are Not Applicable
-from documented product scope. Does Not Support requires explicit broad-failure
-evidence and is not emitted automatically. Issue reports are not release
-reproductions; a reviewer must confirm every term. The
+Tool remain Not Evaluated: reported issues do not produce Partially Supports and
+an empty queue does not produce Supports. Electronic Documents and Software are
+Not Applicable from documented product scope. Does Not Support requires explicit
+broad-failure evidence and is not emitted automatically. Issue reports are not
+release reproductions; a reviewer must record every conformance term. The
 narrative does not replace the OpenACR YAML and does not inherit ATAG results.
 
 ## Issue-queue attestation versus a periodic vendor ACR
