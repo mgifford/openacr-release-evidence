@@ -276,6 +276,26 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(0, reproduction["summary"]["target_verified"])
         self.assertIn("reproduction evidence", (folder / "index.html").read_text(encoding="utf-8"))
 
+    def test_issue_index_groups_by_applicability_and_explains_unknowns(self):
+        folder, artifact = self.render()
+        html = (folder / "issues.html").read_text(encoding="utf-8")
+        self.assertIn('id="issue-filter-all"', html)
+        self.assertIn('id="issue-filter-likely"', html)
+        self.assertIn('id="issue-filter-needs-checking"', html)
+        self.assertIn('data-group="likely"', html)
+        self.assertIn('data-group="needs-checking"', html)
+        self.assertIn("Probably affects this release (2)", html)
+        self.assertIn("Needs checking (1)", html)
+        self.assertIn("Fix included, not behaviourally verified (1)", html)
+        self.assertIn("Verified problems (0)", html)
+        self.assertIn("No issue in this snapshot has this state", html)
+        self.assertIn("Why are these not determined?", html)
+        self.assertIn("Reported after this release was cut", html)
+        self.assertEqual(
+            len(artifact["findings"]),
+            html.count('data-applicability="'),
+        )
+
     def test_report_contains_every_issue(self):
         folder, artifact = self.render()
         html = (folder / "issues.html").read_text(encoding="utf-8")

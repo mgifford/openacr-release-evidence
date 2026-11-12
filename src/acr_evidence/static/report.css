@@ -197,3 +197,20 @@ body:has(#filter-status-development:checked) .release-card:not([data-support="de
 .compat-list{columns:2;column-gap:2rem;margin:.5rem 0 1rem;padding-inline-start:1.2rem}
 .compat-list li{margin:.2rem 0;break-inside:avoid}
 @media(max-width:48rem){.compat-list{columns:1}}
+/* Issue applicability grouping and CSS-only filter. */
+.issue-filters{margin:1rem 0;padding:.75rem 1rem;border:1px solid ButtonBorder;background:Canvas}
+.issue-filters fieldset{border:0;padding:0;margin:0}
+.issue-filters legend{font-weight:750;padding:0 0 .5rem}
+.issue-filters .filter-options{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+.issue-filters label{padding:.2rem 0}
+.issue-group{border-top:2px solid CanvasText;margin-top:2rem;padding-top:.5rem}
+.issue-group h4{font-size:1.15rem;margin:.6rem 0 .25rem}
+.group-note{max-width:70rem}
+.empty-state{border:1px dashed ButtonBorder;padding:.7rem 1rem;max-width:70rem;background:Canvas}
+.issue-reasons{margin:1rem 0}
+.issue-reasons h4{margin-top:0}
+body:has(#issue-filter-verified:checked) .issue-group:not([data-group="verified"]),
+body:has(#issue-filter-likely:checked) .issue-group:not([data-group="likely"]),
+body:has(#issue-filter-fix-included:checked) .issue-group:not([data-group="fix-included"]),
+body:has(#issue-filter-needs-checking:checked) .issue-group:not([data-group="needs-checking"]),
+body:has(#issue-filter-outside:checked) .issue-group:not([data-group="outside"]){display:none}
