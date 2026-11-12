@@ -98,21 +98,21 @@ def criterion_info(criterion):
 
 
 APPLICABILITY_MEANINGS = {
-    "confirmed-affected": "A reproduction on the target release demonstrates the barrier.",
-    "likely-affected": "Report evidence suggests the barrier is present, but it was not reproduced.",
-    "confirmed-fixed": "A fix commit is contained in the release tag; behavioural verification is still required.",
-    "not-introduced": "The affected feature or code is absent from the target release.",
-    "not-in-scope": "The component is outside the declared assessment scope.",
-    "unknown": "Insufficient target-specific evidence; do not infer applicability or support.",
+    "confirmed-affected": "The problem was reproduced in this exact release.",
+    "likely-affected": "Available information suggests the problem exists in this release, but nobody reproduced it.",
+    "confirmed-fixed": "A matching fix commit is included in this release; the fix has not been behaviourally verified.",
+    "not-introduced": "The affected component or feature is not present in this release.",
+    "not-in-scope": "The component is outside the components declared for this report.",
+    "unknown": "Not enough information to decide whether the problem affects this release. This is not a statement that the release is accessible or inaccessible.",
 }
 
 SHORT_APPLICABILITY = {
-    "confirmed-affected": "Confirmed affected",
-    "likely-affected": "Likely affected",
+    "confirmed-affected": "Verified problem",
+    "likely-affected": "Probably affected",
     "confirmed-fixed": "Fix included",
-    "not-introduced": "Not introduced",
-    "not-in-scope": "Not in scope",
-    "unknown": "Unknown",
+    "not-introduced": "Not present",
+    "not-in-scope": "Out of scope",
+    "unknown": "Not determined",
 }
 
 SUPPORT_STATUS_LABELS = {
@@ -124,10 +124,10 @@ SUPPORT_STATUS_LABELS = {
 }
 
 APPLICABILITY_LABELS = {
-    "confirmed-affected": "Confirmed affected (reproduction evidence)",
-    "likely-affected": "Likely affected (report evidence; not reproduced)",
-    "confirmed-fixed": "Fix included in release (not independently verified)",
-    "not-introduced": "Not introduced in this release",
-    "not-in-scope": "Not in this assessment's scope",
-    "unknown": "Unknown (insufficient target-specific evidence)",
+    "confirmed-affected": "Verified problem (reproduced in this release)",
+    "likely-affected": "Probably affects this release (not reproduced)",
+    "confirmed-fixed": "Fix included in this release (not behaviourally verified)",
+    "not-introduced": "Not present in this release",
+    "not-in-scope": "Outside this report's scope",
+    "unknown": "Not yet determined",
 }

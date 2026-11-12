@@ -8,16 +8,15 @@ Supports.
 
 | State | Required evidence |
 |---|---|
-| Partially Supports | Known active issue on an assessed surface; remarks explain the known barrier |
-| Supports | Assessed surface with no known active issue |
-| Does Not Support | Explicit broad-failure evidence; not emitted automatically |
-| Supports | Positive human-reviewed evidence: a test, code audit or documented implementation with a source and date |
+| Partially Supports | Reviewer-recorded partial evidence; not produced automatically from an issue report |
+| Supports | Reviewer-recorded positive evidence: a test, code audit or documented implementation with a source and date; not produced from an empty queue |
+| Does Not Support | Reviewed evidence that the majority of relevant functionality fails; not emitted automatically |
 | Not Applicable | A documented product-scope decision showing that the content or feature is absent |
-| Not Evaluated | Surface assessment is not established; no result is assigned |
-| Does Not Support | Reviewed evidence that the majority of relevant functionality fails |
+| Not Evaluated | No reviewed conformance evidence is recorded; this is the default for every non-Not-Applicable criterion |
 
 The issue-queue attestation applies the declared surface assessment: known issue
--> Partially Supports; no known issue on an assessed surface -> Supports;
+-> potential barrier, not a conformance result; no known issue on an assessed
+surface -> Not Evaluated, not Supports;
 documented feature absence -> Not Applicable. Does Not Support requires explicit
 broad-failure evidence. The evidence ledger records the underlying barriers.
 
@@ -52,9 +51,8 @@ The policy backlog is not a failure list. Prioritise:
 4. media criteria only where a player, live media or audio feature exists.
 
 For Drupal Core, 1.2.1/1.2.3/1.2.4/1.2.5 are Not Applicable because the relevant
-media player/live feature is absent. 2.2.1/2.2.2/2.3.1 are Supports under the
-assessed-surface policy when no active issue is known; that is not an automated
-pass.
+media player/live feature is absent. 2.2.1/2.2.2/2.3.1 remain Not Evaluated when
+no reviewed evidence is recorded; an empty issue queue is not a pass.
 
 ## Automated evaluation coverage
 
@@ -83,8 +81,9 @@ assumed for every criterion. No Guidepup run is claimed in the current snapshot.
 
 ## POUR summary
 
-A review dashboard should show Supports, Partially Supports, Not Applicable and
-Partially Supports, Supports, Not Applicable and Not Evaluated counts for each WCAG principle. This makes the positive evidence
+A review dashboard should show Not Applicable and Not Evaluated counts for each
+WCAG principle. It must not count issue reports as Supports or Partially
+Supports. This makes the positive evidence
 visible without turning the issue count into a conformance score.
 
 ## Boundaries

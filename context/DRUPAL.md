@@ -12,14 +12,15 @@ product and does not ship a separate installed software application.
 
 | Component | Proposed treatment |
 |---|---|
-| Web | Partially Supports |
+| Web | Not Evaluated (reviewer must record evidence) |
 | Electronic Documents | Not Applicable |
 | Software | Not Applicable |
-| Authoring Tool | Partially Supports |
+| Authoring Tool | Not Evaluated (reviewer must record evidence) |
 
-These are proposed component-level results for review. Every criterion remains
-`Not Evaluated` until a named reviewer completes it. `Partially Supports` needs a
-specific explanation; `Supports` also needs an explanation.
+These are scope notes for review, not component-level results. Every criterion
+remains `Not Evaluated` until a named reviewer records reviewed evidence.
+Reported issues are potential barriers; they do not produce `Partially Supports`.
+An empty queue does not produce `Supports`.
 
 Use the ACR template:
 [`../templates/drupal-acr-template.md`](../templates/drupal-acr-template.md).

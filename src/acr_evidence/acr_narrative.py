@@ -531,8 +531,8 @@ def _barrier_summary(items, surface):
     label = "web" if surface == "web" else "authoring"
     if not items:
         return (
-            f"No {label}-classified issue is known in this snapshot. Supports is based on the declared "
-            "Drupal surface assessment, not on automated testing or the empty queue alone."
+            f"No {label}-classified issue is known in this snapshot. No conformance result is assigned: "
+            "an empty queue is not evidence that the criterion is met."
         )
     titles = []
     for item in items[:6]:
@@ -702,11 +702,11 @@ def render_acr_narrative(analysis, output_dir):
     title = f"{product} {release} — Draft Accessibility Conformance Report (ACR) Narrative"
     doc = Doc(
         title,
-        "Issue evidence is summarized under the declared surface assessment: "
-        "known issues are Partially Supports and assessed surfaces with no known issue are Supports.",
+        "Issue evidence is summarized as reported barriers. No ACR result is assigned automatically: "
+        "reported issues are not reproductions, and an empty queue is not evidence of support.",
     )
 
-    doc.p("This document converts active issue evidence into an ACR narrative. It is deliberately not a completed ACR: results are draft applications of the declared surface assessment and the known-barrier register. No issue was reproduced against this release, and a named reviewer must approve the report.")
+    doc.p("This document describes reported accessibility issues for one release. It is deliberately not a completed ACR: every criterion remains Not Evaluated until a named reviewer records reviewed evidence. No issue was reproduced against this release, and an unreproduced report is not a conformance finding.")
     doc.h2("Product information")
     doc.table("Product and report identification", ["Field", "Value"], [
         ["Product", Cell(product)],
@@ -725,7 +725,7 @@ def render_acr_narrative(analysis, output_dir):
         if surface in surface_counts:
             surface_counts[surface] += 1
     doc.h2("Component scope and proposed result")
-    doc.p("Web and Authoring Tool use the declared Drupal surface assessment plus the active known-barrier register. Known issues produce Partially Supports; an assessed surface with no active tagged issue produces Supports. No Does Not Support result is recorded.")
+    doc.p("Web and Authoring Tool are the assessed surfaces. Reported issues are listed as potential barriers, but they do not produce a conformance result. No Supports, Partially Supports or Does Not Support value is assigned automatically.")
     component_rows = []
     component_policy = component_results(findings)
     for component, proposed, component_id in COMPONENTS:
@@ -733,14 +733,15 @@ def render_acr_narrative(analysis, output_dir):
         if component_id == "web":
             evidence = f"{surface_counts['web']} active findings classified as front-end/web"
             rationale = (
-                "Active front-end issue evidence exists, so Partially Supports is proposed. The issue queue is "
-                "the known-barrier register; this is not a WCAG-EM audit."
+                "Active front-end issue reports exist. They are listed as potential barriers, but they are not "
+                "reproductions and do not establish a conformance result. This is not a WCAG-EM audit."
             )
         elif component_id == "authoring-tool":
             evidence = f"{surface_counts['authoring']} active findings classified as authoring/admin UI"
             rationale = (
-                "Active authoring-interface issue evidence exists, so Partially Supports is proposed. The "
-                "/admin and /user-path classification remains draft and needs review."
+                "Active authoring-interface issue reports exist. They are listed as potential barriers, but they "
+                "are not reproductions and do not establish a conformance result. The /admin and /user-path "
+                "classification remains draft and needs review."
             )
         elif component_id == "electronic-docs":
             evidence = "No core electronic-document product"
@@ -760,8 +761,8 @@ def render_acr_narrative(analysis, output_dir):
         ["Component", "Conformance result", "Evidence", "Rationale"],
         component_rows,
     )
-    doc.p("Supports, Partially Supports, Does Not Support and Not Applicable are conformance labels. This draft applies them from the declared surface assessment and the active known-barrier register. It does not use a clean automated scan as a pass and does not record Does Not Support without explicit broad-failure evidence.")
-    doc.p("Reading the tables: Open issue reports are treated as reported barrier evidence; no issue was reproduced against this release. Inventory records have no comments, merge requests or commit analysis. A surface with known issues is Partially Supports; an assessed surface with no active tagged issue is Supports.")
+    doc.p("Supports, Partially Supports, Does Not Support and Not Applicable are conformance labels. This draft does not assign them from the issue queue. It does not use a clean automated scan as a pass and does not record Does Not Support without explicit broad-failure evidence.")
+    doc.p("Reading the tables: open issue reports are treated as reported barriers; no issue was reproduced against this release. Inventory records have no comments, merge requests or commit analysis. A criterion with no known issue remains Not Evaluated; an empty queue is not evidence of support.")
     doc.p("Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split. A Web result can include barriers that also affect the authoring interface; the per-component remarks identify the classified evidence.")
     if ai_summaries:
         doc.p("Some Web/Authoring paragraphs are model-assisted draft summaries generated from the cited issue evidence. They are suggestions for human review, not conformance conclusions; the issue list, statistics and references remain the source record.")
@@ -784,7 +785,7 @@ def render_acr_narrative(analysis, output_dir):
         ["Partially Supports", "Some product functionality meets the criterion; other functionality does not, and the reviewer can explain the boundary."],
         ["Does Not Support", "The majority of product functionality does not meet the criterion."],
         ["Not Applicable", "The criterion is not relevant to the product, and the reviewer records why."],
-        ["Not Evaluated", "No active tagged issue and no other evidence supports a per-criterion term. Absence of a tagged issue is not evidence of support."],
+        ["Not Evaluated", "No reviewed conformance evidence has been recorded. Reported issues do not decide this term, and absence of a tagged issue is not evidence of support."],
     ])
     doc.h2("Scope and evaluation method")
     doc.p(f"The evidence collection covers active, review-relevant Drupal Core Accessibility issues: Active, Needs review, Needs work, RTBC and Patch. Fixed, closed and postponed issues are excluded. The snapshot contains {len(findings)} active {_plural(len(findings), 'finding')}, of which {tagged} {_plural(tagged, 'carries', 'carry')} at least one explicit WCAG issue tag.")
@@ -811,8 +812,8 @@ def render_acr_narrative(analysis, output_dir):
         doc.p(note)
     doc.h2("How the draft results are assigned")
     doc.p("The declared Drupal surface assessment is the baseline. Web and Authoring Tool are assessed surfaces. The active accessibility issue queue is the known-barrier register for those surfaces.")
-    doc.p("A known active issue on a surface produces Partially Supports. An assessed surface with no active tagged issue produces Supports. Does Not Support is not recorded because there is no explicit broad-failure evidence. Not Applicable is used only for documented feature absence. Not Evaluated is reserved for an unassessed surface.")
-    doc.p("This is an issue-queue attestation, not a WCAG-EM audit. Supports does not mean that axe-core or any other automated tool proved the criterion; automated coverage is partial and is reported separately.")
+    doc.p("No conformance term is derived from issue presence or absence. Reported issues are listed separately as potential barriers. Does Not Support is not recorded because there is no explicit broad-failure evidence. Not Applicable is used only for documented feature absence. Every other criterion remains Not Evaluated until a reviewer records reviewed evidence.")
+    doc.p("This is an issue-queue attestation, not a WCAG-EM audit. A reported issue does not prove a barrier in this release, and an empty queue does not prove support. Automated coverage is partial and is reported separately.")
     doc.p("The media criteria 1.2.1, 1.2.3, 1.2.4, 1.2.5 and 1.4.2 are Not Applicable because Drupal Core does not provide the relevant audio/video player, live-media feature or automatic audio control. They are not Not Applicable because the queue is empty.")
     doc.h2("Why this ACR is different")
     doc.p("A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor's issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked.")
@@ -949,7 +950,7 @@ def render_acr_narrative(analysis, output_dir):
         basis = f"Mapped from {len(row['criteria'])} WCAG criteria; see the mapping source."
         fpc_rows.append([Cell(row["label"]), Cell(row["status"]), Cell(criteria), Cell(basis)])
     doc.table("Functional performance summary mapped from WCAG evidence", ["Functional performance criterion", "Mapped result", "WCAG criteria", "Basis"], fpc_rows)
-    doc.p("Without Hearing is Partially Supports in this mapping. Drupal Core's native Web surface does not require hearing and provides no native audio/video, so the deaf and hard-of-hearing community is not broadly disadvantaged by Core. The exception is authoring support for captions and transcripts (1.2.2), plus any other known media-authoring barriers. Contrib media players are separate products and need their own evaluation.")
+    doc.p("The Without Hearing mapping remains Not Evaluated because no reviewed functional-performance test is recorded. Drupal Core's native Web surface does not require hearing and provides no native audio/video, but the authoring support for captions and transcripts (1.2.2) still requires evaluation. Contrib media players are separate products and need their own evaluation.")
     doc.links([
         ("CivicActions accessibility data reference / FPC mapping", "https://github.com/CivicActions/accessibility-data-reference"),
         ("Section 508 functional performance criteria", "https://www.access-board.gov/ict/"),
@@ -988,7 +989,7 @@ def render_acr_narrative(analysis, output_dir):
     doc.ul([
         "Use the generic templates/drupal-acr-template.md as the reusable ACR shell.",
         "Record scope and wording notes in context/DRUPAL.md (or the matching product context file); context is not evidence.",
-        "Open ./index.html#issues and review the active issue evidence.",
+        "Open ./issues.html and review the active issue evidence.",
         "For inventory records, read the source issue and collect the missing comments, merge requests and target evidence.",
         "Verify each criterion against the installed product; do not treat an issue count as a severity or percentage.",
         "Complete the reviewer name, organization and approval record outside this generated draft.",

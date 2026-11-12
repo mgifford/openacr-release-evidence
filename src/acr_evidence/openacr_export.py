@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 
 from .model import sha256_json
-from .surface_assessment import component_results, criterion_results
+from .surface_assessment import criterion_results
 
 STANDARDS_DIR = Path(__file__).resolve().parent / "standards" / "openacr"
 DEFAULT_SCHEMA = STANDARDS_DIR / "openacr-0.1.0.json"
@@ -141,9 +141,9 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
             criteria.append(item)
         chapters[chapter["id"]] = {
             "notes": (
-                "DRAFT: adherence values apply the declared Drupal surface assessment and active known-barrier "
-                "register. A known issue is Partially Supports; an assessed surface with no known issue is Supports; "
-                "documented feature absence is Not Applicable. A reviewer must confirm every value."
+                "DRAFT: no adherence value is assigned from the issue queue. Reported issues are listed in the "
+                "evidence report but are not reproduced conformance findings. Documented feature absence may be "
+                "Not Applicable; every other criterion is left unset for a human reviewer to evaluate."
             ),
             "criteria": criteria,
         }
@@ -157,8 +157,8 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "Evidence scope: active/review-relevant issues only (Active, Needs review, Needs work, RTBC, Patch); "
         "fixed and closed issues are excluded. Some active issues are metadata-only inventory records; complete "
         "comments/merge-request evidence was collected only for a review-priority subset. "
-        "Known issues produce Partially Supports; an assessed surface with no known issue produces Supports. "
-        "Issue evidence is recorded in criterion-evidence.json. Electronic Documents and Software are marked "
+        "No adherence value is inferred from issue presence or absence. Unassessed criteria are left unset; "
+        "issue evidence is recorded in criterion-evidence.json. Electronic Documents and Software are marked "
         "not-applicable for Drupal Core. The author is a placeholder; a human reviewer must replace it, "
         "confirm every value and explanation, and run `acr-evidence openacr-validate --file openacr.yaml --strict` "
         "before publishing. An ACR narrative is at acr.html; it presents the same draft issue-queue evaluation. "
@@ -184,9 +184,10 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "evaluation_methods_used": (
             "No WCAG-EM sample was evaluated; this is an issue-queue-based draft, not a completed ACR. "
             "Public Drupal.org issue-queue evidence collection, commit/tag containment analysis, and explicit "
-            "WCAG candidate tag grouping were used. Open issue reports are treated as proposed barrier evidence; "
-            "no issue was reproduced against this release. No manual keyboard, screen-reader or assistive-technology "
-            "testing was performed. A human reviewer must confirm the draft values."
+            "WCAG candidate tag grouping were used. Reported issues are listed as potential barriers; no issue was "
+            "reproduced against this release. No adherence value is derived from report presence or absence. No "
+            "manual keyboard, screen-reader or assistive-technology testing was performed. A human reviewer must "
+            "evaluate the criteria and complete the unresolved values."
         ),
         "legal_disclaimer": (
             "DRAFT for human review. This is not a final Accessibility Conformance Report, does not "
@@ -197,9 +198,9 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
         "catalog": catalog_name,
         "component_scope": {
             "web": {
-                "proposed_result": {"Supports": "supports", "Partially Supports": "partially-supports", "Does Not Support": "does-not-support"}.get(component_results(analysis.get("findings") or []).get("web"), "not-applicable"),
-                "review_status": "project-asserted",
-                "notes": "Declared Drupal surface assessment plus the active known-barrier register; reviewer confirmation required.",
+                "proposed_result": "unassessed",
+                "review_status": "unassessed",
+                "notes": "No conformance result is assigned from the issue queue. Reported issues are listed separately; a reviewer must complete the evaluation.",
             },
             "electronic-docs": {
                 "proposed_result": "not-applicable",
@@ -212,9 +213,9 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
                 "notes": "Drupal Core is web software; no separate packaged/non-web software product is in scope.",
             },
             "authoring-tool": {
-                "proposed_result": {"Supports": "supports", "Partially Supports": "partially-supports", "Does Not Support": "does-not-support"}.get(component_results(analysis.get("findings") or []).get("authoring-tool"), "not-applicable"),
-                "review_status": "project-asserted",
-                "notes": "Declared Drupal surface assessment plus the active known-barrier register; reviewer confirmation required.",
+                "proposed_result": "unassessed",
+                "review_status": "unassessed",
+                "notes": "No conformance result is assigned from the issue queue. Reported issues are listed separately; a reviewer must complete the evaluation.",
             },
         },
         "chapters": chapters,

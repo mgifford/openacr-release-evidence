@@ -83,13 +83,15 @@ For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
 
-The ACR applies the declared surface-assessment policy: a known issue on an
-assessed surface is `Partially Supports`; an assessed surface with no known issue
-is `Supports`; documented feature absence is `Not Applicable`; `Does Not Support`
-requires explicit broad-failure evidence and is not emitted automatically. The
-policy and its project-asserted basis live in `config/surface-assessments.json`.
-Issue tags alone never establish a result, and absence alone never establishes
-support. The criterion-evidence ledger records reported barriers,
+The ACR must not derive adherence from issue-queue presence or absence. A
+reported issue is not a reproduction, so it does not produce `Partially Supports`.
+An empty queue is not evidence of support, so it does not produce `Supports`.
+Documented feature absence may produce `Not Applicable`; `Does Not Support`
+requires explicit broad-failure evidence and is not emitted automatically. Every
+other criterion remains `Not Evaluated` in the narrative, and its OpenACR
+adherence value is left unset for a human reviewer. The policy and its
+project-asserted basis live in `config/surface-assessments.json`. See
+`docs/REPORT-TERMINOLOGY.md`. The criterion-evidence ledger records reported barriers,
 candidate mappings, verification gaps and unreviewed relationships separately. Mark every derived value as draft, state
 that no issue was reproduced against the target, and require human confirmation.
 `/admin`, Drupal `/user` login paths, the component mapping in

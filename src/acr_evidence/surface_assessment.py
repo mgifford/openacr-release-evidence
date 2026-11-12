@@ -1,13 +1,19 @@
 """Surface-level assessment policy for draft ACR results.
 
-The policy converts the declared Drupal surface assessment plus the active
-known-barrier register into draft terms. It does not create a verified audit:
+This module deliberately does **not** convert issue-queue absence or presence
+into a conformance result.
 
-- known issue on a surface -> Partially Supports;
-- no known issue on an assessed surface -> Supports;
-- documented feature absence -> Not Applicable;
-- unassessed surface -> Not Evaluated;
-- Does Not Support only with explicit broad-failure evidence.
+* A reported issue is evidence that somebody reported a possible barrier. It is
+  not a reproduction on the target release, so it does not by itself justify
+  ``Partially Supports``.
+* An empty queue is not evidence that a requirement is met, so it does not
+  justify ``Supports``.
+* ``Not Applicable`` still requires documented feature absence.
+* ``Does Not Support`` still requires explicit broad-failure evidence in the
+  declared policy.
+
+Everything else is ``Not Evaluated``: a human reviewer must assign an ACR result
+after testing or other reviewed evidence.
 """
 import json
 from pathlib import Path
@@ -37,8 +43,13 @@ def _surface_issues(issues, surface):
 
 
 def criterion_results(criterion, issues, policy=None):
+    """Return reviewed conformance terms, never inferred from the queue alone.
+
+    ``issues`` is accepted for API compatibility and for callers that want to
+    show reported barriers separately. It must not change the adherence result:
+    an unreproduced report is not a conformance finding.
+    """
     policy = policy or load_policy()
-    surfaces = policy.get("surfaces") or {}
     broad_failure = {
         (item.get("criterion"), item.get("surface"))
         for item in policy.get("does_not_support") or []
@@ -51,13 +62,9 @@ def criterion_results(criterion, issues, policy=None):
             "software": "Not Applicable",
             "authoring-tool": "Not Applicable",
         }
-    for name, surface in (("web", "web"), ("authoring-tool", "authoring")):
+    for name in ("web", "authoring-tool"):
         if (str(criterion), name) in broad_failure:
             results[name] = "Does Not Support"
-        elif _surface_issues(issues, surface):
-            results[name] = "Partially Supports"
-        elif (surfaces.get(name) or {}).get("status") == "assessed":
-            results[name] = "Supports"
     return {
         "web": results["web"],
         "electronic-docs": "Not Applicable",
@@ -67,27 +74,31 @@ def criterion_results(criterion, issues, policy=None):
 
 
 def component_results(issues, policy=None):
-    policy = policy or load_policy()
-    web = any((item.get("surface") or {}).get("surface", "web") == "web" for item in issues)
-    authoring = any((item.get("surface") or {}).get("surface", "web") == "authoring" for item in issues)
+    """Return component-level terms without inferring them from issue counts."""
     return {
-        "web": "Partially Supports" if web else "Supports",
+        "web": "Not Evaluated",
         "electronic-docs": "Not Applicable",
         "software": "Not Applicable",
-        "authoring-tool": "Partially Supports" if authoring else "Supports",
+        "authoring-tool": "Not Evaluated",
     }
 
 
 def assessment_note(criterion, surface, result):
     if result == "Supports":
         return (
-            f"No active tagged issue on the {surface} surface. Supports is based on the declared "
-            "Drupal surface assessment and the current known-barrier register; it is not a WCAG-EM verification."
+            f"A reviewer recorded positive evidence for the {surface} surface. "
+            "This value is not produced automatically by the pipeline."
         )
     if result == "Partially Supports":
-        return f"Known active issue evidence on the {surface} surface; reported barriers are listed below."
+        return (
+            f"A reviewer recorded partial evidence for the {surface} surface. "
+            "Reported issues alone do not produce this value."
+        )
     if result == "Not Applicable":
-        return "Feature absent from the declared product scope."
+        return "Feature absent from the declared product scope, with a documented basis."
     if result == "Does Not Support":
         return "Explicit broad-failure evidence is recorded in the assessment policy."
-    return "Surface assessment is not established; no result is assigned."
+    return (
+        "No reviewed conformance result is recorded. Reported issues are listed separately; "
+        "an unreproduced report or an empty queue does not decide this criterion."
+    )

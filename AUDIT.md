@@ -212,9 +212,9 @@ After the first audit and report:
 - **ACR narrative:** each target exports `acr.html` and `acr.md` with
   product information, ACR result terms, active-evidence remarks for every
   WCAG 2.2 A/AA criterion, non-WCAG chapters, ATAG separation and reviewer
-  actions. Issue-tagged criteria now carry a draft Partially Supports result
-  based on the open issue queue; untagged criteria remain Not Evaluated. No issue
-  count becomes a final ACR result.
+  actions. Issue-tagged criteria do not carry a conformance result: reported
+  issues are potential barriers, and every non-Not-Applicable criterion remains
+  Not Evaluated. No issue count becomes a final ACR result.
 - **Report-size reduction:** the duplicate per-target `analysis.json` files and
   stale per-target collection were removed, `evidence.json` is a compact
   published artifact, and inventory issue HTML is a compact metadata row. The
@@ -285,15 +285,17 @@ After the first audit and report:
   verified (draft metadata loaded; all 52 A/AA criteria `Not checked`), but
   human editing/export and release-scoped applicability are not yet verified.
 
-Current multi-target result (428 active issues, no reproduction):
+Current multi-target result (432 active issues in the 2026-11-10 snapshot, no
+reproduction). This table is updated after each regeneration; the generated
+reports are authoritative.
 
-| Target | Support | Fix included | Confirmed fixed | Likely affected | Unknown |
+| Target | Support | Fix included | Verified problem | Probably affects | Not yet determined |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 10.6.21 | Supported | 0 | 0 | 28 | 400 |
-| 11.4.12 | Supported | 0 | 0 | 28 | 400 |
-| 12.0.0-alpha1 | Pre-release | 0 | 0 | 23 | 405 |
-| 12.0.0-beta2 | Pre-release | 0 | 0 | 26 | 402 |
-| `main` | Development | 0 | 0 | 30 | 398 |
+| 10.6.21 | Supported | 0 | 0 | 32 | 400 |
+| 11.4.12 | Supported | 0 | 0 | 32 | 400 |
+| 12.0.0-alpha1 | Pre-release | 0 | 0 | 28 | 404 |
+| 12.0.0-beta2 | Pre-release | 0 | 0 | 30 | 402 |
+| `main` | Development | 0 | 0 | 38 | 394 |
 
 The 10.6 result is deliberately conservative. The generic “Admin theme”
 component spans Claro and Default Admin, and fixes landed on newer branches; the
@@ -365,11 +367,13 @@ cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.
 
 ## Surface assessment policy correction (2026-11-12)
 
-Drupal has declared the Web and Authoring Tool surfaces assessed. The draft now
-applies that policy plus the active known-barrier register:
+Drupal has declared the Web and Authoring Tool surfaces assessed. This
+project-asserted scope is not a conformance result. The superseded policy mapped
+known issues to Partially Supports and empty assessed surfaces to Supports; the
+2026-11-12 correction below removes that mapping:
 
-- known issue -> Partially Supports;
-- assessed surface with no known issue -> Supports;
+- reported issue -> potential barrier, not a conformance result;
+- empty assessed surface -> Not Evaluated, not Supports;
 - documented feature absence -> Not Applicable;
 - Does Not Support only with explicit broad-failure evidence (none recorded).
 
@@ -394,7 +398,7 @@ rests on the declared assessment, not an automated pass.
 - Added a mapped Functional Performance Criteria summary to the ACR.
 - The mapping is descriptive, not an independent FPC test and not an OpenACR FPC value.
 - Added 1.4.2 Audio Control to the documented native-media N/A scope.
-- Deaf/hard-of-hearing mapping is Partially Supports because of authoring caption/transcript issues, not because of native Web audio.
+- The deaf/hard-of-hearing mapping remains Not Evaluated; authoring caption/transcript issues are potential barriers, not reviewed conformance evidence.
 
 ## Disability labels and chapter labels (2026-11-12)
 
@@ -421,3 +425,18 @@ rests on the declared assessment, not an automated pass.
 - Added global statistics data with source dates, definitions and limitations.
 - All 86 criteria have short impact and barrier text; no `not mapped`.
 - Global statistics are contextual only, not Drupal user counts.
+
+## Conformance inference correction (2026-11-12)
+
+- Removed automatic `Partially Supports` from active issue reports and automatic
+  `Supports` from an empty assessed surface.
+- Non-`Not Applicable` OpenACR adherence values are now unset; the ACR narrative
+  shows `Not Evaluated`.
+- `component_scope` marks Web and Authoring Tool `unassessed`.
+- Added a generated plain-language report summary and separate Drupal.org status
+  / release-applicability labels. See `docs/REPORT-USABILITY-REVIEW.md` and
+  `docs/REPORT-TERMINOLOGY.md`.
+- The report now says that a removed component is a scope change, not a fix, and
+  that an adopted component does not inherit predecessor issues.
+- Regression tests cover `needs-work + unknown`, empty queues, all-unknown
+  releases and unset OpenACR adherence.
