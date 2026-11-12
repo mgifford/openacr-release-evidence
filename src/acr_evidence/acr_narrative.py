@@ -482,6 +482,13 @@ def _surface_items(items, surface):
     return [item for item in items if (item.get("surface") or {}).get("surface", "web") == surface]
 
 
+def _other_component_na_text():
+    return (
+        "Electronic Documents and Software: N/A — Drupal Core does not ship a standalone electronic-document "
+        "product or packaged non-web software; uploaded documents are delivered as web content."
+    )
+
+
 def _automation_text(criterion):
     coverage = automation_for_criterion(criterion)
     if coverage["coverage"] == "none":
@@ -558,6 +565,8 @@ def _remarks_cell(criterion, issues, ai_summary=None):
                 " for pre-recorded audio/video support.",
                 Gap(),
                 Bold("Authoring Tool:"), " Drupal Core doesn't support audio/video authoring out of the box.",
+                Gap(),
+                _other_component_na_text(),
             )
         if criterion == "1.2.3":
             return RichCell(
@@ -566,11 +575,15 @@ def _remarks_cell(criterion, issues, ai_summary=None):
                 " for pre-recorded media.",
                 Gap(),
                 Bold("Authoring Tool:"), " Drupal Core doesn't support audio description authoring out of the box.",
+                Gap(),
+                _other_component_na_text(),
             )
         return RichCell(
             Bold("Web:"), " " + CORE_SCOPE[criterion],
             Gap(),
             Bold("Authoring Tool:"), " Drupal Core does not provide this audio/video feature in its authoring interface.",
+            Gap(),
+            _other_component_na_text(),
         )
     web = _surface_items(issues, "web")
     authoring = _surface_items(issues, "authoring")
@@ -584,6 +597,8 @@ def _remarks_cell(criterion, issues, ai_summary=None):
             Bold("Authoring Tool:"), f" {levels['Authoring Tool']}. {assessment_note(criterion, 'Authoring Tool', levels['Authoring Tool'])}",
             Gap(),
             _automation_text(criterion),
+            Gap(),
+            _other_component_na_text(),
         )
     parts = [
         Bold("Evidence state:"), " Reported barrier, unverified. Candidate criterion mapping: issue tag, unreviewed. No conformance result assigned.",
@@ -607,6 +622,7 @@ def _remarks_cell(criterion, issues, ai_summary=None):
             Bold("All issue references:"), " ",
             (f"{criterion} reference list", f"#ref-{_slug(criterion)}"),
         ])
+    parts.extend([Gap(), _other_component_na_text()])
     return RichCell(*parts)
 
 
@@ -718,6 +734,15 @@ def render_acr_narrative(analysis, output_dir):
         doc.p("Some Web/Authoring paragraphs are model-assisted draft summaries generated from the cited issue evidence. They are suggestions for human review, not conformance conclusions; the issue list, statistics and references remain the source record.")
     else:
         doc.p("No accepted AI summary cache is present for this build. The Web/Authoring paragraphs are deterministic extracts from issue titles; add the optional criterion-summary step to enable model-assisted draft summaries.")
+    doc.h2("Not Applicable claim review")
+    doc.p("These N/A claims are product-scope decisions, not outcomes inferred from an empty issue queue. Procurement reviewers should test them against the declared product, not accept them as silent exclusions.")
+    total_criteria = sum(len(chapter.get("criteria") or []) for chapter in catalog.get("chapters") or [])
+    doc.table("N/A claims and rationale", ["Component", "Criteria", "Factual basis", "Review state"], [
+        [Cell("Electronic Documents"), Cell(f"All {total_criteria}"), Cell("No standalone electronic-document product. Uploaded documents are delivered as web content."), Cell("Project-asserted; human confirmation required")],
+        [Cell("Software"), Cell(f"All {total_criteria}"), Cell("No packaged non-web software product. Drupal Core is web software."), Cell("Project-asserted; human confirmation required")],
+        [Cell("Web and Authoring Tool"), Cell("1.2.1, 1.2.3, 1.2.4, 1.2.5"), Cell("No native audio/video playback, live audio/video, audio-description player or media-alternative feature in Core. Contrib media players are separate products."), Cell("Project-asserted; human confirmation required")],
+    ])
+    doc.p("N/A is never used merely because no active issue is tagged. Any future N/A claim needs the same documented feature-absence basis and human review.")
     doc.h2("Draft status and ACR result terms")
     doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. Results are proposed from the declared surface assessment and the known-barrier register; a reviewer must confirm every term and explanation.")
     doc.table("ACR result terms used in review", ["Term", "Meaning"], [

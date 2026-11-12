@@ -372,3 +372,12 @@ The policy is `config/surface-assessments.json`; it is project-asserted and has 
 invented named reviewer. It is not a WCAG-EM audit. Automated axe/ACT coverage is
 partial and remains separate. 1.3.2 has no axe/ACT rule mapping, so Supports there
 rests on the declared assessment, not an automated pass.
+
+## N/A claim review (2026-11-12)
+
+- Every N/A value now carries a factual product-scope remark in the ACR.
+- Added a **Not Applicable claim review** table with basis and review state.
+- Electronic Documents/Software and media N/A are documented as feature/product
+  absence, not empty-queue outcomes.
+- Procurement-facing wording states N/A is never used merely because no issue is
+  tagged.

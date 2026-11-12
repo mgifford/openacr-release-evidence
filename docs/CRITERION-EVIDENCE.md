@@ -93,3 +93,17 @@ visible without turning the issue count into a conformance score.
 - Not Applicable requires a documented scope decision.
 - The issue queue remains useful for finding barriers and prioritising review.
 - Every final term remains a human publication decision.
+
+## N/A claims need scrutiny
+
+A Not Applicable result is a factual product-scope claim. It is not an empty-queue
+fallback. The ACR lists each N/A claim with its basis and a review state.
+
+Current N/A claims:
+
+- Electronic Documents: no standalone electronic-document product.
+- Software: no packaged non-web software product.
+- Web/Authoring 1.2.1/1.2.3/1.2.4/1.2.5: no native media player or live-media
+  feature in Core.
+
+Each claim must be checked against the declared product and confirmed by a human.

@@ -111,3 +111,20 @@ restricted use. Never auto-fill `Supports`. Do not describe the current YAML
 worksheet as a valid or import-ready OpenACR.
 
 Changes to this policy require public review under `GOVERNANCE.md`.
+
+## N/A claims are audited
+
+Every Not Applicable value needs a factual product-scope explanation. The current
+claims are:
+
+- Electronic Documents: no standalone electronic-document product; uploaded
+  documents are delivered as web content.
+- Software: no packaged non-web software product.
+- Web and Authoring Tool for 1.2.1/1.2.3/1.2.4/1.2.5: no native audio/video
+  player, live audio/video, audio-description player or media-alternative
+  feature in Core.
+
+The ACR carries a **Not Applicable claim review** table and repeats the factual
+basis in the Remarks column. N/A is never selected because the issue queue is
+empty. The policy is project-asserted and requires human confirmation; a reviewer
+must test the absence against the declared product rather than trusting the label.

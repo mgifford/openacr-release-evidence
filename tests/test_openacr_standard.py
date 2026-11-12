@@ -83,6 +83,7 @@ class OpenACRExportTests(unittest.TestCase):
         first = document["chapters"]["success_criteria_level_a"]["criteria"][0]
         components = {component["name"]: component for component in first["components"]}
         self.assertEqual("not-applicable", components["electronic-docs"]["adherence"]["level"])
+        self.assertIn("Not present", components["electronic-docs"]["adherence"]["notes"])
         self.assertEqual("supports", components["web"]["adherence"]["level"])
         self.assertIn("DRAFT", document["title"])
 
@@ -110,6 +111,7 @@ class OpenACRExportTests(unittest.TestCase):
         self.assertEqual("partially-supports", components["web"]["adherence"]["level"])
         self.assertEqual("partially-supports", components["authoring-tool"]["adherence"]["level"])
         self.assertEqual("not-applicable", components["electronic-docs"]["adherence"]["level"])
+        self.assertIn("Not present", components["electronic-docs"]["adherence"]["notes"])
         media = draft["chapters"]["success_criteria_level_a"]["criteria"][1]
         media_components = {component["name"]: component for component in media["components"]}
         self.assertEqual("not-applicable", media_components["web"]["adherence"]["level"])
