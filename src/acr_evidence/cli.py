@@ -19,6 +19,8 @@ from .weekly_summary import generate_weekly
 from .criterion_summaries import summarize_collection
 from .acr_narrative import render_acr_narrative
 from .release import analyze_collection
+from .inventory import build_inventory, compare_inventories, write_json
+from .lineage import load_lineage
 from .report import render_landing, render_report
 from .adapters.drupal import fetch_issues as fetch_drupal
 from .adapters.drupal import find_issues as find_drupal_issues
@@ -198,6 +200,24 @@ def main(argv=None):
     rep.add_argument("--collection", default=None, help="Optional full collection to restore comments/descriptions for rendering")
     rep.add_argument("--output", required=True)
     rep.add_argument("--css", default=None)
+
+    ci = sub.add_parser("component-inventory", help="Extract a deterministic module/theme inventory from a checked-out Core tree")
+    ci.add_argument("--source", required=True, help="Checked-out source tree containing core/modules, core/themes and core/profiles")
+    ci.add_argument("--ref", required=True, help="Exact tag or ref represented by the checkout")
+    ci.add_argument("--ref-type", default="tag", choices=("tag", "branch"))
+    ci.add_argument("--commit", default=None, help="Exact commit SHA represented by the checkout")
+    ci.add_argument("--profile", default="standard")
+    ci.add_argument("--retrieved-at", required=True, help="ISO 8601 retrieval time recorded in the artifact")
+    ci.add_argument("--output", required=True)
+
+    cc = sub.add_parser("component-compare", help="Compare two component inventories without inferring lineage")
+    cc.add_argument("--before", required=True)
+    cc.add_argument("--after", required=True)
+    cc.add_argument("--note", default=None)
+    cc.add_argument("--output", required=True)
+
+    lc = sub.add_parser("lineage-check", help="Validate curated component lineage records")
+    lc.add_argument("--file", required=True)
 
     pipe = sub.add_parser("pipeline", help="Collect, analyze and render in one reproducible run")
     pipe.add_argument("--manifest", required=True)
@@ -382,6 +402,31 @@ def main(argv=None):
         export_openacr(analysis, args.output)
         render_acr_narrative(analysis, args.output)
         print(f"Wrote static evidence report and OpenACR draft to {args.output}/")
+    elif args.command == "component-inventory":
+        artifact = build_inventory(
+            args.source,
+            ref=args.ref,
+            ref_type=args.ref_type,
+            commit=args.commit,
+            profile=args.profile,
+            retrieved_at=args.retrieved_at,
+        )
+        write_json(args.output, artifact)
+        counts = artifact["counts"]
+        print(
+            f"Inventory {args.ref}: {counts['modules_bundled']} modules, {counts['themes_bundled']} themes, "
+            f"{counts['modules_installed_by_standard_profile']} modules installed by {args.profile}. Wrote {args.output}"
+        )
+    elif args.command == "component-compare":
+        comparison = compare_inventories(load_json(args.before), load_json(args.after), note=args.note)
+        write_json(args.output, comparison)
+        print(
+            f"Comparison: {len(comparison['added'])} added, {len(comparison['removed'])} removed, "
+            f"{len(comparison['changed'])} changed. Package membership only. Wrote {args.output}"
+        )
+    elif args.command == "lineage-check":
+        document = load_lineage(args.file)
+        print(f"Validated {len(document['records'])} lineage record(s) in {args.file}")
     elif args.command == "pipeline":
         manifest = load_json(args.manifest)
         output = Path(args.output)
