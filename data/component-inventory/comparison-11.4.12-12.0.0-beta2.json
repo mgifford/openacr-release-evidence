@@ -1,0 +1,376 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "drupal-component-inventory-comparison",
+  "disclaimer": "Package membership changes only. Removed does not mean fixed; added does not mean adopted from a contributed project.",
+  "note": "Comparison for the Phase 2 investigation; package membership only.",
+  "from": {
+    "ref": "11.4.12",
+    "commit": "0e75062922b2f83ee72a58a4cfe6b932b6fe1bb1",
+    "inventory_evidence_digest": "92a3592c5e3f64f34d43baacfd7b4b85bff3b10a046e55a0d08481ee128eb6e0"
+  },
+  "to": {
+    "ref": "12.0.0-beta2",
+    "commit": "b79bc655fc9878a851260a17b25a704fbd5d3dbc",
+    "inventory_evidence_digest": "4ac551f188d42ebc685ea6e234775a5b3e49ae6167dcda02165cf099758cffb3"
+  },
+  "count_deltas": {
+    "modules_bundled": -8,
+    "modules_deprecated": -6,
+    "modules_experimental": 1,
+    "modules_installed_by_standard_profile": 0,
+    "modules_obsolete": 2,
+    "profiles_bundled": -1,
+    "themes_bundled": -3,
+    "themes_deprecated": -1,
+    "themes_experimental": -1,
+    "themes_installed_by_standard_profile": -1,
+    "themes_obsolete": 0
+  },
+  "profile": {
+    "from": {
+      "name": "standard",
+      "install_list": [
+        "announcements_feed",
+        "automated_cron",
+        "big_pipe",
+        "block",
+        "block_content",
+        "breakpoint",
+        "ckeditor5",
+        "config",
+        "contextual",
+        "datetime",
+        "dblog",
+        "dynamic_page_cache",
+        "editor",
+        "field_ui",
+        "file",
+        "help",
+        "image",
+        "menu_link_content",
+        "menu_ui",
+        "navigation",
+        "node",
+        "options",
+        "page_cache",
+        "path",
+        "taxonomy",
+        "views",
+        "views_ui"
+      ],
+      "themes": [
+        "claro",
+        "olivero"
+      ],
+      "default_theme": "olivero",
+      "admin_theme": "claro"
+    },
+    "to": {
+      "name": "standard",
+      "install_list": [
+        "announcements_feed",
+        "automated_cron",
+        "big_pipe",
+        "block",
+        "block_content",
+        "breakpoint",
+        "ckeditor5",
+        "config",
+        "contextual",
+        "datetime",
+        "dblog",
+        "dynamic_page_cache",
+        "editor",
+        "field_ui",
+        "file",
+        "help",
+        "image",
+        "menu_link_content",
+        "menu_ui",
+        "navigation",
+        "node",
+        "options",
+        "page_cache",
+        "path",
+        "taxonomy",
+        "views",
+        "views_ui"
+      ],
+      "themes": [
+        "default_admin"
+      ],
+      "default_theme": "default_admin",
+      "admin_theme": "default_admin"
+    }
+  },
+  "added": [
+    {
+      "machine_name": "mailer",
+      "type": "module",
+      "label": "Mailer",
+      "status": "experimental",
+      "status_basis": "lifecycle",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core (Experimental)",
+      "dependencies": [],
+      "source_path": "core/modules/mailer/mailer.info.yml"
+    }
+  ],
+  "removed": [
+    {
+      "machine_name": "ban",
+      "type": "module",
+      "label": "Ban",
+      "status": "deprecated",
+      "status_basis": "lifecycle",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [],
+      "source_path": "core/modules/ban/ban.info.yml"
+    },
+    {
+      "machine_name": "contact",
+      "type": "module",
+      "label": "Contact",
+      "status": "deprecated",
+      "status_basis": "lifecycle",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [],
+      "source_path": "core/modules/contact/contact.info.yml"
+    },
+    {
+      "machine_name": "field_layout",
+      "type": "module",
+      "label": "Field Layout",
+      "status": "deprecated",
+      "status_basis": "lifecycle",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core (Experimental)",
+      "dependencies": [
+        "layout_discovery"
+      ],
+      "source_path": "core/modules/field_layout/field_layout.info.yml"
+    },
+    {
+      "machine_name": "history",
+      "type": "module",
+      "label": "History",
+      "status": "deprecated",
+      "status_basis": "lifecycle",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [
+        "node"
+      ],
+      "source_path": "core/modules/history/history.info.yml"
+    },
+    {
+      "machine_name": "search",
+      "type": "module",
+      "label": "Search",
+      "status": "stable",
+      "status_basis": "no-lifecycle-field",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [],
+      "source_path": "core/modules/search/search.info.yml"
+    },
+    {
+      "machine_name": "settings_tray",
+      "type": "module",
+      "label": "Settings Tray",
+      "status": "stable",
+      "status_basis": "no-lifecycle-field",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [
+        "block",
+        "contextual",
+        "toolbar"
+      ],
+      "source_path": "core/modules/settings_tray/settings_tray.info.yml"
+    },
+    {
+      "machine_name": "shortcut",
+      "type": "module",
+      "label": "Shortcut",
+      "status": "stable",
+      "status_basis": "no-lifecycle-field",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [
+        "link"
+      ],
+      "source_path": "core/modules/shortcut/shortcut.info.yml"
+    },
+    {
+      "machine_name": "telephone",
+      "type": "module",
+      "label": "Telephone",
+      "status": "stable",
+      "status_basis": "no-lifecycle-field",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Field types",
+      "dependencies": [
+        "field"
+      ],
+      "source_path": "core/modules/telephone/telephone.info.yml"
+    },
+    {
+      "machine_name": "toolbar",
+      "type": "module",
+      "label": "Toolbar",
+      "status": "stable",
+      "status_basis": "no-lifecycle-field",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [
+        "breakpoint"
+      ],
+      "source_path": "core/modules/toolbar/toolbar.info.yml"
+    },
+    {
+      "machine_name": "claro",
+      "type": "theme",
+      "label": "Claro",
+      "status": "stable",
+      "status_basis": "no-lifecycle-field",
+      "bundled": true,
+      "installed_by_standard_profile": true,
+      "default_theme": false,
+      "admin_theme": true,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [],
+      "source_path": "core/themes/claro/claro.info.yml"
+    },
+    {
+      "machine_name": "olivero",
+      "type": "theme",
+      "label": "Olivero",
+      "status": "stable",
+      "status_basis": "no-lifecycle-field",
+      "bundled": true,
+      "installed_by_standard_profile": true,
+      "default_theme": true,
+      "admin_theme": false,
+      "hidden": false,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [],
+      "source_path": "core/themes/olivero/olivero.info.yml"
+    },
+    {
+      "machine_name": "stable9",
+      "type": "theme",
+      "label": "Stable 9",
+      "status": "deprecated",
+      "status_basis": "lifecycle",
+      "bundled": true,
+      "installed_by_standard_profile": false,
+      "default_theme": false,
+      "admin_theme": false,
+      "hidden": true,
+      "base_theme": null,
+      "package": "Core",
+      "dependencies": [],
+      "source_path": "core/themes/stable9/stable9.info.yml"
+    }
+  ],
+  "changed": [
+    {
+      "type": "module",
+      "machine_name": "migrate_drupal",
+      "changes": {
+        "status": {
+          "before": "deprecated",
+          "after": "obsolete"
+        }
+      }
+    },
+    {
+      "type": "module",
+      "machine_name": "migrate_drupal_ui",
+      "changes": {
+        "status": {
+          "before": "deprecated",
+          "after": "obsolete"
+        }
+      }
+    },
+    {
+      "type": "theme",
+      "machine_name": "default_admin",
+      "changes": {
+        "status": {
+          "before": "experimental",
+          "after": "stable"
+        },
+        "installed_by_standard_profile": {
+          "before": false,
+          "after": true
+        },
+        "default_theme": {
+          "before": false,
+          "after": true
+        },
+        "admin_theme": {
+          "before": false,
+          "after": true
+        }
+      }
+    }
+  ]
+}

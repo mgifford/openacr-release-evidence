@@ -1,0 +1,360 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_type": "component-lineage",
+  "description": "Curated Drupal Core theme lineage for the 2026-11-12 investigation. Records describe package, code and product-scope relationships. They do not assign release applicability or conformance, and they do not inherit predecessor issues.",
+  "observed_at": "2026-11-12T15:00:00Z",
+  "records": [
+    {
+      "id": "claro-core-lifecycle",
+      "relation": "introduced-into-core",
+      "source": {
+        "project": "drupal",
+        "component": "claro",
+        "type": "theme",
+        "release_boundary": {
+          "first_bundled": "8.8.0",
+          "first_stable": "9.4.0",
+          "first_default_admin": "9.4.0",
+          "last_bundled": "11.4.12",
+          "removed_in": "12.0.0-beta1"
+        }
+      },
+      "destination": {
+        "project": "drupal",
+        "component": "claro",
+        "type": "theme",
+        "release_boundary": {
+          "first_bundled": "8.8.0"
+        }
+      },
+      "evidence": [
+        {
+          "kind": "source-tree",
+          "url": "https://git.drupalcode.org/project/drupal/-/tree/8.8.0/core/themes/claro",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "core/themes/claro/claro.info.yml is present at tag 8.8.0 and declares experimental: true."
+        },
+        {
+          "kind": "source-tree",
+          "url": "https://git.drupalcode.org/project/drupal/-/tree/9.4.0/core/themes/claro",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "The experimental flag is absent at 9.4.0. core/profiles/standard/config/install/system.theme.yml sets admin: claro."
+        },
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3584639",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Closed (fixed) issue 'Remove the Claro theme'; commit 8eaf82d7b4fa91973165b1a20f4520bdaeedec56 is contained in 12.0.0-beta1 and beta2."
+        }
+      ],
+      "evidence_class": "verified-source-code",
+      "verification": {
+        "status": "unreviewed",
+        "note": "Checked against exact Git tags and a merge commit. No second human reviewer recorded."
+      },
+      "limitations": [
+        "The record does not establish that Claro code was adopted from the contributed claro project before 8.8.0.",
+        "The exact first 11.5 tag that deprecated Claro was not verified."
+      ]
+    },
+    {
+      "id": "olivero-core-lifecycle",
+      "relation": "introduced-into-core",
+      "source": {
+        "project": "drupal",
+        "component": "olivero",
+        "type": "theme",
+        "release_boundary": {
+          "first_bundled": "9.1.0",
+          "first_stable": "9.3.0",
+          "first_default_front_end": "9.4.0",
+          "last_bundled": "11.4.12",
+          "removed_in": "12.0.0-beta1"
+        }
+      },
+      "destination": {
+        "project": "drupal",
+        "component": "olivero",
+        "type": "theme",
+        "release_boundary": {
+          "first_bundled": "9.1.0"
+        }
+      },
+      "evidence": [
+        {
+          "kind": "source-tree",
+          "url": "https://git.drupalcode.org/project/drupal/-/tree/9.1.0/core/themes/olivero",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Present at 9.1.0 with experimental: true; absent at 9.0.0."
+        },
+        {
+          "kind": "source-tree",
+          "url": "https://git.drupalcode.org/project/drupal/-/tree/9.4.0/core/profiles/standard/config/install",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "system.theme.yml sets default: olivero and admin: claro at 9.4.0. The experimental flag was already absent at 9.3.0."
+        },
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3595089",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Closed (fixed) issue 'Remove the Olivero theme'; commit 8d87e80272136cb5145655e01237dc6d5b9f358d is contained in 12.0.0-beta1 and beta2."
+        }
+      ],
+      "evidence_class": "verified-source-code",
+      "verification": {
+        "status": "unreviewed",
+        "note": "Checked against exact Git tags. No second human reviewer recorded."
+      },
+      "limitations": [
+        "Presence and default status are verified; code origin before 9.1.0 is not."
+      ]
+    },
+    {
+      "id": "claro-core-to-contrib",
+      "relation": "moved-to-contrib",
+      "source": {
+        "project": "drupal",
+        "component": "claro",
+        "type": "theme",
+        "release_boundary": {
+          "last_bundled": "11.4.12",
+          "removed_in": "12.0.0-beta1",
+          "removal_commit": "8eaf82d7b4fa91973165b1a20f4520bdaeedec56"
+        }
+      },
+      "destination": {
+        "project": "claro",
+        "component": "claro",
+        "type": "theme",
+        "release_boundary": {
+          "first_release": "3.0.0",
+          "released_at": "2026-09-19",
+          "composer": "drupal/claro",
+          "core_compatibility": "^11.5 || ^12"
+        }
+      },
+      "evidence": [
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3584639",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Removal from Core; commit contained in 12.0.0-beta1 and beta2."
+        },
+        {
+          "kind": "release",
+          "url": "https://www.drupal.org/project/claro/releases/3.0.0",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Contributed Claro 3.0.0 declares compatibility with Drupal ^11.5 || ^12."
+        },
+        {
+          "kind": "tree-comparison",
+          "url": "https://git.drupalcode.org/project/drupal/-/tree/11.4.12/core/themes/claro",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Compared with https://git.drupalcode.org/project/claro/-/tree/3.0.0: 468 common relative paths, 419 byte-identical blobs (Git blob IDs), 49 changed paths, 23 core-only paths."
+        }
+      ],
+      "evidence_class": "verified-source-code",
+      "verification": {
+        "status": "unreviewed",
+        "note": "Tag, release and blob-ID comparison performed; no second human reviewer recorded."
+      },
+      "limitations": [
+        "Tree comparison proves code continuity, not that every historical issue still reproduces.",
+        "Contributed issue tracker state is separate from the Core queue and was not inherited."
+      ]
+    },
+    {
+      "id": "olivero-core-to-contrib",
+      "relation": "moved-to-contrib",
+      "source": {
+        "project": "drupal",
+        "component": "olivero",
+        "type": "theme",
+        "release_boundary": {
+          "last_bundled": "11.4.12",
+          "removed_in": "12.0.0-beta1",
+          "removal_commit": "8d87e80272136cb5145655e01237dc6d5b9f358d"
+        }
+      },
+      "destination": {
+        "project": "olivero",
+        "component": "olivero",
+        "type": "theme",
+        "release_boundary": {
+          "first_release": "2.0.0",
+          "released_at": "2026-09-20",
+          "composer": "drupal/olivero",
+          "core_compatibility": "^11.4 || ^12"
+        }
+      },
+      "evidence": [
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3595089",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Removal from Core; commit contained in 12.0.0-beta1 and beta2."
+        },
+        {
+          "kind": "release",
+          "url": "https://www.drupal.org/project/olivero/releases/2.0.0",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Contributed Olivero 2.0.0 declares compatibility with Drupal ^11.4 || ^12."
+        },
+        {
+          "kind": "tree-comparison",
+          "url": "https://git.drupalcode.org/project/drupal/-/tree/11.4.12/core/themes/olivero",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Compared with https://git.drupalcode.org/project/olivero/-/tree/2.0.0: 300 common relative paths, 265 byte-identical blobs, 35 changed paths, 3 core-only paths."
+        }
+      ],
+      "evidence_class": "verified-source-code",
+      "verification": {
+        "status": "unreviewed",
+        "note": "Tag, release and blob-ID comparison performed; no second human reviewer recorded."
+      },
+      "limitations": [
+        "2.0.0 contains 68 paths absent from the 11.4.12 Core copy; these are not individually reviewed.",
+        "Issue transfer from the Core queue to the contributed queue was not performed automatically."
+      ]
+    },
+    {
+      "id": "default-admin-adopted-from-gin",
+      "relation": "adopted-from-contrib",
+      "source": {
+        "project": "gin",
+        "component": "gin",
+        "type": "theme",
+        "release_boundary": {
+          "adopted_branch": "6.x",
+          "last_core_ready_branch_commit": "2025-11-11"
+        }
+      },
+      "destination": {
+        "project": "drupal",
+        "component": "default_admin",
+        "type": "theme",
+        "release_boundary": {
+          "first_bundled": "11.4.0",
+          "first_stable": "12.0.0-beta1",
+          "first_default_admin": "12.0.0-beta2"
+        }
+      },
+      "evidence": [
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3556948",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Closed (fixed) 'Merging Gin as Admin theme'; the issue provides the merge request for Gin in Core under the name 'admin'."
+        },
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3582833",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Core issue summary states: 'The Default Admin theme is basically Gin renamed. Gin used Claro as a base theme, and that structure was flattened when it was added to core.'"
+        },
+        {
+          "kind": "blog",
+          "url": "https://www.drupal.org/about/core/blog/drupal-core-will-adopt-gin-admin-theme-to-replace-claro",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Drupal Core blog, 20 June 2025: core will adopt Gin and remove Claro from the next major version."
+        },
+        {
+          "kind": "tree-comparison",
+          "url": "https://git.drupalcode.org/project/drupal/-/tree/12.0.0-beta2/core/themes/default_admin",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Compared with https://git.drupalcode.org/project/gin/-/tree/6.x: 460 common relative paths, 230 byte-identical blobs, 230 changed paths. With Gin 5.0.16 the overlap is only 41 paths / 6 identical blobs, so Gin 5.x is not a safe code proxy for Default Admin."
+        }
+      ],
+      "evidence_class": "verified-source-code",
+      "verification": {
+        "status": "unreviewed",
+        "note": "Issue text, blog, tag presence and blob-ID comparison checked; no second human reviewer recorded."
+      },
+      "limitations": [
+        "Adoption grants no automatic inheritance of Gin accessibility issues. Each issue needs independent applicability evidence.",
+        "The exact Gin commit merged into Core was not reconstructed; Core's merge commit is the authoritative code state."
+      ]
+    },
+    {
+      "id": "default-admin-renamed-from-admin",
+      "relation": "renamed",
+      "source": {
+        "project": "drupal",
+        "component": "admin",
+        "type": "theme"
+      },
+      "destination": {
+        "project": "drupal",
+        "component": "default_admin",
+        "type": "theme",
+        "release_boundary": {
+          "rename_issue": "3576646"
+        }
+      },
+      "evidence": [
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3576646",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Closed (fixed) 'Rename Gin-based admin theme': change theme name from 'Admin' to 'Default Admin' and machine name from 'admin' to 'default_admin'."
+        }
+      ],
+      "evidence_class": "explicit-metadata",
+      "verification": {
+        "status": "unreviewed",
+        "note": "Explicit in the core issue; no independent code diff reviewed."
+      },
+      "limitations": [
+        "The short-lived 'admin' machine name is not a shipped Core release target in this repository."
+      ]
+    },
+    {
+      "id": "default-admin-shares-claro-code",
+      "relation": "shares-inherited-code",
+      "source": {
+        "project": "drupal",
+        "component": "claro",
+        "type": "theme",
+        "release_boundary": {
+          "last_bundled": "11.4.12"
+        }
+      },
+      "destination": {
+        "project": "drupal",
+        "component": "default_admin",
+        "type": "theme",
+        "release_boundary": {
+          "first_bundled": "11.4.0"
+        }
+      },
+      "evidence": [
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3582833",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Claro CSS was copied en masse into Default Admin when Gin's Claro base theme was flattened; the issue tracks untangling the two CSS trees."
+        },
+        {
+          "kind": "issue",
+          "url": "https://www.drupal.org/project/drupal/issues/3599680",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Describes overlapping token systems from the 'Seven -> Claro -> Gin' lineage."
+        },
+        {
+          "kind": "tree-comparison",
+          "url": "https://git.drupalcode.org/project/drupal/-/tree/12.0.0-beta2/core/themes/default_admin",
+          "observed_at": "2026-11-12T15:00:00Z",
+          "note": "Compared with Core 11.4.12 claro: 303 common relative paths, 136 byte-identical blobs, 167 changed paths."
+        }
+      ],
+      "evidence_class": "verified-source-code",
+      "verification": {
+        "status": "unreviewed",
+        "note": "Issue text and blob-ID comparison checked; no second human reviewer recorded."
+      },
+      "limitations": [
+        "Shared code is not shared defect. Claro issues require per-issue verification against Default Admin."
+      ]
+    }
+  ]
+}
