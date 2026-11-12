@@ -171,7 +171,7 @@ Before and after, verify:
 - Restored the reference ACR table layout: `Criteria | Conformance Level |
   Remarks and Explanations`, grouped as Table 1/2/3 for A/AA/AAA.
 - Issue-tagged criteria use draft Partially Supports only for the surface with
-  classified issues; untagged criteria remain Not Evaluated.
+  classified issues; untagged criteria use Supports under the declared surface assessment.
 - `N/A` is displayed for Not Applicable; component labels are bold and sections
   are separated vertically.
 - 1.2.1/1.2.3 are N/A for Core with Able Player guidance, alongside 1.2.4/1.2.5.

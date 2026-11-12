@@ -9,7 +9,7 @@ from html import escape
 from pathlib import Path
 
 from .criterion_evidence import build_criterion_evidence
-from .reproduction_evidence import build_reproduction_evidence
+from .reproduction_evidence import build_reproduction_evidence, load_sources
 from .model import digest_artifact
 from .wcag import (
     APPLICABILITY_LABELS,
@@ -165,6 +165,69 @@ def _comment_list(issue):
     return "".join(parts)
 
 
+def _reproduction_by_issue():
+    return {
+        record.get("issue_id"): record
+        for record in (load_sources().get("records") or [])
+    }
+
+
+def _verification_state(finding):
+    record = _reproduction_by_issue().get(finding.get("issue_id"))
+    if not record:
+        return "Needs target reproduction"
+    if record.get("source_result") == "reproduced-and-fixed":
+        return "External reproduction; target not verified"
+    return "External lab evidence; unreviewed"
+
+
+def _next_action(finding):
+    if finding.get("evidence_status") == "inventory":
+        return "Collect comments, MRs and commit evidence"
+    mrs = finding.get("merge_requests") or []
+    if mrs and finding.get("fix_included_in_target", finding.get("fix_included_in_release")):
+        return "Verify fix behaviour on target"
+    if mrs:
+        return "Review merge request and reproduce"
+    if finding.get("applicability") == "likely-affected":
+        return "Reproduce on target"
+    return "Resolve applicability and evidence"
+
+
+def _component_index(findings):
+    groups = {}
+    for finding in findings:
+        component = finding.get("component") or "Not recorded"
+        groups.setdefault(component, []).append(finding)
+    parts = [
+        '<h3 id="component-index-heading">Component index</h3>',
+        '<p>Issues grouped by the component recorded on the source tracker. This is an index, not a severity ranking. '
+        'A component can contain findings with different release applicability and verification states.</p>',
+        '<div class="table-scroll" tabindex="0" role="region" aria-label="Component index. Scroll horizontally if needed.">',
+        '<table class="index-table component-index">',
+        '<caption>Component index: issue count, release applicability, merge requests and verification need</caption>',
+        '<thead><tr><th scope="col">Component</th><th scope="col">Issues</th><th scope="col">Likely affected</th>'
+        '<th scope="col">Unknown</th><th scope="col">With merge request</th><th scope="col">Needs reproduction</th></tr></thead><tbody>',
+    ]
+    for component in sorted(groups, key=lambda value: value.casefold()):
+        items = groups[component]
+        links = ", ".join(
+            f'<a href="#{anchor_for(item["issue_id"])}">{esc(item.get("issue_id"))}</a>'
+            for item in sorted(items, key=lambda item: item.get("issue_id") or "")
+        )
+        likely = sum(1 for item in items if item.get("applicability") == "likely-affected")
+        unknown = sum(1 for item in items if item.get("applicability") == "unknown")
+        mrs = sum(1 for item in items if item.get("merge_requests"))
+        needs = sum(1 for item in items if _verification_state(item).startswith("Needs"))
+        component_id = "component-" + _slug(component)
+        parts.append(
+            f'<tr id="{esc(component_id)}"><th scope="row">{esc(component)}</th>'
+            f'<td>{len(items)} · {links}</td><td>{likely}</td><td>{unknown}</td><td>{mrs}</td><td>{needs}</td></tr>'
+        )
+    parts.append("</tbody></table></div>")
+    return "".join(parts)
+
+
 def _issue_article(finding, issue):
     anchor = anchor_for(finding["issue_id"])
     nid = issue.get("source_id") if issue else finding["issue_id"]
@@ -209,6 +272,8 @@ def _issue_article(finding, issue):
             ("Observed at", esc(finding.get("observed_at") or "Not recorded")),
             ("Candidate WCAG criteria", criterion_links),
             ("Review state", esc(finding.get("review_status") or "unreviewed")),
+            ("Next action", esc(_next_action(finding))),
+            ("Verification", esc(_verification_state(finding))),
         ]),
     ]
     if mrs:
@@ -420,6 +485,7 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         ("reproduction", "Reproduction evidence"),
         ("position", "Why this is different"),
         ("criteria", "WCAG criterion evidence"),
+        ("components", "Component index"),
         ("issues", "Issue evidence"),
         ("gaps", "Verification gaps"),
         ("method", "Method and limitations"),
@@ -518,6 +584,9 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
             )
         html.append("</ul></section>")
     html.append("</section>")
+    html.append('<section id="components" aria-labelledby="components-heading"><h2 id="components-heading">Component index</h2>')
+    html.append(_component_index(findings))
+    html.append('</section>')
     html.append('<section id="issues" aria-labelledby="issues-heading"><h2 id="issues-heading">Issue evidence</h2>')
     html.append('<p>Detailed issues retain their source URL, tracker status, observation time, candidate criteria, comments and '
                 'release-specific reasoning. Inventory records are compact metadata rows. Raw upstream responses are kept privately '
@@ -842,7 +911,7 @@ def _issue_index(findings):
         '<caption>Issue index: identity, component, criteria, status, applicability and evidence detail</caption>',
         '<thead><tr><th scope="col">Issue</th><th scope="col">Component</th><th scope="col">WCAG criteria</th>'
         '<th scope="col">Tracker status</th><th scope="col">Release applicability</th><th scope="col">Evidence</th>'
-        '<th scope="col">Merge requests</th></tr></thead><tbody>',
+        '<th scope="col">Merge requests</th><th scope="col">Next action</th><th scope="col">Verification</th></tr></thead><tbody>',
     ]
     for finding in sorted(findings, key=lambda item: item.get("issue_id") or ""):
         anchor = anchor_for(finding["issue_id"])
@@ -856,7 +925,8 @@ def _issue_index(findings):
             f'<td>{esc(criteria)}</td>'
             f'<td>{esc(finding.get("tracker_status_label") or "Unknown")}</td>'
             f'<td>{esc(app_label(finding.get("applicability")))}</td>'
-            f'<td>{esc(evidence)}</td><td>{mrs}</td></tr>'
+            f'<td>{esc(evidence)}</td><td>{mrs}</td>'
+            f'<td>{esc(_next_action(finding))}</td><td>{esc(_verification_state(finding))}</td></tr>'
         )
     parts.append("</tbody></table></div>")
     return "".join(parts)
