@@ -1,0 +1,47 @@
+{
+  "standard": "WCAG",
+  "historical_criteria": [
+    {
+      "id": "4.1.1",
+      "title": "Parsing",
+      "level": "A",
+      "introduced_in": "2.0",
+      "removed_in": "2.2",
+      "status": "removed",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "low_vision",
+          "cognitive_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility"
+        ],
+        "barrier": "Historical Parsing criterion; removed from WCAG 2.2.",
+        "description": "WCAG 4.1.1 Parsing was removed from WCAG 2.2. It is retained for historical WCAG 2.0/2.1 references."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/parsing.html"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "reviewed",
+      "last_reviewed": "2026-11-12"
+    }
+  ]
+}

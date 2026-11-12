@@ -12,7 +12,8 @@ from pathlib import Path
 from .criterion_summaries import PROMPT_VERSION as CRITERION_PROMPT_VERSION
 from .criterion_evidence import automation_for_criterion
 from .openacr_export import load_catalog
-from .fpc import disability_labels, summarize as summarize_fpc
+from .fpc import summarize as summarize_fpc
+from .impact import get_criterion_impact
 from .non_wcag import load_considerations
 from .surface_assessment import assessment_note, component_results, criterion_results
 
@@ -878,18 +879,30 @@ def render_acr_narrative(analysis, output_dir):
         row_ids = []
         for criterion in chapter.get("criteria") or []:
             criterion_id = str(criterion.get("id"))
+            if criterion_id == "4.1.1":
+                continue
             items = by_criterion.get(criterion_id, [])
             alt_id = criterion.get("alt_id") or ""
             criterion_url = f"https://www.w3.org/TR/WCAG22/#{alt_id}" if alt_id else "https://www.w3.org/TR/WCAG22/"
             row_id = f"criterion-{_slug(criterion_id)}"
             row_ids.append(row_id)
+            impact = get_criterion_impact(criterion_id)
             rows.append([
                 RichCell(
                     Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
                     " ",
                     Permalink(f"Permalink to criterion {criterion_id} {criterion.get('handle') or ''}", f"#{row_id}"),
                     Break(),
-                    Small("Affects: " + (", ".join(disability_labels(criterion_id)) or "not mapped")),
+                    Small("People who may be affected: " + ", ".join(
+                        group["label"] for group in (impact or {}).get("groups", [])
+                    )),
+                    Break(),
+                    Small("Potential barrier: " + (impact or {}).get("barrier", "")),
+                    Break(),
+                    Cell(
+                        "W3C Understanding",
+                        ((impact or {}).get("sources") or [{}])[0].get("url"),
+                    ) if impact else Small("User-impact description pending review."),
                 ),
                 _levels_cell(criterion_id, items),
                 _remarks_cell(criterion_id, items, ai_summaries.get(criterion_id)),

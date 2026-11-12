@@ -1,0 +1,8 @@
+{
+  "standard": "EN 301 549",
+  "edition": "V3.2.1",
+  "source": "https://www.etsi.org/",
+  "review_status": "pending",
+  "criteria": {},
+  "note": "Clause-level WCAG relationships have not been verified for this dataset. No mapping is asserted."
+}

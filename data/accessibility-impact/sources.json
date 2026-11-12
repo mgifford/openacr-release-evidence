@@ -1,0 +1,11 @@
+{
+  "sources": [
+    {"id": "wcag22", "type": "normative", "title": "WCAG 2.2 Recommendation", "url": "https://www.w3.org/TR/WCAG22/"},
+    {"id": "understanding22", "type": "informative", "title": "Understanding WCAG 2.2", "url": "https://www.w3.org/WAI/WCAG22/Understanding/"},
+    {"id": "people-use-web", "type": "informative", "title": "How People with Disabilities Use the Web", "url": "https://www.w3.org/WAI/people-use-web/"},
+    {"id": "section508-fpc", "type": "standard", "title": "Section 508 Functional Performance Criteria", "url": "https://www.access-board.gov/ict/#chapter-3-functional-performance-criteria"},
+    {"id": "section508-mapping", "type": "mapping", "title": "WCAG to Functional Performance Criteria mapping", "url": "https://www.section508.gov/content/mapping-wcag-to-fpc/"},
+    {"id": "en301549", "type": "standard", "title": "EN 301 549", "url": "https://www.etsi.org/"}
+  ],
+  "note": "Descriptions in criteria.json are original editorial synthesis, not quotations. Review status is proposed."
+}

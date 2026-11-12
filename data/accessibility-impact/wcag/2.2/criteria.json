@@ -1,0 +1,3715 @@
+{
+  "standard": "WCAG 2.2",
+  "active_criteria": [
+    {
+      "id": "1.1.1",
+      "title": "Non-text Content",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "deaf",
+          "hard_of_hearing",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "low_vision_accommodation",
+          "non_audio_access",
+          "non_visual_operation"
+        ],
+        "barrier": "Images, icons, charts and controls without useful text alternatives can be unusable or misidentified.",
+        "description": "Images, icons, charts and controls without useful text alternatives can be unusable or misidentified. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html",
+          "title": "Understanding 1.1.1 Non-text Content"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "WH",
+            "LH",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.1",
+      "title": "Audio-only and Video-only (Prerecorded)",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "deaf",
+          "hard_of_hearing",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "low_vision_accommodation",
+          "non_audio_access",
+          "non_visual_operation"
+        ],
+        "barrier": "Audio-only or silent video content without an alternative excludes people who cannot hear or see it.",
+        "description": "Audio-only or silent video content without an alternative excludes people who cannot hear or see it. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded.html",
+          "title": "Understanding 1.2.1 Audio-only and Video-only (Prerecorded)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "WH",
+            "LH",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.2",
+      "title": "Captions (Prerecorded)",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "deaf",
+          "hard_of_hearing",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "non_audio_access"
+        ],
+        "barrier": "Prerecorded speech without captions excludes people who cannot hear the audio.",
+        "description": "Prerecorded speech without captions excludes people who cannot hear the audio. This can affect people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html",
+          "title": "Understanding 1.2.2 Captions (Prerecorded)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WH",
+            "LH",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.3",
+      "title": "Audio Description or Media Alternative (Prerecorded)",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Visual information in video without audio description or a media alternative may be missed.",
+        "description": "Visual information in video without audio description or a media alternative may be missed. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-or-media-alternative-prerecorded.html",
+          "title": "Understanding 1.2.3 Audio Description or Media Alternative (Prerecorded)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.3.1",
+      "title": "Info and Relationships",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Missing or incorrect structure, labels and relationships make content hard to interpret with assistive technology.",
+        "description": "Missing or incorrect structure, labels and relationships make content hard to interpret with assistive technology. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html",
+          "title": "Understanding 1.3.1 Info and Relationships"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.3.2",
+      "title": "Meaningful Sequence",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "A confusing reading order can make the meaning of content unintelligible.",
+        "description": "A confusing reading order can make the meaning of content unintelligible. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html",
+          "title": "Understanding 1.3.2 Meaningful Sequence"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.3.3",
+      "title": "Sensory Characteristics",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "deaf",
+          "hard_of_hearing",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "low_vision_accommodation",
+          "non_audio_access",
+          "non_visual_operation"
+        ],
+        "barrier": "Instructions that rely only on shape, colour, size or position can be misunderstood.",
+        "description": "Instructions that rely only on shape, colour, size or position can be misunderstood. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics.html",
+          "title": "Understanding 1.3.3 Sensory Characteristics"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "WH",
+            "LH",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.1",
+      "title": "Use of Color",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "color_vision_deficiency",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "color_independent_perception",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Meaning conveyed only by colour can be missed by people who cannot distinguish those colours.",
+        "description": "Meaning conveyed only by colour can be missed by people who cannot distinguish those colours. This can affect blind people, people with cognitive disabilities, people with colour vision deficiency, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+          "title": "Understanding 1.4.1 Use of Color"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "WPC",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.2",
+      "title": "Audio Control",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "hard_of_hearing",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "non_audio_access",
+          "non_visual_operation"
+        ],
+        "barrier": "Automatically playing audio can interfere with hearing aids, speech output or concentration.",
+        "description": "Automatically playing audio can interfere with hearing aids, speech output or concentration. This can affect blind people, people with cognitive disabilities, hard-of-hearing people, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html",
+          "title": "Understanding 1.4.2 Audio Control"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LH",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.1.1",
+      "title": "Keyboard",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Controls that require a pointer cannot be operated by keyboard or switch users.",
+        "description": "Controls that require a pointer cannot be operated by keyboard or switch users. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html",
+          "title": "Understanding 2.1.1 Keyboard"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.1.2",
+      "title": "No Keyboard Trap",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "A keyboard trap can prevent a person from leaving a component or page.",
+        "description": "A keyboard trap can prevent a person from leaving a component or page. This can affect blind people, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html",
+          "title": "Understanding 2.1.2 No Keyboard Trap"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.1.4",
+      "title": "Character Key Shortcuts",
+      "level": "A",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "limited_dexterity",
+          "speech_disability"
+        ],
+        "functional_needs": [
+          "dexterity_accommodation",
+          "pointer_alternative",
+          "speech_independent_operation"
+        ],
+        "barrier": "Single-key shortcuts can be triggered accidentally by speech input or unsteady hands.",
+        "description": "Single-key shortcuts can be triggered accidentally by speech input or unsteady hands. This can affect people with limited dexterity or tremor, people with speech disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html",
+          "title": "Understanding 2.1.4 Character Key Shortcuts"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.2.1",
+      "title": "Timing Adjustable",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Short or uncontrollable time limits can prevent completion of a task.",
+        "description": "Short or uncontrollable time limits can prevent completion of a task. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html",
+          "title": "Understanding 2.2.1 Timing Adjustable"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.2.2",
+      "title": "Pause, Stop, Hide",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Moving, blinking or auto-updating content can distract or prevent reading.",
+        "description": "Moving, blinking or auto-updating content can distract or prevent reading. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html",
+          "title": "Understanding 2.2.2 Pause, Stop, Hide"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.3.1",
+      "title": "Three Flashes or Below Threshold",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "photosensitive_epilepsy"
+        ],
+        "functional_needs": [
+          "seizure_safety"
+        ],
+        "barrier": "Flashing content can trigger seizures in people with photosensitive epilepsy.",
+        "description": "Flashing content can trigger seizures in people with photosensitive epilepsy. This can affect people with photosensitive epilepsy."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html",
+          "title": "Understanding 2.3.1 Three Flashes or Below Threshold"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.1",
+      "title": "Bypass Blocks",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Repeated blocks without a bypass mechanism make navigation slow and tiring.",
+        "description": "Repeated blocks without a bypass mechanism make navigation slow and tiring. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html",
+          "title": "Understanding 2.4.1 Bypass Blocks"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.2",
+      "title": "Page Titled",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "A missing or uninformative page title makes pages hard to identify.",
+        "description": "A missing or uninformative page title makes pages hard to identify. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html",
+          "title": "Understanding 2.4.2 Page Titled"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.3",
+      "title": "Focus Order",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Illogical focus order can disorient keyboard and screen-reader users.",
+        "description": "Illogical focus order can disorient keyboard and screen-reader users. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html",
+          "title": "Understanding 2.4.3 Focus Order"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.4",
+      "title": "Link Purpose (In Context)",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Ambiguous link text makes destinations unclear without surrounding context.",
+        "description": "Ambiguous link text makes destinations unclear without surrounding context. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html",
+          "title": "Understanding 2.4.4 Link Purpose (In Context)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.5.1",
+      "title": "Pointer Gestures",
+      "level": "A",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "limited_dexterity",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "dexterity_accommodation",
+          "keyboard_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Multi-point or path-based gestures exclude people who cannot perform them.",
+        "description": "Multi-point or path-based gestures exclude people who cannot perform them. This can affect people with limited dexterity or tremor, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html",
+          "title": "Understanding 2.5.1 Pointer Gestures"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.5.2",
+      "title": "Pointer Cancellation",
+      "level": "A",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "limited_dexterity",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "dexterity_accommodation",
+          "keyboard_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Actions that fire on pointer-down can cause accidental activation for people with tremor.",
+        "description": "Actions that fire on pointer-down can cause accidental activation for people with tremor. This can affect people with limited dexterity or tremor, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html",
+          "title": "Understanding 2.5.2 Pointer Cancellation"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.5.3",
+      "title": "Label in Name",
+      "level": "A",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "speech_disability",
+          "limited_dexterity"
+        ],
+        "functional_needs": [
+          "dexterity_accommodation",
+          "pointer_alternative",
+          "speech_independent_operation"
+        ],
+        "barrier": "Visible labels that do not match accessible names break speech-input activation.",
+        "description": "Visible labels that do not match accessible names break speech-input activation. This can affect people with speech disabilities, people with limited dexterity or tremor."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html",
+          "title": "Understanding 2.5.3 Label in Name"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.5.4",
+      "title": "Motion Actuation",
+      "level": "A",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "mobility_disability",
+          "limited_dexterity"
+        ],
+        "functional_needs": [
+          "dexterity_accommodation",
+          "keyboard_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Requiring device motion to operate a control excludes people with limited mobility.",
+        "description": "Requiring device motion to operate a control excludes people with limited mobility. This can affect people with mobility disabilities, people with limited dexterity or tremor."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation.html",
+          "title": "Understanding 2.5.4 Motion Actuation"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.1.1",
+      "title": "Language of Page",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "deaf",
+          "hard_of_hearing",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "low_vision_accommodation",
+          "non_audio_access",
+          "non_visual_operation"
+        ],
+        "barrier": "An unmarked page language can make screen-reader pronunciation incorrect.",
+        "description": "An unmarked page language can make screen-reader pronunciation incorrect. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html",
+          "title": "Understanding 3.1.1 Language of Page"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "WH",
+            "LH",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.2.1",
+      "title": "On Focus",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Unexpected context changes on focus can disorient and cause errors.",
+        "description": "Unexpected context changes on focus can disorient and cause errors. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html",
+          "title": "Understanding 3.2.1 On Focus"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.2.2",
+      "title": "On Input",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Unexpected context changes on input can cause people to lose their place.",
+        "description": "Unexpected context changes on input can cause people to lose their place. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-input.html",
+          "title": "Understanding 3.2.2 On Input"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.2.6",
+      "title": "Consistent Help",
+      "level": "A",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Help mechanisms in inconsistent locations increase cognitive and navigation effort.",
+        "description": "Help mechanisms in inconsistent locations increase cognitive and navigation effort. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html",
+          "title": "Understanding 3.2.6 Consistent Help"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.1",
+      "title": "Error Identification",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "color_vision_deficiency",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "color_independent_perception",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Errors that are not described in text can be impossible to identify and correct.",
+        "description": "Errors that are not described in text can be impossible to identify and correct. This can affect blind people, people with cognitive disabilities, people with colour vision deficiency, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+          "title": "Understanding 3.3.1 Error Identification"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "WPC",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.2",
+      "title": "Labels or Instructions",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Missing labels or instructions make form completion guesswork.",
+        "description": "Missing labels or instructions make form completion guesswork. This can affect people with cognitive disabilities, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html",
+          "title": "Understanding 3.3.2 Labels or Instructions"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "LV",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.7",
+      "title": "Redundant Entry",
+      "level": "A",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Requiring the same information again burdens memory and cognitive processing.",
+        "description": "Requiring the same information again burdens memory and cognitive processing. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html",
+          "title": "Understanding 3.3.7 Redundant Entry"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "4.1.2",
+      "title": "Name, Role, Value",
+      "level": "A",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Custom controls without name, role and value are not usable with assistive technology.",
+        "description": "Custom controls without name, role and value are not usable with assistive technology. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html",
+          "title": "Understanding 4.1.2 Name, Role, Value"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.4",
+      "title": "Captions (Live)",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "deaf",
+          "hard_of_hearing",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "non_audio_access"
+        ],
+        "barrier": "Live speech without captions excludes people who cannot hear it in real time.",
+        "description": "Live speech without captions excludes people who cannot hear it in real time. This can affect people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-live.html",
+          "title": "Understanding 1.2.4 Captions (Live)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WH",
+            "LH",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.5",
+      "title": "Audio Description (Prerecorded)",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Video without audio description can omit visual information needed to understand it.",
+        "description": "Video without audio description can omit visual information needed to understand it. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-prerecorded.html",
+          "title": "Understanding 1.2.5 Audio Description (Prerecorded)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.3.4",
+      "title": "Orientation",
+      "level": "AA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "keyboard_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Locking orientation can exclude people who use a device in a fixed position.",
+        "description": "Locking orientation can exclude people who use a device in a fixed position. This can affect people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/orientation.html",
+          "title": "Understanding 1.3.4 Orientation"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.3.5",
+      "title": "Identify Input Purpose",
+      "level": "AA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Inputs without a programmatic purpose make autofill and personalisation harder.",
+        "description": "Inputs without a programmatic purpose make autofill and personalisation harder. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html",
+          "title": "Understanding 1.3.5 Identify Input Purpose"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.3",
+      "title": "Contrast (Minimum)",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "color_vision_deficiency",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "color_independent_perception",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Low text contrast makes content unreadable for people with low vision or colour loss.",
+        "description": "Low text contrast makes content unreadable for people with low vision or colour loss. This can affect people with colour vision deficiency, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/visual-audio-contrast-contrast.html",
+          "title": "Understanding 1.4.3 Contrast (Minimum)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "LV",
+            "WPC"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.4",
+      "title": "Resize text",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Text that cannot be resized prevents magnification users from reading it.",
+        "description": "Text that cannot be resized prevents magnification users from reading it. This can affect people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/visual-audio-contrast-scale.html",
+          "title": "Understanding 1.4.4 Resize text"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "LV"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.5",
+      "title": "Images of Text",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Images of text cannot be resized, restyled or read reliably by assistive technology.",
+        "description": "Images of text cannot be resized, restyled or read reliably by assistive technology. This can affect people with cognitive disabilities, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/visual-audio-contrast-text-presentation.html",
+          "title": "Understanding 1.4.5 Images of Text"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "LV",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.10",
+      "title": "Reflow",
+      "level": "AA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "keyboard_operation",
+          "low_vision_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "Two-dimensional layouts and horizontal scrolling make zoomed content hard to follow.",
+        "description": "Two-dimensional layouts and horizontal scrolling make zoomed content hard to follow. This can affect people with low vision, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+          "title": "Understanding 1.4.10 Reflow"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.11",
+      "title": "Non-text Contrast",
+      "level": "AA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision",
+          "color_vision_deficiency"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "color_independent_perception",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Low-contrast controls and boundaries are hard to see or locate.",
+        "description": "Low-contrast controls and boundaries are hard to see or locate. This can affect people with low vision, people with colour vision deficiency."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html",
+          "title": "Understanding 1.4.11 Non-text Contrast"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.12",
+      "title": "Text Spacing",
+      "level": "AA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision",
+          "cognitive_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Fixed text spacing prevents people from applying their own reading settings.",
+        "description": "Fixed text spacing prevents people from applying their own reading settings. This can affect people with low vision, people with cognitive disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html",
+          "title": "Understanding 1.4.12 Text Spacing"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.13",
+      "title": "Content on Hover or Focus",
+      "level": "AA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision",
+          "mobility_disability",
+          "cognitive_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "keyboard_operation",
+          "low_vision_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "Hover or focus content that cannot be dismissed or read blocks interaction.",
+        "description": "Hover or focus content that cannot be dismissed or read blocks interaction. This can affect people with low vision, people with mobility disabilities, people with cognitive disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html",
+          "title": "Understanding 1.4.13 Content on Hover or Focus"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.5",
+      "title": "Multiple Ways",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "A single navigation route can make content hard to find for people with different strategies.",
+        "description": "A single navigation route can make content hard to find for people with different strategies. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html",
+          "title": "Understanding 2.4.5 Multiple Ways"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.6",
+      "title": "Headings and Labels",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Unclear headings and labels make page structure and purpose harder to understand.",
+        "description": "Unclear headings and labels make page structure and purpose harder to understand. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html",
+          "title": "Understanding 2.4.6 Headings and Labels"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.7",
+      "title": "Focus Visible",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "A missing visible focus indicator makes keyboard operation hard to track.",
+        "description": "A missing visible focus indicator makes keyboard operation hard to track. This can affect people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html",
+          "title": "Understanding 2.4.7 Focus Visible"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.11",
+      "title": "Focus Not Obscured (Minimum)",
+      "level": "AA",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "keyboard_operation",
+          "low_vision_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "Sticky headers, banners or overlays can hide the focused control.",
+        "description": "Sticky headers, banners or overlays can hide the focused control. This can affect people with low vision, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html",
+          "title": "Understanding 2.4.11 Focus Not Obscured (Minimum)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.5.7",
+      "title": "Dragging Movements",
+      "level": "AA",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "limited_dexterity",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "dexterity_accommodation",
+          "keyboard_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Dragging-only interactions exclude people who cannot sustain a drag.",
+        "description": "Dragging-only interactions exclude people who cannot sustain a drag. This can affect people with limited dexterity or tremor, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html",
+          "title": "Understanding 2.5.7 Dragging Movements"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.5.8",
+      "title": "Target Size (Minimum)",
+      "level": "AA",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "limited_dexterity",
+          "low_vision",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "dexterity_accommodation",
+          "keyboard_operation",
+          "low_vision_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "Small or closely spaced targets cause misactivation for people with tremor or low vision.",
+        "description": "Small or closely spaced targets cause misactivation for people with tremor or low vision. This can affect people with limited dexterity or tremor, people with low vision, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+          "title": "Understanding 2.5.8 Target Size (Minimum)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.1.2",
+      "title": "Language of Parts",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "deaf",
+          "hard_of_hearing",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "low_vision_accommodation",
+          "non_audio_access",
+          "non_visual_operation"
+        ],
+        "barrier": "Unmarked language changes cause incorrect screen-reader pronunciation.",
+        "description": "Unmarked language changes cause incorrect screen-reader pronunciation. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts.html",
+          "title": "Understanding 3.1.2 Language of Parts"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "WH",
+            "LH",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.2.3",
+      "title": "Consistent Navigation",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Inconsistent navigation makes it harder to predict where things are.",
+        "description": "Inconsistent navigation makes it harder to predict where things are. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html",
+          "title": "Understanding 3.2.3 Consistent Navigation"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.2.4",
+      "title": "Consistent Identification",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Inconsistent identification of controls makes repeated tasks error-prone.",
+        "description": "Inconsistent identification of controls makes repeated tasks error-prone. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html",
+          "title": "Understanding 3.2.4 Consistent Identification"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.3",
+      "title": "Error Suggestion",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Errors without suggestions leave people unsure how to recover.",
+        "description": "Errors without suggestions leave people unsure how to recover. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html",
+          "title": "Understanding 3.3.3 Error Suggestion"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.4",
+      "title": "Error Prevention (Legal, Financial, Data)",
+      "level": "AA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "cognitive_disability",
+          "color_vision_deficiency",
+          "deaf",
+          "hard_of_hearing",
+          "learning_disability",
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "color_independent_perception",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "hearing_accommodation",
+          "low_vision_accommodation",
+          "non_audio_access",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Irreversible legal, financial or data actions without confirmation risk serious loss.",
+        "description": "Irreversible legal, financial or data actions without confirmation risk serious loss. This can affect blind people, people with cognitive disabilities, people with colour vision deficiency, deaf people, hard-of-hearing people, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html",
+          "title": "Understanding 3.3.4 Error Prevention (Legal, Financial, Data)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed",
+          "categories": [
+            "WV",
+            "LV",
+            "WPC",
+            "WH",
+            "LH",
+            "LM",
+            "LLCLA"
+          ]
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.8",
+      "title": "Accessible Authentication (Minimum)",
+      "level": "AA",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Cognitive tests or puzzles can block people with cognitive disabilities from authenticating.",
+        "description": "Cognitive tests or puzzles can block people with cognitive disabilities from authenticating. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html",
+          "title": "Understanding 3.3.8 Accessible Authentication (Minimum)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "4.1.3",
+      "title": "Status Messages",
+      "level": "AA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "low_vision",
+          "cognitive_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Status messages that are not announced leave screen-reader users unaware of changes.",
+        "description": "Status messages that are not announced leave screen-reader users unaware of changes. This can affect blind people, people with low vision, people with cognitive disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+          "title": "Understanding 4.1.3 Status Messages"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.6",
+      "title": "Sign Language (Prerecorded)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "deaf",
+          "hard_of_hearing"
+        ],
+        "functional_needs": [
+          "hearing_accommodation",
+          "non_audio_access"
+        ],
+        "barrier": "Sign-language users may not understand prerecorded audio without sign-language interpretation.",
+        "description": "Sign-language users may not understand prerecorded audio without sign-language interpretation. This can affect deaf people, hard-of-hearing people."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/sign-language-prerecorded.html",
+          "title": "Understanding 1.2.6 Sign Language (Prerecorded)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.7",
+      "title": "Extended Audio Description (Prerecorded)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Extended visual information may not fit into standard audio-description pauses.",
+        "description": "Extended visual information may not fit into standard audio-description pauses. This can affect blind people, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/extended-audio-description-prerecorded.html",
+          "title": "Understanding 1.2.7 Extended Audio Description (Prerecorded)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.8",
+      "title": "Media Alternative (Prerecorded)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "low_vision",
+          "cognitive_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation",
+          "non_visual_operation"
+        ],
+        "barrier": "Complex media without a full text alternative may be inaccessible.",
+        "description": "Complex media without a full text alternative may be inaccessible. This can affect blind people, people with low vision, people with cognitive disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/media-alternative-prerecorded.html",
+          "title": "Understanding 1.2.8 Media Alternative (Prerecorded)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.2.9",
+      "title": "Audio-only (Live)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "deaf",
+          "hard_of_hearing"
+        ],
+        "functional_needs": [
+          "hearing_accommodation",
+          "non_audio_access"
+        ],
+        "barrier": "Live audio without captions excludes people who cannot hear it.",
+        "description": "Live audio without captions excludes people who cannot hear it. This can affect deaf people, hard-of-hearing people."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-live.html",
+          "title": "Understanding 1.2.9 Audio-only (Live)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.3.6",
+      "title": "Identify Purpose",
+      "level": "AAA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Controls without programmatic purpose cannot support personalisation or assistive technology.",
+        "description": "Controls without programmatic purpose cannot support personalisation or assistive technology. This can affect people with cognitive disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/identify-purpose.html",
+          "title": "Understanding 1.3.6 Identify Purpose"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.6",
+      "title": "Contrast (Enhanced)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Higher contrast needs may not be met by minimum contrast alone.",
+        "description": "Higher contrast needs may not be met by minimum contrast alone. This can affect people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html",
+          "title": "Understanding 1.4.6 Contrast (Enhanced)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.7",
+      "title": "Low or No Background Audio",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "hard_of_hearing",
+          "cognitive_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "non_audio_access"
+        ],
+        "barrier": "Background noise can make speech hard to understand for hard-of-hearing users.",
+        "description": "Background noise can make speech hard to understand for hard-of-hearing users. This can affect hard-of-hearing people, people with cognitive disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/low-or-no-background-audio.html",
+          "title": "Understanding 1.4.7 Low or No Background Audio"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.8",
+      "title": "Visual Presentation",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision",
+          "cognitive_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Fixed line length, alignment and spacing can make text hard to read.",
+        "description": "Fixed line length, alignment and spacing can make text hard to read. This can affect people with low vision, people with cognitive disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html",
+          "title": "Understanding 1.4.8 Visual Presentation"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "1.4.9",
+      "title": "Images of Text (No Exception)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "low_vision_accommodation"
+        ],
+        "barrier": "Images of text cannot be adapted to individual reading needs.",
+        "description": "Images of text cannot be adapted to individual reading needs. This can affect people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text-no-exception.html",
+          "title": "Understanding 1.4.9 Images of Text (No Exception)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.1.3",
+      "title": "Keyboard (No Exception)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "blind",
+          "mobility_disability",
+          "limited_dexterity"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "dexterity_accommodation",
+          "keyboard_operation",
+          "non_visual_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Any pointer-only operation can exclude keyboard-only users.",
+        "description": "Any pointer-only operation can exclude keyboard-only users. This can affect blind people, people with mobility disabilities, people with limited dexterity or tremor."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard-no-exception.html",
+          "title": "Understanding 2.1.3 Keyboard (No Exception)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.2.3",
+      "title": "No Timing",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation",
+          "keyboard_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Any time limit can prevent task completion for people who need more time.",
+        "description": "Any time limit can prevent task completion for people who need more time. This can affect people with cognitive disabilities, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-timing.html",
+          "title": "Understanding 2.2.3 No Timing"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.2.4",
+      "title": "Interruptions",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Uncontrollable interruptions break attention and task continuity.",
+        "description": "Uncontrollable interruptions break attention and task continuity. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/interruptions.html",
+          "title": "Understanding 2.2.4 Interruptions"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.2.5",
+      "title": "Re-authenticating",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Losing data on re-authentication forces people to repeat work.",
+        "description": "Losing data on re-authentication forces people to repeat work. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/re-authenticating.html",
+          "title": "Understanding 2.2.5 Re-authenticating"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.2.6",
+      "title": "Timeouts",
+      "level": "AAA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "limited_dexterity"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation",
+          "dexterity_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "Unexpected timeouts can cause data loss and confusion.",
+        "description": "Unexpected timeouts can cause data loss and confusion. This can affect people with cognitive disabilities, people with limited dexterity or tremor."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html",
+          "title": "Understanding 2.2.6 Timeouts"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.3.2",
+      "title": "Three Flashes",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "photosensitive_epilepsy"
+        ],
+        "functional_needs": [
+          "seizure_safety"
+        ],
+        "barrier": "Flashing above the general threshold can trigger seizures.",
+        "description": "Flashing above the general threshold can trigger seizures. This can affect people with photosensitive epilepsy."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes.html",
+          "title": "Understanding 2.3.2 Three Flashes"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.3.3",
+      "title": "Animation from Interactions",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "vestibular_disorder",
+          "photosensitive_epilepsy"
+        ],
+        "functional_needs": [
+          "motion_safety",
+          "seizure_safety"
+        ],
+        "barrier": "Motion triggered by interaction can cause dizziness or nausea.",
+        "description": "Motion triggered by interaction can cause dizziness or nausea. This can affect people with vestibular disorders, people with photosensitive epilepsy."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html",
+          "title": "Understanding 2.3.3 Animation from Interactions"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.8",
+      "title": "Location",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Without location cues, people may not know where they are in a site.",
+        "description": "Without location cues, people may not know where they are in a site. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/location.html",
+          "title": "Understanding 2.4.8 Location"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.9",
+      "title": "Link Purpose (Link Only)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Link text that is ambiguous without context makes destinations unclear.",
+        "description": "Link text that is ambiguous without context makes destinations unclear. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html",
+          "title": "Understanding 2.4.9 Link Purpose (Link Only)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.10",
+      "title": "Section Headings",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability",
+          "blind"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "cognitive_support",
+          "consistent_navigation",
+          "non_visual_operation"
+        ],
+        "barrier": "Missing section headings make long content harder to scan and navigate.",
+        "description": "Missing section headings make long content harder to scan and navigate. This can affect people with cognitive disabilities, people with learning disabilities, blind people."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/section-headings.html",
+          "title": "Understanding 2.4.10 Section Headings"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.12",
+      "title": "Focus Not Obscured (Enhanced)",
+      "level": "AAA",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "keyboard_operation",
+          "low_vision_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "Focus can be hidden by additional visual content, not just the minimum overlays.",
+        "description": "Focus can be hidden by additional visual content, not just the minimum overlays. This can affect people with low vision, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html",
+          "title": "Understanding 2.4.12 Focus Not Obscured (Enhanced)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.4.13",
+      "title": "Focus Appearance",
+      "level": "AAA",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "low_vision",
+          "mobility_disability"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "keyboard_operation",
+          "low_vision_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "Insufficient focus appearance makes keyboard focus hard to perceive.",
+        "description": "Insufficient focus appearance makes keyboard focus hard to perceive. This can affect people with low vision, people with mobility disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html",
+          "title": "Understanding 2.4.13 Focus Appearance"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.5.5",
+      "title": "Target Size (Enhanced)",
+      "level": "AAA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "limited_dexterity",
+          "low_vision"
+        ],
+        "functional_needs": [
+          "assistive_technology_compatibility",
+          "dexterity_accommodation",
+          "low_vision_accommodation",
+          "pointer_alternative"
+        ],
+        "barrier": "Even larger targets may be insufficient for people with significant dexterity limits.",
+        "description": "Even larger targets may be insufficient for people with significant dexterity limits. This can affect people with limited dexterity or tremor, people with low vision."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html",
+          "title": "Understanding 2.5.5 Target Size (Enhanced)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "2.5.6",
+      "title": "Concurrent Input Mechanisms",
+      "level": "AAA",
+      "introduced_in": "2.1",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "mobility_disability",
+          "limited_dexterity"
+        ],
+        "functional_needs": [
+          "dexterity_accommodation",
+          "keyboard_operation",
+          "pointer_alternative"
+        ],
+        "barrier": "Restricting input to one mechanism excludes people who switch methods.",
+        "description": "Restricting input to one mechanism excludes people who switch methods. This can affect people with mobility disabilities, people with limited dexterity or tremor."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/concurrent-input-mechanisms.html",
+          "title": "Understanding 2.5.6 Concurrent Input Mechanisms"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.1.3",
+      "title": "Unusual Words",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Unusual words and idioms can be misunderstood without definitions.",
+        "description": "Unusual words and idioms can be misunderstood without definitions. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/unusual-words.html",
+          "title": "Understanding 3.1.3 Unusual Words"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.1.4",
+      "title": "Abbreviations",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Unexpanded abbreviations can be unclear to people with cognitive or language differences.",
+        "description": "Unexpanded abbreviations can be unclear to people with cognitive or language differences. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/abbreviations.html",
+          "title": "Understanding 3.1.4 Abbreviations"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.1.5",
+      "title": "Reading Level",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Complex text can be inaccessible without a simpler version or support.",
+        "description": "Complex text can be inaccessible without a simpler version or support. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html",
+          "title": "Understanding 3.1.5 Reading Level"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.1.6",
+      "title": "Pronunciation",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability",
+          "hard_of_hearing"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation",
+          "hearing_accommodation",
+          "non_audio_access"
+        ],
+        "barrier": "Ambiguous pronunciation can make text unclear when read aloud.",
+        "description": "Ambiguous pronunciation can make text unclear when read aloud. This can affect people with cognitive disabilities, people with learning disabilities, hard-of-hearing people."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/pronunciation.html",
+          "title": "Understanding 3.1.6 Pronunciation"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.2.5",
+      "title": "Change on Request",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Unexpected context changes can disorient people who did not request them.",
+        "description": "Unexpected context changes can disorient people who did not request them. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/change-on-request.html",
+          "title": "Understanding 3.2.5 Change on Request"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.5",
+      "title": "Help",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Without help, people may not know how to complete a task.",
+        "description": "Without help, people may not know how to complete a task. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/help.html",
+          "title": "Understanding 3.3.5 Help"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.6",
+      "title": "Error Prevention (All)",
+      "level": "AAA",
+      "introduced_in": "2.0",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Without review or confirmation, errors in important submissions can cause loss.",
+        "description": "Without review or confirmation, errors in important submissions can cause loss. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-all.html",
+          "title": "Understanding 3.3.6 Error Prevention (All)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    },
+    {
+      "id": "3.3.9",
+      "title": "Accessible Authentication (Enhanced)",
+      "level": "AAA",
+      "introduced_in": "2.2",
+      "status": "active",
+      "user_impact": {
+        "groups": [
+          "cognitive_disability",
+          "learning_disability"
+        ],
+        "functional_needs": [
+          "cognitive_support",
+          "consistent_navigation"
+        ],
+        "barrier": "Even enhanced authentication can block people who cannot solve cognitive tests.",
+        "description": "Even enhanced authentication can block people who cannot solve cognitive tests. This can affect people with cognitive disabilities, people with learning disabilities."
+      },
+      "sources": [
+        {
+          "type": "w3c_understanding",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html",
+          "title": "Understanding 3.3.9 Accessible Authentication (Enhanced)"
+        }
+      ],
+      "standards_mappings": {
+        "section508_fpc": {
+          "status": "reviewed-no-mapping",
+          "categories": []
+        },
+        "en301549": {
+          "v3.2.1": "pending",
+          "v4.1.1": "pending"
+        }
+      },
+      "review_status": "proposed",
+      "last_reviewed": null
+    }
+  ]
+}
