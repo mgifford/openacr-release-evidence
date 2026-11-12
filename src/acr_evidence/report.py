@@ -1427,27 +1427,55 @@ def _criterion_index(findings):
     return "".join(parts)
 
 
-def _issue_index(findings):
-    parts = [
-        '<h3 id="issue-index-heading">Issue index</h3>',
-        '<p>Each row keeps two labels separate: <strong>Drupal.org status</strong> is the issue workflow, and '
-        '<strong>Applies to this release?</strong> is what we know about this exact version. '
-        '“Not yet determined” means nobody has checked, not that the barrier is absent.</p>',
-        '<div class="table-scroll" tabindex="0" role="region" aria-label="Issue index. Scroll horizontally if needed.">',
-        '<table class="index-table issue-index">',
-        '<caption>Reported issues: Drupal.org status, release applicability, reason, next step and evidence detail</caption>',
-        '<thead><tr><th scope="col">Issue</th><th scope="col">Drupal.org status</th>'
-        '<th scope="col">Applies to this release?</th><th scope="col">Why this state</th>'
-        '<th scope="col">What to do next</th><th scope="col">Component</th>'
-        '<th scope="col">WCAG criteria</th><th scope="col">Evidence detail</th></tr></thead><tbody>',
-    ]
-    for finding in sorted(findings, key=lambda item: (item.get("applicability") or "", item.get("issue_id") or "")):
+ISSUE_GROUPS = (
+    ("verified", "Verified problems", ("confirmed-affected",),
+     "Reproduced on this exact release. The automated pipeline does not emit this state."),
+    ("likely", "Probably affects this release", ("likely-affected",),
+     "Report or code evidence suggests the problem exists here, but nobody reproduced it. "
+     "Order is by issue ID, not priority."),
+    ("fix-included", "Fix included, not behaviourally verified", ("confirmed-fixed",),
+     "A matching fix commit is contained in the release. Inclusion is not proof that the barrier is gone."),
+    ("needs-checking", "Needs checking", ("unknown",),
+     "Not enough information to decide whether the problem affects this release. "
+     "This does not mean the release is accessible or inaccessible."),
+    ("outside", "Not present or outside this report", ("not-introduced", "not-in-scope"),
+     "The affected component is not present in this release, or it is outside the declared scope. "
+     "A scope change is not a fix."),
+)
+
+UNKNOWN_REASON_LABELS = {
+    "inventory-only": "Only basic issue information was collected",
+    "none": "No release-specific evidence was recorded",
+    "report-after-release": "Reported after this release was cut",
+    "tracker-closed-without-commit": "Closed, but no matching fix commit was found",
+    "closed-non-fix": "Closed for a reason other than a fix",
+    "insufficient-evidence": "Could not establish whether the affected feature is present",
+    "tracker-report": "An open report exists, but it was not checked against this release",
+    "git-non-inclusion": "A matching fix exists but is not included in this release",
+}
+
+
+def _unknown_reason_key(finding):
+    if finding.get("evidence_status") == "inventory":
+        return "inventory-only"
+    basis = finding.get("basis") or "none"
+    if basis in UNKNOWN_REASON_LABELS:
+        return basis
+    if basis in {"manifest-scope", "code-presence", "git-inclusion"}:
+        return "none"
+    return "none"
+
+
+def _issue_rows(findings):
+    rows = []
+    for finding in findings:
         anchor = anchor_for(finding["issue_id"])
         criteria = ", ".join(finding.get("wcag_candidates") or []) or "No WCAG tag"
         evidence = "Basic record only" if finding.get("evidence_status") == "inventory" else "Comments and merge requests"
         status = finding.get("tracker_status_label") or "Unknown"
-        parts.append(
-            f'<tr><th scope="row"><a href="#{anchor}">{esc(finding["issue_id"])}</a><br>'
+        rows.append(
+            f'<tr data-applicability="{esc(finding.get("applicability"))}" data-status="{esc(status)}">'
+            f'<th scope="row"><a href="#{anchor}">{esc(finding["issue_id"])}</a><br>'
             f'<span class="meta">{esc(finding.get("title") or "")}</span></th>'
             f'<td>{esc(status)}<br><span class="meta">{esc(_status_meaning(status))}</span></td>'
             f'<td><strong>{esc(app_label(finding.get("applicability")))}</strong></td>'
@@ -1457,7 +1485,83 @@ def _issue_index(findings):
             f'<td>{esc(criteria)}</td>'
             f'<td>{esc(evidence)}</td></tr>'
         )
-    parts.append("</tbody></table></div>")
+    return "".join(rows)
+
+
+def _issue_table(findings, caption):
+    return (
+        '<div class="table-scroll" tabindex="0" role="region" aria-label="Issue table. Scroll horizontally if needed.">'
+        '<table class="index-table issue-index">'
+        f'<caption>{esc(caption)}</caption>'
+        '<thead><tr><th scope="col">Issue</th><th scope="col">Drupal.org status</th>'
+        '<th scope="col">Applies to this release?</th><th scope="col">Why this state</th>'
+        '<th scope="col">What to do next</th><th scope="col">Component</th>'
+        '<th scope="col">WCAG criteria</th><th scope="col">Evidence detail</th></tr></thead><tbody>'
+        + _issue_rows(findings)
+        + "</tbody></table></div>"
+    )
+
+
+def _issue_index(findings):
+    total = len(findings)
+    grouped = {key: [] for key, _label, _values, _note in ISSUE_GROUPS}
+    values_to_group = {
+        value: key for key, _label, values, _note in ISSUE_GROUPS for value in values
+    }
+    for finding in findings:
+        grouped[values_to_group.get(finding.get("applicability"), "needs-checking")].append(finding)
+    for items in grouped.values():
+        items.sort(key=lambda item: item.get("issue_id") or "")
+
+    parts = [
+        '<h3 id="issue-index-heading">Issue index</h3>',
+        '<p>Each row keeps two labels separate: <strong>Drupal.org status</strong> is the issue workflow, and '
+        '<strong>Applies to this release?</strong> is what we know about this exact version. '
+        '“Not yet determined” means nobody has checked, not that the barrier is absent.</p>',
+        '<form class="issue-filters" aria-describedby="issue-filter-note">',
+        '<fieldset><legend>Show issues by release applicability</legend><div class="filter-options">',
+        f'<label><input type="radio" name="issue-applicability" id="issue-filter-all" checked> All issues ({total})</label>',
+    ]
+    for key, label, _values, _note in ISSUE_GROUPS:
+        parts.append(
+            f'<label><input type="radio" name="issue-applicability" id="issue-filter-{key}"> '
+            f'{esc(label)} ({len(grouped[key])})</label>'
+        )
+    parts.extend([
+        "</div></fieldset></form>",
+        '<p class="filter-note" id="issue-filter-note">This filter uses CSS only. All groups remain in the page, '
+        'and all remain visible if your browser does not support the filter. Use your browser’s Find command to '
+        'search within a group.</p>',
+    ])
+
+    unknown = grouped["needs-checking"]
+    if unknown:
+        counts = {}
+        for finding in unknown:
+            key = _unknown_reason_key(finding)
+            counts[key] = counts.get(key, 0) + 1
+        parts.append('<div class="callout issue-reasons"><h4>Why are these not determined?</h4>')
+        parts.append(f'<p>{_plural_count(len(unknown), "issue")} {"is" if len(unknown) == 1 else "are"} not yet determined. The main reasons are:</p>')
+        parts.append('<table class="summary-table"><caption>Reasons that issues are not yet determined</caption>'
+                     '<thead><tr><th scope="col">Reason</th><th scope="col">Issues</th></tr></thead><tbody>')
+        for key, count in sorted(counts.items(), key=lambda item: (-item[1], item[0])):
+            parts.append(f'<tr><th scope="row">{esc(UNKNOWN_REASON_LABELS.get(key, key))}</th><td>{count}</td></tr>')
+        parts.append("</tbody></table>")
+        parts.append('<p class="meta">Collecting comments and merge-request evidence, or checking the component '
+                     'in the release, is the next step for these records. No priority or severity is implied.</p></div>')
+
+    for key, label, _values, note in ISSUE_GROUPS:
+        items = grouped[key]
+        parts.append(
+            f'<section class="issue-group" data-group="{key}" aria-labelledby="issue-group-{key}">'
+            f'<h4 id="issue-group-{key}">{esc(label)} ({len(items)})</h4>'
+            f'<p class="group-note">{esc(note)}</p>'
+        )
+        if not items:
+            parts.append('<p class="empty-state">No issue in this snapshot has this state.</p>')
+        else:
+            parts.append(_issue_table(items, f"{label}: {len(items)} reported issues"))
+        parts.append("</section>")
     return "".join(parts)
 
 

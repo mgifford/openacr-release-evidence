@@ -1,6 +1,6 @@
 # Report usability and correctness review
 
-**Status: Phases 1–3 implemented on 2026-11-12. Phases 4–6 proposed.**
+**Status: Phases 1–4 implemented on 2026-11-12. Phases 5–6 proposed.**
 
 This review responds to reviewer feedback on the published release reports. It
 records the problems found in the current generator, the smallest safe changes
@@ -111,7 +111,7 @@ scope change, not a fix.
 The last paragraph is generated from the inventory and lineage records, not
 written by hand into the template.
 
-### 4. `Unknown` had no reason and no next step
+### 4. `Unknown` had no reason, no grouping and no next step
 
 **Symptom.** 402 of 432 beta2 findings said "Unknown (insufficient
 target-specific evidence)". Readers could not tell whether more data collection
@@ -134,6 +134,20 @@ proportional step. Examples:
 | `code-presence` | The affected component or feature is absent from this release. | No action for this release; the component is not present. |
 
 The index and the issue detail both show the reason and the next step.
+
+Phase 4 then grouped the issue index by applicability:
+
+1. Verified problems
+2. Probably affects this release
+3. Fix included, not behaviourally verified
+4. Needs checking
+5. Not present or outside this report
+
+Each group has its own explanation and count. A CSS-only radio filter hides
+groups that do not match the selected state; all groups remain in the document
+without JavaScript. `issues.html` also reports why issues are not determined:
+for beta2, 394 are basic metadata records and 8 were reported after the release
+was cut.
 
 ### 5. The pipeline generated unsupported conformance conclusions
 
@@ -200,8 +214,8 @@ component index or downloads.
   pages. `issues.html` is still large because it contains every canonical issue
   record; per-issue pages or pagination are a later optimisation.
 - `issues.html` still contains all 432 canonical issue records in one page.
-  Grouping by "verified / probably affected / needs checking / out of scope /
-  fix included" and per-issue pages or pagination are proposed for Phase 4.
+  Per-issue pages or pagination are a later optimisation; grouping and the
+  applicability filter are implemented.
 - No manual screen-reader or keyboard test of the revised layout has been
   recorded in this session. Automated HTML structure tests and the existing
   no-JavaScript constraints pass.
@@ -220,8 +234,8 @@ checked in headless Chrome at 320 × 900 CSS px:
 - **axe-core 4.x:** 0 violations on all six pages for the WCAG 2.0/2.1/2.2 A/AA
   rule tags. This is automated coverage only, not a conformance result.
 - **Keyboard:** the first Tab on the overview focused the skip link
-  (`Skip to main content`, `href="#main"`). The native `<details>` elements
-  remain keyboard operable.
+  (`Skip to main content`, `href="#main"`). The native `<details>` elements and
+  the grouped issue filter remain keyboard operable.
 - **No JavaScript:** all five HTML navigation/evidence pages rendered their
   title, breadcrumb and content with JavaScript disabled.
 - **Links:** a cross-page link checker resolved every relative link and
