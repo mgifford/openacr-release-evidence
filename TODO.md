@@ -59,11 +59,12 @@ coverage. The generated ACR remains a draft.
       OpenACR draft.
 - [ ] Split the report into overview, issues, sources, method and criteria pages
       while preserving anchors.
-- [ ] Add progressive-enhancement filters for applicability, component and
-      criterion.
-- [ ] Group the issue table by verified / probably affected / needs checking /
-      out of scope / fix included.
-- [ ] Test the revised summary and labels with representative readers.
+- [x] Add a CSS-only applicability filter for the issue list.
+- [x] Group the issue table by verified / probably affects / fix included /
+      needs checking / outside scope, with generated reason counts.
+- [ ] Add component and criterion filters.
+- [ ] Test the revised summary, grouped issue list and labels with representative
+      readers.
 - [ ] Record keyboard, screen-reader, 320 px, forced-colors and no-JavaScript
       checks for the revised layout.
 

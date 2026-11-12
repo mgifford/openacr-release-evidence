@@ -184,7 +184,7 @@ command is called. Raw output is private and never published.
 - Multi-target analysis for supported releases, pre-release tags and the `main` development branch.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - A no-script release finder, compact release cards, grouped downloads and a separate complete matrix page.
-- A report header with top supporting-output links, section navigation, a plain-language summary, at-a-glance evidence metrics, WCAG criterion index and issue index.
+- A report header with top supporting-output links, section navigation, a plain-language summary, at-a-glance evidence metrics, WCAG criterion index and a grouped issue index with a CSS-only applicability filter.
 - Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into explicit Part A/Part B and unassigned evidence, with a WAI ATAG Report Tool JSON draft.
