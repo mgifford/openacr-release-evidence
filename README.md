@@ -426,6 +426,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Criterion evidence beyond the issue queue](docs/CRITERION-EVIDENCE.md)
 - [Reproduction evidence](docs/REPRODUCTION-EVIDENCE.md)
 - [Functional Performance Criteria mapping](docs/FPC-MAPPING.md)
+- [Beyond WCAG: non-WCAG considerations](docs/NON-WCAG-CONSIDERATIONS.md)
 - [Developer evidence index](docs/DEVELOPER-INDEX.md)
 - [Automated coverage mapping](config/wcag-automation-coverage.json)
 - [Onboarding Drupal CMS and LocalGov Drupal](docs/MULTI-PROJECT-ONBOARDING.md)

@@ -337,6 +337,26 @@ The evidence report lists all active issues and their source links. It distingui
 - The product is a declared Drupal Core configuration; it is not every Drupal site.
 - The draft does not establish legal compliance or a procurement-safe conformance claim.
 
+## Beyond WCAG: non-WCAG accessibility considerations
+
+This box is outside WCAG and outside the OpenACR result terms. It records accessibility topics that can create real barriers without a clean WCAG 2.2 AA success criterion. These are review prompts, not findings, and no Supports, Partially Supports or Does Not Support value is assigned.
+
+**Non-WCAG accessibility considerations**
+
+| Topic | Why it matters | Evidence to collect | Review status |
+| --- | --- | --- | --- |
+| [EN 301 549 user preferences](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf) | EN 301 549 clause 11.7 addresses respecting user preferences. On the web this overlaps with theme and user-agent behavior: contrast, text size, colours, spacing and motion preferences should not be overridden by the product. | Theme/configuration audit for font size, contrast, colours, spacing, forced colours and persistence of user choices. | not-evaluated · unreviewed |
+| [Visually induced motion sickness](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html) | Parallax, large transitions, zooming and camera-like movement can make people dizzy or nauseated. WCAG 2.3.3 Animation from Interactions is Level AAA and does not cover every motion source at AA. | Inventory of core/theme animations and transitions; test with motion sensitivity and reduced-motion preferences. | not-evaluated · unreviewed |
+| [Reduced-motion preference](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) | Honouring prefers-reduced-motion is a practical way to reduce motion-triggered discomfort. It is not a standalone WCAG 2.2 AA success criterion. | Check whether core/theme animations respect the preference and whether a non-motion path exists. | not-evaluated · unreviewed |
+| [Forced-colors and high-contrast modes](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors) | Windows forced-colors and high-contrast modes must not make controls, focus or status information disappear. This is broader than a single WCAG AA criterion. | Test core/admin controls, focus indicators, icons and status messages in forced-colors mode. | not-evaluated · unreviewed |
+
+EN 301 549 user preferences and motion-sensitivity concerns are examples of best-practice accessibility work that a WCAG-only report can miss. They need separate evidence and human review before any claim.
+
+- [EN 301 549 V3.2.1 (ETSI)](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf)
+- [WCAG 2.3.3 Animation from Interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html)
+- [prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+- [forced-colors](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors)
+
 ## References
 
 Every Drupal.org issue cited in the criterion tables is listed below by WCAG principle. Each group can be collapsed; each criterion keeps a stable reference anchor. Each link goes to the public issue where the barrier is discussed.

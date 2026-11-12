@@ -123,7 +123,7 @@
     "parent_project": null,
     "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
   },
-  "generated_at": "2026-11-12T06:41:49Z",
+  "generated_at": "2026-11-12T06:47:42Z",
   "collection": {
     "query": {
       "project": "drupal",

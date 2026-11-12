@@ -13,6 +13,7 @@ from .criterion_summaries import PROMPT_VERSION as CRITERION_PROMPT_VERSION
 from .criterion_evidence import automation_for_criterion
 from .openacr_export import load_catalog
 from .fpc import summarize as summarize_fpc
+from .non_wcag import load_considerations
 from .surface_assessment import assessment_note, component_results, criterion_results
 
 DRAFT_TERM = "Not Evaluated (draft — reviewer must select an ACR result)"
@@ -941,6 +942,28 @@ def render_acr_narrative(analysis, output_dir):
         "No reproduction, assistive-technology testing, hardware testing or packaged-software testing is claimed.",
         "The product is a declared Drupal Core configuration; it is not every Drupal site.",
         "The draft does not establish legal compliance or a procurement-safe conformance claim.",
+    ])
+    doc.h2("Beyond WCAG: non-WCAG accessibility considerations")
+    considerations = load_considerations()
+    doc.p("This box is outside WCAG and outside the OpenACR result terms. It records accessibility topics that can create real barriers without a clean WCAG 2.2 AA success criterion. These are review prompts, not findings, and no Supports, Partially Supports or Does Not Support value is assigned.")
+    non_wcag_rows = []
+    for item in considerations.get("items") or []:
+        title = Cell(item.get("title"), item.get("source_url"))
+        why = item.get("why")
+        collect = item.get("what_to_collect")
+        status = f"{item.get('evidence_state')} · {item.get('review_status')}"
+        non_wcag_rows.append([title, Cell(why), Cell(collect), Cell(status)])
+    doc.table(
+        "Non-WCAG accessibility considerations",
+        ["Topic", "Why it matters", "Evidence to collect", "Review status"],
+        non_wcag_rows,
+    )
+    doc.p("EN 301 549 user preferences and motion-sensitivity concerns are examples of best-practice accessibility work that a WCAG-only report can miss. They need separate evidence and human review before any claim.")
+    doc.links([
+        ("EN 301 549 V3.2.1 (ETSI)", "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf"),
+        ("WCAG 2.3.3 Animation from Interactions", "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html"),
+        ("prefers-reduced-motion", "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion"),
+        ("forced-colors", "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors"),
     ])
     doc.h2("References")
     doc.p("Every Drupal.org issue cited in the criterion tables is listed below by WCAG principle. Each group can be collapsed; each criterion keeps a stable reference anchor. Each link goes to the public issue where the barrier is discussed.")
