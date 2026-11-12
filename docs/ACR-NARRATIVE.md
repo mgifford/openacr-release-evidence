@@ -154,6 +154,14 @@ EN 301 549 user preferences, visually induced motion sickness, reduced motion an
 forced-colors/high-contrast modes. These are review gaps, not conformance terms,
 and they are not included in OpenACR.
 
+## Why these accessibility issues matter
+
+The ACR includes a dedicated human-impact section immediately before References.
+It explains why barriers matter, presents WHO global context with source dates and
+limitations, maps representative functional needs, explains shared-component
+remediation, and documents methodology and review status. The section does not
+assign conformance results or Drupal user counts.
+
 ## References grouping
 
 References are grouped into collapsible POUR sections: Perceivable, Operable,

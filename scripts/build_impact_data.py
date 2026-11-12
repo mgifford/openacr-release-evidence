@@ -190,6 +190,23 @@ def groups_for(criterion, fpc):
     return sorted(set(result))
 
 
+SHORT_GROUP_LABELS = {
+    "blind": "blind people",
+    "low_vision": "people with low vision",
+    "color_vision_deficiency": "people with colour vision deficiency",
+    "deaf": "Deaf people",
+    "hard_of_hearing": "hard-of-hearing people",
+    "deafblind": "Deafblind people",
+    "speech_disability": "people with speech disabilities",
+    "mobility_disability": "people with mobility disabilities",
+    "limited_dexterity": "people with limited dexterity or tremor",
+    "cognitive_disability": "people with cognitive disabilities",
+    "learning_disability": "people with learning disabilities",
+    "photosensitive_epilepsy": "people with photosensitive epilepsy",
+    "vestibular_disorder": "people with vestibular disorders",
+}
+
+
 def main():
     catalog = load_catalog()
     vocab = json.loads((DATA / "schema" / "groups.json").read_text(encoding="utf-8"))
@@ -237,6 +254,8 @@ def main():
                 "user_impact": {
                     "groups": groups,
                     "functional_needs": needs,
+                    "affects_short": "; ".join(SHORT_GROUP_LABELS[group] for group in groups),
+                    "barrier_short": barrier,
                     "barrier": barrier,
                     "description": f"{barrier} This can affect {label}.",
                 },

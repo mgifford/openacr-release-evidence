@@ -174,3 +174,4 @@ body:has(#filter-status-development:checked) .release-card:not([data-support="de
 .reference-group ul{margin:.2rem .8rem .8rem}
 /* Disability-impact label under a WCAG criterion name. */
 .criterion-disability{display:block;font-size:.82rem;font-weight:500;opacity:.9;margin-top:.2rem}
+.criterion-disability{margin-top:.2rem}

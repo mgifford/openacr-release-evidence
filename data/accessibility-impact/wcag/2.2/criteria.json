@@ -25,6 +25,8 @@
           "non_audio_access",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; Deaf people; hard-of-hearing people; people with learning disabilities; people with low vision",
+        "barrier_short": "Images, icons, charts and controls without useful text alternatives can be unusable or misidentified.",
         "barrier": "Images, icons, charts and controls without useful text alternatives can be unusable or misidentified.",
         "description": "Images, icons, charts and controls without useful text alternatives can be unusable or misidentified. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
       },
@@ -78,6 +80,8 @@
           "non_audio_access",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; Deaf people; hard-of-hearing people; people with learning disabilities; people with low vision",
+        "barrier_short": "Audio-only or silent video content without an alternative excludes people who cannot hear or see it.",
         "barrier": "Audio-only or silent video content without an alternative excludes people who cannot hear or see it.",
         "description": "Audio-only or silent video content without an alternative excludes people who cannot hear or see it. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
       },
@@ -126,6 +130,8 @@
           "hearing_accommodation",
           "non_audio_access"
         ],
+        "affects_short": "people with cognitive disabilities; Deaf people; hard-of-hearing people; people with learning disabilities",
+        "barrier_short": "Prerecorded speech without captions excludes people who cannot hear the audio.",
         "barrier": "Prerecorded speech without captions excludes people who cannot hear the audio.",
         "description": "Prerecorded speech without captions excludes people who cannot hear the audio. This can affect people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities."
       },
@@ -173,6 +179,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with low vision",
+        "barrier_short": "Visual information in video without audio description or a media alternative may be missed.",
         "barrier": "Visual information in video without audio description or a media alternative may be missed.",
         "description": "Visual information in video without audio description or a media alternative may be missed. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
       },
@@ -220,6 +228,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with low vision",
+        "barrier_short": "Missing or incorrect structure, labels and relationships make content hard to interpret with assistive technology.",
         "barrier": "Missing or incorrect structure, labels and relationships make content hard to interpret with assistive technology.",
         "description": "Missing or incorrect structure, labels and relationships make content hard to interpret with assistive technology. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
       },
@@ -267,6 +277,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with low vision",
+        "barrier_short": "A confusing reading order can make the meaning of content unintelligible.",
         "barrier": "A confusing reading order can make the meaning of content unintelligible.",
         "description": "A confusing reading order can make the meaning of content unintelligible. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
       },
@@ -318,6 +330,8 @@
           "non_audio_access",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; Deaf people; hard-of-hearing people; people with learning disabilities; people with low vision",
+        "barrier_short": "Instructions that rely only on shape, colour, size or position can be misunderstood.",
         "barrier": "Instructions that rely only on shape, colour, size or position can be misunderstood.",
         "description": "Instructions that rely only on shape, colour, size or position can be misunderstood. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
       },
@@ -369,6 +383,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with colour vision deficiency; people with learning disabilities; people with low vision",
+        "barrier_short": "Meaning conveyed only by colour can be missed by people who cannot distinguish those colours.",
         "barrier": "Meaning conveyed only by colour can be missed by people who cannot distinguish those colours.",
         "description": "Meaning conveyed only by colour can be missed by people who cannot distinguish those colours. This can affect blind people, people with cognitive disabilities, people with colour vision deficiency, people with learning disabilities, people with low vision."
       },
@@ -418,6 +434,8 @@
           "non_audio_access",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; hard-of-hearing people; people with learning disabilities",
+        "barrier_short": "Automatically playing audio can interfere with hearing aids, speech output or concentration.",
         "barrier": "Automatically playing audio can interfere with hearing aids, speech output or concentration.",
         "description": "Automatically playing audio can interfere with hearing aids, speech output or concentration. This can affect blind people, people with cognitive disabilities, hard-of-hearing people, people with learning disabilities."
       },
@@ -468,6 +486,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Controls that require a pointer cannot be operated by keyboard or switch users.",
         "barrier": "Controls that require a pointer cannot be operated by keyboard or switch users.",
         "description": "Controls that require a pointer cannot be operated by keyboard or switch users. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -515,6 +535,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "A keyboard trap can prevent a person from leaving a component or page.",
         "barrier": "A keyboard trap can prevent a person from leaving a component or page.",
         "description": "A keyboard trap can prevent a person from leaving a component or page. This can affect blind people, people with limited dexterity or tremor, people with low vision."
       },
@@ -558,6 +580,8 @@
           "pointer_alternative",
           "speech_independent_operation"
         ],
+        "affects_short": "people with limited dexterity or tremor; people with speech disabilities",
+        "barrier_short": "Single-key shortcuts can be triggered accidentally by speech input or unsteady hands.",
         "barrier": "Single-key shortcuts can be triggered accidentally by speech input or unsteady hands.",
         "description": "Single-key shortcuts can be triggered accidentally by speech input or unsteady hands. This can affect people with limited dexterity or tremor, people with speech disabilities."
       },
@@ -604,6 +628,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Short or uncontrollable time limits can prevent completion of a task.",
         "barrier": "Short or uncontrollable time limits can prevent completion of a task.",
         "description": "Short or uncontrollable time limits can prevent completion of a task. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -647,6 +673,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Moving, blinking or auto-updating content can distract or prevent reading.",
         "barrier": "Moving, blinking or auto-updating content can distract or prevent reading.",
         "description": "Moving, blinking or auto-updating content can distract or prevent reading. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -685,6 +713,8 @@
         "functional_needs": [
           "seizure_safety"
         ],
+        "affects_short": "people with photosensitive epilepsy",
+        "barrier_short": "Flashing content can trigger seizures in people with photosensitive epilepsy.",
         "barrier": "Flashing content can trigger seizures in people with photosensitive epilepsy.",
         "description": "Flashing content can trigger seizures in people with photosensitive epilepsy. This can affect people with photosensitive epilepsy."
       },
@@ -731,6 +761,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Repeated blocks without a bypass mechanism make navigation slow and tiring.",
         "barrier": "Repeated blocks without a bypass mechanism make navigation slow and tiring.",
         "description": "Repeated blocks without a bypass mechanism make navigation slow and tiring. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -782,6 +814,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "A missing or uninformative page title makes pages hard to identify.",
         "barrier": "A missing or uninformative page title makes pages hard to identify.",
         "description": "A missing or uninformative page title makes pages hard to identify. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -833,6 +867,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Illogical focus order can disorient keyboard and screen-reader users.",
         "barrier": "Illogical focus order can disorient keyboard and screen-reader users.",
         "description": "Illogical focus order can disorient keyboard and screen-reader users. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -884,6 +920,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Ambiguous link text makes destinations unclear without surrounding context.",
         "barrier": "Ambiguous link text makes destinations unclear without surrounding context.",
         "description": "Ambiguous link text makes destinations unclear without surrounding context. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -928,6 +966,8 @@
           "keyboard_operation",
           "pointer_alternative"
         ],
+        "affects_short": "people with limited dexterity or tremor; people with mobility disabilities",
+        "barrier_short": "Multi-point or path-based gestures exclude people who cannot perform them.",
         "barrier": "Multi-point or path-based gestures exclude people who cannot perform them.",
         "description": "Multi-point or path-based gestures exclude people who cannot perform them. This can affect people with limited dexterity or tremor, people with mobility disabilities."
       },
@@ -967,6 +1007,8 @@
           "keyboard_operation",
           "pointer_alternative"
         ],
+        "affects_short": "people with limited dexterity or tremor; people with mobility disabilities",
+        "barrier_short": "Actions that fire on pointer-down can cause accidental activation for people with tremor.",
         "barrier": "Actions that fire on pointer-down can cause accidental activation for people with tremor.",
         "description": "Actions that fire on pointer-down can cause accidental activation for people with tremor. This can affect people with limited dexterity or tremor, people with mobility disabilities."
       },
@@ -1006,6 +1048,8 @@
           "pointer_alternative",
           "speech_independent_operation"
         ],
+        "affects_short": "people with speech disabilities; people with limited dexterity or tremor",
+        "barrier_short": "Visible labels that do not match accessible names break speech-input activation.",
         "barrier": "Visible labels that do not match accessible names break speech-input activation.",
         "description": "Visible labels that do not match accessible names break speech-input activation. This can affect people with speech disabilities, people with limited dexterity or tremor."
       },
@@ -1045,6 +1089,8 @@
           "keyboard_operation",
           "pointer_alternative"
         ],
+        "affects_short": "people with mobility disabilities; people with limited dexterity or tremor",
+        "barrier_short": "Requiring device motion to operate a control excludes people with limited mobility.",
         "barrier": "Requiring device motion to operate a control excludes people with limited mobility.",
         "description": "Requiring device motion to operate a control excludes people with limited mobility. This can affect people with mobility disabilities, people with limited dexterity or tremor."
       },
@@ -1092,6 +1138,8 @@
           "non_audio_access",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; Deaf people; hard-of-hearing people; people with learning disabilities; people with low vision",
+        "barrier_short": "An unmarked page language can make screen-reader pronunciation incorrect.",
         "barrier": "An unmarked page language can make screen-reader pronunciation incorrect.",
         "description": "An unmarked page language can make screen-reader pronunciation incorrect. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
       },
@@ -1144,6 +1192,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Unexpected context changes on focus can disorient and cause errors.",
         "barrier": "Unexpected context changes on focus can disorient and cause errors.",
         "description": "Unexpected context changes on focus can disorient and cause errors. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -1192,6 +1242,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with low vision",
+        "barrier_short": "Unexpected context changes on input can cause people to lose their place.",
         "barrier": "Unexpected context changes on input can cause people to lose their place.",
         "description": "Unexpected context changes on input can cause people to lose their place. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
       },
@@ -1234,6 +1286,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Help mechanisms in inconsistent locations increase cognitive and navigation effort.",
         "barrier": "Help mechanisms in inconsistent locations increase cognitive and navigation effort.",
         "description": "Help mechanisms in inconsistent locations increase cognitive and navigation effort. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -1279,6 +1333,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with colour vision deficiency; people with learning disabilities; people with low vision",
+        "barrier_short": "Errors that are not described in text can be impossible to identify and correct.",
         "barrier": "Errors that are not described in text can be impossible to identify and correct.",
         "description": "Errors that are not described in text can be impossible to identify and correct. This can affect blind people, people with cognitive disabilities, people with colour vision deficiency, people with learning disabilities, people with low vision."
       },
@@ -1325,6 +1381,8 @@
           "consistent_navigation",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities; people with low vision",
+        "barrier_short": "Missing labels or instructions make form completion guesswork.",
         "barrier": "Missing labels or instructions make form completion guesswork.",
         "description": "Missing labels or instructions make form completion guesswork. This can affect people with cognitive disabilities, people with learning disabilities, people with low vision."
       },
@@ -1366,6 +1424,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Requiring the same information again burdens memory and cognitive processing.",
         "barrier": "Requiring the same information again burdens memory and cognitive processing.",
         "description": "Requiring the same information again burdens memory and cognitive processing. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -1412,6 +1472,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Custom controls without name, role and value are not usable with assistive technology.",
         "barrier": "Custom controls without name, role and value are not usable with assistive technology.",
         "description": "Custom controls without name, role and value are not usable with assistive technology. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -1459,6 +1521,8 @@
           "hearing_accommodation",
           "non_audio_access"
         ],
+        "affects_short": "people with cognitive disabilities; Deaf people; hard-of-hearing people; people with learning disabilities",
+        "barrier_short": "Live speech without captions excludes people who cannot hear it in real time.",
         "barrier": "Live speech without captions excludes people who cannot hear it in real time.",
         "description": "Live speech without captions excludes people who cannot hear it in real time. This can affect people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities."
       },
@@ -1506,6 +1570,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with low vision",
+        "barrier_short": "Video without audio description can omit visual information needed to understand it.",
         "barrier": "Video without audio description can omit visual information needed to understand it.",
         "description": "Video without audio description can omit visual information needed to understand it. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
       },
@@ -1547,6 +1613,8 @@
           "keyboard_operation",
           "pointer_alternative"
         ],
+        "affects_short": "people with mobility disabilities",
+        "barrier_short": "Locking orientation can exclude people who use a device in a fixed position.",
         "barrier": "Locking orientation can exclude people who use a device in a fixed position.",
         "description": "Locking orientation can exclude people who use a device in a fixed position. This can affect people with mobility disabilities."
       },
@@ -1585,6 +1653,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Inputs without a programmatic purpose make autofill and personalisation harder.",
         "barrier": "Inputs without a programmatic purpose make autofill and personalisation harder.",
         "description": "Inputs without a programmatic purpose make autofill and personalisation harder. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -1624,6 +1694,8 @@
           "color_independent_perception",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with colour vision deficiency; people with low vision",
+        "barrier_short": "Low text contrast makes content unreadable for people with low vision or colour loss.",
         "barrier": "Low text contrast makes content unreadable for people with low vision or colour loss.",
         "description": "Low text contrast makes content unreadable for people with low vision or colour loss. This can affect people with colour vision deficiency, people with low vision."
       },
@@ -1664,6 +1736,8 @@
           "assistive_technology_compatibility",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with low vision",
+        "barrier_short": "Text that cannot be resized prevents magnification users from reading it.",
         "barrier": "Text that cannot be resized prevents magnification users from reading it.",
         "description": "Text that cannot be resized prevents magnification users from reading it. This can affect people with low vision."
       },
@@ -1707,6 +1781,8 @@
           "consistent_navigation",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities; people with low vision",
+        "barrier_short": "Images of text cannot be resized, restyled or read reliably by assistive technology.",
         "barrier": "Images of text cannot be resized, restyled or read reliably by assistive technology.",
         "description": "Images of text cannot be resized, restyled or read reliably by assistive technology. This can affect people with cognitive disabilities, people with learning disabilities, people with low vision."
       },
@@ -1750,6 +1826,8 @@
           "low_vision_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with low vision; people with mobility disabilities",
+        "barrier_short": "Two-dimensional layouts and horizontal scrolling make zoomed content hard to follow.",
         "barrier": "Two-dimensional layouts and horizontal scrolling make zoomed content hard to follow.",
         "description": "Two-dimensional layouts and horizontal scrolling make zoomed content hard to follow. This can affect people with low vision, people with mobility disabilities."
       },
@@ -1789,6 +1867,8 @@
           "color_independent_perception",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with low vision; people with colour vision deficiency",
+        "barrier_short": "Low-contrast controls and boundaries are hard to see or locate.",
         "barrier": "Low-contrast controls and boundaries are hard to see or locate.",
         "description": "Low-contrast controls and boundaries are hard to see or locate. This can affect people with low vision, people with colour vision deficiency."
       },
@@ -1829,6 +1909,8 @@
           "consistent_navigation",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with low vision; people with cognitive disabilities",
+        "barrier_short": "Fixed text spacing prevents people from applying their own reading settings.",
         "barrier": "Fixed text spacing prevents people from applying their own reading settings.",
         "description": "Fixed text spacing prevents people from applying their own reading settings. This can affect people with low vision, people with cognitive disabilities."
       },
@@ -1872,6 +1954,8 @@
           "low_vision_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with low vision; people with mobility disabilities; people with cognitive disabilities",
+        "barrier_short": "Hover or focus content that cannot be dismissed or read blocks interaction.",
         "barrier": "Hover or focus content that cannot be dismissed or read blocks interaction.",
         "description": "Hover or focus content that cannot be dismissed or read blocks interaction. This can affect people with low vision, people with mobility disabilities, people with cognitive disabilities."
       },
@@ -1918,6 +2002,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "A single navigation route can make content hard to find for people with different strategies.",
         "barrier": "A single navigation route can make content hard to find for people with different strategies.",
         "description": "A single navigation route can make content hard to find for people with different strategies. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -1969,6 +2055,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Unclear headings and labels make page structure and purpose harder to understand.",
         "barrier": "Unclear headings and labels make page structure and purpose harder to understand.",
         "description": "Unclear headings and labels make page structure and purpose harder to understand. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -2018,6 +2106,8 @@
           "low_vision_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "A missing visible focus indicator makes keyboard operation hard to track.",
         "barrier": "A missing visible focus indicator makes keyboard operation hard to track.",
         "description": "A missing visible focus indicator makes keyboard operation hard to track. This can affect people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -2062,6 +2152,8 @@
           "low_vision_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with low vision; people with mobility disabilities",
+        "barrier_short": "Sticky headers, banners or overlays can hide the focused control.",
         "barrier": "Sticky headers, banners or overlays can hide the focused control.",
         "description": "Sticky headers, banners or overlays can hide the focused control. This can affect people with low vision, people with mobility disabilities."
       },
@@ -2101,6 +2193,8 @@
           "keyboard_operation",
           "pointer_alternative"
         ],
+        "affects_short": "people with limited dexterity or tremor; people with mobility disabilities",
+        "barrier_short": "Dragging-only interactions exclude people who cannot sustain a drag.",
         "barrier": "Dragging-only interactions exclude people who cannot sustain a drag.",
         "description": "Dragging-only interactions exclude people who cannot sustain a drag. This can affect people with limited dexterity or tremor, people with mobility disabilities."
       },
@@ -2143,6 +2237,8 @@
           "low_vision_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with limited dexterity or tremor; people with low vision; people with mobility disabilities",
+        "barrier_short": "Small or closely spaced targets cause misactivation for people with tremor or low vision.",
         "barrier": "Small or closely spaced targets cause misactivation for people with tremor or low vision.",
         "description": "Small or closely spaced targets cause misactivation for people with tremor or low vision. This can affect people with limited dexterity or tremor, people with low vision, people with mobility disabilities."
       },
@@ -2190,6 +2286,8 @@
           "non_audio_access",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; Deaf people; hard-of-hearing people; people with learning disabilities; people with low vision",
+        "barrier_short": "Unmarked language changes cause incorrect screen-reader pronunciation.",
         "barrier": "Unmarked language changes cause incorrect screen-reader pronunciation.",
         "description": "Unmarked language changes cause incorrect screen-reader pronunciation. This can affect blind people, people with cognitive disabilities, deaf people, hard-of-hearing people, people with learning disabilities, people with low vision."
       },
@@ -2239,6 +2337,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with low vision",
+        "barrier_short": "Inconsistent navigation makes it harder to predict where things are.",
         "barrier": "Inconsistent navigation makes it harder to predict where things are.",
         "description": "Inconsistent navigation makes it harder to predict where things are. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with low vision."
       },
@@ -2289,6 +2389,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Inconsistent identification of controls makes repeated tasks error-prone.",
         "barrier": "Inconsistent identification of controls makes repeated tasks error-prone.",
         "description": "Inconsistent identification of controls makes repeated tasks error-prone. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -2340,6 +2442,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Errors without suggestions leave people unsure how to recover.",
         "barrier": "Errors without suggestions leave people unsure how to recover.",
         "description": "Errors without suggestions leave people unsure how to recover. This can affect blind people, people with cognitive disabilities, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -2397,6 +2501,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with cognitive disabilities; people with colour vision deficiency; Deaf people; hard-of-hearing people; people with learning disabilities; people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Irreversible legal, financial or data actions without confirmation risk serious loss.",
         "barrier": "Irreversible legal, financial or data actions without confirmation risk serious loss.",
         "description": "Irreversible legal, financial or data actions without confirmation risk serious loss. This can affect blind people, people with cognitive disabilities, people with colour vision deficiency, deaf people, hard-of-hearing people, people with learning disabilities, people with limited dexterity or tremor, people with low vision."
       },
@@ -2443,6 +2549,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Cognitive tests or puzzles can block people with cognitive disabilities from authenticating.",
         "barrier": "Cognitive tests or puzzles can block people with cognitive disabilities from authenticating.",
         "description": "Cognitive tests or puzzles can block people with cognitive disabilities from authenticating. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -2485,6 +2593,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with low vision; people with cognitive disabilities",
+        "barrier_short": "Status messages that are not announced leave screen-reader users unaware of changes.",
         "barrier": "Status messages that are not announced leave screen-reader users unaware of changes.",
         "description": "Status messages that are not announced leave screen-reader users unaware of changes. This can affect blind people, people with low vision, people with cognitive disabilities."
       },
@@ -2523,6 +2633,8 @@
           "hearing_accommodation",
           "non_audio_access"
         ],
+        "affects_short": "Deaf people; hard-of-hearing people",
+        "barrier_short": "Sign-language users may not understand prerecorded audio without sign-language interpretation.",
         "barrier": "Sign-language users may not understand prerecorded audio without sign-language interpretation.",
         "description": "Sign-language users may not understand prerecorded audio without sign-language interpretation. This can affect deaf people, hard-of-hearing people."
       },
@@ -2562,6 +2674,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with low vision",
+        "barrier_short": "Extended visual information may not fit into standard audio-description pauses.",
         "barrier": "Extended visual information may not fit into standard audio-description pauses.",
         "description": "Extended visual information may not fit into standard audio-description pauses. This can affect blind people, people with low vision."
       },
@@ -2604,6 +2718,8 @@
           "low_vision_accommodation",
           "non_visual_operation"
         ],
+        "affects_short": "blind people; people with low vision; people with cognitive disabilities",
+        "barrier_short": "Complex media without a full text alternative may be inaccessible.",
         "barrier": "Complex media without a full text alternative may be inaccessible.",
         "description": "Complex media without a full text alternative may be inaccessible. This can affect blind people, people with low vision, people with cognitive disabilities."
       },
@@ -2642,6 +2758,8 @@
           "hearing_accommodation",
           "non_audio_access"
         ],
+        "affects_short": "Deaf people; hard-of-hearing people",
+        "barrier_short": "Live audio without captions excludes people who cannot hear it.",
         "barrier": "Live audio without captions excludes people who cannot hear it.",
         "description": "Live audio without captions excludes people who cannot hear it. This can affect deaf people, hard-of-hearing people."
       },
@@ -2679,6 +2797,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities",
+        "barrier_short": "Controls without programmatic purpose cannot support personalisation or assistive technology.",
         "barrier": "Controls without programmatic purpose cannot support personalisation or assistive technology.",
         "description": "Controls without programmatic purpose cannot support personalisation or assistive technology. This can affect people with cognitive disabilities."
       },
@@ -2716,6 +2836,8 @@
           "assistive_technology_compatibility",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with low vision",
+        "barrier_short": "Higher contrast needs may not be met by minimum contrast alone.",
         "barrier": "Higher contrast needs may not be met by minimum contrast alone.",
         "description": "Higher contrast needs may not be met by minimum contrast alone. This can affect people with low vision."
       },
@@ -2756,6 +2878,8 @@
           "hearing_accommodation",
           "non_audio_access"
         ],
+        "affects_short": "hard-of-hearing people; people with cognitive disabilities",
+        "barrier_short": "Background noise can make speech hard to understand for hard-of-hearing users.",
         "barrier": "Background noise can make speech hard to understand for hard-of-hearing users.",
         "description": "Background noise can make speech hard to understand for hard-of-hearing users. This can affect hard-of-hearing people, people with cognitive disabilities."
       },
@@ -2796,6 +2920,8 @@
           "consistent_navigation",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with low vision; people with cognitive disabilities",
+        "barrier_short": "Fixed line length, alignment and spacing can make text hard to read.",
         "barrier": "Fixed line length, alignment and spacing can make text hard to read.",
         "description": "Fixed line length, alignment and spacing can make text hard to read. This can affect people with low vision, people with cognitive disabilities."
       },
@@ -2833,6 +2959,8 @@
           "assistive_technology_compatibility",
           "low_vision_accommodation"
         ],
+        "affects_short": "people with low vision",
+        "barrier_short": "Images of text cannot be adapted to individual reading needs.",
         "barrier": "Images of text cannot be adapted to individual reading needs.",
         "description": "Images of text cannot be adapted to individual reading needs. This can affect people with low vision."
       },
@@ -2875,6 +3003,8 @@
           "non_visual_operation",
           "pointer_alternative"
         ],
+        "affects_short": "blind people; people with mobility disabilities; people with limited dexterity or tremor",
+        "barrier_short": "Any pointer-only operation can exclude keyboard-only users.",
         "barrier": "Any pointer-only operation can exclude keyboard-only users.",
         "description": "Any pointer-only operation can exclude keyboard-only users. This can affect blind people, people with mobility disabilities, people with limited dexterity or tremor."
       },
@@ -2915,6 +3045,8 @@
           "keyboard_operation",
           "pointer_alternative"
         ],
+        "affects_short": "people with cognitive disabilities; people with mobility disabilities",
+        "barrier_short": "Any time limit can prevent task completion for people who need more time.",
         "barrier": "Any time limit can prevent task completion for people who need more time.",
         "description": "Any time limit can prevent task completion for people who need more time. This can affect people with cognitive disabilities, people with mobility disabilities."
       },
@@ -2953,6 +3085,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Uncontrollable interruptions break attention and task continuity.",
         "barrier": "Uncontrollable interruptions break attention and task continuity.",
         "description": "Uncontrollable interruptions break attention and task continuity. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -2991,6 +3125,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Losing data on re-authentication forces people to repeat work.",
         "barrier": "Losing data on re-authentication forces people to repeat work.",
         "description": "Losing data on re-authentication forces people to repeat work. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3031,6 +3167,8 @@
           "dexterity_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with cognitive disabilities; people with limited dexterity or tremor",
+        "barrier_short": "Unexpected timeouts can cause data loss and confusion.",
         "barrier": "Unexpected timeouts can cause data loss and confusion.",
         "description": "Unexpected timeouts can cause data loss and confusion. This can affect people with cognitive disabilities, people with limited dexterity or tremor."
       },
@@ -3067,6 +3205,8 @@
         "functional_needs": [
           "seizure_safety"
         ],
+        "affects_short": "people with photosensitive epilepsy",
+        "barrier_short": "Flashing above the general threshold can trigger seizures.",
         "barrier": "Flashing above the general threshold can trigger seizures.",
         "description": "Flashing above the general threshold can trigger seizures. This can affect people with photosensitive epilepsy."
       },
@@ -3105,6 +3245,8 @@
           "motion_safety",
           "seizure_safety"
         ],
+        "affects_short": "people with vestibular disorders; people with photosensitive epilepsy",
+        "barrier_short": "Motion triggered by interaction can cause dizziness or nausea.",
         "barrier": "Motion triggered by interaction can cause dizziness or nausea.",
         "description": "Motion triggered by interaction can cause dizziness or nausea. This can affect people with vestibular disorders, people with photosensitive epilepsy."
       },
@@ -3143,6 +3285,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Without location cues, people may not know where they are in a site.",
         "barrier": "Without location cues, people may not know where they are in a site.",
         "description": "Without location cues, people may not know where they are in a site. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3181,6 +3325,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Link text that is ambiguous without context makes destinations unclear.",
         "barrier": "Link text that is ambiguous without context makes destinations unclear.",
         "description": "Link text that is ambiguous without context makes destinations unclear. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3222,6 +3368,8 @@
           "consistent_navigation",
           "non_visual_operation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities; blind people",
+        "barrier_short": "Missing section headings make long content harder to scan and navigate.",
         "barrier": "Missing section headings make long content harder to scan and navigate.",
         "description": "Missing section headings make long content harder to scan and navigate. This can affect people with cognitive disabilities, people with learning disabilities, blind people."
       },
@@ -3262,6 +3410,8 @@
           "low_vision_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with low vision; people with mobility disabilities",
+        "barrier_short": "Focus can be hidden by additional visual content, not just the minimum overlays.",
         "barrier": "Focus can be hidden by additional visual content, not just the minimum overlays.",
         "description": "Focus can be hidden by additional visual content, not just the minimum overlays. This can affect people with low vision, people with mobility disabilities."
       },
@@ -3302,6 +3452,8 @@
           "low_vision_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with low vision; people with mobility disabilities",
+        "barrier_short": "Insufficient focus appearance makes keyboard focus hard to perceive.",
         "barrier": "Insufficient focus appearance makes keyboard focus hard to perceive.",
         "description": "Insufficient focus appearance makes keyboard focus hard to perceive. This can affect people with low vision, people with mobility disabilities."
       },
@@ -3342,6 +3494,8 @@
           "low_vision_accommodation",
           "pointer_alternative"
         ],
+        "affects_short": "people with limited dexterity or tremor; people with low vision",
+        "barrier_short": "Even larger targets may be insufficient for people with significant dexterity limits.",
         "barrier": "Even larger targets may be insufficient for people with significant dexterity limits.",
         "description": "Even larger targets may be insufficient for people with significant dexterity limits. This can affect people with limited dexterity or tremor, people with low vision."
       },
@@ -3381,6 +3535,8 @@
           "keyboard_operation",
           "pointer_alternative"
         ],
+        "affects_short": "people with mobility disabilities; people with limited dexterity or tremor",
+        "barrier_short": "Restricting input to one mechanism excludes people who switch methods.",
         "barrier": "Restricting input to one mechanism excludes people who switch methods.",
         "description": "Restricting input to one mechanism excludes people who switch methods. This can affect people with mobility disabilities, people with limited dexterity or tremor."
       },
@@ -3419,6 +3575,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Unusual words and idioms can be misunderstood without definitions.",
         "barrier": "Unusual words and idioms can be misunderstood without definitions.",
         "description": "Unusual words and idioms can be misunderstood without definitions. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3457,6 +3615,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Unexpanded abbreviations can be unclear to people with cognitive or language differences.",
         "barrier": "Unexpanded abbreviations can be unclear to people with cognitive or language differences.",
         "description": "Unexpanded abbreviations can be unclear to people with cognitive or language differences. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3495,6 +3655,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Complex text can be inaccessible without a simpler version or support.",
         "barrier": "Complex text can be inaccessible without a simpler version or support.",
         "description": "Complex text can be inaccessible without a simpler version or support. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3536,6 +3698,8 @@
           "hearing_accommodation",
           "non_audio_access"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities; hard-of-hearing people",
+        "barrier_short": "Ambiguous pronunciation can make text unclear when read aloud.",
         "barrier": "Ambiguous pronunciation can make text unclear when read aloud.",
         "description": "Ambiguous pronunciation can make text unclear when read aloud. This can affect people with cognitive disabilities, people with learning disabilities, hard-of-hearing people."
       },
@@ -3574,6 +3738,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Unexpected context changes can disorient people who did not request them.",
         "barrier": "Unexpected context changes can disorient people who did not request them.",
         "description": "Unexpected context changes can disorient people who did not request them. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3612,6 +3778,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Without help, people may not know how to complete a task.",
         "barrier": "Without help, people may not know how to complete a task.",
         "description": "Without help, people may not know how to complete a task. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3650,6 +3818,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Without review or confirmation, errors in important submissions can cause loss.",
         "barrier": "Without review or confirmation, errors in important submissions can cause loss.",
         "description": "Without review or confirmation, errors in important submissions can cause loss. This can affect people with cognitive disabilities, people with learning disabilities."
       },
@@ -3688,6 +3858,8 @@
           "cognitive_support",
           "consistent_navigation"
         ],
+        "affects_short": "people with cognitive disabilities; people with learning disabilities",
+        "barrier_short": "Even enhanced authentication can block people who cannot solve cognitive tests.",
         "barrier": "Even enhanced authentication can block people who cannot solve cognitive tests.",
         "description": "Even enhanced authentication can block people who cannot solve cognitive tests. This can affect people with cognitive disabilities, people with learning disabilities."
       },

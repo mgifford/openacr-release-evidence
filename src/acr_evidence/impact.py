@@ -6,6 +6,7 @@ DATA = Path(__file__).resolve().parents[2] / "data" / "accessibility-impact"
 CRITERIA_PATH = DATA / "wcag" / "2.2" / "criteria.json"
 GROUPS_PATH = DATA / "schema" / "groups.json"
 HISTORICAL_PATH = DATA / "wcag" / "2.2" / "historical.json"
+GLOBAL_PATH = DATA / "demographics" / "global.json"
 _CACHE = None
 
 
@@ -46,6 +47,8 @@ def get_criterion_impact(criterion):
         "introduced_in": record["introduced_in"],
         "groups": groups,
         "functional_needs": needs,
+        "affects_short": record["user_impact"].get("affects_short") or "",
+        "barrier_short": record["user_impact"].get("barrier_short") or record["user_impact"]["barrier"],
         "barrier": record["user_impact"]["barrier"],
         "description": record["user_impact"]["description"],
         "sources": record.get("sources") or [],
@@ -53,6 +56,10 @@ def get_criterion_impact(criterion):
         "review_status": record.get("review_status"),
         "last_reviewed": record.get("last_reviewed"),
     }
+
+
+def load_global_stats():
+    return _load(GLOBAL_PATH)
 
 
 def validate_dataset():

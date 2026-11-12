@@ -13,6 +13,7 @@ kept separate.
 schema/
   criterion-impact.schema.json
   groups.json
+  global-statistic.schema.json
 wcag/2.2/
   criteria.json          # 86 active WCAG 2.2 criteria
   historical.json        # 4.1.1, removed in WCAG 2.2
@@ -20,15 +21,20 @@ mappings/
   section508-fpc.json
   en301549-v3.2.1.json
   en301549-v4.1.1.json
+demographics/
+  global.json
 sources.json
 ```
 
 ## Status and provenance
 
 - All current descriptions are `proposed`, not reviewed.
-- Each record has a W3C Understanding link.
+- Each record has `affects_short`, `barrier_short`, a W3C Understanding link and
+  an introduction version.
 - Section 508 categories come from the CivicActions/Section508.gov crosswalk.
 - EN 301 549 files are present but `pending`; no clause relationship is asserted.
+- Global WHO context lives in `demographics/global.json`, separately from
+  criterion mappings and Drupal issues.
 - No text is copied wholesale from W3C documents.
 
 ## Controlled vocabulary

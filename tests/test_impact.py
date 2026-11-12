@@ -21,6 +21,8 @@ class ImpactDatasetTests(unittest.TestCase):
             self.assertTrue(record["barrier"].strip())
             self.assertTrue(record["description"].strip())
             self.assertTrue(record["groups"])
+            self.assertTrue(record["affects_short"])
+            self.assertTrue(record["barrier_short"])
             self.assertTrue(record["sources"])
             self.assertEqual("proposed", record["review_status"])
 

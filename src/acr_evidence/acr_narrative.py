@@ -13,7 +13,7 @@ from .criterion_summaries import PROMPT_VERSION as CRITERION_PROMPT_VERSION
 from .criterion_evidence import automation_for_criterion
 from .openacr_export import load_catalog
 from .fpc import summarize as summarize_fpc
-from .impact import get_criterion_impact
+from .impact import get_criterion_impact, load_global_stats
 from .non_wcag import load_considerations
 from .surface_assessment import assessment_note, component_results, criterion_results
 
@@ -173,6 +173,9 @@ class Doc:
     def h2(self, text):
         self.blocks.append(("h2", text))
 
+    def h2_anchor(self, text, anchor):
+        self.blocks.append(("h2a", (text, anchor)))
+
     def h3(self, text):
         self.blocks.append(("h3", text))
 
@@ -201,6 +204,8 @@ class Doc:
                 out.extend([f"# {value}", ""])
             elif kind == "h2":
                 out.extend([f"## {value}", ""])
+            elif kind == "h2a":
+                out.extend([f"## {value[0]}", ""])
             elif kind == "h3":
                 out.extend([f"### {value}", ""])
             elif kind == "p":
@@ -236,6 +241,8 @@ class Doc:
         for index, (kind, value) in enumerate(self.blocks):
             if kind in {"h2", "h3"}:
                 base = _slug(value)
+            elif kind == "h2a":
+                base = value[1]
             elif kind == "heading":
                 base = value[1]
             else:
@@ -245,7 +252,7 @@ class Doc:
             heading_ids[index] = base if count == 0 else f"{base}-{count + 1}"
         h2_indexes = [
             index for index, (kind, _value) in enumerate(self.blocks)
-            if kind == "h2"
+            if kind in {"h2", "h2a"}
         ]
         parts = [
             "<!doctype html>",
@@ -274,13 +281,13 @@ class Doc:
         nav_groups = []
         current_group = None
         for index, (kind, value) in enumerate(self.blocks):
-            if kind == "h2":
+            if kind in {"h2", "h2a"}:
                 current_group = [index, []]
                 nav_groups.append(current_group)
             elif kind in {"h3", "heading"} and current_group is not None:
                 current_group[1].append(index)
         for index, children in nav_groups:
-            heading = self.blocks[index][1]
+            heading = self.blocks[index][1][0] if self.blocks[index][0] == "h2a" else self.blocks[index][1]
             parts.append(f'<li><a href="#{heading_ids[index]}">{escape(heading)}</a>')
             if children:
                 parts.append('<ol>')
@@ -298,6 +305,8 @@ class Doc:
                 parts.append(f"<h2>{escape(value)}</h2>")
             elif kind == "h2":
                 parts.append(_heading_with_permalink("2", value, heading_ids[index]))
+            elif kind == "h2a":
+                parts.append(_heading_with_permalink("2", value[0], heading_ids[index]))
             elif kind == "h3":
                 parts.append(_heading_with_permalink("3", value, heading_ids[index]))
             elif kind == "p":
@@ -642,6 +651,14 @@ def _remarks_cell(criterion, issues, ai_summary=None):
     return RichCell(*parts)
 
 
+def _format_population(value):
+    if value >= 1_000_000_000:
+        return f"{value / 1_000_000_000:.1f} billion"
+    if value >= 1_000_000:
+        return f"{value / 1_000_000:.0f} million"
+    return f"{value:,}"
+
+
 def _table_number(level):
     return {"A": 1, "AA": 2, "AAA": 3}.get(level, "")
 
@@ -894,11 +911,11 @@ def render_acr_narrative(analysis, output_dir):
                     Permalink(f"Permalink to criterion {criterion_id} {criterion.get('handle') or ''}", f"#{row_id}"),
                     *([Break(), Small("Introduced in WCAG " + impact["introduced_in"])] if impact and impact.get("introduced_in") in {"2.1", "2.2"} else []),
                     Break(),
-                    Small("People who may be affected: " + ", ".join(
-                        group["label"] for group in (impact or {}).get("groups", [])
-                    )),
+                    Small("Affects: " + (impact or {}).get("affects_short", "")),
                     Break(),
-                    Small("Potential barrier: " + (impact or {}).get("barrier", "")),
+                    Small("Barrier: " + (impact or {}).get("barrier_short", "")),
+                    Break(),
+                    (("Why this matters", "#human-impact")),
                     Break(),
                     Cell(
                         "W3C Understanding",
@@ -1010,6 +1027,48 @@ def render_acr_narrative(analysis, output_dir):
         ("WCAG 2.3.3 Animation from Interactions", "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html"),
         ("prefers-reduced-motion", "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion"),
         ("forced-colors", "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors"),
+    ])
+    doc.h2_anchor("Why these accessibility issues matter", "human-impact")
+    doc.p("Accessibility barriers can prevent people from finding information, completing tasks, communicating and using digital services independently. The barrier arises from the interaction between a person's needs and inaccessible technology, content or environments; disability itself is not the problem.")
+    doc.h3("Accessibility is a global concern")
+    doc.p("The World Health Organization estimates that approximately 1.3 billion people, or 16% of the world's population, experience significant disability. WHO also reports at least 2.2 billion people with near or distance vision impairment, and approximately 430 million people who require rehabilitation for disabling hearing loss.")
+    doc.p("These estimates use different definitions and overlap. They are context for the scale of accessibility needs, not counts of Drupal users and not estimates of people excluded by this release.")
+    stats = load_global_stats()
+    stat_rows = []
+    for item in stats.get("statistics") or []:
+        estimate = _format_population(item["value"])
+        if item.get("percentage"):
+            estimate += f" ({item['percentage']}%)"
+        stat_rows.append([
+            Cell(item.get("organization") or "Source", item.get("source_url")),
+            Cell(item.get("measure") or ""),
+            Cell(estimate),
+            Cell(item.get("population_definition") or item.get("geography") or ""),
+            Cell(item.get("source_publication_date") or "Not recorded"),
+            Cell("; ".join(item.get("limitations") or [])),
+        ])
+    doc.table("Global disability context (WHO)", ["Source", "Measure", "Estimate", "Population and scope", "Source date", "Limitations"], stat_rows)
+    doc.p(f"Repository verification date for these figures: {stats.get('verified_at', 'not recorded')}. Definitions and dates are retained rather than combining the populations.")
+    doc.h3("How barriers affect people")
+    doc.p("The same barrier can affect several functional needs. These examples are illustrative and are not a complete crosswalk.")
+    doc.table("Functional needs and representative barriers", ["Functional need", "Example barriers", "WCAG examples"], [
+        [Cell("Access without vision"), Cell("Missing image alternatives, inaccessible controls and structure"), Cell("1.1.1, 1.3.1, 4.1.2")],
+        [Cell("Access with limited vision"), Cell("Insufficient contrast, poor reflow, restricted text enlargement"), Cell("1.4.3, 1.4.4, 1.4.10")],
+        [Cell("Access without hearing"), Cell("Audio without captions or alternatives"), Cell("1.2.2, 1.2.4")],
+        [Cell("Alternative input and limited dexterity"), Cell("Keyboard inaccessibility, dragging requirements, small targets"), Cell("2.1.1, 2.5.7, 2.5.8")],
+        [Cell("Cognitive accessibility"), Cell("Complex instructions, redundant entry, inaccessible authentication"), Cell("3.3.2, 3.3.7, 3.3.8")],
+        [Cell("Protection from seizure triggers"), Cell("Excessive flashing"), Cell("2.3.1")],
+    ])
+    doc.h3("Why remediation matters for Drupal")
+    doc.p("Drupal Core is shared software used by many sites and downstream products. A defect in a reusable component can affect multiple deployments, and a fix can benefit them together. But an issue in Core does not prove that every Drupal site contains the barrier: the component may be disabled, the site may use another theme or implementation, the issue may affect only some interactions or roles, and the reported issue may not reproduce in this release. No Drupal installation count is used to estimate affected people.")
+    doc.h3("Sources, methodology and limitations")
+    doc.p("Criterion impact descriptions are proposed editorial summaries based on W3C Understanding documents and the functional needs in this report. Section 508 FPC and EN 301 549 relationships are maintained separately; EN 301 549 clause mapping is still pending. Global statistics come from WHO and retain their source dates, definitions and limitations.")
+    doc.p("These descriptions are not conformance assessments, do not establish that a barrier occurs in a particular Drupal deployment, and do not replace testing with disabled people. The impact records are marked proposed until a human reviewer records approval. No AI model is used as an authoritative source for a description or statistic.")
+    doc.links([
+        ("WHO: Disability", "https://www.who.int/news-room/fact-sheets/detail/disability-and-health"),
+        ("WHO: Blindness and vision impairment", "https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment"),
+        ("WHO: Deafness and hearing loss", "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss"),
+        ("W3C: How People with Disabilities Use the Web", "https://www.w3.org/WAI/people-use-web/"),
     ])
     doc.h2("References")
     doc.p("Every Drupal.org issue cited in the criterion tables is listed below by WCAG principle. Each group can be collapsed; each criterion keeps a stable reference anchor. Each link goes to the public issue where the barrier is discussed.")

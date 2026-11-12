@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 158 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 160 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -407,3 +407,12 @@ rests on the declared assessment, not an automated pass.
 - EN 301 549 V3.2.1/V4.1.1 files are present but pending; no clauses asserted.
 - ACR criteria display people affected, potential barrier and W3C Understanding link.
 - All descriptions are `proposed`; none is silently reviewed.
+
+## Human-impact presentation (2026-11-12)
+
+- Added `Affects:` and short `Barrier:` lines under each criterion.
+- Added `#human-impact` before References with WHO context, functional-need
+  examples, shared-software caveats and methodology.
+- Added global statistics data with source dates, definitions and limitations.
+- All 86 criteria have short impact and barrier text; no `not mapped`.
+- Global statistics are contextual only, not Drupal user counts.

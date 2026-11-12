@@ -1,0 +1,59 @@
+{
+  "verified_at": "2026-11-12",
+  "note": "Context only. These are overlapping populations with different definitions. They are not counts of Drupal users or people excluded by the assessed release.",
+  "statistics": [
+    {
+      "id": "who-global-significant-disability",
+      "organization": "World Health Organization",
+      "title": "Disability",
+      "measure": "People experiencing significant disability",
+      "value": 1300000000,
+      "percentage": 16,
+      "geography": "global",
+      "population_definition": "People with significant disability, as defined by the source",
+      "source_publication_date": "2023-03-07",
+      "source_url": "https://www.who.int/news-room/fact-sheets/detail/disability-and-health",
+      "limitations": [
+        "Broad disability prevalence estimate",
+        "Not specific to digital accessibility",
+        "Not equivalent to users excluded by any product"
+      ]
+    },
+    {
+      "id": "who-global-vision-impairment",
+      "organization": "World Health Organization",
+      "title": "Blindness and vision impairment",
+      "measure": "People with near or distance vision impairment",
+      "value": 2200000000,
+      "geography": "global",
+      "population_definition": "People with near or distance vision impairment; not equivalent to blindness or screen-reader use",
+      "source_publication_date": "2026-02-10",
+      "source_url": "https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment",
+      "limitations": [
+        "Includes a wide range of vision impairment",
+        "At least 1 billion cases are preventable or unaddressed",
+        "Not equivalent to the number of screen-reader users"
+      ]
+    },
+    {
+      "id": "who-global-disabling-hearing-loss",
+      "organization": "World Health Organization",
+      "title": "Deafness and hearing loss",
+      "measure": "People requiring rehabilitation for disabling hearing loss",
+      "value": 430000000,
+      "geography": "global",
+      "population_definition": "People requiring rehabilitation for disabling hearing loss",
+      "source_publication_date": "2026-03-03",
+      "source_url": "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss",
+      "limitations": [
+        "Disabling hearing loss requiring rehabilitation, not all hearing loss",
+        "Not equivalent to the number of caption users"
+      ]
+    }
+  ],
+  "sources": [
+    "https://www.who.int/news-room/fact-sheets/detail/disability-and-health",
+    "https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment",
+    "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss"
+  ]
+}
