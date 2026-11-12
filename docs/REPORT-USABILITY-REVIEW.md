@@ -1,6 +1,6 @@
 # Report usability and correctness review
 
-**Status: Phases 1–4 implemented on 2026-11-12. Phases 5–6 proposed.**
+**Status: Phases 1–5 implemented on 2026-11-12. Phase 6 proposed.**
 
 This review responds to reviewer feedback on the published release reports. It
 records the problems found in the current generator, the smallest safe changes
@@ -199,9 +199,22 @@ queue-derived results.
 | Automatic `Supports` / `Partially Supports` | Unset OpenACR values and `Not Evaluated` narrative | Unsupported conformance conclusions |
 | Long metadata list before the summary | Complete metadata is on `sources.html` | Traceability is preserved without dominating the overview |
 | One long `index.html` | Six pages: overview, issues, criteria, sources, method, ACR | Each reader can start at the right level of detail |
+| Inventory counts only | Sources page adds component changes and lineage | Component movement is visible without inferring fixes or inherited issues |
 
 Nothing was removed from the issue records, source links, criterion index,
 component index or downloads.
+
+## Component history integration
+
+`sources.html` now contains the exact-release inventory table, a comparison with
+the previous declared target, and the curated lineage records. The comparison is
+package membership only; the lineage table states the per-release status of each
+relationship and keeps every record `unreviewed`.
+
+For 12.0.0-beta2 the page shows that Claro and Olivero were removed in
+12.0.0-beta1, that Default Admin applies from 11.4.0, and that Claro code is
+shared with Default Admin. It also says that removal is not a fix and that
+adoption does not inherit predecessor issues.
 
 ## What is still not done
 

@@ -12,6 +12,7 @@ from pathlib import Path
 from .criterion_evidence import build_criterion_evidence
 from .reproduction_evidence import build_reproduction_evidence, load_sources
 from .model import digest_artifact
+from .inventory import compare_inventories
 from .wcag import (
     APPLICABILITY_LABELS,
     APPLICABILITY_MEANINGS,
@@ -856,6 +857,8 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     inventory_html = _inventory_section(target)
     if inventory_html:
         html.append(inventory_html)
+    html.append(_component_changes_section(target))
+    html.append(_component_lineage_section(target))
     html.append('<section id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Assessment scope</h2>')
     html.append('<p>This report describes one declared assessment target. It is not a statement about every Drupal installation, '
                 'configuration or release.</p>')
@@ -1019,6 +1022,11 @@ def _inventory_section(target):
     scope = _component_scope_html(target)
     if scope:
         parts.append(f'<p class="scope-note">{scope}</p>')
+    parts.append('<h3>All bundled modules and themes</h3>')
+    parts.append(_component_table(inventory))
+    parts.append('<p class="meta">The tracker component field is a separate vocabulary from these '
+                 'machine names. Use the component index on the Reported issues page for issue '
+                 'grouping; do not translate one to the other automatically.</p>')
     for label, status in (("Experimental modules", "experimental"), ("Deprecated modules", "deprecated"),
                           ("Obsolete modules", "obsolete"), ("Experimental themes", "experimental")):
         names = sorted(
@@ -1035,11 +1043,189 @@ def _inventory_section(target):
     return "".join(parts)
 
 
+def _targets_config():
+    try:
+        return json.loads((Path(__file__).resolve().parents[2] / "config" / "drupal-core-targets.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def _previous_inventory(release):
+    targets = (_targets_config().get("targets") or [])
+    release = str(release or "")
+    for index, target in enumerate(targets):
+        if str(target.get("ref")) == release or str(target.get("id")) == release:
+            if index == 0:
+                return None
+            return _load_component_inventory(str(targets[index - 1].get("ref")))
+    return None
+
+
+def _component_table(inventory):
+    rows = []
+    for item in sorted(
+        (entry for entry in inventory.get("components") or [] if entry.get("type") in ("module", "theme")),
+        key=lambda entry: (entry.get("type"), entry.get("machine_name")),
+    ):
+        rows.append(
+            f'<tr id="inventory-{esc(item.get("type"))}-{esc(item.get("machine_name"))}">'
+            f'<th scope="row">{esc(item.get("machine_name"))}</th>'
+            f'<td>{esc(item.get("type"))}</td>'
+            f'<td>{esc(item.get("status"))}</td>'
+            f'<td>{"Yes" if item.get("installed_by_standard_profile") else "No"}</td>'
+            f'<td>{"Yes" if item.get("default_theme") else "No"}</td>'
+            f'<td>{"Yes" if item.get("admin_theme") else "No"}</td>'
+            f'<td>{esc(item.get("package") or "")}</td></tr>'
+        )
+    return (
+        '<div class="table-scroll" tabindex="0" role="region" aria-label="Exact-release component inventory">'
+        '<table class="index-table component-inventory-table">'
+        '<caption>Bundled modules and themes in this exact release</caption>'
+        '<thead><tr><th scope="col">Component</th><th scope="col">Type</th><th scope="col">Status</th>'
+        '<th scope="col">Installed by standard profile</th><th scope="col">Default theme</th>'
+        '<th scope="col">Admin theme</th><th scope="col">Package</th></tr></thead><tbody>'
+        + "".join(rows) + "</tbody></table></div>"
+    )
+
+
+def _component_changes_section(target):
+    release = str(target.get("release") or "")
+    inventory = _load_component_inventory(release)
+    if not inventory:
+        return (
+            '<section id="component-changes" aria-labelledby="component-changes-heading">'
+            '<h2 id="component-changes-heading">Component changes</h2>'
+            '<p>No exact-release inventory is committed for this target, so no component change '
+            'comparison is made. Nothing is inferred from another release.</p></section>'
+        )
+    previous = _previous_inventory(release)
+    if not previous:
+        return (
+            '<section id="component-changes" aria-labelledby="component-changes-heading">'
+            '<h2 id="component-changes-heading">Component changes</h2>'
+            f'<p>This is the first target with a committed inventory in this snapshot. There is no '
+            'earlier exact-release inventory to compare with.</p></section>'
+        )
+    comparison = compare_inventories(previous, inventory)
+    previous_ref = (previous.get("source") or {}).get("ref") or "the previous target"
+    parts = [
+        '<section id="component-changes" aria-labelledby="component-changes-heading">',
+        f'<h2 id="component-changes-heading">Component changes since {esc(previous_ref)}</h2>',
+        '<p>Package membership only. A removed component is not a fix; an added component does not '
+        'mean its predecessor issues were inherited. Compare the exact source inventories before '
+        'drawing a release conclusion.</p>',
+        _facts([
+            ("Added components", len(comparison.get("added") or [])),
+            ("Removed components", len(comparison.get("removed") or [])),
+            ("Status/default changes", len(comparison.get("changed") or [])),
+            ("Default theme before / after", f'{esc(((comparison.get("profile") or {}).get("from") or {}).get("default_theme"))} / {esc(((comparison.get("profile") or {}).get("to") or {}).get("default_theme"))}'),
+            ("Admin theme before / after", f'{esc(((comparison.get("profile") or {}).get("from") or {}).get("admin_theme"))} / {esc(((comparison.get("profile") or {}).get("to") or {}).get("admin_theme"))}'),
+        ]),
+    ]
+    if comparison.get("removed"):
+        parts.append('<h3>Removed</h3><ul class="component-change-list">')
+        for item in comparison["removed"]:
+            parts.append(
+                f'<li><strong>{esc(item.get("machine_name"))}</strong> ({esc(item.get("type"))}) — '
+                f'was {esc(item.get("status"))}; installed by standard profile: '
+                f'{"yes" if item.get("installed_by_standard_profile") else "no"}.</li>'
+            )
+        parts.append("</ul>")
+    if comparison.get("added"):
+        parts.append('<h3>Added</h3><ul class="component-change-list">')
+        for item in comparison["added"]:
+            parts.append(
+                f'<li><strong>{esc(item.get("machine_name"))}</strong> ({esc(item.get("type"))}) — '
+                f'status {esc(item.get("status"))}.</li>'
+            )
+        parts.append("</ul>")
+    if comparison.get("changed"):
+        parts.append('<h3>Status, installation or default changes</h3>')
+        parts.append('<div class="table-scroll" tabindex="0" role="region" aria-label="Changed components">'
+                     '<table class="index-table"><caption>Components whose status, installation or default role changed</caption>'
+                     '<thead><tr><th scope="col">Component</th><th scope="col">Type</th><th scope="col">Change</th></tr></thead><tbody>')
+        for item in comparison["changed"]:
+            changes = "; ".join(
+                f'{key}: {value.get("before")} → {value.get("after")}'
+                for key, value in (item.get("changes") or {}).items()
+            )
+            parts.append(
+                f'<tr><th scope="row">{esc(item.get("machine_name"))}</th><td>{esc(item.get("type"))}</td>'
+                f'<td>{esc(changes)}</td></tr>'
+            )
+        parts.append("</tbody></table></div>")
+    if not (comparison.get("removed") or comparison.get("added") or comparison.get("changed")):
+        parts.append('<p class="empty-state">No package-membership change was detected between these two inventories.</p>')
+    parts.append("</section>")
+    return "".join(parts)
+
+
+def _lineage_release_state(record, release):
+    relation = record.get("relation")
+    source_boundary = (record.get("source") or {}).get("release_boundary") or {}
+    destination_boundary = (record.get("destination") or {}).get("release_boundary") or {}
+    removed = source_boundary.get("removed_in")
+    first = destination_boundary.get("first_bundled") or source_boundary.get("first_bundled")
+    if relation == "moved-to-contrib" and removed:
+        if _release_at_or_after(release, removed):
+            return f"Removed from Core in {removed}"
+        if first and _release_at_or_after(release, first):
+            return f"Still bundled; removal recorded for {removed}"
+        return f"Not yet bundled; removal recorded for {removed}"
+    if relation in {"adopted-from-contrib", "introduced-into-core", "renamed", "derived-from", "shares-inherited-code"}:
+        if first and _release_at_or_after(release, first):
+            return f"Applies from {first}"
+        if first:
+            return f"Not yet applicable; starts at {first}"
+    return "Recorded for the lineage, not a release claim"
+
+
+def _component_lineage_section(target):
+    records = _load_lineage_records()
+    release = str(target.get("release") or "")
+    if not records:
+        return (
+            '<section id="component-lineage" aria-labelledby="component-lineage-heading">'
+            '<h2 id="component-lineage-heading">Component lineage</h2>'
+            '<p>No curated lineage records are available.</p></section>'
+        )
+    parts = [
+        '<section id="component-lineage" aria-labelledby="component-lineage-heading">',
+        '<h2 id="component-lineage-heading">Component lineage</h2>',
+        '<p>These records describe code and product-scope relationships. They do not assign issue '
+        'applicability, do not inherit predecessor issues, and do not turn a removal into a fix. '
+        'Every record is <strong>unreviewed</strong> by a named human.</p>',
+        '<div class="table-scroll" tabindex="0" role="region" aria-label="Component lineage records">'
+        '<table class="index-table lineage-table"><caption>Curated component relationships relevant to this release</caption>'
+        '<thead><tr><th scope="col">Relationship</th><th scope="col">From → to</th><th scope="col">At this release</th>'
+        '<th scope="col">Evidence</th><th scope="col">Review</th></tr></thead><tbody>',
+    ]
+    for record in records:
+        source = record.get("source") or {}
+        destination = record.get("destination") or {}
+        endpoint = f'{source.get("project")}:{source.get("component")} → {destination.get("project")}:{destination.get("component")}'
+        evidence = record.get("evidence") or []
+        first = evidence[0] if evidence else {}
+        evidence_link = safe_link(first.get("url"), first.get("kind") or "source") if first.get("url") else "Not linked"
+        if len(evidence) > 1:
+            evidence_link += f' <span class="meta">+{len(evidence) - 1}</span>'
+        parts.append(
+            f'<tr><th scope="row">{esc(record.get("relation"))}</th>'
+            f'<td>{esc(endpoint)}</td>'
+            f'<td>{esc(_lineage_release_state(record, release))}</td>'
+            f'<td>{evidence_link}</td>'
+            f'<td>{esc((record.get("verification") or {}).get("status"))}</td></tr>'
+        )
+    parts.append("</tbody></table></div>")
+    parts.append("</section>")
+    return "".join(parts)
+
+
 PAGE_SPECS = (
     ("index.html", "Overview", ("summary", "how-to-read", "summary-details")),
     ("issues.html", "Reported issues", ("components", "issues", "gaps")),
     ("criteria.html", "WCAG criteria", ("criteria",)),
-    ("sources.html", "Sources and data", ("inventory", "scope", "reproduction", "provenance")),
+    ("sources.html", "Sources and data", ("inventory", "component-changes", "component-lineage", "scope", "reproduction", "provenance")),
     ("method.html", "How this report works", ("position", "method")),
 )
 
@@ -1118,6 +1304,8 @@ def _compatibility_section(findings):
         ("gaps", "Verification gaps", "issues.html#gaps"),
         ("scope", "Release details", "sources.html#scope"),
         ("inventory", "Component inventory", "sources.html#inventory"),
+        ("component-changes", "Component changes", "sources.html#component-changes"),
+        ("component-lineage", "Component lineage", "sources.html#component-lineage"),
         ("reproduction", "External reproduction evidence", "sources.html#reproduction"),
         ("position", "Why this report is different", "method.html#position"),
         ("method", "Method and limitations", "method.html#method"),
