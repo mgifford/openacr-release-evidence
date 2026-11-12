@@ -69,7 +69,7 @@ class OpenACRExportTests(unittest.TestCase):
         self.assertEqual(7, len(catalog["chapters"]))
         self.assertEqual(182, sum(len(chapter["criteria"]) for chapter in catalog["chapters"]))
 
-    def test_draft_is_schema_and_catalog_valid_with_proposed_issue_queue_values(self):
+    def test_draft_is_schema_and_catalog_valid_with_surface_assessment_values(self):
         catalog = load_catalog()
         document = build_draft(analysis(), catalog)
         result = validate_document(document, catalog)
@@ -83,11 +83,12 @@ class OpenACRExportTests(unittest.TestCase):
         first = document["chapters"]["success_criteria_level_a"]["criteria"][0]
         components = {component["name"]: component for component in first["components"]}
         self.assertEqual("not-applicable", components["electronic-docs"]["adherence"]["level"])
-        self.assertNotIn("adherence", components["web"])
+        self.assertIn("Not present", components["electronic-docs"]["adherence"]["notes"])
+        self.assertEqual("supports", components["web"]["adherence"]["level"])
         self.assertIn("DRAFT", document["title"])
 
 
-    def test_issue_tagged_criterion_does_not_assign_adherence(self):
+    def test_issue_tagged_criterion_is_partially_supports(self):
         catalog = load_catalog()
         document = analysis()
         document["findings"] = [
@@ -107,15 +108,17 @@ class OpenACRExportTests(unittest.TestCase):
         draft = build_draft(document, catalog)
         criterion = draft["chapters"]["success_criteria_level_a"]["criteria"][0]
         components = {component["name"]: component for component in criterion["components"]}
-        self.assertNotIn("adherence", components["web"])
-        self.assertNotIn("adherence", components["authoring-tool"])
+        self.assertEqual("partially-supports", components["web"]["adherence"]["level"])
+        self.assertEqual("partially-supports", components["authoring-tool"]["adherence"]["level"])
         self.assertEqual("not-applicable", components["electronic-docs"]["adherence"]["level"])
+        self.assertIn("Not present", components["electronic-docs"]["adherence"]["notes"])
         media = draft["chapters"]["success_criteria_level_a"]["criteria"][1]
         media_components = {component["name"]: component for component in media["components"]}
         self.assertEqual("not-applicable", media_components["web"]["adherence"]["level"])
         untagged = draft["chapters"]["success_criteria_level_a"]["criteria"][4]
         untagged_components = {component["name"]: component for component in untagged["components"]}
-        self.assertNotIn("adherence", untagged_components["web"])
+        self.assertEqual("supports", untagged_components["web"]["adherence"]["level"])
+        self.assertNotIn("does-not-support", str(draft))
 
     def test_export_writes_yaml_and_validation(self):
         with tempfile.TemporaryDirectory() as folder:

@@ -19,8 +19,8 @@ This project takes a different approach:
   surfaces with different users and barriers.
 - The ACR is regenerated from the current queue and declared release target; it
   is not a static document refreshed every year or two.
-- Issue-tagged criteria are summarized as unverified evidence and remain Not Evaluated; criteria with no
-  tagged issue remain `Not Evaluated`, because absence of a reported issue is not
+- Issue-tagged criteria are summarized as unverified evidence and produce Partially Supports; an assessed
+  surface with no known issue produces Supports under the declared policy. Absence alone is not
   evidence of support.
 - The weekly workflow opens a review PR. Merging that PR is the publication
   review event; it is not an automatic certification.

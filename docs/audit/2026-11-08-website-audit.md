@@ -171,7 +171,7 @@ Before and after, verify:
 - Restored the reference ACR table layout: `Criteria | Conformance Level |
   Remarks and Explanations`, grouped as Table 1/2/3 for A/AA/AAA.
 - Issue-tagged criteria use draft Partially Supports only for the surface with
-  classified issues; untagged criteria remain Not Evaluated.
+  classified issues; untagged criteria use Supports under the declared surface assessment.
 - `N/A` is displayed for Not Applicable; component labels are bold and sections
   are separated vertically.
 - 1.2.1/1.2.3 are N/A for Core with Able Player guidance, alongside 1.2.4/1.2.5.
@@ -240,7 +240,7 @@ matrix generation assertions are in `tests/test_usability.py`.
 
 ## Test and accessibility results
 
-- **141 offline tests pass**.
+- **145 offline tests pass**.
 - axe-core: **0 violations** on the homepage, complete matrix, 12.0.0-alpha1
   report, ACR draft and ATAG report at 1280 px.
 - 320 px: `scrollWidth` = 320 on all five pages; wide tables scroll inside

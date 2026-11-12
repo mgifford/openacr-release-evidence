@@ -9,26 +9,27 @@ product:
 author:
   name: Unassigned reviewer (draft)
   email: reviewer@example.invalid
-report_date: '2026-11-11'
-last_modified_date: '2026-11-11'
+report_date: '2026-11-12'
+last_modified_date: '2026-11-12'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.0-alpha1 (tag 12.0.0-alpha1).
   Evidence report: index.html. Machine-readable evidence: evidence.json. Evidence
-  digest: 88e91343410021717523f1c8dd408fbe0b78327b4194ff54eeac0a223e86195f. Component
-  scope: Web and Authoring Tool remain Not Evaluated; Electronic Documents and Software
-  are Not Applicable from documented product scope. No issue tag is promoted to a
-  conformance term. Evidence scope: active/review-relevant issues only (Active, Needs
-  review, Needs work, RTBC, Patch); fixed and closed issues are excluded. Some active
-  issues are metadata-only inventory records; complete comments/merge-request evidence
-  was collected only for a review-priority subset. Issue-tagged and untagged criteria
-  remain unset at criterion level; issue evidence is recorded in criterion-evidence.json.
-  Electronic Documents and Software are marked not-applicable for Drupal Core. The
-  author is a placeholder; a human reviewer must replace it, confirm every value and
-  explanation, and run `acr-evidence openacr-validate --file openacr.yaml --strict`
-  before publishing. An ACR narrative is at acr.html; it presents the same draft issue-queue
-  evaluation. ATAG 2.0 authoring evidence is tracked separately at ../drupal-core-atag/index.html;
-  this OpenACR does not populate ATAG criteria or the authoring-tool component. This
-  file has not been round-tripped through the Civicactions/GSA ACR editor.'
+  digest: 393e31d5f888d6d3958199b017301fb93709a58144837424d0a45b72bbd275be. Component
+  scope: Web and Authoring Tool use the declared Drupal surface assessment and known-barrier
+  register; Electronic Documents and Software are Not Applicable from documented product
+  scope. No Does Not Support value is recorded. Evidence scope: active/review-relevant
+  issues only (Active, Needs review, Needs work, RTBC, Patch); fixed and closed issues
+  are excluded. Some active issues are metadata-only inventory records; complete comments/merge-request
+  evidence was collected only for a review-priority subset. Known issues produce Partially
+  Supports; an assessed surface with no known issue produces Supports. Issue evidence
+  is recorded in criterion-evidence.json. Electronic Documents and Software are marked
+  not-applicable for Drupal Core. The author is a placeholder; a human reviewer must
+  replace it, confirm every value and explanation, and run `acr-evidence openacr-validate
+  --file openacr.yaml --strict` before publishing. An ACR narrative is at acr.html;
+  it presents the same draft issue-queue evaluation. ATAG 2.0 authoring evidence is
+  tracked separately at ../drupal-core-atag/index.html; this OpenACR does not populate
+  ATAG criteria or the authoring-tool component. This file has not been round-tripped
+  through the Civicactions/GSA ACR editor.'
 evaluation_methods_used: No WCAG-EM sample was evaluated; this is an issue-queue-based
   draft, not a completed ACR. Public Drupal.org issue-queue evidence collection, commit/tag
   containment analysis, and explicit WCAG candidate tag grouping were used. Open issue
@@ -43,9 +44,10 @@ feedback: https://github.com/mgifford/openacr-release-evidence/issues
 catalog: 2.5-edition-wcag-2.2-508-en
 component_scope:
   web:
-    review_status: not-assessed
-    notes: Front-end issue evidence exists, but no conformance result is assigned;
-      a reviewer must assess it.
+    proposed_result: partially-supports
+    review_status: project-asserted
+    notes: Declared Drupal surface assessment plus the active known-barrier register;
+      reviewer confirmation required.
   electronic-docs:
     proposed_result: not-applicable
     review_status: proposed
@@ -56,18 +58,24 @@ component_scope:
     notes: Drupal Core is web software; no separate packaged/non-web software product
       is in scope.
   authoring-tool:
-    review_status: not-assessed
-    notes: Authoring/admin issue evidence exists, but no conformance result is assigned;
-      a reviewer must assess it.
+    proposed_result: partially-supports
+    review_status: project-asserted
+    notes: Declared Drupal surface assessment plus the active known-barrier register;
+      reviewer confirmation required.
 chapters:
   success_criteria_level_a:
-    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
-      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
-      must complete the assessment.'
+    notes: 'DRAFT: adherence values apply the declared Drupal surface assessment and
+      active known-barrier register. A known issue is Partially Supports; an assessed
+      surface with no known issue is Supports; documented feature absence is Not Applicable.
+      A reviewer must confirm every value.'
     criteria:
     - num: 1.1.1
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -79,6 +87,10 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.2.1
       components:
       - name: web
@@ -104,6 +116,10 @@ chapters:
     - num: 1.2.2
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -115,6 +131,10 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.2.3
       components:
       - name: web
@@ -140,6 +160,10 @@ chapters:
     - num: 1.3.1
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -151,9 +175,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.3.2
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -165,9 +197,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.3.3
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -179,9 +219,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.1
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -193,9 +241,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.2
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -207,9 +263,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.1.1
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -221,9 +285,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.1.2
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -235,9 +307,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.1.4
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -249,9 +329,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.2.1
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -263,9 +351,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.2.2
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -277,9 +373,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.3.1
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -291,9 +395,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.1
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -305,9 +417,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.2
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -319,9 +439,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.3
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -333,9 +461,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.4
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -347,9 +483,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.5.1
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -361,9 +505,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.5.2
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -375,9 +527,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.5.3
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -389,9 +549,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.5.4
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -403,9 +571,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.1.1
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -417,9 +593,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.2.1
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -431,9 +615,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.2.2
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -445,9 +637,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.2.6
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -459,9 +659,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.1
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -473,9 +681,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.2
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -487,9 +703,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.7
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -501,9 +725,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 4.1.1
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -515,9 +747,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 4.1.2
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -529,10 +769,15 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
   success_criteria_level_aa:
-    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
-      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
-      must complete the assessment.'
+    notes: 'DRAFT: adherence values apply the declared Drupal surface assessment and
+      active known-barrier register. A known issue is Partially Supports; an assessed
+      surface with no known issue is Supports; documented feature absence is Not Applicable.
+      A reviewer must confirm every value.'
     criteria:
     - num: 1.2.4
       components:
@@ -581,6 +826,10 @@ chapters:
     - num: 1.3.4
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -592,9 +841,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.3.5
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -606,9 +863,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.3
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -620,9 +885,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.4
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -634,9 +907,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.5
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -648,9 +929,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.10
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -662,9 +951,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.11
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -676,9 +973,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.12
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -690,9 +995,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.13
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -704,9 +1017,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.5
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -718,9 +1039,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.6
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -732,9 +1061,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.7
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -746,9 +1083,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.11
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -760,9 +1105,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.5.7
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -774,9 +1127,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.5.8
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -788,9 +1149,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.1.2
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -802,9 +1171,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.2.3
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -816,9 +1193,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.2.4
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -830,9 +1215,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.3
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -844,9 +1237,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.4
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -858,9 +1259,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.8
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -872,9 +1281,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 4.1.3
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -886,14 +1303,23 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
   success_criteria_level_aaa:
-    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
-      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
-      must complete the assessment.'
+    notes: 'DRAFT: adherence values apply the declared Drupal surface assessment and
+      active known-barrier register. A known issue is Partially Supports; an assessed
+      surface with no known issue is Supports; documented feature absence is Not Applicable.
+      A reviewer must confirm every value.'
     criteria:
     - num: 1.2.6
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -905,9 +1331,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.2.7
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -919,9 +1353,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.2.8
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -933,9 +1375,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.2.9
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -947,9 +1397,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.3.6
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -961,9 +1419,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.6
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -975,9 +1441,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.7
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -989,9 +1463,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.8
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1003,9 +1485,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 1.4.9
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1017,9 +1507,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.1.3
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1031,9 +1529,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.2.3
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1045,9 +1551,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.2.4
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1059,9 +1573,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.2.5
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1073,9 +1595,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.2.6
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1087,9 +1617,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.3.2
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1101,9 +1639,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.3.3
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1115,9 +1661,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.8
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1129,9 +1683,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.9
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1143,9 +1705,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.10
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1157,9 +1727,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.12
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1171,9 +1749,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.4.13
       components:
       - name: web
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1185,9 +1771,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.5.5
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1199,9 +1793,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 2.5.6
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1213,9 +1815,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.1.3
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1227,9 +1837,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.1.4
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1241,9 +1859,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.1.5
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1255,9 +1881,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.1.6
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1269,9 +1903,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.2.5
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1283,9 +1925,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: partially-supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.5
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1297,9 +1947,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.6
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1311,9 +1969,17 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
     - num: 3.3.9
       components:
       - name: web
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -1325,10 +1991,15 @@ chapters:
           notes: 'Not present: Drupal Core is a web CMS; this is not a standalone
             electronic-document or packaged software product.'
       - name: authoring-tool
+        adherence:
+          level: supports
+          notes: Declared Drupal surface assessment plus the active known-barrier
+            register. Not an independent WCAG-EM verification; a reviewer must confirm.
   functional_performance_criteria:
-    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
-      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
-      must complete the assessment.'
+    notes: 'DRAFT: adherence values apply the declared Drupal surface assessment and
+      active known-barrier register. A known issue is Partially Supports; an assessed
+      surface with no known issue is Supports; documented feature absence is Not Applicable.
+      A reviewer must confirm every value.'
     criteria:
     - num: '302.1'
       components:
@@ -1358,9 +2029,10 @@ chapters:
       components:
       - name: none
   hardware:
-    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
-      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
-      must complete the assessment.'
+    notes: 'DRAFT: adherence values apply the declared Drupal surface assessment and
+      active known-barrier register. A known issue is Partially Supports; an assessed
+      surface with no known issue is Supports; documented feature absence is Not Applicable.
+      A reviewer must confirm every value.'
     criteria:
     - num: 402.2.1
       components:
@@ -1528,9 +2200,10 @@ chapters:
       components:
       - name: none
   software:
-    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
-      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
-      must complete the assessment.'
+    notes: 'DRAFT: adherence values apply the declared Drupal surface assessment and
+      active known-barrier register. A known issue is Partially Supports; an assessed
+      surface with no known issue is Supports; documented feature absence is Not Applicable.
+      A reviewer must confirm every value.'
     criteria:
     - num: 502.2.1
       components:
@@ -1611,9 +2284,10 @@ chapters:
       components:
       - name: none
   support_documentation_and_services:
-    notes: 'DRAFT: no criterion-level adherence values are assigned from issue tags.
-      Issue evidence is in criterion-evidence.json and the ACR narrative; a reviewer
-      must complete the assessment.'
+    notes: 'DRAFT: adherence values apply the declared Drupal surface assessment and
+      active known-barrier register. A known issue is Partially Supports; an assessed
+      surface with no known issue is Supports; documented feature absence is Not Applicable.
+      A reviewer must confirm every value.'
     criteria:
     - num: '602.2'
       components:
@@ -1640,7 +2314,7 @@ target:
   release_line: 12.0.x
   parent_project: null
   assessment_id: drupal-core-12.0.0-alpha1
-  evidence_digest: 88e91343410021717523f1c8dd408fbe0b78327b4194ff54eeac0a223e86195f
+  evidence_digest: 393e31d5f888d6d3958199b017301fb93709a58144837424d0a45b72bbd275be
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr

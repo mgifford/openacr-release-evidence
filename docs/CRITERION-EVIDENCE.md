@@ -8,15 +8,18 @@ Supports.
 
 | State | Required evidence |
 |---|---|
-| Reported barrier, unverified | Active issue-queue reports, separated by Web/Authoring Tool; no conformance result |
+| Partially Supports | Known active issue on an assessed surface; remarks explain the known barrier |
+| Supports | Assessed surface with no known active issue |
+| Does Not Support | Explicit broad-failure evidence; not emitted automatically |
 | Supports | Positive human-reviewed evidence: a test, code audit or documented implementation with a source and date |
 | Not Applicable | A documented product-scope decision showing that the content or feature is absent |
-| Not Evaluated | No positive evidence and no issue-queue evidence; a review gap |
+| Not Evaluated | Surface assessment is not established; no result is assigned |
 | Does Not Support | Reviewed evidence that the majority of relevant functionality fails |
 
-The issue-queue pipeline does not assign Supports, Partially Supports, Not
-Applicable or Does Not Support. It records reported barriers and candidate
-criterion relationships. A formal term requires the reviewed evidence below.
+The issue-queue attestation applies the declared surface assessment: known issue
+-> Partially Supports; no known issue on an assessed surface -> Supports;
+documented feature absence -> Not Applicable. Does Not Support requires explicit
+broad-failure evidence. The evidence ledger records the underlying barriers.
 
 ## Evidence record
 
@@ -41,16 +44,17 @@ No record may be generated from an empty queue or a model response.
 
 ## What to review first
 
-The Not Evaluated set is not a failure list. It is a review backlog. Prioritise:
+The policy backlog is not a failure list. Prioritise:
 
 1. criteria that apply to core web and authoring surfaces;
 2. criteria with high disability impact;
 3. criteria that may be Not Applicable because the feature is absent;
 4. media criteria only where a player, live media or audio feature exists.
 
-For Drupal Core, 1.2.1/1.2.3/1.2.4/1.2.5 are currently Not Applicable because the
-relevant media player/live feature is absent. 2.2.1/2.2.2/2.3.1 are Not Evaluated
-when no active issue is tagged; that is not a claim that they do not apply.
+For Drupal Core, 1.2.1/1.2.3/1.2.4/1.2.5 are Not Applicable because the relevant
+media player/live feature is absent. 2.2.1/2.2.2/2.3.1 are Supports under the
+assessed-surface policy when no active issue is known; that is not an automated
+pass.
 
 ## Automated evaluation coverage
 
@@ -80,7 +84,7 @@ assumed for every criterion. No Guidepup run is claimed in the current snapshot.
 ## POUR summary
 
 A review dashboard should show Supports, Partially Supports, Not Applicable and
-Not Evaluated counts for each WCAG principle. This makes the positive evidence
+Partially Supports, Supports, Not Applicable and Not Evaluated counts for each WCAG principle. This makes the positive evidence
 visible without turning the issue count into a conformance score.
 
 ## Boundaries
@@ -89,3 +93,17 @@ visible without turning the issue count into a conformance score.
 - Not Applicable requires a documented scope decision.
 - The issue queue remains useful for finding barriers and prioritising review.
 - Every final term remains a human publication decision.
+
+## N/A claims need scrutiny
+
+A Not Applicable result is a factual product-scope claim. It is not an empty-queue
+fallback. The ACR lists each N/A claim with its basis and a review state.
+
+Current N/A claims:
+
+- Electronic Documents: no standalone electronic-document product.
+- Software: no packaged non-web software product.
+- Web/Authoring 1.2.1/1.2.3/1.2.4/1.2.5: no native media player or live-media
+  feature in Core.
+
+Each claim must be checked against the declared product and confirmed by a human.

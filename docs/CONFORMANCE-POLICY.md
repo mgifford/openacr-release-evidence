@@ -62,10 +62,11 @@ not receive a release applicability conclusion.
 ## ACR narrative
 
 The ACR narrative uses a draft issue-queue evidence summary. Web and Authoring
-Tool remain `Not Evaluated`; Electronic Documents and Software are Not Applicable
-from documented product scope. Issue-tagged and untagged criteria remain `Not
-Evaluated`; issue reports are not release reproductions. A reviewer must assess
-the criterion-evidence ledger and sign off every term. The
+Tool use Partially Supports for known active issues and Supports when the assessed
+surface has no known issue. Electronic Documents and Software are Not Applicable
+from documented product scope. Does Not Support requires explicit broad-failure
+evidence and is not emitted automatically. Issue reports are not release
+reproductions; a reviewer must confirm every term. The
 narrative does not replace the OpenACR YAML and does not inherit ATAG results.
 
 ## Issue-queue attestation versus a periodic vendor ACR
@@ -110,3 +111,20 @@ restricted use. Never auto-fill `Supports`. Do not describe the current YAML
 worksheet as a valid or import-ready OpenACR.
 
 Changes to this policy require public review under `GOVERNANCE.md`.
+
+## N/A claims are audited
+
+Every Not Applicable value needs a factual product-scope explanation. The current
+claims are:
+
+- Electronic Documents: no standalone electronic-document product; uploaded
+  documents are delivered as web content.
+- Software: no packaged non-web software product.
+- Web and Authoring Tool for 1.2.1/1.2.3/1.2.4/1.2.5: no native audio/video
+  player, live audio/video, audio-description player or media-alternative
+  feature in Core.
+
+The ACR carries a **Not Applicable claim review** table and repeats the factual
+basis in the Remarks column. N/A is never selected because the issue queue is
+empty. The policy is project-asserted and requires human confirmation; a reviewer
+must test the absence against the declared product rather than trusting the label.
