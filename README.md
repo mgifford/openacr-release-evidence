@@ -429,6 +429,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Beyond WCAG: non-WCAG considerations](docs/NON-WCAG-CONSIDERATIONS.md)
 - [Accessibility impact knowledge layer](data/accessibility-impact/README.md)
 - [Open work and review gaps](TODO.md)
+- [Session learnings and decisions](docs/SESSION-LEARNINGS.md)
 - [Developer evidence index](docs/DEVELOPER-INDEX.md)
 - [Automated coverage mapping](config/wcag-automation-coverage.json)
 - [Onboarding Drupal CMS and LocalGov Drupal](docs/MULTI-PROJECT-ONBOARDING.md)
