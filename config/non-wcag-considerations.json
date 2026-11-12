@@ -1,0 +1,50 @@
+{
+  "title": "Beyond WCAG: non-WCAG accessibility considerations",
+  "note": "Review prompts outside WCAG conformance. These are not ACR terms, not OpenACR values and not findings. Each item needs evidence and human review.",
+  "items": [
+    {
+      "id": "en301549-user-preferences",
+      "title": "EN 301 549 user preferences",
+      "why": "EN 301 549 clause 11.7 addresses respecting user preferences. On the web this overlaps with theme and user-agent behavior: contrast, text size, colours, spacing and motion preferences should not be overridden by the product.",
+      "reference": "ETSI EN 301 549 V3.2.1, clause 11.7 (software); web behavior is also an accessibility best practice",
+      "source_url": "https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf",
+      "evidence_state": "not-evaluated",
+      "review_status": "unreviewed",
+      "what_to_collect": "Theme/configuration audit for font size, contrast, colours, spacing, forced colours and persistence of user choices.",
+      "search_url": "https://www.drupal.org/project/issues/search?text=user%20preferences&projects=Drupal+core&issue_tags=Accessibility"
+    },
+    {
+      "id": "visually-induced-motion-sickness",
+      "title": "Visually induced motion sickness",
+      "why": "Parallax, large transitions, zooming and camera-like movement can make people dizzy or nauseated. WCAG 2.3.3 Animation from Interactions is Level AAA and does not cover every motion source at AA.",
+      "reference": "WCAG 2.3.3 is related but not a complete AA test for visually induced motion sickness",
+      "source_url": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html",
+      "evidence_state": "not-evaluated",
+      "review_status": "unreviewed",
+      "what_to_collect": "Inventory of core/theme animations and transitions; test with motion sensitivity and reduced-motion preferences.",
+      "search_url": "https://www.drupal.org/project/issues/search?text=motion&projects=Drupal+core&issue_tags=Accessibility"
+    },
+    {
+      "id": "prefers-reduced-motion",
+      "title": "Reduced-motion preference",
+      "why": "Honouring prefers-reduced-motion is a practical way to reduce motion-triggered discomfort. It is not a standalone WCAG 2.2 AA success criterion.",
+      "reference": "CSS prefers-reduced-motion; WCAG 2.3.3 is related AAA guidance",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+      "evidence_state": "not-evaluated",
+      "review_status": "unreviewed",
+      "what_to_collect": "Check whether core/theme animations respect the preference and whether a non-motion path exists.",
+      "search_url": "https://www.drupal.org/project/issues/search?text=prefers-reduced-motion&projects=Drupal+core&issue_tags=Accessibility"
+    },
+    {
+      "id": "forced-colors",
+      "title": "Forced-colors and high-contrast modes",
+      "why": "Windows forced-colors and high-contrast modes must not make controls, focus or status information disappear. This is broader than a single WCAG AA criterion.",
+      "reference": "CSS forced-colors / forced-color-adjust; WCAG 1.4.1/1.4.11 are related",
+      "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors",
+      "evidence_state": "not-evaluated",
+      "review_status": "unreviewed",
+      "what_to_collect": "Test core/admin controls, focus indicators, icons and status messages in forced-colors mode.",
+      "search_url": "https://www.drupal.org/project/issues/search?text=forced-colors&projects=Drupal+core&issue_tags=Accessibility"
+    }
+  ]
+}

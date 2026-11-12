@@ -84,6 +84,17 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("Not Evaluated", md)
         self.assertIn("N/A", md)
         self.assertIn("Not Applicable claim review", md)
+        self.assertIn("Functional Performance Criteria (mapped)", md)
+        self.assertIn("Affects: ", md)
+        self.assertIn("Vision", md)
+        self.assertIn("Support Documentation and Services", md)
+        self.assertIn("A mapped functional-performance summary is provided above", md)
+        self.assertIn("Beyond WCAG: non-WCAG accessibility considerations", md)
+        self.assertIn("EN 301 549 user preferences", md)
+        self.assertIn("Visually induced motion sickness", md)
+        self.assertIn("These are review prompts, not findings", md)
+        self.assertIn("Without Hearing", md)
+        self.assertIn("authoring support for captions and transcripts", md)
         self.assertIn("No standalone electronic-document product", md)
         self.assertIn("No native audio/video", md)
         self.assertIn("N/A is never used merely because no active issue is tagged", md)
@@ -180,7 +191,7 @@ class AcrNarrativeTests(unittest.TestCase):
             result = render_acr_narrative(analysis(), folder)
             md = Path(result["markdown"]).read_text(encoding="utf-8")
         self.assertIn("Unassigned reviewer (draft)", md)
-        self.assertNotIn("@", md.split("## Sources")[0])
+        self.assertNotRegex(md.split("## Sources")[0], r"[\w.]+@[\w.-]+\.[A-Za-z]{2,}")
 
 
 if __name__ == "__main__":

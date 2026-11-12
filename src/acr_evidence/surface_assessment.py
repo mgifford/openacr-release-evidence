@@ -18,6 +18,7 @@ PRODUCT_SCOPE_NA = {
     "1.2.3": "Drupal Core does not provide audio description or media alternatives out of the box.",
     "1.2.4": "Drupal Core has no live audio/video feature.",
     "1.2.5": "Drupal Core has no video player or audio-description feature.",
+    "1.4.2": "Drupal Core has no native audio playback or automatic audio feature to control; contrib media players are separate products.",
 }
 
 

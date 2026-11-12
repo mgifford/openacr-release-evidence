@@ -6,13 +6,13 @@
   "release": "11.4.12",
   "target_id": "drupal-core-11.4.12",
   "target_ref": "11.4.12",
-  "generated_at": "2026-11-12T06:26:56Z",
+  "generated_at": "2026-11-12T06:58:14Z",
   "disclaimer": "Reported issue evidence only. No conformance result is assigned. Supports and Not Applicable require human-reviewed evidence.",
   "summary": {
     "criteria": 182,
     "reported_barrier": 52,
-    "insufficient_evidence": 304,
-    "outside_documented_scope": 372,
+    "insufficient_evidence": 302,
+    "outside_documented_scope": 374,
     "automated_coverage": 48,
     "formal_conformance_results": 0,
     "reviewed_criteria": 0
@@ -1190,8 +1190,8 @@
       "components": [
         {
           "component": "web",
-          "evidence_state": "insufficient-evidence",
-          "scope_basis": "No active tagged issue; absence is not evidence of support or inapplicability.",
+          "evidence_state": "outside-documented-scope",
+          "scope_basis": "Drupal Core has no native audio playback or automatic audio feature to control.",
           "candidate_relationship": "none",
           "relationship_review_status": "not-reviewed",
           "verification_status": "not-tested",
@@ -1229,8 +1229,8 @@
         },
         {
           "component": "authoring-tool",
-          "evidence_state": "insufficient-evidence",
-          "scope_basis": "No active tagged issue; absence is not evidence of support or inapplicability.",
+          "evidence_state": "outside-documented-scope",
+          "scope_basis": "Drupal Core has no native audio playback or automatic audio feature to control.",
           "candidate_relationship": "none",
           "relationship_review_status": "not-reviewed",
           "verification_status": "not-tested",
