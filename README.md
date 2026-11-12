@@ -182,7 +182,7 @@ command is called. Raw output is private and never published.
 - Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into explicit Part A/Part B and unassigned evidence, with a WAI ATAG Report Tool JSON draft.
-- 141 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 145 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -214,9 +214,10 @@ OpenACR 2.5 WCAG 2.2 + Revised Section 508 catalog (commit `d6d18a9…`).
 It is a **draft skeleton**, not an approved ACR:
 
 - all 182 catalog criteria and all seven chapters are present;
-- WCAG criteria carry the four Section 508 component names; issue tags expand
-  the `criterion-evidence.json` ledger, but no criterion-level adherence value is
-  inferred from an issue tag; untagged Web/Authoring components are also unset;
+- WCAG criteria carry the four Section 508 component names; the draft applies the
+  declared Drupal surface assessment and active known-barrier register:
+  a known issue is Partially Supports, an assessed surface with no known issue is
+  Supports, and documented feature absence is Not Applicable;
 - the author is a placeholder (`reviewer@example.invalid`);
 - notes link the evidence report and require human review;
 - `not-evaluated` is never used for Level A/AA.
@@ -246,11 +247,11 @@ Section 508 component scopes, term definitions, scope and method, executive
 summary, WCAG 2.2 A/AA/AAA criterion tables, non-WCAG chapters, ATAG
 separation, reviewer actions and limitations.
 
-Web and Authoring Tool remain **Not Evaluated**; Electronic Documents and
-Software are **Not Applicable** from documented product scope. Reported issue
-evidence is shown without converting it into a conformance term. Criteria with
-active tagged issues and untagged criteria both remain **Not Evaluated** until a
-reviewer completes the assessment. Web and Authoring Tool remarks are
+Web and Authoring Tool use **Partially Supports** when a known active issue is
+present and **Supports** when the assessed surface has no known issue.
+Electronic Documents and Software are **Not Applicable** from documented product
+scope. There is no **Does Not Support** result without explicit broad-failure
+evidence. This is a draft issue-queue attestation, not a WCAG-EM audit. Web and Authoring Tool remarks are
 separate; issue statistics and examples sit at the bottom of each remarks cell,
 with direct Drupal.org links and a per-criterion reference list in the footer.
 The narrative uses the same active-issue scope (428 issues; 30 detailed, 398

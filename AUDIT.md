@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 141 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 145 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -350,3 +350,18 @@ cleared. All 63 WAI ATAG Report Tool criteria remain `Not checked`.
 - External reproductions remain `target_applicability: not-established` and
   `target_verified: false`; none becomes a conformance result.
 - Guidepup is documented as target-specific behavioral evidence; no run is claimed.
+
+## Surface assessment policy correction (2026-11-12)
+
+Drupal has declared the Web and Authoring Tool surfaces assessed. The draft now
+applies that policy plus the active known-barrier register:
+
+- known issue -> Partially Supports;
+- assessed surface with no known issue -> Supports;
+- documented feature absence -> Not Applicable;
+- Does Not Support only with explicit broad-failure evidence (none recorded).
+
+The policy is `config/surface-assessments.json`; it is project-asserted and has no
+invented named reviewer. It is not a WCAG-EM audit. Automated axe/ACT coverage is
+partial and remains separate. 1.3.2 has no axe/ACT rule mapping, so Supports there
+rests on the declared assessment, not an automated pass.

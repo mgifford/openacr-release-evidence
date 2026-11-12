@@ -83,11 +83,13 @@ For Pages changes, keep the publication allowlist minimal and never add raw
 evidence or `collection.json`/`analysis.json` to it. The workflow must continue
 to reject private paths and client-side scripts.
 
-The ACR narrative must not convert an issue tag into a conformance result. Web
-and Authoring Tool remain `Not Evaluated`; Electronic Documents and Software may
-be Not Applicable only from documented product scope. Issue-tagged and untagged
-criteria remain `Not Evaluated` until a human assessment exists. Absence is never
-evidence of support. The criterion-evidence ledger records reported barriers,
+The ACR applies the declared surface-assessment policy: a known issue on an
+assessed surface is `Partially Supports`; an assessed surface with no known issue
+is `Supports`; documented feature absence is `Not Applicable`; `Does Not Support`
+requires explicit broad-failure evidence and is not emitted automatically. The
+policy and its project-asserted basis live in `config/surface-assessments.json`.
+Issue tags alone never establish a result, and absence alone never establishes
+support. The criterion-evidence ledger records reported barriers,
 candidate mappings, verification gaps and unreviewed relationships separately. Mark every derived value as draft, state
 that no issue was reproduced against the target, and require human confirmation.
 `/admin`, Drupal `/user` login paths, the component mapping in
@@ -107,10 +109,9 @@ mapping may assign a Part. Do not populate ATAG results automatically, and do no
 inherit ATAG conclusions into OpenACR (or the reverse). The WAI ATAG Report Tool
 JSON must keep every criterion `Not checked` until a human reviewer edits it.
 
-OpenACR exports must remain valid against the pinned schema and catalog. They must
-not assign `partially-supports` from an issue tag. Leave Web/Authoring adherence
-unset until a human assessment exists; do not use `not-evaluated` for A/AA. Mark
-the file draft and require human confirmation; do not replace the placeholder
+OpenACR exports must remain valid against the pinned schema and catalog. They
+apply the same surface-assessment policy, mark the file draft, and require human
+confirmation; do not use `not-evaluated` for A/AA. Do not replace the placeholder
 reviewer until a human has reviewed the file.
 Keep the vendored standards pinned and attributed.
 

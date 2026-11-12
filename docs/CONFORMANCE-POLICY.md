@@ -62,10 +62,11 @@ not receive a release applicability conclusion.
 ## ACR narrative
 
 The ACR narrative uses a draft issue-queue evidence summary. Web and Authoring
-Tool remain `Not Evaluated`; Electronic Documents and Software are Not Applicable
-from documented product scope. Issue-tagged and untagged criteria remain `Not
-Evaluated`; issue reports are not release reproductions. A reviewer must assess
-the criterion-evidence ledger and sign off every term. The
+Tool use Partially Supports for known active issues and Supports when the assessed
+surface has no known issue. Electronic Documents and Software are Not Applicable
+from documented product scope. Does Not Support requires explicit broad-failure
+evidence and is not emitted automatically. Issue reports are not release
+reproductions; a reviewer must confirm every term. The
 narrative does not replace the OpenACR YAML and does not inherit ATAG results.
 
 ## Issue-queue attestation versus a periodic vendor ACR

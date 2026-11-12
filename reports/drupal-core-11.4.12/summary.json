@@ -191,11 +191,11 @@
         "main"
       ],
       "since": "2026-05-10T16:05:10-06:00",
-      "commits": 1866,
-      "retrieved_at": "2026-11-11T20:05:04+00:00"
+      "commits": 1879,
+      "retrieved_at": "2026-11-12T05:58:52Z"
     }
   },
-  "generated_at": "2026-11-11T22:15:35Z",
-  "evidence_digest": "f27d6b6f5b3576153c84831329d8f38466b197c51834b652670b7b7ce9899a3a",
+  "generated_at": "2026-11-12T05:58:52Z",
+  "evidence_digest": "941fa012de11487f439fb8a5f2866f7486aeeeaf541b678b12df7d7dfbe6bd92",
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641"
 }

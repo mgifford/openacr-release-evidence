@@ -12,6 +12,7 @@ from pathlib import Path
 from .criterion_summaries import PROMPT_VERSION as CRITERION_PROMPT_VERSION
 from .criterion_evidence import automation_for_criterion
 from .openacr_export import load_catalog
+from .surface_assessment import assessment_note, component_results, criterion_results
 
 DRAFT_TERM = "Not Evaluated (draft — reviewer must select an ACR result)"
 COMPONENTS = (
@@ -453,18 +454,12 @@ def _criterion_remark(criterion, issues):
 
 
 def _criterion_levels(criterion, issues):
-    if criterion in CORE_SCOPE:
-        return {
-            "Web": "Not Applicable",
-            "Electronic Documents": "Not Applicable",
-            "Software": "Not Applicable",
-            "Authoring Tool": "Not Applicable",
-        }
+    results = criterion_results(criterion, issues)
     return {
-        "Web": "Not Evaluated",
-        "Electronic Documents": "Not Applicable",
-        "Software": "Not Applicable",
-        "Authoring Tool": "Not Evaluated",
+        "Web": results["web"],
+        "Electronic Documents": results["electronic-docs"],
+        "Software": results["software"],
+        "Authoring Tool": results["authoring-tool"],
     }
 
 
@@ -503,8 +498,8 @@ def _barrier_summary(items, surface):
     label = "web" if surface == "web" else "authoring"
     if not items:
         return (
-            f"No {label}-classified issue is tagged in this snapshot; the "
-            f"{'Web' if surface == 'web' else 'Authoring Tool'} component remains Not Evaluated."
+            f"No {label}-classified issue is known in this snapshot. Supports is based on the declared "
+            "Drupal surface assessment, not on automated testing or the empty queue alone."
         )
     titles = []
     for item in items[:6]:
@@ -579,12 +574,14 @@ def _remarks_cell(criterion, issues, ai_summary=None):
         )
     web = _surface_items(issues, "web")
     authoring = _surface_items(issues, "authoring")
+    levels = _criterion_levels(criterion, issues)
     ai_summary = ai_summary or {}
     if not issues:
+        levels = _criterion_levels(criterion, issues)
         return RichCell(
-            Bold("Web:"), " No active tagged issue; remains Not Evaluated. Absence is not evidence of support.",
+            Bold("Web:"), f" {levels['Web']}. {assessment_note(criterion, 'Web', levels['Web'])}",
             Gap(),
-            Bold("Authoring Tool:"), " No active tagged issue; remains Not Evaluated. Absence is not evidence of support.",
+            Bold("Authoring Tool:"), f" {levels['Authoring Tool']}. {assessment_note(criterion, 'Authoring Tool', levels['Authoring Tool'])}",
             Gap(),
             _automation_text(criterion),
         )
@@ -593,9 +590,9 @@ def _remarks_cell(criterion, issues, ai_summary=None):
         Gap(),
         _automation_text(criterion),
         Gap(),
-        Bold("Web:"), " ", ai_summary.get("web") or _barrier_summary(web, "web"),
+        Bold("Web:"), f" {levels['Web']}. ", ai_summary.get("web") or _barrier_summary(web, "web"),
         Gap(),
-        Bold("Authoring Tool:"), " ", ai_summary.get("authoring") or _barrier_summary(authoring, "authoring"),
+        Bold("Authoring Tool:"), f" {levels['Authoring Tool']}. ", ai_summary.get("authoring") or _barrier_summary(authoring, "authoring"),
         Gap(),
         Bold("Evidence:"), " ", _evidence_text(issues),
         Gap(),
@@ -678,21 +675,23 @@ def render_acr_narrative(analysis, output_dir):
         surface = (finding.get("surface") or {}).get("surface", "web")
         if surface in surface_counts:
             surface_counts[surface] += 1
-    doc.h2("Component scope and evidence status")
-    doc.p("No component-level conformance result is assigned. Web and Authoring Tool have reported issue evidence but remain Not Evaluated; Electronic Documents and Software have documented product-scope exclusions.")
+    doc.h2("Component scope and proposed result")
+    doc.p("Web and Authoring Tool use the declared Drupal surface assessment plus the active known-barrier register. Known issues produce Partially Supports; an assessed surface with no active tagged issue produces Supports. Electronic Documents and Software are Not Applicable from documented product scope. No Does Not Support result is recorded.")
     component_rows = []
+    component_policy = component_results(findings)
     for component, proposed, component_id in COMPONENTS:
+        proposed = component_policy.get(component_id, proposed)
         if component_id == "web":
             evidence = f"{surface_counts['web']} active findings classified as front-end/web"
             rationale = (
-                "Reported front-end barriers exist in the issue queue, but no component-level conformance "
-                "result is assigned. Reproduction and human review are still required."
+                "Active front-end issue evidence exists, so Partially Supports is proposed. The issue queue is "
+                "the known-barrier register; this is not a WCAG-EM audit."
             )
         elif component_id == "authoring-tool":
             evidence = f"{surface_counts['authoring']} active findings classified as authoring/admin UI"
             rationale = (
-                "Reported authoring-interface barriers exist, but no component-level conformance result is "
-                "assigned. The /admin and /user-path classification is itself draft and needs review."
+                "Active authoring-interface issue evidence exists, so Partially Supports is proposed. The "
+                "/admin and /user-path classification remains draft and needs review."
             )
         elif component_id == "electronic-docs":
             evidence = "No core electronic-document product"
@@ -712,15 +711,15 @@ def render_acr_narrative(analysis, output_dir):
         ["Component", "Conformance result", "Evidence", "Rationale"],
         component_rows,
     )
-    doc.p("Supports, Partially Supports, Does Not Support and Not Applicable are conformance labels. This report does not assign them from issue tags. The ACR template records the structure for a later human assessment.")
-    doc.p("Reading the tables: Open issue reports are treated as reported barrier evidence; no issue was reproduced against this release. Inventory records have no comments, merge requests or commit analysis. Issue-tagged criteria remain Not Evaluated and carry an evidence summary. Electronic Documents and Software are Not Applicable only because Drupal Core does not ship a standalone electronic-document or packaged software product in this scope.")
+    doc.p("Supports, Partially Supports, Does Not Support and Not Applicable are conformance labels. This draft applies them from the declared surface assessment and the active known-barrier register. It does not use a clean automated scan as a pass and does not record Does Not Support without explicit broad-failure evidence.")
+    doc.p("Reading the tables: Open issue reports are treated as reported barrier evidence; no issue was reproduced against this release. Inventory records have no comments, merge requests or commit analysis. A surface with known issues is Partially Supports; an assessed surface with no active tagged issue is Supports. Electronic Documents and Software are Not Applicable only because Drupal Core does not ship a standalone electronic-document or packaged software product in this scope.")
     doc.p("Surface counts are draft classification evidence. Inventory-only records have no collected descriptions/comments and default to Web; add explicit issue-queue guidance or tags to improve the authoring/web split. A Web result can include barriers that also affect the authoring interface; the per-component remarks identify the classified evidence.")
     if ai_summaries:
         doc.p("Some Web/Authoring paragraphs are model-assisted draft summaries generated from the cited issue evidence. They are suggestions for human review, not conformance conclusions; the issue list, statistics and references remain the source record.")
     else:
         doc.p("No accepted AI summary cache is present for this build. The Web/Authoring paragraphs are deterministic extracts from issue titles; add the optional criterion-summary step to enable model-assisted draft summaries.")
     doc.h2("Draft status and ACR result terms")
-    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. No criterion result is assigned from an issue tag; issue-tagged and untagged criteria remain Not Evaluated until a reviewer completes the assessment.")
+    doc.p("ACR result terms are defined here so the draft uses the same vocabulary as a completed ACR. Results are proposed from the declared surface assessment and the known-barrier register; a reviewer must confirm every term and explanation.")
     doc.table("ACR result terms used in review", ["Term", "Meaning"], [
         ["Supports", "The product has at least one method of meeting the criterion, and the reviewer has evidence that it works for the evaluated scope."],
         ["Partially Supports", "Some product functionality meets the criterion; other functionality does not, and the reviewer can explain the boundary."],
@@ -751,11 +750,11 @@ def render_acr_narrative(analysis, output_dir):
             note += f" Removed in this line: {removed}."
         note += (" The core collection does not include the theme project queues; a theme's own ACR must cover those issues.")
         doc.p(note)
-    doc.h2("What Not Evaluated means")
-    doc.p("A Not Evaluated row means this issue-queue method has no positive evidence for that criterion. It is not a claim that the criterion does not apply, and the absence of an active tagged issue is not Supports.")
-    doc.p("This build does not assign Supports. A Supports or Not Applicable result requires a separate, human-reviewed evidence record: a test or code audit with a source and date, or a documented product-scope decision. The issue queue can establish reported barriers; it cannot establish that a criterion is met.")
-    doc.p("For example, 2.2.1 Timing Adjustable, 2.2.2 Pause, Stop, Hide and 2.3.1 Three Flashes or Below Threshold remain Not Evaluated when no active issue is tagged. That is a review gap, not a claim that Drupal does not need those criteria.")
-    doc.p("The media criteria 1.2.1, 1.2.3, 1.2.4 and 1.2.5 are different: they are Not Applicable because Drupal Core does not provide the relevant audio/video player or live-media feature. They are not Not Applicable because the queue is empty.")
+    doc.h2("How the draft results are assigned")
+    doc.p("The declared Drupal surface assessment is the baseline. Web and Authoring Tool are assessed surfaces. The active accessibility issue queue is the known-barrier register for those surfaces.")
+    doc.p("A known active issue on a surface produces Partially Supports. An assessed surface with no active tagged issue produces Supports. Does Not Support is not recorded because there is no explicit broad-failure evidence. Not Applicable is used only for documented feature absence. Not Evaluated is reserved for an unassessed surface.")
+    doc.p("This is an issue-queue attestation, not a WCAG-EM audit. Supports does not mean that axe-core or any other automated tool proved the criterion; automated coverage is partial and is reported separately.")
+    doc.p("The media criteria 1.2.1, 1.2.3, 1.2.4 and 1.2.5 are Not Applicable because Drupal Core does not provide the relevant audio/video player or live-media feature. They are not Not Applicable because the queue is empty.")
     doc.h2("Why this ACR is different")
     doc.p("A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor's issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked.")
     doc.table("Conventional vendor ACR and this issue-queue attestation", ["Dimension", "Conventional vendor ACR", "This ACR"], [

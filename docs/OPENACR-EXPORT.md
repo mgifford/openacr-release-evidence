@@ -49,10 +49,10 @@ write:
 
 The report page links both files and the ACR narrative
 (`acr.html`/`acr.md`). The narrative and YAML use draft issue-queue values:
-no criterion-level Web/Authoring adherence value is assigned from an issue tag;
-issue-tagged and untagged criteria remain Not Evaluated in the narrative and
-unset in the YAML. Electronic Documents and Software are Not Applicable from
-documented product scope.
+the draft applies the declared Drupal surface assessment and known-barrier
+register: a known issue is Partially Supports, an assessed surface with no known
+issue is Supports, and documented feature absence is Not Applicable. Electronic
+Documents and Software are Not Applicable from documented product scope.
 
 ## What the draft contains
 
@@ -71,10 +71,11 @@ documented product scope.
 - All seven catalog chapters and all **182** catalog criteria, in catalog order.
 - Chapter-level draft notes linking the evidence report.
 - Four Section 508 component names on each WCAG criterion;
-- no `partially-supports` values from issue tags;
-- `not-applicable` on Electronic Documents/Software and on the documented media
+- `supports` on assessed surfaces with no known issue;
+- `partially-supports` where known issues are present;
+- `not-applicable` on Electronic Documents/Software and the documented media
   criteria (1.2.1/1.2.3/1.2.4/1.2.5);
-- unset Web/Authoring adherence until human review;
+- no `does-not-support` without explicit broad-failure evidence;
 - no `not-evaluated` values.
 - Extension fields `draft`, `target` and `standard_source` for provenance. The
   0.1.0 schema permits additional properties; the official editor may ignore

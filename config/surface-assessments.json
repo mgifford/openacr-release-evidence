@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1.0",
+  "product": "Drupal Core",
+  "standard": "WCAG 2.2 AA / Revised Section 508",
+  "basis": "The Drupal project has evaluated the public Web and Authoring Tool surfaces. This policy treats the active accessibility issue queue as the current known-barrier register for those assessed surfaces. It is not an independent WCAG-EM audit.",
+  "source_url": "https://www.drupal.org/docs/getting-started/accessibility/accessibility-conformance-report-acr-process",
+  "review_status": "project-asserted",
+  "reviewer": null,
+  "reviewed_at": null,
+  "does_not_support": [],
+  "surfaces": {
+    "web": {"status": "assessed"},
+    "authoring-tool": {"status": "assessed"}
+  }
+}

@@ -123,7 +123,7 @@
     "parent_project": null,
     "scope_note": "Default Admin is enabled as the administration theme; the stock 11.4.12 standard profile uses Claro and Olivero. Claro and Olivero are still core themes at this tag."
   },
-  "generated_at": "2026-11-11T22:15:35Z",
+  "generated_at": "2026-11-12T05:58:52Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -253,14 +253,14 @@
         "main"
       ],
       "since": "2026-05-10T16:05:10-06:00",
-      "commits": 1866,
-      "retrieved_at": "2026-11-11T20:05:04+00:00"
+      "commits": 1879,
+      "retrieved_at": "2026-11-12T05:58:52Z"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/11.4.12",
-    "commit_index": "2026-11-11T20:05:04+00:00"
+    "commit_index": "2026-11-12T05:58:52Z"
   },
   "manifest_digest": "dbdbc5ce3b8692256685553857444ff501419c9518b1556ce3326196943e5641",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -42899,10 +42899,36 @@
       },
       "applicability": "likely-affected",
       "basis": "git-non-inclusion",
-      "reason": "Fix commit(s) 54b16efd were found on main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
+      "reason": "Fix commit(s) 3fd31e46, 9b869961, 54b16efd were found on 11.5.x, 11.x, main but are not contained in tag 11.4.12. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [
+        {
+          "sha": "3fd31e46a374bafadaf7f1e1da55ab877e09c320",
+          "short_id": "3fd31e46",
+          "url": "https://git.drupalcode.org/project/drupal/-/commit/3fd31e46a374bafadaf7f1e1da55ab877e09c320",
+          "branch": "11.5.x",
+          "branches": [
+            "11.5.x"
+          ],
+          "created_at": "2026-11-11T20:07:06.000+00:00",
+          "title": "fix: #3624877 Navigation icons contain hardcoded colors",
+          "in_target": false,
+          "in_release": false
+        },
+        {
+          "sha": "9b869961ffb9c95165df1ae073e8209dca23b885",
+          "short_id": "9b869961",
+          "url": "https://git.drupalcode.org/project/drupal/-/commit/9b869961ffb9c95165df1ae073e8209dca23b885",
+          "branch": "11.x",
+          "branches": [
+            "11.x"
+          ],
+          "created_at": "2026-11-11T20:06:59.000+00:00",
+          "title": "fix: #3624877 Navigation icons contain hardcoded colors",
+          "in_target": false,
+          "in_release": false
+        },
         {
           "sha": "54b16efd900f1bd6d0da6d49184673a691eb11e6",
           "short_id": "54b16efd",
@@ -42935,6 +42961,8 @@
       ],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/3624877",
+        "https://git.drupalcode.org/project/drupal/-/commit/3fd31e46a374bafadaf7f1e1da55ab877e09c320",
+        "https://git.drupalcode.org/project/drupal/-/commit/9b869961ffb9c95165df1ae073e8209dca23b885",
         "https://git.drupalcode.org/project/drupal/-/commit/54b16efd900f1bd6d0da6d49184673a691eb11e6",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/17211"
       ],
@@ -44365,5 +44393,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "f27d6b6f5b3576153c84831329d8f38466b197c51834b652670b7b7ce9899a3a"
+  "evidence_digest": "941fa012de11487f439fb8a5f2866f7486aeeeaf541b678b12df7d7dfbe6bd92"
 }
