@@ -28,6 +28,7 @@ class ImpactDatasetTests(unittest.TestCase):
         for criterion in ("2.4.11", "2.4.12", "2.4.13", "2.5.7", "2.5.8", "3.2.6", "3.3.7", "3.3.8", "3.3.9"):
             record = get_criterion_impact(criterion)
             self.assertEqual("2.2", record["introduced_in"], criterion)
+        self.assertEqual("2.1", get_criterion_impact("2.1.4")["introduced_in"])
 
     def test_4_1_1_is_historical_not_active(self):
         self.assertIsNone(get_criterion_impact("4.1.1"))

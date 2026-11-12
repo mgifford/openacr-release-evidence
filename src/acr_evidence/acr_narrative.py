@@ -892,6 +892,7 @@ def render_acr_narrative(analysis, output_dir):
                     Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
                     " ",
                     Permalink(f"Permalink to criterion {criterion_id} {criterion.get('handle') or ''}", f"#{row_id}"),
+                    *([Break(), Small("Introduced in WCAG " + impact["introduced_in"])] if impact and impact.get("introduced_in") in {"2.1", "2.2"} else []),
                     Break(),
                     Small("People who may be affected: " + ", ".join(
                         group["label"] for group in (impact or {}).get("groups", [])

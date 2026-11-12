@@ -86,6 +86,8 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("Not Applicable claim review", md)
         self.assertIn("Functional Performance Criteria (mapped)", md)
         self.assertIn("People who may be affected:", md)
+        self.assertIn("Introduced in WCAG 2.1", md)
+        self.assertIn("Introduced in WCAG 2.2", md)
         self.assertIn("Potential barrier:", md)
         self.assertIn("W3C Understanding", md)
         self.assertNotIn("not mapped", md)
