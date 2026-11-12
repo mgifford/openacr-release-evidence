@@ -102,6 +102,8 @@ overrides for mixed components such as `taxonomy.module` or `javascript`. All `/
 `/user/1`, are authoring/account surfaces. Never infer Supports from an empty
 issue queue, never remove the draft disclaimer.
 
+Accessibility impact data lives in `data/accessibility-impact/`. It is proposed editorial synthesis with source links, not conformance evidence. Do not promote `proposed` records to `reviewed` without human review, and do not treat a missing standards crosswalk as proof of no impact.
+
 ATAG evidence is separate from WCAG/OpenACR. The `atag` tag marks a reported
 authoring-tool issue, not an ATAG result. Do not infer Part A/B from a component
 name or issue title: only an explicit ATAG Part tag or a documented human-reviewed

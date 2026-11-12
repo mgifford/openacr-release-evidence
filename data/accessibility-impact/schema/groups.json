@@ -1,0 +1,35 @@
+{
+  "groups": {
+    "blind": {"label": "People who are blind", "functional_needs": ["non_visual_operation", "assistive_technology_compatibility"]},
+    "low_vision": {"label": "People with low vision", "functional_needs": ["low_vision_accommodation", "assistive_technology_compatibility"]},
+    "color_vision_deficiency": {"label": "People with colour vision deficiency", "functional_needs": ["color_independent_perception"]},
+    "deaf": {"label": "Deaf people", "functional_needs": ["non_audio_access"]},
+    "hard_of_hearing": {"label": "Hard-of-hearing people", "functional_needs": ["hearing_accommodation", "non_audio_access"]},
+    "deafblind": {"label": "Deafblind people", "functional_needs": ["non_visual_operation", "non_audio_access", "assistive_technology_compatibility"]},
+    "speech_disability": {"label": "People with speech disabilities", "functional_needs": ["speech_independent_operation"]},
+    "mobility_disability": {"label": "People with mobility disabilities", "functional_needs": ["pointer_alternative", "keyboard_operation"]},
+    "limited_dexterity": {"label": "People with limited dexterity or tremor", "functional_needs": ["dexterity_accommodation", "pointer_alternative"]},
+    "cognitive_disability": {"label": "People with cognitive disabilities", "functional_needs": ["cognitive_support", "consistent_navigation"]},
+    "learning_disability": {"label": "People with learning disabilities", "functional_needs": ["cognitive_support", "consistent_navigation"]},
+    "photosensitive_epilepsy": {"label": "People with photosensitive epilepsy", "functional_needs": ["seizure_safety"]},
+    "vestibular_disorder": {"label": "People with vestibular disorders", "functional_needs": ["motion_safety"]}
+  },
+  "functional_needs": {
+    "non_visual_operation": "Use content without vision",
+    "low_vision_accommodation": "Use content with limited vision or magnification",
+    "color_independent_perception": "Perceive information without relying on colour",
+    "non_audio_access": "Access information without hearing",
+    "hearing_accommodation": "Use information with limited hearing",
+    "speech_independent_operation": "Operate controls without speech",
+    "pointer_alternative": "Use a pointer alternative or keyboard",
+    "dexterity_accommodation": "Operate controls with limited dexterity or strength",
+    "keyboard_operation": "Operate all controls from a keyboard",
+    "cognitive_support": "Understand and navigate information with cognitive or learning support",
+    "seizure_safety": "Avoid seizure triggers",
+    "motion_safety": "Avoid motion-triggered discomfort",
+    "assistive_technology_compatibility": "Use assistive technology",
+    "time_control": "Control time limits and interruptions",
+    "focus_visibility": "Track keyboard focus",
+    "consistent_navigation": "Navigate predictable, consistent interfaces"
+  }
+}

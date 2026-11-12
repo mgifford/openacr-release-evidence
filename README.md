@@ -182,7 +182,7 @@ command is called. Raw output is private and never published.
 - Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into explicit Part A/Part B and unassigned evidence, with a WAI ATAG Report Tool JSON draft.
-- 152 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- 160 offline tests; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -427,6 +427,8 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Reproduction evidence](docs/REPRODUCTION-EVIDENCE.md)
 - [Functional Performance Criteria mapping](docs/FPC-MAPPING.md)
 - [Beyond WCAG: non-WCAG considerations](docs/NON-WCAG-CONSIDERATIONS.md)
+- [Accessibility impact knowledge layer](data/accessibility-impact/README.md)
+- [Open work and review gaps](TODO.md)
 - [Developer evidence index](docs/DEVELOPER-INDEX.md)
 - [Automated coverage mapping](config/wcag-automation-coverage.json)
 - [Onboarding Drupal CMS and LocalGov Drupal](docs/MULTI-PROJECT-ONBOARDING.md)

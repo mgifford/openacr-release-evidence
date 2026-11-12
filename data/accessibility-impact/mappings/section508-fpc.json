@@ -1,0 +1,318 @@
+{
+  "standard": "Section 508 Functional Performance Criteria",
+  "source": "https://www.section508.gov/content/mapping-wcag-to-fpc/",
+  "retrieved_via": "https://github.com/CivicActions/accessibility-data-reference/blob/main/mapping-wcag-to-fpc.csv",
+  "review_status": "reviewed",
+  "note": "Category labels are functional impact groups, not independently verified FPC conformance results.",
+  "criteria": {
+    "1.1.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "WH",
+        "LH",
+        "LLCLA"
+      ]
+    },
+    "1.2.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "WH",
+        "LH",
+        "LLCLA"
+      ]
+    },
+    "1.2.2": {
+      "status": "reviewed",
+      "categories": [
+        "WH",
+        "LH",
+        "LLCLA"
+      ]
+    },
+    "1.2.3": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LLCLA"
+      ]
+    },
+    "1.3.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LLCLA"
+      ]
+    },
+    "1.3.2": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LLCLA"
+      ]
+    },
+    "1.3.3": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "WH",
+        "LH",
+        "LLCLA"
+      ]
+    },
+    "1.4.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "WPC",
+        "LLCLA"
+      ]
+    },
+    "1.4.2": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LH",
+        "LLCLA"
+      ]
+    },
+    "2.1.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "2.1.2": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM"
+      ]
+    },
+    "2.2.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "2.2.2": {
+      "status": "reviewed",
+      "categories": [
+        "LLCLA"
+      ]
+    },
+    "2.4.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "2.4.2": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "2.4.3": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "2.4.4": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "3.1.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "WH",
+        "LH",
+        "LLCLA"
+      ]
+    },
+    "3.2.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "3.2.2": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LLCLA"
+      ]
+    },
+    "3.3.1": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "WPC",
+        "LLCLA"
+      ]
+    },
+    "3.3.2": {
+      "status": "reviewed",
+      "categories": [
+        "LV",
+        "LLCLA"
+      ]
+    },
+    "4.1.2": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "1.2.4": {
+      "status": "reviewed",
+      "categories": [
+        "WH",
+        "LH",
+        "LLCLA"
+      ]
+    },
+    "1.2.5": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LLCLA"
+      ]
+    },
+    "1.4.3": {
+      "status": "reviewed",
+      "categories": [
+        "LV",
+        "WPC"
+      ]
+    },
+    "1.4.4": {
+      "status": "reviewed",
+      "categories": [
+        "LV"
+      ]
+    },
+    "1.4.5": {
+      "status": "reviewed",
+      "categories": [
+        "LV",
+        "LLCLA"
+      ]
+    },
+    "2.4.5": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "2.4.6": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "2.4.7": {
+      "status": "reviewed",
+      "categories": [
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "3.1.2": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "WH",
+        "LH",
+        "LLCLA"
+      ]
+    },
+    "3.2.3": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LLCLA"
+      ]
+    },
+    "3.2.4": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "3.3.3": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "LM",
+        "LLCLA"
+      ]
+    },
+    "3.3.4": {
+      "status": "reviewed",
+      "categories": [
+        "WV",
+        "LV",
+        "WPC",
+        "WH",
+        "LH",
+        "LM",
+        "LLCLA"
+      ]
+    }
+  }
+}

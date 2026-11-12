@@ -135,12 +135,17 @@ narrative is not a conformance claim.
    generated draft.
 7. Remove the draft statement only after independent review and sign-off.
 
-## Criterion disability labels
+## Criterion user impact
 
-The Criteria column includes a short **Affects:** line derived from the
-CivicActions WCAG-to-FPC mapping. It identifies disability groups for orientation;
-it is not a severity ranking, a complete taxonomy or a substitute for testing with
-disabled people.
+The Criteria column includes:
+
+- **People who may be affected** — controlled-vocabulary impact groups;
+- **Potential barrier** — a concise description of the likely barrier;
+- **W3C Understanding** — a link to the criterion's authoritative guidance.
+
+This information comes from `data/accessibility-impact/` and is independent of
+Drupal release evidence. It is proposed editorial synthesis, not a conformance
+result, severity ranking or substitute for testing with disabled people.
 
 ## Beyond WCAG
 
@@ -148,6 +153,14 @@ A separate bottom-of-report box records non-WCAG accessibility considerations:
 EN 301 549 user preferences, visually induced motion sickness, reduced motion and
 forced-colors/high-contrast modes. These are review gaps, not conformance terms,
 and they are not included in OpenACR.
+
+## Why these accessibility issues matter
+
+The ACR includes a dedicated human-impact section immediately before References.
+It explains why barriers matter, presents WHO global context with source dates and
+limitations, maps representative functional needs, explains shared-component
+remediation, and documents methodology and review status. The section does not
+assign conformance results or Drupal user counts.
 
 ## References grouping
 

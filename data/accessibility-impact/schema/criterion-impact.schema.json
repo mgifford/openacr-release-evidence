@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Criterion impact record",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "level",
+    "introduced_in",
+    "status",
+    "user_impact",
+    "sources",
+    "standards_mappings",
+    "review_status",
+    "last_reviewed"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "level": {
+      "enum": [
+        "A",
+        "AA",
+        "AAA"
+      ]
+    },
+    "introduced_in": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "removed"
+      ]
+    },
+    "user_impact": {
+      "type": "object",
+      "required": [
+        "groups",
+        "functional_needs",
+        "barrier",
+        "description"
+      ],
+      "properties": {
+        "groups": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "functional_needs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "barrier": {
+          "type": "string",
+          "minLength": 20
+        },
+        "description": {
+          "type": "string",
+          "minLength": 20
+        },
+        "affects_short": {
+          "type": "string",
+          "minLength": 10
+        },
+        "barrier_short": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1
+    },
+    "standards_mappings": {
+      "type": "object"
+    },
+    "review_status": {
+      "enum": [
+        "proposed",
+        "reviewed",
+        "reviewed-no-mapping"
+      ]
+    },
+    "last_reviewed": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

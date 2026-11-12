@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Pre-release alpha. Claro is the admin theme at this tag; Default Admin is present but not default. Not a supported release."
   },
-  "generated_at": "2026-11-12T06:58:17Z",
+  "generated_at": "2026-11-12T07:46:53Z",
   "collection": {
     "query": {
       "project": "drupal",
