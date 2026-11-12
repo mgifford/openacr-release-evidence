@@ -4,8 +4,9 @@ All upstream text is escaped. The report is intentionally usable without
 JavaScript, from a GitHub Pages repository subpath, and at 320 CSS pixels.
 """
 import json
+import re
 import shutil
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 
 from .criterion_evidence import build_criterion_evidence
@@ -71,8 +72,8 @@ def _summary_table(findings):
         counts[finding["applicability"]] = counts.get(finding["applicability"], 0) + 1
     parts = [
         '<table class="summary-table">',
-        "<caption>Findings by release applicability. Counts are evidence states, not an accessibility score.</caption>",
-        "<thead><tr><th scope=\"col\">Release applicability</th><th scope=\"col\">Count</th><th scope=\"col\">Meaning</th></tr></thead><tbody>",
+        "<caption>Applies to this release? Counts describe how much we know, not accessibility quality.</caption>",
+        "<thead><tr><th scope=\"col\">Applies to this release?</th><th scope=\"col\">Count</th><th scope=\"col\">What it means</th></tr></thead><tbody>",
     ]
     for key in sorted(counts):
         parts.append(
@@ -90,8 +91,8 @@ def _status_table(findings):
         counts[label] = counts.get(label, 0) + 1
     parts = [
         '<table class="summary-table">',
-        "<caption>Tracker workflow states among the collected active issues. Tracker status is not release applicability.</caption>",
-        '<thead><tr><th scope="col">Tracker status</th><th scope="col">Count</th></tr></thead><tbody>',
+        "<caption>Drupal.org workflow status of the collected issues. This is not a severity grade or a release finding.</caption>",
+        '<thead><tr><th scope="col">Drupal.org status</th><th scope="col">Count</th></tr></thead><tbody>',
     ]
     for label in sorted(counts):
         parts.append(f'<tr><th scope="row">{esc(label)}</th><td>{counts[label]}</td></tr>')
@@ -182,17 +183,268 @@ def _verification_state(finding):
 
 
 def _next_action(finding):
+    """Recommend investigation, never remediation of an unverified finding."""
+    applicability = finding.get("applicability")
     if finding.get("evidence_status") == "inventory":
-        return "Collect comments, MRs and commit evidence"
+        return "Collect the issue discussion and merge-request evidence, then check this release."
     mrs = finding.get("merge_requests") or []
+    if applicability == "confirmed-fixed":
+        return "Test that the included fix resolves the reported barrier on this release."
     if mrs and finding.get("fix_included_in_target", finding.get("fix_included_in_release")):
-        return "Verify fix behaviour on target"
+        return "Check whether the included change fixes the reported barrier."
     if mrs:
-        return "Review merge request and reproduce"
-    if finding.get("applicability") == "likely-affected":
-        return "Reproduce on target"
-    return "Resolve applicability and evidence"
+        return "Review the merge request and try to reproduce the barrier on this release."
+    if applicability == "likely-affected":
+        return "Try to reproduce the reported barrier on this release."
+    if applicability == "not-introduced":
+        return "No action for this release; the affected component is not present."
+    if applicability == "not-in-scope":
+        return "Use the report for the component that owns this issue."
+    if applicability == "confirmed-affected":
+        return "Record the reproduction and plan a fix or documented workaround."
+    return "Check the component in this release; if present, reproduce the barrier."
 
+
+def _state_reason(finding):
+    """Explain an applicability state in plain language, without inventing facts."""
+    basis = finding.get("basis") or "none"
+    if finding.get("evidence_status") == "inventory":
+        return "Only basic issue information was collected; comments, merge requests and commits were not reviewed."
+    if basis == "manifest-scope":
+        return "The component is outside the components declared for this report."
+    if basis == "code-presence":
+        return "The affected component or feature is absent from this release."
+    if basis in {"git-inclusion"}:
+        return "A matching fix commit is included, but the fix has not been behaviourally verified."
+    if basis == "git-non-inclusion":
+        return "Matching fix commits exist but are not included in this release."
+    if basis == "tracker-closed-without-commit":
+        return "The issue is closed, but no matching fix commit was found in this release."
+    if basis == "closed-non-fix":
+        return "The issue was closed for another reason; that does not establish the release state."
+    if basis == "report-after-release":
+        return "The issue was reported after this release was cut; it may be a later regression."
+    if basis == "tracker-report":
+        return "An open report exists, but nobody has reproduced it on this release."
+    if basis == "inventory-only":
+        return "Only basic issue information was collected; no release conclusion was drawn."
+    return "No release-specific evidence has been recorded yet."
+
+
+def _status_meaning(label):
+    value = str(label or "").strip().lower()
+    if value == "active":
+        return "open on Drupal.org; not a severity grade"
+    if value == "needs work":
+        return "being worked on; not a release finding"
+    if value == "needs review":
+        return "waiting for review; not a release finding"
+    if value == "reviewed & tested by the community":
+        return "community-tested; not yet released"
+    if value == "patch (to be ported)":
+        return "a patch exists for another branch"
+    if value in {"closed (fixed)", "fixed"}:
+        return "closed as fixed; release inclusion is checked separately"
+    if value.startswith("closed"):
+        return "closed for a non-fix reason"
+    if value.startswith("postponed"):
+        return "paused; no release conclusion"
+    return "workflow state, not an accessibility grade"
+
+
+DATA_ROOT = Path(__file__).resolve().parents[2] / "data"
+
+
+def _load_component_inventory(release):
+    if not release:
+        return None
+    path = DATA_ROOT / "component-inventory" / f"drupal-core-{release}.json"
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+
+
+def _load_lineage_records():
+    path = DATA_ROOT / "component-lineage" / "olivero-claro-gin-default-admin.json"
+    try:
+        return json.loads(path.read_text(encoding="utf-8")).get("records") or []
+    except (OSError, ValueError):
+        return []
+
+
+def _release_prefix(value):
+    import re
+    match = re.match(r"^(\d+\.\d+\.\d+)", str(value or ""))
+    return match.group(1) if match else ""
+
+
+def _version_tuple(value):
+    text = str(value or "").strip()
+    main, _, pre = text.partition("-")
+    numbers = tuple(int(part) for part in main.split(".") if part.isdigit())
+    return (numbers, 0, pre) if pre else (numbers, 1, "")
+
+
+def _release_at_or_after(release, boundary):
+    try:
+        return _version_tuple(release) >= _version_tuple(boundary)
+    except TypeError:
+        return False
+
+
+def _plural_count(count, singular, plural=None):
+    word = singular if count == 1 else (plural or singular + "s")
+    return f"{count} {word}"
+
+
+def _component_scope_html(target):
+    """Summarise exact-release inventory facts without inferring conformance."""
+    release = str(target.get("release") or "")
+    inventory = _load_component_inventory(release)
+    parts = []
+    if inventory:
+        counts = inventory.get("counts") or {}
+        profile = inventory.get("profile") or {}
+        parts.append(
+            "This exact release bundles "
+            f"{esc(_plural_count(counts.get('modules_bundled', 0), 'module'))} and "
+            f"{esc(_plural_count(counts.get('themes_bundled', 0), 'theme'))}. "
+            f"The standard installation profile enables {esc(_plural_count(counts.get('modules_installed_by_standard_profile', 0), 'module'))} "
+            f"and {esc(_plural_count(counts.get('themes_installed_by_standard_profile', 0), 'theme'))}; "
+            f"its default theme is {esc(profile.get('default_theme') or 'not recorded')} and its admin theme is "
+            f"{esc(profile.get('admin_theme') or 'not recorded')}. "
+            "Bundled, installed and default-installed components are different scopes."
+        )
+    lineage = _load_lineage_records()
+    for record in lineage:
+        source = record.get("source") or {}
+        destination = record.get("destination") or {}
+        boundary = source.get("release_boundary") or {}
+        removed = str(boundary.get("removed_in") or "")
+        first = str((destination.get("release_boundary") or {}).get("first_bundled") or "")
+        if record.get("relation") == "moved-to-contrib" and removed and _release_at_or_after(release, removed):
+            parts.append(
+                f"{esc(str(source.get('component') or '').capitalize())} left Core in {esc(removed)} and is now maintained as the "
+                f"{esc(str(destination.get('project') or '').capitalize())} contributed project. Its absence from this release is a scope "
+                "change, not evidence that its reported barriers were fixed."
+            )
+        elif record.get("relation") == "adopted-from-contrib" and first and _release_at_or_after(release, first):
+            parts.append(
+                f"{esc(str(destination.get('component') or '').capitalize())} was adopted from the {esc(str(source.get('project') or '').capitalize())} contributed "
+                "project. Adoption does not automatically make every predecessor issue applicable; each issue needs "
+                "its own release evidence."
+            )
+    return " ".join(parts)
+
+
+def _plain_summary(analysis):
+    target = analysis.get("target") or {}
+    summary = analysis.get("summary") or {}
+    collection = (analysis.get("collection") or {}).get("summary") or {}
+    findings = analysis.get("findings") or []
+    counts = summary.get("by_applicability") or {}
+    total = len(findings)
+    likely = counts.get("likely-affected", 0)
+    verified = counts.get("confirmed-affected", 0)
+    fixed_included = counts.get("confirmed-fixed", 0)
+    unknown = counts.get("unknown", 0)
+    absent = counts.get("not-introduced", 0)
+    out_of_scope = counts.get("not-in-scope", 0)
+    detailed = collection.get("detailed", 0)
+    inventory = collection.get("inventory", 0)
+    release = target.get("release") or (analysis.get("assessment") or {}).get("release") or "this release"
+    product = (analysis.get("assessment") or {}).get("product") or target.get("product") or "This product"
+    scope = _component_scope_html(target)
+    if total == 0:
+        finding_sentence = "No active accessibility issues were collected for this snapshot."
+    else:
+        finding_sentence = (
+            f"We collected {_plural_count(total, 'active accessibility issue')}. "
+            f"{_plural_count(likely, 'issue')} probably {'affects' if likely == 1 else 'affect'} this release, "
+            f"{_plural_count(verified, 'issue')} {'is a verified problem' if verified == 1 else 'are verified problems'} in this release, and "
+            f"{_plural_count(unknown, 'issue')} {'is' if unknown == 1 else 'are'} not yet determined."
+        )
+    verification_sentence = (
+        "No reported problem has been reproduced against this release, so the report cannot call any issue a "
+        "verified problem."
+        if verified == 0 else
+        f"{verified} reported problems have been reproduced against this release."
+    )
+    fix_sentence = (
+        "No fix has been tested and confirmed to resolve a barrier in this release."
+        if fixed_included == 0 else
+        f"{_plural_count(fixed_included, 'finding')} {'has' if fixed_included == 1 else 'have'} a matching fix included in the release, but none is behaviourally verified."
+    )
+    parts = [
+        '<section id="summary" aria-labelledby="summary-heading">',
+        f'<h2 id="summary-heading">What this report says about {esc(product)} {esc(release)}</h2>',
+        '<p class="lede">This report tracks accessibility issues reported against '
+        f'{esc(product)} and asks whether they affect <strong>{esc(release)}</strong>. '
+        "It is a starting point for investigation, not an accessibility certification.</p>",
+        f'<p>{esc(finding_sentence)}</p>',
+        f'<p>{esc(verification_sentence)} {esc(fix_sentence)}</p>',
+        '<div class="callout"><h3>What we actually know</h3><ul>'
+        f'<li><strong>{esc(likely)}</strong> {esc("issue" if likely == 1 else "issues")} probably {"affects" if likely == 1 else "affect"} this release based on reports and code checks, but {"was" if likely == 1 else "were"} not reproduced.</li>'
+        f'<li><strong>{esc(unknown)}</strong> {esc("issue is" if unknown == 1 else "issues are")} not yet determined. That means we have not checked whether {"it affects" if unknown == 1 else "they affect"} this release; it does not mean the release is accessible or inaccessible.</li>'
+        f'<li><strong>{esc(verified)}</strong> {esc("issue has" if verified == 1 else "issues have")} been reproduced on this release.</li>'
+        f'<li><strong>{esc(fixed_included)}</strong> {esc("finding has" if fixed_included == 1 else "findings have")} a fix included in the release; inclusion is not proof that the barrier is gone.</li>'
+        '</ul></div>',
+    ]
+    if scope:
+        parts.append('<div class="scope-note"><h3>Component scope in this release</h3>'
+                     f'<p>{scope}</p>'
+                     '<p><a href="#components">See the component inventory and sources</a>.</p></div>')
+    parts.extend([
+        '<h3>What to do next</h3>',
+        '<div class="action-grid"><div><h4>If you maintain Drupal Core</h4>'
+        '<p>Start with the issues marked “probably affect this release” and try to reproduce them on the exact release. '
+        'Then check whether any fix commit is included and test its behaviour.</p></div>'
+        '<div><h4>If you build Drupal sites</h4>'
+        '<p>Check which modules and themes your site uses. A reported issue only matters to your site if the affected '
+        'component is present and enabled.</p></div>'
+        '<div><h4>If you evaluate accessibility</h4>'
+        '<p>Use the issue list to plan testing. It is not a substitute for testing pages, interactions and assistive-technology use.</p></div>'
+        '<div><h4>If you are buying or procuring</h4>'
+        '<p>Treat this as a risk and question list, not an approved Accessibility Conformance Report. Ask vendors for '
+        'a reviewed ACR for the exact product and version.</p></div></div>',
+        '<p class="meta"><a href="#issues">Browse all reported issues</a> · '
+        '<a href="#scope">Sources and data</a> · '
+        '<a href="#method">How this report works</a> · '
+        '<a href="./acr.html">Draft ACR</a></p>',
+        '</section>',
+    ])
+    return "".join(parts)
+
+
+def _terminology_html():
+    return "".join([
+        '<section id="how-to-read" aria-labelledby="how-to-read-heading">',
+        '<h2 id="how-to-read-heading">How to read this report</h2>',
+        '<p>Two different labels appear next to every issue. They answer different questions.</p>',
+        '<div class="term-grid">',
+        '<div><h3>Drupal.org status</h3>',
+        '<p>Where the issue stands in Drupal.org’s workflow. “Needs work” means people are still working on it. '
+        'It is not a severity grade and it does not tell you whether the problem exists in a release.</p></div>',
+        '<div><h3>Applies to this release?</h3>',
+        '<p>What we know about whether the reported problem exists in this exact release. '
+        '“Not yet determined” means we have not checked. It does not mean accessible or inaccessible.</p></div>',
+        '</div>',
+        '<dl class="definitions">',
+        '<dt>Reported issue</dt><dd>Someone filed a possible accessibility problem. This is a report, not proof.</dd>',
+        '<dt>Source information</dt><dd>Issue details, comments, merge requests, commits and linked tests collected from public sources.</dd>',
+        '<dt>Release applicability</dt><dd>Whether the reported problem affects this particular software version.</dd>',
+        '<dt>Probably affects this release</dt><dd>Available information suggests the problem exists here, but nobody reproduced it.</dd>',
+        '<dt>Verified problem</dt><dd>The problem was reproduced in this exact release.</dd>',
+        '<dt>Fix included</dt><dd>A relevant code change is present in the release. This is not proof that the barrier is gone.</dd>',
+        '<dt>Verified fix</dt><dd>Testing confirms the reported barrier is resolved in this exact release.</dd>',
+        '<dt>Not yet determined</dt><dd>There is not enough information to decide whether the problem affects this release.</dd>',
+        '<dt>Conformance determination</dt><dd>A reviewed conclusion that a specific accessibility requirement is met. This report does not make one.</dd>',
+        '</dl>',
+        '<p>An open issue is not necessarily present in this release. A closed issue is not necessarily fixed in this release. '
+        'Removing a component from Core does not fix its accessibility problems.</p>',
+        '</section>',
+    ])
 
 def _component_index(findings):
     groups = {}
@@ -200,14 +452,13 @@ def _component_index(findings):
         component = finding.get("component") or "Not recorded"
         groups.setdefault(component, []).append(finding)
     parts = [
-        '<h3 id="component-index-heading">Component index</h3>',
         '<p>Issues grouped by the component recorded on the source tracker. This is an index, not a severity ranking. '
         'A component can contain findings with different release applicability and verification states.</p>',
         '<div class="table-scroll" tabindex="0" role="region" aria-label="Component index. Scroll horizontally if needed.">',
         '<table class="index-table component-index">',
         '<caption>Component index: issue count, release applicability, merge requests and verification need</caption>',
-        '<thead><tr><th scope="col">Component</th><th scope="col">Issues</th><th scope="col">Likely affected</th>'
-        '<th scope="col">Unknown</th><th scope="col">With merge request</th><th scope="col">Needs reproduction</th></tr></thead><tbody>',
+        '<thead><tr><th scope="col">Component</th><th scope="col">Issues</th><th scope="col">Probably affected</th>'
+        '<th scope="col">Not yet determined</th><th scope="col">With merge request</th><th scope="col">Needs checking</th></tr></thead><tbody>',
     ]
     for component in sorted(groups, key=lambda value: value.casefold()):
         items = groups[component]
@@ -237,13 +488,18 @@ def _issue_article(finding, issue):
             f'<article class="issue" data-evidence="inventory" id="{anchor}" aria-labelledby="{anchor}-title">'
             f'<h3 id="{anchor}-title">{esc(finding.get("title") or finding["issue_id"])}</h3>'
             f'<p class="issue-source">{source} · <span class="meta">{esc(finding["issue_id"])}</span></p>'
-            '<p class="meta"><strong>Metadata-only inventory record.</strong> No comments, merge requests or commit '
-            'history were collected. Read the source issue before relying on its applicability.</p>'
-            f'<p class="meta">Tracker status: {esc(finding.get("tracker_status_label") or "Unknown")} · '
-            f'Component: {esc(finding.get("component") or "Not recorded")} · '
-            f'Version: {esc(finding.get("tracker_version") or "Not recorded")} · '
-            f'Observed: {esc(finding.get("observed_at") or "Not recorded")}</p>'
-            "</article>"
+            '<p class="meta"><strong>Metadata-only inventory record.</strong> Comments, merge requests and commit '
+            'history were not collected for this active issue. Read the source issue before relying on its applicability.</p>'
+            + _facts([
+                ("Drupal.org status", f'<strong>{esc(finding.get("tracker_status_label") or "Unknown")}</strong> — {esc(_status_meaning(finding.get("tracker_status_label")))}'),
+                ("Applies to this release?", f'<strong>{esc(app_label(finding["applicability"]))}</strong>'),
+                ("Why this state", f'{esc(finding.get("reason"))} {esc(_state_reason(finding))}'),
+                ("What to do next", esc(_next_action(finding))),
+                ("Component", esc(finding.get("component") or "Not recorded")),
+                ("Version field at last fetch", esc(finding.get("tracker_version") or "Not recorded")),
+                ("Observed at", esc(finding.get("observed_at") or "Not recorded")),
+            ])
+            + "</article>"
         )
     criteria = finding.get("wcag_candidates") or []
     criterion_links = ", ".join(
@@ -259,12 +515,13 @@ def _issue_article(finding, issue):
         ('<p class="meta"><strong>Metadata-only inventory record.</strong> Comments, merge requests and commit history were not collected for this active issue; read the source issue before relying on its applicability.</p>'
          if finding.get("evidence_status") == "inventory" else ""),
         _facts([
-            ("Release applicability", f'<strong>{esc(app_label(finding["applicability"]))}</strong>'),
-            ("Why", esc(finding.get("reason"))),
-            ("Evidence detail", "Metadata only" if finding.get("evidence_status") == "inventory" else "Full comments and merge requests"),
+            ("Drupal.org status", f'<strong>{esc(finding.get("tracker_status_label") or "Unknown")}</strong> — {esc(_status_meaning(finding.get("tracker_status_label")))}'),
+            ("Applies to this release?", f'<strong>{esc(app_label(finding["applicability"]))}</strong>'),
+            ("Why this state", f'{esc(finding.get("reason"))} {esc(_state_reason(finding))}'),
+            ("What to do next", esc(_next_action(finding))),
+            ("Evidence detail", "Basic record only" if finding.get("evidence_status") == "inventory" else "Comments and merge requests"),
             ("Evidence basis", esc(finding.get("basis"))),
-            ("Fix included in target?", "Yes" if finding.get("fix_included_in_target", finding.get("fix_included_in_release")) else "No"),
-            ("Tracker status (not release status)", esc(finding.get("tracker_status_label") or "Unknown")),
+            ("Fix included in this release?", "Yes — inclusion still needs behavioural verification" if finding.get("fix_included_in_target", finding.get("fix_included_in_release")) else "No matching fix commit found"),
             ("Version field at last fetch", esc(finding.get("tracker_version") or "Not recorded")),
             ("Component", esc(finding.get("component") or "Not recorded")),
             ("Surface", esc((finding.get("surface") or {}).get("surface", "web")) + " (" + esc((finding.get("surface") or {}).get("basis", "default-web")) + ")"),
@@ -272,7 +529,6 @@ def _issue_article(finding, issue):
             ("Observed at", esc(finding.get("observed_at") or "Not recorded")),
             ("Candidate WCAG criteria", criterion_links),
             ("Review state", esc(finding.get("review_status") or "unreviewed")),
-            ("Next action", esc(_next_action(finding))),
             ("Verification", esc(_verification_state(finding))),
         ]),
     ]
@@ -480,44 +736,34 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         '<p class="meta">The ACR is a derived draft, not an approved conformance report.</p></nav>'
     )
     html.append(_section_nav([
-        ("scope", "Assessment scope"),
-        ("summary", "Evidence summary"),
-        ("reproduction", "Reproduction evidence"),
-        ("position", "Why this is different"),
-        ("criteria", "WCAG criterion evidence"),
+        ("summary", "Summary"),
+        ("how-to-read", "How to read this report"),
+        ("summary-details", "Summary details"),
+        ("reproduction", "External reproduction evidence"),
+        ("position", "Why this report is different"),
+        ("criteria", "Reported issues by WCAG criterion"),
         ("components", "Component index"),
-        ("issues", "Issue evidence"),
-        ("gaps", "Verification gaps"),
+        ("issues", "All reported issues"),
+        ("gaps", "What still needs checking"),
+        ("scope", "Release details and sources"),
         ("method", "Method and limitations"),
-        ("provenance", "Provenance"),
+        ("provenance", "Provenance and downloads"),
     ]))
-    html.append('<section id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Assessment scope</h2>')
-    html.append('<p>This report describes one declared assessment target. It is not a statement about every Drupal installation, '
-                'configuration or release.</p>')
-    html.append(_facts([
-        ("Product", esc(assessment.get("product"))),
-        ("Release", esc(release)),
-        ("Support status", esc(_support_label(support))),
-        ("Assessment date", esc(display_date(analysis.get("generated_at")))),
-        ("Target commit", f'<code>{esc(target.get("tag_commit_short") or "Not resolved")}</code>'),
-        ("Evidence completeness", f'{esc(full_evidence)} full · {esc(inventory_evidence)} metadata-only'),
-        ("Assessment identifier", esc(assessment.get("id"))),
-    ]))
-    if target.get("scope_note"):
-        html.append(f'<p class="scope-note">{esc(target["scope_note"])}</p>')
-    html.append('<h3>Complete assessment metadata</h3>')
-    html.append(_facts(rows))
-    html.append("</section>")
-    html.append('<section id="summary" aria-labelledby="summary-heading"><h2 id="summary-heading">Evidence summary</h2>')
-    html.append('<p><strong>This is not an accessibility score.</strong> The counts describe evidence states for the collected active issues. '
+    html.append(_plain_summary(analysis))
+    html.append(_terminology_html())
+    html.append('<section id="summary-details" aria-labelledby="summary-details-heading">')
+    html.append('<h2 id="summary-details-heading">Summary details</h2>')
+    html.append('<p><strong>These counts describe evidence states, not accessibility quality.</strong> '
                 'A low issue count does not mean the release is accessible; a high count does not prove a conformance failure.</p>')
     html.append(_metric_grid([
-        ("Active findings", len(findings), "Collected active review-relevant issues represented as findings."),
-        ("Full evidence", full_evidence, "Issue, comments and every merge-request state were collected."),
-        ("Metadata-only", inventory_evidence, "Source, status, tags, component and version only."),
-        ("Likely affected", likely, "Report-based evidence that the issue may affect this release; not a reproduction."),
-        ("Unknown applicability", unknown, "Insufficient release-specific evidence to decide."),
-        ("Needing verification", needs, "Findings that still need reproduction, testing or independent review."),
+        ("Active issues collected", len(findings), "Active, review-relevant issues collected for this snapshot."),
+        ("Comments and merge requests", full_evidence, "Issue, comments and every merge-request state were collected."),
+        ("Basic records only", inventory_evidence, "Source, status, tags, component and version only."),
+        ("Probably affects this release", likely, "Report or code evidence suggests the problem exists here; not reproduced."),
+        ("Verified problem", summary.get("by_applicability", {}).get("confirmed-affected", 0), "Reproduced against this exact release."),
+        ("Fix included, not verified", summary.get("by_applicability", {}).get("confirmed-fixed", 0), "A matching fix commit is included; behaviour was not tested."),
+        ("Not yet determined", unknown, "Not enough information to decide whether the problem affects this release."),
+        ("Needs further checking", needs, "Findings that still need evidence, reproduction or review."),
     ]))
     html.append(_summary_table(findings))
     html.append(_status_table(findings))
@@ -600,13 +846,34 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     html.append('<section id="gaps" aria-labelledby="gaps-heading"><h2 id="gaps-heading">Verification gaps</h2>')
     html.append('<p>These are the findings that need reproduction, testing or independent review before an ACR statement can rely on them. '
                 'Missing evidence is not a failed test.</p>')
-    html.append(f'<p><strong>{esc(needs)} findings need verification.</strong> '
-                f'{esc(likely)} likely affected; {esc(unknown)} unknown; all require a human decision before a conformance term is used. '
-                'See the issue index for the source and evidence detail.</p>')
+    html.append(f'<p><strong>{esc(needs)} findings still need checking.</strong> '
+                f'{esc(likely)} probably affect this release; {esc(unknown)} are not yet determined. '
+                'None of these is a verified conformance result. See the issue index for the source and next step.</p>')
     html.append(_gaps(findings))
-    html.append('<p>No issue in this report was reproduced against an installed Drupal 11.4.12 site in this phase. '
+    html.append(f'<p>This pipeline did not reproduce any issue against an installed {esc(release)} site in this phase. '
                 'No screen-reader, keyboard, zoom or forced-colors testing of the assessed release is claimed.</p>')
     html.append("</section>")
+    inventory_html = _inventory_section(target)
+    if inventory_html:
+        html.append(inventory_html)
+    html.append('<section id="scope" aria-labelledby="scope-heading"><h2 id="scope-heading">Assessment scope</h2>')
+    html.append('<p>This report describes one declared assessment target. It is not a statement about every Drupal installation, '
+                'configuration or release.</p>')
+    html.append(_facts([
+        ("Product", esc(assessment.get("product"))),
+        ("Release", esc(release)),
+        ("Support status", esc(_support_label(support))),
+        ("Assessment date", esc(display_date(analysis.get("generated_at")))),
+        ("Target commit", f'<code>{esc(target.get("tag_commit_short") or "Not resolved")}</code>'),
+        ("Evidence completeness", f'{esc(full_evidence)} full · {esc(inventory_evidence)} metadata-only'),
+        ("Assessment identifier", esc(assessment.get("id"))),
+    ]))
+    if target.get("scope_note"):
+        html.append(f'<p class="scope-note">{esc(target["scope_note"])}</p>')
+    html.append('<h3>Complete assessment metadata</h3>')
+    html.append(_facts(rows))
+    html.append("</section>")
+
     html.append('<section id="method" aria-labelledby="method-heading"><h2 id="method-heading">Method and limitations</h2>')
     html.append("<ol>"
                 "<li>Paged the complete Drupal Core Accessibility queue (taxonomy term 1101) and kept only active review-relevant statuses: Active, Needs review, Needs work, RTBC and Patch. Fixed and closed issues are excluded.</li>"
@@ -616,8 +883,8 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
                 "<li>Did not use AI, did not infer conformance and did not assign a percentage or score.</li>"
                 "</ol>")
     html.append('<p class="meta">Discovery and tag resolution use the public Drupal.org API. Git containment uses '
-                'git.drupalcode.org. The in-scope configuration intentionally enables the Default Admin theme; the standard '
-                'profile in Drupal 11.4.12 uses Claro and Olivero, so this is a declared configuration rather than the stock default.</p>')
+                'git.drupalcode.org. The manifest records the declared configuration for this report; the stock '
+                'installation profile is a separate scope. See the release details for exact component counts.</p>')
     try:
         release_changes = json.loads((Path(__file__).resolve().parents[2] / "config" / "release-changes.json").read_text(encoding="utf-8")).get("release_lines") or {}
     except (OSError, ValueError):
@@ -678,7 +945,16 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         '<p class="meta">Report generated from reviewed source scripts; no browser JavaScript is required. Issue titles, excerpts and comments are quoted from public Drupal.org issues with source links and attribution; they remain subject to Drupal.org terms and are not relicensed under this project\'s MIT licence.</p></footer>'
     )
     html.append("</body></html>")
-    (output / "index.html").write_text("\n".join(html) + "\n", encoding="utf-8")
+    document = "\n".join(html) + "\n"
+    pages = split_report_document(
+        document,
+        product=assessment.get("product") or target.get("product") or "Product",
+        release=release,
+        target_title=title,
+        findings=findings,
+    )
+    for filename, content in pages.items():
+        (output / filename).write_text(content, encoding="utf-8")
     source_css = Path(css_source) if css_source else Path(__file__).resolve().parent / "static" / "report.css"
     shutil.copyfile(source_css, output / "report.css")
     (output / "evidence.json").write_text(
@@ -704,6 +980,256 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         encoding="utf-8",
     )
     return output
+
+
+def _inventory_section(target):
+    """Render exact-release inventory facts for the sources page."""
+    inventory = _load_component_inventory(str(target.get("release") or ""))
+    if not inventory:
+        return (
+            '<section id="inventory" aria-labelledby="inventory-heading">'
+            '<h2 id="inventory-heading">Component inventory for this exact release</h2>'
+            '<p>No exact-release inventory is committed for this target. This is a development '
+            'branch or a target without an extracted inventory; component counts and default themes '
+            'are not inferred from another release.</p></section>'
+        )
+    counts = inventory.get("counts") or {}
+    profile = inventory.get("profile") or {}
+    source = inventory.get("source") or {}
+    parts = [
+        '<section id="inventory" aria-labelledby="inventory-heading">',
+        '<h2 id="inventory-heading">Component inventory for this exact release</h2>',
+        '<p>Extracted from the release tag, not from release notes. Bundled, installed and '
+        'default-installed components are different scopes. A removed component is not a fix.</p>',
+        _facts([
+            ("Source ref", f'<code>{esc(source.get("ref"))}</code> ({esc(source.get("ref_type"))})'),
+            ("Source commit", f'<code>{esc(source.get("commit"))}</code>'),
+            ("Extraction method", esc(source.get("method"))),
+            ("Modules bundled", esc(counts.get("modules_bundled"))),
+            ("Themes bundled", esc(counts.get("themes_bundled"))),
+            ("Modules installed by standard profile", esc(counts.get("modules_installed_by_standard_profile"))),
+            ("Themes installed by standard profile", esc(counts.get("themes_installed_by_standard_profile"))),
+            ("Default theme", esc(profile.get("default_theme"))),
+            ("Admin theme", esc(profile.get("admin_theme"))),
+            ("Experimental modules / themes", f'{esc(counts.get("modules_experimental"))} / {esc(counts.get("themes_experimental"))}'),
+            ("Deprecated modules / themes", f'{esc(counts.get("modules_deprecated"))} / {esc(counts.get("themes_deprecated"))}'),
+            ("Obsolete modules", esc(counts.get("modules_obsolete"))),
+        ]),
+    ]
+    scope = _component_scope_html(target)
+    if scope:
+        parts.append(f'<p class="scope-note">{scope}</p>')
+    for label, status in (("Experimental modules", "experimental"), ("Deprecated modules", "deprecated"),
+                          ("Obsolete modules", "obsolete"), ("Experimental themes", "experimental")):
+        names = sorted(
+            item["machine_name"] for item in inventory.get("components") or []
+            if item.get("type") == ("theme" if "themes" in label else "module")
+            and item.get("status") == status
+        )
+        if names:
+            parts.append(f'<h3>{esc(label)}</h3><p>{esc(", ".join(names))}</p>')
+    parts.append('<p class="meta">Inventory extraction is deterministic and recorded in '
+                 '<code>data/component-inventory/</code>. The report does not infer that an '
+                 'extension is used by a site or that its issues affect this release.</p>')
+    parts.append("</section>")
+    return "".join(parts)
+
+
+PAGE_SPECS = (
+    ("index.html", "Overview", ("summary", "how-to-read", "summary-details")),
+    ("issues.html", "Reported issues", ("components", "issues", "gaps")),
+    ("criteria.html", "WCAG criteria", ("criteria",)),
+    ("sources.html", "Sources and data", ("inventory", "scope", "reproduction", "provenance")),
+    ("method.html", "How this report works", ("position", "method")),
+)
+
+
+def _extract_sections(main):
+    """Return ordered top-level ``<section id=...>`` segments from main HTML."""
+    token = re.compile(r"<section\b[^>]*>|</section>")
+    sections = []
+    depth = 0
+    start = None
+    section_id = None
+    for match in token.finditer(main):
+        if match.group(0).startswith("<section"):
+            if depth == 0:
+                start = match.start()
+                found = re.search(r'id="([^"]+)"', match.group(0))
+                section_id = found.group(1) if found else None
+            depth += 1
+        else:
+            depth -= 1
+            if depth == 0 and start is not None and section_id:
+                sections.append((section_id, main[start:match.end()]))
+                start = None
+                section_id = None
+    return sections
+
+
+def _section_label(section_html):
+    match = re.search(r"<h2[^>]*>(.*?)</h2>", section_html, re.S)
+    if not match:
+        return "Section"
+    return unescape(re.sub(r"<[^>]+>", "", match.group(1))).strip()
+
+
+def _page_nav(active):
+    items = []
+    for filename, label, _sections in PAGE_SPECS:
+        current = ' aria-current="page"' if filename == active else ""
+        items.append(f'<li><a href="./{filename}"{current}>{esc(label)}</a></li>')
+    items.append('<li><a href="./acr.html">Draft ACR</a></li>')
+    return ('<nav class="page-nav" aria-label="Report pages">'
+            '<h2 class="visually-hidden">Report pages</h2><ul>' + "".join(items) + "</ul></nav>")
+
+
+def _rewrite_page_links(section_html, page):
+    if page == "index.html":
+        for anchor, target in (
+            ("#issues", "issues.html"), ("#components", "issues.html#components"),
+            ("#gaps", "issues.html#gaps"), ("#criteria", "criteria.html"),
+            ("#scope", "sources.html#scope"), ("#reproduction", "sources.html#reproduction"),
+            ("#provenance", "sources.html#provenance"), ("#position", "method.html#position"),
+            ("#method", "method.html#method"), ("#inventory", "sources.html#inventory"),
+        ):
+            section_html = section_html.replace(f'href="{anchor}"', f'href="{target}"')
+    elif page == "issues.html":
+        section_html = section_html.replace('href="#sc-', 'href="criteria.html#sc-')
+        section_html = section_html.replace('href="#criterion-', 'href="criteria.html#criterion-')
+    elif page == "criteria.html":
+        section_html = section_html.replace('href="#issue-', 'href="issues.html#issue-')
+        section_html = section_html.replace('href="#component-', 'href="issues.html#component-')
+    return section_html
+
+
+def _compatibility_section(findings):
+    parts = [
+        '<section id="compatibility" aria-labelledby="compatibility-heading">',
+        '<h2 id="compatibility-heading">Compatibility links from the previous single-page report</h2>',
+        '<p>These anchors keep older links working after the report was split into pages. '
+        'Each one opens the moved section or record.</p>',
+        '<h3>Report sections</h3><ul class="compat-list">',
+    ]
+    for anchor, label, target in (
+        ("issues", "Reported issues", "issues.html"),
+        ("criteria", "WCAG criteria", "criteria.html"),
+        ("components", "Component index", "issues.html#components"),
+        ("gaps", "Verification gaps", "issues.html#gaps"),
+        ("scope", "Release details", "sources.html#scope"),
+        ("inventory", "Component inventory", "sources.html#inventory"),
+        ("reproduction", "External reproduction evidence", "sources.html#reproduction"),
+        ("position", "Why this report is different", "method.html#position"),
+        ("method", "Method and limitations", "method.html#method"),
+        ("provenance", "Provenance and downloads", "sources.html#provenance"),
+    ):
+        parts.append(f'<li id="{anchor}"><a href="{target}">{esc(label)}</a></li>')
+    parts.append("</ul>")
+    issue_ids = sorted({item.get("issue_id") for item in findings if item.get("issue_id")})
+    if issue_ids:
+        parts.append('<h3>Issue records</h3><ul class="compat-list">')
+        for issue_id in issue_ids:
+            anchor = anchor_for(issue_id)
+            parts.append(f'<li id="{anchor}"><a href="issues.html#{anchor}">{esc(issue_id)}</a></li>')
+        parts.append("</ul>")
+    criteria = sorted({c for item in findings for c in item.get("wcag_candidates") or []})
+    if criteria:
+        parts.append('<h3>WCAG criterion sections</h3><ul class="compat-list">')
+        for criterion in criteria:
+            anchor = "sc-" + criterion.replace(".", "-")
+            parts.append(f'<li id="{anchor}"><a href="criteria.html#{anchor}">{esc(criterion)}</a></li>')
+        parts.append("</ul>")
+    components = sorted({item.get("component") for item in findings if item.get("component")})
+    if components:
+        parts.append('<h3>Component index entries</h3><ul class="compat-list">')
+        for component in components:
+            anchor = "component-" + _slug(component)
+            parts.append(f'<li id="{anchor}"><a href="issues.html#{anchor}">{esc(component)}</a></li>')
+        parts.append("</ul>")
+    parts.append("</section>")
+    return "".join(parts)
+
+
+def _explore_section():
+    links = [
+        ("issues.html", "Reported issues", "Every issue, its Drupal.org status, release applicability, reason and next step."),
+        ("criteria.html", "WCAG criteria", "Reported issues grouped by explicit WCAG tag. Tags are candidate relevance signals."),
+        ("sources.html", "Sources and data", "Exact release, component inventory, collection counts, reproduction evidence and downloads."),
+        ("method.html", "How this report works", "Discovery, applicability rules, commit handling and limitations."),
+        ("acr.html", "Draft ACR", "The standards-shaped draft for human review. It is not a completed ACR."),
+    ]
+    parts = ['<section id="explore" aria-labelledby="explore-heading">',
+             '<h2 id="explore-heading">Explore the report</h2><ul class="page-list">']
+    for href, label, description in links:
+        parts.append(f'<li><a href="./{href}">{esc(label)}</a><span class="meta"> — {esc(description)}</span></li>')
+    parts.append("</ul></section>")
+    return "".join(parts)
+
+
+def split_report_document(document, *, product, release, target_title, findings):
+    """Split the generated single document into linked, accessible pages."""
+    body_at = document.index("<body>")
+    head = document[:body_at]
+    body = document[body_at + len("<body>"):]
+    main_match = re.search(r'<main id="main" tabindex="-1">(.*?)</main>', body, re.S)
+    header_match = re.search(r"<header.*?</header>", body, re.S)
+    footer_match = re.search(r"<footer.*?</footer>", body, re.S)
+    actions_match = re.search(r'<nav class="report-actions".*?</nav>', body, re.S)
+    if not (main_match and header_match and footer_match):
+        raise ValueError("Generated report is missing header, main or footer")
+    header = header_match.group(0)
+    footer = footer_match.group(0)
+    actions = actions_match.group(0) if actions_match else ""
+    sections = dict(_extract_sections(main_match.group(1)))
+    expected = {section for _f, _l, group in PAGE_SPECS for section in group}
+    missing = sorted(expected - set(sections))
+    if missing:
+        raise ValueError(f"Generated report is missing sections: {', '.join(missing)}")
+
+    base_h1_match = re.search(r"<h1>(.*?)</h1>", header, re.S)
+    base_h1 = base_h1_match.group(1) if base_h1_match else esc(target_title)
+    breadcrumb_current = f'<li><span aria-current="page">{esc(product)} {esc(release)}</span></li>'
+    pages = {}
+    for filename, label, group in PAGE_SPECS:
+        selected = [(section_id, sections[section_id]) for section_id in group]
+        selected = [(_id, _rewrite_page_links(html, filename)) for _id, html in selected]
+        if filename == "index.html":
+            selected.append(("explore", _explore_section()))
+            selected.append(("compatibility", _compatibility_section(findings)))
+        section_nav = ""
+        if len(selected) > 1:
+            section_nav = _section_nav([(section_id, _section_label(html)) for section_id, html in selected])
+        page_header = header
+        page_title = target_title
+        if filename != "index.html":
+            page_title = f"{target_title} — {label}"
+            page_header = re.sub(
+                r"<h1>.*?</h1>", f"<h1>{base_h1} — {esc(label)}</h1>", page_header, count=1, flags=re.S
+            )
+            page_header = page_header.replace(
+                breadcrumb_current,
+                f'<li><a href="./index.html">{esc(product)} {esc(release)}</a></li>'
+                f'<li><span aria-current="page">{esc(label)}</span></li>',
+            )
+        page_head = re.sub(r"<title>.*?</title>", f"<title>{esc(page_title)}</title>", head, count=1, flags=re.S)
+        description = (
+            f"{product} {release} — {label}. Draft release-scoped accessibility evidence; not an "
+            "Accessibility Conformance Report."
+        )
+        page_head = re.sub(
+            r'<meta name="description" content="[^"]*">',
+            f'<meta name="description" content="{esc(description)}">',
+            page_head, count=1,
+        )
+        main = ('<main id="main" tabindex="-1">' + _page_nav(filename)
+                + (actions if filename == "index.html" else "")
+                + section_nav + "".join(html for _id, html in selected) + "</main>")
+        pages[filename] = (
+            page_head + "<body>"
+            + '<a class="skip" href="#main">Skip to main content</a>'
+            + page_header + main + footer + "</body></html>\n"
+        )
+    return pages
 
 
 def _short_state(value):
@@ -767,16 +1293,16 @@ def _target_card(analysis):
         f'<div><dt>Exact version</dt><dd>{esc(release)}</dd></div>'
         f'<div><dt>Release line</dt><dd>{esc(line)}</dd></div>'
         f'<div><dt>Snapshot</dt><dd>{esc(display_date(analysis.get("generated_at")))}</dd></div>'
-        f'<div><dt>Findings represented</dt><dd>{esc(summary.get("findings", 0))}</dd></div>'
-        f'<div><dt>Likely affected</dt><dd>{esc(counts.get("likely-affected", 0))}</dd></div>'
-        f'<div><dt>Unknown applicability</dt><dd>{esc(counts.get("unknown", 0))}</dd></div>'
-        f'<div><dt>Full evidence</dt><dd>{esc(full)}</dd></div>'
+        f'<div><dt>Active issues collected</dt><dd>{esc(summary.get("findings", 0))}</dd></div>'
+        f'<div><dt>Probably affects this release</dt><dd>{esc(counts.get("likely-affected", 0))}</dd></div>'
+        f'<div><dt>Not yet determined</dt><dd>{esc(counts.get("unknown", 0))}</dd></div>'
+        f'<div><dt>Comments and merge requests</dt><dd>{esc(full)}</dd></div>'
         f'<div><dt>Metadata-only</dt><dd>{esc(inventory)}</dd></div>'
         f'<div><dt>Issues with merge requests</dt><dd>{esc(with_mrs)}</dd></div>'
         "</dl>"
-        f'<p class="summary-line">{esc(summary.get("findings", 0))} findings · {esc(fixed)} with a fix in the target · '
-        f'{esc(counts.get("likely-affected", 0))} likely affected · {esc(counts.get("unknown", 0))} unknown. '
-        "Counts are evidence states, not an accessibility score.</p>"
+        f'<p class="summary-line">{esc(summary.get("findings", 0))} active issues · {esc(fixed)} with a fix included · '
+        f'{esc(counts.get("likely-affected", 0))} probably affected · {esc(counts.get("unknown", 0))} not yet determined. '
+        "Counts describe evidence, not accessibility quality.</p>"
         '<p class="card-actions">'
         f'<a class="primary-action" href="./{esc(target_id)}/">Open evidence report</a>'
         f'<span class="meta">{esc(target.get("parent_project") or "Top-level product")}</span>'
@@ -853,13 +1379,13 @@ def _matrix_table(issue_ids, issue_titles, analyses, caption):
     for issue_id in issue_ids:
         anchor = anchor_for(issue_id)
         first_id = analyses[0]["target"]["assessment_id"]
-        parts.append(f'<tr><th scope="row"><a href="./{esc(first_id)}/#{anchor}">{esc(issue_titles[issue_id])}</a></th>')
+        parts.append(f'<tr><th scope="row"><a href="./{esc(first_id)}/issues.html#{anchor}">{esc(issue_titles[issue_id])}</a></th>')
         for analysis in analyses:
             target = analysis["target"]
             finding = next((item for item in analysis.get("findings") or [] if item["issue_id"] == issue_id), None)
             if finding:
                 parts.append(
-                    f'<td><a href="./{esc(target["assessment_id"])}/#{anchor}">{esc(_short_state(finding["applicability"]))}</a></td>'
+                    f'<td><a href="./{esc(target["assessment_id"])}/issues.html#{anchor}">{esc(_short_state(finding["applicability"]))}</a></td>'
                 )
             else:
                 parts.append('<td>Not collected</td>')
@@ -904,29 +1430,32 @@ def _criterion_index(findings):
 def _issue_index(findings):
     parts = [
         '<h3 id="issue-index-heading">Issue index</h3>',
-        '<p>Compact scan of every finding. The complete evidence for each issue follows in the same order; '
-        'links go to its canonical anchor.</p>',
+        '<p>Each row keeps two labels separate: <strong>Drupal.org status</strong> is the issue workflow, and '
+        '<strong>Applies to this release?</strong> is what we know about this exact version. '
+        '“Not yet determined” means nobody has checked, not that the barrier is absent.</p>',
         '<div class="table-scroll" tabindex="0" role="region" aria-label="Issue index. Scroll horizontally if needed.">',
         '<table class="index-table issue-index">',
-        '<caption>Issue index: identity, component, criteria, status, applicability and evidence detail</caption>',
-        '<thead><tr><th scope="col">Issue</th><th scope="col">Component</th><th scope="col">WCAG criteria</th>'
-        '<th scope="col">Tracker status</th><th scope="col">Release applicability</th><th scope="col">Evidence</th>'
-        '<th scope="col">Merge requests</th><th scope="col">Next action</th><th scope="col">Verification</th></tr></thead><tbody>',
+        '<caption>Reported issues: Drupal.org status, release applicability, reason, next step and evidence detail</caption>',
+        '<thead><tr><th scope="col">Issue</th><th scope="col">Drupal.org status</th>'
+        '<th scope="col">Applies to this release?</th><th scope="col">Why this state</th>'
+        '<th scope="col">What to do next</th><th scope="col">Component</th>'
+        '<th scope="col">WCAG criteria</th><th scope="col">Evidence detail</th></tr></thead><tbody>',
     ]
-    for finding in sorted(findings, key=lambda item: item.get("issue_id") or ""):
+    for finding in sorted(findings, key=lambda item: (item.get("applicability") or "", item.get("issue_id") or "")):
         anchor = anchor_for(finding["issue_id"])
-        criteria = ", ".join(finding.get("wcag_candidates") or []) or "Untagged"
-        evidence = "Metadata-only" if finding.get("evidence_status") == "inventory" else "Full"
-        mrs = len(finding.get("merge_requests") or [])
+        criteria = ", ".join(finding.get("wcag_candidates") or []) or "No WCAG tag"
+        evidence = "Basic record only" if finding.get("evidence_status") == "inventory" else "Comments and merge requests"
+        status = finding.get("tracker_status_label") or "Unknown"
         parts.append(
             f'<tr><th scope="row"><a href="#{anchor}">{esc(finding["issue_id"])}</a><br>'
             f'<span class="meta">{esc(finding.get("title") or "")}</span></th>'
+            f'<td>{esc(status)}<br><span class="meta">{esc(_status_meaning(status))}</span></td>'
+            f'<td><strong>{esc(app_label(finding.get("applicability")))}</strong></td>'
+            f'<td>{esc(_state_reason(finding))}</td>'
+            f'<td>{esc(_next_action(finding))}</td>'
             f'<td>{esc(finding.get("component") or "Not recorded")}</td>'
             f'<td>{esc(criteria)}</td>'
-            f'<td>{esc(finding.get("tracker_status_label") or "Unknown")}</td>'
-            f'<td>{esc(app_label(finding.get("applicability")))}</td>'
-            f'<td>{esc(evidence)}</td><td>{mrs}</td>'
-            f'<td>{esc(_next_action(finding))}</td><td>{esc(_verification_state(finding))}</td></tr>'
+            f'<td>{esc(evidence)}</td></tr>'
         )
     parts.append("</tbody></table></div>")
     return "".join(parts)
@@ -1022,7 +1551,7 @@ def render_landing(analyses, output_dir, targets_config=None):
         f'<div><dt>Generated</dt><dd>{esc(display_date(generated))}</dd></div>'
         f'<div><dt>Release targets</dt><dd>{esc(len(analyses))}</dd></div>'
         f'<div><dt>Unique active issues</dt><dd>{esc(len(issue_ids))}</dd></div>'
-        f'<div><dt>Full evidence</dt><dd>{esc(full)}</dd></div>'
+        f'<div><dt>Comments and merge requests</dt><dd>{esc(full)}</dd></div>'
         f'<div><dt>Metadata-only</dt><dd>{esc(inventory)}</dd></div>'
         f'<div><dt>Issues with merge requests</dt><dd>{esc(with_mrs)}</dd></div>'
         f'<div><dt>Collection source</dt><dd>Drupal.org issue queue</dd></div>'
@@ -1071,8 +1600,9 @@ def render_landing(analyses, output_dir, targets_config=None):
     # Matrix preview + full disclosure
     preview_count = min(12, len(issue_ids))
     html.append('<section aria-labelledby="matrix-heading"><h2 id="matrix-heading">Cross-release applicability matrix</h2>')
-    html.append('<p>Each cell links to the issue-specific finding in that target report. A fix may be included in one target and absent from another; '
-                'the table does not claim that an issue was reproduced on any target.</p>')
+    html.append('<p>Each cell links to the issue-specific finding in that target report. '
+                '“Not determined” means the question has not been answered for that release. '
+                'A fix may be included in one target and absent from another; the table does not claim that an issue was reproduced on any target.</p>')
     html.append('<p class="meta">The preview shows the first 12 issues. The complete matrix remains available in a real data table below. '
                 'At narrow widths the table scrolls horizontally; focus the table region and use arrow keys or horizontal scrolling.</p>')
     html.append('<div class="table-scroll" tabindex="0" role="region" aria-label="Cross-target applicability matrix preview. Scroll horizontally to compare targets.">')
@@ -1110,8 +1640,8 @@ def render_landing(analyses, output_dir, targets_config=None):
     html.append('<li>No issue in this snapshot was reproduced against an installed target. Commit inclusion is not '
                 'behavioural verification, and a closed issue is not proof of a release fix.</li>')
     html.append('<li>The generic <code>Admin theme</code> component is shared across release lines with different '
-                'admin themes (Claro in 10.6/12 alpha; Default Admin in 11.4/12 beta/main). Reproduce before applying a '
-                'finding across a theme boundary.</li>')
+                'admin themes. A finding filed against “Admin theme” may refer to Claro, Default Admin or another theme; '
+                'check the issue and the release inventory before applying it across a theme boundary.</li>')
     html.append('<li>Pre-release and development targets are not supported releases. Drupal 10.x is expected to reach '
                 'end of life when Drupal 12.0.0 is released; verify the current policy.</li>')
     html.append('<li>WCAG tags are candidate relevance signals, not conformance determinations.</li>')

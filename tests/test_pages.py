@@ -88,8 +88,14 @@ class PagesTests(unittest.TestCase):
             self.assertIn('href="./acr.html"', html)
             self.assertIn("report-actions", html)
             self.assertIn("section-nav", html)
-            self.assertIn("criterion-index", html)
-            self.assertIn("issue-index", html)
+            for page in ("issues.html", "criteria.html", "sources.html", "method.html"):
+                self.assertTrue((directory / page).is_file(), f"{directory.name}/{page}")
+                self.assertIn(f'href="./{page}"', html)
+            issues = (directory / "issues.html").read_text(encoding="utf-8")
+            criteria = (directory / "criteria.html").read_text(encoding="utf-8")
+            self.assertIn("issue-index", issues)
+            self.assertIn("component-index", issues)
+            self.assertIn("criterion-index", criteria)
             self.assertTrue((directory / "openacr.yaml").is_file())
             self.assertTrue((directory / "acr.html").is_file())
             self.assertTrue((directory / "acr.md").is_file())
@@ -122,6 +128,35 @@ class PagesTests(unittest.TestCase):
         self.assertGreaterEqual(evidence["summary"]["issues"], 1)
         for issue in evidence["issues"]:
             self.assertTrue(issue["atag"]["is_atag"])
+
+    def test_split_report_links_and_fragments_resolve(self):
+        for directory in sorted(REPORTS.glob("drupal-core-*")):
+            if not directory.is_dir() or not (directory / "index.html").exists():
+                continue
+            pages = ["index.html", "issues.html", "criteria.html", "sources.html", "method.html", "acr.html"]
+            ids = {
+                page: set(re.findall(r'id="([^"]+)"', (directory / page).read_text(encoding="utf-8")))
+                for page in pages if (directory / page).exists()
+            }
+            for page in pages:
+                path = directory / page
+                if not path.exists():
+                    continue
+                for href in re.findall(r'href="([^"]+)"', path.read_text(encoding="utf-8")):
+                    if href.startswith(("http://", "https://", "mailto:", "javascript:")):
+                        continue
+                    target, _, fragment = href.partition("#")
+                    if not target:
+                        continue
+                    destination = directory / target
+                    self.assertTrue(destination.exists(), f"{path}: missing {href}")
+                    if fragment:
+                        self.assertIn(fragment, ids.get(target, set()), f"{path}: missing fragment {href}")
+
+    def test_pages_workflow_publishes_split_report_pages(self):
+        workflow = WORKFLOW.read_text(encoding="utf-8")
+        for page in ("issues.html", "criteria.html", "sources.html", "method.html"):
+            self.assertIn(page, workflow)
 
     def test_workflows_use_node24_actions(self):
         expected = {

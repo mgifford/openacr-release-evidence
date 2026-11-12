@@ -26,9 +26,12 @@ coverage. The generated ACR remains a draft.
 
 - [ ] Obtain a named human reviewer for `config/surface-assessments.json`.
 - [ ] Confirm the project-asserted Web/Authoring assessment basis.
-- [ ] Reconcile Supports/Partially Supports results with the criterion-evidence
-      ledger and the known-barrier register.
+- [ ] Keep every non-Not-Applicable criterion Not Evaluated until a reviewer
+      records reviewed evidence; do not derive adherence from issue presence or
+      absence.
 - [ ] Keep Does Not Support unused unless explicit broad-failure evidence is added.
+- [ ] Record a reviewed positive-evidence path before any Supports value is
+      emitted.
 - [ ] Recheck every N/A claim against the exact product, especially media,
       Electronic Documents and Software.
 - [ ] Remove the project-asserted N/A review state only after human sign-off.
@@ -44,6 +47,36 @@ coverage. The generated ACR remains a draft.
       scan as conformance.
 - [ ] Run and record Guidepup checks for keyboard/screen-reader tasks.
 - [ ] Add automated reproduction for at least one complete finding.
+
+## Report usability (2026-11-12 review)
+
+- [x] Separate Drupal.org workflow status from release applicability in the
+      report, issue index and issue detail.
+- [x] Add a generated plain-language summary with audience-specific next steps.
+- [x] Add definitions for reported issue, release applicability, verified
+      problem, fix included and not yet determined.
+- [x] Remove automatic Supports/Partially Supports from the ACR narrative and
+      OpenACR draft.
+- [ ] Split the report into overview, issues, sources, method and criteria pages
+      while preserving anchors.
+- [ ] Add progressive-enhancement filters for applicability, component and
+      criterion.
+- [ ] Group the issue table by verified / probably affected / needs checking /
+      out of scope / fix included.
+- [ ] Test the revised summary and labels with representative readers.
+- [ ] Record keyboard, screen-reader, 320 px, forced-colors and no-JavaScript
+      checks for the revised layout.
+
+## Component history
+
+- [x] Add deterministic release inventory extraction and four exact-tag
+      inventories.
+- [x] Add curated Olivero/Claro/Gin/Default Admin lineage records.
+- [x] Add deterministic issue-to-component association helpers.
+- [ ] Collect contributed Olivero, Claro and Gin issue queues.
+- [ ] Add reviewed lineage records for module moves, not only themes.
+- [ ] Connect component presence and lineage to the release applicability
+      classification without inheriting predecessor issues.
 
 ## Developer experience
 

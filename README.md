@@ -77,8 +77,12 @@ shared collection is target-independent; the applicability analysis is not.
 
 This writes:
 
-- `reports/collection.json` — normalized active-issue collection (428 issues; 30 with full comments/MRs, 398 inventory-only, provenance). It also acts as the committed issue cache: the weekly run reuses unchanged issues and fetches only issues changed since the previous high-water mark.
-- `reports/<target>/index.html` — static, no-JavaScript target report.
+- `reports/collection.json` — normalized active-issue collection (432 issues in the 2026-11-10 snapshot; 38 with full comments/MRs, 394 inventory-only, provenance). It also acts as the committed issue cache: the weekly run reuses unchanged issues and fetches only issues changed since the previous high-water mark.
+- `reports/<target>/index.html` — static, no-JavaScript overview and plain-language summary.
+- `reports/<target>/issues.html` — issue index and canonical issue records.
+- `reports/<target>/criteria.html` — WCAG criterion evidence.
+- `reports/<target>/sources.html` — component inventory, scope, reproduction evidence and provenance.
+- `reports/<target>/method.html` — method, limitations and comparison with a vendor ACR.
 - `reports/<target>/evidence.json` — compact published evidence (findings and issue identity; comments/descriptions are not duplicated).
 - `reports/<target>/summary.json`, `report.css`.
 - `reports/<target>/acr.html`, `acr.md` — ACR narrative draft.
@@ -88,9 +92,10 @@ This writes:
 - `reports/weekly/` — weekly ACR digest archive (created by the weekly workflow).
 - `private-evidence/raw/` — raw upstream snapshots (gitignored, mode `0600`).
 
-The report set is about **17 MB**, down from about 50 MB. The full per-target
-`analysis.json` is no longer committed; the published `evidence.json` is compact,
-and the detailed comments remain in the HTML report and the private collection.
+The split report set is about **25 MB**. The full per-target `analysis.json` is
+no longer committed; the published `evidence.json` is compact, and the detailed
+comments remain in the HTML report and the private collection. The issue page is
+the largest artifact because it contains every canonical issue record.
 
 The single-target pipeline remains available:
 
@@ -107,26 +112,27 @@ recorded and does not invalidate the run.
 
 ## What the current collection shows
 
-The same **428 active, review-relevant** Drupal Core accessibility issues are
-analyzed against every declared target. Fixed and closed issues are excluded by
-policy; RTBC issues stay in until closed. The collection covers statuses 1, 8,
-13, 14 and 15; 30 review-priority issues have full comments/MRs, while 398 are
-metadata-only inventory records.
+The same **432 active, review-relevant** Drupal Core accessibility issues from
+the 2026-11-10 snapshot are analyzed against every declared target. Fixed and
+closed issues are excluded by policy; RTBC issues stay in until closed. The
+collection covers statuses 1, 8, 13, 14 and 15; 38 review-priority issues have
+full comments/MRs, while 394 are metadata-only inventory records. Counts change
+as the queue changes; the generated report is authoritative for its snapshot.
 
-| Target | Support | Fix included | Confirmed fixed | Likely affected | Unknown |
+| Target | Support | Fix included | Verified problem | Probably affects | Not yet determined |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 10.6.21 | Supported | 0 | 0 | 28 | 400 |
-| 11.4.12 | Supported | 0 | 0 | 28 | 400 |
-| 12.0.0-alpha1 | Pre-release | 0 | 0 | 23 | 405 |
-| 12.0.0-beta2 | Pre-release | 0 | 0 | 26 | 402 |
-| `main` / 12.0.x-dev | Development | 0 | 0 | 30 | 398 |
+| 10.6.21 | Supported | 0 | 0 | 32 | 400 |
+| 11.4.12 | Supported | 0 | 0 | 32 | 400 |
+| 12.0.0-alpha1 | Pre-release | 0 | 0 | 28 | 404 |
+| 12.0.0-beta2 | Pre-release | 0 | 0 | 30 | 402 |
+| `main` / 12.0.x-dev | Development | 0 | 0 | 38 | 394 |
 
 No active issue has a fix commit contained in a target. Closed-fixed issues are
 not used as evidence, so there is no `confirmed-fixed` count in this active-only
-pass. Most `unknown` results are metadata-only inventory records; the 30 detailed
-issues carry commit/MR evidence (28 are likely affected and two have no target
-conclusion). **This is not an accessibility score.** See the [matrix](reports/index.html) and the
-per-target reports for source links and verification gaps.
+pass. Most “not yet determined” results are metadata-only inventory records; the
+38 detailed issues carry commit/MR evidence. **This is not an accessibility
+score.** See the [matrix](reports/index.html) and the per-target reports for
+source links, reasons and next steps.
 
 ## Applicability states
 
@@ -178,11 +184,11 @@ command is called. Raw output is private and never published.
 - Multi-target analysis for supported releases, pre-release tags and the `main` development branch.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - A no-script release finder, compact release cards, grouped downloads and a separate complete matrix page.
-- A report header with top supporting-output links, section navigation, at-a-glance evidence metrics, WCAG criterion index and 428-row issue index.
+- A report header with top supporting-output links, section navigation, a plain-language summary, at-a-glance evidence metrics, WCAG criterion index and issue index.
 - Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into explicit Part A/Part B and unassigned evidence, with a WAI ATAG Report Tool JSON draft.
-- 160 offline tests; synthetic fixtures and trimmed real CLI fixtures.
+- Offline tests covering the collector, reports, conformance policy, inventory, lineage and provenance; synthetic fixtures and trimmed real CLI fixtures.
 - Optional incomplete YAML worksheet, with a test that it never emits
   `Supports`.
 
@@ -200,6 +206,10 @@ command is called. Raw output is private and never published.
   used there; the optional weekly digest is separate and validated.
 - Parent-linked contributed-project ACRs (Claro, Olivero, Drupal CMS, LocalGov
   Drupal); the parent field and design are present, but collection is not.
+- Comprehensive component history. A minimal deterministic inventory extractor,
+  four exact-release inventories, curated Olivero/Claro/Gin/Default Admin
+  lineage records and issue-association helpers exist, but contributed queue
+  collection and automatic lineage inference do not.
 - GitHub Issues, Jira or non-Drupal GitLab adapters.
 - Automatic publication of an unreviewed weekly snapshot. The weekly job opens
   a PR; a human merge is still required before Pages deploys.
@@ -214,10 +224,9 @@ OpenACR 2.5 WCAG 2.2 + Revised Section 508 catalog (commit `d6d18a9…`).
 It is a **draft skeleton**, not an approved ACR:
 
 - all 182 catalog criteria and all seven chapters are present;
-- WCAG criteria carry the four Section 508 component names; the draft applies the
-  declared Drupal surface assessment and active known-barrier register:
-  a known issue is Partially Supports, an assessed surface with no known issue is
-  Supports, and documented feature absence is Not Applicable;
+- WCAG criteria carry the four Section 508 component names; the draft does **not**
+  derive adherence from issue presence or absence. Non-`Not Applicable` values are
+  left unset for a reviewer. Documented feature absence is Not Applicable;
 - the author is a placeholder (`reviewer@example.invalid`);
 - notes link the evidence report and require human review;
 - `not-evaluated` is never used for Level A/AA.
@@ -231,7 +240,8 @@ acr-evidence openacr-validate \
 ```
 
 All five target drafts were checked with the official `@civicactions/openacr`
-0.3.11 CLI and returned `Valid!`. See
+0.3.11 CLI on 2026-11-07 and returned `Valid!`. The 2026-11-12 regeneration was
+rechecked with the vendored schema/catalog validator; all five are valid. See
 [`docs/OPENACR-EXPORT.md`](docs/OPENACR-EXPORT.md) for the review workflow,
 validation rules and limitations. Editor round-trip testing is still pending.
 
@@ -247,15 +257,17 @@ Section 508 component scopes, term definitions, scope and method, executive
 summary, WCAG 2.2 A/AA/AAA criterion tables, non-WCAG chapters, ATAG
 separation, reviewer actions and limitations.
 
-Web and Authoring Tool use **Partially Supports** when a known active issue is
-present and **Supports** when the assessed surface has no known issue.
+Web and Authoring Tool remain **Not Evaluated** in the generated narrative. The
+narrative lists reported issues as potential barriers; an unreproduced report is
+not a conformance finding and an empty queue is not evidence of support.
 Electronic Documents and Software are **Not Applicable** from documented product
 scope. There is no **Does Not Support** result without explicit broad-failure
 evidence. This is a draft issue-queue attestation, not a WCAG-EM audit. Web and Authoring Tool remarks are
 separate; issue statistics and examples sit at the bottom of each remarks cell,
 with direct Drupal.org links and a per-criterion reference list in the footer.
-The narrative uses the same active-issue scope (428 issues; 30 detailed, 398
-inventory-only) and links back to the evidence report.
+The narrative uses the same active-issue scope as the collection snapshot and
+links back to the evidence report. See `reports/collection.json` for the current
+counts; do not treat the counts as an accessibility score.
 
 An optional `criterion-summaries` step can add model-assisted Web/Authoring
 barrier paragraphs, cached by issue-content hash. Without a configured model it
@@ -411,6 +423,13 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Drupal.org CLI and GitLab](docs/DRUPALORG-CLI.md)
 - [Evidence model](docs/EVIDENCE-MODEL.md)
 - [Conformance policy](docs/CONFORMANCE-POLICY.md)
+- [Report terminology](docs/REPORT-TERMINOLOGY.md)
+- [Report usability and correctness review](docs/REPORT-USABILITY-REVIEW.md)
+- [Report information architecture](docs/REPORT-INFORMATION-ARCHITECTURE.md)
+- [Component history investigation](docs/COMPONENT-HISTORY-INVESTIGATION.md)
+- [Component lineage model](docs/COMPONENT-LINEAGE-MODEL.md)
+- [Release inventory design](docs/RELEASE-INVENTORY-DESIGN.md)
+- [Accessibility issue provenance](docs/ACCESSIBILITY-ISSUE-PROVENANCE.md)
 - [AI governance](docs/AI-GOVERNANCE.md)
 - [Governance](GOVERNANCE.md)
 - [Security](SECURITY.md)

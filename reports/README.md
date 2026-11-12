@@ -1,5 +1,10 @@
 # Generated evidence reports
 
+Each target now has a split, static report set: `index.html` (overview),
+`issues.html` (reported issues), `criteria.html` (WCAG criteria),
+`sources.html` (inventory, scope, provenance) and `method.html` (method and
+limitations). The draft ACR remains `acr.html`/`acr.md`.
+
 Each target also contains `openacr.yaml` and `openacr-validation.json`. The YAML
 is a schema- and catalog-validated OpenACR draft with no conformance values; it
 requires human completion and `openacr-validate --strict` before publication.
@@ -20,9 +25,9 @@ allowlist.
 
 `index.html` is the Pages landing page and cross-release matrix. It links to
 each target directory and to the machine-readable evidence. The Pages workflow
-deploys this landing page plus each report's `index.html`, `report.css`,
-`evidence.json`, `summary.json`, `acr.html`, `acr.md`, OpenACR files and ATAG
-files; it does not publish `collection.json`, `analysis.json` or raw snapshots.
+deploys this landing page plus each report's `index.html`, `issues.html`,
+`criteria.html`, `sources.html`, `method.html`, `report.css`, `evidence.json`,
+`summary.json`, `acr.html`, `acr.md`, OpenACR files and ATAG files; it does not publish `collection.json`, `analysis.json` or raw snapshots.
 
 The multi-target reports are generated with:
 

@@ -175,3 +175,25 @@ body:has(#filter-status-development:checked) .release-card:not([data-support="de
 /* Disability-impact label under a WCAG criterion name. */
 .criterion-disability{display:block;font-size:.82rem;font-weight:500;opacity:.9;margin-top:.2rem}
 .criterion-disability{margin-top:.2rem}
+/* Plain-language summary and terminology. */
+.callout{border:2px solid CanvasText;padding:.8rem 1rem;margin:1rem 0;max-width:70rem;background:Canvas}
+.callout h3{margin-top:0}
+.callout ul{margin:.3rem 0 .2rem}
+.action-grid,.term-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1rem 0}
+.action-grid>div,.term-grid>div{border:1px solid ButtonBorder;padding:.75rem .9rem;background:Canvas}
+.action-grid h4,.term-grid h3{margin-top:0}
+.definitions{display:grid;grid-template-columns:minmax(12rem,18rem) minmax(0,1fr);gap:.35rem 1rem;margin:1rem 0 1.5rem}
+.definitions dt{font-weight:700}
+.definitions dd{margin:0}
+@media(max-width:48rem){
+  .action-grid,.term-grid,.definitions{grid-template-columns:1fr}
+}
+/* Split report navigation and compatibility index. */
+.page-nav{margin:1rem 0 1.25rem;padding:.65rem .9rem;border:1px solid ButtonBorder;background:Canvas}
+.page-nav ul{display:flex;flex-wrap:wrap;gap:.35rem 1.1rem;list-style:none;padding:0;margin:0}
+.page-nav a{padding:.2rem 0}
+.page-nav a[aria-current="page"]{font-weight:750;text-decoration-thickness:.16em;border-bottom:2px solid CanvasText}
+.page-list li{margin:.45rem 0}
+.compat-list{columns:2;column-gap:2rem;margin:.5rem 0 1rem;padding-inline-start:1.2rem}
+.compat-list li{margin:.2rem 0;break-inside:avoid}
+@media(max-width:48rem){.compat-list{columns:1}}

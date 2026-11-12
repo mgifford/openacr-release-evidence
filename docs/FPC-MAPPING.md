@@ -41,8 +41,9 @@ native audio/video playback. That means the deaf and hard-of-hearing community i
 not broadly disadvantaged by Core's native Web surface.
 
 The exception is authoring support: Drupal must help authors provide captions and
-transcripts for the media they add. Known 1.2.2 authoring issues therefore make
-the mapped **Without Hearing** result **Partially Supports**, not Supports.
+transcripts for the media they add. Known 1.2.2 authoring issues are potential
+barriers, but they do not make the mapped **Without Hearing** result Partially
+Supports. It remains **Not Evaluated** until reviewed evidence is recorded.
 
 Contrib media players are separate products and need their own evaluation.
 

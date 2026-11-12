@@ -13,10 +13,11 @@ reviewer actions, limitations and sources.
 ## What it does not do
 
 It uses a **draft issue-queue evaluation**. Criteria with active tagged issues
-use `Partially Supports` for known issues and `Supports` when an assessed surface
-has no known issue. No issue is treated as reproduced
-against an installed target. The four component results are draft proposals for
-human confirmation.
+leave Web and Authoring Tool at `Not Evaluated` unless a reviewer records
+reviewed evidence. No issue is treated as reproduced
+against an installed target. The four component entries describe scope: Web and
+Authoring Tool are Not Evaluated, Electronic Documents and Software are Not
+Applicable with a documented basis.
 
 The narrative does **not** claim:
 
@@ -63,10 +64,11 @@ The narrative does **not** claim:
 - Anchors use native fragment navigation, `scroll-margin`, and the existing
   skip link. No SkipTo JavaScript is required or published; the static heading
   index provides the same section/heading jump function without client scripts.
-   - known issues produce `Partially Supports`; assessed surfaces with no known
-     issue produce `Supports`.
-8. **AAA table** — outside the declared AA target; issue-tagged criteria use the
-   same surface-assessment policy; no `Does Not Support` is emitted without broad-failure evidence.
+   - reported issues are listed as potential barriers; they do not produce a
+     conformance result, and an empty queue does not produce `Supports`.
+8. **AAA table** — outside the declared AA target; issue-tagged criteria remain
+   Not Evaluated; no `Does Not Support` is emitted without broad-failure
+   evidence.
 9. **References** — every cited issue grouped by criterion, with public links.
 10. **Functional performance, hardware, software and support documentation** —
    outside the web issue-evidence method’s coverage; reviewer must evaluate or
@@ -170,11 +172,11 @@ anchors remain visible; they can be collapsed for scanning.
 
 ## Surface assessment and positive evidence
 
-The declared Drupal surface assessment is the baseline. A known active issue on
-an assessed surface is Partially Supports; an assessed surface with no known
-issue is Supports. Not Applicable requires documented feature absence. Does Not
-Support requires explicit broad-failure evidence. Not Evaluated is reserved for
-an unassessed surface.
+The declared Drupal surface assessment describes the product scope, not the
+result. Reported issues are potential barriers; the narrative does not assign a
+conformance result. Every non-`Not Applicable` criterion remains Not Evaluated
+until a reviewer records reviewed evidence. Not Applicable requires documented
+feature absence. Does Not Support requires explicit broad-failure evidence.
 
 ## References
 
