@@ -124,7 +124,9 @@ claims are:
   player, live audio/video, audio-description player or media-alternative
   feature in Core.
 
-The ACR carries a **Not Applicable claim review** table and repeats the factual
-basis in the Remarks column. N/A is never selected because the issue queue is
-empty. The policy is project-asserted and requires human confirmation; a reviewer
+The ACR carries a single introduction paragraph for the component-wide
+Electronic Documents/Software exclusion and a **Not Applicable claim review**
+table. It does not repeat that paragraph in every criterion row. Criterion-
+specific media N/A explanations remain in their rows. N/A is never selected
+because the issue queue is empty. The policy is project-asserted and requires human confirmation; a reviewer
 must test the absence against the declared product rather than trusting the label.

@@ -375,7 +375,8 @@ rests on the declared assessment, not an automated pass.
 
 ## N/A claim review (2026-11-12)
 
-- Every N/A value now carries a factual product-scope remark in the ACR.
+- The component-wide Electronic Documents/Software N/A rationale appears once in
+  the ACR introduction, not in every criterion row.
 - Added a **Not Applicable claim review** table with basis and review state.
 - Electronic Documents/Software and media N/A are documented as feature/product
   absence, not empty-queue outcomes.

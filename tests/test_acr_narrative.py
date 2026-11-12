@@ -87,6 +87,7 @@ class AcrNarrativeTests(unittest.TestCase):
         self.assertIn("No standalone electronic-document product", md)
         self.assertIn("No native audio/video", md)
         self.assertIn("N/A is never used merely because no active issue is tagged", md)
+        self.assertEqual(1, md.count("Drupal Core does not ship a standalone electronic-document product or packaged non-web software"))
         self.assertIn("Evidence state:", md)
         self.assertIn("Automated coverage: partial", md)
         self.assertIn("**Web:**   Partially Supports", md)
