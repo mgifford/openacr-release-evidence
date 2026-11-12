@@ -63,8 +63,11 @@ coverage. The generated ACR remains a draft.
 - [x] Group the issue table by verified / probably affects / fix included /
       needs checking / outside scope, with generated reason counts.
 - [ ] Add component and criterion filters.
+- [x] Run internal task, keyboard, 320 px, reduced-motion, forced-colors
+      emulation and axe-core validation.
 - [ ] Test the revised summary, grouped issue list and labels with representative
       readers.
+- [ ] Test forced-colors on Windows and record a real screen-reader session.
 - [ ] Record keyboard, screen-reader, 320 px, forced-colors and no-JavaScript
       checks for the revised layout.
 

@@ -1,6 +1,6 @@
 # Report usability and correctness review
 
-**Status: Phases 1–5 implemented on 2026-11-12. Phase 6 proposed.**
+**Status: Phases 1–6 implemented on 2026-11-12; representative-reader testing remains.**
 
 This review responds to reviewer feedback on the published release reports. It
 records the problems found in the current generator, the smallest safe changes
@@ -260,6 +260,20 @@ checked in headless Chrome at 320 × 900 CSS px:
 Manual screen-reader testing was **not** performed in this session. Forced-colors
 and 400% browser-zoom manual checks were **not** performed beyond the 320 px
 layout check. These remain Phase 6 work.
+
+## Phase 6 validation
+
+Internal task and accessibility validation is recorded in
+[`REPORT-USABILITY-VALIDATION.md`](REPORT-USABILITY-VALIDATION.md). Six
+representative tasks passed, axe-core reported 0 violations at desktop and
+320 px widths, keyboard and reduced-motion checks passed, and two findability
+problems found during the validation were fixed:
+
+- the summary now links directly to component changes and lineage;
+- the component jump list is collapsed so it does not add 80 tab stops.
+
+Forced-colors was emulated only, and no real screen-reader or representative
+reader session was performed. Those remain the next validation step.
 
 ## Tests that protect this phase
 

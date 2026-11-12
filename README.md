@@ -426,6 +426,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Conformance policy](docs/CONFORMANCE-POLICY.md)
 - [Report terminology](docs/REPORT-TERMINOLOGY.md)
 - [Report usability and correctness review](docs/REPORT-USABILITY-REVIEW.md)
+- [Report usability validation](docs/REPORT-USABILITY-VALIDATION.md)
 - [Report information architecture](docs/REPORT-INFORMATION-ARCHITECTURE.md)
 - [Component history investigation](docs/COMPONENT-HISTORY-INVESTIGATION.md)
 - [Component lineage model](docs/COMPONENT-LINEAGE-MODEL.md)
