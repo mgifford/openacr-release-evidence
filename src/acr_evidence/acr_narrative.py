@@ -12,7 +12,7 @@ from pathlib import Path
 from .criterion_summaries import PROMPT_VERSION as CRITERION_PROMPT_VERSION
 from .criterion_evidence import automation_for_criterion
 from .openacr_export import load_catalog
-from .fpc import summarize as summarize_fpc
+from .fpc import disability_labels, summarize as summarize_fpc
 from .non_wcag import load_considerations
 from .surface_assessment import assessment_note, component_results, criterion_results
 
@@ -139,6 +139,15 @@ class Permalink:
     def __init__(self, label, url):
         self.label = label
         self.url = url
+
+
+class Break:
+    pass
+
+
+class Small:
+    def __init__(self, text):
+        self.text = "" if text is None else str(text)
 
 
 def _heading_with_permalink(level, text, heading_id):
@@ -360,6 +369,10 @@ def _md(value):
                 rendered.append("<br>".join(bullets))
             elif isinstance(part, Permalink):
                 rendered.append(f"[#]({part.url})")
+            elif isinstance(part, Break):
+                rendered.append("<br>")
+            elif isinstance(part, Small):
+                rendered.append(part.text.replace("|", "\\|"))
             elif isinstance(part, Cell):
                 rendered.append(_md(part))
             else:
@@ -398,6 +411,10 @@ def _html_cell(value):
                     f'<span aria-hidden="true">#</span>'
                     f'<span class="visually-hidden">{escape(part.label)}</span></a>'
                 )
+            elif isinstance(part, Break):
+                rendered.append("<br>")
+            elif isinstance(part, Small):
+                rendered.append(f'<span class="criterion-disability">{escape(part.text)}</span>')
             elif isinstance(part, Cell):
                 rendered.append(_html_cell(part))
             else:
@@ -871,6 +888,8 @@ def render_acr_narrative(analysis, output_dir):
                     Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
                     " ",
                     Permalink(f"Permalink to criterion {criterion_id} {criterion.get('handle') or ''}", f"#{row_id}"),
+                    Break(),
+                    Small("Affects: " + (", ".join(disability_labels(criterion_id)) or "not mapped")),
                 ),
                 _levels_cell(criterion_id, items),
                 _remarks_cell(criterion_id, items, ai_summaries.get(criterion_id)),
@@ -904,15 +923,28 @@ def render_acr_narrative(analysis, output_dir):
         ("CivicActions accessibility data reference / FPC mapping", "https://github.com/CivicActions/accessibility-data-reference"),
         ("Section 508 functional performance criteria", "https://www.access-board.gov/ict/"),
     ])
-    doc.h2("Functional performance, hardware, software and support documentation")
+    doc.h2("Functional Performance, Hardware, Software and Support Documentation")
     doc.p("These Section 508/ACR chapters are not evaluated by this web issue-evidence pipeline. They are shown so the draft has the complete ACR shape; a reviewer must evaluate them or mark Not Applicable with a rationale.")
     rows = []
+    chapter_labels = {
+        "functional_performance_criteria": "Functional Performance Criteria",
+        "hardware": "Hardware",
+        "software": "Software",
+        "support_documentation_and_services": "Support Documentation and Services",
+    }
+    chapter_notes = {
+        "functional_performance_criteria": "A mapped functional-performance summary is provided above from WCAG evidence. It is not an independent FPC test; the OpenACR FPC chapter remains Not Evaluated.",
+        "hardware": "Outside the declared product scope: Drupal Core is web software with no hardware product in this assessment.",
+        "software": "Outside the declared product scope: no packaged non-web software product is included in this assessment.",
+        "support_documentation_and_services": "No separate support-documentation and services evaluation was performed for this draft.",
+    }
     for chapter in non_wcag:
+        chapter_id = chapter.get("id") or ""
         rows.append([
-            Cell(chapter.get("id") or ""),
+            Cell(chapter_labels.get(chapter_id, chapter_id.replace("_", " ").title())),
             Cell(str(len(chapter.get("criteria") or []))),
             Cell("Not Evaluated"),
-            Cell("Outside the web issue-evidence method's coverage. The pipeline collected issue/commit evidence only; no hardware, packaged software, functional-performance or support-documentation testing was performed."),
+            Cell(chapter_notes.get(chapter_id, "Not evaluated by this web issue-evidence method.")),
         ])
     doc.table("Non-WCAG ACR chapters", ["Chapter", "Criteria", "Draft result", "Remarks and explanations"], rows)
 

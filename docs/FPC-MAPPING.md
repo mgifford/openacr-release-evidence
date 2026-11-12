@@ -15,6 +15,25 @@ performance categories. It is descriptive:
 - the OpenACR FPC chapter remains Not Evaluated;
 - a human must review any functional-performance claim.
 
+## Disability labels in the criteria table
+
+Each WCAG criterion in the ACR shows an **Affects:** line derived from the same
+mapping, for example:
+
+- Vision
+- Limited vision
+- Colour perception
+- Hearing
+- Limited hearing
+- Speech
+- Motor/manipulation
+- Reach/strength
+- Cognitive/learning
+
+This is a short impact aid, not a severity ranking, not a complete disability
+taxonomy and not a substitute for testing with disabled people. Criteria without a
+mapping show `Affects: not mapped`.
+
 ## Deaf and hard of hearing
 
 For Drupal Core, the native Web surface does not require hearing and has no

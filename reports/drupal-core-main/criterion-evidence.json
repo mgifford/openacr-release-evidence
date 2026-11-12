@@ -6,7 +6,7 @@
   "release": "12.0.x-dev",
   "target_id": "drupal-core-main",
   "target_ref": "main",
-  "generated_at": "2026-11-12T06:47:47Z",
+  "generated_at": "2026-11-12T06:58:19Z",
   "disclaimer": "Reported issue evidence only. No conformance result is assigned. Supports and Not Applicable require human-reviewed evidence.",
   "summary": {
     "criteria": 182,

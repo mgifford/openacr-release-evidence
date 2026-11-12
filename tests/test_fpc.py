@@ -1,9 +1,15 @@
 import unittest
 
-from acr_evidence.fpc import load_mapping, summarize
+from acr_evidence.fpc import disability_labels, load_mapping, summarize
 
 
 class FpcTests(unittest.TestCase):
+    def test_disability_labels_for_criterion(self):
+        labels = disability_labels("1.1.1")
+        self.assertIn("Vision", labels)
+        self.assertIn("Hearing", labels)
+        self.assertIn("Cognitive/learning", labels)
+
     def test_mapping_has_all_functional_categories(self):
         mapping = load_mapping()
         self.assertEqual(9, len(mapping))

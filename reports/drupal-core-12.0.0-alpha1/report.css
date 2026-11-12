@@ -172,3 +172,5 @@ body:has(#filter-status-development:checked) .release-card:not([data-support="de
 .reference-group>summary{padding:.55rem .8rem;background:Canvas;font-weight:700}
 .reference-group h3{margin:1rem .8rem .35rem}
 .reference-group ul{margin:.2rem .8rem .8rem}
+/* Disability-impact label under a WCAG criterion name. */
+.criterion-disability{display:block;font-size:.82rem;font-weight:500;opacity:.9;margin-top:.2rem}

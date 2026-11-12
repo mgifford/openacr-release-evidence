@@ -135,6 +135,13 @@ narrative is not a conformance claim.
    generated draft.
 7. Remove the draft statement only after independent review and sign-off.
 
+## Criterion disability labels
+
+The Criteria column includes a short **Affects:** line derived from the
+CivicActions WCAG-to-FPC mapping. It identifies disability groups for orientation;
+it is not a severity ranking, a complete taxonomy or a substitute for testing with
+disabled people.
+
 ## Beyond WCAG
 
 A separate bottom-of-report box records non-WCAG accessibility considerations:

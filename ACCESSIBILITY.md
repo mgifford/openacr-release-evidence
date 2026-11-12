@@ -29,7 +29,7 @@ colour-only status and no JavaScript requirement.
 - Internal anchors: all matrix/report anchors resolve; headings do not skip
   levels; tables have captions and header scopes; the ATAG report uses lists
   rather than a wide table.
-- 149 offline tests pass, including release-finder, matrix-preservation,
+- 152 offline tests pass, including release-finder, matrix-preservation,
   target-policy, report-index and ACR-navigation tests.
 
 These results do **not** establish conformance. axe-core covers only a subset of

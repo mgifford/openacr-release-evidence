@@ -19,6 +19,17 @@ LABELS = {
     "LRS": "With Limited Reach and Strength",
     "LLCLA": "With Limited Language, Cognitive, and Learning Abilities",
 }
+DISABILITY_LABELS = {
+    "WV": "Vision",
+    "LV": "Limited vision",
+    "WPC": "Colour perception",
+    "WH": "Hearing",
+    "LH": "Limited hearing",
+    "WS": "Speech",
+    "LM": "Motor/manipulation",
+    "LRS": "Reach/strength",
+    "LLCLA": "Cognitive/learning",
+}
 COLUMNS = {
     "Without Vision (WV)": "WV",
     "Limited Vision (LV)": "LV",
@@ -48,6 +59,16 @@ def load_mapping(path=None):
     except OSError:
         return {}
     return {key: sorted(set(values)) for key, values in mapping.items()}
+
+
+def disability_labels(criterion, path=None):
+    """Return disability groups mapped to one WCAG criterion."""
+    mapping = load_mapping(path)
+    labels = []
+    for key, criteria in mapping.items():
+        if str(criterion) in criteria:
+            labels.append(DISABILITY_LABELS[key])
+    return sorted(set(labels))
 
 
 def summarize(results_by_criterion, path=None):
