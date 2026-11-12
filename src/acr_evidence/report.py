@@ -395,7 +395,7 @@ def _plain_summary(analysis):
     if scope:
         parts.append('<div class="scope-note"><h3>Component scope in this release</h3>'
                      f'<p>{scope}</p>'
-                     '<p><a href="#components">See the component inventory and sources</a>.</p></div>')
+                     '<p><a href="sources.html#component-changes">See the component inventory, changes and lineage</a>.</p></div>')
     parts.extend([
         '<h3>What to do next</h3>',
         '<div class="action-grid"><div><h4>If you maintain Drupal Core</h4>'
@@ -1023,6 +1023,12 @@ def _inventory_section(target):
     if scope:
         parts.append(f'<p class="scope-note">{scope}</p>')
     parts.append('<h3>All bundled modules and themes</h3>')
+    jump_links = "".join(
+        f'<li><a href="#inventory-{esc(item.get("type"))}-{esc(item.get("machine_name"))}">{esc(item.get("machine_name"))}</a></li>'
+        for item in sorted(inventory.get("components") or [], key=lambda item: (item.get("type"), item.get("machine_name")))
+    )
+    parts.append('<details class="component-jump"><summary>Jump to a component</summary>'
+                 f'<nav aria-label="Component inventory index"><ul class="compat-list">{jump_links}</ul></nav></details>')
     parts.append(_component_table(inventory))
     parts.append('<p class="meta">The tracker component field is a separate vocabulary from these '
                  'machine names. Use the component index on the Reported issues page for issue '
@@ -1342,7 +1348,7 @@ def _explore_section():
     links = [
         ("issues.html", "Reported issues", "Every issue, its Drupal.org status, release applicability, reason and next step."),
         ("criteria.html", "WCAG criteria", "Reported issues grouped by explicit WCAG tag. Tags are candidate relevance signals."),
-        ("sources.html", "Sources and data", "Exact release, component inventory, collection counts, reproduction evidence and downloads."),
+        ("sources.html", "Sources and data", "Exact release, component inventory, changes, lineage, collection counts, reproduction evidence and downloads."),
         ("method.html", "How this report works", "Discovery, applicability rules, commit handling and limitations."),
         ("acr.html", "Draft ACR", "The standards-shaped draft for human review. It is not a completed ACR."),
     ]

@@ -146,6 +146,7 @@ footer{border-top:2px solid CanvasText;padding:1rem 0 2rem;margin-top:2rem}
 @media(forced-colors:active){
   .issue,table,th,td,details,.state,.status-banner,.synthetic,.finder,.release-card,.snapshot-meta div,.metric-grid div,.report-actions,.section-nav,.badge{border-color:CanvasText}
   .badge,.primary-action{forced-color-adjust:auto}
+  .issue-filters,.issue-group,.empty-state,.page-nav,.component-jump,.compat-list li{border-color:CanvasText}
 }
 @media print{
   nav,.skip,.filters,.release-index,.report-actions,.section-nav{display:none}
@@ -214,3 +215,7 @@ body:has(#issue-filter-likely:checked) .issue-group:not([data-group="likely"]),
 body:has(#issue-filter-fix-included:checked) .issue-group:not([data-group="fix-included"]),
 body:has(#issue-filter-needs-checking:checked) .issue-group:not([data-group="needs-checking"]),
 body:has(#issue-filter-outside:checked) .issue-group:not([data-group="outside"]){display:none}
+/* Component inventory jump list. */
+.component-jump{margin:.5rem 0 1rem;padding:.5rem .8rem;border:1px solid ButtonBorder;background:Canvas}
+.component-jump h4{margin:.2rem 0 .4rem}
+.component-jump>summary{padding:.35rem 0}
