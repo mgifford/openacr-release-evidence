@@ -1,5 +1,10 @@
 # AUDIT.md — Phase 0 audit of the OpenACR release-evidence prototype
 
+> Current policy note: later sections supersede earlier intermediate-state
+> descriptions. The current sources of truth are `AGENTS.md`,
+> `config/surface-assessments.json`, `data/accessibility-impact/`, `TODO.md` and
+> `docs/SESSION-LEARNINGS.md`.
+
 Status: complete for the first vertical slice (2026-11-07).
 Scope: the existing Python pipeline, static explorer, tests, manifests, CI,
 documentation, and the installed `drupalorg-cli`.

@@ -74,6 +74,11 @@ coverage. The generated ACR remains a draft.
       sources change.
 - [ ] Regenerate `reports/reference-data-coverage.md` after any data change.
 
+## Session record
+
+- [x] Record the durable decisions and corrections in `docs/SESSION-LEARNINGS.md`.
+- [x] Keep the deferred work here rather than implying it is complete.
+
 ## Documentation
 
 - [ ] Keep `AGENTS.md`, README, `AUDIT.md`, `docs/` and the generated reports
