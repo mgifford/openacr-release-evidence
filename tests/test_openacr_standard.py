@@ -115,6 +115,11 @@ class OpenACRExportTests(unittest.TestCase):
         media = draft["chapters"]["success_criteria_level_a"]["criteria"][1]
         media_components = {component["name"]: component for component in media["components"]}
         self.assertEqual("not-applicable", media_components["web"]["adherence"]["level"])
+        level_a = draft["chapters"]["success_criteria_level_a"]["criteria"]
+        audio_control = next(item for item in level_a if item["num"] == "1.4.2")
+        audio_components = {component["name"]: component for component in audio_control["components"]}
+        self.assertEqual("not-applicable", audio_components["web"]["adherence"]["level"])
+        self.assertIn("native audio", audio_components["web"]["adherence"]["notes"])
         untagged = draft["chapters"]["success_criteria_level_a"]["criteria"][4]
         untagged_components = {component["name"]: component for component in untagged["components"]}
         self.assertEqual("supports", untagged_components["web"]["adherence"]["level"])

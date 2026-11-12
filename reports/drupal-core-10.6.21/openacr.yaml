@@ -248,9 +248,9 @@ chapters:
       components:
       - name: web
         adherence:
-          level: supports
-          notes: Declared Drupal surface assessment plus the active known-barrier
-            register. Not an independent WCAG-EM verification; a reviewer must confirm.
+          level: not-applicable
+          notes: 'Not present: Drupal Core has no native audio playback or automatic
+            audio feature to control; evaluate contrib media players separately.'
       - name: electronic-docs
         adherence:
           level: not-applicable
@@ -263,9 +263,9 @@ chapters:
             electronic-document or packaged software product.'
       - name: authoring-tool
         adherence:
-          level: supports
-          notes: Declared Drupal surface assessment plus the active known-barrier
-            register. Not an independent WCAG-EM verification; a reviewer must confirm.
+          level: not-applicable
+          notes: 'Not present: Drupal Core has no native audio playback or automatic
+            audio feature to control; evaluate contrib media players separately.'
     - num: 2.1.1
       components:
       - name: web

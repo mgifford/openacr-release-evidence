@@ -12,6 +12,7 @@ from pathlib import Path
 from .criterion_summaries import PROMPT_VERSION as CRITERION_PROMPT_VERSION
 from .criterion_evidence import automation_for_criterion
 from .openacr_export import load_catalog
+from .fpc import summarize as summarize_fpc
 from .surface_assessment import assessment_note, component_results, criterion_results
 
 DRAFT_TERM = "Not Evaluated (draft — reviewer must select an ACR result)"
@@ -37,6 +38,10 @@ CORE_SCOPE = {
     "1.2.5": (
         "Drupal Core does not provide a video player or audio-description feature. Proposed Not Applicable "
         "for Core; audio/video caption and description support belongs to contrib Video or AblePlayer."
+    ),
+    "1.4.2": (
+        "Drupal Core does not provide native audio playback or automatic audio to control; "
+        "contrib media players are separate products."
     ),
 }
 STATUS_ORDER = ("Active", "Needs review", "Needs work", "Reviewed & tested by the community", "Patch")
@@ -559,6 +564,14 @@ def _remarks_cell(criterion, issues, ai_summary=None):
                 Gap(),
                 Bold("Authoring Tool:"), " Drupal Core doesn't support audio/video authoring out of the box.",
             )
+        if criterion == "1.4.2":
+            return RichCell(
+                Bold("Web:"), " Drupal Core has no native audio playback or automatic audio feature to control. ",
+                ("Able Player", "https://www.drupal.org/project/ableplayer"),
+                " and other contrib media players are separate products.",
+                Gap(),
+                Bold("Authoring Tool:"), " Drupal Core does not provide native audio playback or automatic audio authoring controls.",
+            )
         if criterion == "1.2.3":
             return RichCell(
                 Bold("Web:"), " Drupal Core doesn't support audio description or media alternatives out of the box. Consider ",
@@ -653,11 +666,11 @@ def render_acr_narrative(analysis, output_dir):
     title = f"{product} {release} — Draft Accessibility Conformance Report (ACR) Narrative"
     doc = Doc(
         title,
-        "Issue evidence is reported without assigning a conformance result; "
-        "criteria remain Not Evaluated until human review.",
+        "Issue evidence is summarized under the declared surface assessment: "
+        "known issues are Partially Supports and assessed surfaces with no known issue are Supports.",
     )
 
-    doc.p("This document converts active issue evidence into an ACR narrative. It is deliberately not a completed ACR: issue-tagged and untagged criteria remain Not Evaluated until a reviewer completes the assessment. No issue was reproduced against this release, and a named reviewer must approve the report.")
+    doc.p("This document converts active issue evidence into an ACR narrative. It is deliberately not a completed ACR: results are draft applications of the declared surface assessment and the known-barrier register. No issue was reproduced against this release, and a named reviewer must approve the report.")
     doc.h2("Product information")
     doc.table("Product and report identification", ["Field", "Value"], [
         ["Product", Cell(product)],
@@ -725,7 +738,7 @@ def render_acr_narrative(analysis, output_dir):
     doc.table("N/A claims and rationale", ["Component", "Criteria", "Factual basis", "Review state"], [
         [Cell("Electronic Documents"), Cell(f"All {total_criteria}"), Cell("No standalone electronic-document product. Uploaded documents are delivered as web content."), Cell("Project-asserted; human confirmation required")],
         [Cell("Software"), Cell(f"All {total_criteria}"), Cell("No packaged non-web software product. Drupal Core is web software."), Cell("Project-asserted; human confirmation required")],
-        [Cell("Web and Authoring Tool"), Cell("1.2.1, 1.2.3, 1.2.4, 1.2.5"), Cell("No native audio/video playback, live audio/video, audio-description player or media-alternative feature in Core. Contrib media players are separate products."), Cell("Project-asserted; human confirmation required")],
+        [Cell("Web and Authoring Tool"), Cell("1.2.1, 1.2.3, 1.2.4, 1.2.5, 1.4.2"), Cell("No native audio/video playback, live audio/video, audio-description player, media-alternative feature or automatic audio control in Core. Contrib media players are separate products."), Cell("Project-asserted; human confirmation required")],
     ])
     doc.p("N/A is never used merely because no active issue is tagged. Any future N/A claim needs the same documented feature-absence basis and human review.")
     doc.h2("Draft status and ACR result terms")
@@ -764,7 +777,7 @@ def render_acr_narrative(analysis, output_dir):
     doc.p("The declared Drupal surface assessment is the baseline. Web and Authoring Tool are assessed surfaces. The active accessibility issue queue is the known-barrier register for those surfaces.")
     doc.p("A known active issue on a surface produces Partially Supports. An assessed surface with no active tagged issue produces Supports. Does Not Support is not recorded because there is no explicit broad-failure evidence. Not Applicable is used only for documented feature absence. Not Evaluated is reserved for an unassessed surface.")
     doc.p("This is an issue-queue attestation, not a WCAG-EM audit. Supports does not mean that axe-core or any other automated tool proved the criterion; automated coverage is partial and is reported separately.")
-    doc.p("The media criteria 1.2.1, 1.2.3, 1.2.4 and 1.2.5 are Not Applicable because Drupal Core does not provide the relevant audio/video player or live-media feature. They are not Not Applicable because the queue is empty.")
+    doc.p("The media criteria 1.2.1, 1.2.3, 1.2.4, 1.2.5 and 1.4.2 are Not Applicable because Drupal Core does not provide the relevant audio/video player, live-media feature or automatic audio control. They are not Not Applicable because the queue is empty.")
     doc.h2("Why this ACR is different")
     doc.p("A VPAT is a template; a completed report is an ACR. Most vendor ACRs are periodic, sample-based snapshots reviewed by legal or product management, with the vendor's issue queue kept separate. This report is an issue-queue attestation: it is generated from the full active Drupal Core Accessibility queue and keeps every cited issue linked.")
     doc.table("Conventional vendor ACR and this issue-queue attestation", ["Dimension", "Conventional vendor ACR", "This ACR"], [
@@ -869,6 +882,27 @@ def render_acr_narrative(analysis, output_dir):
             row_ids=row_ids,
         )
 
+    results_by_criterion = {}
+    for chapter in (chapter_a, chapter_aa, chapter_aaa):
+        for criterion in (chapter or {}).get("criteria") or []:
+            criterion_id = str(criterion.get("id"))
+            results_by_criterion[criterion_id] = criterion_results(
+                criterion_id, by_criterion.get(criterion_id, [])
+            )
+    fpc = summarize_fpc(results_by_criterion)
+    doc.h2("Functional Performance Criteria (mapped)")
+    doc.p("These are mapped summaries of the WCAG evidence by functional impact. They are not an independent functional-performance evaluation and are not OpenACR FPC values. The OpenACR FPC chapter remains Not Evaluated.")
+    fpc_rows = []
+    for row in fpc["rows"]:
+        criteria = ", ".join(row["criteria"]) if len(row["criteria"]) <= 8 else ", ".join(row["criteria"][:8]) + "…"
+        basis = f"Mapped from {len(row['criteria'])} WCAG criteria; see the mapping source."
+        fpc_rows.append([Cell(row["label"]), Cell(row["status"]), Cell(criteria), Cell(basis)])
+    doc.table("Functional performance summary mapped from WCAG evidence", ["Functional performance criterion", "Mapped result", "WCAG criteria", "Basis"], fpc_rows)
+    doc.p("Without Hearing is Partially Supports in this mapping. Drupal Core's native Web surface does not require hearing and provides no native audio/video, so the deaf and hard-of-hearing community is not broadly disadvantaged by Core. The exception is authoring support for captions and transcripts (1.2.2), plus any other known media-authoring barriers. Contrib media players are separate products and need their own evaluation.")
+    doc.links([
+        ("CivicActions accessibility data reference / FPC mapping", "https://github.com/CivicActions/accessibility-data-reference"),
+        ("Section 508 functional performance criteria", "https://www.access-board.gov/ict/"),
+    ])
     doc.h2("Functional performance, hardware, software and support documentation")
     doc.p("These Section 508/ACR chapters are not evaluated by this web issue-evidence pipeline. They are shown so the draft has the complete ACR shape; a reviewer must evaluate them or mark Not Applicable with a rationale.")
     rows = []

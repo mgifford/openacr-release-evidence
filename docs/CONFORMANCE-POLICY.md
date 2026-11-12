@@ -120,9 +120,9 @@ claims are:
 - Electronic Documents: no standalone electronic-document product; uploaded
   documents are delivered as web content.
 - Software: no packaged non-web software product.
-- Web and Authoring Tool for 1.2.1/1.2.3/1.2.4/1.2.5: no native audio/video
-  player, live audio/video, audio-description player or media-alternative
-  feature in Core.
+- Web and Authoring Tool for 1.2.1/1.2.3/1.2.4/1.2.5/1.4.2: no native
+  audio/video player, live audio/video, audio-description player,
+  media-alternative feature or automatic audio control in Core.
 
 The ACR carries a single introduction paragraph for the component-wide
 Electronic Documents/Software exclusion and a **Not Applicable claim review**

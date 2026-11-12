@@ -90,7 +90,7 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
     for finding in findings:
         for criterion_id in finding.get("wcag_candidates") or []:
             by_criterion.setdefault(str(criterion_id), []).append(finding)
-    core_na = {"1.2.1", "1.2.3", "1.2.4", "1.2.5"}
+    core_na = {"1.2.1", "1.2.3", "1.2.4", "1.2.5", "1.4.2"}
     core_notes = {
         "1.2.1": "Not present: Drupal Core does not provide audio/video playback out of the box; "
                  "consider Able Player for pre-recorded media.",
@@ -100,6 +100,8 @@ def build_draft(analysis, catalog, catalog_name="2.5-edition-wcag-2.2-508-en"):
                  "Video or AblePlayer separately.",
         "1.2.5": "Not present: Drupal Core has no core video player or audio-description feature; "
                  "evaluate contrib Video or AblePlayer separately.",
+        "1.4.2": "Not present: Drupal Core has no native audio playback or automatic audio feature to control; "
+                 "evaluate contrib media players separately.",
     }
     component_names = ("web", "electronic-docs", "software", "authoring-tool")
     wcag_chapters = {"success_criteria_level_a", "success_criteria_level_aa", "success_criteria_level_aaa"}

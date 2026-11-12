@@ -103,7 +103,7 @@ Current N/A claims:
 
 - Electronic Documents: no standalone electronic-document product.
 - Software: no packaged non-web software product.
-- Web/Authoring 1.2.1/1.2.3/1.2.4/1.2.5: no native media player or live-media
-  feature in Core.
+- Web/Authoring 1.2.1/1.2.3/1.2.4/1.2.5/1.4.2: no native media player,
+  live-media feature or automatic audio control in Core.
 
 Each claim must be checked against the declared product and confirmed by a human.

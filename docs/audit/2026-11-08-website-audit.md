@@ -240,7 +240,7 @@ matrix generation assertions are in `tests/test_usability.py`.
 
 ## Test and accessibility results
 
-- **145 offline tests pass**.
+- **149 offline tests pass**.
 - axe-core: **0 violations** on the homepage, complete matrix, 12.0.0-alpha1
   report, ACR draft and ATAG report at 1280 px.
 - 320 px: `scrollWidth` = 320 on all five pages; wide tables scroll inside

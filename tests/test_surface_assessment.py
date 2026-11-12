@@ -18,6 +18,11 @@ class SurfaceAssessmentTests(unittest.TestCase):
         self.assertEqual("Supports", results["web"])
         self.assertEqual("Supports", results["authoring-tool"])
 
+    def test_audio_control_is_not_applicable_without_native_audio(self):
+        results = criterion_results("1.4.2", [])
+        self.assertEqual("Not Applicable", results["web"])
+        self.assertEqual("Not Applicable", results["authoring-tool"])
+
     def test_feature_absence_is_not_applicable(self):
         results = criterion_results("1.2.4", [])
         self.assertEqual("Not Applicable", results["web"])

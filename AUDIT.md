@@ -122,7 +122,7 @@ evidence report, **not** an ACR.
 - Before: `python3 -m unittest discover -s tests -v` failed with 3 import errors
   when the package was not installed; `python` did not exist on this machine.
   With `PYTHONPATH=src`, 17 tests passed.
-- After: 145 offline tests pass; `python3 -m compileall -q src` passes.
+- After: 149 offline tests pass; `python3 -m compileall -q src` passes.
 - New coverage: normalization, real status mapping, WCAG tag parsing, ATAG
   Part A/B classification, release classification, commit deduplication,
   caching, failure isolation, report escaping/anchors/headings, the digest,
@@ -382,3 +382,11 @@ rests on the declared assessment, not an automated pass.
   absence, not empty-queue outcomes.
 - Procurement-facing wording states N/A is never used merely because no issue is
   tagged.
+
+## Functional Performance mapping and 1.4.2 (2026-11-12)
+
+- Added `config/fpc-wcag-mapping.csv` from CivicActions/accessibility-data-reference.
+- Added a mapped Functional Performance Criteria summary to the ACR.
+- The mapping is descriptive, not an independent FPC test and not an OpenACR FPC value.
+- Added 1.4.2 Audio Control to the documented native-media N/A scope.
+- Deaf/hard-of-hearing mapping is Partially Supports because of authoring caption/transcript issues, not because of native Web audio.
