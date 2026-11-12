@@ -81,7 +81,7 @@ This writes:
 - `reports/<target>/index.html` — static, no-JavaScript overview and plain-language summary.
 - `reports/<target>/issues.html` — issue index and canonical issue records.
 - `reports/<target>/criteria.html` — WCAG criterion evidence.
-- `reports/<target>/sources.html` — component inventory, scope, reproduction evidence and provenance.
+- `reports/<target>/sources.html` — component inventory and changes, lineage records, scope, reproduction evidence and provenance.
 - `reports/<target>/method.html` — method, limitations and comparison with a vendor ACR.
 - `reports/<target>/evidence.json` — compact published evidence (findings and issue identity; comments/descriptions are not duplicated).
 - `reports/<target>/summary.json`, `report.css`.
@@ -185,6 +185,7 @@ command is called. Raw output is private and never published.
 - Weekly review-gated snapshot workflow that opens a PR instead of auto-publishing.
 - A no-script release finder, compact release cards, grouped downloads and a separate complete matrix page.
 - A report header with top supporting-output links, section navigation, a plain-language summary, at-a-glance evidence metrics, WCAG criterion index and a grouped issue index with a CSS-only applicability filter.
+- A component-history view with exact-release inventory, package changes against the previous target, and curated lineage records that do not infer fixes or inherited issues.
 - Breadcrumb and section navigation from the ACR draft back to the release report.
 - Validated per-report OpenACR draft export against the pinned Civicactions/GSA schema and WCAG 2.2 + Section 508 catalog.
 - ATAG 2.0 authoring evidence: ATAG-tagged issues separated into explicit Part A/Part B and unassigned evidence, with a WAI ATAG Report Tool JSON draft.
