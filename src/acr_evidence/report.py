@@ -481,7 +481,7 @@ def _component_index(findings):
     return "".join(parts)
 
 
-def _issue_article(finding, issue):
+def _issue_article(finding, issue, provenance=None):
     anchor = anchor_for(finding["issue_id"])
     nid = issue.get("source_id") if issue else finding["issue_id"]
     source = safe_link(finding.get("source_url"), f"Drupal.org issue #{nid}")
@@ -498,6 +498,7 @@ def _issue_article(finding, issue):
                 ("Why this state", f'{esc(finding.get("reason"))} {esc(_state_reason(finding))}'),
                 ("What to do next", esc(_next_action(finding))),
                 ("Component", esc(finding.get("component") or "Not recorded")),
+                ("Changed-path association (evidence only)", (esc(_provenance_text(provenance)) + ' · <a href="./issue-provenance.json">provenance record</a>') if provenance else "Not collected for this snapshot."),
                 ("Version field at last fetch", esc(finding.get("tracker_version") or "Not recorded")),
                 ("Observed at", esc(finding.get("observed_at") or "Not recorded")),
             ])
@@ -526,6 +527,7 @@ def _issue_article(finding, issue):
             ("Fix included in this release?", "Yes — inclusion still needs behavioural verification" if finding.get("fix_included_in_target", finding.get("fix_included_in_release")) else "No matching fix commit found"),
             ("Version field at last fetch", esc(finding.get("tracker_version") or "Not recorded")),
             ("Component", esc(finding.get("component") or "Not recorded")),
+            ("Changed-path association (evidence only)", (esc(_provenance_text(provenance)) + ' · <a href="./issue-provenance.json">provenance record</a>') if provenance else "Not collected for this snapshot."),
             ("Surface", esc((finding.get("surface") or {}).get("surface", "web")) + " (" + esc((finding.get("surface") or {}).get("basis", "default-web")) + ")"),
             ("Created / updated", f'{esc(display_date(finding.get("created_at")))} / {esc(display_date(issue.get("updated_at") if issue else None))}'),
             ("Observed at", esc(finding.get("observed_at") or "Not recorded")),
@@ -622,6 +624,9 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     summary = analysis.get("summary") or {}
     collection = analysis.get("collection") or {}
     findings = analysis.get("findings") or []
+    provenance_by_issue = _load_issue_provenance(
+        output, target.get("assessment_id") or assessment.get("id")
+    )
     issue_source = (full_collection or {}).get("issues") if full_collection else None
     issues = {issue.get("id"): issue for issue in (issue_source or analysis.get("issues") or [])}
     synthetic = bool(assessment.get("synthetic"))
@@ -734,6 +739,7 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         f'<li><a href="./openacr-validation.json">validation result</a></li>'
         f'<li><a href="./criterion-evidence.json">criterion evidence</a></li>'
         f'<li><a href="./reproduction-evidence.json">reproduction evidence</a></li>'
+        f'<li><a href="./issue-provenance.json">issue provenance</a></li>'
         f'<li><a href="./acr.html">ACR draft</a></li></ul>'
         '<p class="meta">The ACR is a derived draft, not an approved conformance report.</p></nav>'
     )
@@ -767,6 +773,12 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         ("Not yet determined", unknown, "Not enough information to decide whether the problem affects this release."),
         ("Needs further checking", needs, "Findings that still need evidence, reproduction or review."),
     ]))
+    if provenance_by_issue:
+        verified = sum(1 for item in provenance_by_issue.values() if item.get("level") == "verified-source-code")
+        strong = sum(1 for item in provenance_by_issue.values() if item.get("level") == "strong-candidate")
+        html.append(_metric_grid([
+            ("Changed-path associations", f"{verified} verified · {strong} strong candidate", "Reported issues whose merge-request file paths map to a component; not release applicability."),
+        ]))
     html.append(_summary_table(findings))
     html.append(_status_table(findings))
     html.append(
@@ -838,12 +850,17 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     html.append('<section id="issues" aria-labelledby="issues-heading"><h2 id="issues-heading">Issue evidence</h2>')
     html.append('<p>Detailed issues retain their source URL, tracker status, observation time, candidate criteria, comments and '
                 'release-specific reasoning. Inventory records are compact metadata rows. Raw upstream responses are kept privately '
-                'and are not published here.</p>')
+                'and are not published here. Changed-path associations come from public merge-request file paths; they identify '
+                'code that changed, not whether the reported barrier affects this release.</p>')
     html.append(_issue_index(findings))
     html.append('<h3 id="canonical-issues-heading">Canonical issue records</h3>')
     html.append('<p class="meta">The full records follow, in issue-ID order. Each is the canonical target-specific evidence for its finding.</p>')
     for finding in sorted(findings, key=lambda item: item.get("issue_id") or ""):
-        html.append(_issue_article(finding, issues.get(finding.get("issue_id"))))
+        html.append(_issue_article(
+            finding,
+            issues.get(finding.get("issue_id")),
+            provenance_by_issue.get(finding.get("issue_id")),
+        ))
     html.append("</section>")
     html.append('<section id="gaps" aria-labelledby="gaps-heading"><h2 id="gaps-heading">Verification gaps</h2>')
     html.append('<p>These are the findings that need reproduction, testing or independent review before an ACR statement can rely on them. '
@@ -985,6 +1002,41 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         encoding="utf-8",
     )
     return output
+
+
+def _load_issue_provenance(output, target_id=None):
+    candidates = [Path(output) / "issue-provenance.json"]
+    if target_id:
+        candidates.append(
+            Path(__file__).resolve().parents[2] / "reports" / str(target_id) / "issue-provenance.json"
+        )
+    data = {}
+    for path in candidates:
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            break
+        except (OSError, ValueError):
+            continue
+    return {item.get("issue_id"): item for item in data.get("issues") or []}
+
+
+def _provenance_text(record):
+    if not record:
+        return "No changed-path association was collected for this issue."
+    associations = [
+        item for item in record.get("associations") or []
+        if item.get("level") in {"verified-source-code", "explicit-metadata"}
+    ]
+    if not associations:
+        return "No changed-path association was verified; see the source issue and merge request."
+    parts = [
+        f'{item.get("type")} {item.get("component")} ({item.get("level")})'
+        for item in associations[:3]
+    ]
+    text = "; ".join(parts)
+    if len(associations) > 3:
+        text += f"; +{len(associations) - 3} more"
+    return text
 
 
 def _inventory_section(target):

@@ -85,6 +85,7 @@ This writes:
 - `reports/<target>/method.html` — method, limitations and comparison with a vendor ACR.
 - `reports/<target>/evidence.json` — compact published evidence (findings and issue identity; comments/descriptions are not duplicated).
 - `reports/<target>/summary.json`, `report.css`.
+- `reports/<target>/issue-provenance.json` — changed-path component associations for detailed issues; not release applicability.
 - `reports/<target>/acr.html`, `acr.md` — ACR narrative draft.
 - `reports/<target>/openacr.yaml`, `openacr-validation.json` — validated OpenACR draft.
 - `reports/index.html` — landing page with release finder and matrix preview.

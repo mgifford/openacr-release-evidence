@@ -21,6 +21,7 @@ from .acr_narrative import render_acr_narrative
 from .release import analyze_collection
 from .inventory import build_inventory, compare_inventories, write_json
 from .lineage import load_lineage
+from .provenance_report import build_artifact, write_target_artifacts
 from .report import render_landing, render_report
 from .adapters.drupal import fetch_issues as fetch_drupal
 from .adapters.drupal import find_issues as find_drupal_issues
@@ -218,6 +219,14 @@ def main(argv=None):
 
     lc = sub.add_parser("lineage-check", help="Validate curated component lineage records")
     lc.add_argument("--file", required=True)
+
+    ip = sub.add_parser("issue-provenance", help="Derive component associations from merge-request changed paths")
+    ip.add_argument("--collection", required=True)
+    ip.add_argument("--targets", required=True)
+    ip.add_argument("--output", required=True)
+    ip.add_argument("--inventory-dir", default="data/component-inventory")
+    ip.add_argument("--cache-dir", default=".cache/acr-evidence")
+    ip.add_argument("--refresh", action="store_true")
 
     pipe = sub.add_parser("pipeline", help="Collect, analyze and render in one reproducible run")
     pipe.add_argument("--manifest", required=True)
@@ -427,6 +436,23 @@ def main(argv=None):
     elif args.command == "lineage-check":
         document = load_lineage(args.file)
         print(f"Validated {len(document['records'])} lineage record(s) in {args.file}")
+    elif args.command == "issue-provenance":
+        artifact = build_artifact(
+            load_json(args.collection),
+            inventory_dir=args.inventory_dir,
+            cache_dir=args.cache_dir,
+            refresh=args.refresh,
+        )
+        written = write_target_artifacts(
+            artifact, load_json(args.targets), args.output, inventory_dir=args.inventory_dir,
+        )
+        summary = artifact["summary"]
+        print(
+            f"Provenance: {summary['issues_with_merge_requests']} issues, "
+            f"{summary['merge_requests']} merge requests, "
+            f"{summary['issues_with_changed_paths']} with changed paths; "
+            f"{len(written)} target artifact(s)."
+        )
     elif args.command == "pipeline":
         manifest = load_json(args.manifest)
         output = Path(args.output)

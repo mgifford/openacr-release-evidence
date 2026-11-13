@@ -75,6 +75,8 @@ coverage. The generated ACR remains a draft.
 
 - [x] Add deterministic release inventory extraction and four exact-tag
       inventories.
+- [x] Collect public merge-request changed paths for detailed issues and derive
+      `verified-source-code` component associations.
 - [x] Add curated Olivero/Claro/Gin/Default Admin lineage records.
 - [x] Add deterministic issue-to-component association helpers.
 - [ ] Collect contributed Olivero, Claro and Gin issue queues.
