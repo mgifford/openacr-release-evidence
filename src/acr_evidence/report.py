@@ -624,7 +624,9 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     summary = analysis.get("summary") or {}
     collection = analysis.get("collection") or {}
     findings = analysis.get("findings") or []
-    provenance_by_issue = _load_issue_provenance(output)
+    provenance_by_issue = _load_issue_provenance(
+        output, target.get("assessment_id") or assessment.get("id")
+    )
     issue_source = (full_collection or {}).get("issues") if full_collection else None
     issues = {issue.get("id"): issue for issue in (issue_source or analysis.get("issues") or [])}
     synthetic = bool(assessment.get("synthetic"))
@@ -1002,11 +1004,19 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
     return output
 
 
-def _load_issue_provenance(output):
-    try:
-        data = json.loads((Path(output) / "issue-provenance.json").read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return {}
+def _load_issue_provenance(output, target_id=None):
+    candidates = [Path(output) / "issue-provenance.json"]
+    if target_id:
+        candidates.append(
+            Path(__file__).resolve().parents[2] / "reports" / str(target_id) / "issue-provenance.json"
+        )
+    data = {}
+    for path in candidates:
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            break
+        except (OSError, ValueError):
+            continue
     return {item.get("issue_id"): item for item in data.get("issues") or []}
 
 
