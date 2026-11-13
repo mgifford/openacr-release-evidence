@@ -287,6 +287,27 @@ class ReportTests(unittest.TestCase):
         self.assertEqual(0, reproduction["summary"]["target_verified"])
         self.assertIn("reproduction evidence", (folder / "index.html").read_text(encoding="utf-8"))
 
+    def test_issue_provenance_is_shown_when_present(self):
+        analysis = self.build_analysis()
+        with tempfile.TemporaryDirectory() as folder:
+            provenance = {
+                "artifact_type": "issue-component-provenance",
+                "issues": [{
+                    "issue_id": "drupal:3621109",
+                    "level": "verified-source-code",
+                    "associations": [{
+                        "type": "theme", "component": "default_admin",
+                        "level": "verified-source-code", "basis": "changed-path",
+                        "evidence": ["path:core/themes/default_admin/css/base/elements.css"],
+                    }],
+                }],
+            }
+            (Path(folder) / "issue-provenance.json").write_text(json.dumps(provenance), encoding="utf-8")
+            render_report(analysis, folder)
+            html = (Path(folder) / "issues.html").read_text(encoding="utf-8")
+        self.assertIn("Changed-path association", html)
+        self.assertIn("theme default_admin (verified-source-code)", html)
+
     def test_issue_index_groups_by_applicability_and_explains_unknowns(self):
         folder, artifact = self.render()
         html = (folder / "issues.html").read_text(encoding="utf-8")

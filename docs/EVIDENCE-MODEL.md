@@ -20,6 +20,7 @@ human decision.
 | Component inventory | `acr-evidence component-inventory` | Modules/themes/profiles bundled in an exact ref, standard-profile installation, default themes and lifecycle status. |
 | Component comparison | `acr-evidence component-compare` | Added, removed and changed components between two inventories. Never infers fixes or lineage. |
 | Component lineage | curated JSON + `lineage-check` | Reviewed relationships between projects/components over time. Never changes applicability. |
+| Issue provenance | `issue-provenance` | Public merge-request changed paths mapped to components for detailed issues. Not release applicability or conformance. |
 | Private raw snapshot | collection, under `private-evidence/raw/` | Original CLI/API payloads, excluded from publication. |
 
 All public artifacts carry `schema_version`, `artifact_type`, `disclaimer`,

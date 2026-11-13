@@ -92,6 +92,8 @@ class PagesTests(unittest.TestCase):
                 self.assertTrue((directory / page).is_file(), f"{directory.name}/{page}")
                 self.assertIn(f'href="./{page}"', html)
             self.assertTrue((directory / "wcag22_icons.svg").is_file())
+            self.assertTrue((directory / "issue-provenance.json").is_file())
+            self.assertIn("issue-provenance.json", (directory / "index.html").read_text(encoding="utf-8"))
             self.assertIn("wcag22_icons.svg", (directory / "criteria.html").read_text(encoding="utf-8"))
             issues = (directory / "issues.html").read_text(encoding="utf-8")
             criteria = (directory / "criteria.html").read_text(encoding="utf-8")

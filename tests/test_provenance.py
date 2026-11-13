@@ -1,6 +1,6 @@
 import unittest
 
-from acr_evidence.provenance import associate_issue, component_from_path
+from acr_evidence.provenance import associate_issue, component_from_path, is_test_path
 
 
 ISSUE = {
@@ -23,6 +23,13 @@ class PathMappingTests(unittest.TestCase):
     def test_core_library_is_not_attributed_to_a_module(self):
         self.assertIsNone(component_from_path("core/lib/Drupal/Core/Form/FormBuilder.php"))
         self.assertIsNone(component_from_path("composer.json"))
+
+    def test_test_only_paths_are_excluded_by_default(self):
+        path = "core/modules/layout_builder/tests/src/FunctionalJavascript/DialogTest.php"
+        self.assertTrue(is_test_path(path))
+        self.assertIsNone(component_from_path(path))
+        self.assertEqual(("module", "layout_builder"), component_from_path(path, include_tests=True))
+        self.assertIsNone(component_from_path("core/tests/Drupal/FunctionalJavascriptTests/Ajax/DialogTest.php"))
 
 
 class AssociationTests(unittest.TestCase):

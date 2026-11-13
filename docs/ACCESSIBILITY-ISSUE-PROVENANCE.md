@@ -1,8 +1,8 @@
 # Accessibility issue provenance
 
-**Status: deterministic association helper implemented; the current collection
-does not yet store changed file paths, so most associations remain metadata or
-title based.**
+**Status: deterministic changed-path association is implemented for the
+detailed merge-request subset. Inventory-only issues still have no changed-path
+evidence, so most associations remain metadata or title based.**
 
 This page explains how the project decides which component an issue belongs to,
 and why that decision is not the same as release applicability or a conformance
@@ -119,26 +119,45 @@ The model keeps one issue record and multiple associations. Do not duplicate the
 issue in the report just because it touches several components. The report should
 show the primary association and list the others as related components.
 
-## Why the current report cannot rely on this yet
+## What is available now
 
-`reports/collection.json` stores issue metadata, comments and merge-request
-state. It does not store the merge request's changed file list. Therefore:
+`acr-evidence issue-provenance` reads the public GitLab changes API for every
+merge request already recorded in the collection. It stores only public `core/`
+file paths, not diffs or file contents, and writes
+`reports/<target>/issue-provenance.json`.
 
-- most associations are still the tracker component or a title match;
-- the report calls the generic `Admin theme` component "Admin theme" and does
-  not guess which theme;
-- no issue is moved between components automatically;
-- no issue is inherited from Gin or Claro automatically.
+The 2026-11-10 snapshot produced:
 
-The first safe improvement is to collect changed paths for the review-priority
-subset and store them in the private collection, then publish only the derived
-association level and component. Do not publish raw diffs.
+- 33 issues with merge requests;
+- 46 merge requests;
+- 33 issues with at least one changed core path;
+- 29 `verified-source-code` associations and 4 `strong-candidate`
+  associations.
+
+Test-only paths are excluded from association: a change under
+`core/modules/foo/tests` often means a test covers the issue, not that the
+defect belongs to `foo`. The raw paths remain in the provenance JSON for audit.
+
+The release report shows the primary changed-path associations in each detailed
+issue record and links to the provenance JSON. It labels the field
+“Changed-path association (evidence only)”.
+
+## What this does not establish
+
+- It identifies code that changed, not the release where the barrier exists.
+- Inventory-only issues have no changed-path evidence; they still need comments,
+  merge requests and target testing.
+- A title or description mention remains a strong candidate, not verified code.
+- A merged merge request is not proof that the barrier is resolved.
+- The association is target-independent; `present_in_bundled_release` and
+  `installed_by_standard_profile` are separate flags in the target artifact.
 
 ## Next steps
 
-1. Fetch changed paths for the detailed subset's merge requests.
-2. Map paths to components with `component_from_path`.
-3. Record the association level and evidence kind in `criterion-evidence.json`.
-4. Add a reviewed component alias map for tracker labels.
-5. Add report filters and component-history links from the association.
+1. Add a reviewed component alias map for tracker labels.
+2. Use the provenance artifact in criterion evidence and component filters.
+3. Collect contributed-project merge requests for moved components.
+4. Keep the raw diffs private; only paths and derived associations are public.
+5. Re-run the provenance command after the collection changes; the cache is
+   six hours and `--refresh` forces retrieval.
 6. Keep one issue identity across components.

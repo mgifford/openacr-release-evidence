@@ -23,14 +23,31 @@ THEME_PATH_RE = re.compile(r"^core/themes/([a-z0-9_]+)/")
 PROFILE_PATH_RE = re.compile(r"^core/profiles/([a-z0-9_]+)/")
 
 
-def component_from_path(path):
+def is_test_path(path):
+    """Return True for test-only paths that over-attribute an issue.
+
+    A change under ``core/modules/foo/tests`` often says "a test covers this",
+    not "the defect belongs to foo". Test-only paths are excluded from
+    source-code association and remain available in the raw public MR path list.
+    """
+    value = str(path or "").strip().lstrip("./")
+    return (
+        "/tests/" in value
+        or value.startswith("core/tests/")
+        or "/test_modules/" in value
+    )
+
+
+def component_from_path(path, *, include_tests=False):
     """Map a changed core path to ``(type, machine_name)`` or ``None``.
 
     Only deterministic path prefixes are used. A path under ``core/lib`` is
     core infrastructure, not a module, and returns ``None`` rather than being
-    attributed to a nearby module.
+    attributed to a nearby module. Test-only paths are excluded by default.
     """
     value = str(path or "").strip().lstrip("./")
+    if not include_tests and is_test_path(value):
+        return None
     for pattern, kind in (
         (MODULE_PATH_RE, "module"),
         (THEME_PATH_RE, "theme"),
