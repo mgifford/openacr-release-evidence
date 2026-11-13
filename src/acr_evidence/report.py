@@ -13,6 +13,7 @@ from .criterion_evidence import build_criterion_evidence
 from .reproduction_evidence import build_reproduction_evidence, load_sources
 from .model import digest_artifact
 from .inventory import compare_inventories
+from .icons import copy_sprite, icon_markup
 from .wcag import (
     APPLICABILITY_LABELS,
     APPLICABILITY_MEANINGS,
@@ -106,7 +107,7 @@ def _criterion_section(criterion, findings):
     section_id = "sc-" + criterion.replace(".", "-")
     parts = [
         f'<section class="criterion" aria-labelledby="{section_id}">',
-        f'<h3 id="{section_id}">{esc(criterion)} {esc(info["title"])} — Level {esc(info["level"])}</h3>',
+        f'<h3 id="{section_id}">{icon_markup(criterion)}{esc(criterion)} {esc(info["title"])} — Level {esc(info["level"])}</h3>',
         f'<p class="meta">Criterion title from WCAG 2.2. {safe_link(info["url"], "W3C definition")}. '
         "Issue tags suggest candidate relevance only; they are not a conformance determination.</p>",
         '<ul class="finding-list">',
@@ -960,6 +961,7 @@ def render_report(analysis, output_dir, css_source=None, full_collection=None):
         (output / filename).write_text(content, encoding="utf-8")
     source_css = Path(css_source) if css_source else Path(__file__).resolve().parent / "static" / "report.css"
     shutil.copyfile(source_css, output / "report.css")
+    copy_sprite(output)
     (output / "evidence.json").write_text(
         json.dumps(compact, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
@@ -1613,7 +1615,7 @@ def _criterion_index(findings):
             "1": "Perceivable", "2": "Operable", "3": "Understandable", "4": "Robust",
         }.get(criterion[:1], "Other")
         parts.append(
-            f'<tr><th scope="row"><a href="#{section_id}">{esc(criterion)}</a></th>'
+            f'<tr><th scope="row"><a href="#{section_id}">{icon_markup(criterion)}{esc(criterion)}</a></th>'
             f'<td>{esc(principle)}</td><td>{esc(info["title"])}</td>'
             f'<td>{len(group)}</td><td>{full}</td><td>{inventory}</td></tr>'
         )

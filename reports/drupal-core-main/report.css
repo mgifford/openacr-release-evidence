@@ -219,3 +219,5 @@ body:has(#issue-filter-outside:checked) .issue-group:not([data-group="outside"])
 .component-jump{margin:.5rem 0 1rem;padding:.5rem .8rem;border:1px solid ButtonBorder;background:Canvas}
 .component-jump h4{margin:.2rem 0 .4rem}
 .component-jump>summary{padding:.35rem 0}
+/* WCAG pictograms are decorative; the adjacent criterion number is the label. */
+.wcag-icon{display:inline-block;inline-size:1.15em;block-size:1.15em;vertical-align:-.18em;margin-inline-end:.3em;flex:none}

@@ -12,6 +12,11 @@ relicensed under the MIT licence.
 
 WCAG criterion titles are from the W3C WCAG 2.2 Recommendation.
 
+The WCAG 2.2 pictogram sprite (`src/acr_evidence/static/wcag22_icons.svg`) and
+mapping (`config/wcag22-icons.json`) were supplied for this project. Criterion
+numbers, titles and URLs remain W3C WCAG 2.2 content. The pictograms are used
+decoratively and are not conformance evidence.
+
 The vendored OpenACR schema and catalog in
 `src/acr_evidence/standards/openacr/` are from CivicActions/openacr (fork of
 GSA/openacr), pinned to commit d6d18a9. They are CC0/public domain except W3C
