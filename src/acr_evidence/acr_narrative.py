@@ -14,6 +14,7 @@ from .criterion_evidence import automation_for_criterion
 from .openacr_export import load_catalog
 from .fpc import summarize as summarize_fpc
 from .impact import get_criterion_impact, load_global_stats
+from .icons import copy_sprite, icon_markup
 from .non_wcag import load_considerations
 from .surface_assessment import assessment_note, component_results, criterion_results
 
@@ -149,6 +150,12 @@ class Break:
 class Small:
     def __init__(self, text):
         self.text = "" if text is None else str(text)
+
+
+class Icon:
+    """A decorative WCAG pictogram; it is omitted from Markdown output."""
+    def __init__(self, criterion):
+        self.criterion = str(criterion)
 
 
 def _heading_with_permalink(level, text, heading_id):
@@ -383,6 +390,8 @@ def _md(value):
                 rendered.append("<br>")
             elif isinstance(part, Small):
                 rendered.append(part.text.replace("|", "\\|"))
+            elif isinstance(part, Icon):
+                continue
             elif isinstance(part, Cell):
                 rendered.append(_md(part))
             else:
@@ -425,6 +434,8 @@ def _html_cell(value):
                 rendered.append("<br>")
             elif isinstance(part, Small):
                 rendered.append(f'<span class="criterion-disability">{escape(part.text)}</span>')
+            elif isinstance(part, Icon):
+                rendered.append(icon_markup(part.criterion))
             elif isinstance(part, Cell):
                 rendered.append(_html_cell(part))
             else:
@@ -907,6 +918,7 @@ def render_acr_narrative(analysis, output_dir):
             impact = get_criterion_impact(criterion_id)
             rows.append([
                 RichCell(
+                    Icon(criterion_id),
                     Cell(f"{criterion_id} {criterion.get('handle') or ''}", criterion_url),
                     " ",
                     Permalink(f"Permalink to criterion {criterion_id} {criterion.get('handle') or ''}", f"#{row_id}"),
@@ -1110,6 +1122,7 @@ def render_acr_narrative(analysis, output_dir):
 
     markdown = doc.markdown()
     html = doc.html()
+    copy_sprite(output)
     (output / "acr.md").write_text(markdown, encoding="utf-8")
     (output / "acr.html").write_text(html + "\n", encoding="utf-8")
     return {"markdown": output / "acr.md", "html": output / "acr.html"}

@@ -427,6 +427,7 @@ yet recorded. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and
 - [Report terminology](docs/REPORT-TERMINOLOGY.md)
 - [Report usability and correctness review](docs/REPORT-USABILITY-REVIEW.md)
 - [Report usability validation](docs/REPORT-USABILITY-VALIDATION.md)
+- [WCAG 2.2 pictograms](docs/WCAG-ICONS.md)
 - [Report information architecture](docs/REPORT-INFORMATION-ARCHITECTURE.md)
 - [Component history investigation](docs/COMPONENT-HISTORY-INVESTIGATION.md)
 - [Component lineage model](docs/COMPONENT-LINEAGE-MODEL.md)

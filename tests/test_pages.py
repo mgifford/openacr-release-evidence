@@ -91,6 +91,8 @@ class PagesTests(unittest.TestCase):
             for page in ("issues.html", "criteria.html", "sources.html", "method.html"):
                 self.assertTrue((directory / page).is_file(), f"{directory.name}/{page}")
                 self.assertIn(f'href="./{page}"', html)
+            self.assertTrue((directory / "wcag22_icons.svg").is_file())
+            self.assertIn("wcag22_icons.svg", (directory / "criteria.html").read_text(encoding="utf-8"))
             issues = (directory / "issues.html").read_text(encoding="utf-8")
             criteria = (directory / "criteria.html").read_text(encoding="utf-8")
             self.assertIn("issue-index", issues)
@@ -142,7 +144,7 @@ class PagesTests(unittest.TestCase):
                 path = directory / page
                 if not path.exists():
                     continue
-                for href in re.findall(r'href="([^"]+)"', path.read_text(encoding="utf-8")):
+                for href in re.findall(r'<a\b[^>]*href="([^"]+)"', path.read_text(encoding="utf-8")):
                     if href.startswith(("http://", "https://", "mailto:", "javascript:")):
                         continue
                     target, _, fragment = href.partition("#")
@@ -155,7 +157,7 @@ class PagesTests(unittest.TestCase):
 
     def test_pages_workflow_publishes_split_report_pages(self):
         workflow = WORKFLOW.read_text(encoding="utf-8")
-        for page in ("issues.html", "criteria.html", "sources.html", "method.html"):
+        for page in ("issues.html", "criteria.html", "sources.html", "method.html", "wcag22_icons.svg"):
             self.assertIn(page, workflow)
 
     def test_workflows_use_node24_actions(self):
