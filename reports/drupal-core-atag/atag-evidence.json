@@ -4,7 +4,7 @@
   "atag_version": "2.0",
   "product": "Drupal Core",
   "release": "11.4.12",
-  "generated_at": "2026-11-10T17:42:46Z",
+  "generated_at": "2026-11-16T22:42:45Z",
   "source": {
     "tag": "atag",
     "tag_tid": "5050",
@@ -16,11 +16,11 @@
     "wai_report_tool_repository": "https://github.com/w3c/wai-atag-report-tool"
   },
   "summary": {
-    "issues": 32,
+    "issues": 31,
     "explicit_part_a": 0,
     "explicit_part_b": 0,
     "unspecified": 26,
-    "meta_issues": 6,
+    "meta_issues": 5,
     "missing_accessibility_tag": 0,
     "criteria": 63
   },
@@ -158,27 +158,6 @@
       "component": "image system",
       "status": "Needs work",
       "issue_kind": "issue",
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "tag",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "accessibility_tag": true,
-      "missing_accessibility_tag": false
-    },
-    {
-      "issue_id": "drupal:2307175",
-      "title": "[meta] Document all accessibility features in the UI",
-      "url": "https://www.drupal.org/project/drupal/issues/2307175",
-      "component": "documentation",
-      "status": "Active",
-      "issue_kind": "meta",
       "atag": {
         "is_atag": true,
         "parts": [],
@@ -700,5 +679,5 @@
   ],
   "review_status": "unreviewed",
   "notes": "ATAG is separate from WCAG/OpenACR. No ATAG conformance values are populated.",
-  "evidence_digest": "580c87d4c561b40cd7ec343a5c8c0071a411f8527574412ab7dcf25ebc81b848"
+  "evidence_digest": "4f5b33390954109b8401d15574c04ac6d05d29c2b7033af85528b8ea13da85ae"
 }

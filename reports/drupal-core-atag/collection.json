@@ -59,7 +59,7 @@
       "detail_limit": 100
     }
   },
-  "generated_at": "2026-11-10T17:42:46Z",
+  "generated_at": "2026-11-16T22:42:45Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -80,7 +80,7 @@
       "component": null,
       "since": null
     },
-    "cli_version": "Drupal.org CLI 0.15.0",
+    "cli_version": "Drupal.org CLI 0.15.1",
     "raw_dir": "private-evidence/raw",
     "cache_dir": ".cache/acr-evidence",
     "errors": []
@@ -533,11 +533,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -551,11 +549,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:58Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:41Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/1291262",
         "content_hash": "161c331e53665606ffed436383ed75cde68469dc3a87d1a744b5cc4d772edd1b",
-        "raw_ref": "private-evidence/raw/1291262-20261110T174558Z.json"
+        "raw_ref": "private-evidence/raw/1291262-20261116T224541Z.json"
       }
     },
     {
@@ -897,11 +895,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -915,11 +911,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:48Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:33Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/1323338",
         "content_hash": "5f59d4df91a5b5bf7ba2f7bf0c5166fc12f95ecd86368756735816f1dbe1d345",
-        "raw_ref": "private-evidence/raw/1323338-20261110T174548Z.json"
+        "raw_ref": "private-evidence/raw/1323338-20261116T224533Z.json"
       }
     },
     {
@@ -3110,11 +3106,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -3128,11 +3122,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:31Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:22Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/1899236",
         "content_hash": "27bb0f4b1c918e77b73890557656eb4ed64932727a4a3a8eb2a9c525ee5d9646",
-        "raw_ref": "private-evidence/raw/1899236-20261110T174531Z.json"
+        "raw_ref": "private-evidence/raw/1899236-20261116T224522Z.json"
       }
     },
     {
@@ -3465,11 +3459,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:44:15Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:09Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2034909",
         "content_hash": "4d8754ba1ba8eacb19ce33bbb1d8f7eee3731f35ca4933bce612fb5cf58b1837",
-        "raw_ref": "private-evidence/raw/2034909-20261110T174415Z.json"
+        "raw_ref": "private-evidence/raw/2034909-20261116T224409Z.json"
       }
     },
     {
@@ -3617,11 +3611,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -3635,11 +3627,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:02Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:45Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2135341",
         "content_hash": "a7934144686e9db156a1765bdc7a92fcf951202625b73104c38148544ed19530",
-        "raw_ref": "private-evidence/raw/2135341-20261110T174602Z.json"
+        "raw_ref": "private-evidence/raw/2135341-20261116T224545Z.json"
       }
     },
     {
@@ -3918,11 +3910,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -3936,11 +3926,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:42Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:27Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2145035",
         "content_hash": "66fc8ab36a987360d492eeb32575a041b3080dd7adaeb8d11f82c7eefe815e18",
-        "raw_ref": "private-evidence/raw/2145035-20261110T174542Z.json"
+        "raw_ref": "private-evidence/raw/2145035-20261116T224527Z.json"
       }
     },
     {
@@ -4139,11 +4129,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -4157,276 +4145,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:09Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:02Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2305109",
         "content_hash": "f7d9b40b94ed0c0e24be42b95b6fe8e4e970c895bfa8a146bdaeda89e5fc361c",
-        "raw_ref": "private-evidence/raw/2305109-20261110T174509Z.json"
-      }
-    },
-    {
-      "schema_version": "0.2.0",
-      "id": "drupal:2307175",
-      "project_scoped_id": "drupal:drupal:2307175",
-      "source_system": "drupal.org",
-      "source_project": "drupal",
-      "source_id": "2307175",
-      "url": "https://www.drupal.org/project/drupal/issues/2307175",
-      "title": "[meta] Document all accessibility features in the UI",
-      "description_html": "<p>Reading through the <a href=\"http://www.w3.org/WAI/intro/atag.php\" rel=\"nofollow\">ATAG description</a> I realized we really aren't documenting what we're doing in D8 to improve it's accessibility.  There are lots of points that we could add to address the point in <a href=\"http://www.w3.org/TR/ATAG20/#gl_a42\" rel=\"nofollow\">A.4.2</a> to \"Document the user interface, including all accessibility features.\"</p>\n<p>I don't think this will be that difficult, but it will require some planning.  I do think there should be a top level page for Accessibility under /admin/help - probably just /admin/help/accessibility</p>\n<p>There would be some advantages to filling out all three sections:</p>\n<ul>\n<li>About</li>\n<li>Terminology</li>\n<li>Uses</li>\n</ul>\n<p>Some sections could possibly have a new Accessibility section that talks about things like:</p>\n<ul>\n<li>ckeditor - <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2308515\" title=\"Status: Closed (fixed)\">#2308515: Document accessibility features in CKEditor</a></span></li>\n<li>telephone - <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2308581\" title=\"Status: Closed (fixed)\">#2308581: Document accessibility features in Telephone</a></span></li>\n<li>image - <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2308549\" title=\"Status: Closed (fixed)\">#2308549: Document accessibility features in Image</a></span></li>\n<li>views - <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2308521\" title=\"Status: Closed (fixed)\">#2308521: Document accessibility features in Views</a></span></li>\n<li>views_ui - <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-5\"><a href=\"/project/drupal/issues/2308541\" title=\"Status: Closed (won't fix)\">#2308541: Document accessibility features in Views UI</a></span></li>\n<li>system - <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/1413670\" title=\"Status: Closed (fixed)\">#1413670: Document 'show row weights' mode</a></span></li>\n</ul>\n<p>All just making it easier for people to see what we've done to make Drupal more accessible. Folks shouldn't have to look at the issue queue. </p>",
-      "description_text": "Reading through the ATAG description I realized we really aren't documenting what we're doing in D8 to improve it's accessibility. There are lots of points that we could add to address the point in A.4.2 to \"Document the user interface, including all accessibility features.\"\nI don't think this will be that difficult, but it will require some planning. I do think there should be a top level page for Accessibility under /admin/help - probably just /admin/help/accessibility\nThere would be some advantages to filling out all three sections:\nAbout\nTerminology\nUses\nSome sections could possibly have a new Accessibility section that talks about things like:\nckeditor - #2308515: Document accessibility features in CKEditor\ntelephone - #2308581: Document accessibility features in Telephone\nimage - #2308549: Document accessibility features in Image\nviews - #2308521: Document accessibility features in Views\nviews_ui - #2308541: Document accessibility features in Views UI\nsystem - #1413670: Document 'show row weights' mode\nAll just making it easier for people to see what we've done to make Drupal more accessible. Folks shouldn't have to look at the issue queue.",
-      "labels": [
-        "atag",
-        "Accessibility",
-        "high contrast"
-      ],
-      "status": {
-        "code": 1,
-        "label": "Active",
-        "workflow_state": "open",
-        "raw_label": "Active"
-      },
-      "created_at": "2014-07-21T20:49:09+00:00",
-      "updated_at": "2024-01-09T17:49:06+00:00",
-      "component": "documentation",
-      "version": "main",
-      "priority": "Normal",
-      "category": "Task",
-      "evidence_status": "full",
-      "comments": [
-        {
-          "id": "8988825",
-          "url": "https://www.drupal.org/node/2307175#comment-8988825",
-          "author": "jhodgdon",
-          "author_id": "155601",
-          "author_url": "https://www.drupal.org/user/155601",
-          "created_at": "2014-07-22T16:42:26Z",
-          "body_html": "<p>We do not have a mechanism for adding help at arbitrary paths in Drupal currently. All we can do is add help for *modules*, which is what is listed on admin/help. We proposed having a better help system for Drupal 8, but the proposal died due to lack of interest and/or lack of volunteers to pull it off. So I believe we are now stuck with hook_help(), same as we have been for umpteen Drupal versions. Too bad. Oh well.</p>\n<p>So the best you will be able to do is to add a general help section on Accessibility to the System module help, and then also add Accessibility sections to other specific modules that should mention accessibility.</p>\n<p>I am not sure about your premise though. The philosophy of Drupal in-code help and documentation is to discuss the state of Drupal *now*, not talk about how it is better, worse, or different from previous versions. (The right place to document the evolution of Drupal is on drupal.org.)</p>\n<p>So I would limit the docs added to hook_help() to discussions of how to make a site accessible (things site builders should know), and accessibilty features that are part of particular modules (plus any configuration needed to make them work right). Don't talk about them as \"new\" features, though -- just document what it is now.</p>\n<p>So I've made this a meta-issue. We should add sub-issues for documenting the accessibility features of each separate system or module.</p>",
-          "body_text": "We do not have a mechanism for adding help at arbitrary paths in Drupal currently. All we can do is add help for *modules*, which is what is listed on admin/help. We proposed having a better help system for Drupal 8, but the proposal died due to lack of interest and/or lack of volunteers to pull it off. So I believe we are now stuck with hook_help(), same as we have been for umpteen Drupal versions. Too bad. Oh well.\nSo the best you will be able to do is to add a general help section on Accessibility to the System module help, and then also add Accessibility sections to other specific modules that should mention accessibility.\nI am not sure about your premise though. The philosophy of Drupal in-code help and documentation is to discuss the state of Drupal *now*, not talk about how it is better, worse, or different from previous versions. (The right place to document the evolution of Drupal is on drupal.org.)\nSo I would limit the docs added to hook_help() to discussions of how to make a site accessible (things site builders should know), and accessibilty features that are part of particular modules (plus any configuration needed to make them work right). Don't talk about them as \"new\" features, though -- just document what it is now.\nSo I've made this a meta-issue. We should add sub-issues for documenting the accessibility features of each separate system or module.",
-          "machine_generated": false,
-          "content_hash": "8678264d2ca8e7fbc68c9d4ed406f803be235c9fc3cc790530155e0dee312f15"
-        },
-        {
-          "id": "8989041",
-          "url": "https://www.drupal.org/node/2307175#comment-8989041",
-          "author": "Bojhan",
-          "author_id": "87969",
-          "author_url": "https://www.drupal.org/user/87969",
-          "created_at": "2014-07-22T18:13:33Z",
-          "body_html": "<p>Well we only have to do this for content creation I am guessing. Having it in the help section of Drupal - should be sufficient to meet this requirement. We don't need this to be inline, it merely needs to exist. I hope most of our stuff is self-explanatory though. </p>",
-          "body_text": "Well we only have to do this for content creation I am guessing. Having it in the help section of Drupal - should be sufficient to meet this requirement. We don't need this to be inline, it merely needs to exist. I hope most of our stuff is self-explanatory though.",
-          "machine_generated": false,
-          "content_hash": "635061368b7bc7738ae833e7f011099c3fcb98ceede7aa00e8102ff8a5579616"
-        },
-        {
-          "id": "8989211",
-          "url": "https://www.drupal.org/node/2307175#comment-8989211",
-          "author": "mgifford",
-          "author_id": "27930",
-          "author_url": "https://www.drupal.org/user/27930",
-          "created_at": "2014-07-22T19:21:47Z",
-          "body_html": "<p>I'll be talking to the W3C this afternoon.  I do think that documenting what we are doing for accessibility is a good thing, but it isn't something that we have to do.  We haven't yet signed on to achieve ATAG 2.0 standards yet. I do think there are reasons to do this though at some point. Certainly not till it's formalized though and the community understands the implications.</p>\n<p>Bojhan - I was really only thinking of having this in the help section.  I don't want to clutter up the interface any more than we have to.  However, adding an Accessibility section to the Help page of a module will be a good reminder for everyone who is looking in to learn more about the module.</p>\n<p>@jhodgdon - Hopefully we can get more interest in documentation in D9.  Some of these issues may need to get pushed off till then.  </p>\n<p>I only want to talk about what accessibility enhancements are part of Core.  </p>\n<p>Agreed with just document \"what it is now\".  Also agree about this being a meta-issue to with new child issues being set up for each separate system or module.</p>\n<p>Thanks!</p>",
-          "body_text": "I'll be talking to the W3C this afternoon. I do think that documenting what we are doing for accessibility is a good thing, but it isn't something that we have to do. We haven't yet signed on to achieve ATAG 2.0 standards yet. I do think there are reasons to do this though at some point. Certainly not till it's formalized though and the community understands the implications.\nBojhan - I was really only thinking of having this in the help section. I don't want to clutter up the interface any more than we have to. However, adding an Accessibility section to the Help page of a module will be a good reminder for everyone who is looking in to learn more about the module.\n@jhodgdon - Hopefully we can get more interest in documentation in D9. Some of these issues may need to get pushed off till then.\nI only want to talk about what accessibility enhancements are part of Core.\nAgreed with just document \"what it is now\". Also agree about this being a meta-issue to with new child issues being set up for each separate system or module.\nThanks!",
-          "machine_generated": false,
-          "content_hash": "c395fe638220f009c5b55fda5abde637cf05e1551ea0a62909cd74c9561463f9"
-        },
-        {
-          "id": "8989361",
-          "url": "https://www.drupal.org/node/2307175#comment-8989361",
-          "author": "Bojhan",
-          "author_id": "87969",
-          "author_url": "https://www.drupal.org/user/87969",
-          "created_at": "2014-07-22T20:06:09Z",
-          "body_html": "<p>Sounds like a good idea, there must be some documentation already.</p>",
-          "body_text": "Sounds like a good idea, there must be some documentation already.",
-          "machine_generated": false,
-          "content_hash": "6ec2cbf2f20442a79ba22aa34a59522d4fdaf8bd0274f045b2905e517bbc79a5"
-        },
-        {
-          "id": "8993113",
-          "url": "https://www.drupal.org/node/2307175#comment-8993113",
-          "author": "mgifford",
-          "author_id": "27930",
-          "author_url": "https://www.drupal.org/user/27930",
-          "created_at": "2014-07-23T20:50:55Z",
-          "body_html": "<p>I didn't do much more than a first hack, but thought I'd provide on a few of these.  </p>\n<p>Someone could just search accessibility issues per module and get a review of changes that have been introduced in D8.  The System help would have a lot more information. </p>",
-          "body_text": "I didn't do much more than a first hack, but thought I'd provide on a few of these.\nSomeone could just search accessibility issues per module and get a review of changes that have been introduced in D8. The System help would have a lot more information.",
-          "machine_generated": false,
-          "content_hash": "6e062952507f2af4b1172d54921db7c7e9756bff8eeeb2bb42c00a862fc2fd64"
-        },
-        {
-          "id": "8996033",
-          "url": "https://www.drupal.org/node/2307175#comment-8996033",
-          "author": "jhodgdon",
-          "author_id": "155601",
-          "author_url": "https://www.drupal.org/user/155601",
-          "created_at": "2014-07-24T18:16:29Z",
-          "body_html": "<p>I've added comments to several of the child issues.</p>\n<p>Also fixed typo in issue summary for the Views issue node ID. I suggest actually not trying to maintain the list of child issues in the issue summary. It's easier just to file child issues, mark them as having this as the parent, and they'll show up magically in the sidebar.</p>",
-          "body_text": "I've added comments to several of the child issues.\nAlso fixed typo in issue summary for the Views issue node ID. I suggest actually not trying to maintain the list of child issues in the issue summary. It's easier just to file child issues, mark them as having this as the parent, and they'll show up magically in the sidebar.",
-          "machine_generated": false,
-          "content_hash": "81e488b545ea811f96170e41f1b546603ead0c14ef0a79e911ed71ade0c294cb"
-        },
-        {
-          "id": "8996413",
-          "url": "https://www.drupal.org/node/2307175#comment-8996413",
-          "author": "mgifford",
-          "author_id": "27930",
-          "author_url": "https://www.drupal.org/user/27930",
-          "created_at": "2014-07-24T20:15:55Z",
-          "body_html": "<p>Thanks..  And good suggestion to rely on the list of child issues automagically.  </p>",
-          "body_text": "Thanks.. And good suggestion to rely on the list of child issues automagically.",
-          "machine_generated": false,
-          "content_hash": "5a37944aeee7cb62d0ef35ff420b829e5d280203c229df78f7882ccf087be918"
-        },
-        {
-          "id": "9130797",
-          "url": "https://www.drupal.org/node/2307175#comment-9130797",
-          "author": "mgifford",
-          "author_id": "27930",
-          "author_url": "https://www.drupal.org/user/27930",
-          "created_at": "2014-09-08T18:36:39Z",
-          "body_html": "",
-          "body_text": "",
-          "machine_generated": false,
-          "content_hash": "8321b1172f021a552a7a47bf781648c0e7dd703de8c7b2490083827b6f35eab0"
-        },
-        {
-          "id": "9387749",
-          "url": "https://www.drupal.org/node/2307175#comment-9387749",
-          "author": "nod_",
-          "author_id": "598310",
-          "author_url": "https://www.drupal.org/user/598310",
-          "created_at": "2014-11-29T13:23:54Z",
-          "body_html": "<p>There is a possibility we'll be adding an accessibility link in the admin to configure site a11y stuff. Might be a good place to put links and stuff, see related issue.</p>",
-          "body_text": "There is a possibility we'll be adding an accessibility link in the admin to configure site a11y stuff. Might be a good place to put links and stuff, see related issue.",
-          "machine_generated": false,
-          "content_hash": "5cab3e46273a50229b2228e66d6009bf1fce21ecd72ff95f695a3bffc8fc86e6"
-        },
-        {
-          "id": "10090842",
-          "url": "https://www.drupal.org/node/2307175#comment-10090842",
-          "author": "hrezaei",
-          "author_id": "3233887",
-          "author_url": "https://www.drupal.org/user/3233887",
-          "created_at": "2015-07-06T18:43:55Z",
-          "body_html": "<p>I Really like this issue being worked on. There are  great enhancements in drupal 8 that users will find out as they are embedded in the core, and there are some more configurable options that  regular users might not notice without any documentation.<br />\nWithout a proper documentation for accessibility, the normal procedure for the user is like:<br />\nBrowse the page and figure out how to work with an element and try to resolve the accessibility problem, use google to attempt and see if there's any extra configurations related to the inaccessible area and turn the related option on for more accessible interface.</p>",
-          "body_text": "I Really like this issue being worked on. There are great enhancements in drupal 8 that users will find out as they are embedded in the core, and there are some more configurable options that regular users might not notice without any documentation.\nWithout a proper documentation for accessibility, the normal procedure for the user is like:\nBrowse the page and figure out how to work with an element and try to resolve the accessibility problem, use google to attempt and see if there's any extra configurations related to the inaccessible area and turn the related option on for more accessible interface.",
-          "machine_generated": false,
-          "content_hash": "3cf4c4a2ba8ec4c4d038fb916621027e48e5883d5a5904eaca93a5ecaba9a648"
-        },
-        {
-          "id": "10097638",
-          "url": "https://www.drupal.org/node/2307175#comment-10097638",
-          "author": "mgifford",
-          "author_id": "27930",
-          "author_url": "https://www.drupal.org/user/27930",
-          "created_at": "2015-07-08T14:15:46Z",
-          "body_html": "<p>@hrezaei Agreed that we need to do more to document this. We need more people looking at what we can document so that they aren't going to have to look to Google first. </p>",
-          "body_text": "@hrezaei Agreed that we need to do more to document this. We need more people looking at what we can document so that they aren't going to have to look to Google first.",
-          "machine_generated": false,
-          "content_hash": "c90d79e88c5088e703f767a3405c96946836c2bfe44cb84f0cadc10f57c8f75a"
-        },
-        {
-          "id": "10163852",
-          "url": "https://www.drupal.org/node/2307175#comment-10163852",
-          "author": "andrewmacpherson",
-          "author_id": "265648",
-          "author_url": "https://www.drupal.org/user/265648",
-          "created_at": "2015-07-29T01:55:10Z",
-          "body_html": "<p>Is it worth summarizing our <strong>known accessibility limitations</strong> more proactively, to assist anyone who needs to evaluate Drupal for their organization?</p>\n<p>It's great that we document the cool features which work well, but it might be more useful to know what doesn't work. The details are buried in our issue queue, so may not surface quickly to Drupal newcomers.</p>\n<p>For example, we have a few icons that don't work in Windows high-contrast mode, without visible fallback text (e.g. the button on search block, contextual-link cogs, and feed icons after <span class=\"project-issue-issue-link project-issue-status-info project-issue-status-7\"><a href=\"/project/drupal/issues/2426967\" title=\"Status: Closed (fixed)\">#2426967: Feed icon should be a CSS background image not a image file</a></span>). It would be tough to discover this the hard way <em>after</em> your company intranet goes live.</p>",
-          "body_text": "Is it worth summarizing our known accessibility limitations more proactively, to assist anyone who needs to evaluate Drupal for their organization?\nIt's great that we document the cool features which work well, but it might be more useful to know what doesn't work. The details are buried in our issue queue, so may not surface quickly to Drupal newcomers.\nFor example, we have a few icons that don't work in Windows high-contrast mode, without visible fallback text (e.g. the button on search block, contextual-link cogs, and feed icons after #2426967: Feed icon should be a CSS background image not a image file). It would be tough to discover this the hard way after your company intranet goes live.",
-          "machine_generated": false,
-          "content_hash": "91b7ddf02f9a6fd3061cfdf53f828539d00b1208eb7cdc7f26e1cec472d505de"
-        },
-        {
-          "id": "10166162",
-          "url": "https://www.drupal.org/node/2307175#comment-10166162",
-          "author": "jhodgdon",
-          "author_id": "155601",
-          "author_url": "https://www.drupal.org/user/155601",
-          "created_at": "2015-07-29T16:39:25Z",
-          "body_html": "<p>That sounds like a good idea. As a start, it might be a good idea to make a drupal.org page about it.</p>\n<p>I'm not sure where it would go... but probably it should be linked from<br />\n<a href=\"https://www.drupal.org/about/accessibility\" rel=\"nofollow\">https://www.drupal.org/about/accessibility</a></p>\n<p>Maybe mgifford would have a good idea of where it should be?</p>\n<p>Once we've made a list on a d.o page (which maybe could highlight the new features as well as the limitations), maybe we'd have a better idea of where we could/should also add more to the hook_help() documentation within Drupal source too?</p>",
-          "body_text": "That sounds like a good idea. As a start, it might be a good idea to make a drupal.org page about it.\nI'm not sure where it would go... but probably it should be linked from\nhttps://www.drupal.org/about/accessibility\nMaybe mgifford would have a good idea of where it should be?\nOnce we've made a list on a d.o page (which maybe could highlight the new features as well as the limitations), maybe we'd have a better idea of where we could/should also add more to the hook_help() documentation within Drupal source too?",
-          "machine_generated": false,
-          "content_hash": "d37d56cf820fd157c283a9604b58617400cc6c13f6b3c9fbd8f1d38c73abebc7"
-        },
-        {
-          "id": "10178132",
-          "url": "https://www.drupal.org/node/2307175#comment-10178132",
-          "author": "mgifford",
-          "author_id": "27930",
-          "author_url": "https://www.drupal.org/user/27930",
-          "created_at": "2015-08-02T16:19:53Z",
-          "body_html": "<p>I do think a page summarizing known issues might be good. Particularly if there are links to issue queues where those may be worked on for 8.1.</p>\n<p>We could create a doc page and link to it from <a href=\"https://www.drupal.org/about/accessibility\" rel=\"nofollow\">https://www.drupal.org/about/accessibility</a></p>\n<p>That page should be re-done with a view to D8 anyways.</p>\n<p>@andrewmacpherson - Windows high-contrast mode - so annoying...  But important.  </p>\n<p>Is there a new issue opened up for that? Would be good to have that addressed.</p>",
-          "body_text": "I do think a page summarizing known issues might be good. Particularly if there are links to issue queues where those may be worked on for 8.1.\nWe could create a doc page and link to it from https://www.drupal.org/about/accessibility\nThat page should be re-done with a view to D8 anyways.\n@andrewmacpherson - Windows high-contrast mode - so annoying... But important.\nIs there a new issue opened up for that? Would be good to have that addressed.",
-          "machine_generated": false,
-          "content_hash": "f83f746f52d049056bc1409637625b40829c28db981c4dbb94db623a98bfe9d5"
-        },
-        {
-          "id": "10178506",
-          "url": "https://www.drupal.org/node/2307175#comment-10178506",
-          "author": "jhodgdon",
-          "author_id": "155601",
-          "author_url": "https://www.drupal.org/user/155601",
-          "created_at": "2015-08-02T19:41:33Z",
-          "body_html": "<p>@mgifford: Do you have a good idea where this page about d8 accessibility features and limitations should go in the Documentation book hierarchy?</p>",
-          "body_text": "@mgifford: Do you have a good idea where this page about d8 accessibility features and limitations should go in the Documentation book hierarchy?",
-          "machine_generated": false,
-          "content_hash": "252b423785f7b3e366033246f0eda25a3792c1aa3b54d8e1be319d77b1f40585"
-        },
-        {
-          "id": "10180192",
-          "url": "https://www.drupal.org/node/2307175#comment-10180192",
-          "author": "mgifford",
-          "author_id": "27930",
-          "author_url": "https://www.drupal.org/user/27930",
-          "created_at": "2015-08-03T13:49:20Z",
-          "body_html": "<p>I'm thinking I'd split up <strong>Accessible Features in Drupal</strong> section to include something specifically Drupal Core. </p>",
-          "body_text": "I'm thinking I'd split up Accessible Features in Drupal section to include something specifically Drupal Core.",
-          "machine_generated": false,
-          "content_hash": "54b3411e4a1646aeadf982db74556c7549a4e6bebfa814dcc6c0d1590de26a44"
-        },
-        {
-          "id": "15390769",
-          "url": "https://www.drupal.org/node/2307175#comment-15390769",
-          "author": "mgifford",
-          "author_id": "27930",
-          "author_url": "https://www.drupal.org/user/27930",
-          "created_at": "2024-01-09T17:49:06Z",
-          "body_html": "<p>Adding reference to Windows High Contrast Mode. </p>",
-          "body_text": "Adding reference to Windows High Contrast Mode.",
-          "machine_generated": false,
-          "content_hash": "28365ac3e170e0ede4a82c9197d80c4e748fbca478715aebf1ac92c75c36307c"
-        }
-      ],
-      "merge_requests": [],
-      "wcag_candidates": [],
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "surface": {
-        "surface": "authoring",
-        "basis": "admin-path"
-      },
-      "provenance": {
-        "source_system": "drupal.org",
-        "source_project": "drupal",
-        "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:37Z",
-        "source_url": "https://www.drupal.org/project/drupal/issues/2307175",
-        "content_hash": "1e2b6828c806361d0de1073736604f4bb123f8eba4a68b6090478d7a38ae3877",
-        "raw_ref": "private-evidence/raw/2307175-20261110T174537Z.json"
+        "raw_ref": "private-evidence/raw/2305109-20261116T224502Z.json"
       }
     },
     {
@@ -4536,11 +4259,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -4554,11 +4275,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:08Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:50Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2307279",
         "content_hash": "df95daa979547024a194a2d3cd73e96cdb832b581aff05a212fa68bacf136480",
-        "raw_ref": "private-evidence/raw/2307279-20261110T174608Z.json"
+        "raw_ref": "private-evidence/raw/2307279-20261116T224550Z.json"
       }
     },
     {
@@ -4656,11 +4377,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -4674,11 +4393,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:06Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:47Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2307541",
         "content_hash": "e2919f1cddb21f51fa527ff85ee1167337181f57c9c283c9e367b86ad55e8f5c",
-        "raw_ref": "private-evidence/raw/2307541-20261110T174606Z.json"
+        "raw_ref": "private-evidence/raw/2307541-20261116T224547Z.json"
       }
     },
     {
@@ -4973,11 +4692,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -4991,11 +4708,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:05Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:58Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2467827",
         "content_hash": "5d724fc4756cbaea7c71e178970499b76b7145c2685d60add703e156e4d87510",
-        "raw_ref": "private-evidence/raw/2467827-20261110T174505Z.json"
+        "raw_ref": "private-evidence/raw/2467827-20261116T224458Z.json"
       }
     },
     {
@@ -5129,11 +4846,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -5147,11 +4862,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:23Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:46:04Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2474687",
         "content_hash": "926f304833aafef03703ae8ab49f432281d4bbb5a38ac57b71667b9552fc2190",
-        "raw_ref": "private-evidence/raw/2474687-20261110T174623Z.json"
+        "raw_ref": "private-evidence/raw/2474687-20261116T224604Z.json"
       }
     },
     {
@@ -6496,11 +6211,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -6514,11 +6227,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:43:46Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:43:41Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2614950",
         "content_hash": "b2bd192a782a723cc177d461c48ae7da64838fbc5ae7dbff281afc06b390252b",
-        "raw_ref": "private-evidence/raw/2614950-20261110T174346Z.json"
+        "raw_ref": "private-evidence/raw/2614950-20261116T224341Z.json"
       }
     },
     {
@@ -8478,12 +8191,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -8497,11 +8207,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:00Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:53Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2698127",
         "content_hash": "c5fbb43d310b8fc3e3531e7fa5720553669d93d3b61ba600b0736236dc6d0e7b",
-        "raw_ref": "private-evidence/raw/2698127-20261110T174500Z.json"
+        "raw_ref": "private-evidence/raw/2698127-20261116T224453Z.json"
       }
     },
     {
@@ -9384,12 +9094,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -9403,11 +9110,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:44:28Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:22Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2731373",
         "content_hash": "00f32f50fa2147f86a71099a053c5aba59c4f68decd145a69ede2c215c61d089",
-        "raw_ref": "private-evidence/raw/2731373-20261110T174428Z.json"
+        "raw_ref": "private-evidence/raw/2731373-20261116T224422Z.json"
       }
     },
     {
@@ -9857,12 +9564,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -9876,11 +9580,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:44:33Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:27Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2893640",
         "content_hash": "a313f096910f850d6127f55c61c6f58287948dffa8020649380946c8d3def95e",
-        "raw_ref": "private-evidence/raw/2893640-20261110T174433Z.json"
+        "raw_ref": "private-evidence/raw/2893640-20261116T224427Z.json"
       }
     },
     {
@@ -10086,11 +9790,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:43:26Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:43:22Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2910102",
         "content_hash": "ee8ce2b5e830d162e360c24cad7c372563b61a058c5ea951b0a5085591c8e0c4",
-        "raw_ref": "private-evidence/raw/2910102-20261110T174326Z.json"
+        "raw_ref": "private-evidence/raw/2910102-20261116T224322Z.json"
       }
     },
     {
@@ -10539,11 +10243,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -10557,11 +10259,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:44:11Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:05Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2934405",
         "content_hash": "c994f3a60dcda728dbdaff88bfaeec0ca08854421ef23f8d65c850a176e7dbec",
-        "raw_ref": "private-evidence/raw/2934405-20261110T174411Z.json"
+        "raw_ref": "private-evidence/raw/2934405-20261116T224405Z.json"
       }
     },
     {
@@ -11076,11 +10778,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -11094,11 +10794,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:20Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:46:01Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3002770",
         "content_hash": "a391d0d4d3b06184cb2ab70d0e9158e9d47d94dbd9b8fa758e46c8b391c85e07",
-        "raw_ref": "private-evidence/raw/3002770-20261110T174620Z.json"
+        "raw_ref": "private-evidence/raw/3002770-20261116T224601Z.json"
       }
     },
     {
@@ -11361,11 +11061,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:52Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:36Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3037742",
         "content_hash": "5aa932f06408b88d2ea63693dc685aa857577966a283d31f5807a514cdcfb05e",
-        "raw_ref": "private-evidence/raw/3037742-20261110T174552Z.json"
+        "raw_ref": "private-evidence/raw/3037742-20261116T224536Z.json"
       }
     },
     {
@@ -11516,12 +11216,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -11535,11 +11232,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:12Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:54Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3050928",
         "content_hash": "70b6314c7ce3a7bca93d20b23a5eed741ac30a075c50a02fb0a1a529c943f4eb",
-        "raw_ref": "private-evidence/raw/3050928-20261110T174612Z.json"
+        "raw_ref": "private-evidence/raw/3050928-20261116T224554Z.json"
       }
     },
     {
@@ -12010,11 +11707,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:44:06Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:43:59Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3056714",
         "content_hash": "28b4b067b7cfaa3e836f7c2b4cec95488b9b6e4d94043b4e4d6318081d7d0037",
-        "raw_ref": "private-evidence/raw/3056714-20261110T174406Z.json"
+        "raw_ref": "private-evidence/raw/3056714-20261116T224359Z.json"
       }
     },
     {
@@ -12271,12 +11968,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -12290,11 +11984,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:44:19Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:13Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3083583",
         "content_hash": "8b86b4b9e3f5d49b6388eda9522871d1ae5b69a8073a9652eecc9791ba4dad06",
-        "raw_ref": "private-evidence/raw/3083583-20261110T174419Z.json"
+        "raw_ref": "private-evidence/raw/3083583-20261116T224413Z.json"
       }
     },
     {
@@ -12564,11 +12258,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -12582,11 +12274,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:44:39Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:33Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3084011",
         "content_hash": "3111f8bf8eafaa87147e1a89458f7c6f4ed18b346151f6a7b800c2e651427aa9",
-        "raw_ref": "private-evidence/raw/3084011-20261110T174439Z.json"
+        "raw_ref": "private-evidence/raw/3084011-20261116T224433Z.json"
       }
     },
     {
@@ -12712,11 +12404,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -12730,11 +12420,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:43:50Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:43:44Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3171916",
         "content_hash": "a3cddaae9ff6078ca8bfe42cc8d660dc9fe8c230c24d4bcb88a404fc701d5871",
-        "raw_ref": "private-evidence/raw/3171916-20261110T174350Z.json"
+        "raw_ref": "private-evidence/raw/3171916-20261116T224344Z.json"
       }
     },
     {
@@ -12811,11 +12501,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -12829,11 +12517,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:24Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:46:05Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3174111",
         "content_hash": "f27500f05a9c74ba803b4e066efadbe61d96011e9609f7b757e4c9044602354c",
-        "raw_ref": "private-evidence/raw/3174111-20261110T174624Z.json"
+        "raw_ref": "private-evidence/raw/3174111-20261116T224605Z.json"
       }
     },
     {
@@ -12921,12 +12609,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -12940,11 +12625,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:10Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:52Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3216307",
         "content_hash": "60f4561a0a9e4cbe307c0e8781ae7148168536b2a9d38415e8e7b0f7573905bd",
-        "raw_ref": "private-evidence/raw/3216307-20261110T174610Z.json"
+        "raw_ref": "private-evidence/raw/3216307-20261116T224552Z.json"
       }
     },
     {
@@ -13127,12 +12812,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A",
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -13146,11 +12828,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:44:35Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:44:29Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3217241",
         "content_hash": "9facfaf120770cd609f367acef5c455a3e0d109d1eebfc509a2c9d34eadc7d8a",
-        "raw_ref": "private-evidence/raw/3217241-20261110T174435Z.json"
+        "raw_ref": "private-evidence/raw/3217241-20261116T224429Z.json"
       }
     },
     {
@@ -13929,11 +13611,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -13947,11 +13627,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:43:21Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:43:18Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3232414",
-        "content_hash": "a6cd1f6552427dbf776d7dea6d99c4b994f81ac518c0654e43abd3ca751fc806",
-        "raw_ref": "private-evidence/raw/3232414-20261110T174321Z.json"
+        "content_hash": "95eb00b34f9462be141c3d0b618d5f26d87f269f9d87f0cfe756aa3b409e3f20",
+        "raw_ref": "private-evidence/raw/3232414-20261116T224318Z.json"
       }
     },
     {
@@ -14053,11 +13733,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -14071,11 +13749,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:46:15Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:56Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3293673",
         "content_hash": "071be278a7d85fa0d7c3a704232c62ee53f6e2b09656d13de114e3d427537b4d",
-        "raw_ref": "private-evidence/raw/3293673-20261110T174615Z.json"
+        "raw_ref": "private-evidence/raw/3293673-20261116T224556Z.json"
       }
     },
     {
@@ -14190,11 +13868,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:45:43Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:45:28Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3393367",
         "content_hash": "9f3978a6c79944f73570bf414362b02cd174ea4ea4a8986e8d6bc8e5d389189c",
-        "raw_ref": "private-evidence/raw/3393367-20261110T174543Z.json"
+        "raw_ref": "private-evidence/raw/3393367-20261116T224528Z.json"
       }
     },
     {
@@ -15071,11 +14749,9 @@
       "atag": {
         "is_atag": true,
         "parts": [],
-        "candidate_parts": [
-          "A"
-        ],
+        "candidate_parts": [],
         "criteria": [],
-        "basis": "tag+component-heuristic",
+        "basis": "tag",
         "review_status": "needs-triage",
         "tag_basis": [
           "atag"
@@ -15089,27 +14765,27 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:43:59Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:43:53Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/893530",
-        "content_hash": "2f39bdefa58ee8fe459e759047b54404504593ac732b747ee6d16dbeeffd63db",
-        "raw_ref": "private-evidence/raw/893530-20261110T174359Z.json"
+        "content_hash": "e70506f15308c0c6799de6bc5eadda24becac258a7ace8f33e34492c51cc4a84",
+        "raw_ref": "private-evidence/raw/893530-20261116T224353Z.json"
       }
     }
   ],
   "summary": {
-    "requested": 32,
-    "retrieved_at": "2026-11-10T17:46:24Z",
-    "collected": 32,
+    "requested": 31,
+    "retrieved_at": "2026-11-16T22:46:05Z",
+    "collected": 31,
     "cached": 0,
     "reused": 0,
-    "fetched": 32,
+    "fetched": 31,
     "failed": 0,
     "with_merge_requests": 6,
     "with_wcag_tags": 14,
-    "detailed": 32,
+    "detailed": 31,
     "inventory": 0,
-    "excluded_by_status": 37,
+    "excluded_by_status": 38,
     "statuses": [
       1,
       8,
@@ -15117,18 +14793,18 @@
       14,
       15
     ],
-    "comments": 1067,
+    "comments": 1050,
     "by_workflow": {
       "needs-work": 8,
-      "open": 24
+      "open": 23
     },
     "by_status": {
-      "Active": 24,
+      "Active": 23,
       "Needs work": 8
     },
     "errors": []
   },
   "manifest_digest": "e8f54003ff784f82760215d2b40e9b7d462c9012e9dacf7558e913395b8bdae0",
   "digest_scope": "sha256 over this artifact excluding generated_at and evidence_digest",
-  "evidence_digest": "f2e1baa14114841a731ed00ebc60d85bcb4f5b6870890e60fc16fbeaa5ae38c3"
+  "evidence_digest": "2eb9ef95e5d8c6872a1ede8bad34108aba07adb693647e54a4db386b10ae0e87"
 }

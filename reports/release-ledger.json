@@ -2,8 +2,8 @@
   "schema_version": "0.2.0",
   "artifact_type": "drupal-release-transition-ledger",
   "disclaimer": "Closed-fixed issue ledger only. It does not change active-issue ACR results.",
-  "generated_at": "2026-11-10T17:47:17Z",
-  "since": "2026-05-14T17:46:25Z",
+  "generated_at": "2026-11-16T22:46:56Z",
+  "since": "2026-05-20T22:46:06Z",
   "target_order": [
     "drupal-core-10.6.21",
     "drupal-core-11.4.12",
@@ -40,10 +40,10 @@
   ],
   "release_notes": "https://www.drupal.org/project/drupal/releases",
   "summary": {
-    "issues": 23,
+    "issues": 21,
     "included": 16,
     "not-included": 0,
-    "not-established": 6,
+    "not-established": 4,
     "removed": 1
   },
   "issues": [
@@ -212,42 +212,6 @@
         "drupal-core-main"
       ],
       "backport_state": "included"
-    },
-    {
-      "issue_id": "drupal:3541910",
-      "source_id": "3541910",
-      "source_url": "https://www.drupal.org/node/3541910",
-      "title": "Elements in closed sidebar are focusable",
-      "component": "navigation.module",
-      "closed_at": "2026-05-19T22:10:03Z",
-      "commits": [],
-      "targets": {
-        "drupal-core-10.6.21": "not-established",
-        "drupal-core-11.4.12": "not-established",
-        "drupal-core-12.0.0-alpha1": "not-established",
-        "drupal-core-12.0.0-beta2": "not-established",
-        "drupal-core-main": "not-established"
-      },
-      "included_in": [],
-      "backport_state": "not-established"
-    },
-    {
-      "issue_id": "drupal:3581802",
-      "source_id": "3581802",
-      "source_url": "https://www.drupal.org/node/3581802",
-      "title": "Add kentr to the MAINTAINERS.txt",
-      "component": "other",
-      "closed_at": "2026-05-19T11:15:02Z",
-      "commits": [],
-      "targets": {
-        "drupal-core-10.6.21": "not-established",
-        "drupal-core-11.4.12": "not-established",
-        "drupal-core-12.0.0-alpha1": "not-established",
-        "drupal-core-12.0.0-beta2": "not-established",
-        "drupal-core-main": "not-established"
-      },
-      "included_in": [],
-      "backport_state": "not-established"
     },
     {
       "issue_id": "drupal:3583516",

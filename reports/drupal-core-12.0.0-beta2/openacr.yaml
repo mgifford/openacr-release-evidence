@@ -8,11 +8,11 @@ product:
 author:
   name: Unassigned reviewer (draft)
   email: reviewer@example.invalid
-report_date: '2026-11-12'
-last_modified_date: '2026-11-12'
+report_date: '2026-11-16'
+last_modified_date: '2026-11-16'
 version: 1
 notes: 'DRAFT OpenACR skeleton for Drupal Core 12.0.0-beta2 (tag 12.0.0-beta2). Evidence
-  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: 738a8025a4887e32c11331b4684bf09473ce0b589d69641fa0d1ec93bf604b2b.
+  report: index.html. Machine-readable evidence: evidence.json. Evidence digest: 85f9f5f1ff65c1bbd944049439f4efbd73c25334e077b1f4a309090c46cc5aa7.
   Component scope: Web and Authoring Tool use the declared Drupal surface assessment
   and known-barrier register; Electronic Documents and Software are Not Applicable
   from documented product scope. No Does Not Support value is recorded. Evidence scope:
@@ -1657,7 +1657,7 @@ target:
   release_line: 12.0.x
   parent_project: null
   assessment_id: drupal-core-12.0.0-beta2
-  evidence_digest: 738a8025a4887e32c11331b4684bf09473ce0b589d69641fa0d1ec93bf604b2b
+  evidence_digest: 85f9f5f1ff65c1bbd944049439f4efbd73c25334e077b1f4a309090c46cc5aa7
   evidence_report: index.html
 standard_source:
   repository: https://github.com/Civicactions/openacr
