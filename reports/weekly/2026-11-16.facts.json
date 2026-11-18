@@ -1,0 +1,946 @@
+{
+  "schema_version": "0.2.0",
+  "artifact_type": "weekly-evidence-facts",
+  "generated_at": "2026-11-16",
+  "previous_generated_at": "2026-11-10T17:42:46Z",
+  "baseline": false,
+  "scope": {
+    "product": "Drupal Core",
+    "standards": [
+      "WCAG 2.2 AA",
+      "Section 508 (revised, 2017)"
+    ],
+    "acr_format": "OpenACR 0.1.0",
+    "active_statuses": [
+      1,
+      8,
+      13,
+      14,
+      15
+    ],
+    "fixed_and_closed_excluded": true
+  },
+  "counts": {
+    "active": 440,
+    "detailed": 53,
+    "inventory": 387,
+    "statuses": {
+      "Active": 241,
+      "Needs work": 179,
+      "Needs review": 15,
+      "Reviewed & tested by the community": 5
+    },
+    "previous_active": 432,
+    "previous_statuses": {
+      "Active": 234,
+      "Needs work": 173,
+      "Needs review": 18,
+      "Reviewed & tested by the community": 7
+    },
+    "changed": 24,
+    "unchanged": 416
+  },
+  "activity": {
+    "baseline": false,
+    "changed": [
+      {
+        "id": "drupal:2084603",
+        "title": "Addition of natural language to bunlde page links on Create Content page",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "markup",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "4.1.2"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "description-changed",
+          "metadata-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 29,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3594809",
+        "title": "Use standard checkboxes on forms that require submission",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.3.1"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "merge-request-activity",
+          "description-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 18,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:3634547",
+        "title": "Make CKEditor balloon tooltips respect Admin light or dark mode",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "description-changed",
+          "metadata-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Active",
+        "new_comments": 4,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3134526",
+        "title": "Create theme function for selection counter",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "media system",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "description-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 10,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3348552",
+        "title": "Pager template fails accessibility tests for Ellipsis (\"...\") ",
+        "status": "Reviewed & tested by the community",
+        "status_code": 14,
+        "component": "theme system",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.3.1",
+          "4.1.2"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments",
+          "merge-request-activity"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 9,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:3338664",
+        "title": "Migrate Nightwatch Axe tests to PHPUnit",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "other",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 1,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3587661",
+        "title": "Missing labels in \"Limited files with a single pre-existing value (required) field.\"",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "forms system",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments"
+        ],
+        "previous_status": "Reviewed & tested by the community",
+        "new_comments": 1,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3619154",
+        "title": "Accessibility fixes for Admin theme's node add/edit sidebar toggle control",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments"
+        ],
+        "previous_status": "Reviewed & tested by the community",
+        "new_comments": 2,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636128",
+        "title": "In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 2,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636143",
+        "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 1,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3590502",
+        "title": "Move local tasks out of the more actions button into the content header on admin pages",
+        "status": "Needs review",
+        "status_code": 8,
+        "component": "navigation.module",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 1,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636640",
+        "title": "Text color on hover has a too low color contrast on the full and mini page component",
+        "status": "Needs review",
+        "status_code": 8,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 2,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3064586",
+        "title": "[PP-1] Improve checkbox styling in the administrative media library",
+        "status": "Active",
+        "status_code": 1,
+        "component": "media system",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3339065",
+        "title": "[policy] Consider updating core gates to include automated Nightwatch A11y tests",
+        "status": "Active",
+        "status_code": 1,
+        "component": "javascript",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636986",
+        "title": "The caret on details elements is invisible on hover and expansion in forced color mode",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636990",
+        "title": "The settings for the default admin theme in forced color mode are either broken or unnecessary",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636992",
+        "title": "The CKEditor buttons on a text format settings page are not showing their iconography in forced color mode",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3637163",
+        "title": "The custom accent color field is in lack of a form validation check",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11",
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3637204",
+        "title": "The Navigation layout page is visually broken in dark mode",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11",
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3637233",
+        "title": "The navigation block title has a too low color contrast in dark mode",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3637246",
+        "title": "The styling of ckeditor buttons in the toolbar configuration field set has a too low color contrast and/or breaking style",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3637273",
+        "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3637339",
+        "title": "Skip to main content link is not using the selected focus color in light and dark mode",
+        "status": "Needs review",
+        "status_code": 8,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3637434",
+        "title": "The workspaces navigation block button has several color contrast related issues in light mode",
+        "status": "Active",
+        "status_code": 1,
+        "component": "workspaces.module",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11",
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      }
+    ],
+    "changed_count": 24,
+    "unchanged_count": 416,
+    "truncated": false
+  },
+  "new_active": [
+    {
+      "id": "drupal:3064586",
+      "title": "[PP-1] Improve checkbox styling in the administrative media library",
+      "status": "Active",
+      "status_code": 1,
+      "component": "media system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3339065",
+      "title": "[policy] Consider updating core gates to include automated Nightwatch A11y tests",
+      "status": "Active",
+      "status_code": 1,
+      "component": "javascript",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3636986",
+      "title": "The caret on details elements is invisible on hover and expansion in forced color mode",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3636990",
+      "title": "The settings for the default admin theme in forced color mode are either broken or unnecessary",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3636992",
+      "title": "The CKEditor buttons on a text format settings page are not showing their iconography in forced color mode",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3637163",
+      "title": "The custom accent color field is in lack of a form validation check",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ]
+    },
+    {
+      "id": "drupal:3637204",
+      "title": "The Navigation layout page is visually broken in dark mode",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ]
+    },
+    {
+      "id": "drupal:3637233",
+      "title": "The navigation block title has a too low color contrast in dark mode",
+      "status": "Needs work",
+      "status_code": 13,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.3"
+      ]
+    },
+    {
+      "id": "drupal:3637246",
+      "title": "The styling of ckeditor buttons in the toolbar configuration field set has a too low color contrast and/or breaking style",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11"
+      ]
+    },
+    {
+      "id": "drupal:3637273",
+      "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
+      "status": "Needs work",
+      "status_code": 13,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.3"
+      ]
+    },
+    {
+      "id": "drupal:3637339",
+      "title": "Skip to main content link is not using the selected focus color in light and dark mode",
+      "status": "Needs review",
+      "status_code": 8,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3637434",
+      "title": "The workspaces navigation block button has several color contrast related issues in light mode",
+      "status": "Active",
+      "status_code": 1,
+      "component": "workspaces.module",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ]
+    }
+  ],
+  "new_active_count": 12,
+  "no_longer_active": [
+    {
+      "id": "drupal:2307175",
+      "title": "[meta] Document all accessibility features in the UI",
+      "status": "Active",
+      "status_code": 1,
+      "component": "documentation",
+      "version": "main",
+      "evidence_status": "inventory",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:2827034",
+      "title": "DateList and date range inline form errors are repeated",
+      "status": "Needs work",
+      "status_code": 13,
+      "component": "datetime.module",
+      "version": "main",
+      "evidence_status": "inventory",
+      "wcag_candidates": [
+        "3.1.2"
+      ]
+    },
+    {
+      "id": "drupal:3016006",
+      "title": "Allow views title override using filter result tokens (improve accessibility) ",
+      "status": "Active",
+      "status_code": 1,
+      "component": "views.module",
+      "version": "main",
+      "evidence_status": "inventory",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3624877",
+      "title": "Navigation icons contain hardcoded colors",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "navigation.module",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    }
+  ],
+  "no_longer_active_count": 4,
+  "status_changes": [
+    {
+      "id": "drupal:3338664",
+      "title": "Migrate Nightwatch Axe tests to PHPUnit",
+      "from": "Needs review",
+      "to": "Needs work",
+      "from_code": 8,
+      "to_code": 13
+    },
+    {
+      "id": "drupal:3348552",
+      "title": "Pager template fails accessibility tests for Ellipsis (\"...\") ",
+      "from": "Needs review",
+      "to": "Reviewed & tested by the community",
+      "from_code": 8,
+      "to_code": 14
+    },
+    {
+      "id": "drupal:3587661",
+      "title": "Missing labels in \"Limited files with a single pre-existing value (required) field.\"",
+      "from": "Reviewed & tested by the community",
+      "to": "Needs work",
+      "from_code": 14,
+      "to_code": 13
+    },
+    {
+      "id": "drupal:3619154",
+      "title": "Accessibility fixes for Admin theme's node add/edit sidebar toggle control",
+      "from": "Reviewed & tested by the community",
+      "to": "Needs work",
+      "from_code": 14,
+      "to_code": 13
+    },
+    {
+      "id": "drupal:3636128",
+      "title": "In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode",
+      "from": "Needs review",
+      "to": "Needs work",
+      "from_code": 8,
+      "to_code": 13
+    },
+    {
+      "id": "drupal:3636143",
+      "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
+      "from": "Needs review",
+      "to": "Needs work",
+      "from_code": 8,
+      "to_code": 13
+    }
+  ],
+  "status_change_count": 6,
+  "rtbc": [
+    {
+      "id": "drupal:2279111",
+      "title": "Form API 'item' elements should not use the 'for' attribute",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "forms system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3049125",
+      "title": "Language switcher block is an unlabelled navigation landmark region",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "language system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3348552",
+      "title": "Pager template fails accessibility tests for Ellipsis (\"...\") ",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "theme system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.3.1",
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "drupal:3615469",
+      "title": "Change link text on Maintenance mode form to 'user login page'",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "system.module",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3619387",
+      "title": "Indicate on forms sidebar toggle button that sidebar has child element errors",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    }
+  ],
+  "rtbc_count": 5,
+  "new_rtbc": [
+    {
+      "id": "drupal:3348552",
+      "title": "Pager template fails accessibility tests for Ellipsis (\"...\") ",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "theme system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.3.1",
+        "4.1.2"
+      ]
+    }
+  ],
+  "new_rtbc_count": 1,
+  "criteria": [
+    {
+      "criterion": "1.4.3",
+      "current": 6,
+      "previous": 1,
+      "delta": 5
+    },
+    {
+      "criterion": "1.4.11",
+      "current": 21,
+      "previous": 17,
+      "delta": 4
+    },
+    {
+      "criterion": "3.1.2",
+      "current": 8,
+      "previous": 9,
+      "delta": -1
+    }
+  ],
+  "criteria_changed_count": 3,
+  "targets": {
+    "drupal-core-10.6.21": {
+      "release": "10.6.21",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 37,
+        "unknown": 403
+      },
+      "by_evidence_status": {
+        "full": 53,
+        "inventory": 387
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-11.4.12": {
+      "release": "11.4.12",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 37,
+        "unknown": 403
+      },
+      "by_evidence_status": {
+        "full": 53,
+        "inventory": 387
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-12.0.0-alpha1": {
+      "release": "12.0.0-alpha1",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 32,
+        "unknown": 408
+      },
+      "by_evidence_status": {
+        "full": 53,
+        "inventory": 387
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-12.0.0-beta2": {
+      "release": "12.0.0-beta2",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 34,
+        "unknown": 406
+      },
+      "by_evidence_status": {
+        "full": 53,
+        "inventory": 387
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-main": {
+      "release": "12.0.x-dev",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 53,
+        "unknown": 387
+      },
+      "by_evidence_status": {
+        "full": 53,
+        "inventory": 387
+      },
+      "fix_included_in_target": 0
+    }
+  },
+  "target_finding_deltas": {
+    "drupal-core-10.6.21": {
+      "from": 432,
+      "to": 440
+    },
+    "drupal-core-11.4.12": {
+      "from": 432,
+      "to": 440
+    },
+    "drupal-core-12.0.0-alpha1": {
+      "from": 432,
+      "to": 440
+    },
+    "drupal-core-12.0.0-beta2": {
+      "from": 432,
+      "to": 440
+    },
+    "drupal-core-main": {
+      "from": 432,
+      "to": 440
+    }
+  },
+  "atag": {
+    "issues": 31,
+    "explicit_part_a": 0,
+    "explicit_part_b": 0,
+    "candidate_part_a": 0,
+    "candidate_part_b": 0,
+    "unspecified": 26,
+    "meta_issues": 5,
+    "missing_accessibility_tag": 0
+  },
+  "atag_deltas": {
+    "issues": -1,
+    "meta_issues": -1
+  },
+  "artifacts": {
+    "changed": [
+      "drupal-core-10.6.21/acr.md",
+      "drupal-core-10.6.21/openacr.yaml",
+      "drupal-core-11.4.12/acr.md",
+      "drupal-core-11.4.12/openacr.yaml",
+      "drupal-core-12.0.0-alpha1/acr.md",
+      "drupal-core-12.0.0-alpha1/openacr.yaml",
+      "drupal-core-12.0.0-beta2/acr.md",
+      "drupal-core-12.0.0-beta2/openacr.yaml",
+      "drupal-core-main/acr.md",
+      "drupal-core-main/openacr.yaml"
+    ],
+    "changed_count": 10
+  },
+  "notes": [
+    "Active issues only; fixed, closed and postponed issues are excluded.",
+    "An issue missing from the active list is 'no longer active', not proof of a fix.",
+    "Inventory issues have no comments, merge requests or commit analysis.",
+    "The weekly digest is not an ACR and must not be used as a conformance result."
+  ]
+}

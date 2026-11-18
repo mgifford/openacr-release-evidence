@@ -4,7 +4,7 @@
   "provider": "huggingface",
   "provider_name": "auto",
   "model": "Qwen/Qwen2.5-7B-Instruct",
-  "generated_at": "2026-11-10T17:46:24Z",
+  "generated_at": "2026-11-16T22:46:06Z",
   "criteria": {
     "1.1.1": {
       "input_sha256": "3ee99c1c04b8efb697c6cc0ba324296036b9c9fb02ba16044d3223d998a939a0",
@@ -27,7 +27,7 @@
       "error": "ValueError: Provider 'huggingface' not supported. Available values: 'auto' or any provider from ['black-forest-labs', 'cerebras', 'clarifai', 'cohere', 'fal-ai', 'featherless-ai', 'fireworks-ai', 'groq', 'hf-inference', 'hyperbolic', 'nebius', 'novita', 'nscale', 'openai', 'publicai', 'replicate', '"
     },
     "1.3.1": {
-      "input_sha256": "af108ac612682c2cf1bb0ef7416d0f77c5519425d21639cf0c0cca7f59a4b679",
+      "input_sha256": "ba538d0a894f0e288d7c3b895b6f2bad3a3d6bc5aef3136e9010d36820afdb38",
       "provider": "huggingface",
       "model": "Qwen/Qwen2.5-7B-Instruct",
       "prompt_version": "acr-criterion-v2",
@@ -87,7 +87,7 @@
       "error": "ValueError: Provider 'huggingface' not supported. Available values: 'auto' or any provider from ['black-forest-labs', 'cerebras', 'clarifai', 'cohere', 'fal-ai', 'featherless-ai', 'fireworks-ai', 'groq', 'hf-inference', 'hyperbolic', 'nebius', 'novita', 'nscale', 'openai', 'publicai', 'replicate', '"
     },
     "1.4.11": {
-      "input_sha256": "b6170d0efdf90c064fe749be3f6d761a3b9f6a678555de9c7d3156becb714a88",
+      "input_sha256": "26d66e75a13caa8bb79f2635a88c70db54c73703e33f0668019ea1f519fa47e7",
       "provider": "huggingface",
       "model": "Qwen/Qwen2.5-7B-Instruct",
       "prompt_version": "acr-criterion-v2",
@@ -117,7 +117,7 @@
       "error": "ValueError: Provider 'huggingface' not supported. Available values: 'auto' or any provider from ['black-forest-labs', 'cerebras', 'clarifai', 'cohere', 'fal-ai', 'featherless-ai', 'fireworks-ai', 'groq', 'hf-inference', 'hyperbolic', 'nebius', 'novita', 'nscale', 'openai', 'publicai', 'replicate', '"
     },
     "1.4.3": {
-      "input_sha256": "a383caa139e01ebfe3813c3f5b0df53ca8855f3a4724f29ecc77ba093375c994",
+      "input_sha256": "3474a3b5fcd22874e6a04521ca21c92919a30563aac5e77d384f1e880f700dde",
       "provider": "huggingface",
       "model": "Qwen/Qwen2.5-7B-Instruct",
       "prompt_version": "acr-criterion-v2",
@@ -297,7 +297,7 @@
       "error": "ValueError: Provider 'huggingface' not supported. Available values: 'auto' or any provider from ['black-forest-labs', 'cerebras', 'clarifai', 'cohere', 'fal-ai', 'featherless-ai', 'fireworks-ai', 'groq', 'hf-inference', 'hyperbolic', 'nebius', 'novita', 'nscale', 'openai', 'publicai', 'replicate', '"
     },
     "3.1.2": {
-      "input_sha256": "60b2d9b0e44198d6c9db0071cf0ca3b92539825dbd33ae21e958a54be6bd0b89",
+      "input_sha256": "db975436ebe47aff374d806b50190c73a9152c9fc3565e049bf4a4ea833c6f01",
       "provider": "huggingface",
       "model": "Qwen/Qwen2.5-7B-Instruct",
       "prompt_version": "acr-criterion-v2",
@@ -377,7 +377,7 @@
       "error": "ValueError: Provider 'huggingface' not supported. Available values: 'auto' or any provider from ['black-forest-labs', 'cerebras', 'clarifai', 'cohere', 'fal-ai', 'featherless-ai', 'fireworks-ai', 'groq', 'hf-inference', 'hyperbolic', 'nebius', 'novita', 'nscale', 'openai', 'publicai', 'replicate', '"
     },
     "4.1.2": {
-      "input_sha256": "9430c428aa3db313a0acb14b3d1861b204c1bd72cb2b4e8d1a5433e99190bf15",
+      "input_sha256": "0a0e92075fcdb9695beeb18e0431da160a60f0714aaeb54cd7f47c2969d39a8d",
       "provider": "huggingface",
       "model": "Qwen/Qwen2.5-7B-Instruct",
       "prompt_version": "acr-criterion-v2",

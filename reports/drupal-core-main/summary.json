@@ -8,9 +8,9 @@
     "ref_label": "branch main",
     "tag": null,
     "branch": "main",
-    "tag_commit": "f3468222385057c4b55bb0ad508d58cbc3133c10",
-    "tag_commit_short": "f3468222",
-    "tag_date": "2026-11-11T20:30:21.000+00:00",
+    "tag_commit": "e95c24bbda976d0bee0bb63c80be22b904e1bb3d",
+    "tag_commit_short": "e95c24bb",
+    "tag_date": "2026-11-16T18:44:08.000+00:00",
     "support_status": "development",
     "release_line": "main",
     "parent_project": null,
@@ -106,25 +106,25 @@
     }
   },
   "summary": {
-    "findings": 432,
+    "findings": 440,
     "by_applicability": {
-      "likely-affected": 38,
-      "unknown": 394
+      "likely-affected": 53,
+      "unknown": 387
     },
     "by_workflow": {
-      "needs-review": 18,
-      "needs-work": 173,
-      "open": 234,
-      "rtbc": 7
+      "needs-review": 15,
+      "needs-work": 179,
+      "open": 241,
+      "rtbc": 5
     },
     "by_evidence_status": {
-      "full": 38,
-      "inventory": 394
+      "full": 53,
+      "inventory": 387
     },
-    "fix_included_in_target": 1,
+    "fix_included_in_target": 0,
     "fix_included_in_release": 0,
-    "needs_verification": 432,
-    "unmapped_criteria": 236,
+    "needs_verification": 440,
+    "unmapped_criteria": 239,
     "criteria": [
       "1.1.1",
       "1.2.2",
@@ -172,12 +172,12 @@
       "branches": [
         "main"
       ],
-      "since": "2026-05-15T20:30:21Z",
-      "commits": 785,
-      "retrieved_at": "2026-11-12T05:59:51+00:00"
+      "since": "2026-05-20T18:44:08Z",
+      "commits": 794,
+      "retrieved_at": "2026-11-16T22:47:38Z"
     }
   },
-  "generated_at": "2026-11-12T07:46:55Z",
-  "evidence_digest": "d6b92d2f4b35b2618debfbd7b04086cc8f6160545658de4e3cd1b52659d454f5",
+  "generated_at": "2026-11-16T22:47:38Z",
+  "evidence_digest": "a2b7b51fd7e79166caae0d15ab3280958a0a4bc5c2b3136ce8b67a4e986bfa6f",
   "manifest_digest": "8b29349cd220d8aef660f667fade5a117e90f398386f114e3f52ddcc01818d05"
 }

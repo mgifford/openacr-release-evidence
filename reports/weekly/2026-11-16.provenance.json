@@ -1,0 +1,13 @@
+{
+  "provider": "huggingface",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "provider_name": "auto",
+  "endpoint": "",
+  "model_revision": "",
+  "prompt_version": "weekly-evidence-v1",
+  "input_sha256": "8307066665b96bca9058a8b5b4b1878774b28cd2724d4f8beec7c229847184b2",
+  "output_sha256": "4d8a2cd1dc13bd4760eec0199ed83d41ad2cb3228c6e9259c45dc61408c966c8",
+  "status": "accepted",
+  "context_sha256": "6347cc0b498dc796fb1eea9eb84b593a6118c97a0aa50082d7a3f1990f1f48e7",
+  "context_path": "context/DRUPAL.md"
+}

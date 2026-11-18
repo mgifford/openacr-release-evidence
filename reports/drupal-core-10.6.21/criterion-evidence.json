@@ -6,12 +6,12 @@
   "release": "10.6.21",
   "target_id": "drupal-core-10.6.21",
   "target_ref": "10.6.21",
-  "generated_at": "2026-11-12T07:46:49Z",
+  "generated_at": "2026-11-16T22:46:56Z",
   "disclaimer": "Reported issue evidence only. No conformance result is assigned. Supports and Not Applicable require human-reviewed evidence.",
   "summary": {
     "criteria": 182,
-    "reported_barrier": 52,
-    "insufficient_evidence": 302,
+    "reported_barrier": 53,
+    "insufficient_evidence": 301,
     "outside_documented_scope": 374,
     "automated_coverage": 48,
     "formal_conformance_results": 0,
@@ -839,7 +839,7 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
               "title": "Pager template fails accessibility tests for Ellipsis (\"...\") ",
               "component": "theme system",
-              "tracker_status": "Needs review",
+              "tracker_status": "Reviewed & tested by the community",
               "evidence_status": "full",
               "release_applicability": "likely-affected",
               "surface": "authoring",
@@ -851,8 +851,8 @@
               "title": "Use standard checkboxes on forms that require submission",
               "component": "Admin theme",
               "tracker_status": "Needs work",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
               "surface": "authoring",
               "fix_included_in_target": false
             }
@@ -3746,17 +3746,6 @@
               "fix_included_in_target": false
             },
             {
-              "issue_id": "drupal:2084603",
-              "source_url": "https://www.drupal.org/project/drupal/issues/2084603",
-              "title": "Addition of natural language to Article and Basic page links on Create Content page",
-              "component": "markup",
-              "tracker_status": "Needs work",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
-              "surface": "web",
-              "fix_included_in_target": false
-            },
-            {
               "issue_id": "drupal:2124405",
               "source_url": "https://www.drupal.org/project/drupal/issues/2124405",
               "title": "Take advantage of ARIA roles (specifically widget roles) to enrich the non-visual interface of Views",
@@ -4084,6 +4073,17 @@
           "conformance_result": null,
           "issues": [
             {
+              "issue_id": "drupal:2084603",
+              "source_url": "https://www.drupal.org/project/drupal/issues/2084603",
+              "title": "Addition of natural language to bunlde page links on Create Content page",
+              "component": "markup",
+              "tracker_status": "Needs work",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
+              "surface": "authoring",
+              "fix_included_in_target": false
+            },
+            {
               "issue_id": "drupal:2917777",
               "source_url": "https://www.drupal.org/project/drupal/issues/2917777",
               "title": "Improvements to the styling, grouping, etc. of the Layout Builder UI actions form",
@@ -4121,7 +4121,7 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
               "title": "Pager template fails accessibility tests for Ellipsis (\"...\") ",
               "component": "theme system",
-              "tracker_status": "Needs review",
+              "tracker_status": "Reviewed & tested by the community",
               "evidence_status": "full",
               "release_applicability": "likely-affected",
               "surface": "authoring",
@@ -4504,15 +4504,28 @@
       "components": [
         {
           "component": "web",
-          "evidence_state": "insufficient-evidence",
-          "scope_basis": "No active tagged issue; absence is not evidence of support or inapplicability.",
-          "candidate_relationship": "none",
-          "relationship_review_status": "not-reviewed",
-          "verification_status": "not-tested",
+          "evidence_state": "reported-barrier-unverified",
+          "scope_basis": "Active Drupal.org issue tagged with this criterion; not reproduced against the target.",
+          "candidate_relationship": "issue-tag",
+          "relationship_review_status": "unreviewed",
+          "verification_status": "not-reproduced",
           "conformance_result": null,
-          "issues": [],
+          "issues": [
+            {
+              "issue_id": "drupal:3637434",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637434",
+              "title": "The workspaces navigation block button has several color contrast related issues in light mode",
+              "component": "workspaces.module",
+              "tracker_status": "Active",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "web",
+              "fix_included_in_target": false
+            }
+          ],
           "gaps": [
-            "No positive evidence recorded"
+            "Reproduction on the exact target",
+            "Review of the criterion mapping"
           ]
         },
         {
@@ -4556,6 +4569,50 @@
               "title": "Text color on hover has a too low color contrast on the full and mini page component",
               "component": "Admin theme",
               "tracker_status": "Needs review",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "authoring",
+              "fix_included_in_target": false
+            },
+            {
+              "issue_id": "drupal:3637163",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637163",
+              "title": "The custom accent color field is in lack of a form validation check",
+              "component": "Admin theme",
+              "tracker_status": "Active",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "authoring",
+              "fix_included_in_target": false
+            },
+            {
+              "issue_id": "drupal:3637204",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637204",
+              "title": "The Navigation layout page is visually broken in dark mode",
+              "component": "Admin theme",
+              "tracker_status": "Active",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "authoring",
+              "fix_included_in_target": false
+            },
+            {
+              "issue_id": "drupal:3637233",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637233",
+              "title": "The navigation block title has a too low color contrast in dark mode",
+              "component": "Admin theme",
+              "tracker_status": "Needs work",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "authoring",
+              "fix_included_in_target": false
+            },
+            {
+              "issue_id": "drupal:3637273",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637273",
+              "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
+              "component": "Admin theme",
+              "tracker_status": "Needs work",
               "evidence_status": "full",
               "release_applicability": "unknown",
               "surface": "authoring",
@@ -4937,6 +4994,17 @@
               "release_applicability": "unknown",
               "surface": "web",
               "fix_included_in_target": false
+            },
+            {
+              "issue_id": "drupal:3637434",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637434",
+              "title": "The workspaces navigation block button has several color contrast related issues in light mode",
+              "component": "workspaces.module",
+              "tracker_status": "Active",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "web",
+              "fix_included_in_target": false
             }
           ],
           "gaps": [
@@ -5037,11 +5105,11 @@
             {
               "issue_id": "drupal:3634547",
               "source_url": "https://www.drupal.org/project/drupal/issues/3634547",
-              "title": "[PP-1] Make CKEditor balloon tooltips respect Admin light or dark mode",
+              "title": "Make CKEditor balloon tooltips respect Admin light or dark mode",
               "component": "Admin theme",
               "tracker_status": "Active",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
               "surface": "authoring",
               "fix_included_in_target": false
             },
@@ -5072,7 +5140,7 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3636128",
               "title": "In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode",
               "component": "Admin theme",
-              "tracker_status": "Needs review",
+              "tracker_status": "Needs work",
               "evidence_status": "full",
               "release_applicability": "unknown",
               "surface": "authoring",
@@ -5083,7 +5151,40 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3636143",
               "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
               "component": "Admin theme",
-              "tracker_status": "Needs review",
+              "tracker_status": "Needs work",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "authoring",
+              "fix_included_in_target": false
+            },
+            {
+              "issue_id": "drupal:3637163",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637163",
+              "title": "The custom accent color field is in lack of a form validation check",
+              "component": "Admin theme",
+              "tracker_status": "Active",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "authoring",
+              "fix_included_in_target": false
+            },
+            {
+              "issue_id": "drupal:3637204",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637204",
+              "title": "The Navigation layout page is visually broken in dark mode",
+              "component": "Admin theme",
+              "tracker_status": "Active",
+              "evidence_status": "full",
+              "release_applicability": "unknown",
+              "surface": "authoring",
+              "fix_included_in_target": false
+            },
+            {
+              "issue_id": "drupal:3637246",
+              "source_url": "https://www.drupal.org/project/drupal/issues/3637246",
+              "title": "The styling of ckeditor buttons in the toolbar configuration field set has a too low color contrast and/or breaking style",
+              "component": "Admin theme",
+              "tracker_status": "Active",
               "evidence_status": "full",
               "release_applicability": "unknown",
               "surface": "authoring",
@@ -5919,17 +6020,6 @@
               "title": "Views containing content not in the page's language need to add tags which mark the language of parts",
               "component": "views.module",
               "tracker_status": "Active",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
-              "surface": "web",
-              "fix_included_in_target": false
-            },
-            {
-              "issue_id": "drupal:2827034",
-              "source_url": "https://www.drupal.org/project/drupal/issues/2827034",
-              "title": "DateList and date range inline form errors are repeated",
-              "component": "datetime.module",
-              "tracker_status": "Needs work",
               "evidence_status": "inventory",
               "release_applicability": "unknown",
               "surface": "web",

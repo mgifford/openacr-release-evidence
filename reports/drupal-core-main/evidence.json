@@ -100,15 +100,15 @@
     "ref_label": "branch main",
     "tag": null,
     "branch": "main",
-    "tag_commit": "f3468222385057c4b55bb0ad508d58cbc3133c10",
-    "tag_commit_short": "f3468222",
-    "tag_date": "2026-11-11T20:30:21.000+00:00",
+    "tag_commit": "e95c24bbda976d0bee0bb63c80be22b904e1bb3d",
+    "tag_commit_short": "e95c24bb",
+    "tag_date": "2026-11-16T18:44:08.000+00:00",
     "support_status": "development",
     "release_line": "main",
     "parent_project": null,
     "scope_note": "Development branch. Findings are not release claims and can change at any commit. Default Admin is the default theme; Claro and Olivero are contributed projects."
   },
-  "generated_at": "2026-11-12T07:46:55Z",
+  "generated_at": "2026-11-16T22:47:38Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -129,20 +129,20 @@
       "component": null,
       "since": null
     },
-    "collection_digest": "f77e352a57d98c74c0dc5c1365e106a7c429d91f4688f68f6191a7cea7ec0bd1",
+    "collection_digest": "1ce5d0f02aee37200c256e91c3d54eb4290d431bea20e061c21e31484317a644",
     "summary": {
-      "requested": 432,
-      "retrieved_at": "2026-11-10T17:42:46Z",
-      "collected": 432,
+      "requested": 440,
+      "retrieved_at": "2026-11-16T22:42:45Z",
+      "collected": 440,
       "cached": 0,
-      "reused": 430,
-      "fetched": 2,
+      "reused": 416,
+      "fetched": 24,
       "failed": 0,
-      "with_merge_requests": 33,
-      "with_wcag_tags": 196,
-      "detailed": 38,
-      "inventory": 394,
-      "excluded_by_status": 48,
+      "with_merge_requests": 36,
+      "with_wcag_tags": 201,
+      "detailed": 53,
+      "inventory": 387,
+      "excluded_by_status": 26,
       "statuses": [
         1,
         8,
@@ -150,43 +150,43 @@
         14,
         15
       ],
-      "comments": 1721,
+      "comments": 1837,
       "by_workflow": {
-        "needs-review": 18,
-        "needs-work": 173,
-        "open": 234,
-        "rtbc": 7
+        "needs-review": 15,
+        "needs-work": 179,
+        "open": 241,
+        "rtbc": 5
       },
       "by_status": {
-        "Active": 234,
-        "Needs review": 18,
-        "Needs work": 173,
-        "Reviewed & tested by the community": 7
+        "Active": 241,
+        "Needs review": 15,
+        "Needs work": 179,
+        "Reviewed & tested by the community": 5
       },
       "errors": []
     },
-    "cli_version": "Drupal.org CLI 0.15.0"
+    "cli_version": "Drupal.org CLI 0.15.1"
   },
   "summary": {
-    "findings": 432,
+    "findings": 440,
     "by_applicability": {
-      "likely-affected": 38,
-      "unknown": 394
+      "likely-affected": 53,
+      "unknown": 387
     },
     "by_workflow": {
-      "needs-review": 18,
-      "needs-work": 173,
-      "open": 234,
-      "rtbc": 7
+      "needs-review": 15,
+      "needs-work": 179,
+      "open": 241,
+      "rtbc": 5
     },
     "by_evidence_status": {
-      "full": 38,
-      "inventory": 394
+      "full": 53,
+      "inventory": 387
     },
-    "fix_included_in_target": 1,
+    "fix_included_in_target": 0,
     "fix_included_in_release": 0,
-    "needs_verification": 432,
-    "unmapped_criteria": 236,
+    "needs_verification": 440,
+    "unmapped_criteria": 239,
     "criteria": [
       "1.1.1",
       "1.2.2",
@@ -234,15 +234,15 @@
       "branches": [
         "main"
       ],
-      "since": "2026-05-15T20:30:21Z",
-      "commits": 785,
-      "retrieved_at": "2026-11-12T05:59:51+00:00"
+      "since": "2026-05-20T18:44:08Z",
+      "commits": 794,
+      "retrieved_at": "2026-11-16T22:47:38Z"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tree/main",
-    "commit_index": "2026-11-12T05:59:51+00:00"
+    "commit_index": "2026-11-16T22:47:38Z"
   },
   "manifest_digest": "8b29349cd220d8aef660f667fade5a117e90f398386f114e3f52ddcc01818d05",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -1556,11 +1556,10 @@
       "source_project": "drupal",
       "source_id": "2084603",
       "url": "https://www.drupal.org/project/drupal/issues/2084603",
-      "title": "Addition of natural language to Article and Basic page links on Create Content page",
+      "title": "Addition of natural language to bunlde page links on Create Content page",
       "labels": [
         "Accessibility",
         "D8UX usability",
-        null,
         "Needs change record",
         "wcag412",
         "Needs tests"
@@ -1569,15 +1568,15 @@
         "code": 13,
         "label": "Needs work",
         "workflow_state": "needs-work",
-        "raw_label": null
+        "raw_label": "Needs Work"
       },
-      "created_at": "2013-09-09T03:38:59Z",
-      "updated_at": "2023-01-23T16:08:50Z",
+      "created_at": "2013-09-09T03:38:59+00:00",
+      "updated_at": "2026-11-13T07:48:16+00:00",
       "component": "markup",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Normal",
+      "category": "Task",
+      "evidence_status": "full",
       "wcag_candidates": [
         "4.1.2"
       ],
@@ -1593,12 +1592,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:03Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2084603",
-        "content_hash": "b0fef336720cc29a5736a371f764199bfaca2e8465cf038b216a3acebe857f7c",
-        "raw_ref": "private-evidence/raw/2084603-20261107T200916Z.json"
+        "content_hash": "8db991bf0366881a6540fbf5736d51a8caa7e43a77329844ef9e92af0b337003",
+        "raw_ref": "private-evidence/raw/2084603-20261116T224203Z.json"
       }
     },
     {
@@ -2322,58 +2321,6 @@
         "source_url": "https://www.drupal.org/project/drupal/issues/2305109",
         "content_hash": "0dd99c1cbf938956c3f720838f6c8011a6f2ae6eb6c34ca3b6961a2ccd5a8f89",
         "raw_ref": "private-evidence/raw/2305109-20261107T200916Z.json"
-      }
-    },
-    {
-      "schema_version": "0.2.0",
-      "id": "drupal:2307175",
-      "project_scoped_id": "drupal:drupal:2307175",
-      "source_system": "drupal.org",
-      "source_project": "drupal",
-      "source_id": "2307175",
-      "url": "https://www.drupal.org/project/drupal/issues/2307175",
-      "title": "[meta] Document all accessibility features in the UI",
-      "labels": [
-        "atag",
-        "Accessibility",
-        "high contrast"
-      ],
-      "status": {
-        "code": 1,
-        "label": "Active",
-        "workflow_state": "open",
-        "raw_label": null
-      },
-      "created_at": "2014-07-21T20:49:09Z",
-      "updated_at": "2024-01-09T17:49:06Z",
-      "component": "documentation",
-      "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
-      "wcag_candidates": [],
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "provenance": {
-        "source_system": "drupal.org",
-        "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
-        "source_url": "https://www.drupal.org/project/drupal/issues/2307175",
-        "content_hash": "9118475e5dd5b6cc3922860108a206fbdc793e3a0a14acf30259354c5ccb3702",
-        "raw_ref": "private-evidence/raw/2307175-20261107T200916Z.json"
       }
     },
     {
@@ -4079,60 +4026,6 @@
         "source_url": "https://www.drupal.org/project/drupal/issues/2822414",
         "content_hash": "de54ff3cfcc0c130bf47020916c81e3015965bd7ba10a95e5ba3034056ed2ef9",
         "raw_ref": "private-evidence/raw/2822414-20261107T200916Z.json"
-      }
-    },
-    {
-      "schema_version": "0.2.0",
-      "id": "drupal:2827034",
-      "project_scoped_id": "drupal:drupal:2827034",
-      "source_system": "drupal.org",
-      "source_project": "drupal",
-      "source_id": "2827034",
-      "url": "https://www.drupal.org/project/drupal/issues/2827034",
-      "title": "DateList and date range inline form errors are repeated",
-      "labels": [
-        "Accessibility",
-        "inline form errors",
-        "date",
-        "sprint",
-        "wcag312",
-        "Needs issue summary update",
-        "Needs merge request"
-      ],
-      "status": {
-        "code": 13,
-        "label": "Needs work",
-        "workflow_state": "needs-work",
-        "raw_label": null
-      },
-      "created_at": "2016-11-14T08:59:21Z",
-      "updated_at": "2026-09-14T09:21:59Z",
-      "component": "datetime.module",
-      "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
-      "wcag_candidates": [
-        "3.1.2"
-      ],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "provenance": {
-        "source_system": "drupal.org",
-        "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
-        "source_url": "https://www.drupal.org/project/drupal/issues/2827034",
-        "content_hash": "52d072b5234adf560fc08bf2fce7be5da0e1df4d7271c955a603f7359256140a",
-        "raw_ref": "private-evidence/raw/2827034-20261107T200916Z.json"
       }
     },
     {
@@ -7684,52 +7577,6 @@
     },
     {
       "schema_version": "0.2.0",
-      "id": "drupal:3016006",
-      "project_scoped_id": "drupal:drupal:3016006",
-      "source_system": "drupal.org",
-      "source_project": "drupal",
-      "source_id": "3016006",
-      "url": "https://www.drupal.org/project/drupal/issues/3016006",
-      "title": "Allow views title override using filter result tokens (improve accessibility) ",
-      "labels": [
-        "Accessibility"
-      ],
-      "status": {
-        "code": 1,
-        "label": "Active",
-        "workflow_state": "open",
-        "raw_label": null
-      },
-      "created_at": "2018-11-26T01:21:10Z",
-      "updated_at": "2018-11-26T01:21:10Z",
-      "component": "views.module",
-      "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
-      "wcag_candidates": [],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "provenance": {
-        "source_system": "drupal.org",
-        "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
-        "source_url": "https://www.drupal.org/project/drupal/issues/3016006",
-        "content_hash": "43e445f198b46966d7b7772572cdd44aa65693394091bbcbe801f5161cdd4f7f",
-        "raw_ref": "private-evidence/raw/3016006-20261107T200916Z.json"
-      }
-    },
-    {
-      "schema_version": "0.2.0",
       "id": "drupal:3019487",
       "project_scoped_id": "drupal:drupal:3019487",
       "source_system": "drupal.org",
@@ -9884,6 +9731,53 @@
         "source_url": "https://www.drupal.org/project/drupal/issues/3064084",
         "content_hash": "a1de44fa8235fc613b33d2f3af49acc5aec4cb5575628a6a2c712b7c16035300",
         "raw_ref": "private-evidence/raw/3064084-20261107T200916Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3064586",
+      "project_scoped_id": "drupal:drupal:3064586",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3064586",
+      "url": "https://www.drupal.org/project/drupal/issues/3064586",
+      "title": "[PP-1] Improve checkbox styling in the administrative media library",
+      "labels": [
+        "Accessibility",
+        "keyboard focus"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2019-06-27T15:23:42+00:00",
+      "updated_at": "2026-11-15T04:56:15+00:00",
+      "component": "media system",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Task",
+      "evidence_status": "full",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:39Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3064586",
+        "content_hash": "6cda6e5359e29e3799c1cee6fbd55546fc5d98d8b8692e37a9e047c13fa6f8be",
+        "raw_ref": "private-evidence/raw/3064586-20261116T224139Z.json"
       }
     },
     {
@@ -12191,15 +12085,15 @@
         "code": 13,
         "label": "Needs work",
         "workflow_state": "needs-work",
-        "raw_label": null
+        "raw_label": "Needs Work"
       },
-      "created_at": "2020-05-07T17:42:46Z",
-      "updated_at": "2020-08-28T16:40:38Z",
+      "created_at": "2020-05-07T17:42:46+00:00",
+      "updated_at": "2026-11-12T14:21:21+00:00",
       "component": "media system",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Normal",
+      "category": "Feature request",
+      "evidence_status": "full",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -12213,12 +12107,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:18Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3134526",
-        "content_hash": "24061d15d7bb23c8050d6af3212189e969742e852c27655e3416eb5722eba92e",
-        "raw_ref": "private-evidence/raw/3134526-20261107T200916Z.json"
+        "content_hash": "d06c89b4575d44517fbda596e1302d7c7ba56d2699609a4970ba16ed51529400",
+        "raw_ref": "private-evidence/raw/3134526-20261116T224218Z.json"
       }
     },
     {
@@ -14383,13 +14277,13 @@
         "Needs Review Queue Initiative"
       ],
       "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2023-02-02T16:19:18+00:00",
-      "updated_at": "2026-09-26T23:26:16+00:00",
+      "updated_at": "2026-11-12T11:28:42+00:00",
       "component": "other",
       "version": "main",
       "priority": "Major",
@@ -14409,11 +14303,57 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:03:10Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:26Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3338664",
-        "content_hash": "8318aac24d483439b695aa69e52821ea3c9aeabe50139c29634d0de7b41084ae",
-        "raw_ref": "private-evidence/raw/3338664-20261107T200310Z.json"
+        "content_hash": "7f7bd1c60f1b7c20e19da9ca8f903f1e02f308cf6ff0f6e20f070caadd7ba156",
+        "raw_ref": "private-evidence/raw/3338664-20261116T224226Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3339065",
+      "project_scoped_id": "drupal:drupal:3339065",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3339065",
+      "url": "https://www.drupal.org/project/drupal/issues/3339065",
+      "title": "[policy] Consider updating core gates to include automated Nightwatch A11y tests",
+      "labels": [
+        "Accessibility"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2023-02-03T21:58:53+00:00",
+      "updated_at": "2026-11-15T06:27:17+00:00",
+      "component": "javascript",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Task",
+      "evidence_status": "full",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:36Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3339065",
+        "content_hash": "74df8addb05b55b40f283b3cfa5a6da5fdb1e4f7dade00f6ac6a51836657e7cc",
+        "raw_ref": "private-evidence/raw/3339065-20261116T224136Z.json"
       }
     },
     {
@@ -14530,16 +14470,17 @@
         "Accessibility",
         "Needs Review Queue Initiative",
         "wcag412",
-        "wcag131"
+        "wcag131",
+        "Needs issue summary update"
       ],
       "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
+        "code": 14,
+        "label": "Reviewed & tested by the community",
+        "workflow_state": "rtbc",
+        "raw_label": "RTBC"
       },
       "created_at": "2023-03-16T18:09:09+00:00",
-      "updated_at": "2026-11-10T17:16:01+00:00",
+      "updated_at": "2026-11-12T14:40:08+00:00",
       "component": "theme system",
       "version": "main",
       "priority": "Normal",
@@ -14562,11 +14503,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:42:40Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:15Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
-        "content_hash": "e41472555e71496d405a7c7accbabb360424da370e170ddf70dd3b8c299245a6",
-        "raw_ref": "private-evidence/raw/3348552-20261110T174240Z.json"
+        "content_hash": "273a1018f67b29757ebf8ccc7652b79bdd8fe7c7352fa02950146743db2f1431",
+        "raw_ref": "private-evidence/raw/3348552-20261116T224215Z.json"
       }
     },
     {
@@ -18658,13 +18599,13 @@
         "Needs Review Queue Initiative"
       ],
       "status": {
-        "code": 14,
-        "label": "Reviewed & tested by the community",
-        "workflow_state": "rtbc",
-        "raw_label": "RTBC"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-04-29T15:01:55+00:00",
-      "updated_at": "2026-10-19T23:45:28+00:00",
+      "updated_at": "2026-11-12T11:08:58+00:00",
       "component": "forms system",
       "version": "main",
       "priority": "Normal",
@@ -18684,11 +18625,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:01:54Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:30Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3587661",
-        "content_hash": "7aea0d92bb228472aa174b0fd93f8a2a2c0686bcf92db88b9ca16c5d886b0cfc",
-        "raw_ref": "private-evidence/raw/3587661-20261107T200154Z.json"
+        "content_hash": "2eaeff91809efd5db66b19c3057b5b0d71b5cdcd7619d64696ba7cbcfb621b36",
+        "raw_ref": "private-evidence/raw/3587661-20261116T224230Z.json"
       }
     },
     {
@@ -18760,7 +18701,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2026-05-17T13:53:16+00:00",
-      "updated_at": "2026-11-09T18:16:28+00:00",
+      "updated_at": "2026-11-16T15:14:05+00:00",
       "component": "navigation.module",
       "version": "main",
       "priority": "Normal",
@@ -18780,11 +18721,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:30:24Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:35Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3590502",
-        "content_hash": "e9567b4a62c1828413956e9a16c257780f153bc32094ea6ab8cde52f47142bf3",
-        "raw_ref": "private-evidence/raw/3590502-20261110T163024Z.json"
+        "content_hash": "8ef3eda597dca25c1176f4475c26051501fd9b41af86caced6ea2b2bb80663b0",
+        "raw_ref": "private-evidence/raw/3590502-20261116T224135Z.json"
       }
     },
     {
@@ -19044,15 +18985,15 @@
         "code": 13,
         "label": "Needs work",
         "workflow_state": "needs-work",
-        "raw_label": null
+        "raw_label": "Needs Work"
       },
-      "created_at": "2026-06-09T16:57:36Z",
-      "updated_at": "2026-10-20T14:05:00Z",
+      "created_at": "2026-06-09T16:57:36+00:00",
+      "updated_at": "2026-11-16T19:09:23+00:00",
       "component": "Admin theme",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
       "wcag_candidates": [
         "1.3.1"
       ],
@@ -19068,12 +19009,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:30Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3594809",
-        "content_hash": "7fafba22e471567a32d31e0799a26650164d13ac5b70530713c64ec8aa09288e",
-        "raw_ref": "private-evidence/raw/3594809-20261107T200916Z.json"
+        "content_hash": "4485725955307d6f4db944b33fddcbfd748c9c8f9ef7437e6203bc7ff6f94d3f",
+        "raw_ref": "private-evidence/raw/3594809-20261116T224130Z.json"
       }
     },
     {
@@ -20241,13 +20182,13 @@
         "Accessibility"
       ],
       "status": {
-        "code": 14,
-        "label": "Reviewed & tested by the community",
-        "workflow_state": "rtbc",
-        "raw_label": "RTBC"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-08-26T00:03:31+00:00",
-      "updated_at": "2026-11-10T13:41:50+00:00",
+      "updated_at": "2026-11-13T17:09:41+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -20267,11 +20208,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T17:42:46Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:50Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
-        "content_hash": "475d2abb59a4ababeef79b4167bcc56000a26756a819e4b90b3b81b367f2305e",
-        "raw_ref": "private-evidence/raw/3619154-20261110T174246Z.json"
+        "content_hash": "1971fb9cc1519350b1ffbea0f8fd9b76bc7f6ba95312f4def7b2af76c53fb162",
+        "raw_ref": "private-evidence/raw/3619154-20261116T224150Z.json"
       }
     },
     {
@@ -20603,53 +20544,6 @@
         "source_url": "https://www.drupal.org/project/drupal/issues/3624663",
         "content_hash": "119a5f6a074d3d90629b8aaf05da4d62068aa3484707d19f1dd89d5de9f6faf6",
         "raw_ref": "private-evidence/raw/3624663-20261107T200916Z.json"
-      }
-    },
-    {
-      "schema_version": "0.2.0",
-      "id": "drupal:3624877",
-      "project_scoped_id": "drupal:drupal:3624877",
-      "source_system": "drupal.org",
-      "source_project": "drupal",
-      "source_id": "3624877",
-      "url": "https://www.drupal.org/project/drupal/issues/3624877",
-      "title": "Navigation icons contain hardcoded colors",
-      "labels": [
-        "frontend",
-        "Accessibility"
-      ],
-      "status": {
-        "code": 14,
-        "label": "Reviewed & tested by the community",
-        "workflow_state": "rtbc",
-        "raw_label": "RTBC"
-      },
-      "created_at": "2026-09-21T22:30:06+00:00",
-      "updated_at": "2026-10-19T19:14:05+00:00",
-      "component": "navigation.module",
-      "version": "main",
-      "priority": "Normal",
-      "category": "Bug report",
-      "evidence_status": "full",
-      "wcag_candidates": [],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "provenance": {
-        "source_system": "drupal.org",
-        "source_project": "drupal",
-        "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:01:57Z",
-        "source_url": "https://www.drupal.org/project/drupal/issues/3624877",
-        "content_hash": "e6bbc321a79d8c545f58f54d21e8585487814ab6d3e0ece706cf87365faa806e",
-        "raw_ref": "private-evidence/raw/3624877-20261107T200157Z.json"
       }
     },
     {
@@ -21040,7 +20934,7 @@
       "source_project": "drupal",
       "source_id": "3634547",
       "url": "https://www.drupal.org/project/drupal/issues/3634547",
-      "title": "[PP-1] Make CKEditor balloon tooltips respect Admin light or dark mode",
+      "title": "Make CKEditor balloon tooltips respect Admin light or dark mode",
       "labels": [
         "Accessibility",
         "wcag1411",
@@ -21050,15 +20944,15 @@
         "code": 1,
         "label": "Active",
         "workflow_state": "open",
-        "raw_label": null
+        "raw_label": "Active"
       },
-      "created_at": "2026-10-31T18:21:28Z",
-      "updated_at": "2026-11-01T17:11:27Z",
+      "created_at": "2026-10-31T18:21:28+00:00",
+      "updated_at": "2026-11-12T06:13:30+00:00",
       "component": "Admin theme",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Major",
+      "category": "Task",
+      "evidence_status": "full",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -21074,12 +20968,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:31Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3634547",
-        "content_hash": "b8f658ebf243bc3a3b118ed0a5d1b2990e2e30bde579656565d1d8b5f5c55f69",
-        "raw_ref": "private-evidence/raw/3634547-20261107T200916Z.json"
+        "content_hash": "d44ee68e425c0cae709b6a15041f2a46450b8d18ef0726f447a45b6a1b37640c",
+        "raw_ref": "private-evidence/raw/3634547-20261116T224231Z.json"
       }
     },
     {
@@ -21290,16 +21184,17 @@
       "labels": [
         "Accessibility",
         "wcag1411",
-        "Usability"
+        "Usability",
+        "Needs subsystem maintainer review"
       ],
       "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-11-07T23:18:43+00:00",
-      "updated_at": "2026-11-09T13:07:14+00:00",
+      "updated_at": "2026-11-13T15:58:47+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -21321,11 +21216,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:30:37Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:55Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636128",
-        "content_hash": "07ee8a8ba78095f723768cbf4ca85369dcaeebb74ae5f00acce1af9b1ce31af5",
-        "raw_ref": "private-evidence/raw/3636128-20261110T163037Z.json"
+        "content_hash": "816116a0a49ab79e5d518330d2b8783e97ef568cbac3ae68483c854a0213e562",
+        "raw_ref": "private-evidence/raw/3636128-20261116T224155Z.json"
       }
     },
     {
@@ -21343,13 +21238,13 @@
         "Usability"
       ],
       "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-11-08T01:31:11+00:00",
-      "updated_at": "2026-11-09T12:17:02+00:00",
+      "updated_at": "2026-11-13T15:39:17+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -21371,11 +21266,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:30:39Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:57Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636143",
-        "content_hash": "f130e72a50f18c16a25556eea6a5b525f549f77d7fcd0f445a92bbd542f00f2e",
-        "raw_ref": "private-evidence/raw/3636143-20261110T163039Z.json"
+        "content_hash": "07218ff1fc2485bff36df6020d6716b25a696c10495c80c6179e257905d81bab",
+        "raw_ref": "private-evidence/raw/3636143-20261116T224157Z.json"
       }
     },
     {
@@ -21398,7 +21293,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2026-11-10T02:06:26+00:00",
-      "updated_at": "2026-11-10T11:34:34+00:00",
+      "updated_at": "2026-11-13T16:19:16+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -21420,11 +21315,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:29:58Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:52Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636640",
-        "content_hash": "71da0e230e62565487b281ad72f7a788a8cb8a779987233b9c8e44ab4e6023ed",
-        "raw_ref": "private-evidence/raw/3636640-20261110T162958Z.json"
+        "content_hash": "e90ff75d45e14645fb20191e1f9709c68ae3b326e2b7f69ad7c34d941d9554dd",
+        "raw_ref": "private-evidence/raw/3636640-20261116T224152Z.json"
       }
     },
     {
@@ -21474,6 +21369,500 @@
         "source_url": "https://www.drupal.org/project/drupal/issues/3636643",
         "content_hash": "ea35ef194938e469108e2727bc1360386949d6a6fa178d705844b0809b55506c",
         "raw_ref": "private-evidence/raw/3636643-20261110T163000Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636986",
+      "project_scoped_id": "drupal:drupal:3636986",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636986",
+      "url": "https://www.drupal.org/project/drupal/issues/3636986",
+      "title": "The caret on details elements is invisible on hover and expansion in forced color mode",
+      "labels": [
+        "Accessibility",
+        "forced colors",
+        "high contrast"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-10T22:54:32+00:00",
+      "updated_at": "2026-11-10T22:54:32+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:45Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636986",
+        "content_hash": "5c4698e959b4c8c3e0b221b827160097048bed5d10441efe965198249282aa62",
+        "raw_ref": "private-evidence/raw/3636986-20261116T224245Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636990",
+      "project_scoped_id": "drupal:drupal:3636990",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636990",
+      "url": "https://www.drupal.org/project/drupal/issues/3636990",
+      "title": "The settings for the default admin theme in forced color mode are either broken or unnecessary",
+      "labels": [
+        "Accessibility",
+        "forced colors",
+        "color contrast"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-10T23:19:12+00:00",
+      "updated_at": "2026-11-10T23:58:03+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:43Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636990",
+        "content_hash": "7accfb715cd62a6f444beb53f7f662783021f064623275704436b7c3da37aba9",
+        "raw_ref": "private-evidence/raw/3636990-20261116T224243Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636992",
+      "project_scoped_id": "drupal:drupal:3636992",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636992",
+      "url": "https://www.drupal.org/project/drupal/issues/3636992",
+      "title": "The CKEditor buttons on a text format settings page are not showing their iconography in forced color mode",
+      "labels": [
+        "Accessibility",
+        "forced colors",
+        "high contrast"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-11T00:07:14+00:00",
+      "updated_at": "2026-11-11T00:07:14+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:41Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636992",
+        "content_hash": "7b8809b69a1bb8d02c77cd4cae10c27749549dda6d66c4dce6c7c61f68229b45",
+        "raw_ref": "private-evidence/raw/3636992-20261116T224241Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3637163",
+      "project_scoped_id": "drupal:drupal:3637163",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3637163",
+      "url": "https://www.drupal.org/project/drupal/issues/3637163",
+      "title": "The custom accent color field is in lack of a form validation check",
+      "labels": [
+        "Accessibility",
+        "wcag143",
+        "wcag1411"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-11T13:20:29+00:00",
+      "updated_at": "2026-11-11T13:46:56+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:40Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3637163",
+        "content_hash": "322261a70e6f974b16d35f714687ed388ad45f94e6d0b3ecb6ad83c39e75dd0f",
+        "raw_ref": "private-evidence/raw/3637163-20261116T224240Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3637204",
+      "project_scoped_id": "drupal:drupal:3637204",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3637204",
+      "url": "https://www.drupal.org/project/drupal/issues/3637204",
+      "title": "The Navigation layout page is visually broken in dark mode",
+      "labels": [
+        "Accessibility",
+        "wcag1411",
+        "wcag143"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-11T14:05:06+00:00",
+      "updated_at": "2026-11-11T14:05:34+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:38Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3637204",
+        "content_hash": "07b1127235d96b6a0044d09d1acbb784e359b93860f155cb98bfc6de4ad7f6a0",
+        "raw_ref": "private-evidence/raw/3637204-20261116T224238Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3637233",
+      "project_scoped_id": "drupal:drupal:3637233",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3637233",
+      "url": "https://www.drupal.org/project/drupal/issues/3637233",
+      "title": "The navigation block title has a too low color contrast in dark mode",
+      "labels": [
+        "Accessibility",
+        "Usability",
+        "wcag143"
+      ],
+      "status": {
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
+      },
+      "created_at": "2026-11-11T14:26:44+00:00",
+      "updated_at": "2026-11-12T03:01:16+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:35Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3637233",
+        "content_hash": "125c4f5a8aed85cefffe8dcd23e922bd0e14a71f9841fa31f4809717dd6158e2",
+        "raw_ref": "private-evidence/raw/3637233-20261116T224235Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3637246",
+      "project_scoped_id": "drupal:drupal:3637246",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3637246",
+      "url": "https://www.drupal.org/project/drupal/issues/3637246",
+      "title": "The styling of ckeditor buttons in the toolbar configuration field set has a too low color contrast and/or breaking style",
+      "labels": [
+        "Accessibility",
+        "wcag1411",
+        "Usability"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-11T14:52:28+00:00",
+      "updated_at": "2026-11-11T14:52:28+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:37Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3637246",
+        "content_hash": "eff6b7586c4b22c09251812b9f82ddeedf5073f769838f6ab41f5a321f35c538",
+        "raw_ref": "private-evidence/raw/3637246-20261116T224237Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3637273",
+      "project_scoped_id": "drupal:drupal:3637273",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3637273",
+      "url": "https://www.drupal.org/project/drupal/issues/3637273",
+      "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
+      "labels": [
+        "Accessibility",
+        "wcag143",
+        "Usability"
+      ],
+      "status": {
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
+      },
+      "created_at": "2026-11-11T15:10:27+00:00",
+      "updated_at": "2026-11-13T19:27:56+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Major",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:45Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3637273",
+        "content_hash": "08147ed5b6b5907516c2691d5fe1e6f66735fe731e49b9b258543f984f442455",
+        "raw_ref": "private-evidence/raw/3637273-20261116T224145Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3637339",
+      "project_scoped_id": "drupal:drupal:3637339",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3637339",
+      "url": "https://www.drupal.org/project/drupal/issues/3637339",
+      "title": "Skip to main content link is not using the selected focus color in light and dark mode",
+      "labels": [
+        "Accessibility",
+        "Usability"
+      ],
+      "status": {
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
+      },
+      "created_at": "2026-11-11T16:20:53+00:00",
+      "updated_at": "2026-11-14T16:10:05+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:41:42Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3637339",
+        "content_hash": "a9564bb32bc14c419debadc445e5dec41bb7b2a960db5f7d4df739bea1688c87",
+        "raw_ref": "private-evidence/raw/3637339-20261116T224142Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3637434",
+      "project_scoped_id": "drupal:drupal:3637434",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3637434",
+      "url": "https://www.drupal.org/project/drupal/issues/3637434",
+      "title": "The workspaces navigation block button has several color contrast related issues in light mode",
+      "labels": [
+        "Accessibility",
+        "wcag1411",
+        "wcag143"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-11T19:04:19+00:00",
+      "updated_at": "2026-11-12T03:04:18+00:00",
+      "component": "workspaces.module",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-16T22:42:33Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3637434",
+        "content_hash": "03e0c8686e9e4cb80dd92e428046963805ff50290a40d2da67a8f260eb1c90be",
+        "raw_ref": "private-evidence/raw/3637434-20261116T224233Z.json"
       }
     },
     {
@@ -23171,14 +23560,14 @@
       },
       "issue_id": "drupal:2084603",
       "source_url": "https://www.drupal.org/project/drupal/issues/2084603",
-      "title": "Addition of natural language to Article and Basic page links on Create Content page",
+      "title": "Addition of natural language to bunlde page links on Create Content page",
       "component": "markup",
       "tracker_status": 13,
       "tracker_status_label": "Needs work",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2013-09-09T03:38:59Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2013-09-09T03:38:59+00:00",
+      "observed_at": "2026-11-16T22:42:03Z",
       "wcag_candidates": [
         "4.1.2"
       ],
@@ -23192,12 +23581,12 @@
         "tag_basis": []
       },
       "surface": {
-        "surface": "web",
-        "basis": "default-web"
+        "surface": "authoring",
+        "basis": "admin-path"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for branch main, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
@@ -24008,59 +24397,6 @@
       "merge_requests": [],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/2305109"
-      ],
-      "review_status": "unreviewed",
-      "synthetic": false
-    },
-    {
-      "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-main",
-      "target": {
-        "product": "Drupal Core",
-        "release": "12.0.x-dev",
-        "ref": "main",
-        "ref_type": "branch",
-        "support_status": "development",
-        "release_line": "main",
-        "parent_project": null
-      },
-      "issue_id": "drupal:2307175",
-      "source_url": "https://www.drupal.org/project/drupal/issues/2307175",
-      "title": "[meta] Document all accessibility features in the UI",
-      "component": "documentation",
-      "tracker_status": 1,
-      "tracker_status_label": "Active",
-      "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2014-07-21T20:49:09Z",
-      "observed_at": "2026-11-07T20:09:16Z",
-      "wcag_candidates": [],
-      "atag": {
-        "is_atag": true,
-        "parts": [],
-        "candidate_parts": [
-          "B"
-        ],
-        "criteria": [],
-        "basis": "tag+component-heuristic",
-        "review_status": "needs-triage",
-        "tag_basis": [
-          "atag"
-        ]
-      },
-      "surface": {
-        "surface": "web",
-        "basis": "default-web"
-      },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for branch main, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
-      "fix_included_in_target": false,
-      "fix_included_in_release": false,
-      "commits": [],
-      "merge_requests": [],
-      "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/2307175"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -25696,57 +26032,6 @@
       "merge_requests": [],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/2822414"
-      ],
-      "review_status": "unreviewed",
-      "synthetic": false
-    },
-    {
-      "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-main",
-      "target": {
-        "product": "Drupal Core",
-        "release": "12.0.x-dev",
-        "ref": "main",
-        "ref_type": "branch",
-        "support_status": "development",
-        "release_line": "main",
-        "parent_project": null
-      },
-      "issue_id": "drupal:2827034",
-      "source_url": "https://www.drupal.org/project/drupal/issues/2827034",
-      "title": "DateList and date range inline form errors are repeated",
-      "component": "datetime.module",
-      "tracker_status": 13,
-      "tracker_status_label": "Needs work",
-      "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2016-11-14T08:59:21Z",
-      "observed_at": "2026-11-07T20:09:16Z",
-      "wcag_candidates": [
-        "3.1.2"
-      ],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "surface": {
-        "surface": "web",
-        "basis": "default-web"
-      },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for branch main, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
-      "fix_included_in_target": false,
-      "fix_included_in_release": false,
-      "commits": [],
-      "merge_requests": [],
-      "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/2827034"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -29382,55 +29667,6 @@
         "release_line": "main",
         "parent_project": null
       },
-      "issue_id": "drupal:3016006",
-      "source_url": "https://www.drupal.org/project/drupal/issues/3016006",
-      "title": "Allow views title override using filter result tokens (improve accessibility) ",
-      "component": "views.module",
-      "tracker_status": 1,
-      "tracker_status_label": "Active",
-      "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2018-11-26T01:21:10Z",
-      "observed_at": "2026-11-07T20:09:16Z",
-      "wcag_candidates": [],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "surface": {
-        "surface": "web",
-        "basis": "default-web"
-      },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for branch main, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
-      "fix_included_in_target": false,
-      "fix_included_in_release": false,
-      "commits": [],
-      "merge_requests": [],
-      "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/3016006"
-      ],
-      "review_status": "unreviewed",
-      "synthetic": false
-    },
-    {
-      "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-main",
-      "target": {
-        "product": "Drupal Core",
-        "release": "12.0.x-dev",
-        "ref": "main",
-        "ref_type": "branch",
-        "support_status": "development",
-        "release_line": "main",
-        "parent_project": null
-      },
       "issue_id": "drupal:3019487",
       "source_url": "https://www.drupal.org/project/drupal/issues/3019487",
       "title": "[plan] Describe layout builder UI to assistive technology",
@@ -31593,6 +31829,55 @@
       "merge_requests": [],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/3064084"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3064586",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3064586",
+      "title": "[PP-1] Improve checkbox styling in the administrative media library",
+      "component": "media system",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2019-06-27T15:23:42+00:00",
+      "observed_at": "2026-11-16T22:41:39Z",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "term:media library"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3064586"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -33911,9 +34196,9 @@
       "tracker_status": 13,
       "tracker_status_label": "Needs work",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2020-05-07T17:42:46Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2020-05-07T17:42:46+00:00",
+      "observed_at": "2026-11-16T22:42:18Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -33928,9 +34213,9 @@
         "surface": "web",
         "basis": "default-web"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for branch main, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
@@ -36146,12 +36431,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3338664",
       "title": "Migrate Nightwatch Axe tests to PHPUnit",
       "component": "other",
-      "tracker_status": 8,
-      "tracker_status_label": "Needs review",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2023-02-02T16:19:18+00:00",
-      "observed_at": "2026-11-07T20:03:10Z",
+      "observed_at": "2026-11-16T22:42:26Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -36206,6 +36491,55 @@
         "https://www.drupal.org/project/drupal/issues/3338664",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/11075",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/3371"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3339065",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3339065",
+      "title": "[policy] Consider updating core gates to include automated Nightwatch A11y tests",
+      "component": "javascript",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2023-02-03T21:58:53+00:00",
+      "observed_at": "2026-11-16T22:41:36Z",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3339065"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -36328,12 +36662,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3348552",
       "title": "Pager template fails accessibility tests for Ellipsis (\"...\") ",
       "component": "theme system",
-      "tracker_status": 8,
-      "tracker_status_label": "Needs review",
+      "tracker_status": 14,
+      "tracker_status_label": "Reviewed & tested by the community",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2023-03-16T18:09:09+00:00",
-      "observed_at": "2026-11-10T17:42:40Z",
+      "observed_at": "2026-11-16T22:42:15Z",
       "wcag_candidates": [
         "1.3.1",
         "4.1.2"
@@ -36369,7 +36703,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-01T22:35:56Z",
+          "updated_at": "2026-11-11T16:00:32Z",
           "author": "neclimdul"
         }
       ],
@@ -40680,12 +41014,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3587661",
       "title": "Missing labels in \"Limited files with a single pre-existing value (required) field.\"",
       "component": "forms system",
-      "tracker_status": 14,
-      "tracker_status_label": "Reviewed & tested by the community",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-04-29T15:01:55+00:00",
-      "observed_at": "2026-11-07T20:01:54Z",
+      "observed_at": "2026-11-16T22:42:30Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -40799,7 +41133,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-05-17T13:53:16+00:00",
-      "observed_at": "2026-11-10T16:30:24Z",
+      "observed_at": "2026-11-16T22:41:35Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -41107,9 +41441,9 @@
       "tracker_status": 13,
       "tracker_status_label": "Needs work",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2026-06-09T16:57:36Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2026-06-09T16:57:36+00:00",
+      "observed_at": "2026-11-16T22:41:30Z",
       "wcag_candidates": [
         "1.3.1"
       ],
@@ -41126,15 +41460,31 @@
         "surface": "authoring",
         "basis": "theme:admin theme"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for branch main, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
-      "merge_requests": [],
+      "merge_requests": [
+        {
+          "iid": 16770,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/16770",
+          "title": "removing checkbox toggle",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "main",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-08-19T20:50:25Z",
+          "author": "mgifford"
+        }
+      ],
       "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/3594809"
+        "https://www.drupal.org/project/drupal/issues/3594809",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/16770"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -42433,12 +42783,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
       "title": "Accessibility fixes for Admin theme's node add/edit sidebar toggle control",
       "component": "Admin theme",
-      "tracker_status": 14,
-      "tracker_status_label": "Reviewed & tested by the community",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-08-26T00:03:31+00:00",
-      "observed_at": "2026-11-10T17:42:46Z",
+      "observed_at": "2026-11-16T22:41:50Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -42839,86 +43189,6 @@
       "merge_requests": [],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/3624663"
-      ],
-      "review_status": "unreviewed",
-      "synthetic": false
-    },
-    {
-      "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-main",
-      "target": {
-        "product": "Drupal Core",
-        "release": "12.0.x-dev",
-        "ref": "main",
-        "ref_type": "branch",
-        "support_status": "development",
-        "release_line": "main",
-        "parent_project": null
-      },
-      "issue_id": "drupal:3624877",
-      "source_url": "https://www.drupal.org/project/drupal/issues/3624877",
-      "title": "Navigation icons contain hardcoded colors",
-      "component": "navigation.module",
-      "tracker_status": 14,
-      "tracker_status_label": "Reviewed & tested by the community",
-      "tracker_version": "main",
-      "evidence_status": "full",
-      "created_at": "2026-09-21T22:30:06+00:00",
-      "observed_at": "2026-11-07T20:01:57Z",
-      "wcag_candidates": [],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "surface": {
-        "surface": "authoring",
-        "basis": "component:navigation.module"
-      },
-      "applicability": "likely-affected",
-      "basis": "git-non-inclusion",
-      "reason": "Fix commit(s)  were found on main but are not contained in branch main. The barrier likely remains in this target; reproduce it on the installed target before confirming.",
-      "fix_included_in_target": true,
-      "fix_included_in_release": false,
-      "commits": [
-        {
-          "sha": "54b16efd900f1bd6d0da6d49184673a691eb11e6",
-          "short_id": "54b16efd",
-          "url": "https://git.drupalcode.org/project/drupal/-/commit/54b16efd900f1bd6d0da6d49184673a691eb11e6",
-          "branch": "main",
-          "branches": [
-            "main"
-          ],
-          "created_at": "2026-11-11T20:06:38.000+00:00",
-          "title": "fix: #3624877 Navigation icons contain hardcoded colors",
-          "in_target": true,
-          "in_release": false
-        }
-      ],
-      "merge_requests": [
-        {
-          "iid": 17211,
-          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17211",
-          "title": "fix: #3624877 navigation icons contain hardcoded colors",
-          "state": "opened",
-          "target_branch": "main",
-          "source_branch": "3624877-navigation-icons-contain",
-          "head_sha": null,
-          "merge_commit_sha": null,
-          "squash_commit_sha": null,
-          "merged_at": null,
-          "updated_at": "2026-10-21T18:35:40Z",
-          "author": "abenbow"
-        }
-      ],
-      "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/3624877",
-        "https://git.drupalcode.org/project/drupal/-/commit/54b16efd900f1bd6d0da6d49184673a691eb11e6",
-        "https://git.drupalcode.org/project/drupal/-/merge_requests/17211"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -43394,14 +43664,14 @@
       },
       "issue_id": "drupal:3634547",
       "source_url": "https://www.drupal.org/project/drupal/issues/3634547",
-      "title": "[PP-1] Make CKEditor balloon tooltips respect Admin light or dark mode",
+      "title": "Make CKEditor balloon tooltips respect Admin light or dark mode",
       "component": "Admin theme",
       "tracker_status": 1,
       "tracker_status_label": "Active",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2026-10-31T18:21:28Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2026-10-31T18:21:28+00:00",
+      "observed_at": "2026-11-16T22:42:31Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43418,9 +43688,9 @@
         "surface": "authoring",
         "basis": "theme:admin theme"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for branch main, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
@@ -43697,12 +43967,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3636128",
       "title": "In dark mode the switch component has a too low color contrast for most of the accent colors and is inconsistent to the light mode",
       "component": "Admin theme",
-      "tracker_status": 8,
-      "tracker_status_label": "Needs review",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-07T23:18:43+00:00",
-      "observed_at": "2026-11-10T16:30:37Z",
+      "observed_at": "2026-11-16T22:41:55Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43764,12 +44034,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3636143",
       "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
       "component": "Admin theme",
-      "tracker_status": 8,
-      "tracker_status_label": "Needs review",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-08T01:31:11+00:00",
-      "observed_at": "2026-11-10T16:30:39Z",
+      "observed_at": "2026-11-16T22:41:57Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43836,7 +44106,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-10T02:06:26+00:00",
-      "observed_at": "2026-11-10T16:29:58Z",
+      "observed_at": "2026-11-16T22:41:52Z",
       "wcag_candidates": [
         "1.4.3"
       ],
@@ -43929,6 +44199,574 @@
       "merge_requests": [],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/3636643"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3636986",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3636986",
+      "title": "The caret on details elements is invisible on hover and expansion in forced color mode",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-10T22:54:32+00:00",
+      "observed_at": "2026-11-16T22:42:45Z",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3636986"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3636990",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3636990",
+      "title": "The settings for the default admin theme in forced color mode are either broken or unnecessary",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-10T23:19:12+00:00",
+      "observed_at": "2026-11-16T22:42:43Z",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3636990"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3636992",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3636992",
+      "title": "The CKEditor buttons on a text format settings page are not showing their iconography in forced color mode",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-11T00:07:14+00:00",
+      "observed_at": "2026-11-16T22:42:41Z",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3636992"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3637163",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3637163",
+      "title": "The custom accent color field is in lack of a form validation check",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-11T13:20:29+00:00",
+      "observed_at": "2026-11-16T22:42:40Z",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3637163"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3637204",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3637204",
+      "title": "The Navigation layout page is visually broken in dark mode",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-11T14:05:06+00:00",
+      "observed_at": "2026-11-16T22:42:38Z",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3637204"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3637233",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3637233",
+      "title": "The navigation block title has a too low color contrast in dark mode",
+      "component": "Admin theme",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-11T14:26:44+00:00",
+      "observed_at": "2026-11-16T22:42:35Z",
+      "wcag_candidates": [
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [
+        {
+          "iid": 17774,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17774",
+          "title": "Using loud color settings for navigation block title to maintain contrast specifications",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "main",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-11T17:37:00Z",
+          "author": "analogus"
+        },
+        {
+          "iid": 17773,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17773",
+          "title": "changes dark theme text color for contrast specifications",
+          "state": "closed",
+          "target_branch": "main",
+          "source_branch": "main",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-11T16:50:13Z",
+          "author": "analogus"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3637233",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/17774",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/17773"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3637246",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3637246",
+      "title": "The styling of ckeditor buttons in the toolbar configuration field set has a too low color contrast and/or breaking style",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-11T14:52:28+00:00",
+      "observed_at": "2026-11-16T22:42:37Z",
+      "wcag_candidates": [
+        "1.4.11"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3637246"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3637273",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3637273",
+      "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
+      "component": "Admin theme",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-11T15:10:27+00:00",
+      "observed_at": "2026-11-16T22:41:45Z",
+      "wcag_candidates": [
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [
+        {
+          "iid": 17784,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17784",
+          "title": "fix: #3637273 Switch to CKEditor 5 theme tokens and ensure correct colors in dark mode",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3637273-the-background-of",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-13T19:17:47Z",
+          "author": "salmonek"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3637273",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/17784"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3637339",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3637339",
+      "title": "Skip to main content link is not using the selected focus color in light and dark mode",
+      "component": "Admin theme",
+      "tracker_status": 8,
+      "tracker_status_label": "Needs review",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-11T16:20:53+00:00",
+      "observed_at": "2026-11-16T22:41:42Z",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [
+        {
+          "iid": 17818,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17818",
+          "title": "Issue #3637339: Skip to main content link is not using the selected focus color",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3637339-skip-to-main",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-14T12:39:04Z",
+          "author": "Shank115"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3637339",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/17818"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-main",
+      "target": {
+        "product": "Drupal Core",
+        "release": "12.0.x-dev",
+        "ref": "main",
+        "ref_type": "branch",
+        "support_status": "development",
+        "release_line": "main",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3637434",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3637434",
+      "title": "The workspaces navigation block button has several color contrast related issues in light mode",
+      "component": "workspaces.module",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-11T19:04:19+00:00",
+      "observed_at": "2026-11-16T22:42:33Z",
+      "wcag_candidates": [
+        "1.4.11",
+        "1.4.3"
+      ],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "web",
+        "basis": "default-web"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in branch main. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3637434"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -44347,5 +45185,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "d6b92d2f4b35b2618debfbd7b04086cc8f6160545658de4e3cd1b52659d454f5"
+  "evidence_digest": "a2b7b51fd7e79166caae0d15ab3280958a0a4bc5c2b3136ce8b67a4e986bfa6f"
 }
