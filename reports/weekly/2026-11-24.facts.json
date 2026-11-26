@@ -1,0 +1,706 @@
+{
+  "schema_version": "0.2.0",
+  "artifact_type": "weekly-evidence-facts",
+  "generated_at": "2026-11-24",
+  "previous_generated_at": "2026-11-16T22:42:45Z",
+  "baseline": false,
+  "scope": {
+    "product": "Drupal Core",
+    "standards": [
+      "WCAG 2.2 AA",
+      "Section 508 (revised, 2017)"
+    ],
+    "acr_format": "OpenACR 0.1.0",
+    "active_statuses": [
+      1,
+      8,
+      13,
+      14,
+      15
+    ],
+    "fixed_and_closed_excluded": true
+  },
+  "counts": {
+    "active": 440,
+    "detailed": 59,
+    "inventory": 381,
+    "statuses": {
+      "Active": 242,
+      "Needs work": 180,
+      "Needs review": 13,
+      "Reviewed & tested by the community": 5
+    },
+    "previous_active": 440,
+    "previous_statuses": {
+      "Active": 241,
+      "Needs work": 179,
+      "Needs review": 15,
+      "Reviewed & tested by the community": 5
+    },
+    "changed": 20,
+    "unchanged": 420
+  },
+  "activity": {
+    "baseline": false,
+    "changed": [
+      {
+        "id": "drupal:3056714",
+        "title": "Provide a FieldType and FieldWidget to represent a WebVTT file for the HTML track element",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "file system",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.2.2"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "merge-request-activity",
+          "description-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 33,
+        "new_merge_requests": 2
+      },
+      {
+        "id": "drupal:3426468",
+        "title": "Make the active menu item visually stand out more",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "navigation.module",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.1",
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "merge-request-activity",
+          "description-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 30,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:3636028",
+        "title": "The active accent color is not communicated",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments",
+          "merge-request-activity",
+          "description-changed"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 19,
+        "new_merge_requests": 2
+      },
+      {
+        "id": "drupal:3637273",
+        "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
+        "status": "Needs review",
+        "status_code": 8,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments",
+          "merge-request-activity",
+          "description-changed"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 6,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:3540337",
+        "title": "Improve visibility of More actions menu button",
+        "status": "Active",
+        "status_code": 1,
+        "component": "navigation.module",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "description-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Active",
+        "new_comments": 11,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3557245",
+        "title": "Use $element['#attributes]['id'] instead of $element['#id'] to create a link anchor",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "inline_form_errors.module",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "2.1.1",
+          "2.4.1",
+          "2.4.7"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments",
+          "merge-request-activity"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 3,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:3623836",
+        "title": "Page title ellipsis accessibility issue",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.12"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "description-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Active",
+        "new_comments": 4,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636027",
+        "title": "The active primary local task has a too low color contrast and shapeshifting compared to the active secondary local task",
+        "status": "Needs review",
+        "status_code": 8,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "merge-request-activity",
+          "description-changed"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 3,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:3637339",
+        "title": "Skip to main content link is not using the selected focus color in light and dark mode",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "status-changed",
+          "new-comments",
+          "merge-request-activity"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 2,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:867830",
+        "title": "\"Unpublished\" style of rendered entities is not accessible (and looks bad)",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.1",
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "description-changed",
+          "evidence-detail-changed"
+        ],
+        "previous_status": "Active",
+        "new_comments": 254,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:2951317",
+        "title": "Radios element missing \"required\" attribute",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "render system",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.3.1"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "merge-request-activity"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 1,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:3636143",
+        "title": "Regression: The toggle button border in the navigation sidebar has a too low color contrast in light mode",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments",
+          "merge-request-activity"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 4,
+        "new_merge_requests": 1
+      },
+      {
+        "id": "drupal:3517033",
+        "title": "Add a Style API",
+        "status": "Needs review",
+        "status_code": 8,
+        "component": "theme system",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 6,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3594809",
+        "title": "Use standard checkboxes on forms that require submission",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.3.1"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 1,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3604037",
+        "title": "Indicate that grouping elements have child element errors for UX and a11y",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "3.3.1"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 4,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3619154",
+        "title": "Accessibility fixes for Admin theme's node add/edit sidebar toggle control",
+        "status": "Needs work",
+        "status_code": 13,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments"
+        ],
+        "previous_status": "Needs work",
+        "new_comments": 1,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636640",
+        "title": "Text color on hover has a too low color contrast on the full and mini page component",
+        "status": "Needs review",
+        "status_code": 8,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments"
+        ],
+        "previous_status": "Needs review",
+        "new_comments": 1,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3637163",
+        "title": "The custom accent color field is in lack of a form validation check",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [
+          "1.4.11",
+          "1.4.3"
+        ],
+        "change_reasons": [
+          "issue-updated",
+          "new-comments"
+        ],
+        "previous_status": "Active",
+        "new_comments": 2,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3466040",
+        "title": "Modal dialog does not adjust to increased inner height (pushes buttons out of reach)",
+        "status": "Needs review",
+        "status_code": 8,
+        "component": "other",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      },
+      {
+        "id": "drupal:3636987",
+        "title": "The position of the caret on select elements is shifted in forced color mode",
+        "status": "Active",
+        "status_code": 1,
+        "component": "Admin theme",
+        "version": "main",
+        "evidence_status": "full",
+        "wcag_candidates": [],
+        "change_reasons": [
+          "newly-active"
+        ],
+        "previous_status": null,
+        "new_comments": 0,
+        "new_merge_requests": 0
+      }
+    ],
+    "changed_count": 20,
+    "unchanged_count": 420,
+    "truncated": false
+  },
+  "new_active": [
+    {
+      "id": "drupal:3466040",
+      "title": "Modal dialog does not adjust to increased inner height (pushes buttons out of reach)",
+      "status": "Needs review",
+      "status_code": 8,
+      "component": "other",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3636987",
+      "title": "The position of the caret on select elements is shifted in forced color mode",
+      "status": "Active",
+      "status_code": 1,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    }
+  ],
+  "new_active_count": 2,
+  "no_longer_active": [
+    {
+      "id": "drupal:2158943",
+      "title": "Add a native dialog element using HTMX to deprecate the jQuery UI dialog",
+      "status": "Needs review",
+      "status_code": 8,
+      "component": "javascript",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "3.2.5"
+      ]
+    },
+    {
+      "id": "drupal:3037625",
+      "title": "Duplicate label field when adding field w/o JS",
+      "status": "Needs work",
+      "status_code": 13,
+      "component": "field_ui.module",
+      "version": "main",
+      "evidence_status": "inventory",
+      "wcag_candidates": [
+        "1.3.1"
+      ]
+    }
+  ],
+  "no_longer_active_count": 2,
+  "status_changes": [
+    {
+      "id": "drupal:3557245",
+      "title": "Use $element['#attributes]['id'] instead of $element['#id'] to create a link anchor",
+      "from": "Needs review",
+      "to": "Needs work",
+      "from_code": 8,
+      "to_code": 13
+    },
+    {
+      "id": "drupal:3636028",
+      "title": "The active accent color is not communicated",
+      "from": "Needs review",
+      "to": "Needs work",
+      "from_code": 8,
+      "to_code": 13
+    },
+    {
+      "id": "drupal:3637273",
+      "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
+      "from": "Needs work",
+      "to": "Needs review",
+      "from_code": 13,
+      "to_code": 8
+    },
+    {
+      "id": "drupal:3637339",
+      "title": "Skip to main content link is not using the selected focus color in light and dark mode",
+      "from": "Needs review",
+      "to": "Needs work",
+      "from_code": 8,
+      "to_code": 13
+    }
+  ],
+  "status_change_count": 4,
+  "rtbc": [
+    {
+      "id": "drupal:2279111",
+      "title": "Form API 'item' elements should not use the 'for' attribute",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "forms system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3049125",
+      "title": "Language switcher block is an unlabelled navigation landmark region",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "language system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3348552",
+      "title": "Pager template fails accessibility tests for Ellipsis (\"...\") ",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "theme system",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": [
+        "1.3.1",
+        "4.1.2"
+      ]
+    },
+    {
+      "id": "drupal:3615469",
+      "title": "Change link text on Maintenance mode form to 'user login page'",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "system.module",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    },
+    {
+      "id": "drupal:3619387",
+      "title": "Indicate on forms sidebar toggle button that sidebar has child element errors",
+      "status": "Reviewed & tested by the community",
+      "status_code": 14,
+      "component": "Admin theme",
+      "version": "main",
+      "evidence_status": "full",
+      "wcag_candidates": []
+    }
+  ],
+  "rtbc_count": 5,
+  "new_rtbc": [],
+  "new_rtbc_count": 0,
+  "criteria": [
+    {
+      "criterion": "1.3.1",
+      "current": 22,
+      "previous": 23,
+      "delta": -1
+    },
+    {
+      "criterion": "3.2.5",
+      "current": 0,
+      "previous": 1,
+      "delta": -1
+    }
+  ],
+  "criteria_changed_count": 2,
+  "targets": {
+    "drupal-core-10.6.21": {
+      "release": "10.6.21",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 42,
+        "unknown": 398
+      },
+      "by_evidence_status": {
+        "full": 59,
+        "inventory": 381
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-11.4.12": {
+      "release": "11.4.12",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 42,
+        "unknown": 398
+      },
+      "by_evidence_status": {
+        "full": 59,
+        "inventory": 381
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-12.0.0-alpha1": {
+      "release": "12.0.0-alpha1",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 36,
+        "unknown": 404
+      },
+      "by_evidence_status": {
+        "full": 59,
+        "inventory": 381
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-12.0.0-beta2": {
+      "release": "12.0.0-beta2",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 39,
+        "unknown": 401
+      },
+      "by_evidence_status": {
+        "full": 59,
+        "inventory": 381
+      },
+      "fix_included_in_target": 0
+    },
+    "drupal-core-main": {
+      "release": "12.0.x-dev",
+      "findings": 440,
+      "by_applicability": {
+        "likely-affected": 59,
+        "unknown": 381
+      },
+      "by_evidence_status": {
+        "full": 59,
+        "inventory": 381
+      },
+      "fix_included_in_target": 0
+    }
+  },
+  "target_finding_deltas": {},
+  "atag": {
+    "issues": 31,
+    "explicit_part_a": 0,
+    "explicit_part_b": 0,
+    "candidate_part_a": 0,
+    "candidate_part_b": 0,
+    "unspecified": 26,
+    "meta_issues": 5,
+    "missing_accessibility_tag": 0
+  },
+  "atag_deltas": {},
+  "artifacts": {
+    "changed": [
+      "drupal-core-10.6.21/acr.md",
+      "drupal-core-10.6.21/openacr.yaml",
+      "drupal-core-11.4.12/acr.md",
+      "drupal-core-11.4.12/openacr.yaml",
+      "drupal-core-12.0.0-alpha1/acr.md",
+      "drupal-core-12.0.0-alpha1/openacr.yaml",
+      "drupal-core-12.0.0-beta2/acr.md",
+      "drupal-core-12.0.0-beta2/openacr.yaml",
+      "drupal-core-main/acr.md",
+      "drupal-core-main/openacr.yaml"
+    ],
+    "changed_count": 10
+  },
+  "notes": [
+    "Active issues only; fixed, closed and postponed issues are excluded.",
+    "An issue missing from the active list is 'no longer active', not proof of a fix.",
+    "Inventory issues have no comments, merge requests or commit analysis.",
+    "The weekly digest is not an ACR and must not be used as a conformance result."
+  ]
+}

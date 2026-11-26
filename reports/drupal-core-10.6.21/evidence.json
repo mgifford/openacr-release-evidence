@@ -108,7 +108,7 @@
     "parent_project": null,
     "scope_note": "Stock standard profile. Claro is the admin theme; Default Admin is not present. The generic 'Admin theme' component needs reproduction before a finding is applied to this line."
   },
-  "generated_at": "2026-11-16T22:46:56Z",
+  "generated_at": "2026-11-24T00:34:34Z",
   "collection": {
     "query": {
       "project": "drupal",
@@ -129,20 +129,20 @@
       "component": null,
       "since": null
     },
-    "collection_digest": "1ce5d0f02aee37200c256e91c3d54eb4290d431bea20e061c21e31484317a644",
+    "collection_digest": "294b79cddde1c25692d0c488ae498b051d613f134c50d6ddf24c2e3c2edffda8",
     "summary": {
       "requested": 440,
-      "retrieved_at": "2026-11-16T22:42:45Z",
+      "retrieved_at": "2026-11-24T00:31:37Z",
       "collected": 440,
       "cached": 0,
-      "reused": 416,
-      "fetched": 24,
+      "reused": 420,
+      "fetched": 20,
       "failed": 0,
-      "with_merge_requests": 36,
-      "with_wcag_tags": 201,
-      "detailed": 53,
-      "inventory": 387,
-      "excluded_by_status": 26,
+      "with_merge_requests": 38,
+      "with_wcag_tags": 199,
+      "detailed": 59,
+      "inventory": 381,
+      "excluded_by_status": 30,
       "statuses": [
         1,
         8,
@@ -150,17 +150,17 @@
         14,
         15
       ],
-      "comments": 1837,
+      "comments": 2068,
       "by_workflow": {
-        "needs-review": 15,
-        "needs-work": 179,
-        "open": 241,
+        "needs-review": 13,
+        "needs-work": 180,
+        "open": 242,
         "rtbc": 5
       },
       "by_status": {
-        "Active": 241,
-        "Needs review": 15,
-        "Needs work": 179,
+        "Active": 242,
+        "Needs review": 13,
+        "Needs work": 180,
         "Reviewed & tested by the community": 5
       },
       "errors": []
@@ -170,23 +170,23 @@
   "summary": {
     "findings": 440,
     "by_applicability": {
-      "likely-affected": 37,
-      "unknown": 403
+      "likely-affected": 42,
+      "unknown": 398
     },
     "by_workflow": {
-      "needs-review": 15,
-      "needs-work": 179,
-      "open": 241,
+      "needs-review": 13,
+      "needs-work": 180,
+      "open": 242,
       "rtbc": 5
     },
     "by_evidence_status": {
-      "full": 53,
-      "inventory": 387
+      "full": 59,
+      "inventory": 381
     },
     "fix_included_in_target": 0,
     "fix_included_in_release": 0,
     "needs_verification": 440,
-    "unmapped_criteria": 239,
+    "unmapped_criteria": 241,
     "criteria": [
       "1.1.1",
       "1.2.2",
@@ -220,7 +220,6 @@
       "3.1.2",
       "3.2.1",
       "3.2.3",
-      "3.2.5",
       "3.2.7",
       "3.3.1",
       "3.3.2",
@@ -235,14 +234,14 @@
         "10.6.x"
       ],
       "since": "2026-05-10T16:13:09-06:00",
-      "commits": 83,
-      "retrieved_at": "2026-11-16T22:46:56Z"
+      "commits": 87,
+      "retrieved_at": "2026-11-24T00:34:34Z"
     }
   },
   "sources": {
     "gitlab_project": "https://git.drupalcode.org/project/drupal",
     "target": "https://git.drupalcode.org/project/drupal/-/tags/10.6.21",
-    "commit_index": "2026-11-16T22:46:56Z"
+    "commit_index": "2026-11-24T00:34:34Z"
   },
   "manifest_digest": "a4ab5ac92b84ca9bd7328c7aaf10523d9c0447a597e247b80e6ad52ded4033b6",
   "digest_scope": "sha256 over the published compact evidence artifact excluding generated_at and evidence_digest",
@@ -1907,60 +1906,6 @@
         "source_url": "https://www.drupal.org/project/drupal/issues/2145035",
         "content_hash": "a636f90bc258367bc933c40b74aa83e233392d820da9ee4150562a02f89e5ddd",
         "raw_ref": "private-evidence/raw/2145035-20261107T200916Z.json"
-      }
-    },
-    {
-      "schema_version": "0.2.0",
-      "id": "drupal:2158943",
-      "project_scoped_id": "drupal:drupal:2158943",
-      "source_system": "drupal.org",
-      "source_project": "drupal",
-      "source_id": "2158943",
-      "url": "https://www.drupal.org/project/drupal/issues/2158943",
-      "title": "Add a native dialog element using HTMX to deprecate the jQuery UI dialog",
-      "labels": [
-        "JavaScript",
-        "Accessibility",
-        "Needs accessibility review",
-        "Needs subsystem maintainer review",
-        "Needs followup",
-        "wcag325",
-        "HTMX initiative"
-      ],
-      "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
-      },
-      "created_at": "2013-12-18T09:07:53+00:00",
-      "updated_at": "2026-11-06T12:51:51+00:00",
-      "component": "javascript",
-      "version": "main",
-      "priority": "Critical",
-      "category": "Task",
-      "evidence_status": "full",
-      "wcag_candidates": [
-        "3.2.5"
-      ],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "provenance": {
-        "source_system": "drupal.org",
-        "source_project": "drupal",
-        "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T17:58:14Z",
-        "source_url": "https://www.drupal.org/project/drupal/issues/2158943",
-        "content_hash": "2766e77f3af1a0cb81644b0b14e6f7f2c2ac0d2c01a45ec6f3c6b21d145b2cb8",
-        "raw_ref": "private-evidence/raw/2158943-20261107T175814Z.json"
       }
     },
     {
@@ -6210,7 +6155,7 @@
         "raw_label": "Needs Work"
       },
       "created_at": "2018-03-08T20:12:30+00:00",
-      "updated_at": "2026-11-03T11:57:38+00:00",
+      "updated_at": "2026-11-18T05:07:25+00:00",
       "component": "render system",
       "version": "main",
       "priority": "Normal",
@@ -6232,11 +6177,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:01:03Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:31:31Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/2951317",
-        "content_hash": "e5367f928a804d9db3f06b01187d76310a281bd350ef8d451ab3211a45e8f09e",
-        "raw_ref": "private-evidence/raw/2951317-20261107T200103Z.json"
+        "content_hash": "407f36d7a20739913f195a8f8c860a6b7191186df4bc12d8d70f2616fc982487",
+        "raw_ref": "private-evidence/raw/2951317-20261124T003131Z.json"
       }
     },
     {
@@ -8281,56 +8226,6 @@
     },
     {
       "schema_version": "0.2.0",
-      "id": "drupal:3037625",
-      "project_scoped_id": "drupal:drupal:3037625",
-      "source_system": "drupal.org",
-      "source_project": "drupal",
-      "source_id": "3037625",
-      "url": "https://www.drupal.org/project/drupal/issues/3037625",
-      "title": "Duplicate label field when adding field w/o JS",
-      "labels": [
-        "Usability",
-        "Accessibility",
-        "wcag131"
-      ],
-      "status": {
-        "code": 13,
-        "label": "Needs work",
-        "workflow_state": "needs-work",
-        "raw_label": null
-      },
-      "created_at": "2019-03-05T11:35:28Z",
-      "updated_at": "2023-05-31T18:44:53Z",
-      "component": "field_ui.module",
-      "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
-      "wcag_candidates": [
-        "1.3.1"
-      ],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "provenance": {
-        "source_system": "drupal.org",
-        "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
-        "source_url": "https://www.drupal.org/project/drupal/issues/3037625",
-        "content_hash": "43d8812fa4ae08e7f64d2a532288598a4a4a76f5442b6629d1bb5c279b79f681",
-        "raw_ref": "private-evidence/raw/3037625-20261107T200916Z.json"
-      }
-    },
-    {
-      "schema_version": "0.2.0",
       "id": "drupal:3037725",
       "project_scoped_id": "drupal:drupal:3037725",
       "source_system": "drupal.org",
@@ -9452,15 +9347,15 @@
         "code": 13,
         "label": "Needs work",
         "workflow_state": "needs-work",
-        "raw_label": null
+        "raw_label": "Needs Work"
       },
-      "created_at": "2019-05-23T17:49:21Z",
-      "updated_at": "2026-02-28T04:13:27Z",
+      "created_at": "2019-05-23T17:49:21+00:00",
+      "updated_at": "2026-11-18T02:53:15+00:00",
       "component": "file system",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Normal",
+      "category": "Task",
+      "evidence_status": "full",
       "wcag_candidates": [
         "1.2.2"
       ],
@@ -9478,12 +9373,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:31:35Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3056714",
-        "content_hash": "f3c00103e7917f32ba8104c3ba706ef54a6862f4f5bf0139c686a016a658c7b8",
-        "raw_ref": "private-evidence/raw/3056714-20261107T200916Z.json"
+        "content_hash": "aef70e575ab37710c7e23ff1eda87ca268bd712b10f4f91a165681d1f75a9e99",
+        "raw_ref": "private-evidence/raw/3056714-20261124T003135Z.json"
       }
     },
     {
@@ -15795,15 +15690,15 @@
         "code": 13,
         "label": "Needs work",
         "workflow_state": "needs-work",
-        "raw_label": null
+        "raw_label": "Needs Work"
       },
-      "created_at": "2024-03-07T18:31:45Z",
-      "updated_at": "2026-09-06T15:35:18Z",
+      "created_at": "2024-03-07T18:31:45+00:00",
+      "updated_at": "2026-11-23T00:12:51+00:00",
       "component": "navigation.module",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Normal",
+      "category": "Task",
+      "evidence_status": "full",
       "wcag_candidates": [
         "1.4.1",
         "1.4.11"
@@ -15820,12 +15715,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:30:59Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3426468",
-        "content_hash": "6956470a26fc7151aa3b0a39e0a8ec5050d50ca47f0ad700dfa50663dcc3a7ad",
-        "raw_ref": "private-evidence/raw/3426468-20261107T200916Z.json"
+        "content_hash": "cce6686b4f50e4f012e6d3c7e0faad043dbf3e7616edef90a62032bd1fd677a8",
+        "raw_ref": "private-evidence/raw/3426468-20261124T003059Z.json"
       }
     },
     {
@@ -16271,6 +16166,52 @@
         "source_url": "https://www.drupal.org/project/drupal/issues/3459246",
         "content_hash": "d1cab2828f40e8720008812456e36204df3521b5f90c6286d6f780c56e5c2b54",
         "raw_ref": "private-evidence/raw/3459246-20261107T200020Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3466040",
+      "project_scoped_id": "drupal:drupal:3466040",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3466040",
+      "url": "https://www.drupal.org/project/drupal/issues/3466040",
+      "title": "Modal dialog does not adjust to increased inner height (pushes buttons out of reach)",
+      "labels": [
+        "Accessibility"
+      ],
+      "status": {
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
+      },
+      "created_at": "2024-08-05T15:55:03+00:00",
+      "updated_at": "2026-11-23T21:42:12+00:00",
+      "component": "other",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:30:30Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3466040",
+        "content_hash": "ad3cf726f3a167d41dbbd682247bded25008c0195ede92a903ce9fe3305155da",
+        "raw_ref": "private-evidence/raw/3466040-20261124T003030Z.json"
       }
     },
     {
@@ -16925,7 +16866,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2025-04-03T00:56:09+00:00",
-      "updated_at": "2026-11-02T09:00:44+00:00",
+      "updated_at": "2026-11-22T19:21:34+00:00",
       "component": "theme system",
       "version": "main",
       "priority": "Normal",
@@ -16945,11 +16886,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:01:14Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:31:07Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3517033",
-        "content_hash": "ff144138c0376d027c20c9b5747f9eafc2ac50beded0f30d0b666b2ea1dbe711",
-        "raw_ref": "private-evidence/raw/3517033-20261107T200114Z.json"
+        "content_hash": "72c3e9aadd7686d987cbafee91567a50bc1a51b821f6bbb9515712b0adba71b4",
+        "raw_ref": "private-evidence/raw/3517033-20261124T003107Z.json"
       }
     },
     {
@@ -17308,15 +17249,15 @@
         "code": 1,
         "label": "Active",
         "workflow_state": "open",
-        "raw_label": null
+        "raw_label": "Active"
       },
-      "created_at": "2025-08-07T20:20:02Z",
-      "updated_at": "2026-07-03T13:22:27Z",
+      "created_at": "2025-08-07T20:20:02+00:00",
+      "updated_at": "2026-11-23T19:21:45+00:00",
       "component": "navigation.module",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -17330,12 +17271,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:30:34Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3540337",
-        "content_hash": "174a8d93a4a6513d99c1081a3484a155465351e9ff783b2cb879ed1f37ce9ce1",
-        "raw_ref": "private-evidence/raw/3540337-20261107T200916Z.json"
+        "content_hash": "fac5d106113556bf6f7c70ba6084b104e78557f6640e8143350c07111387ebbe",
+        "raw_ref": "private-evidence/raw/3540337-20261124T003034Z.json"
       }
     },
     {
@@ -17692,13 +17633,13 @@
         "wcag247"
       ],
       "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2025-11-11T20:51:11+00:00",
-      "updated_at": "2026-11-06T15:31:26+00:00",
+      "updated_at": "2026-11-20T03:56:14+00:00",
       "component": "inline_form_errors.module",
       "version": "main",
       "priority": "Normal",
@@ -17722,11 +17663,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T17:57:26Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:31:13Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3557245",
-        "content_hash": "54d69612b55fef4d45bb5598681ae165e2c6c580e2566fdf90928c847be0e15f",
-        "raw_ref": "private-evidence/raw/3557245-20261107T175726Z.json"
+        "content_hash": "22f7b750beddf5dc8b02efea4358c83db76d5da9009aa9a6153febbdcff26f6c",
+        "raw_ref": "private-evidence/raw/3557245-20261124T003113Z.json"
       }
     },
     {
@@ -18988,7 +18929,7 @@
         "raw_label": "Needs Work"
       },
       "created_at": "2026-06-09T16:57:36+00:00",
-      "updated_at": "2026-11-16T19:09:23+00:00",
+      "updated_at": "2026-11-22T21:14:43+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -19011,10 +18952,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.1",
-        "retrieved_at": "2026-11-16T22:41:30Z",
+        "retrieved_at": "2026-11-24T00:31:01Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3594809",
-        "content_hash": "4485725955307d6f4db944b33fddcbfd748c9c8f9ef7437e6203bc7ff6f94d3f",
-        "raw_ref": "private-evidence/raw/3594809-20261116T224130Z.json"
+        "content_hash": "5f76bc22921bea5513ea093c628b6dfdfe912b491c2e0c12cfd10c0d5b20f487",
+        "raw_ref": "private-evidence/raw/3594809-20261124T003101Z.json"
       }
     },
     {
@@ -19088,7 +19029,7 @@
         "raw_label": "Needs Work"
       },
       "created_at": "2026-06-18T13:53:19+00:00",
-      "updated_at": "2026-11-04T16:19:49+00:00",
+      "updated_at": "2026-11-18T17:12:04+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -19110,11 +19051,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:00:11Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:31:24Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3604037",
-        "content_hash": "cf427534f750874908fb10693a5f0fd8feb1ec4a6d1eba29914358b9bda28c28",
-        "raw_ref": "private-evidence/raw/3604037-20261107T200011Z.json"
+        "content_hash": "537ab53f8144281883310f370d99dcd034de332e878864be4dbe41d734bc196c",
+        "raw_ref": "private-evidence/raw/3604037-20261124T003124Z.json"
       }
     },
     {
@@ -20188,7 +20129,7 @@
         "raw_label": "Needs Work"
       },
       "created_at": "2026-08-26T00:03:31+00:00",
-      "updated_at": "2026-11-13T17:09:41+00:00",
+      "updated_at": "2026-11-18T17:46:26+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -20209,10 +20150,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.1",
-        "retrieved_at": "2026-11-16T22:41:50Z",
+        "retrieved_at": "2026-11-24T00:31:20Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3619154",
-        "content_hash": "1971fb9cc1519350b1ffbea0f8fd9b76bc7f6ba95312f4def7b2af76c53fb162",
-        "raw_ref": "private-evidence/raw/3619154-20261116T224150Z.json"
+        "content_hash": "4be738cdcd4d73979e0851618824902c9be74d591a9ab254b83cfa78c90f1e2b",
+        "raw_ref": "private-evidence/raw/3619154-20261124T003120Z.json"
       }
     },
     {
@@ -20421,15 +20362,15 @@
         "code": 1,
         "label": "Active",
         "workflow_state": "open",
-        "raw_label": null
+        "raw_label": "Active"
       },
-      "created_at": "2026-09-16T23:51:13Z",
-      "updated_at": "2026-09-17T00:01:54Z",
+      "created_at": "2026-09-16T23:51:13+00:00",
+      "updated_at": "2026-11-21T02:44:38+00:00",
       "component": "Admin theme",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
       "wcag_candidates": [
         "1.4.12"
       ],
@@ -20445,12 +20386,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:31:09Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3623836",
-        "content_hash": "1abe0bcb899d4deb526a28b9ed5656ce37857ff79373eac40a348c64a21314fe",
-        "raw_ref": "private-evidence/raw/3623836-20261107T200916Z.json"
+        "content_hash": "9259d8c5d8772a69dc08bc53ffbb73a329969494ea264d95efcc90b5d0b77793",
+        "raw_ref": "private-evidence/raw/3623836-20261124T003109Z.json"
       }
     },
     {
@@ -21084,7 +21025,8 @@
         "Accessibility",
         "wcag1411",
         "Usability",
-        "ai-ni"
+        "ai-ni",
+        "Needs Review Queue Initiative"
       ],
       "status": {
         "code": 8,
@@ -21093,7 +21035,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2026-11-07T06:35:51+00:00",
-      "updated_at": "2026-11-07T20:13:09+00:00",
+      "updated_at": "2026-11-17T15:33:22+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -21115,11 +21057,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-08T15:18:41Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:31:37Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636027",
-        "content_hash": "726ae7bcaef8b631b501e669fce80d86aa1ccaf4e9a7acadb3a8fd386e7419e0",
-        "raw_ref": "private-evidence/raw/3636027-20261108T151841Z.json"
+        "content_hash": "b124d934a653e20c2e9843a33177cdfeed78646d5f302527dc9b8d7035325da0",
+        "raw_ref": "private-evidence/raw/3636027-20261124T003137Z.json"
       }
     },
     {
@@ -21137,13 +21079,13 @@
         "Usability"
       ],
       "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-11-07T06:54:10+00:00",
-      "updated_at": "2026-11-09T16:57:52+00:00",
+      "updated_at": "2026-11-23T18:34:30+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -21165,11 +21107,11 @@
         "source_system": "drupal.org",
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-10T16:30:34Z",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:30:37Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
-        "content_hash": "f611bc91e95827cc82d7188c572263d061e040c0b5e1facfa8a77da53ec43e26",
-        "raw_ref": "private-evidence/raw/3636028-20261110T163034Z.json"
+        "content_hash": "0077a9670ad0966132ccba81eea4e9a42b27d26f5ce58f67f7120f2abb59eb59",
+        "raw_ref": "private-evidence/raw/3636028-20261124T003037Z.json"
       }
     },
     {
@@ -21244,7 +21186,7 @@
         "raw_label": "Needs Work"
       },
       "created_at": "2026-11-08T01:31:11+00:00",
-      "updated_at": "2026-11-13T15:39:17+00:00",
+      "updated_at": "2026-11-20T14:04:51+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -21267,10 +21209,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.1",
-        "retrieved_at": "2026-11-16T22:41:57Z",
+        "retrieved_at": "2026-11-24T00:31:11Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636143",
-        "content_hash": "07218ff1fc2485bff36df6020d6716b25a696c10495c80c6179e257905d81bab",
-        "raw_ref": "private-evidence/raw/3636143-20261116T224157Z.json"
+        "content_hash": "fcc4e3f4cab2903c313932e6d08e0c0450ba95ac638657dfa7588ff0af5d49ed",
+        "raw_ref": "private-evidence/raw/3636143-20261124T003111Z.json"
       }
     },
     {
@@ -21293,7 +21235,7 @@
         "raw_label": "Needs Review"
       },
       "created_at": "2026-11-10T02:06:26+00:00",
-      "updated_at": "2026-11-13T16:19:16+00:00",
+      "updated_at": "2026-11-18T18:30:53+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -21316,10 +21258,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.1",
-        "retrieved_at": "2026-11-16T22:41:52Z",
+        "retrieved_at": "2026-11-24T00:31:17Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3636640",
-        "content_hash": "e90ff75d45e14645fb20191e1f9709c68ae3b326e2b7f69ad7c34d941d9554dd",
-        "raw_ref": "private-evidence/raw/3636640-20261116T224152Z.json"
+        "content_hash": "72f87c6e8daeb5d1abfc668264a35097b3cf561d9a979e1cccd018caa6e290ab",
+        "raw_ref": "private-evidence/raw/3636640-20261124T003117Z.json"
       }
     },
     {
@@ -21417,6 +21359,54 @@
         "source_url": "https://www.drupal.org/project/drupal/issues/3636986",
         "content_hash": "5c4698e959b4c8c3e0b221b827160097048bed5d10441efe965198249282aa62",
         "raw_ref": "private-evidence/raw/3636986-20261116T224245Z.json"
+      }
+    },
+    {
+      "schema_version": "0.2.0",
+      "id": "drupal:3636987",
+      "project_scoped_id": "drupal:drupal:3636987",
+      "source_system": "drupal.org",
+      "source_project": "drupal",
+      "source_id": "3636987",
+      "url": "https://www.drupal.org/project/drupal/issues/3636987",
+      "title": "The position of the caret on select elements is shifted in forced color mode",
+      "labels": [
+        "Accessibility",
+        "forced colors",
+        "high contrast"
+      ],
+      "status": {
+        "code": 1,
+        "label": "Active",
+        "workflow_state": "open",
+        "raw_label": "Active"
+      },
+      "created_at": "2026-11-10T23:02:00+00:00",
+      "updated_at": "2026-11-20T20:03:49+00:00",
+      "component": "Admin theme",
+      "version": "main",
+      "priority": "Normal",
+      "category": "Bug report",
+      "evidence_status": "full",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "provenance": {
+        "source_system": "drupal.org",
+        "source_project": "drupal",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:31:10Z",
+        "source_url": "https://www.drupal.org/project/drupal/issues/3636987",
+        "content_hash": "49f0bd0b18394e5d2f4c02e6b01b3a877b8c7bad1a2bc8cf5f72648af7bcff02",
+        "raw_ref": "private-evidence/raw/3636987-20261124T003110Z.json"
       }
     },
     {
@@ -21536,7 +21526,7 @@
         "raw_label": "Active"
       },
       "created_at": "2026-11-11T13:20:29+00:00",
-      "updated_at": "2026-11-11T13:46:56+00:00",
+      "updated_at": "2026-11-19T19:55:12+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -21560,10 +21550,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.1",
-        "retrieved_at": "2026-11-16T22:42:40Z",
+        "retrieved_at": "2026-11-24T00:31:15Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3637163",
-        "content_hash": "322261a70e6f974b16d35f714687ed388ad45f94e6d0b3ecb6ad83c39e75dd0f",
-        "raw_ref": "private-evidence/raw/3637163-20261116T224240Z.json"
+        "content_hash": "5c9b20e0df44a7d3baadca20be28f9810b5a6abb30f633d463b424b8c49224e8",
+        "raw_ref": "private-evidence/raw/3637163-20261124T003115Z.json"
       }
     },
     {
@@ -21732,13 +21722,13 @@
         "Usability"
       ],
       "status": {
-        "code": 13,
-        "label": "Needs work",
-        "workflow_state": "needs-work",
-        "raw_label": "Needs Work"
+        "code": 8,
+        "label": "Needs review",
+        "workflow_state": "needs-review",
+        "raw_label": "Needs Review"
       },
       "created_at": "2026-11-11T15:10:27+00:00",
-      "updated_at": "2026-11-13T19:27:56+00:00",
+      "updated_at": "2026-11-23T21:04:10+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Major",
@@ -21761,10 +21751,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.1",
-        "retrieved_at": "2026-11-16T22:41:45Z",
+        "retrieved_at": "2026-11-24T00:30:32Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3637273",
-        "content_hash": "08147ed5b6b5907516c2691d5fe1e6f66735fe731e49b9b258543f984f442455",
-        "raw_ref": "private-evidence/raw/3637273-20261116T224145Z.json"
+        "content_hash": "6c4e9d6704b56309dffca348271404d551734ecebaaa09050f6c50b9353b090e",
+        "raw_ref": "private-evidence/raw/3637273-20261124T003032Z.json"
       }
     },
     {
@@ -21781,13 +21771,13 @@
         "Usability"
       ],
       "status": {
-        "code": 8,
-        "label": "Needs review",
-        "workflow_state": "needs-review",
-        "raw_label": "Needs Review"
+        "code": 13,
+        "label": "Needs work",
+        "workflow_state": "needs-work",
+        "raw_label": "Needs Work"
       },
       "created_at": "2026-11-11T16:20:53+00:00",
-      "updated_at": "2026-11-14T16:10:05+00:00",
+      "updated_at": "2026-11-19T16:40:50+00:00",
       "component": "Admin theme",
       "version": "main",
       "priority": "Normal",
@@ -21808,10 +21798,10 @@
         "source_project": "drupal",
         "adapter": "drupalorg-cli",
         "adapter_version": "Drupal.org CLI 0.15.1",
-        "retrieved_at": "2026-11-16T22:41:42Z",
+        "retrieved_at": "2026-11-24T00:31:16Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/3637339",
-        "content_hash": "a9564bb32bc14c419debadc445e5dec41bb7b2a960db5f7d4df739bea1688c87",
-        "raw_ref": "private-evidence/raw/3637339-20261116T224142Z.json"
+        "content_hash": "dda3ab83963bb6c3d7ee5aaf8ebb421deb1b0e83af335e28cb200989c7e95152",
+        "raw_ref": "private-evidence/raw/3637339-20261124T003116Z.json"
       }
     },
     {
@@ -22040,15 +22030,15 @@
         "code": 1,
         "label": "Active",
         "workflow_state": "open",
-        "raw_label": null
+        "raw_label": "Active"
       },
-      "created_at": "2010-07-28T22:56:19Z",
-      "updated_at": "2026-11-05T00:07:47Z",
+      "created_at": "2010-07-28T22:56:19+00:00",
+      "updated_at": "2026-11-23T10:17:25+00:00",
       "component": "Admin theme",
       "version": "main",
-      "priority": null,
-      "category": null,
-      "evidence_status": "inventory",
+      "priority": "Major",
+      "category": "Bug report",
+      "evidence_status": "full",
       "wcag_candidates": [
         "1.4.1",
         "1.4.11"
@@ -22065,12 +22055,12 @@
       "provenance": {
         "source_system": "drupal.org",
         "source_project": "drupal",
-        "adapter": "drupal.org-api",
-        "adapter_version": "Drupal.org CLI 0.15.0",
-        "retrieved_at": "2026-11-07T20:09:16Z",
+        "adapter": "drupalorg-cli",
+        "adapter_version": "Drupal.org CLI 0.15.1",
+        "retrieved_at": "2026-11-24T00:30:56Z",
         "source_url": "https://www.drupal.org/project/drupal/issues/867830",
-        "content_hash": "d0cbf0ec775c5c8733a165eb5c5d1ed05697a2418785ec556a535b82bdcd69bf",
-        "raw_ref": "private-evidence/raw/867830-20261107T200916Z.json"
+        "content_hash": "e7fa690536b9b5c85c14198816f4453d17533328d35bff5e5f53853fcd8f1be2",
+        "raw_ref": "private-evidence/raw/867830-20261124T003056Z.json"
       }
     },
     {
@@ -23899,118 +23889,6 @@
       "merge_requests": [],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/2145035"
-      ],
-      "review_status": "unreviewed",
-      "synthetic": false
-    },
-    {
-      "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-10.6.21",
-      "target": {
-        "product": "Drupal Core",
-        "release": "10.6.21",
-        "ref": "10.6.21",
-        "ref_type": "tag",
-        "support_status": "supported",
-        "release_line": "10.6.x",
-        "parent_project": null
-      },
-      "issue_id": "drupal:2158943",
-      "source_url": "https://www.drupal.org/project/drupal/issues/2158943",
-      "title": "Add a native dialog element using HTMX to deprecate the jQuery UI dialog",
-      "component": "javascript",
-      "tracker_status": 8,
-      "tracker_status_label": "Needs review",
-      "tracker_version": "main",
-      "evidence_status": "full",
-      "created_at": "2013-12-18T09:07:53+00:00",
-      "observed_at": "2026-11-07T17:58:14Z",
-      "wcag_candidates": [
-        "3.2.5"
-      ],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "surface": {
-        "surface": "authoring",
-        "basis": "admin-path"
-      },
-      "applicability": "likely-affected",
-      "basis": "tracker-report",
-      "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
-      "fix_included_in_target": false,
-      "fix_included_in_release": false,
-      "commits": [],
-      "merge_requests": [
-        {
-          "iid": 16540,
-          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/16540",
-          "title": "Resolve #2158943 \"Htmx web component\"",
-          "state": "opened",
-          "target_branch": "main",
-          "source_branch": "2158943-htmx-web-component",
-          "head_sha": null,
-          "merge_commit_sha": null,
-          "squash_commit_sha": null,
-          "merged_at": null,
-          "updated_at": "2026-11-05T10:24:15Z",
-          "author": "fathershawn"
-        },
-        {
-          "iid": 4742,
-          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/4742",
-          "title": "Drupal Dialog Webcomponent - 2158943",
-          "state": "closed",
-          "target_branch": "main",
-          "source_branch": "webcomponent-native-dialog",
-          "head_sha": null,
-          "merge_commit_sha": null,
-          "squash_commit_sha": null,
-          "merged_at": null,
-          "updated_at": "2026-10-26T10:53:40Z",
-          "author": "finnsky"
-        },
-        {
-          "iid": 4187,
-          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/4187",
-          "title": "Issue #2158943: Add a native dialog element to eventually deprecate the jQuery UI one",
-          "state": "closed",
-          "target_branch": "main",
-          "source_branch": "2158943-add-native-dialog",
-          "head_sha": null,
-          "merge_commit_sha": null,
-          "squash_commit_sha": null,
-          "merged_at": null,
-          "updated_at": "2026-10-26T10:54:00Z",
-          "author": "RaspberryBlack"
-        },
-        {
-          "iid": 397,
-          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/397",
-          "title": "Issue #2158943: Replace jQuery UI dialog with supported library or polyfill",
-          "state": "closed",
-          "target_branch": "main",
-          "source_branch": "2158943-replace-jquery-ui",
-          "head_sha": null,
-          "merge_commit_sha": null,
-          "squash_commit_sha": null,
-          "merged_at": null,
-          "updated_at": "2026-10-26T10:52:28Z",
-          "author": "nod_"
-        }
-      ],
-      "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/2158943",
-        "https://git.drupalcode.org/project/drupal/-/merge_requests/16540",
-        "https://git.drupalcode.org/project/drupal/-/merge_requests/4742",
-        "https://git.drupalcode.org/project/drupal/-/merge_requests/4187",
-        "https://git.drupalcode.org/project/drupal/-/merge_requests/397"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -28217,7 +28095,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2018-03-08T20:12:30+00:00",
-      "observed_at": "2026-11-07T20:01:03Z",
+      "observed_at": "2026-11-24T00:31:31Z",
       "wcag_candidates": [
         "1.3.1"
       ],
@@ -28252,7 +28130,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-10-15T14:16:09Z",
+          "updated_at": "2026-11-18T05:07:33Z",
           "author": "jcandan"
         },
         {
@@ -30366,57 +30244,6 @@
         "release_line": "10.6.x",
         "parent_project": null
       },
-      "issue_id": "drupal:3037625",
-      "source_url": "https://www.drupal.org/project/drupal/issues/3037625",
-      "title": "Duplicate label field when adding field w/o JS",
-      "component": "field_ui.module",
-      "tracker_status": 13,
-      "tracker_status_label": "Needs work",
-      "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2019-03-05T11:35:28Z",
-      "observed_at": "2026-11-07T20:09:16Z",
-      "wcag_candidates": [
-        "1.3.1"
-      ],
-      "atag": {
-        "is_atag": false,
-        "parts": [],
-        "candidate_parts": [],
-        "criteria": [],
-        "basis": "none",
-        "review_status": "not-authoring",
-        "tag_basis": []
-      },
-      "surface": {
-        "surface": "web",
-        "basis": "default-web"
-      },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
-      "fix_included_in_target": false,
-      "fix_included_in_release": false,
-      "commits": [],
-      "merge_requests": [],
-      "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/3037625"
-      ],
-      "review_status": "unreviewed",
-      "synthetic": false
-    },
-    {
-      "schema_version": "0.2.0",
-      "assessment_id": "drupal-core-10.6.21",
-      "target": {
-        "product": "Drupal Core",
-        "release": "10.6.21",
-        "ref": "10.6.21",
-        "ref_type": "tag",
-        "support_status": "supported",
-        "release_line": "10.6.x",
-        "parent_project": null
-      },
       "issue_id": "drupal:3037725",
       "source_url": "https://www.drupal.org/project/drupal/issues/3037725",
       "title": "Convey successful outcome of add-section operation via assitive tech",
@@ -31550,9 +31377,9 @@
       "tracker_status": 13,
       "tracker_status_label": "Needs work",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2019-05-23T17:49:21Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2019-05-23T17:49:21+00:00",
+      "observed_at": "2026-11-24T00:31:35Z",
       "wcag_candidates": [
         "1.2.2"
       ],
@@ -31569,17 +31396,48 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "issue-override"
+        "basis": "term:provide authors with tools"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
-      "merge_requests": [],
+      "merge_requests": [
+        {
+          "iid": 2443,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/2443",
+          "title": "Issue #3056714: Provide a FieldType and FieldWidget to represent a WebVTT file for the HTML track element",
+          "state": "closed",
+          "target_branch": "9.5.x",
+          "source_branch": "3056714-d",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-08-02T01:58:56Z",
+          "author": "eojthebrave"
+        },
+        {
+          "iid": 725,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/725",
+          "title": "Issue #3056714: Provide a FieldType and FieldWidget to represent a WebVTT file for the HTML track element",
+          "state": "closed",
+          "target_branch": "9.3.x",
+          "source_branch": "3056714-provide-a-fieldtype",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-08-02T01:58:43Z",
+          "author": "jrglasgow"
+        }
+      ],
       "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/3056714"
+        "https://www.drupal.org/project/drupal/issues/3056714",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/2443",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/725"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -38022,9 +37880,9 @@
       "tracker_status": 13,
       "tracker_status_label": "Needs work",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2024-03-07T18:31:45Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2024-03-07T18:31:45+00:00",
+      "observed_at": "2026-11-24T00:30:59Z",
       "wcag_candidates": [
         "1.4.1",
         "1.4.11"
@@ -38042,15 +37900,31 @@
         "surface": "authoring",
         "basis": "component:navigation.module"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
-      "merge_requests": [],
+      "merge_requests": [
+        {
+          "iid": 8446,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/8446",
+          "title": "Issue #3426468: Make the active menu item visually stand out more",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3426468-make-the-active",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-02-05T16:18:39Z",
+          "author": "Gauravmahlawat"
+        }
+      ],
       "evidence_urls": [
-        "https://www.drupal.org/project/drupal/issues/3426468"
+        "https://www.drupal.org/project/drupal/issues/3426468",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/8446"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -38532,6 +38406,71 @@
         "https://www.drupal.org/project/drupal/issues/3459246",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/8985",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/8678"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-10.6.21",
+      "target": {
+        "product": "Drupal Core",
+        "release": "10.6.21",
+        "ref": "10.6.21",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "10.6.x",
+        "parent_project": null
+      },
+      "issue_id": "drupal:3466040",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3466040",
+      "title": "Modal dialog does not adjust to increased inner height (pushes buttons out of reach)",
+      "component": "other",
+      "tracker_status": 8,
+      "tracker_status_label": "Needs review",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2024-08-05T15:55:03+00:00",
+      "observed_at": "2026-11-24T00:30:30Z",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "admin-path"
+      },
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [
+        {
+          "iid": 9088,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/9088",
+          "title": "Issue #3466040: Dialog button/inputs not visible when open details element",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3466040-dialog-buttoninputs-not",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-23T21:20:27Z",
+          "author": "tobiasb"
+        }
+      ],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3466040",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/9088"
       ],
       "review_status": "unreviewed",
       "synthetic": false
@@ -39202,7 +39141,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2025-04-03T00:56:09+00:00",
-      "observed_at": "2026-11-07T20:01:14Z",
+      "observed_at": "2026-11-24T00:31:07Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -39645,9 +39584,9 @@
       "tracker_status": 1,
       "tracker_status_label": "Active",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2025-08-07T20:20:02Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2025-08-07T20:20:02+00:00",
+      "observed_at": "2026-11-24T00:30:34Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -39662,9 +39601,9 @@
         "surface": "authoring",
         "basis": "component:navigation.module"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
@@ -40040,12 +39979,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3557245",
       "title": "Use $element['#attributes]['id'] instead of $element['#id'] to create a link anchor",
       "component": "inline_form_errors.module",
-      "tracker_status": 8,
-      "tracker_status_label": "Needs review",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2025-11-11T20:51:11+00:00",
-      "observed_at": "2026-11-07T17:57:26Z",
+      "observed_at": "2026-11-24T00:31:13Z",
       "wcag_candidates": [
         "2.1.1",
         "2.4.1",
@@ -40082,7 +40021,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-06T15:43:31Z",
+          "updated_at": "2026-11-16T13:36:13Z",
           "author": "smustgrave"
         },
         {
@@ -41443,7 +41382,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-06-09T16:57:36+00:00",
-      "observed_at": "2026-11-16T22:41:30Z",
+      "observed_at": "2026-11-24T00:31:01Z",
       "wcag_candidates": [
         "1.3.1"
       ],
@@ -41561,7 +41500,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-06-18T13:53:19+00:00",
-      "observed_at": "2026-11-07T20:00:11Z",
+      "observed_at": "2026-11-24T00:31:24Z",
       "wcag_candidates": [
         "3.3.1"
       ],
@@ -42788,7 +42727,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-08-26T00:03:31+00:00",
-      "observed_at": "2026-11-16T22:41:50Z",
+      "observed_at": "2026-11-24T00:31:20Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -43063,9 +43002,9 @@
       "tracker_status": 1,
       "tracker_status_label": "Active",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2026-09-16T23:51:13Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2026-09-16T23:51:13+00:00",
+      "observed_at": "2026-11-24T00:31:09Z",
       "wcag_candidates": [
         "1.4.12"
       ],
@@ -43082,9 +43021,9 @@
         "surface": "authoring",
         "basis": "theme:admin theme"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
@@ -43838,7 +43777,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-07T06:35:51+00:00",
-      "observed_at": "2026-11-08T15:18:41Z",
+      "observed_at": "2026-11-24T00:31:37Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43853,7 +43792,7 @@
       },
       "surface": {
         "surface": "authoring",
-        "basis": "admin-path"
+        "basis": "theme:admin theme"
       },
       "applicability": "unknown",
       "basis": "report-after-release",
@@ -43873,7 +43812,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-07T20:12:12Z",
+          "updated_at": "2026-11-17T15:19:49Z",
           "author": "kentr"
         }
       ],
@@ -43900,12 +43839,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
       "title": "The active accent color is not communicated",
       "component": "Admin theme",
-      "tracker_status": 8,
-      "tracker_status_label": "Needs review",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-07T06:54:10+00:00",
-      "observed_at": "2026-11-10T16:30:34Z",
+      "observed_at": "2026-11-24T00:30:37Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -43930,6 +43869,20 @@
       "commits": [],
       "merge_requests": [
         {
+          "iid": 17873,
+          "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17873",
+          "title": "Lets try a ✅",
+          "state": "opened",
+          "target_branch": "main",
+          "source_branch": "3636028-checkbox",
+          "head_sha": null,
+          "merge_commit_sha": null,
+          "squash_commit_sha": null,
+          "merged_at": null,
+          "updated_at": "2026-11-19T20:41:29Z",
+          "author": "mherchel"
+        },
+        {
           "iid": 17724,
           "url": "https://git.drupalcode.org/project/drupal/-/merge_requests/17724",
           "title": "Issue #3636028: Indicate selected accent color",
@@ -43940,12 +43893,13 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-09T16:53:31Z",
+          "updated_at": "2026-11-19T10:42:34Z",
           "author": "leandro713"
         }
       ],
       "evidence_urls": [
         "https://www.drupal.org/project/drupal/issues/3636028",
+        "https://git.drupalcode.org/project/drupal/-/merge_requests/17873",
         "https://git.drupalcode.org/project/drupal/-/merge_requests/17724"
       ],
       "review_status": "unreviewed",
@@ -44039,7 +43993,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-08T01:31:11+00:00",
-      "observed_at": "2026-11-16T22:41:57Z",
+      "observed_at": "2026-11-24T00:31:11Z",
       "wcag_candidates": [
         "1.4.11"
       ],
@@ -44074,7 +44028,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-09T12:16:33Z",
+          "updated_at": "2026-11-19T17:31:23Z",
           "author": "sapnil_biswas"
         }
       ],
@@ -44106,7 +44060,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-10T02:06:26+00:00",
-      "observed_at": "2026-11-16T22:41:52Z",
+      "observed_at": "2026-11-24T00:31:17Z",
       "wcag_candidates": [
         "1.4.3"
       ],
@@ -44264,6 +44218,55 @@
         "release_line": "10.6.x",
         "parent_project": null
       },
+      "issue_id": "drupal:3636987",
+      "source_url": "https://www.drupal.org/project/drupal/issues/3636987",
+      "title": "The position of the caret on select elements is shifted in forced color mode",
+      "component": "Admin theme",
+      "tracker_status": 1,
+      "tracker_status_label": "Active",
+      "tracker_version": "main",
+      "evidence_status": "full",
+      "created_at": "2026-11-10T23:02:00+00:00",
+      "observed_at": "2026-11-24T00:31:10Z",
+      "wcag_candidates": [],
+      "atag": {
+        "is_atag": false,
+        "parts": [],
+        "candidate_parts": [],
+        "criteria": [],
+        "basis": "none",
+        "review_status": "not-authoring",
+        "tag_basis": []
+      },
+      "surface": {
+        "surface": "authoring",
+        "basis": "theme:admin theme"
+      },
+      "applicability": "unknown",
+      "basis": "report-after-release",
+      "reason": "The issue was reported after the target date (2026-11-06T16:13:09.000-06:00) and no fix was found in tag 10.6.21. It may describe a later regression or a pre-existing barrier; reproduce on the target before assigning applicability.",
+      "fix_included_in_target": false,
+      "fix_included_in_release": false,
+      "commits": [],
+      "merge_requests": [],
+      "evidence_urls": [
+        "https://www.drupal.org/project/drupal/issues/3636987"
+      ],
+      "review_status": "unreviewed",
+      "synthetic": false
+    },
+    {
+      "schema_version": "0.2.0",
+      "assessment_id": "drupal-core-10.6.21",
+      "target": {
+        "product": "Drupal Core",
+        "release": "10.6.21",
+        "ref": "10.6.21",
+        "ref_type": "tag",
+        "support_status": "supported",
+        "release_line": "10.6.x",
+        "parent_project": null
+      },
       "issue_id": "drupal:3636990",
       "source_url": "https://www.drupal.org/project/drupal/issues/3636990",
       "title": "The settings for the default admin theme in forced color mode are either broken or unnecessary",
@@ -44371,7 +44374,7 @@
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-11T13:20:29+00:00",
-      "observed_at": "2026-11-16T22:42:40Z",
+      "observed_at": "2026-11-24T00:31:15Z",
       "wcag_candidates": [
         "1.4.11",
         "1.4.3"
@@ -44603,12 +44606,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3637273",
       "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
       "component": "Admin theme",
-      "tracker_status": 13,
-      "tracker_status_label": "Needs work",
+      "tracker_status": 8,
+      "tracker_status_label": "Needs review",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-11T15:10:27+00:00",
-      "observed_at": "2026-11-16T22:41:45Z",
+      "observed_at": "2026-11-24T00:30:32Z",
       "wcag_candidates": [
         "1.4.3"
       ],
@@ -44643,7 +44646,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-13T19:17:47Z",
+          "updated_at": "2026-11-23T07:18:05Z",
           "author": "salmonek"
         }
       ],
@@ -44670,12 +44673,12 @@
       "source_url": "https://www.drupal.org/project/drupal/issues/3637339",
       "title": "Skip to main content link is not using the selected focus color in light and dark mode",
       "component": "Admin theme",
-      "tracker_status": 8,
-      "tracker_status_label": "Needs review",
+      "tracker_status": 13,
+      "tracker_status_label": "Needs work",
       "tracker_version": "main",
       "evidence_status": "full",
       "created_at": "2026-11-11T16:20:53+00:00",
-      "observed_at": "2026-11-16T22:41:42Z",
+      "observed_at": "2026-11-24T00:31:16Z",
       "wcag_candidates": [],
       "atag": {
         "is_atag": false,
@@ -44708,7 +44711,7 @@
           "merge_commit_sha": null,
           "squash_commit_sha": null,
           "merged_at": null,
-          "updated_at": "2026-11-14T12:39:04Z",
+          "updated_at": "2026-11-19T17:04:29Z",
           "author": "Shank115"
         }
       ],
@@ -44943,9 +44946,9 @@
       "tracker_status": 1,
       "tracker_status_label": "Active",
       "tracker_version": "main",
-      "evidence_status": "inventory",
-      "created_at": "2010-07-28T22:56:19Z",
-      "observed_at": "2026-11-07T20:09:16Z",
+      "evidence_status": "full",
+      "created_at": "2010-07-28T22:56:19+00:00",
+      "observed_at": "2026-11-24T00:30:56Z",
       "wcag_candidates": [
         "1.4.1",
         "1.4.11"
@@ -44963,9 +44966,9 @@
         "surface": "authoring",
         "basis": "theme:admin theme"
       },
-      "applicability": "unknown",
-      "basis": "inventory-only",
-      "reason": "This active issue is included as a complete inventory record for tag 10.6.21, but its comments, merge requests and commit history were not collected in this snapshot. Review the source issue and collect detailed evidence before drawing a release conclusion.",
+      "applicability": "likely-affected",
+      "basis": "tracker-report",
+      "reason": "An open accessibility report exists and no fix commit was found in tag 10.6.21. This is not a reproduction result; the barrier likely affects the target and requires review.",
       "fix_included_in_target": false,
       "fix_included_in_release": false,
       "commits": [],
@@ -45185,5 +45188,5 @@
     }
   ],
   "compact": true,
-  "evidence_digest": "a29a29b60d0c57eeba40ffc76042b880cdd4d8f65053678c64c6d643734e79c9"
+  "evidence_digest": "642b8c6cd272896d02f1dd9043659e2f93362f3e1f48627777c06607814ac497"
 }

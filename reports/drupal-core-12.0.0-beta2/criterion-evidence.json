@@ -6,12 +6,12 @@
   "release": "12.0.0-beta2",
   "target_id": "drupal-core-12.0.0-beta2",
   "target_ref": "12.0.0-beta2",
-  "generated_at": "2026-11-16T22:47:26Z",
+  "generated_at": "2026-11-24T00:35:00Z",
   "disclaimer": "Reported issue evidence only. No conformance result is assigned. Supports and Not Applicable require human-reviewed evidence.",
   "summary": {
     "criteria": 182,
-    "reported_barrier": 53,
-    "insufficient_evidence": 301,
+    "reported_barrier": 52,
+    "insufficient_evidence": 302,
     "outside_documented_scope": 374,
     "automated_coverage": 48,
     "formal_conformance_results": 0,
@@ -405,8 +405,8 @@
               "title": "Provide a FieldType and FieldWidget to represent a WebVTT file for the HTML track element",
               "component": "file system",
               "tracker_status": "Needs work",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
               "surface": "authoring",
               "fix_included_in_target": false
             },
@@ -633,17 +633,6 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3037446",
               "title": "Forms with required fields marked by asterisk do not have text explaining what the asterisk means",
               "component": "forms system",
-              "tracker_status": "Needs work",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
-              "surface": "web",
-              "fix_included_in_target": false
-            },
-            {
-              "issue_id": "drupal:3037625",
-              "source_url": "https://www.drupal.org/project/drupal/issues/3037625",
-              "title": "Duplicate label field when adding field w/o JS",
-              "component": "field_ui.module",
               "tracker_status": "Needs work",
               "evidence_status": "inventory",
               "release_applicability": "unknown",
@@ -1145,8 +1134,8 @@
               "title": "Make the active menu item visually stand out more",
               "component": "navigation.module",
               "tracker_status": "Needs work",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
               "surface": "authoring",
               "fix_included_in_target": false
             },
@@ -1156,8 +1145,8 @@
               "title": "\"Unpublished\" style of rendered entities is not accessible (and looks bad)",
               "component": "Admin theme",
               "tracker_status": "Active",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
               "surface": "authoring",
               "fix_included_in_target": false
             }
@@ -1322,7 +1311,7 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3557245",
               "title": "Use $element['#attributes]['id'] instead of $element['#id'] to create a link anchor",
               "component": "inline_form_errors.module",
-              "tracker_status": "Needs review",
+              "tracker_status": "Needs work",
               "evidence_status": "full",
               "release_applicability": "likely-affected",
               "surface": "web",
@@ -1829,7 +1818,7 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3557245",
               "title": "Use $element['#attributes]['id'] instead of $element['#id'] to create a link anchor",
               "component": "inline_form_errors.module",
-              "tracker_status": "Needs review",
+              "tracker_status": "Needs work",
               "evidence_status": "full",
               "release_applicability": "likely-affected",
               "surface": "web",
@@ -4612,7 +4601,7 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3637273",
               "title": "The background of long text fields is white for basic and full HTML text formats in dark mode",
               "component": "Admin theme",
-              "tracker_status": "Needs work",
+              "tracker_status": "Needs review",
               "evidence_status": "full",
               "release_applicability": "unknown",
               "surface": "authoring",
@@ -5086,8 +5075,8 @@
               "title": "Make the active menu item visually stand out more",
               "component": "navigation.module",
               "tracker_status": "Needs work",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
               "surface": "authoring",
               "fix_included_in_target": false
             },
@@ -5129,7 +5118,7 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3636028",
               "title": "The active accent color is not communicated",
               "component": "Admin theme",
-              "tracker_status": "Needs review",
+              "tracker_status": "Needs work",
               "evidence_status": "full",
               "release_applicability": "unknown",
               "surface": "authoring",
@@ -5196,8 +5185,8 @@
               "title": "\"Unpublished\" style of rendered entities is not accessible (and looks bad)",
               "component": "Admin theme",
               "tracker_status": "Active",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
               "surface": "authoring",
               "fix_included_in_target": false
             }
@@ -5284,8 +5273,8 @@
               "title": "Page title ellipsis accessibility issue",
               "component": "Admin theme",
               "tracker_status": "Active",
-              "evidence_status": "inventory",
-              "release_applicability": "unknown",
+              "evidence_status": "full",
+              "release_applicability": "likely-affected",
               "surface": "authoring",
               "fix_included_in_target": false
             }
@@ -5652,7 +5641,7 @@
               "source_url": "https://www.drupal.org/project/drupal/issues/3557245",
               "title": "Use $element['#attributes]['id'] instead of $element['#id'] to create a link anchor",
               "component": "inline_form_errors.module",
-              "tracker_status": "Needs review",
+              "tracker_status": "Needs work",
               "evidence_status": "full",
               "release_applicability": "likely-affected",
               "surface": "web",
@@ -8670,28 +8659,15 @@
         },
         {
           "component": "authoring-tool",
-          "evidence_state": "reported-barrier-unverified",
-          "scope_basis": "Active Drupal.org issue tagged with this criterion; not reproduced against the target.",
-          "candidate_relationship": "issue-tag",
-          "relationship_review_status": "unreviewed",
-          "verification_status": "not-reproduced",
+          "evidence_state": "insufficient-evidence",
+          "scope_basis": "No active tagged issue; absence is not evidence of support or inapplicability.",
+          "candidate_relationship": "none",
+          "relationship_review_status": "not-reviewed",
+          "verification_status": "not-tested",
           "conformance_result": null,
-          "issues": [
-            {
-              "issue_id": "drupal:2158943",
-              "source_url": "https://www.drupal.org/project/drupal/issues/2158943",
-              "title": "Add a native dialog element using HTMX to deprecate the jQuery UI dialog",
-              "component": "javascript",
-              "tracker_status": "Needs review",
-              "evidence_status": "full",
-              "release_applicability": "likely-affected",
-              "surface": "authoring",
-              "fix_included_in_target": false
-            }
-          ],
+          "issues": [],
           "gaps": [
-            "Reproduction on the exact target",
-            "Review of the criterion mapping"
+            "No positive evidence recorded"
           ]
         }
       ],
